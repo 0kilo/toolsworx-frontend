@@ -1,4 +1,4 @@
-import { Calculator, Heart, DollarSign, Percent, TrendingUp } from "lucide-react"
+import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -6,6 +6,16 @@ import { ConverterMetadata } from "@/types/converter"
  * All calculator tools are registered here
  */
 export const calculatorTools: ConverterMetadata[] = [
+  {
+    id: "graphing-calculator",
+    title: "Graphing Calculator",
+    description: "Plot mathematical functions with symbolic expressions",
+    category: "calculator",
+    icon: LineChart,
+    href: "/calculators/graphing",
+    keywords: ["graphing", "calculator", "plot", "function", "graph", "symbolic", "math"],
+    popular: true,
+  },
   {
     id: "scientific-calculator",
     title: "Scientific Calculator",
