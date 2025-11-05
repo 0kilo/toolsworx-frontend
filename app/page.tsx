@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { ConverterCard } from "@/components/converters/converter-card"
+import { ConverterCard } from "@/components/shared/converter-card"
 import { HeaderAd, InContentAd } from "@/components/ads/ad-unit"
-import { converters, getPopularConverters } from "@/lib/converters/registry"
+import { converters, getPopularConverters } from "@/lib/registry"
 import { categoryGroups } from "@/lib/categories"
 import { Input } from "@/components/ui/input"
 import { Search, Zap } from "lucide-react"
