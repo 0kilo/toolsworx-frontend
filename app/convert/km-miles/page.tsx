@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import { FormulaConverter } from "@/components/converters/formula-converter"
-import { convertDistance } from "@/lib/converters/formula-converters"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 
 export const metadata: Metadata = {
@@ -29,7 +28,7 @@ export default function KmMilesPage() {
             units={distanceUnits}
             defaultFromUnit="km"
             defaultToUnit="mile"
-            onConvert={convertDistance}
+            conversionType="distance"
             placeholder="Enter distance"
             resultLabel="Converted Distance"
           />

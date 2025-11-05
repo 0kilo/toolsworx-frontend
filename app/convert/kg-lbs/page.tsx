@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import { FormulaConverter } from "@/components/converters/formula-converter"
-import { convertWeight } from "@/lib/converters/formula-converters"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ export default function KgLbsPage() {
             units={weightUnits}
             defaultFromUnit="kg"
             defaultToUnit="lb"
-            onConvert={convertWeight}
+            conversionType="weight"
             placeholder="Enter weight"
             resultLabel="Converted Weight"
           />

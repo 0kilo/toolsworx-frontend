@@ -8,6 +8,15 @@ import { Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { ArrowLeftRight } from "lucide-react"
 import { Unit } from "@/types/converter"
+import {
+  convertTemperature,
+  convertDistance,
+  convertWeight,
+  convertVolume,
+  convertTime
+} from "@/lib/converters/formula-converters"
+
+type ConversionType = "temperature" | "distance" | "weight" | "volume" | "time"
 
 interface FormulaConverterProps {
   title: string
@@ -15,7 +24,7 @@ interface FormulaConverterProps {
   units: Unit[]
   defaultFromUnit: string
   defaultToUnit: string
-  onConvert: (value: number, from: string, to: string) => number
+  conversionType: ConversionType
   placeholder?: string
   resultLabel?: string
 }
@@ -26,7 +35,7 @@ export function FormulaConverter({
   units,
   defaultFromUnit,
   defaultToUnit,
-  onConvert,
+  conversionType,
   placeholder = "Enter value",
   resultLabel = "Result"
 }: FormulaConverterProps) {
@@ -34,6 +43,23 @@ export function FormulaConverter({
   const [fromUnit, setFromUnit] = useState(defaultFromUnit)
   const [toUnit, setToUnit] = useState(defaultToUnit)
   const [result, setResult] = useState<number | null>(null)
+
+  const getConversionFunction = () => {
+    switch (conversionType) {
+      case "temperature":
+        return convertTemperature
+      case "distance":
+        return convertDistance
+      case "weight":
+        return convertWeight
+      case "volume":
+        return convertVolume
+      case "time":
+        return convertTime
+      default:
+        return convertDistance
+    }
+  }
 
   const handleConvert = () => {
     const value = parseFloat(inputValue)
@@ -43,7 +69,8 @@ export function FormulaConverter({
     }
 
     try {
-      const converted = onConvert(value, fromUnit, toUnit)
+      const conversionFn = getConversionFunction()
+      const converted = conversionFn(value, fromUnit, toUnit)
       setResult(converted)
     } catch (error) {
       alert("Conversion error. Please try again.")
