@@ -1,11 +1,28 @@
+"use client"
+
+import { useState } from "react"
 import { ConverterCard } from "@/components/converters/converter-card"
 import { HeaderAd, InContentAd } from "@/components/ads/ad-unit"
 import { converters, getPopularConverters } from "@/lib/converters/registry"
+import { categoryGroups } from "@/lib/categories"
 import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
+import { Search, Zap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 export default function HomePage() {
+  const [searchQuery, setSearchQuery] = useState("")
   const popularConverters = getPopularConverters()
+
+  // Filter converters based on search
+  const filteredConverters = searchQuery
+    ? converters.filter(
+        (c) =>
+          c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          c.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          c.keywords.some((k) => k.includes(searchQuery.toLowerCase()))
+      )
+    : null
 
   return (
     <div className="container py-8 md:py-12">
@@ -25,6 +42,8 @@ export default function HomePage() {
             type="text"
             placeholder="Search converters..."
             className="pl-10 h-12"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </section>
@@ -32,112 +51,154 @@ export default function HomePage() {
       {/* Top Ad */}
       <HeaderAd />
 
+      {/* Search Results */}
+      {searchQuery && (
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-6">
+            Search Results {filteredConverters && `(${filteredConverters.length})`}
+          </h2>
+          {filteredConverters && filteredConverters.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredConverters.map((converter) => (
+                <ConverterCard key={converter.id} converter={converter} />
+              ))}
+            </div>
+          ) : (
+            <Card className="p-8 text-center">
+              <CardContent>
+                <p className="text-muted-foreground">
+                  No converters found matching &quot;{searchQuery}&quot;
+                </p>
+              </CardContent>
+            </Card>
+          )}
+        </section>
+      )}
+
       {/* Popular Converters */}
-      <section id="converters" className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">Popular Converters</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {popularConverters.map((converter) => (
-            <ConverterCard key={converter.id} converter={converter} />
-          ))}
-        </div>
-      </section>
-
-      {/* Middle Ad */}
-      <InContentAd />
-
-      {/* All Converters by Category */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">All Converters</h2>
-
-        {/* Temperature */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            Temperature Conversions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {converters
-              .filter((c) => c.category === "temperature")
-              .map((converter) => (
+      {!searchQuery && (
+        <>
+          <section id="popular" className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <Zap className="h-8 w-8 text-yellow-500" />
+              <h2 className="text-3xl font-bold">Popular Converters</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {popularConverters.map((converter) => (
                 <ConverterCard key={converter.id} converter={converter} />
               ))}
-          </div>
-        </div>
+            </div>
+          </section>
 
-        {/* Distance */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            Distance Conversions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {converters
-              .filter((c) => c.category === "distance")
-              .map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-          </div>
-        </div>
+          {/* Middle Ad */}
+          <InContentAd />
 
-        {/* Weight */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            Weight Conversions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {converters
-              .filter((c) => c.category === "weight")
-              .map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-          </div>
-        </div>
+          {/* All Converters by Category Groups */}
+          <section id="all-converters" className="mb-16">
+            <h2 className="text-3xl font-bold mb-8">All Converters</h2>
 
-        {/* Volume */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            Volume Conversions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {converters
-              .filter((c) => c.category === "volume")
-              .map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-          </div>
-        </div>
+            {categoryGroups.map((group) => {
+              const groupConverters = converters.filter((c) =>
+                group.categories.includes(c.category)
+              )
 
-        {/* File Conversions */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            File Conversions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {converters
-              .filter((c) => ["document", "image", "video", "audio"].includes(c.category))
-              .map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-          </div>
-        </div>
-      </section>
+              // Skip empty groups
+              if (groupConverters.length === 0) return null
 
-      {/* About Section */}
-      <section id="about" className="mb-16">
-        <div className="bg-muted rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-4">About Our Conversion Tools</h2>
-          <p className="text-lg text-muted-foreground mb-4">
-            We provide fast, accurate, and completely free conversion tools for all your needs.
-            Whether you need to convert documents, images, videos, or units of measurement,
-            we&apos;ve got you covered.
-          </p>
-          <ul className="list-disc list-inside text-muted-foreground space-y-2">
-            <li>100% Free - No registration required</li>
-            <li>Privacy Focused - Files are automatically deleted after conversion</li>
-            <li>Fast & Accurate - Powered by industry-standard conversion libraries</li>
-            <li>Mobile Friendly - Works perfectly on all devices</li>
-            <li>Regular Updates - New converters added frequently</li>
-          </ul>
-        </div>
-      </section>
+              const Icon = group.icon
+
+              return (
+                <div key={group.id} className="mb-12">
+                  {/* Category Group Header */}
+                  <Link href={`/category/${group.id}`}>
+                    <Card className={`${group.color} border-2 mb-6 cursor-pointer hover:shadow-lg transition-shadow`}>
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex items-start gap-4">
+                            <div className={`${group.iconColor} mt-1`}>
+                              <Icon className="h-8 w-8" />
+                            </div>
+                            <div>
+                              <h3 className={`text-2xl font-bold mb-2 ${group.textColor}`}>
+                                {group.title}
+                              </h3>
+                              <p className={`text-sm ${group.textColor} opacity-80`}>
+                                {group.description}
+                              </p>
+                            </div>
+                          </div>
+                          <div className={`${group.textColor} opacity-60`}>
+                            <span className="text-sm font-medium">View All →</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+
+                  {/* Converters Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {groupConverters.map((converter) => (
+                      <ConverterCard key={converter.id} converter={converter} />
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="mb-16">
+            <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+              <CardContent className="p-8">
+                <h2 className="text-3xl font-bold mb-4">About Our Conversion Tools</h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  We provide fast, accurate, and completely free conversion tools for all your needs.
+                  Whether you need to convert documents, images, videos, or units of measurement,
+                  we&apos;ve got you covered.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 text-primary">✓</div>
+                    <div>
+                      <h4 className="font-semibold mb-1">100% Free</h4>
+                      <p className="text-sm text-muted-foreground">
+                        No registration or payment required
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 text-primary">✓</div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Privacy Focused</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Files automatically deleted after conversion
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 text-primary">✓</div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Fast & Accurate</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Powered by industry-standard libraries
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 text-primary">✓</div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Mobile Friendly</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Works perfectly on all devices
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+        </>
+      )}
     </div>
   )
 }
