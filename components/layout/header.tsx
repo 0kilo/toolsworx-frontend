@@ -2,6 +2,7 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
+import { categoryGroups } from "@/lib/categories"
 
 export function Header() {
   return (
@@ -12,18 +13,15 @@ export function Header() {
             <span className="text-xl font-bold">{siteConfig.name}</span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link
-              href="/#converters"
-              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Converters
-            </Link>
-            <Link
-              href="/#about"
-              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
+            {categoryGroups.map((category) => (
+              <Link
+                key={category.id}
+                href={`/category/${category.id}`}
+                className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {category.title}
+              </Link>
+            ))}
           </nav>
         </div>
         <Button variant="ghost" size="icon" className="md:hidden">
