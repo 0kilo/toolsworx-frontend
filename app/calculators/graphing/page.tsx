@@ -5,9 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { AboutDescription } from "@/components/ui/about-description"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { evaluate } from "mathjs"
-import { Plus, Trash2, ZoomIn, ZoomOut, Home } from "lucide-react"
+import { Plus, Trash2, ZoomIn, ZoomOut, Home, Maximize, Minimize, Camera } from "lucide-react"
 
 interface FunctionData {
   id: string
@@ -31,6 +33,89 @@ export default function GraphingCalculatorPage() {
     yMax: 10,
   })
   const [error, setError] = useState("")
+  const [panelCollapsed, setPanelCollapsed] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [activeTab, setActiveTab] = useState("examples")
+
+  // Mouse wheel and touch zoom
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault()
+      const rect = canvas.getBoundingClientRect()
+      const mouseX = (e.clientX - rect.left) / rect.width
+      const mouseY = (e.clientY - rect.top) / rect.height
+      
+      const worldX = viewport.xMin + mouseX * (viewport.xMax - viewport.xMin)
+      const worldY = viewport.yMax - mouseY * (viewport.yMax - viewport.yMin)
+      
+      const zoomFactor = e.deltaY > 0 ? 1.2 : 0.8
+      const xRange = (viewport.xMax - viewport.xMin) * zoomFactor
+      const yRange = (viewport.yMax - viewport.yMin) * zoomFactor
+      
+      setViewport({
+        xMin: worldX - mouseX * xRange,
+        xMax: worldX + (1 - mouseX) * xRange,
+        yMin: worldY - (1 - mouseY) * yRange,
+        yMax: worldY + mouseY * yRange,
+      })
+    }
+
+    const handleTouch = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault()
+        const touch1 = e.touches[0]
+        const touch2 = e.touches[1]
+        const distance = Math.sqrt(
+          Math.pow(touch2.clientX - touch1.clientX, 2) + 
+          Math.pow(touch2.clientY - touch1.clientY, 2)
+        )
+        
+        if (!canvas.dataset.lastDistance) {
+          canvas.dataset.lastDistance = distance.toString()
+          return
+        }
+        
+        const lastDistance = parseFloat(canvas.dataset.lastDistance)
+        const zoomFactor = distance > lastDistance ? 0.95 : 1.05
+        
+        const rect = canvas.getBoundingClientRect()
+        const centerX = ((touch1.clientX + touch2.clientX) / 2 - rect.left) / rect.width
+        const centerY = ((touch1.clientY + touch2.clientY) / 2 - rect.top) / rect.height
+        
+        const worldX = viewport.xMin + centerX * (viewport.xMax - viewport.xMin)
+        const worldY = viewport.yMax - centerY * (viewport.yMax - viewport.yMin)
+        
+        const xRange = (viewport.xMax - viewport.xMin) * zoomFactor
+        const yRange = (viewport.yMax - viewport.yMin) * zoomFactor
+        
+        setViewport({
+          xMin: worldX - centerX * xRange,
+          xMax: worldX + (1 - centerX) * xRange,
+          yMin: worldY - (1 - centerY) * yRange,
+          yMax: worldY + centerY * yRange,
+        })
+        
+        canvas.dataset.lastDistance = distance.toString()
+      }
+    }
+
+    const handleTouchEnd = () => {
+      delete canvas.dataset.lastDistance
+    }
+
+    canvas.addEventListener('wheel', handleWheel, { passive: false })
+    canvas.addEventListener('touchmove', handleTouch, { passive: false })
+    canvas.addEventListener('touchend', handleTouchEnd)
+
+    return () => {
+      canvas.removeEventListener('wheel', handleWheel)
+      canvas.removeEventListener('touchmove', handleTouch)
+      canvas.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [viewport])
 
   // Draw the graph
   useEffect(() => {
@@ -55,12 +140,34 @@ export default function GraphingCalculatorPage() {
     const toCanvasX = (x: number) => (x - viewport.xMin) * xScale
     const toCanvasY = (y: number) => height - (y - viewport.yMin) * yScale
 
+    // Calculate optimal step sizes to prevent overcrowding
+    const getOptimalStep = (range: number, targetTicks: number = 8) => {
+      const rawStep = range / targetTicks
+      const magnitude = Math.pow(10, Math.floor(Math.log10(rawStep)))
+      const normalized = rawStep / magnitude
+      
+      let step
+      if (normalized <= 1) step = magnitude
+      else if (normalized <= 2) step = 2 * magnitude
+      else if (normalized <= 5) step = 5 * magnitude
+      else step = 10 * magnitude
+      
+      return step
+    }
+
+    // Get decimal places for formatting
+    const getDecimalPlaces = (step: number) => {
+      if (step >= 1) return 0
+      return Math.max(0, -Math.floor(Math.log10(step)))
+    }
+
     // Draw grid
     ctx.strokeStyle = "#e5e7eb"
     ctx.lineWidth = 1
 
     // Vertical grid lines
-    const xStep = Math.pow(10, Math.floor(Math.log10((viewport.xMax - viewport.xMin) / 10)))
+    const xStep = getOptimalStep(viewport.xMax - viewport.xMin)
+    const xDecimals = getDecimalPlaces(xStep)
     for (let x = Math.ceil(viewport.xMin / xStep) * xStep; x <= viewport.xMax; x += xStep) {
       ctx.beginPath()
       ctx.moveTo(toCanvasX(x), 0)
@@ -69,7 +176,8 @@ export default function GraphingCalculatorPage() {
     }
 
     // Horizontal grid lines
-    const yStep = Math.pow(10, Math.floor(Math.log10((viewport.yMax - viewport.yMin) / 10)))
+    const yStep = getOptimalStep(viewport.yMax - viewport.yMin)
+    const yDecimals = getDecimalPlaces(yStep)
     for (let y = Math.ceil(viewport.yMin / yStep) * yStep; y <= viewport.yMax; y += yStep) {
       ctx.beginPath()
       ctx.moveTo(0, toCanvasY(y))
@@ -97,27 +205,52 @@ export default function GraphingCalculatorPage() {
       ctx.stroke()
     }
 
-    // Draw axis labels
+    // Draw axis labels with proper spacing and precision
     ctx.fillStyle = "#000000"
-    ctx.font = "12px sans-serif"
-    ctx.textAlign = "center"
-
+    ctx.font = "11px sans-serif"
+    
     // X-axis labels
+    ctx.textAlign = "center"
+    const xLabels: number[] = []
     for (let x = Math.ceil(viewport.xMin / xStep) * xStep; x <= viewport.xMax; x += xStep) {
-      if (Math.abs(x) < xStep / 10) continue // Skip zero
+      if (Math.abs(x) < xStep / 100) continue // Skip zero
+      xLabels.push(x)
+    }
+    
+    // Only draw labels if they won't overlap
+    const minLabelSpacing = 40 // pixels
+    const filteredXLabels = xLabels.filter((x, i) => {
+      if (i === 0) return true
+      const prevX = xLabels[i - 1]
+      return Math.abs(toCanvasX(x) - toCanvasX(prevX)) >= minLabelSpacing
+    })
+    
+    filteredXLabels.forEach(x => {
       const canvasX = toCanvasX(x)
       const canvasY = viewport.yMin <= 0 && viewport.yMax >= 0 ? toCanvasY(0) + 15 : height - 5
-      ctx.fillText(x.toFixed(1), canvasX, canvasY)
-    }
+      ctx.fillText(x.toFixed(xDecimals), canvasX, canvasY)
+    })
 
     // Y-axis labels
     ctx.textAlign = "right"
+    const yLabels: number[] = []
     for (let y = Math.ceil(viewport.yMin / yStep) * yStep; y <= viewport.yMax; y += yStep) {
-      if (Math.abs(y) < yStep / 10) continue // Skip zero
-      const canvasX = viewport.xMin <= 0 && viewport.xMax >= 0 ? toCanvasX(0) - 5 : 5
-      const canvasY = toCanvasY(y) + 4
-      ctx.fillText(y.toFixed(1), canvasX, canvasY)
+      if (Math.abs(y) < yStep / 100) continue // Skip zero
+      yLabels.push(y)
     }
+    
+    // Only draw labels if they won't overlap
+    const filteredYLabels = yLabels.filter((y, i) => {
+      if (i === 0) return true
+      const prevY = yLabels[i - 1]
+      return Math.abs(toCanvasY(y) - toCanvasY(prevY)) >= 20
+    })
+    
+    filteredYLabels.forEach(y => {
+      const canvasX = viewport.xMin <= 0 && viewport.xMax >= 0 ? toCanvasX(0) - 5 : 15
+      const canvasY = toCanvasY(y) + 4
+      ctx.fillText(y.toFixed(yDecimals), canvasX, canvasY)
+    })
 
     // Plot functions
     functions.forEach((func) => {
@@ -224,61 +357,111 @@ export default function GraphingCalculatorPage() {
     })
   }
 
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen)
+  }
+
+  const takeSnapshot = () => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    const link = document.createElement('a')
+    link.download = `graph-${Date.now()}.png`
+    link.href = canvas.toDataURL()
+    link.click()
+  }
+
+  const insertFunction = (expr: string) => {
+    setNewExpression(prev => prev + expr)
+  }
+
   return (
-    <div className="container py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-3">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Graphing Calculator</h1>
-            <p className="text-muted-foreground">
-              Plot mathematical functions with symbolic expressions
-            </p>
+    <div className={isFullscreen ? "fixed inset-0 z-50 bg-white" : "container py-8"}>
+      {!isFullscreen && (
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-2">Graphing Calculator</h1>
+          <p className="text-muted-foreground">
+            Plot mathematical functions with symbolic expressions
+          </p>
+        </div>
+      )}
+
+      <div className="relative">
+        {/* Full-width Graph */}
+        <div className="w-full">
+          <canvas
+            ref={canvasRef}
+            width={isFullscreen ? 1400 : 1000}
+            height={isFullscreen ? 800 : 600}
+            className="w-full border rounded-lg bg-white"
+          />
+        </div>
+
+        {/* Floating Zoom Controls */}
+        <TooltipProvider>
+          <div className="absolute top-4 left-4 flex gap-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="sm" onClick={zoomIn} className="bg-white/90 backdrop-blur">
+                  <ZoomIn className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Zoom In</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="sm" onClick={zoomOut} className="bg-white/90 backdrop-blur">
+                  <ZoomOut className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Zoom Out</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="sm" onClick={resetView} className="bg-white/90 backdrop-blur">
+                  <Home className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Reset View</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="sm" onClick={toggleFullscreen} className="bg-white/90 backdrop-blur">
+                  {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>{isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="sm" onClick={takeSnapshot} className="bg-white/90 backdrop-blur">
+                  <Camera className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Take Screenshot</TooltipContent>
+            </Tooltip>
           </div>
+        </TooltipProvider>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Graph Display */}
-            <Card className="lg:col-span-2">
-              <CardHeader>
-                <CardTitle>Graph</CardTitle>
-                <CardDescription>
-                  Viewport: x=[{viewport.xMin.toFixed(1)}, {viewport.xMax.toFixed(1)}], y=[{viewport.yMin.toFixed(1)}, {viewport.yMax.toFixed(1)}]
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="relative">
-                  <canvas
-                    ref={canvasRef}
-                    width={600}
-                    height={500}
-                    className="w-full border rounded-lg bg-white"
-                  />
-                </div>
-
-                {/* Controls */}
-                <div className="flex gap-2 mt-4 justify-center">
-                  <Button variant="outline" size="sm" onClick={zoomIn}>
-                    <ZoomIn className="h-4 w-4 mr-2" />
-                    Zoom In
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={zoomOut}>
-                    <ZoomOut className="h-4 w-4 mr-2" />
-                    Zoom Out
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={resetView}>
-                    <Home className="h-4 w-4 mr-2" />
-                    Reset View
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Functions Panel */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Functions</CardTitle>
-                <CardDescription>Add and manage functions</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
+        {/* Floating Functions Panel */}
+        <Card className={`absolute top-4 right-4 transition-all duration-300 bg-white/95 backdrop-blur ${
+          panelCollapsed ? 'w-12' : 'w-80'
+        }`}>
+          <CardHeader className="pb-2">
+            <div className="flex items-center justify-between">
+              {!panelCollapsed && <CardTitle className="text-sm">Functions</CardTitle>}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => setPanelCollapsed(!panelCollapsed)}
+                className="h-8 w-8 p-0"
+              >
+                {panelCollapsed ? <Plus className="h-4 w-4" /> : '−'}
+              </Button>
+            </div>
+          </CardHeader>
+          {!panelCollapsed && (
+            <CardContent className="space-y-4 max-h-[500px] overflow-y-auto">
                 {/* Add Function */}
                 <div className="space-y-2">
                   <Label htmlFor="expression">New Function</Label>
@@ -335,79 +518,132 @@ export default function GraphingCalculatorPage() {
                   )}
                 </div>
 
-                {/* Example Functions */}
+                {/* Tabbed Control Center */}
                 <div className="space-y-2 pt-4 border-t">
-                  <Label>Example Functions</Label>
-                  <div className="text-xs text-muted-foreground space-y-1">
-                    <p><code>x^2</code> - Quadratic</p>
-                    <p><code>sin(x)</code> - Sine wave</p>
-                    <p><code>cos(x)</code> - Cosine wave</p>
-                    <p><code>tan(x)</code> - Tangent</p>
-                    <p><code>sqrt(x)</code> - Square root</p>
-                    <p><code>log(x)</code> - Logarithm</p>
-                    <p><code>e^x</code> - Exponential</p>
-                    <p><code>abs(x)</code> - Absolute value</p>
-                    <p><code>x^3 - 2*x^2 + 3</code> - Polynomial</p>
+                  <div className="flex border-b">
+                    <button 
+                      className={`px-3 py-1 text-xs ${activeTab === 'examples' ? 'border-b-2 border-blue-500' : ''}`}
+                      onClick={() => setActiveTab('examples')}
+                    >
+                      Examples
+                    </button>
+                    <button 
+                      className={`px-3 py-1 text-xs ${activeTab === 'basic' ? 'border-b-2 border-blue-500' : ''}`}
+                      onClick={() => setActiveTab('basic')}
+                    >
+                      Basic
+                    </button>
+                    <button 
+                      className={`px-3 py-1 text-xs ${activeTab === 'advanced' ? 'border-b-2 border-blue-500' : ''}`}
+                      onClick={() => setActiveTab('advanced')}
+                    >
+                      Advanced
+                    </button>
                   </div>
+                  
+                  {activeTab === 'examples' && (
+                    <div className="text-xs text-muted-foreground space-y-1">
+                      <p><code>x^2</code> - Quadratic</p>
+                      <p><code>sin(x)</code> - Sine wave</p>
+                      <p><code>cos(x)</code> - Cosine wave</p>
+                      <p><code>tan(x)</code> - Tangent</p>
+                      <p><code>sqrt(x)</code> - Square root</p>
+                      <p><code>log(x)</code> - Logarithm</p>
+                      <p><code>e^x</code> - Exponential</p>
+                      <p><code>abs(x)</code> - Absolute value</p>
+                    </div>
+                  )}
+                  
+                  {activeTab === 'basic' && (
+                    <div className="grid grid-cols-4 gap-1">
+                      {['7','8','9','+','4','5','6','-','1','2','3','*','0','.','=','/'].map(key => (
+                        <Button key={key} variant="outline" size="sm" className="h-8 text-xs" 
+                          onClick={() => insertFunction(key === '=' ? '' : key)}>
+                          {key}
+                        </Button>
+                      ))}
+                      <Button variant="outline" size="sm" className="h-8 text-xs col-span-2" 
+                        onClick={() => insertFunction('x')}>x</Button>
+                      <Button variant="outline" size="sm" className="h-8 text-xs" 
+                        onClick={() => insertFunction('(')}>(</Button>
+                      <Button variant="outline" size="sm" className="h-8 text-xs" 
+                        onClick={() => insertFunction(')')}>)</Button>
+                    </div>
+                  )}
+                  
+                  {activeTab === 'advanced' && (
+                    <div className="grid grid-cols-2 gap-1">
+                      {['sin(','cos(','tan(','asin(','acos(','atan(','log(','ln(','sqrt(','abs(','exp(','pi','e','^'].map(func => (
+                        <Button key={func} variant="outline" size="sm" className="h-8 text-xs" 
+                          onClick={() => insertFunction(func)}>
+                          {func}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+            </CardContent>
+          )}
+        </Card>
+      </div>
 
-          <FooterAd />
+      <FooterAd />
 
-          {/* SEO Content */}
-          <div className="mt-8 prose prose-sm max-w-none">
-            <h2>About Graphing Calculator</h2>
-            <p>
-              A graphing calculator is an essential tool for visualizing mathematical functions.
-              Plot equations, analyze behavior, and understand mathematical relationships through
-              interactive graphs.
-            </p>
-
-            <h3>Supported Functions</h3>
-            <ul>
-              <li><strong>Arithmetic:</strong> +, -, *, /, ^ (power)</li>
-              <li><strong>Trigonometric:</strong> sin(x), cos(x), tan(x), asin(x), acos(x), atan(x)</li>
-              <li><strong>Exponential & Logarithmic:</strong> exp(x), e^x, log(x), ln(x)</li>
-              <li><strong>Other:</strong> sqrt(x), abs(x), ceil(x), floor(x), round(x)</li>
-              <li><strong>Constants:</strong> pi, e</li>
-            </ul>
-
-            <h3>How to Use</h3>
-            <ol>
-              <li>Enter a mathematical expression using 'x' as the variable</li>
-              <li>Click the '+' button or press Enter to add the function</li>
-              <li>The function will be plotted on the graph with a unique color</li>
-              <li>Add multiple functions to compare them</li>
-              <li>Click the colored square to show/hide a function</li>
-              <li>Use zoom controls to adjust the view</li>
-              <li>Click the trash icon to remove a function</li>
-            </ol>
-
-            <h3>Tips</h3>
-            <ul>
-              <li>Use parentheses for complex expressions: (x+1)/(x-1)</li>
-              <li>Combine functions: sin(x) + cos(2*x)</li>
-              <li>Zoom in to see detail, zoom out for the big picture</li>
-              <li>Toggle functions on/off to compare subsets</li>
-              <li>Try different mathematical operations to explore</li>
-            </ul>
-
-            <h3>Example Expressions</h3>
-            <ul>
-              <li><strong>Parabola:</strong> x^2</li>
-              <li><strong>Circle:</strong> sqrt(25 - x^2) and -sqrt(25 - x^2)</li>
-              <li><strong>Exponential Growth:</strong> 2^x</li>
-              <li><strong>Damped Oscillation:</strong> e^(-x) * sin(5*x)</li>
-              <li><strong>Rational Function:</strong> 1/x</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="lg:col-span-1">
-          <SidebarAd />
-        </div>
+      <AboutDescription
+        title="About Graphing Calculator"
+        description="A graphing calculator is an essential tool for visualizing mathematical functions. Plot equations, analyze behavior, and understand mathematical relationships through interactive graphs."
+        sections={[
+          {
+            title: "Supported Functions",
+            content: [
+              "<strong>Arithmetic:</strong> +, -, *, /, ^ (power)",
+              "<strong>Trigonometric:</strong> sin(x), cos(x), tan(x), asin(x), acos(x), atan(x)",
+              "<strong>Exponential & Logarithmic:</strong> exp(x), e^x, log(x), ln(x)",
+              "<strong>Other:</strong> sqrt(x), abs(x), ceil(x), floor(x), round(x)",
+              "<strong>Constants:</strong> pi, e"
+            ]
+          },
+          {
+            title: "How to Use",
+            content: [
+              "Enter a mathematical expression using 'x' as the variable",
+              "Click the '+' button or press Enter to add the function",
+              "The function will be plotted on the graph with a unique color",
+              "Add multiple functions to compare them",
+              "Click the colored square to show/hide a function",
+              "Use zoom controls to adjust the view",
+              "Click the trash icon to remove a function"
+            ]
+          },
+          {
+            title: "Tips & Examples",
+            type: "subsections",
+            content: [
+              {
+                title: "Usage Tips",
+                items: [
+                  "Use parentheses for complex expressions: (x+1)/(x-1)",
+                  "Combine functions: sin(x) + cos(2*x)",
+                  "Zoom in to see detail, zoom out for the big picture",
+                  "Toggle functions on/off to compare subsets"
+                ]
+              },
+              {
+                title: "Example Expressions",
+                items: [
+                  "<strong>Parabola:</strong> x^2",
+                  "<strong>Circle:</strong> sqrt(25 - x^2) and -sqrt(25 - x^2)",
+                  "<strong>Exponential Growth:</strong> 2^x",
+                  "<strong>Damped Oscillation:</strong> e^(-x) * sin(5*x)",
+                  "<strong>Rational Function:</strong> 1/x"
+                ]
+              }
+            ]
+          }
+        ]}
+      />
+      <div className="mt-8">
+        <SidebarAd />
       </div>
     </div>
   )
