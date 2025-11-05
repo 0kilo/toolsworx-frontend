@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import { FormulaConverter } from "@/components/converters/formula-converter"
-import { convertVolume } from "@/lib/converters/formula-converters"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ export default function LitersGallonsPage() {
             units={volumeUnits}
             defaultFromUnit="L"
             defaultToUnit="gallon"
-            onConvert={convertVolume}
+            conversionType="volume"
           />
           <FooterAd />
         </div>

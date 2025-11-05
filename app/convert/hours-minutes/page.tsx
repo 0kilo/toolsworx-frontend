@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import { FormulaConverter } from "@/components/converters/formula-converter"
-import { convertTime } from "@/lib/converters/formula-converters"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export default function HoursMinutesPage() {
             units={timeUnits}
             defaultFromUnit="hour"
             defaultToUnit="minute"
-            onConvert={convertTime}
+            conversionType="time"
           />
           <FooterAd />
         </div>

@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import { FormulaConverter } from "@/components/converters/formula-converter"
-import { convertTemperature } from "@/lib/converters/formula-converters"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 
 export const metadata: Metadata = {
@@ -26,7 +25,7 @@ export default function CelsiusFahrenheitPage() {
             units={temperatureUnits}
             defaultFromUnit="celsius"
             defaultToUnit="fahrenheit"
-            onConvert={convertTemperature}
+            conversionType="temperature"
             placeholder="Enter temperature"
             resultLabel="Converted Temperature"
           />
