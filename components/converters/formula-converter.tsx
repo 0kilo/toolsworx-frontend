@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { ArrowLeftRight } from "lucide-react"
+import { ArrowLeftRight, Copy, RotateCcw, Check } from "lucide-react"
 import { Unit } from "@/types/converter"
 import {
   convertTemperature,
@@ -43,6 +43,7 @@ export function FormulaConverter({
   const [fromUnit, setFromUnit] = useState(defaultFromUnit)
   const [toUnit, setToUnit] = useState(defaultToUnit)
   const [result, setResult] = useState<number | null>(null)
+  const [copied, setCopied] = useState(false)
 
   const getConversionFunction = () => {
     switch (conversionType) {
@@ -85,6 +86,30 @@ export function FormulaConverter({
       setInputValue(result.toString())
       setResult(parseFloat(inputValue))
     }
+  }
+
+  const handleCopy = async () => {
+    if (result === null) return
+
+    const fromAbbr = units.find(u => u.value === fromUnit)?.abbreviation || fromUnit
+    const toAbbr = units.find(u => u.value === toUnit)?.abbreviation || toUnit
+    const textToCopy = `${inputValue} ${fromAbbr} = ${result.toFixed(4)} ${toAbbr}`
+
+    try {
+      await navigator.clipboard.writeText(textToCopy)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
+  const handleClear = () => {
+    setInputValue("")
+    setFromUnit(defaultFromUnit)
+    setToUnit(defaultToUnit)
+    setResult(null)
+    setCopied(false)
   }
 
   return (
@@ -153,7 +178,31 @@ export function FormulaConverter({
 
           {/* Result */}
           {result !== null && (
-            <div className="bg-muted rounded-lg p-6 text-center">
+            <div className="bg-muted rounded-lg p-6 text-center relative">
+              <div className="absolute top-4 right-4 flex gap-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleCopy}
+                  className="h-8 w-8"
+                  title="Copy result"
+                >
+                  {copied ? (
+                    <Check className="h-4 w-4 text-green-500" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleClear}
+                  className="h-8 w-8"
+                  title="Clear all"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                </Button>
+              </div>
               <p className="text-sm text-muted-foreground mb-2">{resultLabel}</p>
               <p className="text-4xl font-bold text-primary">
                 {result.toFixed(4)}
