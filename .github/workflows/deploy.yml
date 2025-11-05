@@ -1,0 +1,146 @@
+name: Deploy to AWS Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AWS_REGION: us-east-1
+  ENVIRONMENT: production
+  PROJECT_NAME: convert-all
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Get commit SHA
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build and push Frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          push: true
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-frontend:${{ steps.vars.outputs.sha_short }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push File Service image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/file-conversion-service
+          push: true
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-file-service:${{ steps.vars.outputs.sha_short }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-file-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push Media Service image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/media-conversion-service
+          push: true
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-media-service:${{ steps.vars.outputs.sha_short }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-media-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build and push Filter Service image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/filter-service
+          push: true
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-filter-service:${{ steps.vars.outputs.sha_short }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}-filter-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Update Frontend ECS service
+        run: |
+          aws ecs update-service \
+            --cluster ${{ env.PROJECT_NAME }}-cluster-${{ env.ENVIRONMENT }} \
+            --service ${{ env.PROJECT_NAME }}-frontend-${{ env.ENVIRONMENT }} \
+            --force-new-deployment \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Update File Service ECS service
+        run: |
+          aws ecs update-service \
+            --cluster ${{ env.PROJECT_NAME }}-cluster-${{ env.ENVIRONMENT }} \
+            --service ${{ env.PROJECT_NAME }}-file-service-${{ env.ENVIRONMENT }} \
+            --force-new-deployment \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Update Media Service ECS service
+        run: |
+          aws ecs update-service \
+            --cluster ${{ env.PROJECT_NAME }}-cluster-${{ env.ENVIRONMENT }} \
+            --service ${{ env.PROJECT_NAME }}-media-service-${{ env.ENVIRONMENT }} \
+            --force-new-deployment \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Update Filter Service ECS service
+        run: |
+          aws ecs update-service \
+            --cluster ${{ env.PROJECT_NAME }}-cluster-${{ env.ENVIRONMENT }} \
+            --service ${{ env.PROJECT_NAME }}-filter-service-${{ env.ENVIRONMENT }} \
+            --force-new-deployment \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Wait for services to stabilize
+        run: |
+          echo "Waiting for services to stabilize (this may take 5-10 minutes)..."
+          aws ecs wait services-stable \
+            --cluster ${{ env.PROJECT_NAME }}-cluster-${{ env.ENVIRONMENT }} \
+            --services \
+              ${{ env.PROJECT_NAME }}-frontend-${{ env.ENVIRONMENT }} \
+              ${{ env.PROJECT_NAME }}-file-service-${{ env.ENVIRONMENT }} \
+              ${{ env.PROJECT_NAME }}-media-service-${{ env.ENVIRONMENT }} \
+              ${{ env.PROJECT_NAME }}-filter-service-${{ env.ENVIRONMENT }} \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Deployment summary
+        run: |
+          echo "✅ Deployment successful!"
+          echo "Commit SHA: ${{ steps.vars.outputs.sha_short }}"
+          echo "Environment: ${{ env.ENVIRONMENT }}"
+          echo "Region: ${{ env.AWS_REGION }}"
+
+          # Get ALB DNS
+          ALB_DNS=$(aws elbv2 describe-load-balancers \
+            --names ${{ env.PROJECT_NAME }}-alb-${{ env.ENVIRONMENT }} \
+            --query 'LoadBalancers[0].DNSName' \
+            --output text \
+            --region ${{ env.AWS_REGION }})
+
+          echo "Application URL: https://${ALB_DNS}"
