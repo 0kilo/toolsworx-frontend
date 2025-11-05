@@ -4,6 +4,7 @@ import { calculatorTools } from "./categories/calculators/registry"
 import { fileConverterTools } from "./categories/file-converters/registry"
 import { mediaConverterTools } from "./categories/media-converters/registry"
 import { developerTools } from "./categories/developer-tools/registry"
+import { filterTools } from "./categories/filters/registry"
 
 /**
  * Master Registry
@@ -15,6 +16,7 @@ export const converters: ConverterMetadata[] = [
   ...fileConverterTools,
   ...mediaConverterTools,
   ...developerTools,
+  ...filterTools,
 ]
 
 /**
@@ -57,3 +59,4 @@ export { calculatorTools } from "./categories/calculators/registry"
 export { fileConverterTools } from "./categories/file-converters/registry"
 export { mediaConverterTools } from "./categories/media-converters/registry"
 export { developerTools } from "./categories/developer-tools/registry"
+export { filterTools } from "./categories/filters/registry"

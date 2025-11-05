@@ -1,4 +1,4 @@
-import { Ruler, Calculator, FileText, Film, Code2, LucideIcon } from "lucide-react"
+import { Ruler, Calculator, FileText, Film, Code2, Sliders, LucideIcon } from "lucide-react"
 
 export interface CategoryGroup {
   id: string
@@ -156,6 +156,35 @@ export const categoryGroups: CategoryGroup[] = [
       "No data sent to servers",
       "Instant results",
       "Perfect for developers and DevOps",
+    ],
+  },
+  {
+    id: "filters",
+    title: "Filters & Effects",
+    description: "Apply filters and effects to images, audio, and data",
+    longDescription:
+      "Transform your media and data with powerful filters and effects. Apply professional photo filters like grayscale, sepia, and Instagram-style effects. Enhance audio with equalizers, reverb, and noise reduction. Clean and format data with our text processing tools. All processing happens instantly in real-time.",
+    icon: Sliders,
+    color: "bg-pink-50 border-pink-200",
+    textColor: "text-pink-900",
+    iconColor: "text-pink-600",
+    categories: ["image-filter", "audio-filter", "data-filter"],
+    seoKeywords: [
+      "image filters",
+      "photo effects",
+      "instagram filters",
+      "audio effects",
+      "equalizer",
+      "reverb",
+      "data formatter",
+      "json formatter",
+      "apply filter",
+    ],
+    benefits: [
+      "Real-time filter preview",
+      "Professional-quality effects",
+      "No upload required for many filters",
+      "Batch processing available",
     ],
   },
 ]
