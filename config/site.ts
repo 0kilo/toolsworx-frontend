@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "[APP_NAME]", // PLACEHOLDER: Replace with your app name
+  name: "TOOL WORX", // PLACEHOLDER: Replace with your app name
   description: "Free online conversion tools for documents, images, videos, and unit calculations. Convert files and measurements instantly.",
   url: "https://your-domain.com", // PLACEHOLDER: Replace with your domain
   ogImage: "https://your-domain.com/og.jpg",
