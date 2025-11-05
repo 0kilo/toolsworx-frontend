@@ -8,6 +8,7 @@ import { Select } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { FileDropzone } from "@/components/shared/file-dropzone"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Download, Loader2 } from "lucide-react"
 
 export default function ImageConverterPage() {
@@ -125,42 +126,46 @@ export default function ImageConverterPage() {
 
           <FooterAd />
 
-          {/* SEO Content */}
-          <div className="mt-8 prose prose-sm max-w-none">
-            <h2>About Image Format Conversion</h2>
-            <p>
-              Converting between image formats is useful for web optimization, compatibility,
-              and reducing file sizes. This tool supports all major image formats.
-            </p>
-
-            <h3>Supported Formats</h3>
-            <ul>
-              <li><strong>PNG:</strong> Lossless compression, supports transparency</li>
-              <li><strong>JPG:</strong> Best for photographs, smaller file size</li>
-              <li><strong>WEBP:</strong> Modern format, excellent compression</li>
-              <li><strong>GIF:</strong> Supports animation, limited colors</li>
-              <li><strong>BMP:</strong> Uncompressed, large file size</li>
-            </ul>
-
-            <h3>When to Use Each Format</h3>
-            <ul>
-              <li><strong>Use PNG</strong> for logos, graphics with transparency, screenshots</li>
-              <li><strong>Use JPG</strong> for photographs, images without transparency</li>
-              <li><strong>Use WEBP</strong> for web optimization, modern browsers</li>
-              <li><strong>Use GIF</strong> for simple animations, small graphics</li>
-            </ul>
-
-            <h3>Implementation Note</h3>
-            <p>
-              This is a UI demonstration. To implement actual image conversion:
-            </p>
-            <ol>
-              <li>Install Sharp or Jimp for image processing</li>
-              <li>Create an API route to handle file uploads</li>
-              <li>Process the image server-side or use AWS Lambda</li>
-              <li>Return the converted file for download</li>
-            </ol>
-          </div>
+          <AboutDescription
+            title="About Image Format Conversion"
+            description="Converting between image formats is useful for web optimization, compatibility, and reducing file sizes. This tool supports all major image formats."
+            sections={[
+              {
+                title: "Supported Formats",
+                content: [
+                  "<strong>PNG:</strong> Lossless compression, supports transparency",
+                  "<strong>JPG:</strong> Best for photographs, smaller file size",
+                  "<strong>WEBP:</strong> Modern format, excellent compression",
+                  "<strong>GIF:</strong> Supports animation, limited colors",
+                  "<strong>BMP:</strong> Uncompressed, large file size"
+                ]
+              },
+              {
+                title: "Usage Guidelines & Implementation",
+                type: "subsections",
+                content: [
+                  {
+                    title: "When to Use Each Format",
+                    items: [
+                      "<strong>Use PNG</strong> for logos, graphics with transparency, screenshots",
+                      "<strong>Use JPG</strong> for photographs, images without transparency",
+                      "<strong>Use WEBP</strong> for web optimization, modern browsers",
+                      "<strong>Use GIF</strong> for simple animations, small graphics"
+                    ]
+                  },
+                  {
+                    title: "Implementation Steps",
+                    items: [
+                      "Install Sharp or Jimp for image processing",
+                      "Create an API route to handle file uploads",
+                      "Process the image server-side or use AWS Lambda",
+                      "Return the converted file for download"
+                    ]
+                  }
+                ]
+              }
+            ]}
+          />
         </div>
 
         <div className="lg:col-span-1">

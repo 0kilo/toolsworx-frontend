@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 
 export default function PdfWordPage() {
   return (
@@ -34,22 +35,21 @@ export default function PdfWordPage() {
 
           <FooterAd />
 
-          {/* SEO Content */}
-          <div className="mt-8 prose prose-sm max-w-none">
-            <h2>About PDF to Word Conversion</h2>
-            <p>
-              Converting PDF files to Word documents allows you to edit the content easily.
-              This is useful for modifying contracts, reports, and other documents.
-            </p>
-
-            <h3>Implementation Steps</h3>
-            <ol>
-              <li>Set up AWS Lambda with LibreOffice layer</li>
-              <li>Create file upload API endpoint</li>
-              <li>Process PDF to DOCX conversion</li>
-              <li>Return downloadable file</li>
-            </ol>
-          </div>
+          <AboutDescription
+            title="About PDF to Word Conversion"
+            description="Converting PDF files to Word documents allows you to edit the content easily. This is useful for modifying contracts, reports, and other documents."
+            sections={[
+              {
+                title: "Implementation Steps",
+                content: [
+                  "Set up AWS Lambda with LibreOffice layer",
+                  "Create file upload API endpoint",
+                  "Process PDF to DOCX conversion",
+                  "Return downloadable file"
+                ]
+              }
+            ]}
+          />
         </div>
 
         <div className="lg:col-span-1">

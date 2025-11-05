@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { UnitConversionTemplate } from "@/lib/categories/unit-conversions"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 
 export const metadata: Metadata = {
   title: "Celsius to Fahrenheit Converter",
@@ -32,29 +33,29 @@ export default function CelsiusFahrenheitPage() {
 
           <FooterAd />
 
-          {/* SEO Content */}
-          <div className="mt-8 prose prose-sm max-w-none">
-            <h2>About Temperature Conversion</h2>
-            <p>
-              Temperature conversion is essential for many applications, from cooking to science.
-              This tool helps you convert between Celsius, Fahrenheit, and Kelvin instantly.
-            </p>
-
-            <h3>Common Conversions</h3>
-            <ul>
-              <li>0°C = 32°F (Freezing point of water)</li>
-              <li>100°C = 212°F (Boiling point of water)</li>
-              <li>37°C = 98.6°F (Normal body temperature)</li>
-              <li>-40°C = -40°F (Where scales intersect)</li>
-            </ul>
-
-            <h3>Conversion Formulas</h3>
-            <ul>
-              <li>°F = (°C × 9/5) + 32</li>
-              <li>°C = (°F - 32) × 5/9</li>
-              <li>K = °C + 273.15</li>
-            </ul>
-          </div>
+          <AboutDescription
+            title="About Temperature Conversion"
+            description="Temperature conversion is essential for many applications, from cooking to science. This tool helps you convert between Celsius, Fahrenheit, and Kelvin instantly."
+            sections={[
+              {
+                title: "Common Conversions",
+                content: [
+                  "0°C = 32°F (Freezing point of water)",
+                  "100°C = 212°F (Boiling point of water)",
+                  "37°C = 98.6°F (Normal body temperature)",
+                  "-40°C = -40°F (Where scales intersect)"
+                ]
+              },
+              {
+                title: "Conversion Formulas",
+                content: [
+                  "°F = (°C × 9/5) + 32",
+                  "°C = (°F - 32) × 5/9",
+                  "K = °C + 273.15"
+                ]
+              }
+            ]}
+          />
         </div>
 
         <div className="lg:col-span-1">

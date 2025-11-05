@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { UnitConversionTemplate } from "@/lib/categories/unit-conversions"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 
 export const metadata: Metadata = {
   title: "Kilometers to Miles Converter",
@@ -35,29 +36,29 @@ export default function KmMilesPage() {
 
           <FooterAd />
 
-          {/* SEO Content */}
-          <div className="mt-8 prose prose-sm max-w-none">
-            <h2>About Distance Conversion</h2>
-            <p>
-              Converting between kilometers and miles is useful for travel, sports, and everyday measurements.
-              This tool provides instant and accurate conversions.
-            </p>
-
-            <h3>Common Conversions</h3>
-            <ul>
-              <li>1 km = 0.621371 miles</li>
-              <li>1 mile = 1.60934 km</li>
-              <li>5 km = 3.10686 miles (common running distance)</li>
-              <li>10 km = 6.21371 miles</li>
-              <li>Marathon: 42.195 km = 26.219 miles</li>
-            </ul>
-
-            <h3>Quick Tips</h3>
-            <ul>
-              <li>To roughly convert km to miles, multiply by 0.6</li>
-              <li>To roughly convert miles to km, multiply by 1.6</li>
-            </ul>
-          </div>
+          <AboutDescription
+            title="About Distance Conversion"
+            description="Converting between kilometers and miles is useful for travel, sports, and everyday measurements. This tool provides instant and accurate conversions."
+            sections={[
+              {
+                title: "Common Conversions",
+                content: [
+                  "1 km = 0.621371 miles",
+                  "1 mile = 1.60934 km",
+                  "5 km = 3.10686 miles (common running distance)",
+                  "10 km = 6.21371 miles",
+                  "Marathon: 42.195 km = 26.219 miles"
+                ]
+              },
+              {
+                title: "Quick Tips",
+                content: [
+                  "To roughly convert km to miles, multiply by 0.6",
+                  "To roughly convert miles to km, multiply by 1.6"
+                ]
+              }
+            ]}
+          />
         </div>
 
         <div className="lg:col-span-1">

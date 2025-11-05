@@ -2,6 +2,7 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Percent } from "lucide-react"
 
 const fields: CalculatorField[] = [
@@ -78,27 +79,30 @@ function calculateTip(values: Record<string, string>): CalculatorResult[] {
 }
 
 const infoContent = (
-  <div className="prose prose-sm max-w-none">
-    <h2>About Tip Calculator</h2>
-    <p>
-      Calculate tips and split bills easily. This calculator helps you determine the appropriate
-      tip amount and divides the total among multiple people.
-    </p>
-    <h3>Standard Tipping Guidelines</h3>
-    <ul>
-      <li><strong>15%:</strong> Acceptable service</li>
-      <li><strong>18%:</strong> Good service</li>
-      <li><strong>20%:</strong> Excellent service</li>
-      <li><strong>25%+:</strong> Exceptional service</li>
-    </ul>
-    <h3>When to Tip</h3>
-    <ul>
-      <li><strong>Restaurants:</strong> 15-20% of bill before tax</li>
-      <li><strong>Bars:</strong> $1-2 per drink or 15-20% of tab</li>
-      <li><strong>Delivery:</strong> 10-15% or $2-5 minimum</li>
-      <li><strong>Taxis/Rideshare:</strong> 15-20% of fare</li>
-    </ul>
-  </div>
+  <AboutDescription
+    title="About Tip Calculator"
+    description="Calculate tips and split bills easily. This calculator helps you determine the appropriate tip amount and divides the total among multiple people."
+    sections={[
+      {
+        title: "Standard Tipping Guidelines",
+        content: [
+          "<strong>15%:</strong> Acceptable service",
+          "<strong>18%:</strong> Good service",
+          "<strong>20%:</strong> Excellent service",
+          "<strong>25%+:</strong> Exceptional service"
+        ]
+      },
+      {
+        title: "When to Tip",
+        content: [
+          "<strong>Restaurants:</strong> 15-20% of bill before tax",
+          "<strong>Bars:</strong> $1-2 per drink or 15-20% of tab",
+          "<strong>Delivery:</strong> 10-15% or $2-5 minimum",
+          "<strong>Taxis/Rideshare:</strong> 15-20% of fare"
+        ]
+      }
+    ]}
+  />
 )
 
 export default function TipCalculatorPage() {

@@ -3,6 +3,7 @@
 import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Heart } from "lucide-react"
 
 const fields: CalculatorField[] = [
@@ -103,26 +104,30 @@ function calculateBMI(values: Record<string, string>): CalculatorResult[] {
 }
 
 const infoContent = (
-  <div className="prose prose-sm max-w-none">
-    <h2>About BMI Calculator</h2>
-    <p>
-      Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely
-      used as a screening tool to identify potential weight problems.
-    </p>
-    <h3>BMI Categories</h3>
-    <ul>
-      <li><strong>Underweight:</strong> BMI less than 18.5</li>
-      <li><strong>Normal weight:</strong> BMI 18.5-24.9</li>
-      <li><strong>Overweight:</strong> BMI 25-29.9</li>
-      <li><strong>Obese:</strong> BMI 30 or greater</li>
-    </ul>
-    <h3>Important Notes</h3>
-    <p>
-      BMI is a screening tool, not a diagnostic tool. It doesn't account for muscle mass,
-      bone density, or body composition. Athletes and bodybuilders may have high BMI due to
-      muscle mass, not excess fat.
-    </p>
-  </div>
+  <AboutDescription
+    title="About BMI Calculator"
+    description="Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely used as a screening tool to identify potential weight problems."
+    sections={[
+      {
+        title: "BMI Categories",
+        content: [
+          "<strong>Underweight:</strong> BMI less than 18.5",
+          "<strong>Normal weight:</strong> BMI 18.5-24.9",
+          "<strong>Overweight:</strong> BMI 25-29.9",
+          "<strong>Obese:</strong> BMI 30 or greater"
+        ]
+      },
+      {
+        title: "Important Notes",
+        content: [
+          "BMI is a screening tool, not a diagnostic tool",
+          "It doesn't account for muscle mass, bone density, or body composition",
+          "Athletes and bodybuilders may have high BMI due to muscle mass, not excess fat",
+          "Always consult healthcare professionals for personalized advice"
+        ]
+      }
+    ]}
+  />
 )
 
 export default function BMICalculatorPage() {

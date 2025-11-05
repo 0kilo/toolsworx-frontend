@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { UnitConversionTemplate } from "@/lib/categories/unit-conversions"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 
 export const metadata: Metadata = {
   title: "Liters to Gallons Converter",
@@ -30,6 +31,31 @@ export default function LitersGallonsPage() {
             conversionType="volume"
           />
           <FooterAd />
+          
+          <AboutDescription
+            title="About Volume Conversion"
+            description="Volume conversion is essential for cooking, fuel calculations, and liquid measurements. This tool provides accurate conversions between metric and imperial volume units."
+            sections={[
+              {
+                title: "Common Conversions",
+                content: [
+                  "1 liter = 0.264172 US gallons",
+                  "1 US gallon = 3.78541 liters",
+                  "1 liter = 1000 milliliters",
+                  "1 gallon = 16 cups (US)"
+                ]
+              },
+              {
+                title: "Use Cases",
+                content: [
+                  "Recipe conversions between metric and imperial",
+                  "Fuel efficiency calculations",
+                  "Liquid storage and container sizing",
+                  "International shipping and trade"
+                ]
+              }
+            ]}
+          />
         </div>
         <div className="lg:col-span-1">
           <SidebarAd />
