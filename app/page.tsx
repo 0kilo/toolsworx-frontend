@@ -75,31 +75,15 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Popular Converters */}
+      {/* Converters Section - Popular Only */}
       {!searchQuery && (
         <>
-          <section id="popular" className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <Zap className="h-8 w-8 text-yellow-500" />
-              <h2 className="text-3xl font-bold">Popular Converters</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {popularConverters.map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-            </div>
-          </section>
-
-          {/* Middle Ad */}
-          <InContentAd />
-
-          {/* All Converters by Category Groups */}
-          <section id="all-converters" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8">All Converters</h2>
+          <section id="converters" className="mb-16">
+            <h2 className="text-3xl font-bold mb-8">Converters</h2>
 
             {categoryGroups.map((group) => {
               const groupConverters = converters.filter((c) =>
-                group.categories.includes(c.category)
+                group.categories.includes(c.category) && c.popular
               )
 
               // Skip empty groups
@@ -135,7 +119,7 @@ export default function HomePage() {
                     </Card>
                   </Link>
 
-                  {/* Converters Grid */}
+                  {/* Converters Grid - Popular Only */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {groupConverters.map((converter) => (
                       <ConverterCard key={converter.id} converter={converter} />
@@ -145,6 +129,9 @@ export default function HomePage() {
               )
             })}
           </section>
+
+          {/* Middle Ad */}
+          <InContentAd />
 
           {/* About Section */}
           <section id="about" className="mb-16">
