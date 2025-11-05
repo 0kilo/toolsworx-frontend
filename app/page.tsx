@@ -4,53 +4,11 @@ import { useState } from "react"
 import { ConverterCard } from "@/components/converters/converter-card"
 import { HeaderAd, InContentAd } from "@/components/ads/ad-unit"
 import { converters, getPopularConverters } from "@/lib/converters/registry"
+import { categoryGroups } from "@/lib/categories"
 import { Input } from "@/components/ui/input"
-import { Search, Ruler, Calculator, FileText, Film, Zap } from "lucide-react"
+import { Search, Zap } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-
-// Category metadata with icons and descriptions
-const categoryGroups = [
-  {
-    id: "unit-conversions",
-    title: "Unit Conversions",
-    description: "Convert between different units of measurement",
-    icon: Ruler,
-    color: "bg-blue-50 border-blue-200",
-    textColor: "text-blue-900",
-    iconColor: "text-blue-600",
-    categories: ["temperature", "distance", "weight", "volume", "time"],
-  },
-  {
-    id: "calculators",
-    title: "Calculators",
-    description: "Calculate values for various purposes",
-    icon: Calculator,
-    color: "bg-green-50 border-green-200",
-    textColor: "text-green-900",
-    iconColor: "text-green-600",
-    categories: ["calculator"],
-  },
-  {
-    id: "file-converters",
-    title: "File Converters",
-    description: "Convert documents and files between formats",
-    icon: FileText,
-    color: "bg-purple-50 border-purple-200",
-    textColor: "text-purple-900",
-    iconColor: "text-purple-600",
-    categories: ["document"],
-  },
-  {
-    id: "media-converters",
-    title: "Media Converters",
-    description: "Convert images, videos, and audio files",
-    icon: Film,
-    color: "bg-orange-50 border-orange-200",
-    textColor: "text-orange-900",
-    iconColor: "text-orange-600",
-    categories: ["image", "video", "audio"],
-  },
-]
+import Link from "next/link"
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -152,23 +110,30 @@ export default function HomePage() {
               return (
                 <div key={group.id} className="mb-12">
                   {/* Category Group Header */}
-                  <Card className={`${group.color} border-2 mb-6`}>
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className={`${group.iconColor} mt-1`}>
-                          <Icon className="h-8 w-8" />
+                  <Link href={`/category/${group.id}`}>
+                    <Card className={`${group.color} border-2 mb-6 cursor-pointer hover:shadow-lg transition-shadow`}>
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex items-start gap-4">
+                            <div className={`${group.iconColor} mt-1`}>
+                              <Icon className="h-8 w-8" />
+                            </div>
+                            <div>
+                              <h3 className={`text-2xl font-bold mb-2 ${group.textColor}`}>
+                                {group.title}
+                              </h3>
+                              <p className={`text-sm ${group.textColor} opacity-80`}>
+                                {group.description}
+                              </p>
+                            </div>
+                          </div>
+                          <div className={`${group.textColor} opacity-60`}>
+                            <span className="text-sm font-medium">View All →</span>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className={`text-2xl font-bold mb-2 ${group.textColor}`}>
-                            {group.title}
-                          </h3>
-                          <p className={`text-sm ${group.textColor} opacity-80`}>
-                            {group.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </Link>
 
                   {/* Converters Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
