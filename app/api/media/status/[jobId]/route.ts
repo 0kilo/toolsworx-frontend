@@ -3,15 +3,18 @@ import axios from 'axios'
 
 const MEDIA_SERVICE_URL = process.env.MEDIA_SERVICE_URL || 'http://localhost:3011'
 
-export async function POST(request: NextRequest) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { jobId: string } }
+) {
   try {
-    const formData = await request.formData()
-      console.log("------------MEDIA CONVERT: ", formData);
-    const response = await axios.post(`${MEDIA_SERVICE_URL}/api/convert`, formData)
+    const { jobId } = params
+    
+    const response = await axios.get(`${MEDIA_SERVICE_URL}/api/status/${jobId}`)
     
     return NextResponse.json(response.data, { status: response.status })
   } catch (error) {
-    console.error('Media conversion error:', error)
+    console.error('Media status check error:', error)
     return NextResponse.json(
       { success: false, message: 'Internal server error' },
       { status: 500 }

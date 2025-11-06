@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Copy, RotateCcw, Check } from "lucide-react"
 
@@ -209,16 +209,19 @@ export function CalculatorTemplate({
 
                 {field.type === "select" ? (
                   <Select
-                    id={field.name}
                     value={inputs[field.name] || ""}
-                    onChange={(e) => handleInputChange(field.name, e.target.value)}
+                    onValueChange={(value) => handleInputChange(field.name, value)}
                   >
-                    <option value="">Select...</option>
-                    {field.options?.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {field.options?.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
                   </Select>
                 ) : (
                   <Input

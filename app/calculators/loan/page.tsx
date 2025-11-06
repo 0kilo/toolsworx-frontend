@@ -2,6 +2,7 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign } from "lucide-react"
 
 const fields: CalculatorField[] = [
@@ -89,28 +90,40 @@ function calculateLoan(values: Record<string, string>): CalculatorResult[] {
 }
 
 const infoContent = (
-  <div className="prose prose-sm max-w-none">
-    <h2>About Loan Calculator</h2>
-    <p>
-      Calculate monthly loan payments for personal loans, auto loans, student loans, or any
-      installment loan. The calculator shows your monthly payment, total interest, and total
-      amount you'll pay over the life of the loan.
-    </p>
-    <h3>How to Use</h3>
-    <ol>
-      <li>Enter the loan amount you need</li>
-      <li>Input the annual interest rate</li>
-      <li>Choose your loan term (months or years)</li>
-      <li>Click calculate to see your monthly payment</li>
-    </ol>
-    <h3>Tips to Save on Interest</h3>
-    <ul>
-      <li>Choose the shortest term you can afford</li>
-      <li>Make extra payments when possible</li>
-      <li>Shop around for the best interest rate</li>
-      <li>Consider bi-weekly payments instead of monthly</li>
-    </ul>
-  </div>
+  <AboutDescription
+    title="About Loan Calculator"
+    description="Calculate monthly loan payments for personal loans, auto loans, student loans, or any installment loan. Get instant results for payment planning."
+    sections={[
+      {
+        title: "How to Use",
+        content: [
+          "Enter the loan amount you need to borrow",
+          "Input the annual interest rate (APR)",
+          "Choose your loan term in months or years",
+          "Click calculate to see your monthly payment breakdown"
+        ]
+      },
+      {
+        title: "Tips to Save on Interest",
+        content: [
+          "Choose the shortest term you can comfortably afford",
+          "Make extra payments toward principal when possible",
+          "Shop around with multiple lenders for the best rate",
+          "Consider bi-weekly payments instead of monthly",
+          "Improve your credit score before applying"
+        ]
+      },
+      {
+        title: "Loan Types",
+        content: [
+          "Personal loans - Unsecured loans for various purposes",
+          "Auto loans - Secured by the vehicle being purchased",
+          "Student loans - Education financing with special terms",
+          "Home equity loans - Secured by your home's equity"
+        ]
+      }
+    ]}
+  />
 )
 
 export default function LoanCalculatorPage() {

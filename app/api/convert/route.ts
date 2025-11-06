@@ -5,7 +5,7 @@ const FILE_SERVICE_URL = process.env.FILE_SERVICE_URL || 'http://localhost:3010'
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
-    
+    console.log("------------FILE CONVERT: ", formData);
     // Forward request to file conversion service
     const response = await fetch(`${FILE_SERVICE_URL}/api/convert`, {
       method: 'POST',

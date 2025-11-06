@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { getCategoryGroupById, getAllCategoryIds, categoryGroups } from "@/lib/categories"
-import { converters } from "@/lib/registry"
+import { allConverters } from "@/lib/registry"
 import { ConverterCard } from "@/components/shared/converter-card"
 import { SidebarAd, InContentAd, FooterAd } from "@/components/ads/ad-unit"
 import { Card, CardContent } from "@/components/ui/card"
@@ -63,7 +63,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   }
 
   // Get all converters in this category
-  const categoryConverters = converters.filter((c) => category.categories.includes(c.category))
+  const categoryConverters = allConverters.filter((c) => category.categories.includes(c.category))
 
   const Icon = category.icon
 

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
@@ -10,7 +11,14 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">{siteConfig.name}</span>
+            <Image
+              src="/logo150.png"
+              alt={siteConfig.name}
+              width={150}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
           <nav className="hidden md:flex gap-6">
             {categoryGroups.map((category) => (

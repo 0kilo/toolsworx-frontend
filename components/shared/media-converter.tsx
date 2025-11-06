@@ -76,7 +76,7 @@ export function MediaConverter({
       // Poll for completion
       const pollInterval = setInterval(async () => {
         try {
-          const status = await apiClient.getJobStatus(job.id)
+          const status = await apiClient.getMediaJobStatus(job.id)
           
           if (status.status === 'completed') {
             clearInterval(pollInterval)
@@ -122,7 +122,7 @@ export function MediaConverter({
     if (!conversion.jobId || !selectedToFormat) return
     
     try {
-      const blob = await apiClient.downloadFile(conversion.jobId)
+      const blob = await apiClient.downloadMediaJob(conversion.jobId)
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url

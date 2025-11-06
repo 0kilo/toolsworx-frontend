@@ -105,7 +105,7 @@ class ApiClient {
     }
   }
 
-  async getJobStatus(jobId: string): Promise<ConversionJob> {
+  async getFileJobStatus(jobId: string): Promise<ConversionJob> {
     const response = await this.client.get(`/api/status/${jobId}`)
     return {
       id: response.data.jobId || jobId,
@@ -116,8 +116,26 @@ class ApiClient {
     }
   }
 
-  async downloadFile(jobId: string): Promise<Blob> {
+  async getMediaJobStatus(jobId: string): Promise<ConversionJob> {
+    const response = await this.client.get(`/api/media/status/${jobId}`)
+    return {
+      id: response.data.jobId || jobId,
+      status: response.data.status,
+      progress: response.data.progress || 0,
+      downloadUrl: response.data.downloadUrl,
+      error: response.data.error
+    }
+  }
+
+  async downloadFileJob(jobId: string): Promise<Blob> {
     const response = await this.client.get(`/api/download/${jobId}`, {
+      responseType: 'blob',
+    })
+    return response.data
+  }
+
+  async downloadMediaJob(jobId: string): Promise<Blob> {
+    const response = await this.client.get(`/api/media/download/${jobId}`, {
       responseType: 'blob',
     })
     return response.data
@@ -127,13 +145,14 @@ class ApiClient {
   async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
     const formData = new FormData()
     formData.append('file', file)
-    formData.append('outputFormat', targetFormat)
+    formData.append('targetFormat', targetFormat)
+    
     if (options) {
       formData.append('options', JSON.stringify(options))
     }
 
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_MEDIA_SERVICE_URL || 'http://localhost:3011'}/api/convert`, formData, {
-      headers: {
+    const response = await this.client.post('/api/media/convert', formData, {
+       headers: {
         'Content-Type': 'multipart/form-data',
       },
       timeout: 300000

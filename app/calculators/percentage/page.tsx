@@ -2,6 +2,7 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Percent } from "lucide-react"
 
 const fields: CalculatorField[] = [
@@ -101,43 +102,40 @@ function calculatePercentage(values: Record<string, string>): CalculatorResult[]
 }
 
 const infoContent = (
-  <div className="prose prose-sm max-w-none">
-    <h2>About Percentage Calculator</h2>
-    <p>
-      This calculator handles three common percentage calculations. Choose the type that matches
-      your needs and enter the values.
-    </p>
-
-    <h3>Calculation Types</h3>
-
-    <h4>1. What is X% of Y?</h4>
-    <p>
-      Find a percentage of a number. For example, "What is 15% of 80?"
-    </p>
-    <p><strong>Example:</strong> 20% of 50 = 10</p>
-
-    <h4>2. X is what % of Y?</h4>
-    <p>
-      Find what percentage one number is of another. For example, "25 is what % of 100?"
-    </p>
-    <p><strong>Example:</strong> 25 is 50% of 50</p>
-
-    <h4>3. % increase/decrease from X to Y</h4>
-    <p>
-      Find the percentage change between two numbers. Useful for calculating price changes,
-      growth rates, or discounts.
-    </p>
-    <p><strong>Example:</strong> From 50 to 75 = 50% increase</p>
-
-    <h3>Common Uses</h3>
-    <ul>
-      <li><strong>Discounts:</strong> Calculate sale prices</li>
-      <li><strong>Tips:</strong> Determine restaurant gratuities</li>
-      <li><strong>Taxes:</strong> Add sales tax to prices</li>
-      <li><strong>Growth:</strong> Calculate business or investment growth</li>
-      <li><strong>Grades:</strong> Convert scores to percentages</li>
-    </ul>
-  </div>
+  <AboutDescription
+    title="About Percentage Calculator"
+    description="Handle three common percentage calculations with instant results. Perfect for discounts, tips, taxes, and growth calculations."
+    sections={[
+      {
+        title: "Calculation Types",
+        content: [
+          "<strong>What is X% of Y?</strong> - Find a percentage of a number (e.g., 20% of 50 = 10)",
+          "<strong>X is what % of Y?</strong> - Find what percentage one number is of another (e.g., 25 is 50% of 50)",
+          "<strong>% increase/decrease</strong> - Calculate percentage change between two numbers (e.g., 50 to 75 = 50% increase)"
+        ]
+      },
+      {
+        title: "Common Applications",
+        content: [
+          "<strong>Shopping:</strong> Calculate discounts and sale prices",
+          "<strong>Restaurants:</strong> Determine tip amounts (15-20%)",
+          "<strong>Taxes:</strong> Add sales tax to purchase prices",
+          "<strong>Business:</strong> Calculate growth rates and profit margins",
+          "<strong>Education:</strong> Convert test scores to percentages",
+          "<strong>Finance:</strong> Calculate interest rates and investment returns"
+        ]
+      },
+      {
+        title: "Quick Examples",
+        content: [
+          "20% discount on $100 item = $80 final price",
+          "15% tip on $50 bill = $7.50 tip amount",
+          "Sales increased from 100 to 120 = 20% growth",
+          "Score 85 out of 100 = 85% grade"
+        ]
+      }
+    ]}
+  />
 )
 
 export default function PercentageCalculatorPage() {

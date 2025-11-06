@@ -2,6 +2,7 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
+import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign } from "lucide-react"
 
 const fields: CalculatorField[] = [
@@ -94,27 +95,42 @@ function calculateMortgage(values: Record<string, string>): CalculatorResult[] {
 }
 
 const infoContent = (
-  <div className="prose prose-sm max-w-none">
-    <h2>About Mortgage Calculator</h2>
-    <p>
-      Use this mortgage calculator to estimate your monthly mortgage payment. The calculator
-      includes principal and interest, but doesn't include property taxes, homeowners insurance,
-      or HOA fees.
-    </p>
-    <h3>Key Terms</h3>
-    <ul>
-      <li><strong>Principal:</strong> The amount borrowed</li>
-      <li><strong>Interest Rate:</strong> The cost of borrowing money</li>
-      <li><strong>Down Payment:</strong> Upfront payment, typically 20% of home price</li>
-      <li><strong>Loan Term:</strong> Length of time to repay (15 or 30 years common)</li>
-    </ul>
-    <h3>Tips for Better Rates</h3>
-    <ul>
-      <li>Larger down payment = lower monthly payment</li>
-      <li>Shorter loan term = less total interest paid</li>
-      <li>Good credit score qualifies for better rates</li>
-    </ul>
-  </div>
+  <AboutDescription
+    title="About Mortgage Calculator"
+    description="Calculate your monthly mortgage payment including principal and interest. This calculator helps you estimate home affordability and compare loan options."
+    sections={[
+      {
+        title: "Key Mortgage Terms",
+        content: [
+          "<strong>Principal:</strong> The loan amount borrowed to purchase the home",
+          "<strong>Interest Rate:</strong> Annual percentage rate (APR) charged by the lender",
+          "<strong>Down Payment:</strong> Upfront payment, typically 10-20% of home price",
+          "<strong>Loan Term:</strong> Repayment period, commonly 15 or 30 years",
+          "<strong>PMI:</strong> Private mortgage insurance required if down payment < 20%"
+        ]
+      },
+      {
+        title: "Tips for Better Mortgage Rates",
+        content: [
+          "Make a larger down payment to reduce loan amount and avoid PMI",
+          "Choose shorter loan terms (15 years) for lower total interest",
+          "Improve credit score before applying for better rates",
+          "Shop around with multiple lenders for competitive rates",
+          "Consider paying points to reduce interest rate"
+        ]
+      },
+      {
+        title: "Additional Costs to Consider",
+        content: [
+          "Property taxes - varies by location and home value",
+          "Homeowners insurance - protects against damage and liability",
+          "HOA fees - monthly/annual homeowners association dues",
+          "Closing costs - typically 2-5% of home purchase price",
+          "Maintenance and repairs - budget 1-3% of home value annually"
+        ]
+      }
+    ]}
+  />
 )
 
 export default function MortgageCalculatorPage() {
