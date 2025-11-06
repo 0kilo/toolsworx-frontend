@@ -79,7 +79,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/image-blur",
     keywords: ["blur", "image", "soften", "gaussian"],
-    popular: true,
+    popular: false,
   },
   {
     id: "image-sharpen",
@@ -89,7 +89,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/image-sharpen",
     keywords: ["sharpen", "image", "enhance", "details", "clarity"],
-    popular: true,
+    popular: false,
   },
 
   // Instagram-style Filters
@@ -101,7 +101,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Wand2,
     href: "/filters/valencia",
     keywords: ["valencia", "instagram", "filter", "warm"],
-    popular: true,
+    popular: false,
   },
   {
     id: "filter-nashville",
@@ -111,7 +111,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Wand2,
     href: "/filters/nashville",
     keywords: ["nashville", "instagram", "filter", "warm", "vintage"],
-    popular: true,
+    popular: false,
   },
   {
     id: "filter-xpro2",
@@ -133,7 +133,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/audio-equalizer",
     keywords: ["equalizer", "audio", "eq", "bass", "treble"],
-    popular: true,
+    popular: false,
   },
   {
     id: "audio-reverb",
@@ -143,7 +143,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-reverb",
     keywords: ["reverb", "audio", "echo", "effect", "space"],
-    popular: true,
+    popular: false,
   },
   {
     id: "audio-echo",
@@ -163,7 +163,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-noise-reduction",
     keywords: ["noise", "reduction", "audio", "clean", "denoise"],
-    popular: true,
+    popular: false,
   },
   {
     id: "audio-normalize",
@@ -173,7 +173,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/audio-normalize",
     keywords: ["normalize", "audio", "volume", "level"],
-    popular: true,
+    popular: false,
   },
   {
     id: "audio-bass-boost",
@@ -183,7 +183,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-bass-boost",
     keywords: ["bass", "boost", "audio", "low frequency", "enhance"],
-    popular: true,
+    popular: false,
   },
 
   // Data Filters
@@ -195,7 +195,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/json-format",
     keywords: ["json", "format", "prettify", "beautify"],
-    popular: true,
+    popular: false,
   },
   {
     id: "json-minify",
@@ -205,7 +205,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/json-minify",
     keywords: ["json", "minify", "compress", "compact"],
-    popular: true,
+    popular: false,
   },
   {
     id: "xml-format",
@@ -225,7 +225,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/csv-clean",
     keywords: ["csv", "clean", "format", "data"],
-    popular: true,
+    popular: false,
   },
   {
     id: "text-case",
@@ -235,7 +235,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/text-case",
     keywords: ["text", "case", "upper", "lower", "camel", "snake"],
-    popular: true,
+    popular: false,
   },
   {
     id: "extract-emails",
@@ -245,7 +245,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/extract-emails",
     keywords: ["extract", "email", "text", "find", "parse"],
-    popular: true,
+    popular: false,
   },
   {
     id: "extract-urls",
@@ -255,6 +255,6 @@ export const filterTools: ConverterMetadata[] = [
     icon: FileCode,
     href: "/filters/extract-urls",
     keywords: ["extract", "url", "text", "find", "parse", "links"],
-    popular: true,
+    popular: false,
   },
 ]

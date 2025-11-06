@@ -45,7 +45,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileText,
     href: "/file-converters/powerpoint-pdf",
     keywords: ["powerpoint", "pdf", "pptx", "presentation", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "pdf-text",
@@ -97,7 +97,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileSpreadsheet,
     href: "/file-converters/excel-csv",
     keywords: ["excel", "csv", "xlsx", "spreadsheet", "data"],
-    popular: true,
+    popular: false,
   },
   {
     id: "csv-excel",
@@ -107,7 +107,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileSpreadsheet,
     href: "/file-converters/csv-excel",
     keywords: ["csv", "excel", "xlsx", "spreadsheet", "convert"],
-    popular: true,
+    popular: false,
   },
 
   // Data Format Conversions
@@ -119,7 +119,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileJson,
     href: "/file-converters/json-yaml",
     keywords: ["json", "yaml", "data", "convert", "config"],
-    popular: true,
+    popular: false,
   },
   {
     id: "yaml-json",
@@ -129,7 +129,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileJson,
     href: "/file-converters/yaml-json",
     keywords: ["yaml", "json", "data", "convert", "config"],
-    popular: true,
+    popular: false,
   },
   {
     id: "json-xml",
@@ -149,7 +149,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: Code,
     href: "/file-converters/xml-json",
     keywords: ["xml", "json", "data", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "csv-json",
@@ -159,7 +159,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: FileJson,
     href: "/file-converters/csv-json",
     keywords: ["csv", "json", "data", "convert"],
-    popular: true,
+    popular: false,
   },
 
   // Archive Conversions
@@ -171,7 +171,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: Archive,
     href: "/file-converters/zip-extract",
     keywords: ["zip", "extract", "unzip", "archive", "decompress"],
-    popular: true,
+    popular: false,
   },
   {
     id: "create-zip",
@@ -181,7 +181,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: Archive,
     href: "/file-converters/create-zip",
     keywords: ["zip", "create", "archive", "compress", "multiple files"],
-    popular: true,
+    popular: false,
   },
 
   // Encoding Conversions
@@ -193,7 +193,7 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: Code,
     href: "/file-converters/base64-encode",
     keywords: ["base64", "encode", "encoding", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "base64-decode",
@@ -203,6 +203,6 @@ export const fileConverterTools: ConverterMetadata[] = [
     icon: Code,
     href: "/file-converters/base64-decode",
     keywords: ["base64", "decode", "decoding", "convert"],
-    popular: true,
+    popular: false,
   },
 ]

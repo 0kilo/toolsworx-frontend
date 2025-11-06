@@ -74,6 +74,6 @@ export const calculatorTools: ConverterMetadata[] = [
     icon: Percent,
     href: "/calculators/percentage",
     keywords: ["percentage", "percent", "increase", "decrease", "discount"],
-    popular: true,
+    popular: false,
   },
 ]
