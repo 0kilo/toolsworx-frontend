@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  # Redis for job queues and caching
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # File Conversion Service
+  file-conversion:
+    build:
+      context: ./backend/file-conversion-service
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+      - MAX_FILE_SIZE=104857600  # 100MB
+      - TEMP_DIR=/tmp/file-conversions
+      - CORS_ORIGIN=http://localhost:3001
+    volumes:
+      - /tmp:/tmp
+      - ./backend/file-conversion-service/src:/app/src
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Media Conversion Service
+  media-conversion:
+    build:
+      context: ./backend/media-conversion-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - PORT=3002
+      - REDIS_URL=redis://redis:6379
+      - TEMP_DIR=/tmp/media-processing
+      - CORS_ORIGIN=http://localhost:3001
+    volumes:
+      - /tmp:/tmp
+      - ./backend/media-conversion-service/src:/app/src
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 3
+      start_period: 40s
+
+  # Filter Service
+  filter-service:
+    build:
+      context: ./backend/filter-service
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=development
+      - PORT=3003
+      - REDIS_URL=redis://redis:6379
+      - TEMP_DIR=/tmp/filter-processing
+      - CORS_ORIGIN=http://localhost:3001
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  default:
+    name: convert-all-local

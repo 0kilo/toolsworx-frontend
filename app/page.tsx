@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { ConverterCard } from "@/components/shared/converter-card"
 import { HeaderAd, InContentAd } from "@/components/ads/ad-unit"
-import { converters, getPopularConverters } from "@/lib/registry"
+import { allConverters as converters, getPopularConverters } from "@/lib/registry"
 import { categoryGroups } from "@/lib/categories"
 import { Input } from "@/components/ui/input"
 import { Search, Zap } from "lucide-react"
@@ -79,7 +79,7 @@ export default function HomePage() {
       {!searchQuery && (
         <>
           <section id="converters" className="mb-16">
-            <h2 className="text-3xl font-bold mb-8">Converters</h2>
+            <h2 className="text-3xl font-bold mb-8">Popular Converters</h2>
 
             {categoryGroups.map((group) => {
               const groupConverters = converters.filter((c) =>

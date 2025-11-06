@@ -104,14 +104,21 @@ export class FileConversionProcessor {
     targetFormat: string
   ): Promise<void> {
     return new Promise((resolve, reject) => {
+      const inputExt = path.extname(inputPath).toLowerCase().slice(1)
       const args = [
         '--headless',
         '--convert-to',
         targetFormat,
         '--outdir',
         outputDir,
-        inputPath,
       ]
+      
+      // Add PDF import filter for PDF files
+      if (inputExt === 'pdf') {
+        args.push('--infilter=writer_pdf_import')
+      }
+      
+      args.push(inputPath)
 
       const process = spawn(config.libreOfficePath, args, {
         timeout: 300000, // 5 minutes

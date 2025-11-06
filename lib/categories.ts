@@ -1,4 +1,4 @@
-import { Ruler, Calculator, FileText, Film, Code2, Sliders, LucideIcon } from "lucide-react"
+import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, LucideIcon } from "lucide-react"
 
 export interface CategoryGroup {
   id: string
@@ -15,6 +15,34 @@ export interface CategoryGroup {
 }
 
 export const categoryGroups: CategoryGroup[] = [
+  {
+    id: "helpful-calculators",
+    title: "Helpful Calculators",
+    description: "Practical calculators for everyday tasks",
+    longDescription:
+      "Our helpful calculators make everyday tasks easier. Scale recipes for different serving sizes, organize secret santa gift exchanges, and count down to important holidays and events. These practical tools save time and help you plan better.",
+    icon: Heart,
+    color: "bg-red-50 border-red-200",
+    textColor: "text-red-900",
+    iconColor: "text-red-600",
+    categories: ["helpful"],
+    seoKeywords: [
+      "recipe scaler",
+      "secret santa generator",
+      "holiday countdown",
+      "recipe calculator",
+      "gift exchange",
+      "countdown timer",
+      "helpful tools",
+      "everyday calculators",
+    ],
+    benefits: [
+      "Perfect for everyday tasks",
+      "Easy to use interface",
+      "Instant results",
+      "Free and no registration required",
+    ],
+  },
   {
     id: "unit-conversions",
     title: "Unit Conversions",
@@ -82,7 +110,7 @@ export const categoryGroups: CategoryGroup[] = [
     color: "bg-purple-50 border-purple-200",
     textColor: "text-purple-900",
     iconColor: "text-purple-600",
-    categories: ["document"],
+    categories: ["document", "spreadsheet", "data", "encoding", "archive"],
     seoKeywords: [
       "pdf to word",
       "word to pdf",

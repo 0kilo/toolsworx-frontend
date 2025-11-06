@@ -1,0 +1,3 @@
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/mckhanster
+ssh -T git@github.com

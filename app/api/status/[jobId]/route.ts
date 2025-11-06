@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const FILE_SERVICE_URL = process.env.FILE_SERVICE_URL || 'http://localhost:3000'
+const FILE_SERVICE_URL = process.env.FILE_SERVICE_URL || 'http://localhost:3010'
 
 export async function GET(
   request: NextRequest,
@@ -14,7 +14,8 @@ export async function GET(
         ...(request.headers.get('authorization') && {
           authorization: request.headers.get('authorization')!
         })
-      }
+      },
+      signal: AbortSignal.timeout(30000) // 30 seconds
     })
 
     const data = await response.json()

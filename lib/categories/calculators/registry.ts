@@ -1,4 +1,4 @@
-import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart, Package, ChefHat, Gift, Calendar } from "lucide-react"
+import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -76,44 +76,5 @@ export const calculatorTools: ConverterMetadata[] = [
     keywords: ["percentage", "percent", "increase", "decrease", "discount"],
     popular: false,
   },
-  {
-    id: "shipping-cost-calculator",
-    title: "Shipping Cost Calculator",
-    description: "Compare shipping rates from USPS, UPS, FedEx, and DHL",
-    category: "calculator",
-    icon: Package,
-    href: "/calculators/shipping-cost",
-    keywords: ["shipping", "cost", "usps", "ups", "fedex", "dhl", "delivery", "package", "mail", "holiday"],
-    popular: true,
-  },
-  {
-    id: "recipe-scaler",
-    title: "Recipe Scaler",
-    description: "Scale recipe ingredients for any number of servings",
-    category: "calculator",
-    icon: ChefHat,
-    href: "/calculators/recipe-scaler",
-    keywords: ["recipe", "cooking", "ingredients", "scale", "servings", "holiday", "thanksgiving", "christmas"],
-    popular: true,
-  },
-  {
-    id: "secret-santa-generator",
-    title: "Secret Santa Generator",
-    description: "Randomly assign Secret Santa pairs and send email notifications",
-    category: "calculator",
-    icon: Gift,
-    href: "/calculators/secret-santa",
-    keywords: ["secret santa", "gift exchange", "christmas", "holiday", "random", "generator", "email"],
-    popular: true,
-  },
-  {
-    id: "holiday-countdown",
-    title: "Holiday Countdown",
-    description: "Countdown to Christmas, New Year, and other major holidays",
-    category: "calculator",
-    icon: Calendar,
-    href: "/calculators/holiday-countdown",
-    keywords: ["countdown", "christmas", "new year", "holiday", "days until", "timer"],
-    popular: true,
-  },
+
 ]

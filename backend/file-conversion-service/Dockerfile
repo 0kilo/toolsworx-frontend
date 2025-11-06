@@ -1,8 +1,13 @@
 FROM node:20-alpine
 
-# Install LibreOffice, Pandoc, and dependencies
+# Install LibreOffice, Java, Pandoc, and dependencies
 RUN apk add --no-cache \
     libreoffice \
+    libreoffice-writer \
+    libreoffice-calc \
+    libreoffice-impress \
+    libreoffice-draw \
+    openjdk11-jre \
     pandoc \
     ttf-dejavu \
     fontconfig \
@@ -14,7 +19,7 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm install
 
 # Copy source code
 COPY . .

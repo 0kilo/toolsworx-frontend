@@ -3,11 +3,12 @@
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
-import { FileDropzone } from "@/components/converters/file-dropzone"
+import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Download, Loader2, AlertCircle } from "lucide-react"
-import { useRateLimit, RATE_LIMITS, RateLimitWarning, RateLimitExceeded } from "@/lib/rate-limit"
+import { useRateLimit, RATE_LIMITS } from "@/lib/rate-limit"
+import { RateLimitWarning, RateLimitExceeded } from "@/components/ui/rate-limit"
 
 /**
  * FILE CONVERTER TEMPLATE
@@ -194,16 +195,17 @@ export function FileConverterTemplate({
           {selectedFile && status === "idle" && (
             <div className="space-y-2">
               <Label htmlFor="output-format">Output Format</Label>
-              <Select
-                id="output-format"
-                value={outputFormat}
-                onChange={(e) => setOutputFormat(e.target.value)}
-              >
-                {outputFormats.map((format) => (
-                  <option key={format.value} value={format.value}>
-                    {format.label}
-                  </option>
-                ))}
+              <Select value={outputFormat} onValueChange={setOutputFormat}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select format" />
+                </SelectTrigger>
+                <SelectContent>
+                  {outputFormats.map((format) => (
+                    <SelectItem key={format.value} value={format.value}>
+                      {format.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
               </Select>
             </div>
           )}

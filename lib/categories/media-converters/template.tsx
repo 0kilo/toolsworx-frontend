@@ -3,12 +3,13 @@
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
-import { FileDropzone } from "@/components/converters/file-dropzone"
+import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Download, Loader2, AlertCircle } from "lucide-react"
-import { useRateLimit, RATE_LIMITS, RateLimitWarning, RateLimitExceeded } from "@/lib/rate-limit"
+import { useRateLimit, RATE_LIMITS } from "@/lib/rate-limit"
+import { RateLimitWarning, RateLimitExceeded } from "@/components/ui/rate-limit"
 
 /**
  * MEDIA CONVERTER TEMPLATE
@@ -256,16 +257,17 @@ export function MediaConverterTemplate({
               {/* Output Format */}
               <div className="space-y-2">
                 <Label htmlFor="output-format">Output Format</Label>
-                <Select
-                  id="output-format"
-                  value={outputFormat}
-                  onChange={(e) => setOutputFormat(e.target.value)}
-                >
-                  {outputFormats.map((format) => (
-                    <option key={format.value} value={format.value}>
-                      {format.label}
-                    </option>
-                  ))}
+                <Select value={outputFormat} onValueChange={setOutputFormat}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select format" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {outputFormats.map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
                 </Select>
               </div>
 
@@ -329,35 +331,30 @@ export function MediaConverterTemplate({
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="resolution">Resolution</Label>
-                        <Select
-                          id="resolution"
-                          value={options.resolution || "original"}
-                          onChange={(e) =>
-                            setOptions({ ...options, resolution: e.target.value })
-                          }
-                        >
-                          <option value="original">Original</option>
-                          <option value="1080p">1080p (1920x1080)</option>
-                          <option value="720p">720p (1280x720)</option>
-                          <option value="480p">480p (854x480)</option>
+                        <Select value={options.resolution || "original"} onValueChange={(value) => setOptions({ ...options, resolution: value })}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select resolution" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="original">Original</SelectItem>
+                            <SelectItem value="1080p">1080p (1920x1080)</SelectItem>
+                            <SelectItem value="720p">720p (1280x720)</SelectItem>
+                            <SelectItem value="480p">480p (854x480)</SelectItem>
+                          </SelectContent>
                         </Select>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="fps">FPS</Label>
-                        <Select
-                          id="fps"
-                          value={options.fps?.toString() || "original"}
-                          onChange={(e) =>
-                            setOptions({
-                              ...options,
-                              fps: e.target.value === "original" ? undefined : parseInt(e.target.value),
-                            })
-                          }
-                        >
-                          <option value="original">Original</option>
-                          <option value="60">60 FPS</option>
-                          <option value="30">30 FPS</option>
-                          <option value="24">24 FPS</option>
+                        <Select value={options.fps?.toString() || "original"} onValueChange={(value) => setOptions({ ...options, fps: value === "original" ? undefined : parseInt(value) })}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select FPS" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="original">Original</SelectItem>
+                            <SelectItem value="60">60 FPS</SelectItem>
+                            <SelectItem value="30">30 FPS</SelectItem>
+                            <SelectItem value="24">24 FPS</SelectItem>
+                          </SelectContent>
                         </Select>
                       </div>
                     </div>

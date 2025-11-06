@@ -1,0 +1,45 @@
+import { ChefHat, Gift, Calendar, Package } from "lucide-react"
+import { ConverterMetadata } from "@/types/converter"
+
+export const helpfulCalculators: ConverterMetadata[] = [
+  {
+    id: "recipe-scaler",
+    title: "Recipe Scaler",
+    description: "Scale recipe ingredients for different serving sizes",
+    category: "helpful",
+    icon: ChefHat,
+    href: "/helpful-calculators/recipe-scaler",
+    keywords: ["recipe", "scale", "ingredients", "cooking", "servings", "portions"],
+    popular: true,
+  },
+  {
+    id: "secret-santa",
+    title: "Secret Santa Generator",
+    description: "Organize gift exchanges with automatic pairing",
+    category: "helpful",
+    icon: Gift,
+    href: "/helpful-calculators/secret-santa",
+    keywords: ["secret santa", "gift exchange", "christmas", "holiday", "random", "generator"],
+    popular: true,
+  },
+  {
+    id: "holiday-countdown",
+    title: "Holiday Countdown",
+    description: "Count down to holidays and special events",
+    category: "helpful",
+    icon: Calendar,
+    href: "/helpful-calculators/holiday-countdown",
+    keywords: ["countdown", "holiday", "christmas", "new year", "birthday", "event", "timer"],
+    popular: true,
+  },
+  {
+    id: "shipping-cost-calculator",
+    title: "Shipping Cost Calculator",
+    description: "Compare shipping rates from USPS, UPS, FedEx, and DHL",
+    category: "helpful",
+    icon: Package,
+    href: "/helpful-calculators/shipping-cost",
+    keywords: ["shipping", "cost", "usps", "ups", "fedex", "dhl", "delivery", "package", "mail", "holiday"],
+    popular: true,
+  },
+]

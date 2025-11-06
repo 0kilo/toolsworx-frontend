@@ -36,9 +36,9 @@ export function AboutDescription({ title, description, sections }: AboutDescript
               </div>
             ) : (
               <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground ml-4">
-                {(section.content as string[]).map((item, itemIndex) => (
+                {Array.isArray(section.content) ? (section.content as string[]).map((item: string, itemIndex: number) => (
                   <li key={itemIndex} dangerouslySetInnerHTML={{ __html: item }} />
-                ))}
+                )) : null}
               </ul>
             )}
           </div>

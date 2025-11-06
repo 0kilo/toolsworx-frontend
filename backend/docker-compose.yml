@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Redis for job queues and caching
   redis:
-    image: redis:7-alpine
+    image: redis:alpine
     ports:
       - "6379:6379"
     volumes:
@@ -21,7 +21,7 @@ services:
       context: ./file-conversion-service
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3010:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -30,6 +30,7 @@ services:
       - TEMP_DIR=/tmp/file-conversions
       - LIBRE_OFFICE_PATH=/usr/bin/libreoffice
       - PANDOC_PATH=/usr/bin/pandoc
+      - CORS_ORIGIN=http://localhost:3000
     volumes:
       - /tmp:/tmp
     depends_on:
@@ -57,7 +58,7 @@ services:
       context: ./media-conversion-service
       dockerfile: Dockerfile
     ports:
-      - "3001:3001"
+      - "3011:3001"
     environment:
       - NODE_ENV=production
       - PORT=3001
@@ -90,7 +91,7 @@ services:
       context: ./filter-service
       dockerfile: Dockerfile
     ports:
-      - "3002:3002"
+      - "3012:3002"
     environment:
       - NODE_ENV=production
       - PORT=3002

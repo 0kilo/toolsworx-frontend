@@ -20,7 +20,7 @@ class ApiClient {
 
   constructor() {
     this.client = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+      baseURL: process.env.NEXT_PUBLIC_API_URL || '',
       timeout: 300000, // 5 minutes
       headers: {
         'Content-Type': 'application/json',
@@ -90,18 +90,30 @@ class ApiClient {
       formData.append('options', JSON.stringify(options))
     }
 
-    const response = await this.client.post<ApiResponse<ConversionJob>>('/api/convert', formData, {
+    const response = await this.client.post('/api/convert', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     })
 
-    return response.data.data
+    // Backend returns job directly, not wrapped in ApiResponse
+    return {
+      id: response.data.jobId,
+      status: response.data.status,
+      progress: 0,
+      downloadUrl: response.data.downloadUrl
+    }
   }
 
   async getJobStatus(jobId: string): Promise<ConversionJob> {
-    const response = await this.client.get<ApiResponse<ConversionJob>>(`/api/status/${jobId}`)
-    return response.data.data
+    const response = await this.client.get(`/api/status/${jobId}`)
+    return {
+      id: response.data.jobId || jobId,
+      status: response.data.status,
+      progress: response.data.progress || 0,
+      downloadUrl: response.data.downloadUrl,
+      error: response.data.error
+    }
   }
 
   async downloadFile(jobId: string): Promise<Blob> {
@@ -115,18 +127,25 @@ class ApiClient {
   async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
     const formData = new FormData()
     formData.append('file', file)
-    formData.append('targetFormat', targetFormat)
+    formData.append('outputFormat', targetFormat)
     if (options) {
       formData.append('options', JSON.stringify(options))
     }
 
-    const response = await this.client.post<ApiResponse<ConversionJob>>('/api/media/convert', formData, {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_MEDIA_SERVICE_URL || 'http://localhost:3011'}/api/convert`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
+      timeout: 300000
     })
 
-    return response.data.data
+    // Media service returns job directly, not wrapped in ApiResponse
+    return {
+      id: response.data.jobId,
+      status: response.data.status,
+      progress: 0,
+      downloadUrl: response.data.downloadUrl
+    }
   }
 
   // Filter methods
@@ -138,10 +157,11 @@ class ApiClient {
       formData.append('options', JSON.stringify(options))
     }
 
-    const response = await this.client.post<ApiResponse<ConversionJob>>('/api/filter/apply', formData, {
+    const response = await axios.post<ApiResponse<ConversionJob>>(`${process.env.NEXT_PUBLIC_FILTER_SERVICE_URL || 'http://localhost:3012'}/api/filter`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
+      timeout: 300000
     })
 
     return response.data.data

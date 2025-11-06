@@ -47,8 +47,8 @@ const worker = new Worker(
 )
 
 // Register plugins
-await server.register(cors)
-await server.register(multipart, { limits: { fileSize: 2147483648 } })
+server.register(cors)
+server.register(multipart, { limits: { fileSize: 2147483648 } })
 
 // Routes
 server.post('/api/convert', async (request, reply) => {
@@ -134,8 +134,12 @@ server.get('/', async () => ({
 }))
 
 // Start server
-await server.listen({ port: PORT, host: '0.0.0.0' })
-console.log(`Media conversion service started on port ${PORT}`)
+server.listen({ port: PORT, host: '0.0.0.0' }).then(() => {
+  console.log(`Media conversion service started on port ${PORT}`)
+}).catch(err => {
+  console.error(err)
+  process.exit(1)
+})
 
 process.on('SIGTERM', async () => {
   await worker.close()
