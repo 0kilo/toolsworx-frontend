@@ -1,0 +1,41 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+const FILE_SERVICE_URL = process.env.FILE_SERVICE_URL || 'http://localhost:3000'
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { jobId: string } }
+) {
+  try {
+    const { jobId } = params
+    
+    const response = await fetch(`${FILE_SERVICE_URL}/api/download/${jobId}`, {
+      headers: {
+        ...(request.headers.get('authorization') && {
+          authorization: request.headers.get('authorization')!
+        })
+      }
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      return NextResponse.json(errorData, { status: response.status })
+    }
+
+    // Stream the file response
+    const blob = await response.blob()
+    
+    return new NextResponse(blob, {
+      headers: {
+        'Content-Type': response.headers.get('content-type') || 'application/octet-stream',
+        'Content-Disposition': response.headers.get('content-disposition') || 'attachment',
+      }
+    })
+  } catch (error) {
+    console.error('Download error:', error)
+    return NextResponse.json(
+      { success: false, message: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}

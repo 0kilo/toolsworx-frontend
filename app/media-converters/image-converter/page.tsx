@@ -10,36 +10,66 @@ import { FileDropzone } from "@/components/shared/file-dropzone"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Download, Loader2 } from "lucide-react"
+import { ConversionService, ConversionJob } from "@/lib/services"
 
 export default function ImageConverterPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [outputFormat, setOutputFormat] = useState("png")
   const [converting, setConverting] = useState(false)
-  const [convertedUrl, setConvertedUrl] = useState<string | null>(null)
+  const [job, setJob] = useState<ConversionJob | null>(null)
+  const [progress, setProgress] = useState(0)
 
   const handleFileSelect = (file: File) => {
     setSelectedFile(file)
-    setConvertedUrl(null)
+    setJob(null)
+    setProgress(0)
   }
 
   const handleConvert = async () => {
     if (!selectedFile) return
 
     setConverting(true)
+    setProgress(0)
 
-    // TODO: Implement actual conversion
-    // For now, this is a placeholder that demonstrates the UI flow
-    // You would typically:
-    // 1. Upload file to S3
-    // 2. Call Lambda/API to convert
-    // 3. Poll for completion
-    // 4. Get download URL
+    try {
+      // Start conversion
+      const conversionJob = await ConversionService.convertImageFormat(
+        selectedFile,
+        outputFormat,
+        { quality: 90 }
+      )
 
-    // Simulated conversion
-    setTimeout(() => {
-      setConvertedUrl("https://example.com/converted-file." + outputFormat)
+      setJob(conversionJob)
+
+      // Poll for completion
+      const completedJob = await ConversionService.pollJobStatus(
+        conversionJob.id,
+        (updatedJob) => {
+          setProgress(updatedJob.progress || 0)
+        }
+      )
+
+      setJob(completedJob)
+    } catch (error) {
+      console.error('Conversion failed:', error)
+      alert('Conversion failed. Please try again.')
+    } finally {
       setConverting(false)
-    }, 2000)
+    }
+  }
+
+  const handleDownload = async () => {
+    if (!job?.id) return
+
+    try {
+      await ConversionService.downloadConvertedFile(
+        job.id,
+        `converted-image.${outputFormat}`
+      )
+    } catch (error) {
+      console.error('Download failed:', error)
+      alert('Download failed. Please try again.')
+    }
   }
 
   return (
@@ -102,8 +132,22 @@ export default function ImageConverterPage() {
                 </>
               )}
 
-              {convertedUrl && (
-                <div className="bg-primary/10 border border-primary rounded-lg p-6 text-center space-y-4">
+              {converting && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+                  <Loader2 className="mx-auto h-8 w-8 animate-spin text-blue-600 mb-4" />
+                  <p className="text-lg font-medium mb-2">Converting Image...</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                    <div 
+                      className="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+                      style={{ width: `${progress}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{progress}% complete</p>
+                </div>
+              )}
+
+              {job?.status === 'completed' && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center space-y-4">
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">
                       Conversion Complete!
@@ -112,13 +156,17 @@ export default function ImageConverterPage() {
                       Your image has been converted to {outputFormat.toUpperCase()}
                     </p>
                   </div>
-                  <Button size="lg" className="w-full">
+                  <Button size="lg" className="w-full" onClick={handleDownload}>
                     <Download className="mr-2 h-4 w-4" />
                     Download Converted Image
                   </Button>
-                  <p className="text-xs text-muted-foreground">
-                    Note: This is a demo. Implement actual conversion logic in production.
-                  </p>
+                </div>
+              )}
+
+              {job?.status === 'failed' && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+                  <p className="text-lg font-medium text-red-800 mb-2">Conversion Failed</p>
+                  <p className="text-sm text-red-600">{job.error || 'Unknown error occurred'}</p>
                 </div>
               )}
             </CardContent>
