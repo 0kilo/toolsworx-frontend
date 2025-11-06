@@ -7,12 +7,14 @@ import { v4 as uuidv4 } from 'uuid'
 import { createWriteStream } from 'fs'
 import { pipeline } from 'stream/promises'
 import ffmpeg from 'fluent-ffmpeg'
+import sharp from 'sharp'
 import { Queue, Worker } from 'bullmq'
 import Redis from 'ioredis'
 
-const PORT = parseInt(process.env.PORT || '3001', 10)
+const PORT = parseInt(process.env.PORT1 || '3001', 10)
 const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379'
 const TEMP_DIR = process.env.TEMP_DIR || '/tmp/media-processing'
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*'
 
 const server = Fastify({ logger: true, bodyLimit: 2147483648 })
 
@@ -24,8 +26,22 @@ const mediaQueue = new Queue('media-conversion', { connection: redis })
 const worker = new Worker(
   'media-conversion',
   async (job) => {
-    const { inputPath, outputPath, format, options } = job.data
 
+   
+    const { inputPath, outputPath, format, options, inputFormat } = job.data
+    
+    // Use Sharp for image conversion
+    const imageFormats = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp', 'tiff']
+    if (imageFormats.includes(inputFormat) && imageFormats.includes(format)) {
+      await job.updateProgress(50)
+      await sharp(inputPath)
+        .toFormat(format === 'jpg' ? 'jpeg' : format, { quality: options.quality || 90 })
+        .toFile(outputPath)
+      await job.updateProgress(100)
+      return { outputPath, success: true }
+    }
+
+    // Use FFmpeg for video/audio
     return new Promise((resolve, reject) => {
       let command = ffmpeg(inputPath)
         .output(outputPath)
@@ -47,13 +63,17 @@ const worker = new Worker(
 )
 
 // Register plugins
-server.register(cors)
+server.register(cors, {
+  origin: CORS_ORIGIN,
+  credentials: true
+})
 server.register(multipart, { limits: { fileSize: 2147483648 } })
 
 // Routes
 server.post('/api/convert', async (request, reply) => {
   try {
     const data = await request.file()
+     console.log("===================MEDIA DATA: ", data);
     if (!data) return reply.code(400).send({ error: 'No file uploaded' })
 
     const jobId = uuidv4()
@@ -66,6 +86,7 @@ server.post('/api/convert', async (request, reply) => {
     // Get conversion parameters
     const fields = data.fields as any
     const format = fields.outputFormat?.value || 'mp4'
+    const inputFormat = fields.inputFormat?.value || 'png'
     const options = fields.options ? JSON.parse(fields.options.value) : {}
 
     const outputExt = format
@@ -76,6 +97,7 @@ server.post('/api/convert', async (request, reply) => {
       inputPath,
       outputPath,
       format,
+      inputFormat,
       options,
     })
 

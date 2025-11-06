@@ -10,9 +10,10 @@ import { pipeline } from 'stream/promises'
 import { Queue, Worker } from 'bullmq'
 import Redis from 'ioredis'
 
-const PORT = parseInt(process.env.PORT || '3002', 10)
+const PORT = parseInt(process.env.PORT2 || '3002', 10)
 const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379'
 const TEMP_DIR = process.env.TEMP_DIR || '/tmp/filter-processing'
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*'
 
 const server = Fastify({ logger: true, bodyLimit: 209715200 })
 
@@ -75,7 +76,10 @@ const worker = new Worker(
 )
 
 // Register plugins
-server.register(cors)
+server.register(cors, {
+  origin: CORS_ORIGIN,
+  credentials: true
+})
 server.register(multipart, { limits: { fileSize: 209715200 } })
 
 // Routes
