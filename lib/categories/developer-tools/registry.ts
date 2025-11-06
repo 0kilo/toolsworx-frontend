@@ -74,7 +74,7 @@ export const developerTools: ConverterMetadata[] = [
     icon: Code2,
     href: "/dev-tools/regex-tester",
     keywords: ["regex", "regexp", "regular expression", "pattern", "match"],
-    popular: true,
+    popular: false,
   },
   {
     id: "jwt-decoder",
@@ -84,6 +84,6 @@ export const developerTools: ConverterMetadata[] = [
     icon: Code,
     href: "/dev-tools/jwt-decoder",
     keywords: ["jwt", "json web token", "decode", "auth", "token"],
-    popular: true,
+    popular: false,
   },
 ]

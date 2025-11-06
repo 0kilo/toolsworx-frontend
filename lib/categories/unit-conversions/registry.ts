@@ -1,105 +1,184 @@
-import { Thermometer, Ruler, Weight, Droplet, Clock } from "lucide-react"
+import { Thermometer, Ruler, Weight, Droplet, Clock, DollarSign, Gauge, Square } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
  * Unit Conversions Registry
- * All unit conversion tools are registered here
+ * Consolidated bidirectional converters
  */
 export const unitConversionTools: ConverterMetadata[] = [
-  // Temperature Conversions
+  // Length/Distance
   {
-    id: "celsius-fahrenheit",
-    title: "Celsius to Fahrenheit",
-    description: "Convert temperature between Celsius and Fahrenheit",
-    category: "temperature",
-    icon: Thermometer,
-    href: "/unit-conversions/celsius-fahrenheit",
-    keywords: ["celsius", "fahrenheit", "temperature", "degrees", "c to f"],
-    popular: true,
-  },
-  {
-    id: "fahrenheit-celsius",
-    title: "Fahrenheit to Celsius",
-    description: "Convert temperature between Fahrenheit and Celsius",
-    category: "temperature",
-    icon: Thermometer,
-    href: "/unit-conversions/fahrenheit-celsius",
-    keywords: ["fahrenheit", "celsius", "temperature", "degrees", "f to c"],
-    popular: true,
-  },
-
-  // Distance Conversions
-  {
-    id: "km-miles",
-    title: "Kilometers to Miles",
-    description: "Convert distance between kilometers and miles",
+    id: "inches-centimeters",
+    title: "Inches - Centimeters",
+    description: "**Convert between inches and centimeters instantly**",
     category: "distance",
     icon: Ruler,
-    href: "/unit-conversions/km-miles",
-    keywords: ["kilometers", "miles", "distance", "km", "mi"],
-    popular: true,
-  },
-  {
-    id: "miles-km",
-    title: "Miles to Kilometers",
-    description: "Convert distance between miles and kilometers",
-    category: "distance",
-    icon: Ruler,
-    href: "/unit-conversions/miles-km",
-    keywords: ["miles", "kilometers", "distance", "mi", "km"],
+    href: "/unit-conversions/inches-centimeters",
+    keywords: ["inches", "centimeters", "length", "in", "cm"],
     popular: true,
   },
   {
     id: "feet-meters",
-    title: "Feet to Meters",
-    description: "Convert distance between feet and meters",
+    title: "Feet - Meters",
+    description: "**Convert between feet and meters with precision**",
     category: "distance",
     icon: Ruler,
     href: "/unit-conversions/feet-meters",
-    keywords: ["feet", "meters", "distance", "ft", "m"],
-  },
-
-  // Weight Conversions
-  {
-    id: "kg-lbs",
-    title: "Kilograms to Pounds",
-    description: "Convert weight between kilograms and pounds",
-    category: "weight",
-    icon: Weight,
-    href: "/unit-conversions/kg-lbs",
-    keywords: ["kilograms", "pounds", "weight", "kg", "lbs"],
+    keywords: ["feet", "meters", "length", "ft", "m"],
     popular: true,
   },
+
+  // Weight/Mass
   {
-    id: "lbs-kg",
-    title: "Pounds to Kilograms",
-    description: "Convert weight between pounds and kilograms",
+    id: "pounds-kilograms",
+    title: "Pounds - Kilograms",
+    description: "**Convert between pounds and kilograms accurately**",
     category: "weight",
     icon: Weight,
-    href: "/unit-conversions/lbs-kg",
+    href: "/unit-conversions/pounds-kilograms",
     keywords: ["pounds", "kilograms", "weight", "lbs", "kg"],
     popular: true,
   },
+  {
+    id: "ounces-grams",
+    title: "Ounces - Grams",
+    description: "**Convert between ounces and grams for cooking and measurements**",
+    category: "weight",
+    icon: Weight,
+    href: "/unit-conversions/ounces-grams",
+    keywords: ["ounces", "grams", "weight", "oz", "g"],
+    popular: true,
+  },
 
-  // Volume Conversions
+  // Temperature
+  {
+    id: "celsius-fahrenheit",
+    title: "Celsius - Fahrenheit",
+    description: "**Convert between Celsius and Fahrenheit temperatures**",
+    category: "temperature",
+    icon: Thermometer,
+    href: "/unit-conversions/celsius-fahrenheit",
+    keywords: ["celsius", "fahrenheit", "temperature", "degrees", "c", "f"],
+    popular: true,
+  },
+  {
+    id: "kelvin-celsius",
+    title: "Kelvin - Celsius",
+    description: "**Convert between Kelvin and Celsius for scientific calculations**",
+    category: "temperature",
+    icon: Thermometer,
+    href: "/unit-conversions/kelvin-celsius",
+    keywords: ["kelvin", "celsius", "temperature", "k", "c", "scientific"],
+    popular: true,
+  },
+
+  // Volume
   {
     id: "liters-gallons",
-    title: "Liters to Gallons",
-    description: "Convert volume between liters and gallons",
+    title: "Liters - Gallons",
+    description: "**Convert between liters and gallons for fuel and liquids**",
     category: "volume",
     icon: Droplet,
     href: "/unit-conversions/liters-gallons",
     keywords: ["liters", "gallons", "volume", "l", "gal"],
+    popular: false,
+  },
+  {
+    id: "milliliters-ounces",
+    title: "Milliliters - Fluid Ounces",
+    description: "**Convert between milliliters and fluid ounces for recipes**",
+    category: "volume",
+    icon: Droplet,
+    href: "/unit-conversions/milliliters-ounces",
+    keywords: ["milliliters", "fluid ounces", "volume", "ml", "fl oz"],
+    popular: false,
   },
 
-  // Time Conversions
+  // Currency
   {
-    id: "hours-minutes",
-    title: "Hours to Minutes",
-    description: "Convert time between hours and minutes",
+    id: "usd-eur",
+    title: "USD - EUR",
+    description: "**Convert between US Dollars and Euros with live rates**",
+    category: "currency",
+    icon: DollarSign,
+    href: "/unit-conversions/usd-eur",
+    keywords: ["usd", "eur", "currency", "dollars", "euros", "exchange"],
+    popular: false,
+  },
+  {
+    id: "btc-usd",
+    title: "BTC - USD",
+    description: "**Convert between Bitcoin and US Dollars with real-time rates**",
+    category: "currency",
+    icon: DollarSign,
+    href: "/unit-conversions/btc-usd",
+    keywords: ["bitcoin", "btc", "usd", "cryptocurrency", "crypto"],
+    popular: false,
+  },
+
+  // Time
+  {
+    id: "hours-seconds",
+    title: "Hours - Seconds",
+    description: "**Convert between hours and seconds for time calculations**",
     category: "time",
     icon: Clock,
-    href: "/unit-conversions/hours-minutes",
-    keywords: ["hours", "minutes", "time", "h", "min"],
+    href: "/unit-conversions/hours-seconds",
+    keywords: ["hours", "seconds", "time", "h", "s"],
+    popular: false,
+  },
+  {
+    id: "utc-timezone",
+    title: "UTC - Local Timezone",
+    description: "**Convert between UTC and local time zones worldwide**",
+    category: "time",
+    icon: Clock,
+    href: "/unit-conversions/utc-timezone",
+    keywords: ["utc", "timezone", "time", "local", "gmt"],
+    popular: false,
+  },
+
+  // Speed
+  {
+    id: "mph-kmh",
+    title: "MPH - km/h",
+    description: "**Convert between miles per hour and kilometers per hour**",
+    category: "speed",
+    icon: Gauge,
+    href: "/unit-conversions/mph-kmh",
+    keywords: ["mph", "kmh", "speed", "miles per hour", "kilometers per hour"],
+    popular: false,
+  },
+  {
+    id: "knots-ms",
+    title: "Knots - m/s",
+    description: "**Convert between knots and meters per second for navigation**",
+    category: "speed",
+    icon: Gauge,
+    href: "/unit-conversions/knots-ms",
+    keywords: ["knots", "meters per second", "speed", "nautical", "m/s"],
+    popular: false,
+  },
+
+  // Area
+  {
+    id: "sqft-sqm",
+    title: "Square Feet - Square Meters",
+    description: "**Convert between square feet and square meters for area**",
+    category: "area",
+    icon: Square,
+    href: "/unit-conversions/sqft-sqm",
+    keywords: ["square feet", "square meters", "area", "sqft", "sqm"],
+    popular: false,
+  },
+  {
+    id: "acres-hectares",
+    title: "Acres - Hectares",
+    description: "**Convert between acres and hectares for land measurement**",
+    category: "area",
+    icon: Square,
+    href: "/unit-conversions/acres-hectares",
+    keywords: ["acres", "hectares", "area", "land", "property"],
+    popular: false,
   },
 ]

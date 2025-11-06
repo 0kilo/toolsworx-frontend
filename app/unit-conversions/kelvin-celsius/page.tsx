@@ -4,28 +4,28 @@ import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 export const metadata: Metadata = {
-  title: "Celsius to Fahrenheit Converter",
-  description: "Convert between Celsius and Fahrenheit temperatures. Free temperature conversion tool.",
-  keywords: ["celsius", "fahrenheit", "temperature", "converter", "c", "f"],
+  title: "Kelvin to Celsius Converter",
+  description: "Convert between Kelvin and Celsius for scientific calculations. Free temperature conversion tool.",
+  keywords: ["kelvin", "celsius", "temperature", "converter", "k", "c", "scientific"],
 }
 
 const temperatureUnits = [
+  { value: "kelvin", label: "Kelvin", abbreviation: "K" },
   { value: "celsius", label: "Celsius", abbreviation: "°C" },
   { value: "fahrenheit", label: "Fahrenheit", abbreviation: "°F" },
-  { value: "kelvin", label: "Kelvin", abbreviation: "K" },
 ]
 
-export default function CelsiusFahrenheitPage() {
+export default function KelvinCelsiusPage() {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <UnitConversionTemplate
-            title="Celsius - Fahrenheit Converter"
-            description="Convert between Celsius and Fahrenheit temperatures"
+            title="Kelvin - Celsius Converter"
+            description="Convert between Kelvin and Celsius for scientific calculations"
             units={temperatureUnits}
-            defaultFromUnit="celsius"
-            defaultToUnit="fahrenheit"
+            defaultFromUnit="kelvin"
+            defaultToUnit="celsius"
             conversionType="temperature"
             placeholder="Enter temperature"
             resultLabel="Converted Temperature"
@@ -34,17 +34,17 @@ export default function CelsiusFahrenheitPage() {
           <FooterAd />
 
           <AboutDescription
-            title="About Celsius to Fahrenheit Conversion"
-            description="Converting between Celsius and Fahrenheit is essential for weather, cooking, and international temperature measurements."
+            title="About Kelvin to Celsius Conversion"
+            description="Converting between Kelvin and Celsius is essential for scientific calculations, physics, and chemistry work."
             sections={[
               {
                 title: "Common Conversions",
                 content: [
-                  "0°C = 32°F (freezing point of water)",
-                  "100°C = 212°F (boiling point of water)",
-                  "20°C = 68°F (room temperature)",
-                  "37°C = 98.6°F (body temperature)",
-                  "-40°C = -40°F (same temperature)"
+                  "0 K = -273.15°C (absolute zero)",
+                  "273.15 K = 0°C (freezing point of water)",
+                  "373.15 K = 100°C (boiling point of water)",
+                  "293.15 K = 20°C (room temperature)",
+                  "310.15 K = 37°C (body temperature)"
                 ]
               }
             ]}

@@ -25,7 +25,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Video,
     href: "/media-converters/avi-mp4",
     keywords: ["avi", "mp4", "video", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp4-mov",
@@ -45,7 +45,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Video,
     href: "/media-converters/mov-mp4",
     keywords: ["mov", "mp4", "quicktime", "video"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp4-webm",
@@ -55,7 +55,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Video,
     href: "/media-converters/mp4-webm",
     keywords: ["mp4", "webm", "web", "video"],
-    popular: true,
+    popular: false,
   },
   {
     id: "webm-mp4",
@@ -65,7 +65,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Video,
     href: "/media-converters/webm-mp4",
     keywords: ["webm", "mp4", "web", "video"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mkv-mp4",
@@ -75,7 +75,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Video,
     href: "/media-converters/mkv-mp4",
     keywords: ["mkv", "mp4", "video", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp4-mkv",
@@ -105,7 +105,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/media-converters/extract-audio",
     keywords: ["extract", "audio", "video", "mp3", "sound"],
-    popular: true,
+    popular: false,
   },
 
   // Audio Format Conversions
@@ -117,7 +117,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/media-converters/mp3-wav",
     keywords: ["mp3", "wav", "audio", "convert", "lossless"],
-    popular: true,
+    popular: false,
   },
   {
     id: "wav-mp3",
@@ -127,7 +127,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/media-converters/wav-mp3",
     keywords: ["wav", "mp3", "audio", "convert", "compress"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp3-flac",
@@ -147,7 +147,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: FileAudio,
     href: "/media-converters/flac-mp3",
     keywords: ["flac", "mp3", "audio", "lossless", "compress"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp3-aac",
@@ -167,7 +167,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/media-converters/aac-mp3",
     keywords: ["aac", "mp3", "audio", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "ogg-mp3",
@@ -177,7 +177,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/media-converters/ogg-mp3",
     keywords: ["ogg", "mp3", "audio", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "mp3-ogg",
@@ -219,7 +219,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: ImageIcon,
     href: "/media-converters/jpg-webp",
     keywords: ["jpg", "webp", "image", "web", "compress"],
-    popular: true,
+    popular: false,
   },
   {
     id: "webp-jpg",
@@ -229,7 +229,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: ImageIcon,
     href: "/media-converters/webp-jpg",
     keywords: ["webp", "jpg", "image", "convert"],
-    popular: true,
+    popular: false,
   },
   {
     id: "png-webp",
@@ -239,7 +239,7 @@ export const mediaConverterTools: ConverterMetadata[] = [
     icon: ImageIcon,
     href: "/media-converters/png-webp",
     keywords: ["png", "webp", "image", "compress", "web"],
-    popular: true,
+    popular: false,
   },
   {
     id: "webp-png",
