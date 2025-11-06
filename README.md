@@ -1,4 +1,4 @@
-# [APP_NAME] - Free Online Conversion Tools
+# TOOLS WORX - Free Online Conversion Tools
 
 A modern, fast, and SEO-optimized conversion website built with Next.js 14 and React. Convert documents, images, videos, and units instantly.
 
