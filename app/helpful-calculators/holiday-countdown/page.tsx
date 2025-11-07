@@ -288,23 +288,47 @@ export default function HolidayCountdownPage() {
             sections={[
               {
                 title: "How It Works",
-                content: "The countdown automatically updates every second, showing you exactly how many days, hours, minutes, and seconds remain until each major holiday. Holidays are sorted chronologically, so the next upcoming holiday appears first. The progress bar shows how far through the year we've progressed toward each celebration."
+                content: [
+                  "The countdown automatically updates every second, showing you exactly how many days, hours, minutes, and seconds remain until each major holiday.",
+                  "Holidays are sorted chronologically, so the next upcoming holiday appears first.",
+                  "The progress bar shows how far through the year we've progressed toward each celebration."
+                ]
               },
               {
                 title: "Featured Holidays",
-                content: "We track major holidays including Christmas, New Year's Day, Valentine's Day, Easter, Independence Day, Halloween, and Thanksgiving. Easter and Thanksgiving dates are calculated automatically based on their traditional scheduling rules (Easter uses the Computus algorithm, Thanksgiving is the fourth Thursday of November)."
+                content: [
+                  "We track major holidays including Christmas, New Year's Day, Valentine's Day, Easter, Independence Day, Halloween, and Thanksgiving.",
+                  "Easter and Thanksgiving dates are calculated automatically based on their traditional scheduling rules.",
+                  "Easter uses the Computus algorithm, Thanksgiving is the fourth Thursday of November."
+                ]
               },
               {
                 title: "Holiday Planning Tips",
-                content: "Use these countdowns to plan ahead! For Christmas, most people start shopping 6-8 weeks before. For travel, book flights 3-4 months in advance for best prices. For party planning, send invitations 3-4 weeks ahead. The one-week alerts help you remember last-minute preparations."
+                content: [
+                  "Use these countdowns to plan ahead!",
+                  "For Christmas, most people start shopping 6-8 weeks before.",
+                  "For travel, book flights 3-4 months in advance for best prices.",
+                  "For party planning, send invitations 3-4 weeks ahead.",
+                  "The one-week alerts help you remember last-minute preparations."
+                ]
               },
               {
                 title: "Shopping Deadlines",
-                content: "Major retailers typically set shipping deadlines 1-2 weeks before holidays to guarantee delivery. For Christmas, expect cutoffs around December 18-20 for standard shipping, later for express. Black Friday (day after Thanksgiving) and Cyber Monday are prime shopping days with significant discounts."
+                content: [
+                  "Major retailers typically set shipping deadlines 1-2 weeks before holidays to guarantee delivery.",
+                  "For Christmas, expect cutoffs around December 18-20 for standard shipping, later for express.",
+                  "Black Friday (day after Thanksgiving) and Cyber Monday are prime shopping days with significant discounts."
+                ]
               },
               {
                 title: "Making the Most of Holidays",
-                content: "Holidays are more enjoyable with proper planning. Create shopping lists early, budget for gifts and celebrations, book travel and accommodations well in advance, and consider starting traditions that make each holiday special for your family and friends. The anticipation is part of the fun!"
+                content: [
+                  "Holidays are more enjoyable with proper planning.",
+                  "Create shopping lists early, budget for gifts and celebrations.",
+                  "Book travel and accommodations well in advance.",
+                  "Consider starting traditions that make each holiday special for your family and friends.",
+                  "The anticipation is part of the fun!"
+                ]
               },
             ]}
           />

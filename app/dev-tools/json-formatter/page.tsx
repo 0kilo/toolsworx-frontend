@@ -110,7 +110,7 @@ export default function JSONFormatterPage() {
             <Textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder='{"name": "John", "age": 30}'
+              placeholder='{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}'
               className="font-mono text-sm min-h-[400px]"
             />
 
@@ -220,7 +220,7 @@ export default function JSONFormatterPage() {
           <ol>
             <li>Paste your JSON in the input field</li>
             <li>Choose your preferred indentation</li>
-            <li>Click "Format", "Minify", or "Validate"</li>
+            <li>Click &quot;Format&quot;, &quot;Minify&quot;, or &quot;Validate&quot;</li>
             <li>Copy the result or continue editing</li>
           </ol>
         </CardContent>

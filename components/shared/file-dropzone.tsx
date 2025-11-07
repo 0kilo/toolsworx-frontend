@@ -32,13 +32,13 @@ export function FileDropzone({
     }
   }, [])
 
-  const validateFile = (file: File): string | null => {
+  const validateFile = useCallback((file: File): string | null => {
     const maxSizeBytes = maxSize * 1024 * 1024
     if (file.size > maxSizeBytes) {
       return `File size exceeds ${maxSize}MB limit`
     }
     return null
-  }
+  }, [maxSize])
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -59,7 +59,7 @@ export function FileDropzone({
         onFileSelect(file)
       }
     },
-    [onFileSelect, maxSize]
+    [onFileSelect, validateFile]
   )
 
   const handleFileInput = useCallback(
@@ -77,7 +77,7 @@ export function FileDropzone({
         onFileSelect(file)
       }
     },
-    [onFileSelect, maxSize]
+    [onFileSelect, validateFile]
   )
 
   const handleRemove = () => {

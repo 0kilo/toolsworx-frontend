@@ -301,23 +301,48 @@ export default function SecretSantaGeneratorPage() {
             sections={[
               {
                 title: "How It Works",
-                content: "Enter your event details including name, budget, and date. Add all participants with their names and email addresses (minimum 3 people). Click 'Generate Assignments' to randomly pair everyone. The algorithm ensures no one gets themselves and everyone has both a giver and receiver role."
+                content: [
+                  "Enter your event details including name, budget, and date.",
+                  "Add all participants with their names and email addresses (minimum 3 people).",
+                  "Click 'Generate Assignments' to randomly pair everyone.",
+                  "The algorithm ensures no one gets themselves and everyone has both a giver and receiver role."
+                ]
               },
               {
                 title: "Sending Notifications",
-                content: "After generating assignments, you can send individual emails to each participant with their Secret Santa assignment. The 'Send Email' button opens your default email client with a pre-filled message. For large groups, consider using an email service API to automate the process while keeping assignments secret."
+                content: [
+                  "After generating assignments, you can send individual emails to each participant with their Secret Santa assignment.",
+                  "The 'Send Email' button opens your default email client with a pre-filled message.",
+                  "For large groups, consider using an email service API to automate the process while keeping assignments secret."
+                ]
               },
               {
                 title: "Privacy & Security",
-                content: "All assignments are generated in your browser - no data is sent to any server. Only you (the organizer) can see who has whom. Never share the full assignment list with participants! Each person should only know their own assignment to keep the gift exchange fun and mysterious."
+                content: [
+                  "All assignments are generated in your browser - no data is sent to any server.",
+                  "Only you (the organizer) can see who has whom.",
+                  "Never share the full assignment list with participants!",
+                  "Each person should only know their own assignment to keep the gift exchange fun and mysterious."
+                ]
               },
               {
                 title: "Tips for Success",
-                content: "Set a clear budget to keep things fair. Give participants enough time (2-3 weeks) to shop for gifts. Consider creating a wishlist spreadsheet where people can anonymously add gift ideas. For office exchanges, remember to account for different work schedules when setting the exchange date."
+                content: [
+                  "Set a clear budget to keep things fair.",
+                  "Give participants enough time (2-3 weeks) to shop for gifts.",
+                  "Consider creating a wishlist spreadsheet where people can anonymously add gift ideas.",
+                  "For office exchanges, remember to account for different work schedules when setting the exchange date."
+                ]
               },
               {
                 title: "Common Variations",
-                content: "Traditional Secret Santa: everyone buys for one person. White Elephant: bring wrapped gifts and take turns choosing/stealing. Pollyanna: similar to Secret Santa but may include wishlists. Yankee Swap: participants steal gifts from each other. Choose the style that fits your group best!"
+                content: [
+                  "Traditional Secret Santa: everyone buys for one person.",
+                  "White Elephant: bring wrapped gifts and take turns choosing/stealing.",
+                  "Pollyanna: similar to Secret Santa but may include wishlists.",
+                  "Yankee Swap: participants steal gifts from each other.",
+                  "Choose the style that fits your group best!"
+                ]
               },
             ]}
           />

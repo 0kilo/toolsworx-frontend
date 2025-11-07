@@ -52,6 +52,7 @@ export interface CalculatorTemplateProps {
   onCalculate: (inputs: Record<string, any>) => CalculatorResult[]
   resultTitle?: string
   infoContent?: React.ReactNode // Additional SEO content below calculator
+  icon?: any // Optional icon prop
 }
 
 // ========================================
@@ -65,6 +66,7 @@ export function CalculatorTemplate({
   onCalculate,
   resultTitle = "Results",
   infoContent,
+  icon,
 }: CalculatorTemplateProps) {
   const [inputs, setInputs] = useState<Record<string, any>>(() => {
     const defaults: Record<string, any> = {}

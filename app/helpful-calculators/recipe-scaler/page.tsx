@@ -269,23 +269,43 @@ export default function RecipeScalerPage() {
             sections={[
               {
                 title: "How to Use",
-                content: "Enter your recipe name and the original number of servings. Add each ingredient with its amount, unit, and name. You can use whole numbers (2), decimals (1.5), fractions (1/2), or mixed numbers (1 1/2). Then enter your target number of servings and click 'Scale Recipe' to automatically calculate the adjusted ingredient amounts."
+                content: [
+                  "Enter your recipe name and the original number of servings.",
+                  "Add each ingredient with its amount, unit, and name.",
+                  "You can use whole numbers (2), decimals (1.5), fractions (1/2), or mixed numbers (1 1/2).",
+                  "Then enter your target number of servings and click 'Scale Recipe' to automatically calculate the adjusted ingredient amounts."
+                ]
               },
               {
                 title: "Entering Amounts",
-                content: "The calculator accepts multiple formats: whole numbers (2), decimals (1.5), simple fractions (1/2), and mixed numbers (1 1/2). Common fractions like 1/4, 1/3, 1/2, 2/3, and 3/4 are preserved in the output when possible for easier measuring."
+                content: [
+                  "The calculator accepts multiple formats: whole numbers (2), decimals (1.5), simple fractions (1/2), and mixed numbers (1 1/2).",
+                  "Common fractions like 1/4, 1/3, 1/2, 2/3, and 3/4 are preserved in the output when possible for easier measuring."
+                ]
               },
               {
                 title: "Holiday Cooking Tips",
-                content: "When cooking for holiday gatherings, remember that some recipes scale linearly while others (especially baked goods) may need adjustments. Baking times often don't scale proportionally - a doubled recipe may need only 50% more time. Always check for doneness using temperature or visual cues rather than relying solely on time."
+                content: [
+                  "When cooking for holiday gatherings, remember that some recipes scale linearly while others (especially baked goods) may need adjustments.",
+                  "Baking times often don't scale proportionally - a doubled recipe may need only 50% more time.",
+                  "Always check for doneness using temperature or visual cues rather than relying solely on time."
+                ]
               },
               {
                 title: "Measurement Tips",
-                content: "For best results, use measuring cups for dry ingredients and measuring spoons for small amounts. When scaling down recipes significantly (halving or quartering), be aware that spices and seasonings often don't scale linearly - start with the scaled amount and adjust to taste."
+                content: [
+                  "For best results, use measuring cups for dry ingredients and measuring spoons for small amounts.",
+                  "When scaling down recipes significantly (halving or quartering), be aware that spices and seasonings often don't scale linearly.",
+                  "Start with the scaled amount and adjust to taste."
+                ]
               },
               {
                 title: "Common Conversions",
-                content: "Keep in mind: 3 teaspoons = 1 tablespoon, 16 tablespoons = 1 cup, 2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon. These conversions can help when scaling results in awkward measurements."
+                content: [
+                  "Keep in mind: 3 teaspoons = 1 tablespoon, 16 tablespoons = 1 cup.",
+                  "2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon.",
+                  "These conversions can help when scaling results in awkward measurements."
+                ]
               },
             ]}
           />

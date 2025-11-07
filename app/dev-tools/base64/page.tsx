@@ -141,14 +141,14 @@ export default function Base64EncoderPage() {
           <h2>About Base64 Encoding</h2>
           <p>
             Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format.
-            It's commonly used to encode data in emails, URLs, and data URIs.
+            It&apos;s commonly used to encode data in emails, URLs, and data URIs.
           </p>
           <h3>Use Cases</h3>
           <ul>
             <li>Encoding binary data for transmission over text-based protocols</li>
             <li>Embedding images in HTML/CSS using data URIs</li>
             <li>Encoding authentication credentials</li>
-            <li>Encoding data in JSON or XML where binary data isn't allowed</li>
+            <li>Encoding data in JSON or XML where binary data isn&apos;t allowed</li>
           </ul>
         </CardContent>
       </Card>

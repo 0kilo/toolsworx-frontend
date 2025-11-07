@@ -261,23 +261,46 @@ export default function ShippingCostCalculatorPage() {
             sections={[
               {
                 title: "How to Use",
-                content: "Enter your package details including weight, dimensions, and origin/destination ZIP codes. Click 'Compare Shipping Rates' to see estimated costs from all major carriers sorted by price. Each option includes delivery time and features to help you choose the best shipping method."
+                content: [
+                  "Enter your package details including weight, dimensions, and origin/destination ZIP codes.",
+                  "Click 'Compare Shipping Rates' to see estimated costs from all major carriers sorted by price.",
+                  "Each option includes delivery time and features to help you choose the best shipping method."
+                ]
               },
               {
                 title: "Holiday Shipping Tips",
-                content: "During the holiday season, shipping deadlines are critical. USPS Priority Mail typically needs to be sent by December 19th for Christmas delivery, while Priority Mail Express extends to December 23rd. UPS and FedEx have similar deadlines. Always check current carrier deadlines as they vary by destination."
+                content: [
+                  "During the holiday season, shipping deadlines are critical.",
+                  "USPS Priority Mail typically needs to be sent by December 19th for Christmas delivery, while Priority Mail Express extends to December 23rd.",
+                  "UPS and FedEx have similar deadlines.",
+                  "Always check current carrier deadlines as they vary by destination."
+                ]
               },
               {
                 title: "Understanding Dimensional Weight",
-                content: "Carriers charge based on the greater of actual weight or dimensional weight. Dimensional weight is calculated as (Length × Width × Height) / 166. Our calculator automatically compares both to give you the billable weight used for pricing."
+                content: [
+                  "Carriers charge based on the greater of actual weight or dimensional weight.",
+                  "Dimensional weight is calculated as (Length × Width × Height) / 166.",
+                  "Our calculator automatically compares both to give you the billable weight used for pricing."
+                ]
               },
               {
                 title: "Carrier Comparison",
-                content: "USPS is often most economical for lightweight packages and offers free Saturday delivery. UPS and FedEx provide robust tracking and guaranteed delivery times with money-back guarantees. DHL offers competitive rates for business shipments. Each carrier has strengths depending on your specific needs."
+                content: [
+                  "USPS is often most economical for lightweight packages and offers free Saturday delivery.",
+                  "UPS and FedEx provide robust tracking and guaranteed delivery times with money-back guarantees.",
+                  "DHL offers competitive rates for business shipments.",
+                  "Each carrier has strengths depending on your specific needs."
+                ]
               },
               {
                 title: "Saving on Shipping",
-                content: "To reduce costs: use the smallest box that fits your items, compare all carrier options, consider slower delivery methods when not time-sensitive, and take advantage of flat-rate boxes for heavy items. Many carriers offer discounts for online labels versus counter service."
+                content: [
+                  "To reduce costs: use the smallest box that fits your items, compare all carrier options.",
+                  "Consider slower delivery methods when not time-sensitive.",
+                  "Take advantage of flat-rate boxes for heavy items.",
+                  "Many carriers offer discounts for online labels versus counter service."
+                ]
               },
             ]}
           />

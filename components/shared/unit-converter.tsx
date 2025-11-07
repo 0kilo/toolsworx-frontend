@@ -6,7 +6,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { ArrowUpDown } from "lucide-react"
+import { ArrowUpDown, Share2 } from "lucide-react"
+import { ShareComponent } from "@/components/shared/share-component"
+import { useShare } from "@/lib/hooks/use-share"
 
 interface Unit {
   value: string
@@ -38,6 +40,7 @@ export function UnitConverter({
   const [toUnit, setToUnit] = useState(defaultToUnit || units[1]?.value || "")
   const [fromValue, setFromValue] = useState("")
   const [toValue, setToValue] = useState("")
+  const { isShareOpen, shareData, openShare, closeShare } = useShare()
 
   const convertValue = (value: string, from: string, to: string) => {
     if (!value || isNaN(Number(value))) return ""
@@ -73,6 +76,21 @@ export function UnitConverter({
   const clearValues = () => {
     setFromValue("")
     setToValue("")
+  }
+
+  const handleShare = () => {
+    if (!fromValue || !toValue) return
+    
+    const fromUnitData = units.find(u => u.value === fromUnit)
+    const toUnitData = units.find(u => u.value === toUnit)
+    
+    const content = `${fromValue} ${fromUnitData?.abbreviation} = ${toValue} ${toUnitData?.abbreviation}`
+    
+    openShare({
+      content,
+      title: `${title} Conversion Result`,
+      type: 'conversion'
+    })
   }
 
   return (
@@ -154,8 +172,26 @@ export function UnitConverter({
           <Button variant="outline" onClick={clearValues} className="flex-1">
             Clear
           </Button>
+          <Button 
+            variant="outline" 
+            onClick={handleShare} 
+            disabled={!fromValue || !toValue}
+            className="flex items-center gap-2"
+          >
+            <Share2 className="h-4 w-4" />
+            Share
+          </Button>
         </div>
       </CardContent>
+      
+      {isShareOpen && shareData && (
+        <ShareComponent
+          content={shareData.content}
+          title={shareData.title}
+          type={shareData.type}
+          onClose={closeShare}
+        />
+      )}
     </Card>
   )
 }

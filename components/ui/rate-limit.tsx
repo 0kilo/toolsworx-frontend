@@ -41,7 +41,7 @@ export function RateLimitExceeded({
         Daily Limit Reached
       </h3>
       <p className="text-sm text-red-700 mb-4">
-        You've reached your daily limit of {config.maxRequests} {config.operation} operations.
+        You&apos;ve reached your daily limit of {config.maxRequests} {config.operation} operations.
       </p>
       <p className="text-sm text-red-700">
         Your limit will reset at{" "}

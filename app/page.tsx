@@ -96,7 +96,7 @@ export default function HomePage() {
                   {/* Category Group Header */}
                   <Link href={`/category/${group.id}`}>
                     <Card className={`${group.color} border-2 mb-6 cursor-pointer hover:shadow-lg transition-shadow`}>
-                      <CardContent className="p-6">
+                      <CardContent className="py-4 px-6">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex items-start gap-4">
                             <div className={`${group.iconColor} mt-1`}>

@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WebsiteStructuredData, OrganizationStructuredData } from "@/components/seo/structured-data"
 import { PageLoadingIndicator } from "@/components/ui/page-loading"
+import { FloatingButton } from "@/components/ui/floating-button"
 import { siteConfig } from "@/config/site"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -72,6 +73,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon-16x16.png" />
+
         {siteConfig.adsense.enabled && (
           <script
             async
@@ -102,6 +105,7 @@ export default function RootLayout({
         <WebsiteStructuredData />
         <OrganizationStructuredData />
         <PageLoadingIndicator />
+        <FloatingButton />
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

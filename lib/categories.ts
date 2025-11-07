@@ -22,9 +22,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Our helpful calculators make everyday tasks easier. Scale recipes for different serving sizes, organize secret santa gift exchanges, and count down to important holidays and events. These practical tools save time and help you plan better.",
     icon: Heart,
-    color: "bg-red-50 border-red-200",
-    textColor: "text-red-900",
-    iconColor: "text-red-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["helpful"],
     seoKeywords: [
       "recipe scaler",
@@ -50,9 +50,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Our unit conversion tools make it easy to convert between different units of measurement. Whether you need to convert temperature, distance, weight, volume, time, or other units, our calculators provide accurate results instantly. Perfect for students, professionals, travelers, and anyone who needs quick unit conversions.",
     icon: Ruler,
-    color: "bg-blue-50 border-blue-200",
-    textColor: "text-blue-900",
-    iconColor: "text-blue-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["temperature", "distance", "weight", "volume", "time"],
     seoKeywords: [
       "unit converter",
@@ -79,9 +79,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Our online calculators help you quickly calculate important values for everyday tasks and professional use. From financial calculations like mortgage and loan payments to health metrics like BMI and calorie needs, our calculators provide instant, accurate results. All calculators are free to use and work on any device.",
     icon: Calculator,
-    color: "bg-green-50 border-green-200",
-    textColor: "text-green-900",
-    iconColor: "text-green-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["calculator"],
     seoKeywords: [
       "online calculator",
@@ -107,9 +107,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Convert your files between different formats with our easy-to-use file conversion tools. Transform PDFs to Word documents, Excel spreadsheets to CSV, and more. Our converters maintain formatting and quality while ensuring your privacy – all files are automatically deleted after conversion.",
     icon: FileText,
-    color: "bg-purple-50 border-purple-200",
-    textColor: "text-purple-900",
-    iconColor: "text-purple-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["document", "spreadsheet", "data", "encoding", "archive"],
     seoKeywords: [
       "pdf to word",
@@ -135,9 +135,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Transform your media files with our powerful conversion tools. Convert images between formats like JPG, PNG, and WebP. Transform videos between MP4, WebM, and other formats. Convert audio files to different formats with customizable quality settings. All conversions are processed securely with automatic file deletion.",
     icon: Film,
-    color: "bg-orange-50 border-orange-200",
-    textColor: "text-orange-900",
-    iconColor: "text-orange-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["image", "video", "audio"],
     seoKeywords: [
       "image converter",
@@ -164,7 +164,7 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Essential tools for developers and technical professionals. Format and validate JSON, minify code, generate UUIDs, encode/decode Base64, test regular expressions, and more. All tools work directly in your browser with no server uploads, ensuring your code and data remain private.",
     icon: Code2,
-    color: "bg-slate-50 border-slate-200",
+    color: "bg-slate-100 border-slate-300",
     textColor: "text-slate-900",
     iconColor: "text-slate-600",
     categories: ["developer", "formatter", "validator"],
@@ -193,9 +193,9 @@ export const categoryGroups: CategoryGroup[] = [
     longDescription:
       "Transform your media and data with powerful filters and effects. Apply professional photo filters like grayscale, sepia, and Instagram-style effects. Enhance audio with equalizers, reverb, and noise reduction. Clean and format data with our text processing tools. All processing happens instantly in real-time.",
     icon: Sliders,
-    color: "bg-pink-50 border-pink-200",
-    textColor: "text-pink-900",
-    iconColor: "text-pink-600",
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
     categories: ["image-filter", "audio-filter", "data-filter"],
     seoKeywords: [
       "image filters",

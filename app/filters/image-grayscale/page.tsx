@@ -1,12 +1,8 @@
-"use client"
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ImageFilter } from "@/components/shared/image-filter"
 import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Button } from "@/components/ui/button"
-import { Upload, Download } from "lucide-react"
 
-export default function ImageGrayscale_Page() {
+export default function ImageGrayscalePage() {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -14,57 +10,39 @@ export default function ImageGrayscale_Page() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Grayscale Filter</h1>
             <p className="text-muted-foreground">
-              Convert images to black and white
+              Convert your images to grayscale with adjustable intensity
             </p>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-2 border-dashed border-muted rounded-lg p-12 text-center">
-                <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop your file here, or click to browse
-                </p>
-                <Button>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Choose File
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  This converter requires backend service integration.
-                  Files are processed securely and deleted automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <ImageFilter
+            title="Grayscale Image Filter"
+            description="Upload an image and apply a grayscale filter with adjustable intensity"
+            filterType="grayscale"
+          />
 
           <FooterAd />
 
           <AboutDescription
             title="About Grayscale Filter"
-            description="Convert images to black and white This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
+            description="Grayscale conversion removes color information while preserving luminance, creating classic black and white images."
             sections={[
               {
-                title: "How It Works",
+                title: "When to Use Grayscale",
                 content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
+                  "Professional photography and portraits",
+                  "Vintage or artistic effects",
+                  "Print materials to save on color costs",
+                  "Accessibility improvements for colorblind users",
+                  "Focus attention on composition and contrast"
                 ]
               },
               {
-                title: "Features",
+                title: "Technical Details",
                 content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
+                  "Preserves image luminance and contrast",
+                  "Uses weighted RGB conversion (0.299R + 0.587G + 0.114B)",
+                  "Maintains original image dimensions and quality",
+                  "Compatible with all common image formats"
                 ]
               }
             ]}

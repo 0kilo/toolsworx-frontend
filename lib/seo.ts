@@ -24,7 +24,9 @@ export function generateSEO({
     title: fullTitle,
     description,
     keywords: [...keywords, 'converter', 'free online tools', 'conversion'],
-    canonical: url,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: fullTitle,
       description,
