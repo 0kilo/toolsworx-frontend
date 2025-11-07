@@ -31,10 +31,16 @@ jobs:
         NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
         NEXT_PUBLIC_SITE_NAME: "TOOLS WORX"
     
-    - name: Deploy to Amplify
+    - name: Configure AWS credentials
       if: github.ref == 'refs/heads/main'
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
+    
+    - name: Deploy to Amplify
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "Build successful - Amplify will auto-deploy from main branch"
+        echo "Build artifacts ready for deployment"
