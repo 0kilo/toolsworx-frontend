@@ -12,7 +12,7 @@ node_modules
 info.txt
 # production
 /build
-
+notes.txt
 # misc
 .DS_Store
 *.pem
