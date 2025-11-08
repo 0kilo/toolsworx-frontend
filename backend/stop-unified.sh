@@ -10,7 +10,7 @@ echo -e "${BLUE}========================================${NC}"
 echo -e "${BLUE}Stopping Unified Conversion Service${NC}"
 echo -e "${BLUE}========================================${NC}\n"
 
-# Determine which docker-compose to use
+# Determine which compose file to use
 if [ "$1" == "local" ]; then
     COMPOSE_FILE="docker-compose.local.yml"
     echo -e "${YELLOW}Using: docker-compose.local.yml (from project root)${NC}\n"
@@ -21,6 +21,6 @@ else
     cd "$(dirname "$0")"
 fi
 
-docker-compose -f "$COMPOSE_FILE" down
+docker compose -f "$COMPOSE_FILE" down
 
 echo -e "\n${RED}✓ All services stopped!${NC}\n"

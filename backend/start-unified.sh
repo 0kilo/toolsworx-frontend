@@ -10,7 +10,7 @@ echo -e "${BLUE}========================================${NC}"
 echo -e "${BLUE}Starting Unified Conversion Service${NC}"
 echo -e "${BLUE}========================================${NC}\n"
 
-# Determine which docker-compose to use
+# Determine which compose file to use
 if [ "$1" == "local" ]; then
     COMPOSE_FILE="docker-compose.local.yml"
     echo -e "${YELLOW}Using: docker-compose.local.yml (from project root)${NC}\n"
@@ -21,17 +21,18 @@ else
     cd "$(dirname "$0")"
 fi
 
-# Check if docker-compose is installed
-if ! command -v docker-compose &> /dev/null
+# Check if docker compose is available
+if ! docker compose version &> /dev/null
 then
-    echo "docker-compose could not be found. Please install it first."
+    echo "Docker Compose is not available. Please install Docker Compose V2."
+    echo "See: https://docs.docker.com/compose/install/"
     exit 1
 fi
 
 # Start services
 echo -e "${GREEN}Starting services with Docker Compose...${NC}\n"
 
-docker-compose -f "$COMPOSE_FILE" up -d
+docker compose -f "$COMPOSE_FILE" up -d
 
 echo -e "\n${GREEN}✓ Services started!${NC}\n"
 
@@ -52,7 +53,7 @@ echo -e "Health Check: ${GREEN}http://localhost:3000/health${NC}"
 echo -e "Redis: ${GREEN}localhost:6379${NC}\n"
 
 echo -e "To view logs:"
-echo -e "  ${GREEN}docker-compose -f $COMPOSE_FILE logs -f unified-service${NC}\n"
+echo -e "  ${GREEN}docker compose -f $COMPOSE_FILE logs -f unified-service${NC}\n"
 
 echo -e "To stop services:"
 if [ "$1" == "local" ]; then
