@@ -64,7 +64,7 @@ docker run -p 3000:3000 \
 ### Docker Compose
 ```bash
 cd backend
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Testing
