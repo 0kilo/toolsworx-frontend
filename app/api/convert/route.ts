@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const FILE_SERVICE_URL = process.env.FILE_SERVICE_URL || 'http://localhost:3010'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000'
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
     console.log("------------FILE CONVERT: ", formData);
-    // Forward request to file conversion service
-    const response = await fetch(`${FILE_SERVICE_URL}/api/convert`, {
+    // Forward request to unified backend service
+    const response = await fetch(`${BACKEND_URL}/api/convert`, {
       method: 'POST',
       body: formData,
       headers: {

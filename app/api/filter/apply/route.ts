@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const FILTER_SERVICE_URL = process.env.FILTER_SERVICE_URL || 'http://localhost:3012'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000'
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
 
-    const response = await fetch(`${FILTER_SERVICE_URL}/api/filter`, {
+    const response = await fetch(`${BACKEND_URL}/api/filter`, {
       method: 'POST',
       body: formData,
       headers: {

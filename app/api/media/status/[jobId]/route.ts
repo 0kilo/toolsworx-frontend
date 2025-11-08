@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import axios from 'axios'
 
-const MEDIA_SERVICE_URL = process.env.MEDIA_SERVICE_URL || 'http://localhost:3011'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000'
 
 export async function GET(
   request: NextRequest,
@@ -9,8 +9,8 @@ export async function GET(
 ) {
   try {
     const { jobId } = params
-    
-    const response = await axios.get(`${MEDIA_SERVICE_URL}/api/status/${jobId}`)
+
+    const response = await axios.get(`${BACKEND_URL}/api/media/status/${jobId}`)
     
     return NextResponse.json(response.data, { status: response.status })
   } catch (error) {

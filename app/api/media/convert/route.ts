@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import axios from 'axios'
 
-const MEDIA_SERVICE_URL = process.env.MEDIA_SERVICE_URL || 'http://localhost:3011'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3000'
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
       console.log("------------MEDIA CONVERT: ", formData);
-    const response = await axios.post(`${MEDIA_SERVICE_URL}/api/convert`, formData)
+    const response = await axios.post(`${BACKEND_URL}/api/media/convert`, formData)
     
     return NextResponse.json(response.data, { status: response.status })
   } catch (error) {
