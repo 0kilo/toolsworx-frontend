@@ -1,4 +1,4 @@
-import { Thermometer, Ruler, Weight, Droplet, DollarSign, Clock, Gauge, Square } from "lucide-react"
+import { Thermometer, Ruler, Weight, Droplet, DollarSign, Clock, Gauge, Square, Zap, Orbit } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -84,6 +84,26 @@ export const unitConversionTools: ConverterMetadata[] = [
     icon: Square,
     href: "/unit-conversions/area",
     keywords: ["area", "surface", "square feet", "square meters", "acres", "hectares", "land"],
+    popular: false,
+  },
+  {
+    id: "energy",
+    title: "Energy Converter",
+    description: "Convert between joules, calories, BTU, kWh, electron volts",
+    category: "energy",
+    icon: Zap,
+    href: "/unit-conversions/energy",
+    keywords: ["energy", "joules", "calories", "btu", "kwh", "electron volt", "watt hour"],
+    popular: true,
+  },
+  {
+    id: "spacetime",
+    title: "Space-Time Converter",
+    description: "Convert between light-years, parsecs, astronomical units, time dilation",
+    category: "spacetime",
+    icon: Orbit,
+    href: "/unit-conversions/spacetime",
+    keywords: ["space", "time", "light year", "parsec", "astronomical unit", "relativity", "physics"],
     popular: false,
   },
 ]

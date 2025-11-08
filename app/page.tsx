@@ -111,8 +111,13 @@ export default function HomePage() {
                               </p>
                             </div>
                           </div>
-                          <div className={`${group.textColor} opacity-60`}>
-                            <span className="text-sm font-medium">View All →</span>
+                          <div className="flex flex-col gap-2">
+                            <Link href={`/${group.id}-cheatsheet`} className={`${group.textColor} opacity-60 hover:opacity-100 transition-opacity`}>
+                              <span className="text-xs font-medium">📋 Cheat Sheet</span>
+                            </Link>
+                            <div className={`${group.textColor} opacity-60`}>
+                              <span className="text-sm font-medium">View All →</span>
+                            </div>
                           </div>
                         </div>
                       </CardContent>

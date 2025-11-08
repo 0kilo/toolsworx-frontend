@@ -26,6 +26,8 @@ export type ConverterCategory =
   | "speed"
   | "formatter"
   | "validator"
+  | "energy"
+  | "spacetime"
   | "other"
 
 export interface ConverterMetadata {
