@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs').promises;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 
 // CORS Configuration
 const corsOptions = {

@@ -22,11 +22,11 @@ COPY . .
 RUN mkdir -p /tmp/uploads && chmod 777 /tmp/uploads
 
 # Expose port
-EXPOSE 3000
+EXPOSE 3010
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:3000/health || exit 1
+  CMD curl -f http://localhost:3010/health || exit 1
 
 # Run as non-root user
 USER node

@@ -31,7 +31,7 @@ Single containerized backend service that handles all file conversions, media co
 ## Environment Variables
 
 ```bash
-PORT=3000                          # Server port
+PORT=3010                          # Server port
 NODE_ENV=production                # Environment
 CORS_ORIGIN=http://localhost:3000  # Frontend URL
 REDIS_URL=redis://redis:6379       # Redis connection
@@ -56,7 +56,7 @@ npm start
 ### Docker
 ```bash
 docker build -t unified-service .
-docker run -p 3000:3000 \
+docker run -p 3010:3010 \
   -e CORS_ORIGIN=http://localhost:3000 \
   unified-service
 ```
@@ -71,20 +71,20 @@ docker compose up -d
 
 ```bash
 # Health check
-curl http://localhost:3000/health
+curl http://localhost:3010/health
 
 # File conversion
-curl -X POST http://localhost:3000/api/convert \
+curl -X POST http://localhost:3010/api/convert \
   -F "file=@test.pdf" \
   -F "targetFormat=docx"
 
 # Media conversion
-curl -X POST http://localhost:3000/api/media/convert \
+curl -X POST http://localhost:3010/api/media/convert \
   -F "file=@video.mp4" \
   -F "targetFormat=webm"
 
 # Apply filter
-curl -X POST http://localhost:3000/api/filter \
+curl -X POST http://localhost:3010/api/filter \
   -F "file=@image.jpg" \
   -F "filterType=grayscale"
 ```
@@ -94,7 +94,7 @@ curl -X POST http://localhost:3000/api/filter \
 ```
 ┌─────────────────────────────────────┐
 │   Unified Conversion Service        │
-│         (Port 3000)                 │
+│         (Port 3010)                 │
 ├─────────────────────────────────────┤
 │                                     │
 │  ┌──────────────────────────────┐  │
@@ -149,7 +149,7 @@ eb deploy
 Set these in AWS Elastic Beanstalk environment configuration:
 
 ```
-PORT=3000
+PORT=3010
 NODE_ENV=production
 CORS_ORIGIN=https://your-frontend-domain.com
 REDIS_URL=redis://your-redis-url:6379
