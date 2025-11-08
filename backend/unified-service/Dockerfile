@@ -1,10 +1,17 @@
 FROM node:20-alpine
 
-# Install system dependencies for production conversion tools
-# These will be needed when implementing actual conversions
+# Install system dependencies for file/media conversions
 RUN apk add --no-cache \
     curl \
-    bash
+    bash \
+    libreoffice \
+    openjdk11-jre \
+    ffmpeg \
+    python3 \
+    py3-pip \
+    font-noto \
+    font-noto-cjk \
+    ttf-dejavu
 
 # Create app directory
 WORKDIR /app
@@ -28,7 +35,7 @@ EXPOSE 3010
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
   CMD curl -f http://localhost:3010/health || exit 1
 
-# Run as non-root user
+# Run as node user (but keep permissions for LibreOffice)
 USER node
 
 # Start server
