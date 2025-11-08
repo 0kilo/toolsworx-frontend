@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Redis for job queues and caching
+  # Redis for job queues and caching (optional for mock, required for production)
   redis:
     image: redis:alpine
     ports:
@@ -14,57 +14,24 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+    restart: unless-stopped
+    networks:
+      - backend
 
-  # File Conversion Service
-  file-conversion:
+  # Unified Conversion Service (handles all conversions)
+  unified-service:
     build:
-      context: ./file-conversion-service
+      context: ./unified-service
       dockerfile: Dockerfile
     ports:
-      - "3010:3000"
+      - "3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
+      - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:3000}
       - REDIS_URL=redis://redis:6379
       - MAX_FILE_SIZE=524288000
-      - TEMP_DIR=/tmp/file-conversions
-      - LIBRE_OFFICE_PATH=/usr/bin/libreoffice
-      - PANDOC_PATH=/usr/bin/pandoc
-      - CORS_ORIGIN=http://localhost:3000
-    volumes:
-      - /tmp:/tmp
-    depends_on:
-      redis:
-        condition: service_healthy
-    restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          memory: 2G
-          cpus: '1.0'
-        reservations:
-          memory: 512M
-          cpus: '0.5'
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-
-  # Media Conversion Service
-  media-conversion:
-    build:
-      context: ./media-conversion-service
-      dockerfile: Dockerfile
-    ports:
-      - "3011:3001"
-    environment:
-      - NODE_ENV=production
-      - PORT1=3001
-      - REDIS_URL=redis://redis:6379
-      - TEMP_DIR=/tmp/media-processing
-      - CORS_ORIGIN=http://localhost:3000
+      - TEMP_DIR=/tmp/uploads
     volumes:
       - /tmp:/tmp
     depends_on:
@@ -78,48 +45,17 @@ services:
           cpus: '2.0'
         reservations:
           memory: 1G
-          cpus: '1.0'
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
-      interval: 30s
-      timeout: 15s
-      retries: 3
-      start_period: 40s
-
-  # Filter Service
-  filter-service:
-    build:
-      context: ./filter-service
-      dockerfile: Dockerfile
-    ports:
-      - "3012:3002"
-    environment:
-      - NODE_ENV=production
-      - PORT2=3002
-      - REDIS_URL=redis://redis:6379
-      - TEMP_DIR=/tmp/filter-processing
-      - MAX_MEMORY_MB=2048
-      - CORS_ORIGIN=http://localhost:3000
-    depends_on:
-      redis:
-        condition: service_healthy
-    restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          memory: 3G
-          cpus: '2.0'
-        reservations:
-          memory: 1G
           cpus: '0.5'
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    networks:
+      - backend
 
-  # Cleanup Service
+  # Cleanup Service (removes old temp files)
   cleanup:
     image: node:20-alpine
     command: node /app/cleanup-service.js
@@ -132,11 +68,14 @@ services:
         limits:
           memory: 128M
           cpus: '0.1'
+    networks:
+      - backend
 
 volumes:
   redis_data:
     driver: local
 
 networks:
-  default:
+  backend:
+    driver: bridge
     name: convert-all-network
