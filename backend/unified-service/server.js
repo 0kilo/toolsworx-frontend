@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -12,6 +13,47 @@ const sharp = require('sharp');
 const ffmpeg = require('fluent-ffmpeg');
 const xlsx = require('xlsx');
 const archiver = require('archiver');
+const pino = require('pino');
+const promClient = require('prom-client');
+const rateLimit = require('express-rate-limit');
+
+// Initialize logger
+const logger = pino({
+  level: process.env.LOG_LEVEL || 'info',
+  transport: process.env.NODE_ENV === 'development' ? {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      translateTime: 'HH:MM:ss Z',
+      ignore: 'pid,hostname'
+    }
+  } : undefined
+});
+
+// Initialize Prometheus metrics
+const register = new promClient.Registry();
+promClient.collectDefaultMetrics({ register });
+
+const httpRequestDuration = new promClient.Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'Duration of HTTP requests in seconds',
+  labelNames: ['method', 'route', 'status_code'],
+  registers: [register]
+});
+
+const conversionCounter = new promClient.Counter({
+  name: 'conversions_total',
+  help: 'Total number of conversions processed',
+  labelNames: ['type', 'status'],
+  registers: [register]
+});
+
+const activeJobsGauge = new promClient.Gauge({
+  name: 'active_jobs',
+  help: 'Number of currently active jobs',
+  labelNames: ['type'],
+  registers: [register]
+});
 
 const app = express();
 const PORT = process.env.PORT || 3010;
@@ -27,10 +69,36 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization']
 };
 
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(limiter);
+
+// Request logging middleware
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = (Date.now() - start) / 1000;
+    httpRequestDuration.labels(req.method, req.route?.path || req.path, res.statusCode).observe(duration);
+    logger.info({
+      method: req.method,
+      url: req.url,
+      status: res.statusCode,
+      duration: `${duration}s`
+    }, 'HTTP Request');
+  });
+  next();
+});
 
 // Configure multer for file uploads
 const upload = multer({
@@ -59,6 +127,7 @@ async function processFileConversion(job) {
   const { jobId, inputPath, targetFormat, inputExt } = job.data;
 
   try {
+    activeJobsGauge.labels('file').inc();
     const tempDir = path.join(TEMP_DIR, jobId);
     await fs.mkdir(tempDir, { recursive: true });
 
@@ -81,10 +150,14 @@ async function processFileConversion(job) {
     }
 
     await job.updateProgress(100);
+    conversionCounter.labels('file', 'success').inc();
+    activeJobsGauge.labels('file').dec();
 
     return { outputPath, success: true };
   } catch (error) {
-    console.error('File conversion error:', error);
+    logger.error({ error, jobId }, 'File conversion error');
+    conversionCounter.labels('file', 'failed').inc();
+    activeJobsGauge.labels('file').dec();
     throw error;
   }
 }
@@ -181,6 +254,7 @@ async function processMediaConversion(job) {
   const { jobId, inputPath, targetFormat, inputExt, options = {} } = job.data;
 
   try {
+    activeJobsGauge.labels('media').inc();
     const tempDir = path.join(TEMP_DIR, jobId);
     await fs.mkdir(tempDir, { recursive: true });
 
@@ -222,10 +296,14 @@ async function processMediaConversion(job) {
     });
 
     await job.updateProgress(100);
+    conversionCounter.labels('media', 'success').inc();
+    activeJobsGauge.labels('media').dec();
 
     return { outputPath, success: true };
   } catch (error) {
-    console.error('Media conversion error:', error);
+    logger.error({ error, jobId }, 'Media conversion error');
+    conversionCounter.labels('media', 'failed').inc();
+    activeJobsGauge.labels('media').dec();
     throw error;
   }
 }
@@ -238,6 +316,7 @@ async function processFilter(job) {
   const { jobId, inputPath, filters = [], outputFormat = 'jpeg' } = job.data;
 
   try {
+    activeJobsGauge.labels('filter').inc();
     const tempDir = path.join(TEMP_DIR, jobId);
     await fs.mkdir(tempDir, { recursive: true });
 
@@ -290,10 +369,14 @@ async function processFilter(job) {
     await pipeline.toFile(outputPath);
 
     await job.updateProgress(100);
+    conversionCounter.labels('filter', 'success').inc();
+    activeJobsGauge.labels('filter').dec();
 
     return { outputPath, success: true };
   } catch (error) {
-    console.error('Filter processing error:', error);
+    logger.error({ error, jobId }, 'Filter processing error');
+    conversionCounter.labels('filter', 'failed').inc();
+    activeJobsGauge.labels('filter').dec();
     throw error;
   }
 }
@@ -318,21 +401,53 @@ const filterWorker = new Worker('filter-processing', processFilter, {
 });
 
 // ========================================
-// HEALTH CHECK ENDPOINT
+// HEALTH CHECK ENDPOINTS
 // ========================================
-app.get('/health', (req, res) => {
+app.get('/health', async (req, res) => {
+  try {
+    // Check Redis connection
+    await redis.ping();
+
+    res.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      service: 'unified-conversion-service',
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
+      redis: 'connected',
+      services: {
+        file_conversion: 'operational',
+        media_conversion: 'operational',
+        filter_service: 'operational'
+      }
+    });
+  } catch (error) {
+    logger.error({ error }, 'Health check failed');
+    res.status(503).json({
+      status: 'unhealthy',
+      timestamp: new Date().toISOString(),
+      error: error.message
+    });
+  }
+});
+
+// Ready check endpoint (for load balancers)
+app.get('/ready', (req, res) => {
   res.json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    service: 'unified-conversion-service',
-    uptime: process.uptime(),
-    memory: process.memoryUsage(),
-    services: {
-      file_conversion: 'operational',
-      media_conversion: 'operational',
-      filter_service: 'operational'
-    }
+    ready: true,
+    timestamp: new Date().toISOString()
   });
+});
+
+// Metrics endpoint (Prometheus format)
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
+  } catch (error) {
+    logger.error({ error }, 'Error generating metrics');
+    res.status(500).end(error);
+  }
 });
 
 // ========================================
@@ -365,7 +480,12 @@ app.post('/api/convert', upload.single('file'), async (req, res) => {
 
     jobs.set(job.id, { type: 'file', status: 'queued', originalFile: file.originalname });
 
-    console.log(`✓ File conversion queued: ${file.originalname} → ${targetFormat} (Job: ${job.id})`);
+    logger.info({
+      jobId: job.id,
+      file: file.originalname,
+      targetFormat,
+      type: 'file'
+    }, 'File conversion queued');
 
     res.status(202).json({
       success: true,
@@ -375,7 +495,7 @@ app.post('/api/convert', upload.single('file'), async (req, res) => {
       downloadUrl: `/api/download/${job.id}`
     });
   } catch (error) {
-    console.error('File conversion error:', error);
+    logger.error({ error }, 'File conversion request error');
     res.status(500).json({
       success: false,
       error: error.message
@@ -476,7 +596,12 @@ app.post('/api/media/convert', upload.single('file'), async (req, res) => {
 
     jobs.set(job.id, { type: 'media', status: 'queued', originalFile: file.originalname });
 
-    console.log(`✓ Media conversion queued: ${file.originalname} → ${targetFormat} (Job: ${job.id})`);
+    logger.info({
+      jobId: job.id,
+      file: file.originalname,
+      targetFormat,
+      type: 'media'
+    }, 'Media conversion queued');
 
     res.status(202).json({
       success: true,
@@ -486,7 +611,7 @@ app.post('/api/media/convert', upload.single('file'), async (req, res) => {
       downloadUrl: `/api/media/download/${job.id}`
     });
   } catch (error) {
-    console.error('Media conversion error:', error);
+    logger.error({ error }, 'Media conversion request error');
     res.status(500).json({
       success: false,
       error: error.message
@@ -593,7 +718,12 @@ app.post('/api/filter', upload.single('file'), async (req, res) => {
 
     jobs.set(job.id, { type: 'filter', status: 'queued', originalFile: file.originalname });
 
-    console.log(`✓ Filter queued: ${parsedFilters.map(f => f.type).join(', ')} on ${file.originalname} (Job: ${job.id})`);
+    logger.info({
+      jobId: job.id,
+      file: file.originalname,
+      filters: parsedFilters.map(f => f.type).join(', '),
+      type: 'filter'
+    }, 'Filter queued');
 
     res.status(202).json({
       success: true,
@@ -603,7 +733,7 @@ app.post('/api/filter', upload.single('file'), async (req, res) => {
       downloadUrl: `/api/filter/download/${job.id}`
     });
   } catch (error) {
-    console.error('Filter application error:', error);
+    logger.error({ error }, 'Filter application error');
     res.status(500).json({
       success: false,
       error: error.message
@@ -689,7 +819,7 @@ app.use((req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
+  logger.error({ error: err, path: req.path }, 'Unhandled error');
   res.status(500).json({
     success: false,
     error: 'Internal server error',
@@ -710,13 +840,22 @@ setInterval(async () => {
     const jobAge = now - new Date(job.createdAt || now).getTime();
     if (jobAge > oneHour) {
       jobs.delete(jobId);
-      console.log(`🗑️  Cleaned up old job: ${jobId}`);
+      logger.debug({ jobId }, 'Cleaned up old job');
     }
   }
 }, 5 * 60 * 1000);
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
+  logger.info({
+    port: PORT,
+    corsOrigin: corsOptions.origin,
+    uploadDir: TEMP_DIR,
+    maxFileSize: `${(parseInt(process.env.MAX_FILE_SIZE) || 500 * 1024 * 1024) / (1024 * 1024)}MB`,
+    redisUrl: REDIS_URL,
+    nodeEnv: process.env.NODE_ENV
+  }, 'Unified Conversion Service started');
+
   console.log('\n' + '='.repeat(60));
   console.log('🚀 UNIFIED CONVERSION SERVICE');
   console.log('='.repeat(60));
@@ -730,25 +869,44 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log('   ✓ Media Conversion Service  → /api/media/convert (FFmpeg, Sharp)');
   console.log('   ✓ Filter Service            → /api/filter (Sharp)');
   console.log('\n🏥 Health Check: http://localhost:' + PORT + '/health');
+  console.log('📊 Metrics: http://localhost:' + PORT + '/metrics');
   console.log('='.repeat(60) + '\n');
 });
 
 // Graceful shutdown
-async function gracefulShutdown() {
-  console.log('\nShutting down gracefully...');
+async function gracefulShutdown(signal) {
+  logger.info({ signal }, 'Shutting down gracefully...');
 
-  await fileWorker.close();
-  await mediaWorker.close();
-  await filterWorker.close();
+  try {
+    await fileWorker.close();
+    await mediaWorker.close();
+    await filterWorker.close();
 
-  await fileQueue.close();
-  await mediaQueue.close();
-  await filterQueue.close();
+    await fileQueue.close();
+    await mediaQueue.close();
+    await filterQueue.close();
 
-  await redis.quit();
+    await redis.quit();
 
-  process.exit(0);
+    logger.info('Shutdown complete');
+    process.exit(0);
+  } catch (error) {
+    logger.error({ error }, 'Error during shutdown');
+    process.exit(1);
+  }
 }
 
-process.on('SIGTERM', gracefulShutdown);
-process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+// Handle unhandled rejections
+process.on('unhandledRejection', (reason, promise) => {
+  logger.error({ reason, promise }, 'Unhandled Promise Rejection');
+  process.exit(1);
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+  logger.error({ error }, 'Uncaught Exception');
+  process.exit(1);
+});

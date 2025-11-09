@@ -176,14 +176,20 @@ class ApiClient {
       formData.append('options', JSON.stringify(options))
     }
 
-    const response = await axios.post<ApiResponse<ConversionJob>>(`${process.env.NEXT_PUBLIC_FILTER_SERVICE_URL || 'http://localhost:3012'}/api/filter`, formData, {
+    const response = await this.client.post('/api/filter/apply', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
       timeout: 300000
     })
 
-    return response.data.data
+    // Backend returns job directly, not wrapped in ApiResponse
+    return {
+      id: response.data.jobId,
+      status: response.data.status,
+      progress: 0,
+      downloadUrl: response.data.downloadUrl
+    }
   }
 
   // Generic request method
