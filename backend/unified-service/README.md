@@ -25,18 +25,22 @@ Single containerized backend service that handles all file conversions, media co
 - `GET /api/filter/status/:jobId` - Check filter status
 - `GET /api/filter/download/:jobId` - Download filtered file
 
-### Health Check
-- `GET /health` - Service health check
+### Health & Monitoring
+- `GET /health` - Service health check with Redis connectivity
+- `GET /ready` - Readiness check (for load balancers)
+- `GET /metrics` - Prometheus metrics endpoint
 
 ## Environment Variables
 
 ```bash
 PORT=3010                          # Server port
-NODE_ENV=production                # Environment
+NODE_ENV=production                # Environment (development/production)
+LOG_LEVEL=info                     # Logging level (debug/info/warn/error)
 CORS_ORIGIN=http://localhost:3000  # Frontend URL
 REDIS_URL=redis://redis:6379       # Redis connection
 MAX_FILE_SIZE=524288000            # Max upload size (500MB)
 TEMP_DIR=/tmp/uploads              # Upload directory
+LIBRE_OFFICE_PATH=/usr/bin/libreoffice  # LibreOffice binary path
 ```
 
 ## Running Locally
@@ -166,14 +170,18 @@ S3_BUCKET_NAME=your-conversion-bucket
 
 ## Monitoring
 
-The service provides metrics at `/health`:
+### Health Check Endpoint
+
+The service provides health status at `/health`:
 
 ```json
 {
   "status": "healthy",
   "timestamp": "2024-01-01T00:00:00.000Z",
+  "service": "unified-conversion-service",
   "uptime": 3600,
   "memory": {...},
+  "redis": "connected",
   "services": {
     "file_conversion": "operational",
     "media_conversion": "operational",
@@ -181,6 +189,38 @@ The service provides metrics at `/health`:
   }
 }
 ```
+
+### Prometheus Metrics
+
+The service exposes Prometheus metrics at `/metrics`:
+
+**Available Metrics:**
+- `http_request_duration_seconds` - HTTP request latency histogram
+- `conversions_total` - Total conversions processed (by type and status)
+- `active_jobs` - Currently active conversion jobs (by type)
+- `process_*` - Standard Node.js process metrics (CPU, memory, etc.)
+
+**Example Prometheus Configuration:**
+```yaml
+scrape_configs:
+  - job_name: 'unified-conversion-service'
+    static_configs:
+      - targets: ['localhost:3010']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+```
+
+### Logging
+
+The service uses structured JSON logging with Pino:
+- Development: Pretty-printed, colorized logs
+- Production: JSON formatted logs for log aggregation
+
+### Rate Limiting
+
+- **Window:** 15 minutes
+- **Max Requests:** 100 per IP address
+- **Response:** 429 Too Many Requests when limit exceeded
 
 ## License
 
