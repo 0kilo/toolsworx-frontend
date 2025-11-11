@@ -1,4 +1,4 @@
-import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, LucideIcon } from "lucide-react"
+import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, BarChart3, LucideIcon } from "lucide-react"
 
 export interface CategoryGroup {
   id: string
@@ -213,6 +213,34 @@ export const categoryGroups: CategoryGroup[] = [
       "Professional-quality effects",
       "No upload required for many filters",
       "Batch processing available",
+    ],
+  },
+  {
+    id: "charts",
+    title: "Charts",
+    description: "Create interactive charts and visualizations",
+    longDescription:
+      "Create beautiful, interactive charts and visualizations with our D3.js-powered tools. Build Gantt charts for project management, generate charts from JSON data, or use our property builder to create custom visualizations. All charts can be shared and exported for presentations and reports.",
+    icon: BarChart3,
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
+    categories: ["chart"],
+    seoKeywords: [
+      "gantt chart",
+      "chart generator",
+      "data visualization",
+      "interactive charts",
+      "d3 charts",
+      "project timeline",
+      "chart builder",
+      "json to chart",
+    ],
+    benefits: [
+      "Interactive D3.js visualizations",
+      "JSON data import support",
+      "Visual property builder",
+      "Shareable chart links",
     ],
   },
 ]

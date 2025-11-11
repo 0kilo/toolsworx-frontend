@@ -6,6 +6,7 @@ import { mediaConverterTools as mediaConverters } from "./categories/media-conve
 import { developerTools } from "./categories/developer-tools/registry"
 import { filterTools as filters } from "./categories/filters/registry"
 import { helpfulCalculators } from "./categories/helpful-calculators"
+import { chartTools } from "./categories/charts/registry"
 
 // Combine all converters
 export const allConverters: ConverterMetadata[] = [
@@ -16,6 +17,7 @@ export const allConverters: ConverterMetadata[] = [
   ...mediaConverters,
   ...developerTools,
   ...filters,
+  ...chartTools,
 ]
 
 // Get converters by category

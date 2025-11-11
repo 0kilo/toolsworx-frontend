@@ -28,6 +28,7 @@ export type ConverterCategory =
   | "validator"
   | "energy"
   | "spacetime"
+  | "chart"
   | "other"
 
 export interface ConverterMetadata {

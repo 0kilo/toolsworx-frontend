@@ -8,6 +8,14 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+  webpack: (config, { isServer }) => {
+    // Ignore mcp-server directory
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: ['**/mcp-server/**', '**/node_modules/**']
+    }
+    return config
+  },
   headers: async () => [
     {
       source: '/(.*)',
