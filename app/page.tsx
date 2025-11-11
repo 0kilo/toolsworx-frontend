@@ -94,35 +94,33 @@ export default function HomePage() {
               return (
                 <div key={group.id} className="mb-12">
                   {/* Category Group Header */}
-                  <Link href={`/category/${group.id}`}>
-                    <Card className={`${group.color} border-2 mb-6 cursor-pointer hover:shadow-lg transition-shadow`}>
-                      <CardContent className="py-4 px-6">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex items-start gap-4">
-                            <div className={`${group.iconColor} mt-1`}>
-                              <Icon className="h-8 w-8" />
-                            </div>
-                            <div>
-                              <h3 className={`text-2xl font-bold mb-2 ${group.textColor}`}>
-                                {group.title}
-                              </h3>
-                              <p className={`text-sm ${group.textColor} opacity-80`}>
-                                {group.description}
-                              </p>
-                            </div>
+                  <Card className={`${group.color} border-2 mb-6`}>
+                    <CardContent className="py-4 px-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <Link href={`/category/${group.id}`} className="flex items-start gap-4 flex-1 group">
+                          <div className={`${group.iconColor} mt-1`}>
+                            <Icon className="h-8 w-8" />
                           </div>
-                          <div className="flex flex-col gap-2">
-                            <Link href={`/${group.id}-cheatsheet`} className={`${group.textColor} opacity-60 hover:opacity-100 transition-opacity`}>
-                              <span className="text-xs font-medium">📋 Cheat Sheet</span>
-                            </Link>
-                            <div className={`${group.textColor} opacity-60`}>
-                              <span className="text-sm font-medium">View All →</span>
-                            </div>
+                          <div>
+                            <h3 className={`text-2xl font-bold mb-2 ${group.textColor} group-hover:underline`}>
+                              {group.title}
+                            </h3>
+                            <p className={`text-sm ${group.textColor} opacity-80`}>
+                              {group.description}
+                            </p>
                           </div>
+                        </Link>
+                        <div className="flex flex-col gap-2 items-end">
+                          <Link href={`/${group.id}-cheatsheet`} className={`${group.textColor} opacity-60 hover:opacity-100 transition-opacity`}>
+                            <span className="text-xs font-medium">📋 Cheat Sheet</span>
+                          </Link>
+                          <Link href={`/category/${group.id}`} className={`${group.textColor} opacity-60 hover:opacity-100 transition-opacity`}>
+                            <span className="text-sm font-medium">View All →</span>
+                          </Link>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                      </div>
+                    </CardContent>
+                  </Card>
 
                   {/* Converters Grid - Popular Only */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
