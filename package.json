@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "d3": "^7.9.0",
+    "googleapis": "^166.0.0",
     "katex": "^0.16.25",
     "lucide-react": "^0.344.0",
     "mathjs": "^12.4.0",
@@ -28,6 +29,7 @@
     "react-markdown": "^10.1.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
+    "rrule": "^2.8.1",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
