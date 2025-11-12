@@ -1,5 +1,7 @@
 {
   "title": "Pilot Project Implementation Timeline",
+  "startDate": "2024-01-01",
+  "endDate": "2024-04-30",
   "tasks": [
     {
       "id": "planning",
@@ -79,14 +81,18 @@
       "end": "2024-05-03",
       "progress": 0,
       "dependencies": ["monitoring"]
-    },
+    }
+  ],
+  "recurrences":[
     {
       "id": "meetings",
       "name": "Biweekly Status Meeting",
       "start": "2024-01-08",
       "end": "2024-05-03",
       "progress": 50,
-      "recurrence": "FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
+      "freq": "WEEKLY",
+      "interval": 2,
+      "byday": "MO"
     }
   ]
 }

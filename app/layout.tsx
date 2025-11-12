@@ -73,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://accounts.google.com https://www.gstatic.com; object-src 'none';" />
         <link rel="icon" href="/favicon-16x16.png" />
 
         {siteConfig.adsense.enabled && (
