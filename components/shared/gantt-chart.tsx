@@ -325,7 +325,7 @@ export function GanttChart() {
               <Download className="h-4 w-4 mr-2" />
               Download SVG
             </Button>
-            {process.env.NEXT_PUBLIC_GOOGLE_API_KEY && process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ? (
+            {typeof window !== 'undefined' && process.env.NEXT_PUBLIC_GOOGLE_API_KEY && process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ? (
               <>
                 <Button onClick={saveToDrive} variant="outline">
                   <Cloud className="h-4 w-4 mr-2" />

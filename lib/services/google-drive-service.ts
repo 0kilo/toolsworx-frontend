@@ -16,6 +16,9 @@ export class GoogleDriveService {
   static async initialize(): Promise<void> {
     if (typeof window === 'undefined') return
     
+    console.log('API Key:', process.env.NEXT_PUBLIC_GOOGLE_API_KEY ? 'Present' : 'Missing')
+    console.log('Client ID:', process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ? 'Present' : 'Missing')
+    
     if (!process.env.NEXT_PUBLIC_GOOGLE_API_KEY || !process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID) {
       throw new Error('Google API credentials not configured')
     }
