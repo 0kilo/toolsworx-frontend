@@ -181,7 +181,7 @@ export default function DateCalculatorPage() {
             <h3 className="font-semibold">Date Difference:</h3>
             <p className="text-sm text-muted-foreground">
               Enter two dates to calculate the absolute number of days between them. 
-              The order doesn't matter - the result is always positive.
+              The order doesn&apos;t matter - the result is always positive.
             </p>
           </div>
         </CardContent>

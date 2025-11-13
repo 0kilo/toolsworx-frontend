@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState, useRef, useEffect, useCallback, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { RRule } from "rrule"
 import { ChartTemplate } from "@/components/shared/chart-template"
@@ -95,7 +95,7 @@ const exampleJson = `{
   ]
 }`
 
-export default function GanttChartPage() {
+function GanttChartContent() {
   const [data, setData] = useState<GanttData>(exampleData)
   const [resolution, setResolution] = useState<number>(7)
   const [currentFileId, setCurrentFileId] = useState<string | null>(null)
@@ -453,5 +453,13 @@ export default function GanttChartPage() {
         <DataBuilder onDataChange={setData} initialData={data} />
       </div>
     </ChartTemplate>
+  )
+}
+
+export default function GanttChartPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GanttChartContent />
+    </Suspense>
   )
 }
