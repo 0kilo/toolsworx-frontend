@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Upload, Download, Share2 } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Upload, Download, Share2, FileDown } from "lucide-react"
 import { AboutDescription } from "@/components/ui/about-description"
 
 /**
@@ -22,6 +24,7 @@ interface ChartTemplateProps {
   onDataChange: (data: any) => void
   onDownload?: () => void
   onShare?: () => void
+  onImport?: (url: string) => Promise<void>
   exampleJson: string
   children: React.ReactNode
   infoContent?: React.ReactNode
@@ -34,11 +37,15 @@ export function ChartTemplate({
   onDataChange,
   onDownload,
   onShare,
+  onImport,
   exampleJson,
   children,
   infoContent
 }: ChartTemplateProps) {
   const [jsonInput, setJsonInput] = useState(JSON.stringify(data, null, 2))
+  const [importUrl, setImportUrl] = useState('')
+  const [isImporting, setIsImporting] = useState(false)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const handleJsonUpdate = () => {
     try {
@@ -46,6 +53,21 @@ export function ChartTemplate({
       onDataChange(parsed)
     } catch (error) {
       alert("Invalid JSON format")
+    }
+  }
+
+  const handleImport = async () => {
+    if (!onImport || !importUrl.trim()) return
+    
+    setIsImporting(true)
+    try {
+      await onImport(importUrl)
+      setImportUrl('')
+      setIsDialogOpen(false)
+    } catch (error) {
+      // Error handling is done in the onImport function
+    } finally {
+      setIsImporting(false)
     }
   }
 
@@ -65,6 +87,45 @@ export function ChartTemplate({
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex gap-2">
+            {onImport && (
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline">
+                    <FileDown className="h-4 w-4 mr-2" />
+                    Import
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Import from Google Drive</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Google Drive URL</Label>
+                      <Input
+                        placeholder="Paste Google Drive share URL"
+                        value={importUrl}
+                        onChange={(e) => setImportUrl(e.target.value)}
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        File must be publicly accessible (Anyone with the link can view)
+                      </p>
+                    </div>
+                    <div className="flex gap-2 justify-end">
+                      <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+                        Cancel
+                      </Button>
+                      <Button 
+                        onClick={handleImport}
+                        disabled={!importUrl.trim() || isImporting}
+                      >
+                        {isImporting ? 'Importing...' : 'Import'}
+                      </Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            )}
             {onDownload && (
               <Button onClick={onDownload} variant="outline">
                 <Download className="h-4 w-4 mr-2" />

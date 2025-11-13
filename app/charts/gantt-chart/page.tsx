@@ -1,9 +1,15 @@
 "use client"
 
 import { useState, useRef, useEffect, useCallback } from "react"
+import { useSearchParams } from "next/navigation"
 import { RRule } from "rrule"
 import { ChartTemplate } from "@/components/shared/chart-template"
+import { DataBuilder } from "@/components/shared/data-builder"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Download, Link, ImageIcon } from "lucide-react"
 import * as d3 from "d3"
 
 interface GanttTask {
@@ -91,6 +97,8 @@ const exampleJson = `{
 export default function GanttChartPage() {
   const [data, setData] = useState<GanttData>(exampleData)
   const [resolution, setResolution] = useState<number>(7)
+  const [currentFileId, setCurrentFileId] = useState<string | null>(null)
+  const searchParams = useSearchParams()
   const ganttRef = useRef<HTMLDivElement>(null)
 
   const renderChart = useCallback(() => {
@@ -237,6 +245,13 @@ export default function GanttChartPage() {
 
 
   useEffect(() => {
+    const dataParam = searchParams.get('data')
+    if (dataParam) {
+      loadFromFileId(dataParam)
+    }
+  }, [searchParams])
+
+  useEffect(() => {
     if (data.tasks.length > 0) {
       renderChart()
     }
@@ -269,6 +284,94 @@ export default function GanttChartPage() {
     }
   }
 
+  const extractFileId = (url: string): string | null => {
+    const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/)
+    return match ? match[1] : null
+  }
+
+  const handleImportFromDrive = async (driveUrl: string) => {
+    const fileId = extractFileId(driveUrl)
+    if (!fileId) {
+      throw new Error('Invalid Google Drive URL')
+    }
+
+    const response = await fetch('/api/import-drive', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ fileId }),
+    })
+    
+    const result = await response.json()
+    
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to fetch file')
+    }
+    
+    setData(result)
+    setCurrentFileId(fileId)
+    alert('File imported successfully!')
+  }
+
+  const loadFromFileId = async (fileId: string) => {
+    try {
+      const response = await fetch('/api/import-drive', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ fileId }),
+      })
+      
+      const result = await response.json()
+      
+      if (response.ok) {
+        setData(result)
+        setCurrentFileId(fileId)
+      }
+    } catch (error) {
+      console.error('Failed to load from URL parameter:', error)
+    }
+  }
+
+  const handleExportPNG = () => {
+    if (!ganttRef.current) return
+
+    const svg = ganttRef.current.querySelector('svg')
+    if (!svg) return
+
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    const svgData = new XMLSerializer().serializeToString(svg)
+    const img = new window.Image()
+    
+    canvas.width = svg.clientWidth || 800
+    canvas.height = svg.clientHeight || 600
+    
+    img.onload = () => {
+      ctx?.drawImage(img, 0, 0)
+      const link = document.createElement('a')
+      link.download = `${data.title.replace(/\s+/g, '_')}_gantt.png`
+      link.href = canvas.toDataURL('image/png')
+      link.click()
+    }
+    
+    img.src = 'data:image/svg+xml;base64,' + btoa(svgData)
+  }
+
+  const handleCopyURL = () => {
+    if (!currentFileId) {
+      alert('No file loaded to share')
+      return
+    }
+    
+    const url = `${window.location.origin}/charts/gantt-chart?data=${currentFileId}`
+    navigator.clipboard.writeText(url).then(() => {
+      alert('URL copied to clipboard!')
+    })
+  }
+
   return (
     <ChartTemplate
       title="Gantt Chart Generator"
@@ -277,23 +380,48 @@ export default function GanttChartPage() {
       onDataChange={setData}
       onDownload={handleDownload}
       onShare={handleShare}
+      onImport={handleImportFromDrive}
       exampleJson={exampleJson}
     >
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Resolution (days per column)</label>
-        <Select value={resolution.toString()} onValueChange={(value) => setResolution(Number(value))}>
-          <SelectTrigger className="w-48">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1">1 day</SelectItem>
-            <SelectItem value="3">3 days</SelectItem>
-            <SelectItem value="7">7 days</SelectItem>
-            <SelectItem value="28">28 days</SelectItem>
-          </SelectContent>
-        </Select>
+      <div className="mb-4 flex gap-4 items-end">
+        <div>
+          <label className="block text-sm font-medium mb-2">Resolution (days per column)</label>
+          <Select value={resolution.toString()} onValueChange={(value) => setResolution(Number(value))}>
+            <SelectTrigger className="w-48">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1">1 day</SelectItem>
+              <SelectItem value="3">3 days</SelectItem>
+              <SelectItem value="7">7 days</SelectItem>
+              <SelectItem value="28">28 days</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">
+              <Download className="h-4 w-4 mr-2" />
+              Export
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem onClick={handleExportPNG}>
+              <ImageIcon className="h-4 w-4 mr-2" />
+              Export as PNG
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={handleCopyURL}>
+              <Link className="h-4 w-4 mr-2" />
+              Copy Share URL
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div ref={ganttRef} className="gantt-container min-h-[400px]"></div>
+      
+      <div className="mt-6">
+        <DataBuilder onDataChange={setData} initialData={data} />
+      </div>
     </ChartTemplate>
   )
 }
