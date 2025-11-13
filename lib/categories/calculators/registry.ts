@@ -1,4 +1,4 @@
-import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart } from "lucide-react"
+import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart, Calendar } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -75,6 +75,16 @@ export const calculatorTools: ConverterMetadata[] = [
     href: "/calculators/percentage",
     keywords: ["percentage", "percent", "increase", "decrease", "discount"],
     popular: false,
+  },
+  {
+    id: "date-calculator",
+    title: "Date Calculator",
+    description: "Add days to dates and calculate date differences",
+    category: "calculator",
+    icon: Calendar,
+    href: "/calculators/date-calculator",
+    keywords: ["date", "calendar", "days", "difference", "add", "subtract", "time"],
+    popular: true,
   },
 
 ]

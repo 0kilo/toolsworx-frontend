@@ -5,11 +5,12 @@ import { useSearchParams } from "next/navigation"
 import { RRule } from "rrule"
 import { ChartTemplate } from "@/components/shared/chart-template"
 import { DataBuilder } from "@/components/shared/data-builder"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Download, Link, ImageIcon } from "lucide-react"
+import { Download, Link, ImageIcon, FileText } from "lucide-react"
 import * as d3 from "d3"
 
 interface GanttTask {
@@ -42,29 +43,29 @@ interface GanttData {
 
 const exampleData: GanttData = {
   title: "Project Timeline",
-  startDate: "2024-01-01",
-  endDate: "2024-04-30",
+  startDate: "2025-01-01",
+  endDate: "2025-12-31",
   tasks: [
     {
       id: "task1",
       name: "Planning Phase",
-      start: "2024-01-01",
-      end: "2024-01-15",
+      start: "2025-01-01",
+      end: "2025-01-15",
       progress: 100
     },
     {
       id: "task2", 
       name: "Development",
-      start: "2024-01-10",
-      end: "2024-02-28",
+      start: "2025-01-10",
+      end: "2025-02-28",
       progress: 60,
       dependencies: ["task1"]
     },
     {
       id: "task3",
       name: "Testing",
-      start: "2024-02-20",
-      end: "2024-03-15",
+      start: "2025-02-20",
+      end: "2025-03-15",
       progress: 20,
       dependencies: ["task2"]
     }
@@ -232,6 +233,23 @@ export default function GanttChartPage() {
       .attr('fill', '#374151')
       .text(d => d.name)
 
+    // Year labels at top
+    let currentYear = ''
+    gridDates.forEach((date, index) => {
+      const year = date.getFullYear().toString()
+      if (year !== currentYear) {
+        currentYear = year
+        g.append('text')
+          .attr('x', timeScale(date))
+          .attr('y', -5)
+          .attr('text-anchor', 'start')
+          .attr('font-size', '12px')
+          .attr('font-weight', 'bold')
+          .attr('fill', '#374151')
+          .text(year)
+      }
+    })
+
     // Date axis
     const xAxis = d3.axisBottom(timeScale)
       .tickValues(gridDates)
@@ -275,13 +293,16 @@ export default function GanttChartPage() {
     URL.revokeObjectURL(url)
   }
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: `${data.title} - Gantt Chart`,
-        text: 'Check out this Gantt chart'
-      })
-    }
+  const handleExportJSON = () => {
+    const jsonString = JSON.stringify(data, null, 2)
+    const blob = new Blob([jsonString], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${data.title.replace(/\s+/g, '_')}_gantt.json`
+    a.click()
+    URL.revokeObjectURL(url)
   }
 
   const extractFileId = (url: string): string | null => {
@@ -379,45 +400,54 @@ export default function GanttChartPage() {
       data={data}
       onDataChange={setData}
       onDownload={handleDownload}
-      onShare={handleShare}
       onImport={handleImportFromDrive}
       exampleJson={exampleJson}
     >
-      <div className="mb-4 flex gap-4 items-end">
-        <div>
-          <label className="block text-sm font-medium mb-2">Resolution (days per column)</label>
-          <Select value={resolution.toString()} onValueChange={(value) => setResolution(Number(value))}>
-            <SelectTrigger className="w-48">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1">1 day</SelectItem>
-              <SelectItem value="3">3 days</SelectItem>
-              <SelectItem value="7">7 days</SelectItem>
-              <SelectItem value="28">28 days</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              <Download className="h-4 w-4 mr-2" />
-              Export
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onClick={handleExportPNG}>
-              <ImageIcon className="h-4 w-4 mr-2" />
-              Export as PNG
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleCopyURL}>
-              <Link className="h-4 w-4 mr-2" />
-              Copy Share URL
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-      <div ref={ganttRef} className="gantt-container min-h-[400px]"></div>
+      <Card>
+        <CardContent>
+          <div className="mb-4 flex gap-4 items-end">
+            <div>
+              <label className="block text-sm font-medium mb-2">Resolution (days per column)</label>
+              <Select value={resolution.toString()} onValueChange={(value) => setResolution(Number(value))}>
+                <SelectTrigger className="w-48">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">1 day</SelectItem>
+                  <SelectItem value="3">3 days</SelectItem>
+                  <SelectItem value="7">7 days</SelectItem>
+                  <SelectItem value="28">28 days</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">
+                  <Download className="h-4 w-4 mr-2" />
+                  Export
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem onClick={handleExportPNG}>
+                  <ImageIcon className="h-4 w-4 mr-2" />
+                  Export as PNG
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleExportJSON}>
+                  <FileText className="h-4 w-4 mr-2" />
+                  Export as JSON
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleCopyURL}>
+                  <Link className="h-4 w-4 mr-2" />
+                  Copy Share URL
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+          <div className="overflow-x-auto">
+            <div ref={ganttRef} className="gantt-container min-h-[400px]"></div>
+          </div>
+        </CardContent>
+      </Card>
       
       <div className="mt-6">
         <DataBuilder onDataChange={setData} initialData={data} />

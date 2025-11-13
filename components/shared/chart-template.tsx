@@ -23,7 +23,6 @@ interface ChartTemplateProps {
   data: any
   onDataChange: (data: any) => void
   onDownload?: () => void
-  onShare?: () => void
   onImport?: (url: string) => Promise<void>
   exampleJson: string
   children: React.ReactNode
@@ -36,7 +35,6 @@ export function ChartTemplate({
   data,
   onDataChange,
   onDownload,
-  onShare,
   onImport,
   exampleJson,
   children,
@@ -71,6 +69,25 @@ export function ChartTemplate({
     }
   }
 
+  const handleFileImport = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string
+        const parsed = JSON.parse(content)
+        onDataChange(parsed)
+        setJsonInput(JSON.stringify(parsed, null, 2))
+        setIsDialogOpen(false)
+      } catch (error) {
+        alert('Invalid JSON file format')
+      }
+    }
+    reader.readAsText(file)
+  }
+
   return (
     <div className="space-y-6">
       {/* Title */}
@@ -97,20 +114,46 @@ export function ChartTemplate({
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
-                    <DialogTitle>Import from Google Drive</DialogTitle>
+                    <DialogTitle>Import Data</DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
-                      <Label>Google Drive URL</Label>
-                      <Input
-                        placeholder="Paste Google Drive share URL"
-                        value={importUrl}
-                        onChange={(e) => setImportUrl(e.target.value)}
-                      />
-                      <p className="text-xs text-gray-500 mt-1">
-                        File must be publicly accessible (Anyone with the link can view)
-                      </p>
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <div>
+                        <Label className="text-base font-medium">From Local File</Label>
+                        <Input
+                          type="file"
+                          accept=".json"
+                          onChange={handleFileImport}
+                          className="mt-2"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">
+                          Select a JSON file from your computer
+                        </p>
+                      </div>
+                      
+                      <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                          <span className="w-full border-t" />
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                          <span className="bg-background px-2 text-muted-foreground">Or</span>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <Label className="text-base font-medium">From Google Drive</Label>
+                        <Input
+                          placeholder="Paste Google Drive share URL"
+                          value={importUrl}
+                          onChange={(e) => setImportUrl(e.target.value)}
+                          className="mt-2"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">
+                          File must be publicly accessible (Anyone with the link can view)
+                        </p>
+                      </div>
                     </div>
+                    
                     <div className="flex gap-2 justify-end">
                       <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
                         Cancel
@@ -119,7 +162,7 @@ export function ChartTemplate({
                         onClick={handleImport}
                         disabled={!importUrl.trim() || isImporting}
                       >
-                        {isImporting ? 'Importing...' : 'Import'}
+                        {isImporting ? 'Importing...' : 'Import from Drive'}
                       </Button>
                     </div>
                   </div>
@@ -130,12 +173,6 @@ export function ChartTemplate({
               <Button onClick={onDownload} variant="outline">
                 <Download className="h-4 w-4 mr-2" />
                 Download SVG
-              </Button>
-            )}
-            {onShare && (
-              <Button onClick={onShare} variant="outline">
-                <Share2 className="h-4 w-4 mr-2" />
-                Share
               </Button>
             )}
           </div>

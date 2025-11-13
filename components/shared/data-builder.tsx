@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Plus, Trash2 } from "lucide-react"
+import { Plus, Trash2, RotateCcw, ChevronUp, ChevronDown } from "lucide-react"
 
 interface Task {
   id: string
@@ -30,19 +30,19 @@ interface DataBuilderProps {
 }
 
 export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
-  const [title, setTitle] = useState(initialData?.title || "Project Timeline")
-  const [startDate, setStartDate] = useState(initialData?.startDate || "2024-01-01")
-  const [endDate, setEndDate] = useState(initialData?.endDate || "2024-04-30")
-  const [tasks, setTasks] = useState<Task[]>(initialData?.tasks || [
+  const [title, setTitle] = useState(initialData?.title ?? "Project Timeline")
+  const [startDate, setStartDate] = useState(initialData?.startDate ?? "2024-01-01")
+  const [endDate, setEndDate] = useState(initialData?.endDate ?? "2024-04-30")
+  const [tasks, setTasks] = useState<Task[]>(initialData?.tasks ?? [
     { id: "task1", name: "Task 1", start: "2024-01-01", end: "2024-01-15", progress: 0 }
   ])
 
   useEffect(() => {
     if (initialData) {
-      setTitle(initialData.title || "Project Timeline")
-      setStartDate(initialData.startDate || "2024-01-01")
-      setEndDate(initialData.endDate || "2024-04-30")
-      setTasks(initialData.tasks || [])
+      setTitle(initialData.title ?? "Project Timeline")
+      setStartDate(initialData.startDate ?? "2024-01-01")
+      setEndDate(initialData.endDate ?? "2024-04-30")
+      setTasks(initialData.tasks ?? [])
     }
   }, [initialData])
 
@@ -73,6 +73,16 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
     updateData(title, startDate, endDate, newTasks)
   }
 
+  const moveTask = (index: number, direction: 'up' | 'down') => {
+    const newIndex = direction === 'up' ? index - 1 : index + 1
+    if (newIndex < 0 || newIndex >= tasks.length) return
+    
+    const newTasks = [...tasks]
+    ;[newTasks[index], newTasks[newIndex]] = [newTasks[newIndex], newTasks[index]]
+    setTasks(newTasks)
+    updateData(title, startDate, endDate, newTasks)
+  }
+
   const updateData = (newTitle: string, newStartDate: string, newEndDate: string, newTasks: Task[]) => {
     onDataChange({
       title: newTitle,
@@ -80,6 +90,14 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
       endDate: newEndDate,
       tasks: newTasks
     })
+  }
+
+  const clearAll = () => {
+    setTitle("")
+    setStartDate("")
+    setEndDate("")
+    setTasks([])
+    updateData("", "", "", [])
   }
 
   const handleTitleChange = (value: string) => {
@@ -100,7 +118,13 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Project Builder</CardTitle>
+        <div className="flex justify-between items-center">
+          <CardTitle>Project Builder</CardTitle>
+          <Button onClick={clearAll} variant="outline" size="sm">
+            <RotateCcw className="h-4 w-4 mr-1" />
+            Clear All
+          </Button>
+        </div>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -109,7 +133,6 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
             <Input
               value={title}
               onChange={(e) => handleTitleChange(e.target.value)}
-              placeholder="Project Timeline"
             />
           </div>
           <div>
@@ -139,8 +162,17 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
             </Button>
           </div>
           
+          <div className="grid grid-cols-12 gap-2 items-center p-2 text-sm font-medium text-gray-600">
+            <div className="col-span-3">Task Name</div>
+            <div className="col-span-2">Start Date</div>
+            <div className="col-span-2">End Date</div>
+            <div className="col-span-2">Progress %</div>
+            <div className="col-span-2">Task ID</div>
+            <div className="col-span-1">Actions</div>
+          </div>
+          
           {tasks.map((task, index) => (
-            <div key={task.id} className="grid grid-cols-12 gap-2 items-center p-2 border rounded">
+            <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 border rounded">
               <div className="col-span-3">
                 <Input
                   value={task.name}
@@ -184,12 +216,30 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
                   className="text-sm"
                 />
               </div>
-              <div className="col-span-1">
+              <div className="col-span-1 flex gap-1">
+                <Button
+                  onClick={() => moveTask(index, 'up')}
+                  variant="outline"
+                  size="sm"
+                  className="h-6 w-6 p-0"
+                  disabled={index === 0}
+                >
+                  <ChevronUp className="h-3 w-3" />
+                </Button>
+                <Button
+                  onClick={() => moveTask(index, 'down')}
+                  variant="outline"
+                  size="sm"
+                  className="h-6 w-6 p-0"
+                  disabled={index === tasks.length - 1}
+                >
+                  <ChevronDown className="h-3 w-3" />
+                </Button>
                 <Button
                   onClick={() => removeTask(index)}
                   variant="outline"
                   size="sm"
-                  className="h-8 w-8 p-0"
+                  className="h-6 w-6 p-0"
                 >
                   <Trash2 className="h-3 w-3" />
                 </Button>
