@@ -33,7 +33,9 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "rrule": "^2.8.1",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "xlsx": "^0.18.5",
+    "xlsx-color": "^0.14.30"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",

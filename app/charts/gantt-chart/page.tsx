@@ -10,8 +10,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Download, Link, ImageIcon, FileText } from "lucide-react"
+import { Download, Link, ImageIcon, FileText, FileSpreadsheet } from "lucide-react"
 import * as d3 from "d3"
+import { createProfessionalGanttExcel } from "@/lib/excel-gantt-formatter"
 
 interface GanttTask {
   id: string
@@ -20,6 +21,7 @@ interface GanttTask {
   end: string
   progress?: number
   dependencies?: string[]
+  color?: string
 }
 
 interface GanttRecurrence {
@@ -116,7 +118,8 @@ function GanttChartContent() {
         name: task.name,
         start: new Date(task.start + 'T00:00:00'),
         end: new Date(task.end + 'T00:00:00'),
-        progress: task.progress || 0
+        progress: task.progress || 0,
+        color: task.color
       })
     })
 
@@ -185,7 +188,7 @@ function GanttChartContent() {
       .attr('y', 5)
       .attr('width', d => (timeScale(d.end) - timeScale(d.start)) * (d.progress / 100))
       .attr('height', 30)
-      .attr('fill', '#3b82f6')
+      .attr('fill', d => d.color || '#3b82f6')
       .attr('rx', 3)
 
     // Progress text
@@ -393,16 +396,32 @@ function GanttChartContent() {
     })
   }
 
+  const handleExportExcel = () => {
+    const projectStart = new Date(data.startDate || data.tasks[0]?.start || '2024-01-01')
+    const projectEnd = new Date(data.endDate || data.tasks[data.tasks.length - 1]?.end || '2024-12-31')
+    
+    const tasks = data.tasks.map(task => ({
+      id: task.id,
+      name: task.name,
+      startDate: task.start,
+      endDate: task.end,
+      progress: task.progress || 0,
+      duration: Math.ceil((new Date(task.end).getTime() - new Date(task.start).getTime()) / (1000 * 60 * 60 * 24)),
+      color: task.color
+    }))
+    
+    createProfessionalGanttExcel(tasks, data.title, projectStart, projectEnd, resolution)
+  }
+
   return (
-    <ChartTemplate
-      title="Gantt Chart Generator"
-      description="Create interactive project timelines with tasks, dependencies, and recurring events"
-      data={data}
-      onDataChange={setData}
-      onDownload={handleDownload}
-      onImport={handleImportFromDrive}
-      exampleJson={exampleJson}
-    >
+    <div className="space-y-6">
+      {/* Title */}
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-2">Gantt Chart Generator</h1>
+        <p className="text-muted-foreground">Create interactive project timelines with tasks, dependencies, and recurring events</p>
+      </div>
+
+      {/* Graphical Chart */}
       <Card>
         <CardContent>
           <div className="mb-4 flex gap-4 items-end">
@@ -436,6 +455,10 @@ function GanttChartContent() {
                   <FileText className="h-4 w-4 mr-2" />
                   Export as JSON
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleExportExcel(); }}>
+                  <FileSpreadsheet className="h-4 w-4 mr-2" />
+                  Export as Excel
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={handleCopyURL}>
                   <Link className="h-4 w-4 mr-2" />
                   Copy Share URL
@@ -448,11 +471,23 @@ function GanttChartContent() {
           </div>
         </CardContent>
       </Card>
-      
-      <div className="mt-6">
-        <DataBuilder onDataChange={setData} initialData={data} />
-      </div>
-    </ChartTemplate>
+
+      {/* Project Builder */}
+      <DataBuilder onDataChange={setData} initialData={data} />
+
+      {/* Chart Data */}
+      <ChartTemplate
+        title="Chart Data"
+        description="Configure your chart using JSON data or import from external sources"
+        data={data}
+        onDataChange={setData}
+        onDownload={handleDownload}
+        onImport={handleImportFromDrive}
+        exampleJson={exampleJson}
+      >
+        <div></div>
+      </ChartTemplate>
+    </div>
   )
 }
 

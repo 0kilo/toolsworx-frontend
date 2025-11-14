@@ -14,6 +14,7 @@ interface Task {
   end: string
   progress?: number
   dependencies?: string[]
+  color?: string
 }
 
 interface GanttData {
@@ -34,7 +35,7 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
   const [startDate, setStartDate] = useState(initialData?.startDate ?? "2024-01-01")
   const [endDate, setEndDate] = useState(initialData?.endDate ?? "2024-04-30")
   const [tasks, setTasks] = useState<Task[]>(initialData?.tasks ?? [
-    { id: "task1", name: "Task 1", start: "2024-01-01", end: "2024-01-15", progress: 0 }
+    { id: "task1", name: "Task 1", start: "2024-01-01", end: "2024-01-15", progress: 0, color: "#3b82f6" }
   ])
 
   useEffect(() => {
@@ -52,7 +53,8 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
       name: `Task ${tasks.length + 1}`,
       start: startDate,
       end: endDate,
-      progress: 0
+      progress: 0,
+      color: "#3b82f6"
     }
     const newTasks = [...tasks, newTask]
     setTasks(newTasks)
@@ -163,17 +165,18 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
           </div>
           
           <div className="grid grid-cols-12 gap-2 items-center p-2 text-sm font-medium text-gray-600">
-            <div className="col-span-3">Task Name</div>
+            <div className="col-span-2">Task Name</div>
             <div className="col-span-2">Start Date</div>
             <div className="col-span-2">End Date</div>
-            <div className="col-span-2">Progress %</div>
+            <div className="col-span-1">Progress %</div>
             <div className="col-span-2">Task ID</div>
-            <div className="col-span-1">Actions</div>
+            <div className="col-span-1">Color</div>
+            <div className="col-span-2">Actions</div>
           </div>
           
           {tasks.map((task, index) => (
             <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 border rounded">
-              <div className="col-span-3">
+              <div className="col-span-2">
                 <Input
                   value={task.name}
                   onChange={(e) => updateTask(index, 'name', e.target.value)}
@@ -197,14 +200,14 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
                   className="text-sm"
                 />
               </div>
-              <div className="col-span-2">
+              <div className="col-span-1">
                 <Input
                   type="number"
                   min="0"
                   max="100"
                   value={task.progress}
                   onChange={(e) => updateTask(index, 'progress', parseInt(e.target.value) || 0)}
-                  placeholder="Progress %"
+                  placeholder="%"
                   className="text-sm"
                 />
               </div>
@@ -216,7 +219,15 @@ export function DataBuilder({ onDataChange, initialData }: DataBuilderProps) {
                   className="text-sm"
                 />
               </div>
-              <div className="col-span-1 flex gap-1">
+              <div className="col-span-1">
+                <Input
+                  type="color"
+                  value={task.color || "#3b82f6"}
+                  onChange={(e) => updateTask(index, 'color', e.target.value)}
+                  className="h-8 w-full p-1 border rounded"
+                />
+              </div>
+              <div className="col-span-2 flex gap-1">
                 <Button
                   onClick={() => moveTask(index, 'up')}
                   variant="outline"

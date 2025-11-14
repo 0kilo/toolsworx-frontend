@@ -19,6 +19,12 @@ export function PageLoadingIndicator() {
 
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement
+      
+      // Skip if clicking on buttons or export elements
+      if (target.closest('button') || target.closest('[role="menuitem"]')) {
+        return
+      }
+      
       const link = target.closest('a[href]') as HTMLAnchorElement
       
       if (link && link.href && !link.href.startsWith('mailto:') && !link.href.startsWith('tel:')) {
