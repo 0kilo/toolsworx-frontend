@@ -5,7 +5,7 @@
 node_modules
 # testing
 /coverage
-
+toolsworx-keypair.pem
 # next.js
 /.next/
 /out/

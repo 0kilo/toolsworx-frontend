@@ -28,6 +28,11 @@ class ApiClient {
     })
 
     this.setupInterceptors()
+    
+    // Log API URL for debugging
+    if (typeof window !== 'undefined') {
+      console.log('API Client initialized with baseURL:', process.env.NEXT_PUBLIC_API_URL)
+    }
   }
 
   private setupInterceptors() {
@@ -42,7 +47,7 @@ class ApiClient {
       (error) => Promise.reject(error)
     )
 
-    // Response interceptor - handle auth errors
+    // Response interceptor - handle auth and network errors
     this.client.interceptors.response.use(
       (response) => response,
       (error) => {
@@ -53,6 +58,15 @@ class ApiClient {
             window.location.href = '/login'
           }
         }
+        
+        // Log network errors for debugging
+        if (error.code === 'ECONNREFUSED' || error.code === 'NETWORK_ERROR') {
+          console.error('Backend connection failed:', {
+            baseURL: this.client.defaults.baseURL,
+            error: error.message
+          })
+        }
+        
         return Promise.reject(error)
       }
     )

@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - echo "Building with API URL:" $NEXT_PUBLIC_API_URL
     build:
       commands:
         - npm run build
