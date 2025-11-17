@@ -1,6 +1,6 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 import { fileConversion } from '../function/file-conversion/resource';
-import { fileFilter } from '../function/file-filter/resource';
+import { filterService } from '../function/file-filter/resource';
 import { mediaConversion } from '../function/media-conversion/resource';
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -30,7 +30,7 @@ const schema = a.schema({
   })
   .returns(a.json())
   .authorization(allow => [allow.guest()])
-  .handler(a.handler.function())
+  .handler(a.handler.function(filterService)),
 
   mediaConversion: a
   .query()

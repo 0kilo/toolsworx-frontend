@@ -105,11 +105,10 @@ class AmplifyApiClient {
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
-    const { data } = await client.queries.filterService({
+    const { data } = await client.queries.fileFilter({
       fileData: base64Data,
       fileName: file.name,
-      filters: [{ type: filterType, ...options }],
-      outputFormat: 'jpeg'
+      options: { type: filterType, ...options }
     })
 
     return {

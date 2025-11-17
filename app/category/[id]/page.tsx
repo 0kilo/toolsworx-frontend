@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Check } from "lucide-react"
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 // Generate static params for all categories (for SSG)
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const category = getCategoryGroupById(params.id)
+  const { id } = await params
+  const category = getCategoryGroupById(id)
 
   if (!category) {
     return {
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title: `${category.title} - Free Online Tools`,
       description: category.longDescription,
       type: "website",
-      url: `/category/${params.id}`,
+      url: `/category/${id}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -50,13 +51,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       description: category.longDescription,
     },
     alternates: {
-      canonical: `/category/${params.id}`,
+      canonical: `/category/${id}`,
     },
   }
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
-  const category = getCategoryGroupById(params.id)
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { id } = await params
+  const category = getCategoryGroupById(id)
 
   if (!category) {
     notFound()
