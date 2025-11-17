@@ -32,3 +32,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 info.txt
+
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*

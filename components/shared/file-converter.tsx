@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
-import { apiClient } from "@/lib/services/api-client"
+import { amplifyApiClient } from "@/lib/services/amplify-client"
 import { Download, FileText, AlertCircle, ArrowRight } from "lucide-react"
 
 interface ConversionState {
@@ -65,7 +65,7 @@ export function FileConverter({
     try {
       setConversion({ status: 'uploading', progress: 10 })
       
-      const job = await apiClient.convertFile(file, toFormat)
+      const job = await amplifyApiClient.convertFile(file, toFormat)
       
       setConversion({ 
         status: 'processing', 
@@ -76,7 +76,7 @@ export function FileConverter({
       // Poll for completion
       const pollInterval = setInterval(async () => {
         try {
-          const status = await apiClient.getFileJobStatus(job.id)
+          const status = await amplifyApiClient.getFileJobStatus(job.id)
           
           if (status.status === 'completed') {
             clearInterval(pollInterval)
@@ -122,7 +122,7 @@ export function FileConverter({
     if (!conversion.jobId || !selectedToFormat) return
     
     try {
-      const blob = await apiClient.downloadFileJob(conversion.jobId)
+      const blob = await amplifyApiClient.downloadFileJob(conversion.jobId)
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url

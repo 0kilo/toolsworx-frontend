@@ -10,6 +10,8 @@ import { Search, Zap } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 
+
+
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
   const popularConverters = getPopularConverters()

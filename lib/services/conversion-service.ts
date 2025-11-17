@@ -1,4 +1,4 @@
-import { apiClient } from './api-client';
+import { amplifyApiClient } from './amplify-client';
 
 export interface ConversionRequest {
   file: File;
@@ -15,7 +15,7 @@ export interface ConversionResult {
 
 export class ConversionService {
   async convertFile(request: ConversionRequest): Promise<ConversionResult> {
-    const job = await apiClient.convertFile(request.file, request.targetFormat, request.options);
+    const job = await amplifyApiClient.convertFile(request.file, request.targetFormat, request.options);
     return {
       success: true,
       jobId: job.id,
@@ -24,7 +24,7 @@ export class ConversionService {
   }
 
   async convertMedia(request: ConversionRequest): Promise<ConversionResult> {
-    const job = await apiClient.convertMedia(request.file, request.targetFormat, request.options);
+    const job = await amplifyApiClient.convertMedia(request.file, request.targetFormat, request.options);
     return {
       success: true,
       jobId: job.id,
@@ -33,7 +33,7 @@ export class ConversionService {
   }
 
   async applyFilter(file: File, filterType: string, options?: any): Promise<ConversionResult> {
-    const job = await apiClient.applyFilter(file, filterType, options);
+    const job = await amplifyApiClient.applyFilter(file, filterType, options);
     return {
       success: true,
       jobId: job.id,

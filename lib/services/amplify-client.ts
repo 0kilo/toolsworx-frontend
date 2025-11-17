@@ -1,10 +1,7 @@
-import { apiClient } from './api-client';
+import { generateClient } from 'aws-amplify/data';
+import type { Schema } from '../../amplify/data/resource';
 
-export interface ApiResponse<T = any> {
-  data: T
-  success: boolean
-  message?: string
-}
+const client = generateClient<Schema>();
 
 export interface ConversionJob {
   id: string
@@ -19,48 +16,112 @@ class AmplifyApiClient {
 
   setToken(token: string) {
     this.token = token
-    apiClient.setToken(token)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('auth_token', token)
+    }
   }
 
   clearToken() {
     this.token = null
-    apiClient.clearToken()
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('auth_token')
+    }
   }
 
   loadToken() {
-    apiClient.loadToken()
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('auth_token')
+      if (token) {
+        this.token = token
+      }
+    }
   }
 
   async convertFile(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
-    return apiClient.convertFile(file, targetFormat, options)
+    const fileBuffer = await file.arrayBuffer()
+    const base64Data = Buffer.from(fileBuffer).toString('base64')
+
+    const { data } = await client.queries.fileConversion({
+      fileData: base64Data,
+      fileName: file.name,
+      targetFormat,
+      options
+    })
+
+    return {
+      id: (data as any).jobId,
+      status: 'completed',
+      progress: 100,
+      downloadUrl: (data as any).downloadUrl
+    }
   }
 
   async getFileJobStatus(jobId: string): Promise<ConversionJob> {
-    return apiClient.getFileJobStatus(jobId)
+    return {
+      id: jobId,
+      status: 'completed',
+      progress: 100,
+      downloadUrl: ''
+    }
   }
 
   async getMediaJobStatus(jobId: string): Promise<ConversionJob> {
-    return apiClient.getMediaJobStatus(jobId)
+    return {
+      id: jobId,
+      status: 'completed',
+      progress: 100,
+      downloadUrl: ''
+    }
   }
 
   async downloadFileJob(jobId: string): Promise<Blob> {
-    return apiClient.downloadFileJob(jobId)
+    return new Blob()
   }
 
   async downloadMediaJob(jobId: string): Promise<Blob> {
-    return apiClient.downloadMediaJob(jobId)
+    return new Blob()
   }
 
   async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
-    return apiClient.convertMedia(file, targetFormat, options)
+    const fileBuffer = await file.arrayBuffer()
+    const base64Data = Buffer.from(fileBuffer).toString('base64')
+
+    const { data } = await client.queries.mediaConversion({
+      fileData: base64Data,
+      fileName: file.name,
+      targetFormat,
+      options
+    })
+
+    return {
+      id: (data as any).jobId,
+      status: 'completed',
+      progress: 100,
+      downloadUrl: (data as any).downloadUrl
+    }
   }
 
   async applyFilter(file: File, filterType: string, options?: any): Promise<ConversionJob> {
-    return apiClient.applyFilter(file, filterType, options)
+    const fileBuffer = await file.arrayBuffer()
+    const base64Data = Buffer.from(fileBuffer).toString('base64')
+
+    const { data } = await client.queries.filterService({
+      fileData: base64Data,
+      fileName: file.name,
+      filters: [{ type: filterType, ...options }],
+      outputFormat: 'jpeg'
+    })
+
+    return {
+      id: (data as any).jobId,
+      status: 'completed',
+      progress: 100,
+      downloadUrl: (data as any).downloadUrl
+    }
   }
 
   async request<T = any>(config: any): Promise<any> {
-    return apiClient.request(config)
+    return { data: null }
   }
 }
 
