@@ -5,13 +5,13 @@ import { randomUUID } from 'crypto';
 import sharp from 'sharp';
 
 export const handler = async (event: any) => {
-  const { fileData, fileName, filters = [], outputFormat = 'jpeg' } = event.arguments;
+  const { jobId, fileData, fileName, options = {} } = event.arguments;
   
   if (!fileData) {
     throw new Error('Missing fileData');
   }
-
-  const jobId = randomUUID();
+  
+  const { filters = [], outputFormat = 'jpeg' } = options;
   const tempDir = mkdtempSync(join(tmpdir(), 'filter-'));
   
   try {

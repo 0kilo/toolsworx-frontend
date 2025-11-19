@@ -6,13 +6,11 @@ import { randomUUID } from 'crypto';
 import sharp from 'sharp';
 
 export const handler = async (event: any) => {
-  const { fileData, fileName, targetFormat, options = {} } = event.arguments;
+  const { jobId, fileData, fileName, targetFormat, options = {} } = event.arguments;
   
   if (!fileData || !targetFormat) {
     throw new Error('Missing fileData or targetFormat');
   }
-
-  const jobId = randomUUID();
   const tempDir = mkdtempSync(join(tmpdir(), 'media-'));
   
   try {

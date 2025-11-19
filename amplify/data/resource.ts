@@ -24,6 +24,7 @@ const schema = a.schema({
   fileFilter: a
   .query()
   .arguments({
+    jobId: a.string(),
     fileData: a.string(),
     fileName: a.string(),
     options: a.json()
@@ -35,6 +36,7 @@ const schema = a.schema({
   mediaConversion: a
   .query()
   .arguments({
+    jobId: a.string(),
     fileData: a.string(),
     fileName: a.string(),
     targetFormat: a.string(),

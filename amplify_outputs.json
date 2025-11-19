@@ -78,6 +78,12 @@
           "type": "AWSJSON",
           "isRequired": false,
           "arguments": {
+            "jobId": {
+              "name": "jobId",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
             "fileData": {
               "name": "fileData",
               "isArray": false,
@@ -104,6 +110,12 @@
           "type": "AWSJSON",
           "isRequired": false,
           "arguments": {
+            "jobId": {
+              "name": "jobId",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
             "fileData": {
               "name": "fileData",
               "isArray": false,

@@ -12,7 +12,7 @@ export const handler = async (event: any) => {
     throw new Error('Missing fileData or targetFormat');
   }
 
-  const jobId = randomUUID();
+
   const tempDir = mkdtempSync(join(tmpdir(), 'convert-'));
   
   try {
@@ -39,7 +39,6 @@ export const handler = async (event: any) => {
     
     return {
       success: true,
-      jobId,
       downloadUrl: `data:${getContentType(targetFormat)};base64,${base64Output}`
     };
 

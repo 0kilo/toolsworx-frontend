@@ -48,8 +48,12 @@ class AmplifyApiClient {
       options
     })
 
+    if (!data) {
+      throw new Error('Conversion failed - no response from server')
+    }
+
     return {
-      id: (data as any).jobId,
+      id: crypto.randomUUID(),
       status: 'completed',
       progress: 100,
       downloadUrl: (data as any).downloadUrl
@@ -75,48 +79,67 @@ class AmplifyApiClient {
   }
 
   async downloadFileJob(jobId: string): Promise<Blob> {
-    return new Blob()
+    // Since we store the data URL directly, convert it back to blob
+    const job = this.completedJobs.get(jobId)
+    if (!job?.downloadUrl) {
+      throw new Error('Job not found or no download URL')
+    }
+    
+    const response = await fetch(job.downloadUrl)
+    return response.blob()
   }
+
+  private completedJobs = new Map<string, ConversionJob>()
 
   async downloadMediaJob(jobId: string): Promise<Blob> {
     return new Blob()
   }
 
   async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
+    const jobId = crypto.randomUUID()
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
     const { data } = await client.queries.mediaConversion({
+      jobId,
       fileData: base64Data,
       fileName: file.name,
       targetFormat,
       options
     })
 
-    return {
-      id: (data as any).jobId,
-      status: 'completed',
+    const job = {
+      id: jobId,
+      status: 'completed' as const,
       progress: 100,
       downloadUrl: (data as any).downloadUrl
     }
+    
+    this.completedJobs.set(job.id, job)
+    return job
   }
 
   async applyFilter(file: File, filterType: string, options?: any): Promise<ConversionJob> {
+    const jobId = crypto.randomUUID()
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
     const { data } = await client.queries.fileFilter({
+      jobId,
       fileData: base64Data,
       fileName: file.name,
       options: { type: filterType, ...options }
     })
 
-    return {
-      id: (data as any).jobId,
-      status: 'completed',
+    const job = {
+      id: jobId,
+      status: 'completed' as const,
       progress: 100,
       downloadUrl: (data as any).downloadUrl
     }
+    
+    this.completedJobs.set(job.id, job)
+    return job
   }
 
   async request<T = any>(config: any): Promise<any> {
