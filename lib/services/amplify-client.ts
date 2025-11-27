@@ -13,6 +13,7 @@ export interface ConversionJob {
 
 class AmplifyApiClient {
   private token: string | null = null
+  private completedJobs = new Map<string, ConversionJob>()
 
   setToken(token: string) {
     this.token = token
@@ -38,6 +39,7 @@ class AmplifyApiClient {
   }
 
   async convertFile(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
+    const jobId = crypto.randomUUID()
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
@@ -52,47 +54,51 @@ class AmplifyApiClient {
       throw new Error('Conversion failed - no response from server')
     }
 
-    return {
-      id: crypto.randomUUID(),
-      status: 'completed',
+    const job = {
+      id: jobId,
+      status: 'completed' as const,
       progress: 100,
       downloadUrl: (data as any).downloadUrl
     }
+
+    this.completedJobs.set(job.id, job)
+    return job
   }
 
   async getFileJobStatus(jobId: string): Promise<ConversionJob> {
-    return {
-      id: jobId,
-      status: 'completed',
-      progress: 100,
-      downloadUrl: ''
+    const job = this.completedJobs.get(jobId)
+    if (!job) {
+      throw new Error('Job not found')
     }
+    return job
   }
 
   async getMediaJobStatus(jobId: string): Promise<ConversionJob> {
-    return {
-      id: jobId,
-      status: 'completed',
-      progress: 100,
-      downloadUrl: ''
+    const job = this.completedJobs.get(jobId)
+    if (!job) {
+      throw new Error('Job not found')
     }
+    return job
   }
 
   async downloadFileJob(jobId: string): Promise<Blob> {
-    // Since we store the data URL directly, convert it back to blob
     const job = this.completedJobs.get(jobId)
     if (!job?.downloadUrl) {
       throw new Error('Job not found or no download URL')
     }
-    
+
     const response = await fetch(job.downloadUrl)
     return response.blob()
   }
 
-  private completedJobs = new Map<string, ConversionJob>()
-
   async downloadMediaJob(jobId: string): Promise<Blob> {
-    return new Blob()
+    const job = this.completedJobs.get(jobId)
+    if (!job?.downloadUrl) {
+      throw new Error('Job not found or no download URL')
+    }
+
+    const response = await fetch(job.downloadUrl)
+    return response.blob()
   }
 
   async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {

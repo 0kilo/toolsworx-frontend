@@ -1,4 +1,4 @@
-export { apiClient } from './api-client'
+export { amplifyApiClient } from './amplify-client'
 export { ShareService } from './share-service'
-export type { ApiResponse, ConversionJob } from './api-client'
+export type { ConversionJob } from './amplify-client'
 export type { ShareOptions } from './share-service'
