@@ -6,35 +6,14 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, FileText, Sparkles } from "lucide-react"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-export default function JSONFormatterPage() {
+export default function JSONMinifierPage() {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState("")
   const [copied, setCopied] = useState(false)
-  const [indent, setIndent] = useState("2")
 
-  const formatJSON = () => {
-    setError("")
-    setOutput("")
-
-    if (!input.trim()) {
-      setError("Please enter JSON to format")
-      return
-    }
-
-    try {
-      const parsed = JSON.parse(input)
-      const formatted = JSON.stringify(parsed, null, parseInt(indent))
-      setOutput(formatted)
-    } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
-    }
-  }
-
-  const minifyJSON = () => {
+  const processInput = () => {
     setError("")
     setOutput("")
 
@@ -44,26 +23,10 @@ export default function JSONFormatterPage() {
     }
 
     try {
+      // Parse and minify JSON
       const parsed = JSON.parse(input)
       const minified = JSON.stringify(parsed)
       setOutput(minified)
-    } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
-    }
-  }
-
-  const validateJSON = () => {
-    setError("")
-    setOutput("")
-
-    if (!input.trim()) {
-      setError("Please enter JSON to validate")
-      return
-    }
-
-    try {
-      JSON.parse(input)
-      setOutput("✓ Valid JSON")
     } catch (e: any) {
       setError(`Invalid JSON: ${e.message}`)
     }
@@ -91,9 +54,9 @@ export default function JSONFormatterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JSON Formatter & Validator</h1>
+        <h1 className="text-4xl font-bold mb-4">JSON Minifier</h1>
         <p className="text-xl text-muted-foreground">
-          Format, validate, and minify JSON data instantly
+          Minify JSON data to reduce file size and remove whitespace
         </p>
       </div>
 
@@ -105,43 +68,20 @@ export default function JSONFormatterPage() {
               <FileText className="h-5 w-5" />
               Input JSON
             </CardTitle>
-            <CardDescription>Paste your JSON here</CardDescription>
+            <CardDescription>Paste formatted JSON to minify</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder='{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}'
+              placeholder={`{\n  "name": "John Doe",\n  "age": 30,\n  "city": "New York"\n}`}
               className="font-mono text-sm min-h-[400px]"
             />
 
-            <div className="space-y-2">
-              <Label htmlFor="indent">Indentation</Label>
-              <Select value={indent} onValueChange={setIndent}>
-                <SelectTrigger id="indent">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="2">2 spaces</SelectItem>
-                  <SelectItem value="4">4 spaces</SelectItem>
-                  <SelectItem value="8">8 spaces</SelectItem>
-                  <SelectItem value="1">Tab</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
             <div className="grid grid-cols-2 gap-2">
-              <Button onClick={formatJSON} className="w-full">
+              <Button onClick={processInput} className="w-full">
                 <Sparkles className="h-4 w-4 mr-2" />
-                Format
-              </Button>
-              <Button onClick={minifyJSON} variant="outline" className="w-full">
-                Minify
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <Button onClick={validateJSON} variant="outline" className="w-full">
-                Validate
+                Minify JSON
               </Button>
               <Button onClick={handleClear} variant="outline" className="w-full">
                 Clear
@@ -155,7 +95,7 @@ export default function JSONFormatterPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <FileText className="h-5 w-5" />
-              Output
+              Minified JSON
               {output && (
                 <Button
                   variant="ghost"
@@ -171,7 +111,7 @@ export default function JSONFormatterPage() {
                 </Button>
               )}
             </CardTitle>
-            <CardDescription>Formatted JSON</CardDescription>
+            <CardDescription>Compressed JSON without whitespace</CardDescription>
           </CardHeader>
           <CardContent>
             {error && (
@@ -190,7 +130,7 @@ export default function JSONFormatterPage() {
               <div className="flex items-center justify-center min-h-[400px] text-muted-foreground border-2 border-dashed rounded-lg">
                 <div className="text-center">
                   <Sparkles className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p>Formatted JSON will appear here</p>
+                  <p>Minified JSON will appear here</p>
                 </div>
               </div>
             )}
@@ -199,26 +139,37 @@ export default function JSONFormatterPage() {
       </div>
 
       <AboutDescription
-        title="About JSON Formatter"
-        description="Our JSON Formatter helps you format, validate, and minify JSON data instantly. Perfect for developers working with APIs, configuration files, or any JSON data. All processing happens in your browser - no data is sent to any server."
+        title="About JSON Minifier"
+        description="Minify JSON data by removing unnecessary whitespace, line breaks, and indentation. Perfect for reducing file sizes and optimizing data transmission. All processing happens in your browser for privacy."
         sections={[
           {
             title: "Features",
             content: [
-              "Format JSON with customizable indentation",
-              "Minify JSON to reduce file size",
-              "Validate JSON syntax",
-              "Copy formatted JSON with one click",
+              "Remove all unnecessary whitespace",
+              "Compress JSON to smallest possible size",
+              "Validate JSON syntax during minification",
+              "Copy minified result with one click",
               "100% client-side processing for privacy"
             ]
           },
           {
             title: "How to Use",
             content: [
-              "Paste your JSON in the input field",
-              "Choose your preferred indentation",
-              "Click 'Format', 'Minify', or 'Validate'",
-              "Copy the result or continue editing"
+              "Paste your formatted JSON in the input field",
+              "Click 'Minify JSON' to compress the data",
+              "Copy the minified result",
+              "Use for API payloads, configuration files, or storage optimization"
+            ]
+          },
+          {
+            title: "Benefits of Minification",
+            content: [
+              "Reduced file size - up to 50% smaller",
+              "Faster data transmission over networks",
+              "Lower bandwidth usage",
+              "Improved API response times",
+              "Reduced storage requirements",
+              "Better performance in web applications"
             ]
           }
         ]}

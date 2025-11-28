@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, RefreshCw } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -123,38 +124,34 @@ export default function UUIDGeneratorPage() {
         </CardContent>
       </Card>
 
-      <Card className="mt-8">
-        <CardContent className="pt-6 prose prose-sm max-w-none">
-          <h2>About UUIDs</h2>
-          <p>
-            A UUID (Universally Unique Identifier) is a 128-bit number used to uniquely identify
-            information in computer systems. The probability of generating duplicate UUIDs is
-            negligibly small.
-          </p>
-
-          <h3>UUID Format</h3>
-          <p>
-            UUIDs are typically displayed as 32 hexadecimal digits, displayed in five groups
-            separated by hyphens: <code>xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx</code>
-          </p>
-
-          <h3>Common Uses</h3>
-          <ul>
-            <li>Database primary keys</li>
-            <li>Session identifiers</li>
-            <li>Unique file names</li>
-            <li>API request tracking</li>
-            <li>Distributed systems coordination</li>
-          </ul>
-
-          <h3>UUID Version 4</h3>
-          <p>
-            This tool generates Version 4 UUIDs, which are randomly generated. The 4 most
-            significant bits of the 7th byte are set to 0100 (version 4), and the 2-3 most
-            significant bits of the 9th byte are set to 10 (variant 1).
-          </p>
-        </CardContent>
-      </Card>
+      <AboutDescription
+        title="About UUIDs"
+        description="A UUID (Universally Unique Identifier) is a 128-bit number used to uniquely identify information in computer systems. The probability of generating duplicate UUIDs is negligibly small."
+        sections={[
+          {
+            title: "UUID Format",
+            content: [
+              "UUIDs are typically displayed as 32 hexadecimal digits, displayed in five groups separated by hyphens: <code>xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx</code>"
+            ]
+          },
+          {
+            title: "Common Uses",
+            content: [
+              "Database primary keys",
+              "Session identifiers",
+              "Unique file names",
+              "API request tracking",
+              "Distributed systems coordination"
+            ]
+          },
+          {
+            title: "UUID Version 4",
+            content: [
+              "This tool generates Version 4 UUIDs, which are randomly generated. The 4 most significant bits of the 7th byte are set to 0100 (version 4), and the 2-3 most significant bits of the 9th byte are set to 10 (variant 1)."
+            ]
+          }
+        ]}
+      />
     </div>
   )
 }

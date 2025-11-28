@@ -1,136 +1,117 @@
 "use client"
 
+import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Percent } from "lucide-react"
 
 const fields: CalculatorField[] = [
   {
-    name: "calculationType",
-    label: "Calculation Type",
-    type: "select",
-    options: [
-      { value: "percentOf", label: "What is X% of Y?" },
-      { value: "isWhatPercent", label: "X is what % of Y?" },
-      { value: "percentChange", label: "% increase/decrease from X to Y" },
-    ],
+    name: "value",
+    label: "Value",
+    type: "number",
+    placeholder: "Enter value",
     required: true,
+    helpText: "The number to calculate percentage from",
   },
   {
-    name: "value1",
-    label: "First Value (X)",
+    name: "percentage",
+    label: "Percentage",
     type: "number",
-    placeholder: "Enter first value",
+    placeholder: "Enter percentage",
     required: true,
-    helpText: "The first number in your calculation",
+    helpText: "The percentage to calculate (e.g., 25 for 25%)",
   },
   {
-    name: "value2",
-    label: "Second Value (Y)",
+    name: "total",
+    label: "Total (optional)",
     type: "number",
-    placeholder: "Enter second value",
-    required: true,
-    helpText: "The second number in your calculation",
+    placeholder: "Enter total",
+    required: false,
+    helpText: "For calculating what percentage a value is of a total",
   },
 ]
 
 function calculatePercentage(values: Record<string, string>): CalculatorResult[] {
-  const type = values.calculationType
-  const val1 = parseFloat(values.value1)
-  const val2 = parseFloat(values.value2)
+  const value = parseFloat(values.value) || 0
+  const percentage = parseFloat(values.percentage) || 0
+  const total = parseFloat(values.total) || 0
 
-  if (type === "percentOf") {
-    // What is X% of Y?
-    const result = (val1 / 100) * val2
-    return [
-      {
-        label: "Result",
-        value: result,
-        format: "number",
-        highlight: true,
-        helpText: `${val1}% of ${val2} is ${result.toFixed(2)}`,
-      },
-    ]
-  } else if (type === "isWhatPercent") {
-    // X is what % of Y?
-    const percentage = (val1 / val2) * 100
-    return [
-      {
-        label: "Result",
-        value: `${percentage.toFixed(2)}%`,
-        format: "text",
-        highlight: true,
-        helpText: `${val1} is ${percentage.toFixed(2)}% of ${val2}`,
-      },
-    ]
-  } else {
-    // % increase/decrease from X to Y
-    const change = val2 - val1
-    const percentChange = (change / val1) * 100
-    const changeType = percentChange >= 0 ? "Increase" : "Decrease"
+  const results: CalculatorResult[] = []
 
-    return [
-      {
-        label: "Percent Change",
-        value: `${Math.abs(percentChange).toFixed(2)}%`,
-        format: "text",
-        highlight: true,
-      },
-      {
-        label: "Change Type",
-        value: changeType,
-        format: "text",
-      },
-      {
-        label: "Absolute Change",
-        value: Math.abs(change).toFixed(2),
-        format: "number",
-      },
-      {
-        label: "Original Value",
-        value: val1.toFixed(2),
-        format: "number",
-      },
-      {
-        label: "New Value",
-        value: val2.toFixed(2),
-        format: "number",
-      },
-    ]
+  // Calculate percentage of value
+  if (value && percentage) {
+    const percentageOfValue = (value * percentage) / 100
+    results.push({
+      label: `${percentage}% of ${value}`,
+      value: percentageOfValue.toFixed(2),
+      format: "number",
+      highlight: true,
+    })
   }
+
+  // Calculate what percentage value is of total
+  if (value && total && total !== 0) {
+    const valueAsPercentage = (value / total) * 100
+    results.push({
+      label: `${value} is what % of ${total}`,
+      value: `${valueAsPercentage.toFixed(2)}%`,
+      format: "text",
+    })
+  }
+
+  // Calculate percentage increase/decrease
+  if (value && percentage) {
+    const increase = value + (value * percentage) / 100
+    const decrease = value - (value * percentage) / 100
+    
+    results.push({
+      label: `${value} + ${percentage}%`,
+      value: increase.toFixed(2),
+      format: "number",
+    })
+    
+    results.push({
+      label: `${value} - ${percentage}%`,
+      value: decrease.toFixed(2),
+      format: "number",
+    })
+  }
+
+  return results
 }
 
 const infoContent = (
   <AboutDescription
     title="About Percentage Calculator"
-    description="Handle three common percentage calculations with instant results. Perfect for discounts, tips, taxes, and growth calculations."
+    description="Calculate percentages, percentage increases/decreases, and determine what percentage one number is of another. Perfect for discounts, tips, taxes, and financial calculations."
     sections={[
       {
-        title: "Calculation Types",
+        title: "Common Calculations",
         content: [
-          "<strong>What is X% of Y?</strong> - Find a percentage of a number (e.g., 20% of 50 = 10)",
-          "<strong>X is what % of Y?</strong> - Find what percentage one number is of another (e.g., 25 is 50% of 50)",
-          "<strong>% increase/decrease</strong> - Calculate percentage change between two numbers (e.g., 50 to 75 = 50% increase)"
+          "<strong>Percentage of a number:</strong> What is 25% of 200? = 50",
+          "<strong>Percentage ratio:</strong> What percentage is 50 of 200? = 25%",
+          "<strong>Percentage increase:</strong> 200 + 25% = 250",
+          "<strong>Percentage decrease:</strong> 200 - 25% = 150"
         ]
       },
       {
-        title: "Common Applications",
+        title: "Real-World Examples",
         content: [
-          "<strong>Shopping:</strong> Calculate discounts and sale prices",
-          "<strong>Restaurants:</strong> Determine tip amounts (15-20%)",
-          "<strong>Taxes:</strong> Add sales tax to purchase prices",
-          "<strong>Business:</strong> Calculate growth rates and profit margins",
-          "<strong>Education:</strong> Convert test scores to percentages",
-          "<strong>Finance:</strong> Calculate interest rates and investment returns"
+          "Sales tax: Calculate 8.5% tax on $100 purchase",
+          "Discounts: Find 20% off original price",
+          "Tips: Calculate 15% tip on restaurant bill",
+          "Interest: Determine 5% annual interest on savings",
+          "Growth rates: Calculate percentage change over time"
         ]
       },
       {
-        title: "Quick Examples",
+        title: "How to Use",
         content: [
-          "20% discount on $100 item = $80 final price",
-          "15% tip on $50 bill = $7.50 tip amount",
-          "Sales increased from 100 to 120 = 20% growth",
-          "Score 85 out of 100 = 85% grade"
+          "Enter the base value you want to calculate from",
+          "Enter the percentage (just the number, e.g., 25 for 25%)",
+          "Optionally enter a total to find what percentage your value represents",
+          "View all calculated results including increases and decreases"
         ]
       }
     ]}
@@ -144,11 +125,11 @@ export default function PercentageCalculatorPage() {
         <div className="lg:col-span-3">
           <CalculatorTemplate
             title="Percentage Calculator"
-            description="Calculate percentages, increases, decreases, and more"
+            description="Calculate percentages, increases, decreases, and ratios"
             icon={Percent}
             fields={fields}
             onCalculate={calculatePercentage}
-            resultTitle="Your Result"
+            resultTitle="Your Results"
             infoContent={infoContent}
           />
         </div>

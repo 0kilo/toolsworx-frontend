@@ -5,67 +5,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { Copy, Check, FileText, Sparkles } from "lucide-react"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Copy, Check, Code, Sparkles } from "lucide-react"
 
-export default function JSONFormatterPage() {
+export default function TemplateDevToolPage() {
   const [input, setInput] = useState("")
   const [output, setOutput] = useState("")
   const [error, setError] = useState("")
   const [copied, setCopied] = useState(false)
-  const [indent, setIndent] = useState("2")
 
-  const formatJSON = () => {
+  const processInput = () => {
     setError("")
     setOutput("")
 
     if (!input.trim()) {
-      setError("Please enter JSON to format")
+      setError("Please enter input to process")
       return
     }
 
     try {
-      const parsed = JSON.parse(input)
-      const formatted = JSON.stringify(parsed, null, parseInt(indent))
-      setOutput(formatted)
+      // Template processing logic
+      const result = input.toUpperCase() // Replace with actual processing
+      setOutput(result)
     } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
-    }
-  }
-
-  const minifyJSON = () => {
-    setError("")
-    setOutput("")
-
-    if (!input.trim()) {
-      setError("Please enter JSON to minify")
-      return
-    }
-
-    try {
-      const parsed = JSON.parse(input)
-      const minified = JSON.stringify(parsed)
-      setOutput(minified)
-    } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
-    }
-  }
-
-  const validateJSON = () => {
-    setError("")
-    setOutput("")
-
-    if (!input.trim()) {
-      setError("Please enter JSON to validate")
-      return
-    }
-
-    try {
-      JSON.parse(input)
-      setOutput("✓ Valid JSON")
-    } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
+      setError(`Processing failed: ${e.message}`)
     }
   }
 
@@ -91,9 +53,9 @@ export default function JSONFormatterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JSON Formatter & Validator</h1>
+        <h1 className="text-4xl font-bold mb-4">Template Developer Tool</h1>
         <p className="text-xl text-muted-foreground">
-          Format, validate, and minify JSON data instantly
+          Template description for developer tool functionality
         </p>
       </div>
 
@@ -102,46 +64,23 @@ export default function JSONFormatterPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5" />
-              Input JSON
+              <Code className="h-5 w-5" />
+              Input
             </CardTitle>
-            <CardDescription>Paste your JSON here</CardDescription>
+            <CardDescription>Enter your input here</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder='{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}'
+              placeholder="Enter input..."
               className="font-mono text-sm min-h-[400px]"
             />
 
-            <div className="space-y-2">
-              <Label htmlFor="indent">Indentation</Label>
-              <Select value={indent} onValueChange={setIndent}>
-                <SelectTrigger id="indent">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="2">2 spaces</SelectItem>
-                  <SelectItem value="4">4 spaces</SelectItem>
-                  <SelectItem value="8">8 spaces</SelectItem>
-                  <SelectItem value="1">Tab</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
             <div className="grid grid-cols-2 gap-2">
-              <Button onClick={formatJSON} className="w-full">
+              <Button onClick={processInput} className="w-full">
                 <Sparkles className="h-4 w-4 mr-2" />
-                Format
-              </Button>
-              <Button onClick={minifyJSON} variant="outline" className="w-full">
-                Minify
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <Button onClick={validateJSON} variant="outline" className="w-full">
-                Validate
+                Process
               </Button>
               <Button onClick={handleClear} variant="outline" className="w-full">
                 Clear
@@ -154,7 +93,7 @@ export default function JSONFormatterPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5" />
+              <Code className="h-5 w-5" />
               Output
               {output && (
                 <Button
@@ -171,7 +110,7 @@ export default function JSONFormatterPage() {
                 </Button>
               )}
             </CardTitle>
-            <CardDescription>Formatted JSON</CardDescription>
+            <CardDescription>Processed output</CardDescription>
           </CardHeader>
           <CardContent>
             {error && (
@@ -190,7 +129,7 @@ export default function JSONFormatterPage() {
               <div className="flex items-center justify-center min-h-[400px] text-muted-foreground border-2 border-dashed rounded-lg">
                 <div className="text-center">
                   <Sparkles className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p>Formatted JSON will appear here</p>
+                  <p>Processed output will appear here</p>
                 </div>
               </div>
             )}
@@ -199,26 +138,23 @@ export default function JSONFormatterPage() {
       </div>
 
       <AboutDescription
-        title="About JSON Formatter"
-        description="Our JSON Formatter helps you format, validate, and minify JSON data instantly. Perfect for developers working with APIs, configuration files, or any JSON data. All processing happens in your browser - no data is sent to any server."
+        title="About Template Tool"
+        description="Template description for developer tool functionality. All processing happens in your browser for privacy."
         sections={[
           {
             title: "Features",
             content: [
-              "Format JSON with customizable indentation",
-              "Minify JSON to reduce file size",
-              "Validate JSON syntax",
-              "Copy formatted JSON with one click",
-              "100% client-side processing for privacy"
+              "Fast processing",
+              "Copy results with one click",
+              "100% client-side processing"
             ]
           },
           {
             title: "How to Use",
             content: [
-              "Paste your JSON in the input field",
-              "Choose your preferred indentation",
-              "Click 'Format', 'Minify', or 'Validate'",
-              "Copy the result or continue editing"
+              "Enter your input",
+              "Click 'Process'",
+              "Copy the result"
             ]
           }
         ]}

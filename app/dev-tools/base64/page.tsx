@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, ArrowRight, ArrowLeft } from "lucide-react"
@@ -136,22 +137,21 @@ export default function Base64EncoderPage() {
         </Card>
       </div>
 
-      <Card className="mt-8">
-        <CardContent className="pt-6 prose prose-sm max-w-none">
-          <h2>About Base64 Encoding</h2>
-          <p>
-            Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format.
-            It&apos;s commonly used to encode data in emails, URLs, and data URIs.
-          </p>
-          <h3>Use Cases</h3>
-          <ul>
-            <li>Encoding binary data for transmission over text-based protocols</li>
-            <li>Embedding images in HTML/CSS using data URIs</li>
-            <li>Encoding authentication credentials</li>
-            <li>Encoding data in JSON or XML where binary data isn&apos;t allowed</li>
-          </ul>
-        </CardContent>
-      </Card>
+      <AboutDescription
+        title="About Base64 Encoding"
+        description="Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format. It's commonly used to encode data in emails, URLs, and data URIs."
+        sections={[
+          {
+            title: "Use Cases",
+            content: [
+              "Encoding binary data for transmission over text-based protocols",
+              "Embedding images in HTML/CSS using data URIs",
+              "Encoding authentication credentials",
+              "Encoding data in JSON or XML where binary data isn't allowed"
+            ]
+          }
+        ]}
+      />
     </div>
   )
 }
