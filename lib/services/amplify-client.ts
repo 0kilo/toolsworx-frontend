@@ -146,8 +146,8 @@ class AmplifyApiClient {
       throw new Error('Conversion failed - no response from server')
     }
 
-    console.log('Raw media response:', data)
-    console.log('Type of response:', typeof data)
+    // console.log('Raw media response:', data)
+    // console.log('Type of response:', typeof data)
     let responseData = data as any
 
     // GraphQL returns JSON as a string, need to parse it
