@@ -1,7 +1,6 @@
 "use client"
 
 import { UnitConverter } from "@/components/shared/unit-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Clock } from "lucide-react"
 
@@ -40,7 +39,6 @@ export default function TimeConverterPage() {
             defaultToUnit="second"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Time Conversion"
@@ -79,7 +77,6 @@ export default function TimeConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

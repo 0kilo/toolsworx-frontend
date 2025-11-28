@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -261,7 +260,6 @@ export default function RecipeScalerPage() {
             </Card>
           )}
 
-          <FooterAd />
 
           <AboutDescription
             title="About Recipe Scaler"
@@ -312,7 +310,6 @@ export default function RecipeScalerPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

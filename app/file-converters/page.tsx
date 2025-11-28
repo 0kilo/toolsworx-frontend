@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { FileText, FileSpreadsheet, FileJson, Code, Archive } from "lucide-react"
 import Link from "next/link"
@@ -86,7 +85,6 @@ export default function FileConvertersPage() {
             })}
           </div>
 
-          <FooterAd />
 
           <AboutDescription
             title="About File Conversion"
@@ -125,7 +123,6 @@ export default function FileConvertersPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

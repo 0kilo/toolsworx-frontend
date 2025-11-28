@@ -1,7 +1,6 @@
 "use client"
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign } from "lucide-react"
 
@@ -147,10 +146,8 @@ export default function MortgageCalculatorPage() {
             resultTitle="Your Monthly Payment"
             infoContent={infoContent}
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

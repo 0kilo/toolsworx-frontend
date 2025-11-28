@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { AboutDescription } from "@/components/ui/about-description"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { evaluate } from "mathjs"
 import { Plus, Trash2, ZoomIn, ZoomOut, Home, Maximize, Minimize, Camera } from "lucide-react"
 
@@ -587,7 +586,6 @@ export default function GraphingCalculatorPage() {
         </Card>
       </div>
 
-      <FooterAd />
 
       <AboutDescription
         title="About Graphing Calculator"
@@ -643,7 +641,6 @@ export default function GraphingCalculatorPage() {
         ]}
       />
       <div className="mt-8">
-        <SidebarAd />
       </div>
     </div>
   )

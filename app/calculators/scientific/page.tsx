@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { evaluate, derivative, simplify, parse, matrix, det, inv, transpose, multiply, add, subtract } from "mathjs"
 import { Calculator, TrendingUp } from "lucide-react"
@@ -675,7 +674,6 @@ export default function ScientificCalculatorPage() {
             </CardContent>
           </Card>
 
-          <FooterAd />
 
           <AboutDescription
             title="About Advanced Scientific Calculator"
@@ -721,7 +719,6 @@ export default function ScientificCalculatorPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

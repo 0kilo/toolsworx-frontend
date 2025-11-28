@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Hash, Copy, Check } from "lucide-react"
 
@@ -143,7 +142,6 @@ export default function HashGeneratorPage() {
             </CardContent>
           </Card>
 
-          <FooterAd />
 
           <AboutDescription
             title="About Hash Functions"
@@ -182,7 +180,6 @@ export default function HashGeneratorPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

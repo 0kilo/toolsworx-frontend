@@ -1,7 +1,6 @@
 "use client"
 
 import { UnitConverter } from "@/components/shared/unit-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Gauge } from "lucide-react"
 
@@ -37,7 +36,6 @@ export default function SpeedConverterPage() {
             defaultToUnit="kph"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Speed Conversion"
@@ -76,7 +74,6 @@ export default function SpeedConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

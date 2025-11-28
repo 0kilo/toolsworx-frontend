@@ -1,7 +1,6 @@
 "use client"
 
 import { FileConverter } from "@/components/shared/file-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const documentFormats = [
@@ -35,7 +34,6 @@ export default function DocumentConverterPage() {
             defaultTo="docx"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Document Conversion"
@@ -66,7 +64,6 @@ export default function DocumentConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

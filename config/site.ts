@@ -11,10 +11,6 @@ export const siteConfig = {
   links: {
     github: "https://github.com/yourusername/convert-all",
   },
-  adsense: {
-    client: "ca-pub-XXXXXXXXXXXXXXXX",
-    enabled: false,
-  },
   analytics: {
     googleAnalytics: process.env.NEXT_PUBLIC_GA_ID,
   },

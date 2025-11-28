@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { generateSEO } from '@/lib/seo'
 import { CheatSheet } from '@/components/shared/cheat-sheet'
-import { SidebarAd, FooterAd } from '@/components/ads/ad-unit'
 
 export const metadata: Metadata = generateSEO({
   title: 'Calculator Formulas Cheat Sheet - Math & Finance Quick Reference',
@@ -202,10 +201,8 @@ export default function CalculatorsCheatSheetPage() {
             content={cheatSheetContent}
             category="calculators"
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

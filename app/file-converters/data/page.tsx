@@ -1,7 +1,6 @@
 "use client"
 
 import { FileConverter } from "@/components/shared/file-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const dataFormats = [
@@ -32,7 +31,6 @@ export default function DataConverterPage() {
             defaultTo="xml"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Data Format Conversion"
@@ -61,7 +59,6 @@ export default function DataConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

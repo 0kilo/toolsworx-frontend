@@ -1,7 +1,6 @@
 "use client"
 
 import { FileConverter } from "@/components/shared/file-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const encodingFormats = [
@@ -30,7 +29,6 @@ export default function Base64ConverterPage() {
             defaultTo="base64"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Base64 Encoding"
@@ -59,7 +57,6 @@ export default function Base64ConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

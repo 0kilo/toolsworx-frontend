@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Link, Copy, Check } from "lucide-react"
 
@@ -117,7 +116,6 @@ export default function URLEncoderPage() {
             </CardContent>
           </Card>
 
-          <FooterAd />
 
           <AboutDescription
             title="About URL Encoding"
@@ -147,7 +145,6 @@ export default function URLEncoderPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

@@ -182,56 +182,6 @@ Edit:
 
 ---
 
-## 💰 Google AdSense Setup
-
-### Step 1: Get AdSense Approval
-
-1. Apply for Google AdSense at https://www.google.com/adsense/
-2. Add your website and wait for approval
-3. Get your AdSense client ID (looks like `ca-pub-XXXXXXXXXXXXXXXX`)
-
-### Step 2: Configure AdSense
-
-Edit `config/site.ts`:
-
-```typescript
-export const siteConfig = {
-  // ...
-  adsense: {
-    client: "ca-pub-XXXXXXXXXXXXXXXX", // Your AdSense client ID
-    enabled: true, // Set to true when approved
-  },
-}
-```
-
-### Step 3: Update Ad Slots
-
-Edit `components/ads/ad-unit.tsx` and replace placeholder slot IDs:
-
-```typescript
-export function HeaderAd() {
-  return (
-    <AdUnit
-      slot="1234567890" // Replace with your actual slot ID
-      format="horizontal"
-      className="mb-8"
-    />
-  )
-}
-```
-
-### Ad Placement Strategy
-
-Current placements:
-- **Header Ad**: Top of homepage
-- **Sidebar Ad**: Right side of converter pages
-- **In-Content Ad**: Middle of homepage
-- **Footer Ad**: Bottom of converter pages
-
-Add more by using the `<AdUnit>` component anywhere.
-
----
-
 ## 🔍 SEO Optimization
 
 ### Already Implemented:

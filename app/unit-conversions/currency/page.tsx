@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign, ArrowUpDown, RefreshCw } from "lucide-react"
 
@@ -200,7 +199,6 @@ export default function CurrencyConverterPage() {
             </CardContent>
           </Card>
 
-          <FooterAd />
 
           <AboutDescription
             title="About Currency Conversion"
@@ -239,7 +237,6 @@ export default function CurrencyConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -253,7 +252,6 @@ export default function ShippingCostCalculatorPage() {
             </Card>
           )}
 
-          <FooterAd />
 
           <AboutDescription
             title="About Shipping Cost Calculator"
@@ -307,7 +305,6 @@ export default function ShippingCostCalculatorPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

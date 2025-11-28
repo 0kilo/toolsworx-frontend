@@ -4,7 +4,6 @@ import Link from "next/link"
 import { getCategoryGroupById, getAllCategoryIds, categoryGroups } from "@/lib/categories"
 import { allConverters } from "@/lib/registry"
 import { ConverterCard } from "@/components/shared/converter-card"
-import { SidebarAd, InContentAd, FooterAd } from "@/components/ads/ad-unit"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Check } from "lucide-react"
@@ -146,7 +145,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </section>
 
           {/* In-content Ad */}
-          <InContentAd />
 
           {/* SEO Content Section */}
           <section className="mb-8">
@@ -223,13 +221,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </section>
 
           {/* Footer Ad */}
-          <FooterAd />
         </div>
 
         {/* Sidebar */}
         <div className="lg:col-span-1">
           <div className="sticky top-8">
-            <SidebarAd />
 
             {/* Quick Stats Card */}
             <Card className="mt-6">

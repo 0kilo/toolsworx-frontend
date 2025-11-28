@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Orbit, ArrowUpDown } from "lucide-react"
 import { convertSpaceTime } from "@/lib/categories/unit-conversions/logic"
@@ -169,7 +168,6 @@ export default function SpaceTimeConverterClient() {
             </CardContent>
           </Card>
 
-          <FooterAd />
 
           <AboutDescription
             title="About Space-Time Distance Conversion"
@@ -212,7 +210,6 @@ export default function SpaceTimeConverterClient() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

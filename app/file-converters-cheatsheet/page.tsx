@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { generateSEO } from '@/lib/seo'
 import { CheatSheet } from '@/components/shared/cheat-sheet'
-import { SidebarAd, FooterAd } from '@/components/ads/ad-unit'
 
 export const metadata: Metadata = generateSEO({
   title: 'File Conversion Cheat Sheet - Format Guide & Best Practices',
@@ -176,10 +175,8 @@ export default function FileConvertersCheatSheetPage() {
             content={cheatSheetContent}
             category="file-converters"
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

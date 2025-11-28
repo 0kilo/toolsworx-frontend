@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Calendar, Gift, Heart, Sparkles, PartyPopper, Clock } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
@@ -280,7 +279,6 @@ export default function HolidayCountdownPage() {
             })}
           </div>
 
-          <FooterAd />
 
           <AboutDescription
             title="About Holiday Countdown"
@@ -335,7 +333,6 @@ export default function HolidayCountdownPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { generateSEO } from '@/lib/seo'
 import { CheatSheet } from '@/components/shared/cheat-sheet'
-import { SidebarAd, FooterAd } from '@/components/ads/ad-unit'
 
 export const metadata: Metadata = generateSEO({
   title: 'Unit Conversions Cheat Sheet - Quick Reference Guide',
@@ -220,10 +219,8 @@ export default function UnitConversionsCheatSheetPage() {
             content={cheatSheetContent}
             category="unit-conversions"
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

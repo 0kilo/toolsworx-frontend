@@ -1,7 +1,6 @@
 "use client"
 
 import { FileConverter } from "@/components/shared/file-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const archiveFormats = [
@@ -30,7 +29,6 @@ export default function ArchiveConverterPage() {
             defaultTo="zip"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Archive Tools"
@@ -59,7 +57,6 @@ export default function ArchiveConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

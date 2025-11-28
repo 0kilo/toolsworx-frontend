@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { generateSEO } from '@/lib/seo'
 import { CheatSheet } from '@/components/shared/cheat-sheet'
-import { SidebarAd, FooterAd } from '@/components/ads/ad-unit'
 
 export const metadata: Metadata = generateSEO({
   title: 'Developer Tools Cheat Sheet - Encoding, Hashing & Utilities',
@@ -276,10 +275,8 @@ export default function DeveloperToolsCheatSheetPage() {
             content={cheatSheetContent}
             category="developer-tools"
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

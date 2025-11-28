@@ -1,7 +1,6 @@
 "use client"
 
 import { FileConverter } from "@/components/shared/file-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const spreadsheetFormats = [
@@ -32,7 +31,6 @@ export default function SpreadsheetConverterPage() {
             defaultTo="xlsx"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Spreadsheet Conversion"
@@ -60,7 +58,6 @@ export default function SpreadsheetConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

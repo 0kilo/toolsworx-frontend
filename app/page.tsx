@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { ConverterCard } from "@/components/shared/converter-card"
-import { HeaderAd, InContentAd } from "@/components/ads/ad-unit"
 import { allConverters as converters, getPopularConverters } from "@/lib/registry"
 import { categoryGroups } from "@/lib/categories"
 import { Input } from "@/components/ui/input"
@@ -49,9 +48,6 @@ export default function HomePage() {
           />
         </div>
       </section>
-
-      {/* Top Ad */}
-      <HeaderAd />
 
       {/* Search Results */}
       {searchQuery && (
@@ -134,9 +130,6 @@ export default function HomePage() {
               )
             })}
           </section>
-
-          {/* Middle Ad */}
-          <InContentAd />
 
           {/* About Section */}
           <section id="about" className="mb-16">

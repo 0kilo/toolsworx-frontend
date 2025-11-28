@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { generateSEO } from '@/lib/seo'
 import { CheatSheet } from '@/components/shared/cheat-sheet'
-import { SidebarAd, FooterAd } from '@/components/ads/ad-unit'
 
 export const metadata: Metadata = generateSEO({
   title: 'Media Conversion Cheat Sheet - Audio, Video & Image Formats',
@@ -228,10 +227,8 @@ export default function MediaConvertersCheatSheetPage() {
             content={cheatSheetContent}
             category="media-converters"
           />
-          <FooterAd />
         </div>
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

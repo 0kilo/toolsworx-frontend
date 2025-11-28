@@ -1,5 +1,4 @@
 import { ImageFilter } from "@/components/shared/image-filter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 export default function ImageGrayscalePage() {
@@ -20,7 +19,6 @@ export default function ImageGrayscalePage() {
             filterType="grayscale"
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Grayscale Filter"
@@ -50,7 +48,6 @@ export default function ImageGrayscalePage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>

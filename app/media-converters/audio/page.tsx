@@ -1,7 +1,6 @@
 "use client"
 
 import { MediaConverter } from "@/components/shared/media-converter"
-import { SidebarAd, FooterAd } from "@/components/ads/ad-unit"
 import { AboutDescription } from "@/components/ui/about-description"
 
 const audioFormats = [
@@ -35,7 +34,6 @@ export default function AudioConverterPage() {
             maxSize={200}
           />
 
-          <FooterAd />
 
           <AboutDescription
             title="About Audio Conversion"
@@ -66,7 +64,6 @@ export default function AudioConverterPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <SidebarAd />
         </div>
       </div>
     </div>
