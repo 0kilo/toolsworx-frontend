@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/mcesel/Documents/proj/convert-all/logs/.668280a1507fd46bf1653190c60f57b3fb6c4680-audit.json",
+    "files": [
+        {
+            "date": 1764274300172,
+            "name": "/home/mcesel/Documents/proj/convert-all/logs/mcp-puppeteer-2025-11-27.log",
+            "hash": "5148edcf2bc1da1e161751fca1b9d7f9317ddd167262e330b34ee724f216dc74"
+        },
+        {
+            "date": 1764366788379,
+            "name": "/home/mcesel/Documents/proj/convert-all/logs/mcp-puppeteer-2025-11-28.log",
+            "hash": "b7e1a8e95b1797ddabe3414e6e8ddc13c0f74c2edc188c136b57d3bd52881943"
+        }
+    ],
+    "hashType": "sha256"
+}
