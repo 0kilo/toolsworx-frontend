@@ -18,7 +18,7 @@ const schema = a.schema({
     options: a.json()
   })
   .returns(a.json())
-  .authorization(allow => [allow.guest()])
+  .authorization(allow => [allow.publicApiKey()])
   .handler(a.handler.function(fileConversion)),
 
   fileFilter: a
@@ -30,7 +30,7 @@ const schema = a.schema({
     options: a.json()
   })
   .returns(a.json())
-  .authorization(allow => [allow.guest()])
+  .authorization(allow => [allow.publicApiKey()])
   .handler(a.handler.function(filterService)),
 
   mediaConversion: a
@@ -43,7 +43,7 @@ const schema = a.schema({
     options: a.json()
   })
   .returns(a.json())
-  .authorization(allow => [allow.guest()])
+  .authorization(allow => [allow.publicApiKey()])
   .handler(a.handler.function(mediaConversion))
 
 });

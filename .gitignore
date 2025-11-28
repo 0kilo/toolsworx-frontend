@@ -36,3 +36,5 @@ info.txt
 # amplify
 .amplify
 amplifyconfiguration*
+amplify_outputs.json
+public/amplify_outputs.json

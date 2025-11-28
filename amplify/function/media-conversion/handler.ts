@@ -6,13 +6,14 @@ import { randomUUID } from 'crypto';
 import sharp from 'sharp';
 
 export const handler = async (event: any) => {
-  const { jobId, fileData, fileName, targetFormat, options = {} } = event.arguments;
-  
+  const { jobId, fileData, fileName, targetFormat, options } = event.arguments;
+  const conversionOptions = options || {};
+
   if (!fileData || !targetFormat) {
     throw new Error('Missing fileData or targetFormat');
   }
   const tempDir = mkdtempSync(join(tmpdir(), 'media-'));
-  
+
   try {
     const inputPath = join(tempDir, 'input');
     const fileBuffer = Buffer.from(fileData, 'base64');
@@ -22,15 +23,15 @@ export const handler = async (event: any) => {
     const outputPath = join(tempDir, `output.${targetFormat}`);
 
     const imageFormats = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp', 'tiff'];
-    
+
     if (imageFormats.includes(inputExt) && imageFormats.includes(targetFormat)) {
       await sharp(inputPath)
         .toFormat(targetFormat === 'jpg' ? 'jpeg' : targetFormat as any, {
-          quality: options.quality || 90
+          quality: conversionOptions.quality || 90
         })
         .toFile(outputPath);
     } else {
-      await convertWithFFmpeg(inputPath, outputPath, options);
+      await convertWithFFmpeg(inputPath, outputPath, conversionOptions);
     }
 
     const outputBuffer = readFileSync(outputPath);

@@ -43,22 +43,42 @@ class AmplifyApiClient {
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
-    const { data } = await client.queries.fileConversion({
+    const { data, errors } = await client.queries.fileConversion({
       fileData: base64Data,
       fileName: file.name,
       targetFormat,
       options
-    })
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('File conversion errors:', errors)
+      throw new Error(`Conversion failed: ${errors[0].message}`)
+    }
 
     if (!data) {
       throw new Error('Conversion failed - no response from server')
+    }
+
+    let responseData = data as any
+
+    // GraphQL returns JSON as a string, need to parse it
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    if (!responseData.downloadUrl) {
+      console.error('Invalid response from Lambda:', responseData)
+      throw new Error('Conversion failed - no download URL in response')
     }
 
     const job = {
       id: jobId,
       status: 'completed' as const,
       progress: 100,
-      downloadUrl: (data as any).downloadUrl
+      downloadUrl: responseData.downloadUrl
     }
 
     this.completedJobs.set(job.id, job)
@@ -106,21 +126,50 @@ class AmplifyApiClient {
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
-    const { data } = await client.queries.mediaConversion({
+    const { data, errors } = await client.queries.mediaConversion({
       jobId,
       fileData: base64Data,
       fileName: file.name,
       targetFormat,
       options
-    })
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('Media conversion errors:', errors)
+      throw new Error(`Conversion failed: ${errors[0].message}`)
+    }
+
+    if (!data) {
+      throw new Error('Conversion failed - no response from server')
+    }
+
+    console.log('Raw media response:', data)
+    console.log('Type of response:', typeof data)
+    let responseData = data as any
+
+    // GraphQL returns JSON as a string, need to parse it
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    // The response might be wrapped - check for downloadUrl at different levels
+    const actualResponse = responseData.downloadUrl ? responseData : (responseData.data || responseData)
+
+    if (!actualResponse || !actualResponse.downloadUrl) {
+      console.error('Invalid response from Lambda:', responseData)
+      throw new Error('Conversion failed - no download URL in response')
+    }
 
     const job = {
       id: jobId,
       status: 'completed' as const,
       progress: 100,
-      downloadUrl: (data as any).downloadUrl
+      downloadUrl: actualResponse.downloadUrl
     }
-    
+
     this.completedJobs.set(job.id, job)
     return job
   }
@@ -130,20 +179,44 @@ class AmplifyApiClient {
     const fileBuffer = await file.arrayBuffer()
     const base64Data = Buffer.from(fileBuffer).toString('base64')
 
-    const { data } = await client.queries.fileFilter({
+    const { data, errors } = await client.queries.fileFilter({
       jobId,
       fileData: base64Data,
       fileName: file.name,
       options: { type: filterType, ...options }
-    })
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('Filter errors:', errors)
+      throw new Error(`Filter failed: ${errors[0].message}`)
+    }
+
+    if (!data) {
+      throw new Error('Filter failed - no response from server')
+    }
+
+    let responseData = data as any
+
+    // GraphQL returns JSON as a string, need to parse it
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    if (!responseData.downloadUrl) {
+      console.error('Invalid response from Lambda:', responseData)
+      throw new Error('Filter failed - no download URL in response')
+    }
 
     const job = {
       id: jobId,
       status: 'completed' as const,
       progress: 100,
-      downloadUrl: (data as any).downloadUrl
+      downloadUrl: responseData.downloadUrl
     }
-    
+
     this.completedJobs.set(job.id, job)
     return job
   }
