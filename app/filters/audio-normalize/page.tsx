@@ -1,11 +1,9 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Button } from "@/components/ui/button"
-import { Upload, Download } from "lucide-react"
 
-export default function AudioNormalize_Page() {
+export default function AudioNormalizePage() {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -13,64 +11,53 @@ export default function AudioNormalize_Page() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Normalize Audio</h1>
             <p className="text-muted-foreground">
-              Normalize audio volume levels
+              Optimize audio levels for consistent loudness
             </p>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-2 border-dashed border-muted rounded-lg p-12 text-center">
-                <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop your file here, or click to browse
-                </p>
-                <Button>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Choose File
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  This converter requires backend service integration.
-                  Files are processed securely and deleted automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
+          <AudioFilter
+            title="Audio Normalization"
+            description="Upload an audio file to automatically normalize levels for optimal loudness and consistency"
+            filterType="normalize"
+          />
 
           <AboutDescription
-            title="About Normalize Audio"
-            description="Normalize audio volume levels This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
+            title="About Audio Normalization"
+            description="Audio normalization adjusts the overall level of audio to achieve consistent loudness standards, making your audio sound professional and broadcast-ready."
             sections={[
               {
-                title: "How It Works",
+                title: "What Normalization Does",
                 content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
+                  "Adjusts peak levels to optimal ranges",
+                  "Ensures consistent loudness across tracks",
+                  "Prevents clipping and distortion",
+                  "Meets broadcast and streaming standards",
+                  "Improves dynamic range and clarity"
                 ]
               },
               {
-                title: "Features",
+                title: "When to Normalize",
                 content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
+                  "Before uploading to streaming platforms",
+                  "When mixing multiple audio sources",
+                  "For podcast and broadcast content",
+                  "To match levels in audio compilations",
+                  "Before mastering and final output"
+                ]
+              },
+              {
+                title: "Loudness Standards",
+                content: [
+                  "<strong>Streaming:</strong> -14 LUFS for Spotify, Apple Music",
+                  "<strong>Broadcast:</strong> -23 LUFS for TV, -16 LUFS for radio",
+                  "<strong>Podcasts:</strong> -16 to -20 LUFS recommended",
+                  "<strong>YouTube:</strong> -14 LUFS target level"
                 ]
               }
             ]}
           />
         </div>
-
-        <div className="lg:col-span-1">
-        </div>
+        <div className="lg:col-span-1"></div>
       </div>
     </div>
   )

@@ -4,6 +4,8 @@ import { data } from './data/resource';
 import { fileConversion } from './function/file-conversion/resource';
 import { mediaConversion } from './function/media-conversion/resource';
 import { filterService } from './function/file-filter/resource';
+import { audioFilter } from './function/audio-filter/resource';
+import { shippingCost } from './function/shipping-cost/resource';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -19,7 +21,9 @@ const backend = defineBackend({
   data,
   fileConversion,
   filterService,
-  mediaConversion
+  mediaConversion,
+  audioFilter,
+  shippingCost
 });
 
 // Create Sharp Lambda Layer for native dependency support

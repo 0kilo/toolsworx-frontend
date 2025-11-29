@@ -141,6 +141,82 @@
               "isRequired": false
             }
           }
+        },
+        "audioFilter": {
+          "name": "audioFilter",
+          "isArray": false,
+          "type": "AWSJSON",
+          "isRequired": false,
+          "arguments": {
+            "jobId": {
+              "name": "jobId",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "fileData": {
+              "name": "fileData",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "fileName": {
+              "name": "fileName",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "filterType": {
+              "name": "filterType",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "options": {
+              "name": "options",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false
+            }
+          }
+        },
+        "shippingCost": {
+          "name": "shippingCost",
+          "isArray": false,
+          "type": "AWSJSON",
+          "isRequired": false,
+          "arguments": {
+            "origin": {
+              "name": "origin",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "destination": {
+              "name": "destination",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            },
+            "weight": {
+              "name": "weight",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": false
+            },
+            "dimensions": {
+              "name": "dimensions",
+              "isArray": false,
+              "type": "AWSJSON",
+              "isRequired": false
+            },
+            "carrier": {
+              "name": "carrier",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false
+            }
+          }
         }
       }
     }

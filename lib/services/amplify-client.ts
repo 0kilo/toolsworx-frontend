@@ -221,6 +221,54 @@ class AmplifyApiClient {
     return job
   }
 
+  async applyAudioFilter(file: File, filterType: string, options?: any): Promise<ConversionJob> {
+    const jobId = crypto.randomUUID()
+    const fileBuffer = await file.arrayBuffer()
+    const base64Data = Buffer.from(fileBuffer).toString('base64')
+
+    const { data, errors } = await client.queries.audioFilter({
+      jobId,
+      fileData: base64Data,
+      fileName: file.name,
+      filterType,
+      options
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('Audio filter errors:', errors)
+      throw new Error(`Audio filter failed: ${errors[0].message}`)
+    }
+
+    if (!data) {
+      throw new Error('Audio filter failed - no response from server')
+    }
+
+    let responseData = data as any
+
+    // GraphQL returns JSON as a string, need to parse it
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    if (!responseData.downloadUrl) {
+      console.error('Invalid response from Lambda:', responseData)
+      throw new Error('Audio filter failed - no download URL in response')
+    }
+
+    const job = {
+      id: jobId,
+      status: 'completed' as const,
+      progress: 100,
+      downloadUrl: responseData.downloadUrl
+    }
+
+    this.completedJobs.set(job.id, job)
+    return job
+  }
+
   async request<T = any>(config: any): Promise<any> {
     return { data: null }
   }

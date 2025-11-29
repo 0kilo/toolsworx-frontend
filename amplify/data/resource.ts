@@ -2,6 +2,8 @@ import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 import { fileConversion } from '../function/file-conversion/resource';
 import { filterService } from '../function/file-filter/resource';
 import { mediaConversion } from '../function/media-conversion/resource';
+import { audioFilter } from '../function/audio-filter/resource';
+import { shippingCost } from '../function/shipping-cost/resource';
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
@@ -44,7 +46,33 @@ const schema = a.schema({
   })
   .returns(a.json())
   .authorization(allow => [allow.publicApiKey()])
-  .handler(a.handler.function(mediaConversion))
+  .handler(a.handler.function(mediaConversion)),
+
+  audioFilter: a
+  .query()
+  .arguments({
+    jobId: a.string(),
+    fileData: a.string(),
+    fileName: a.string(),
+    filterType: a.string(),
+    options: a.json()
+  })
+  .returns(a.json())
+  .authorization(allow => [allow.publicApiKey()])
+  .handler(a.handler.function(audioFilter)),
+
+  shippingCost: a
+  .query()
+  .arguments({
+    origin: a.string(),
+    destination: a.string(),
+    weight: a.float(),
+    dimensions: a.json(),
+    carrier: a.string()
+  })
+  .returns(a.json())
+  .authorization(allow => [allow.publicApiKey()])
+  .handler(a.handler.function(shippingCost))
 
 });
 

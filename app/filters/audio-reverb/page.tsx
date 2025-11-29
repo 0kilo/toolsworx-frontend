@@ -1,11 +1,37 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
+import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Button } from "@/components/ui/button"
-import { Upload, Download } from "lucide-react"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
 
-export default function AudioReverb_Page() {
+export default function AudioReverbPage() {
+  const [amount, setAmount] = useState([50])
+
+  const controls = (
+    <div className="space-y-4">
+      <div>
+        <Label className="text-sm font-medium">Reverb Amount</Label>
+        <div className="mt-2">
+          <Slider
+            value={amount}
+            onValueChange={setAmount}
+            min={0}
+            max={100}
+            step={1}
+            className="w-full"
+          />
+          <div className="flex justify-between text-xs text-muted-foreground mt-1">
+            <span>Dry</span>
+            <span>{amount[0]}%</span>
+            <span>Wet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -13,56 +39,50 @@ export default function AudioReverb_Page() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Reverb Effect</h1>
             <p className="text-muted-foreground">
-              Add reverb to audio files
+              Add natural reverb to create space and depth
             </p>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-2 border-dashed border-muted rounded-lg p-12 text-center">
-                <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop your file here, or click to browse
-                </p>
-                <Button>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Choose File
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  This converter requires backend service integration.
-                  Files are processed securely and deleted automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
+          <AudioFilter
+            title="Audio Reverb Effect"
+            description="Upload an audio file and add reverb to simulate different acoustic spaces"
+            filterType="reverb"
+            controls={controls}
+            getOptions={() => ({ amount: amount[0] })}
+          />
 
           <AboutDescription
             title="About Reverb Effect"
-            description="Add reverb to audio files This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
+            description="Reverb simulates the natural echo that occurs when sound reflects off surfaces in an acoustic space. It adds depth, warmth, and spatial dimension to audio recordings."
             sections={[
               {
-                title: "How It Works",
+                title: "When to Use Reverb",
                 content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
+                  "Vocals: Add warmth and presence to dry vocal recordings",
+                  "Instruments: Create spatial depth for guitars, pianos, and drums",
+                  "Podcasts: Subtle reverb can make voices sound more natural",
+                  "Music Production: Blend instruments together in a mix",
+                  "Sound Design: Create atmospheric and cinematic effects"
                 ]
               },
               {
-                title: "Features",
+                title: "Reverb Types",
                 content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
+                  "<strong>Room Reverb:</strong> Simulates small to medium rooms",
+                  "<strong>Hall Reverb:</strong> Large concert hall acoustics",
+                  "<strong>Plate Reverb:</strong> Vintage mechanical reverb sound",
+                  "<strong>Spring Reverb:</strong> Classic guitar amp reverb",
+                  "<strong>Chamber Reverb:</strong> Echo chamber acoustics"
+                ]
+              },
+              {
+                title: "Tips for Using Reverb",
+                content: [
+                  "Less is often more - start with subtle amounts",
+                  "Use pre-delay to separate the dry signal from reverb",
+                  "High-cut the reverb to avoid muddiness",
+                  "Match reverb time to the tempo of your music",
+                  "Use different reverb settings for different instruments"
                 ]
               }
             ]}

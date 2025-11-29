@@ -1,11 +1,9 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Button } from "@/components/ui/button"
-import { Upload, Download } from "lucide-react"
 
-export default function AudioNoiseReduction_Page() {
+export default function AudioNoiseReductionPage() {
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -13,64 +11,44 @@ export default function AudioNoiseReduction_Page() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Noise Reduction</h1>
             <p className="text-muted-foreground">
-              Remove background noise from audio
+              Remove background noise and improve audio clarity
             </p>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-2 border-dashed border-muted rounded-lg p-12 text-center">
-                <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop your file here, or click to browse
-                </p>
-                <Button>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Choose File
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  This converter requires backend service integration.
-                  Files are processed securely and deleted automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
+          <AudioFilter
+            title="Audio Noise Reduction"
+            description="Upload an audio file to automatically reduce background noise and improve clarity"
+            filterType="noise-reduction"
+          />
 
           <AboutDescription
             title="About Noise Reduction"
-            description="Remove background noise from audio This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
+            description="Noise reduction removes unwanted background sounds like hiss, hum, and environmental noise while preserving the quality of the main audio content."
             sections={[
               {
-                title: "How It Works",
+                title: "What It Removes",
                 content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
+                  "Background hiss from recordings",
+                  "Air conditioning and fan noise", 
+                  "Electrical hum and buzz",
+                  "Wind noise from outdoor recordings",
+                  "Room tone and ambient noise"
                 ]
               },
               {
-                title: "Features",
+                title: "Best Practices",
                 content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
+                  "Record in quiet environments when possible",
+                  "Use noise reduction sparingly to avoid artifacts",
+                  "Apply before other processing effects",
+                  "Check results with headphones for quality",
+                  "Consider the trade-off between noise removal and audio quality"
                 ]
               }
             ]}
           />
         </div>
-
-        <div className="lg:col-span-1">
-        </div>
+        <div className="lg:col-span-1"></div>
       </div>
     </div>
   )

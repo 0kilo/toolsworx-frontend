@@ -1,11 +1,35 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
+import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Button } from "@/components/ui/button"
-import { Upload, Download } from "lucide-react"
+import { Label } from "@/components/ui/label"
+import { Slider } from "@/components/ui/slider"
 
-export default function AudioBassBoost_Page() {
+export default function AudioBassBoostPage() {
+  const [gain, setGain] = useState([5])
+
+  const controls = (
+    <div className="space-y-4">
+      <div>
+        <Label className="text-sm font-medium">Bass Gain</Label>
+        <div className="mt-2">
+          <Slider
+            value={gain}
+            onValueChange={setGain}
+            min={0}
+            max={20}
+            step={1}
+            className="w-full"
+          />
+          <div className="text-center text-xs text-muted-foreground mt-1">
+            +{gain[0]}dB
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -13,64 +37,55 @@ export default function AudioBassBoost_Page() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-2">Bass Boost</h1>
             <p className="text-muted-foreground">
-              Enhance bass frequencies in audio
+              Enhance low frequencies for deeper, richer sound
             </p>
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="border-2 border-dashed border-muted rounded-lg p-12 text-center">
-                <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop your file here, or click to browse
-                </p>
-                <Button>
-                  <Upload className="mr-2 h-4 w-4" />
-                  Choose File
-                </Button>
-                <p className="text-xs text-muted-foreground mt-4">
-                  This converter requires backend service integration.
-                  Files are processed securely and deleted automatically.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
+          <AudioFilter
+            title="Audio Bass Boost"
+            description="Upload an audio file and boost bass frequencies for a fuller, more powerful sound"
+            filterType="bass-boost"
+            controls={controls}
+            getOptions={() => ({ gain: gain[0] })}
+          />
 
           <AboutDescription
             title="About Bass Boost"
-            description="Enhance bass frequencies in audio This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
+            description="Bass boost enhances low-frequency content (typically 20-250Hz) to add warmth, power, and depth to your audio. Perfect for music, podcasts, and sound design."
             sections={[
               {
-                title: "How It Works",
+                title: "Bass Frequency Ranges",
                 content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
+                  "<strong>Sub-bass (20-60Hz):</strong> Deep rumble, felt more than heard",
+                  "<strong>Bass (60-110Hz):</strong> Fundamental bass notes, kick drums",
+                  "<strong>Low-mid (110-250Hz):</strong> Warmth, body of bass instruments",
+                  "<strong>Upper bass (250-500Hz):</strong> Punch and presence"
                 ]
               },
               {
-                title: "Features",
+                title: "When to Use Bass Boost",
                 content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
+                  "Music with weak or thin bass response",
+                  "Podcasts and voice recordings lacking warmth",
+                  "Audio played on small speakers or headphones",
+                  "Electronic music and hip-hop production",
+                  "Sound design for impact and power"
+                ]
+              },
+              {
+                title: "Bass Boost Tips",
+                content: [
+                  "Start with small amounts (3-6dB) and adjust to taste",
+                  "Be careful not to muddy the mix with too much boost",
+                  "Consider the playback system - some have natural bass emphasis",
+                  "Use high-pass filtering to remove unwanted sub-sonic content",
+                  "Monitor on different speakers to check translation"
                 ]
               }
             ]}
           />
         </div>
-
-        <div className="lg:col-span-1">
-        </div>
+        <div className="lg:col-span-1"></div>
       </div>
     </div>
   )
