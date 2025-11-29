@@ -41,7 +41,7 @@ export function AudioFilter({ title, description, filterType, controls, getOptio
       
       // Call Amplify audio filter function
       const result = await amplifyApiClient.applyAudioFilter(selectedFile, filterType, options)
-      setProcessedAudio(result.downloadUrl)
+      setProcessedAudio(result.downloadUrl || null)
     } catch (err: any) {
       setError(err.message || 'Processing failed')
     } finally {
