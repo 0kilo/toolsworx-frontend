@@ -14,6 +14,12 @@ const lengthUnits = [
   { value: "meter", label: "Meter", abbreviation: "m", factor: 1 },
   { value: "kilometer", label: "Kilometer", abbreviation: "km", factor: 1000 },
   { value: "mile", label: "Mile", abbreviation: "mi", factor: 1609.344 },
+  { value: "AU", label: "Astronomical Unit", abbreviation: "AU", factor: 149597870700 },
+  { value: "ly", label: "Light Year", abbreviation: "ly", factor: 9.4607304725808e15 },
+  { value: "pc", label: "Parsec", abbreviation: "pc", factor: 3.0856775814913673e16 },
+  { value: "ls", label: "Light Second", abbreviation: "ls", factor: 299792458 },
+  { value: "lm", label: "Light Minute", abbreviation: "lm", factor: 17987547480 },
+  { value: "lh", label: "Light Hour", abbreviation: "lh", factor: 1079252848800 },
 ]
 
 export default function LengthConverterPage() {

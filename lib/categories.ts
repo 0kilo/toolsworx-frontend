@@ -53,7 +53,7 @@ export const categoryGroups: CategoryGroup[] = [
     color: "bg-slate-100 border-slate-300",
     textColor: "text-slate-900",
     iconColor: "text-slate-600",
-    categories: ["temperature", "distance", "weight", "volume", "time"],
+    categories: ["temperature", "distance", "weight", "volume", "time", "currency"],
     seoKeywords: [
       "unit converter",
       "measurement converter",

@@ -1,4 +1,4 @@
-import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart, Calendar } from "lucide-react"
+import { Calculator, Heart, DollarSign, Percent, TrendingUp, LineChart, Calendar, Orbit } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -84,6 +84,16 @@ export const calculatorTools: ConverterMetadata[] = [
     icon: Calendar,
     href: "/calculators/date-calculator",
     keywords: ["date", "calendar", "days", "difference", "add", "subtract", "time"],
+    popular: true,
+  },
+  {
+    id: "lorentz-calculator",
+    title: "Lorentz Transformation Calculator",
+    description: "Calculate relativistic space-time coordinate transformations",
+    category: "calculator",
+    icon: Orbit,
+    href: "/unit-conversions/spacetime",
+    keywords: ["lorentz", "relativity", "physics", "spacetime", "transformation", "einstein"],
     popular: true,
   },
 

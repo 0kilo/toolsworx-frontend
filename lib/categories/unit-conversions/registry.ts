@@ -94,16 +94,7 @@ export const unitConversionTools: ConverterMetadata[] = [
     icon: Zap,
     href: "/unit-conversions/energy",
     keywords: ["energy", "joules", "calories", "btu", "kwh", "electron volt", "watt hour"],
-    popular: true,
-  },
-  {
-    id: "spacetime",
-    title: "Space-Time Converter",
-    description: "Convert between light-years, parsecs, astronomical units, time dilation",
-    category: "spacetime",
-    icon: Orbit,
-    href: "/unit-conversions/spacetime",
-    keywords: ["space", "time", "light year", "parsec", "astronomical unit", "relativity", "physics"],
     popular: false,
   },
+
 ]
