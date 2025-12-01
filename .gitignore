@@ -21,10 +21,10 @@ notes.txt
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+scripts/key-pair.js
 # local env files
 .env*.local
-
+api-keys.txt
 # vercel
 .vercel
 

@@ -1,5 +1,5 @@
 import { ConverterMetadata } from "@/types/converter"
-import { BarChart3 } from "lucide-react"
+import { BarChart3, TrendingUp, PieChart, Zap, Activity } from "lucide-react"
 
 export const chartTools: ConverterMetadata[] = [
   {
@@ -11,5 +11,55 @@ export const chartTools: ConverterMetadata[] = [
     href: "/charts/gantt-chart",
     keywords: ["gantt", "chart", "project", "timeline", "schedule", "management"],
     popular: true,
+  },
+  {
+    id: "bar-chart",
+    title: "Bar Chart Generator",
+    description: "Create interactive bar charts from your data",
+    category: "chart",
+    icon: BarChart3,
+    href: "/charts/bar-chart",
+    keywords: ["bar", "chart", "data", "visualization", "graph", "statistics"],
+    popular: true,
+  },
+  {
+    id: "line-chart",
+    title: "Line Chart Generator",
+    description: "Create interactive line charts to show trends over time",
+    category: "chart",
+    icon: TrendingUp,
+    href: "/charts/line-chart",
+    keywords: ["line", "chart", "trend", "time", "series", "graph", "analytics"],
+    popular: true,
+  },
+  {
+    id: "pie-chart",
+    title: "Pie Chart Generator",
+    description: "Create interactive pie charts to show proportional data",
+    category: "chart",
+    icon: PieChart,
+    href: "/charts/pie-chart",
+    keywords: ["pie", "chart", "proportion", "percentage", "distribution", "circular"],
+    popular: true,
+  },
+  {
+    id: "scatter-chart",
+    title: "Scatter Chart Generator",
+    description: "Create scatter plots to show correlations between variables",
+    category: "chart",
+    icon: Zap,
+    href: "/charts/scatter-chart",
+    keywords: ["scatter", "plot", "correlation", "variables", "data", "analysis"],
+    popular: true,
+  },
+  {
+    id: "area-chart",
+    title: "Area Chart Generator",
+    description: "Create area charts to show cumulative data over time",
+    category: "chart",
+    icon: Activity,
+    href: "/charts/area-chart",
+    keywords: ["area", "chart", "cumulative", "time", "trend", "filled"],
+    popular: false,
   },
 ]

@@ -97,7 +97,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   <h1 className={`text-4xl font-bold mb-4 ${category.textColor}`}>
                     {category.title}
                   </h1>
-                  <p className={`text-lg mb-6 ${category.textColor} opacity-90`}>
+                  <p className={`text-lg mb-6 ${category.textColor} opacity-90 hidden md:block`}>
                     {category.longDescription}
                   </p>
 

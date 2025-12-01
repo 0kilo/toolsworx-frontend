@@ -1,9 +1,9 @@
 {
   "auth": {
-    "user_pool_id": "us-east-2_09CBR9YfX",
+    "user_pool_id": "us-east-2_CcieJrHjX",
     "aws_region": "us-east-2",
-    "user_pool_client_id": "2ler12qud9moqfg824rhsl2eco",
-    "identity_pool_id": "us-east-2:7f5816bd-3304-435d-9ac5-53d0d381e116",
+    "user_pool_client_id": "21lkbmnlfn0eqel0n3cmp8e71s",
+    "identity_pool_id": "us-east-2:b57aa71b-bf16-4688-a5de-294c1ea3ab83",
     "mfa_methods": [],
     "standard_required_attributes": [
       "email"
@@ -26,9 +26,9 @@
     "unauthenticated_identities_enabled": true
   },
   "data": {
-    "url": "https://kih7feod7vdbjaju7ykdigf2lq.appsync-api.us-east-2.amazonaws.com/graphql",
+    "url": "https://bxpcpca5zbhmnabtq5ois5azuy.appsync-api.us-east-2.amazonaws.com/graphql",
     "aws_region": "us-east-2",
-    "api_key": "da2-7w34sgvbcbd4pg3qggeqrde6ee",
+    "api_key": "da2-pjyrhihprnb6vdz2sxv6kl2qa4",
     "default_authorization_type": "API_KEY",
     "authorization_types": [
       "AMAZON_COGNITO_USER_POOLS",
@@ -36,7 +36,208 @@
     ],
     "model_introspection": {
       "version": 1,
-      "models": {},
+      "models": {
+        "MarketRate": {
+          "name": "MarketRate",
+          "fields": {
+            "pk": {
+              "name": "pk",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "sk": {
+              "name": "sk",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "type": {
+              "name": "type",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true,
+              "attributes": []
+            },
+            "symbol": {
+              "name": "symbol",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "name": {
+              "name": "name",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "price": {
+              "name": "price",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": true,
+              "attributes": []
+            },
+            "timestamp": {
+              "name": "timestamp",
+              "isArray": false,
+              "type": "Int",
+              "isRequired": true,
+              "attributes": []
+            },
+            "baseCurrency": {
+              "name": "baseCurrency",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "quoteCurrency": {
+              "name": "quoteCurrency",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "volume24h": {
+              "name": "volume24h",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": false,
+              "attributes": []
+            },
+            "marketCap": {
+              "name": "marketCap",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": false,
+              "attributes": []
+            },
+            "change24h": {
+              "name": "change24h",
+              "isArray": false,
+              "type": "Float",
+              "isRequired": false,
+              "attributes": []
+            },
+            "active": {
+              "name": "active",
+              "isArray": false,
+              "type": "Boolean",
+              "isRequired": false,
+              "attributes": []
+            },
+            "market": {
+              "name": "market",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "gsi1pk": {
+              "name": "gsi1pk",
+              "isArray": false,
+              "type": "String",
+              "isRequired": false,
+              "attributes": []
+            },
+            "createdAt": {
+              "name": "createdAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            },
+            "updatedAt": {
+              "name": "updatedAt",
+              "isArray": false,
+              "type": "AWSDateTime",
+              "isRequired": false,
+              "attributes": [],
+              "isReadOnly": true
+            }
+          },
+          "syncable": true,
+          "pluralName": "MarketRates",
+          "attributes": [
+            {
+              "type": "model",
+              "properties": {}
+            },
+            {
+              "type": "key",
+              "properties": {
+                "fields": [
+                  "pk",
+                  "sk"
+                ]
+              }
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "marketRatesByTypeAndTimestamp",
+                "queryField": "listByType",
+                "fields": [
+                  "type",
+                  "timestamp"
+                ]
+              }
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "marketRatesBySymbolAndTimestamp",
+                "queryField": "listBySymbol",
+                "fields": [
+                  "symbol",
+                  "timestamp"
+                ]
+              }
+            },
+            {
+              "type": "key",
+              "properties": {
+                "name": "marketRatesByGsi1pkAndTimestamp",
+                "queryField": "listLatest",
+                "fields": [
+                  "gsi1pk",
+                  "timestamp"
+                ]
+              }
+            },
+            {
+              "type": "auth",
+              "properties": {
+                "rules": [
+                  {
+                    "allow": "public",
+                    "provider": "apiKey",
+                    "operations": [
+                      "create",
+                      "update",
+                      "delete",
+                      "read"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "primaryKeyInfo": {
+            "isCustomPrimaryKey": true,
+            "primaryKeyFieldName": "pk",
+            "sortKeyFieldNames": [
+              "sk"
+            ]
+          }
+        }
+      },
       "enums": {},
       "nonModels": {},
       "queries": {
@@ -215,6 +416,34 @@
               "isArray": false,
               "type": "String",
               "isRequired": false
+            }
+          }
+        },
+        "getCurrencyRate": {
+          "name": "getCurrencyRate",
+          "isArray": false,
+          "type": "AWSJSON",
+          "isRequired": false,
+          "arguments": {
+            "currency": {
+              "name": "currency",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true
+            }
+          }
+        },
+        "getCryptoPrice": {
+          "name": "getCryptoPrice",
+          "isArray": false,
+          "type": "AWSJSON",
+          "isRequired": false,
+          "arguments": {
+            "symbol": {
+              "name": "symbol",
+              "isArray": false,
+              "type": "String",
+              "isRequired": true
             }
           }
         }

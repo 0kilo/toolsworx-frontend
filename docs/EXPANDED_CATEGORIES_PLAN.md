@@ -120,9 +120,6 @@ Expanding the conversion site into a comprehensive tool hub with 4 main categori
   - Output: Final amount, interest earned
 
 #### Health Calculators:
-- **BMI Calculator**
-  - Input: Height, weight
-  - Output: BMI, category (underweight/normal/overweight)
 
 - **Calorie Calculator**
   - Input: Age, gender, height, weight, activity level
@@ -132,13 +129,23 @@ Expanding the conversion site into a comprehensive tool hub with 4 main categori
   - Input: Weight, activity level, goals
   - Output: Daily protein needs
 
-- **Body Fat Calculator**
-  - Input: Various measurements
-  - Output: Body fat percentage
-
 - **Pregnancy Due Date**
   - Input: Last period date
   - Output: Due date, weeks pregnant
+
+
+
+- **Paint Calculator**
+  - Input: Room dimensions
+  - Output: Gallons of paint needed
+
+- **Flooring Calculator**
+  - Input: Room dimensions
+  - Output: Square footage, materials needed
+
+- **Concrete Calculator**
+  - Input: Dimensions
+  - Output: Cubic yards needed
 
 #### Construction/Home:
 - **Paint Calculator**

@@ -269,6 +269,137 @@ class AmplifyApiClient {
     return job
   }
 
+  /**
+   * Get currency exchange rates from DynamoDB
+   * @param currencyPair - Optional specific currency pair (e.g., "USD/EUR")
+   * @param baseCurrency - Optional filter by base currency
+   * @param quoteCurrency - Optional filter by quote currency
+   * @param limit - Maximum number of rates to return
+   */
+  async getCurrencyRate(currency: string): Promise<any> {
+    const { data, errors } = await client.queries.getCurrencyRate({
+      currency
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('Get currency rate errors:', errors)
+      throw new Error(`Failed to get currency rate: ${errors[0].message}`)
+    }
+
+    if (!data) {
+      throw new Error('Failed to get currency rate - no response from server')
+    }
+
+    let responseData = data as any
+
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    return responseData
+  }
+
+  /**
+   * Get crypto prices from DynamoDB
+   * @param symbol - Optional specific crypto symbol (e.g., "BTC")
+   * @param symbols - Optional array of crypto symbols
+   * @param limit - Maximum number of prices to return
+   */
+  async getCryptoPrice(symbol: string): Promise<any> {
+    const { data, errors } = await client.queries.getCryptoPrice({
+      symbol
+    },
+      {
+        authMode: 'apiKey',
+      })
+
+    if (errors && errors.length > 0) {
+      console.error('Get crypto price errors:', errors)
+      throw new Error(`Failed to get crypto price: ${errors[0].message}`)
+    }
+
+    if (!data) {
+      throw new Error('Failed to get crypto price - no response from server')
+    }
+
+    let responseData = data as any
+
+    if (typeof responseData === 'string') {
+      responseData = JSON.parse(responseData)
+    }
+
+    return responseData
+  }
+
+  /**
+   * Convert currency using the latest rates from DynamoDB
+   * @param from - Source currency code (e.g., "USD")
+   * @param to - Target currency code (e.g., "EUR")
+   * @param amount - Amount to convert
+   */
+  async convertCurrency(from: string, to: string, amount: number): Promise<{
+    from: string
+    to: string
+    amount: number
+    convertedAmount: number
+    rate: number
+    timestamp: number
+  }> {
+    const rateData = await this.getCurrencyRate(to)
+
+    if (!rateData) {
+      throw new Error(`No exchange rate found for ${to}`)
+    }
+
+    const rate = rateData.price
+    const convertedAmount = amount * rate
+
+    return {
+      from,
+      to,
+      amount,
+      convertedAmount,
+      rate,
+      timestamp: rateData.timestamp
+    }
+  }
+
+  /**
+   * Convert crypto using the latest prices from DynamoDB
+   * @param from - Source crypto symbol (e.g., "BTC")
+   * @param to - Target currency/crypto symbol (e.g., "USD")
+   * @param amount - Amount to convert
+   */
+  async convertCrypto(from: string, to: string, amount: number): Promise<{
+    from: string
+    to: string
+    amount: number
+    convertedAmount: number
+    price: number
+    timestamp: number
+  }> {
+    const priceData = await this.getCryptoPrice(from)
+
+    if (!priceData) {
+      throw new Error(`No price found for ${from}`)
+    }
+
+    const price = priceData.price
+    const convertedAmount = amount * price
+
+    return {
+      from,
+      to,
+      amount,
+      convertedAmount,
+      price,
+      timestamp: priceData.timestamp
+    }
+  }
+
   async request<T = any>(config: any): Promise<any> {
     return { data: null }
   }

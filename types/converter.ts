@@ -29,6 +29,7 @@ export type ConverterCategory =
   | "energy"
   | "spacetime"
   | "chart"
+  | "pressure"
   | "other"
 
 export interface ConverterMetadata {

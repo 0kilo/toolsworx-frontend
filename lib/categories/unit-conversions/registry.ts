@@ -1,4 +1,4 @@
-import { Thermometer, Ruler, Weight, Droplet, DollarSign, Clock, Gauge, Square, Zap, Orbit } from "lucide-react"
+import { Thermometer, Ruler, Weight, Droplet, DollarSign, Clock, Gauge, Square, Zap, Orbit, Gauge as Pressure, HardDrive } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -96,5 +96,24 @@ export const unitConversionTools: ConverterMetadata[] = [
     keywords: ["energy", "joules", "calories", "btu", "kwh", "electron volt", "watt hour"],
     popular: false,
   },
-
+  {
+    id: "pressure",
+    title: "Pressure Converter",
+    description: "Convert between PSI, Bar, Pascal, and other pressure units",
+    category: "pressure",
+    icon: Pressure,
+    href: "/unit-conversions/pressure",
+    keywords: ["pressure", "psi", "bar", "pascal", "atmosphere", "torr"],
+    popular: false,
+  },
+  {
+    id: "data",
+    title: "Data Size Converter",
+    description: "Convert between KB, MB, GB, TB, and other data units",
+    category: "data",
+    icon: HardDrive,
+    href: "/unit-conversions/data",
+    keywords: ["data", "storage", "kb", "mb", "gb", "tb", "bytes", "bits"],
+    popular: false,
+  },
 ]

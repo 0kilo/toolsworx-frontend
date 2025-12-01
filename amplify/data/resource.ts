@@ -4,6 +4,8 @@ import { filterService } from '../function/file-filter/resource';
 import { mediaConversion } from '../function/media-conversion/resource';
 import { audioFilter } from '../function/audio-filter/resource';
 import { shippingCost } from '../function/shipping-cost/resource';
+// import { currencyConverter } from '../function/currency-converter/resource';
+// import { cryptoConverter } from '../function/crypto-converter/resource';
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
 adding a new "isDone" field as a boolean. The authorization rule below
@@ -11,12 +13,38 @@ specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
+  // Single table design for both currency rates and crypto prices
+  MarketRate: a.model({
+    pk: a.string().required(), // CURRENCY#{currencyPair} or CRYPTO#{symbol}
+    sk: a.string().required(), // TIMESTAMP#{timestamp}
+    type: a.string().required(), // 'CURRENCY' or 'CRYPTO'
+    symbol: a.string(), // For crypto: BTC, ETH, etc. For currency: the pair like USD/EUR
+    name: a.string(),
+    price: a.float().required(), // Rate for currency, price for crypto
+    timestamp: a.integer().required(),
+    baseCurrency: a.string(), // For currency pairs
+    quoteCurrency: a.string(), // For currency pairs
+    volume24h: a.float(), // For crypto
+    marketCap: a.float(), // For crypto
+    change24h: a.float(), // For crypto
+    active: a.boolean(),
+    market: a.string(),
+    gsi1pk: a.string(), // 'LATEST_RATES' or 'LATEST_CRYPTO' for GSI queries
+  })
+  .authorization(allow => [allow.publicApiKey()])
+  .identifier(['pk', 'sk'])
+  .secondaryIndexes(index => [
+    index('type').sortKeys(['timestamp']).queryField('listByType'),
+    index('symbol').sortKeys(['timestamp']).queryField('listBySymbol'),
+    index('gsi1pk').sortKeys(['timestamp']).queryField('listLatest')
+  ]),
+
   fileConversion: a
   .query()
   .arguments({
-    fileData: a.string(), 
-    fileName: a.string(), 
-    targetFormat: a.string(), 
+    fileData: a.string(),
+    fileName: a.string(),
+    targetFormat: a.string(),
     options: a.json()
   })
   .returns(a.json())
@@ -72,7 +100,36 @@ const schema = a.schema({
   })
   .returns(a.json())
   .authorization(allow => [allow.publicApiKey()])
-  .handler(a.handler.function(shippingCost))
+  .handler(a.handler.function(shippingCost)),
+
+
+  getCurrencyRate: a
+  .query()
+  .arguments({
+    currency: a.string().required()
+  })
+  .returns(a.json())
+  .authorization(allow => [allow.publicApiKey()])
+  .handler(
+    a.handler.custom({
+      dataSource: a.ref('MarketRate'),
+      entry: './resolvers/get-currency-rates.js'
+    })
+  ),
+
+  getCryptoPrice: a
+  .query()
+  .arguments({
+    symbol: a.string().required()
+  })
+  .returns(a.json())
+  .authorization(allow => [allow.publicApiKey()])
+  .handler(
+    a.handler.custom({
+      dataSource: a.ref('MarketRate'),
+      entry: './resolvers/get-crypto-prices.js'
+    })
+)
 
 });
 
@@ -81,8 +138,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: 'apiKey'
-  
+    defaultAuthorizationMode: 'apiKey'  
   }
 });
 

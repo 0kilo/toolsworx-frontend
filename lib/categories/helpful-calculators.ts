@@ -1,4 +1,4 @@
-import { ChefHat, Gift, Calendar, Package } from "lucide-react"
+import { ChefHat, Gift, Calendar, Package, Bitcoin, Key } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 export const helpfulCalculators: ConverterMetadata[] = [
@@ -40,6 +40,26 @@ export const helpfulCalculators: ConverterMetadata[] = [
     icon: Package,
     href: "/helpful-calculators/shipping-cost",
     keywords: ["shipping", "cost", "usps", "ups", "fedex", "dhl", "delivery", "package", "mail", "holiday"],
+    popular: true,
+  },
+  {
+    id: "crypto-converter",
+    title: "Crypto Currency Converter",
+    description: "Convert cryptocurrencies to fiat currencies with live rates",
+    category: "helpful",
+    icon: Bitcoin,
+    href: "/helpful-calculators/crypto-converter",
+    keywords: ["crypto", "cryptocurrency", "bitcoin", "ethereum", "convert", "price", "market", "trading"],
+    popular: true,
+  },
+  {
+    id: "password-generator",
+    title: "Password Generator",
+    description: "Generate strong, secure passwords with customizable options",
+    category: "helpful",
+    icon: Key,
+    href: "/helpful-calculators/password-generator",
+    keywords: ["password", "generator", "security", "random", "strong", "secure"],
     popular: true,
   },
 ]
