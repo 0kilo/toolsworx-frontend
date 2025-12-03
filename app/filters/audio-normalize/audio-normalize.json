@@ -1,0 +1,57 @@
+{
+  "id": "audio-normalize",
+  "title": "Normalize Audio",
+  "description": "Optimize audio levels for consistent loudness",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Audio Normalization",
+      "type": "text",
+      "content": [
+        "Audio normalization adjusts the overall level of audio to achieve consistent loudness standards, making your audio sound professional and broadcast-ready."
+      ]
+    },
+    {
+      "title": "Normalization Formula",
+      "type": "list",
+      "content": [
+        "Peak normalization: $y(t) = x(t) \\times \\frac{T}{\\max(|x(t)|)}$",
+        "Where $T$ = target peak level (typically 0dB or -0.1dB)",
+        "LUFS normalization: $y(t) = x(t) \\times 10^{\\frac{L_{target} - L_{measured}}{20}}$",
+        "Maintains relative dynamics while adjusting overall level"
+      ]
+    },
+    {
+      "title": "What Normalization Does",
+      "type": "list",
+      "content": [
+        "Adjusts peak levels to optimal ranges",
+        "Ensures consistent loudness across tracks",
+        "Prevents clipping and distortion",
+        "Meets broadcast and streaming standards",
+        "Improves dynamic range and clarity"
+      ]
+    },
+    {
+      "title": "When to Normalize",
+      "type": "list",
+      "content": [
+        "Before uploading to streaming platforms",
+        "When mixing multiple audio sources",
+        "For podcast and broadcast content",
+        "To match levels in audio compilations",
+        "Before mastering and final output"
+      ]
+    },
+    {
+      "title": "Loudness Standards",
+      "type": "list",
+      "content": [
+        "Streaming: -14 LUFS for Spotify, Apple Music",
+        "Broadcast: -23 LUFS for TV, -16 LUFS for radio",
+        "Podcasts: -16 to -20 LUFS recommended",
+        "YouTube: -14 LUFS target level"
+      ]
+    }
+  ]
+}

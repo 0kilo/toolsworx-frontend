@@ -1,0 +1,37 @@
+{
+  "id": "image-vintage",
+  "title": "Vintage Filter",
+  "description": "Apply vintage photo effect",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Vintage Filter",
+      "type": "text",
+      "content": [
+        "Vintage filter creates an aged, retro look by combining faded colors, grain, vignetting, and light leaks to simulate old film photography."
+      ]
+    },
+    {
+      "title": "Vintage Effect Components",
+      "type": "list",
+      "content": [
+        "Faded Colors: Reduced saturation for aged appearance",
+        "Film Grain: Adds texture like old film stock",
+        "Vignetting: Darkened corners and edges",
+        "Light Leaks: Simulates film exposure artifacts",
+        "Color Shifts: Warm or cool tones for period looks"
+      ]
+    },
+    {
+      "title": "Popular Vintage Styles",
+      "type": "list",
+      "content": [
+        "1970s: Warm tones, high contrast, orange/brown hues",
+        "1980s: Faded pastels, soft focus, pink/purple tints",
+        "Polaroid: Instant film look with characteristic borders",
+        "Film Noir: High contrast black and white",
+        "Cross-processed: Unusual color shifts and high saturation"
+      ]
+    }
+  ]
+}

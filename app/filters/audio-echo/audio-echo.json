@@ -1,0 +1,46 @@
+{
+  "id": "audio-echo",
+  "title": "Echo Effect",
+  "description": "Add echo with adjustable delay and decay",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Echo Effect",
+      "type": "text",
+      "content": [
+        "Echo creates distinct repetitions of the original sound with adjustable delay time and decay rate. Perfect for creating depth and rhythmic interest in audio."
+      ]
+    },
+    {
+      "title": "Echo Formula",
+      "type": "list",
+      "content": [
+        "Output: $y(t) = x(t) + \\alpha \\cdot x(t - d)$",
+        "Where $x(t)$ = input signal, $\\alpha$ = decay factor (0-1), $d$ = delay time",
+        "Multiple echoes: $y(t) = x(t) + \\sum_{n=1}^{N} \\alpha^n \\cdot x(t - nd)$",
+        "Feedback creates infinite decay: $\\alpha < 1$ required for stability"
+      ]
+    },
+    {
+      "title": "Echo Parameters",
+      "type": "list",
+      "content": [
+        "Delay Time: Time between original sound and echo (100-2000ms)",
+        "Decay Rate: How quickly each echo fades out",
+        "Feedback: Amount of echo fed back to create multiple repeats",
+        "Mix Level: Balance between dry and wet signal"
+      ]
+    },
+    {
+      "title": "Creative Uses",
+      "type": "list",
+      "content": [
+        "Vocals: Create dramatic effects or simulate large spaces",
+        "Guitars: Classic slapback echo for rockabilly and country",
+        "Drums: Add rhythmic interest to snare hits",
+        "Sound Design: Create sci-fi and atmospheric effects",
+        "Dub Music: Essential for reggae and dub production"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "loan",
+  "title": "Interest, Loan and Mortgage Calculator",
+  "description": "Calculate monthly payments, interest rates, and total cost for loans and mortgages. Perfect for home mortgages, auto loans, personal loans, and business financing decisions.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "Monthly Payment: $M = P \\times \\frac{r(1+r)^n}{(1+r)^n - 1}$",
+        "Where: $P$ = Principal (loan amount - down payment), $r$ = Monthly interest rate (annual rate / 12), $n$ = Total number of payments (years × 12)",
+        "Total Interest: $I = M \\times n - P$",
+        "Total Amount Paid: $T = M \\times n$"
+      ]
+    },
+    {
+      "title": "How Loan Payments Work",
+      "type": "list",
+      "content": [
+        "Monthly payments are calculated using the loan amount, interest rate, and term",
+        "Early payments go mostly toward interest, later payments toward principal",
+        "Longer terms mean lower monthly payments but more total interest",
+        "Higher interest rates significantly increase the total cost of borrowing"
+      ]
+    },
+    {
+      "title": "Loan & Mortgage Types",
+      "type": "list",
+      "content": [
+        "<strong>Mortgage:</strong> 15-30 year terms, typically 3-7% interest, requires down payment (usually 10-20%)",
+        "<strong>Auto Loan:</strong> 3-7 year terms, typically 3-10% interest",
+        "<strong>Personal Loan:</strong> 2-7 year terms, typically 6-25% interest",
+        "<strong>Business Loan:</strong> Variable terms, typically 5-15% interest"
+      ]
+    },
+    {
+      "title": "Mortgage-Specific Information",
+      "type": "list",
+      "content": [
+        "<strong>Down Payment:</strong> Upfront payment, typically 10-20% of home price",
+        "<strong>PMI:</strong> Private mortgage insurance required if down payment < 20%",
+        "<strong>Property Taxes:</strong> Varies by location and home value (not included in this calculator)",
+        "<strong>Homeowners Insurance:</strong> Protects against damage and liability (not included)",
+        "<strong>Closing Costs:</strong> Typically 2-5% of home purchase price"
+      ]
+    },
+    {
+      "title": "Money-Saving Tips",
+      "type": "list",
+      "content": [
+        "Make extra principal payments to reduce total interest",
+        "Choose the shortest term you can afford for lower total cost",
+        "Shop around for the best interest rates",
+        "Consider bi-weekly payments to pay off loans faster",
+        "Improve your credit score before applying for better rates"
+      ]
+    },
+    {
+      "title": "Important Notes",
+      "type": "list",
+      "content": [
+        "This calculator assumes fixed interest rates",
+        "Actual payments may include insurance, taxes, and fees",
+        "Results are estimates - consult with lenders for exact terms",
+        "Consider your debt-to-income ratio when taking new loans"
+      ]
+    }
+  ]
+}

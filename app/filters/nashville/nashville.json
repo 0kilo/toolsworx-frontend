@@ -1,0 +1,37 @@
+{
+  "id": "nashville",
+  "title": "Nashville Filter",
+  "description": "Instagram Nashville filter effect",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Nashville Filter",
+      "type": "text",
+      "content": [
+        "Nashville filter creates a warm, vintage look with desaturated colors, increased contrast, and a subtle pink/orange tint. Inspired by Instagram's classic Nashville filter."
+      ]
+    },
+    {
+      "title": "Filter Characteristics",
+      "type": "list",
+      "content": [
+        "Warm color temperature with pink/orange tones",
+        "Slightly desaturated for vintage feel",
+        "Increased contrast for definition",
+        "Subtle vignetting around edges",
+        "Faded highlights for dreamy effect"
+      ]
+    },
+    {
+      "title": "Best For",
+      "type": "list",
+      "content": [
+        "Portrait photography with warm skin tones",
+        "Outdoor scenes and landscapes",
+        "Vintage and retro aesthetics",
+        "Social media content",
+        "Lifestyle and fashion photography"
+      ]
+    }
+  ]
+}

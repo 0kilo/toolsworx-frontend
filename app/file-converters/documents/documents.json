@@ -1,0 +1,37 @@
+{
+  "id": "documents",
+  "title": "Document Converter",
+  "description": "Convert documents between popular formats while maintaining formatting and quality. Supports PDF, Word, Text, RTF, ODT, and HTML formats.",
+  "category": "file-converters",
+  "sections": [
+    {
+      "title": "About Document Conversion",
+      "type": "text",
+      "content": [
+        "Convert documents between popular formats while maintaining formatting and quality."
+      ]
+    },
+    {
+      "title": "Supported Formats",
+      "type": "list",
+      "content": [
+        "PDF - Portable Document Format",
+        "Word (DOCX/DOC) - Microsoft Word documents",
+        "Text (TXT) - Plain text files",
+        "RTF - Rich Text Format",
+        "ODT - OpenDocument Text",
+        "HTML - Web page format"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "PDF to Word for editing documents",
+        "Word to PDF for sharing and printing",
+        "Extract text from PDF files",
+        "Convert HTML to PDF for archiving"
+      ]
+    }
+  ]
+}

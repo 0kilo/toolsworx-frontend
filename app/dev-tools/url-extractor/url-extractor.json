@@ -1,0 +1,18 @@
+{
+  "id": "url-extractor",
+  "title": "URL Extractor",
+  "description": "Extract URLs and web links from any text using advanced regex patterns. Perfect for data processing, link analysis, and content management.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Extract URLs from any text format",
+        "Supports HTTP, HTTPS, FTP, and www links",
+        "Automatic duplicate removal",
+        "100% client-side processing for privacy"
+      ]
+    }
+  ]
+}

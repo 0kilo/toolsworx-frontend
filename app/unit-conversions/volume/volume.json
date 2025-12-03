@@ -1,0 +1,46 @@
+{
+  "id": "volume",
+  "title": "Volume Converter",
+  "description": "Convert between different volume and liquid measurement units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Volume Conversion",
+      "type": "text",
+      "content": [
+        "Volume conversion is essential for cooking, chemistry, fuel calculations, and liquid measurements across different systems."
+      ]
+    },
+    {
+      "title": "Common Volume Units",
+      "type": "list",
+      "content": [
+        "Metric: Milliliter (ml), Liter (L), Cubic Meter (m³)",
+        "US Customary: Fluid Ounce, Cup, Pint, Quart, Gallon",
+        "Imperial: Imperial Gallon (larger than US gallon)",
+        "Industrial: Barrel (oil industry standard)"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 liter = 1000 milliliters = 33.814 fluid ounces (US)",
+        "1 gallon (US) = 3.78541 liters = 4 quarts = 8 pints",
+        "1 cup (US) = 236.588 milliliters = 8 fluid ounces",
+        "1 imperial gallon = 4.54609 liters = 1.20095 US gallons"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Cooking and baking recipe conversions",
+        "Fuel consumption and efficiency calculations",
+        "Chemical and pharmaceutical measurements",
+        "Beverage industry and bartending",
+        "Swimming pool and tank capacity calculations"
+      ]
+    }
+  ]
+}

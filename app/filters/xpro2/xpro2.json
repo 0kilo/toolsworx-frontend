@@ -1,0 +1,37 @@
+{
+  "id": "xpro2",
+  "title": "X-Pro II Filter",
+  "description": "Instagram X-Pro II filter effect",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About X-Pro II Filter",
+      "type": "text",
+      "content": [
+        "X-Pro II filter creates a dramatic, high-contrast look with enhanced colors and strong vignetting. Inspired by Instagram's X-Pro II filter, perfect for bold, artistic images."
+      ]
+    },
+    {
+      "title": "Filter Characteristics",
+      "type": "list",
+      "content": [
+        "High contrast with deep shadows",
+        "Enhanced color saturation",
+        "Strong vignetting effect",
+        "Cool blue/green color cast in shadows",
+        "Warm highlights for dimension"
+      ]
+    },
+    {
+      "title": "Best For",
+      "type": "list",
+      "content": [
+        "Urban and street photography",
+        "Dramatic portraits",
+        "Architectural photography",
+        "High-contrast scenes",
+        "Artistic and moody content"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "text-case",
+  "title": "Text Case Converter",
+  "description": "Convert text between different cases",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Text Case Converter",
+      "type": "text",
+      "content": [
+        "Convert text between various case formats including uppercase, lowercase, title case, sentence case, and more. Essential for text formatting and data standardization."
+      ]
+    },
+    {
+      "title": "Available Case Types",
+      "type": "list",
+      "content": [
+        "UPPERCASE: ALL LETTERS IN CAPITALS",
+        "lowercase: all letters in small case",
+        "Title Case: First Letter Of Each Word Capitalized",
+        "Sentence case: First letter of sentence capitalized",
+        "camelCase: firstWordLowercaseRestCapitalized",
+        "PascalCase: AllWordsCapitalizedNoSpaces",
+        "snake_case: words_separated_by_underscores",
+        "kebab-case: words-separated-by-hyphens"
+      ]
+    },
+    {
+      "title": "Common Applications",
+      "type": "list",
+      "content": [
+        "Programming: Convert variable names between conventions",
+        "Data Cleaning: Standardize text data",
+        "Content Writing: Format titles and headings",
+        "SEO: Create URL-friendly slugs",
+        "Database Import: Normalize text fields"
+      ]
+    }
+  ]
+}

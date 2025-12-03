@@ -1,0 +1,25 @@
+{
+  "id": "flooring",
+  "title": "Flooring Calculator",
+  "description": "Calculate square footage and materials needed for flooring projects.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "Area: $A = \\text{length} \\times \\text{width}$",
+        "Total with waste: $T = A \\times (1 + \\frac{\\text{waste %}}{100})$"
+      ]
+    },
+    {
+      "title": "Waste Factors",
+      "type": "list",
+      "content": [
+        "<strong>5%:</strong> Standard installation with minimal cuts",
+        "<strong>10%:</strong> Diagonal or patterned installation",
+        "<strong>15%:</strong> Complex layouts with many cuts"
+      ]
+    }
+  ]
+}

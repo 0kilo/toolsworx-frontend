@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Calendar } from "lucide-react"
+import toolContent from "./date-calculator.json"
 
 const fields: CalculatorField[] = [
   {
@@ -145,49 +146,13 @@ function calculateDate(values: Record<string, string>): CalculatorResult[] {
 
 const infoContent = (
   <AboutDescription
-    title="About Date Calculator"
-    description="Calculate differences between dates, add time periods to dates, and perform various date-related calculations. Perfect for project planning, age calculations, and deadline management."
-    sections={[
-      {
-        title: "Calculation Types",
-        content: [
-          "<strong>Date Difference:</strong> Calculate days, weeks, months, and years between two dates",
-          "<strong>Date Addition:</strong> Add days, months, or years to a starting date",
-          "<strong>Age Calculator:</strong> Calculate age from birth date to today",
-          "<strong>Day of Week:</strong> Find what day of the week a date falls on"
-        ]
-      },
-      {
-        title: "Common Use Cases",
-        content: [
-          "Project planning and deadline calculations",
-          "Age verification and birthday planning",
-          "Loan term and payment schedule calculations",
-          "Event planning and countdown timers",
-          "Historical date analysis",
-          "Vacation and leave planning"
-        ]
-      },
-      {
-        title: "How to Use",
-        content: [
-          "Enter a start date (required for all calculations)",
-          "For date differences: Enter an end date or leave empty for today",
-          "For date addition: Enter days, months, or years to add",
-          "View results including differences and new calculated dates",
-          "All calculations handle leap years and month variations"
-        ]
-      },
-      {
-        title: "Date Tips",
-        content: [
-          "Leap years are automatically handled in calculations",
-          "Month additions account for different month lengths",
-          "Business day calculations exclude weekends",
-          "Time zones are handled by your browser's local settings"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 

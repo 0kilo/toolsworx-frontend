@@ -1,0 +1,46 @@
+{
+  "id": "data",
+  "title": "Data Size Converter",
+  "description": "Convert between bytes, kilobytes, megabytes, gigabytes, and binary units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Data Size Conversion",
+      "type": "text",
+      "content": [
+        "Data size conversion is essential for computing, storage management, and understanding file sizes across different units."
+      ]
+    },
+    {
+      "title": "Data Units",
+      "type": "list",
+      "content": [
+        "Decimal: Bit, Byte (B), Kilobyte (KB), Megabyte (MB), Gigabyte (GB), Terabyte (TB), Petabyte (PB)",
+        "Binary: Kibibyte (KiB), Mebibyte (MiB), Gibibyte (GiB), Tebibyte (TiB)",
+        "1 KB = 1000 bytes (decimal), 1 KiB = 1024 bytes (binary)",
+        "Operating systems often use binary units"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 MB = 1,000,000 bytes = 1000 KB",
+        "1 GB = 1,000 MB = 1,000,000 KB",
+        "1 TB = 1,000 GB = 1,000,000 MB",
+        "1 GiB = 1,073,741,824 bytes (binary)"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "File size calculations",
+        "Storage capacity planning",
+        "Network bandwidth measurements",
+        "Memory and RAM specifications",
+        "Data transfer estimations"
+      ]
+    }
+  ]
+}

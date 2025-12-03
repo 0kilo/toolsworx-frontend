@@ -1,0 +1,56 @@
+{
+  "id": "spacetime",
+  "title": "Space-Time Converter",
+  "description": "Convert between astronomical distances and cosmic time scales",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Space-Time Conversion",
+      "type": "text",
+      "content": [
+        "Space-time conversion helps understand vast astronomical distances and cosmic time scales used in astronomy and astrophysics."
+      ]
+    },
+    {
+      "title": "Astronomical Distance Units",
+      "type": "list",
+      "content": [
+        "Astronomical Unit (AU) - Earth-Sun distance",
+        "Light Year (ly) - Distance light travels in one year",
+        "Parsec (pc) - Parallax of one arcsecond",
+        "Light Second/Minute/Hour - Distance light travels in that time"
+      ]
+    },
+    {
+      "title": "Conversion Formulas",
+      "type": "list",
+      "content": [
+        "Light year: $1\\text{ ly} = c \\times 365.25 \\times 24 \\times 3600\\text{ s}$",
+        "Where $c = 299,792,458$ m/s (speed of light)",
+        "Parsec: $1\\text{ pc} = \\frac{1\\text{ AU}}{\\tan(1'')} \\approx 3.26\\text{ ly}$",
+        "AU to km: $1\\text{ AU} = 149,597,870.7$ km"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 AU = 149,597,871 km = 8.317 light minutes",
+        "1 light year = 9.461 trillion km = 63,241 AU",
+        "1 parsec = 3.26 light years = 206,265 AU",
+        "Speed of light = 299,792 km/s"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Astronomy and astrophysics calculations",
+        "Understanding cosmic distances",
+        "Space mission planning",
+        "Educational astronomy",
+        "Science communication"
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Percent } from "lucide-react"
+import toolContent from "./percentage.json"
 
 const fields: CalculatorField[] = [
   {
@@ -83,38 +84,13 @@ function calculatePercentage(values: Record<string, string>): CalculatorResult[]
 
 const infoContent = (
   <AboutDescription
-    title="About Percentage Calculator"
-    description="Calculate percentages, percentage increases/decreases, and determine what percentage one number is of another. Perfect for discounts, tips, taxes, and financial calculations."
-    sections={[
-      {
-        title: "Common Calculations",
-        content: [
-          "<strong>Percentage of a number:</strong> What is 25% of 200? = 50",
-          "<strong>Percentage ratio:</strong> What percentage is 50 of 200? = 25%",
-          "<strong>Percentage increase:</strong> 200 + 25% = 250",
-          "<strong>Percentage decrease:</strong> 200 - 25% = 150"
-        ]
-      },
-      {
-        title: "Real-World Examples",
-        content: [
-          "Sales tax: Calculate 8.5% tax on $100 purchase",
-          "Discounts: Find 20% off original price",
-          "Tips: Calculate 15% tip on restaurant bill",
-          "Interest: Determine 5% annual interest on savings",
-          "Growth rates: Calculate percentage change over time"
-        ]
-      },
-      {
-        title: "How to Use",
-        content: [
-          "Enter the base value you want to calculate from",
-          "Enter the percentage (just the number, e.g., 25 for 25%)",
-          "Optionally enter a total to find what percentage your value represents",
-          "View all calculated results including increases and decreases"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 

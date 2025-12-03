@@ -1,0 +1,15 @@
+{
+  "id": "charts",
+  "name": "Charts",
+  "description": "Interactive chart generators for data visualization and analysis",
+  "tools": [
+    "area-chart",
+    "bar-chart",
+    "gantt-chart",
+    "line-chart",
+    "pie-chart",
+    "scatter-chart",
+    "sunburst-chart",
+    "usa-map"
+  ]
+}

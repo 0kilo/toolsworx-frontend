@@ -1,0 +1,18 @@
+{
+  "id": "jwt-decoder",
+  "title": "JWT Decoder",
+  "description": "Decode JSON Web Tokens (JWT) to view header and payload information. This tool decodes tokens client-side for inspection but does not verify signatures.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "JWT Structure",
+      "type": "list",
+      "content": [
+        "<strong>Header:</strong> Contains algorithm and token type",
+        "<strong>Payload:</strong> Contains claims and user data",
+        "<strong>Signature:</strong> Used to verify token authenticity",
+        "Format: header.payload.signature (Base64 encoded)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "pregnancy",
+  "title": "Pregnancy Due Date Calculator",
+  "description": "Calculate your due date and track pregnancy progress based on your last menstrual period.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "Due Date: $\\text{LMP} + 280 \\text{ days}$ (Naegele's Rule)",
+        "Weeks Pregnant: $\\frac{\\text{Days since LMP}}{7}$",
+        "Where LMP = Last Menstrual Period (first day)"
+      ]
+    },
+    {
+      "title": "How It Works",
+      "type": "list",
+      "content": [
+        "Due date is calculated as 280 days (40 weeks) from the first day of your last period",
+        "This is an estimate - only 5% of babies are born on their due date",
+        "Most babies are born between 37-42 weeks"
+      ]
+    },
+    {
+      "title": "Trimesters",
+      "type": "list",
+      "content": [
+        "First Trimester: Weeks 1-12",
+        "Second Trimester: Weeks 13-26",
+        "Third Trimester: Weeks 27-40"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "speed",
+  "title": "Speed Converter",
+  "description": "Convert between different speed and velocity units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Speed Conversion",
+      "type": "text",
+      "content": [
+        "Speed conversion is essential for transportation, physics, engineering, and navigation across different measurement systems."
+      ]
+    },
+    {
+      "title": "Speed Units",
+      "type": "list",
+      "content": [
+        "Metric: Meters per second (m/s), Kilometers per hour (km/h)",
+        "Imperial: Miles per hour (mph), Feet per second (ft/s)",
+        "Nautical: Knots (kn) - used in aviation and marine navigation",
+        "Scientific: Mach (speed of sound), Speed of light (c)"
+      ]
+    },
+    {
+      "title": "Conversion Formulas",
+      "type": "list",
+      "content": [
+        "km/h to m/s: $v_{m/s} = \\frac{v_{km/h}}{3.6}$",
+        "mph to km/h: $v_{km/h} = v_{mph} \\times 1.60934$",
+        "Knots to km/h: $v_{km/h} = v_{kn} \\times 1.852$",
+        "Mach number: $M = \\frac{v}{v_{sound}}$ where $v_{sound} \\approx 343$ m/s"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "60 mph = 96.56 km/h = 26.82 m/s",
+        "100 km/h = 62.14 mph = 27.78 m/s",
+        "1 knot = 1.852 km/h = 1.151 mph",
+        "Mach 1 = 343 m/s = 1,235 km/h = 767 mph"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Vehicle speed limit conversions",
+        "Aviation and marine navigation",
+        "Physics and engineering calculations",
+        "Sports performance measurements",
+        "Weather and wind speed reporting"
+      ]
+    }
+  ]
+}

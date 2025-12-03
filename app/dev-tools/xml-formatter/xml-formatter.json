@@ -1,0 +1,18 @@
+{
+  "id": "xml-formatter",
+  "title": "XML Formatter",
+  "description": "Format, validate, and minify XML data using browser-native parsing. Perfect for developers working with APIs, configuration files, or any XML data.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Format XML with proper indentation",
+        "Minify XML to reduce file size",
+        "Validate XML syntax using browser parser",
+        "100% client-side processing for privacy"
+      ]
+    }
+  ]
+}

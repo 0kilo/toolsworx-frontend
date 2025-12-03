@@ -1,0 +1,19 @@
+{
+  "id": "text-case-converter",
+  "title": "Text Case Converter",
+  "description": "Convert text between different case formats commonly used in programming, writing, and data processing. Perfect for developers, writers, and data analysts.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Case Types",
+      "type": "list",
+      "content": [
+        "<strong>UPPERCASE:</strong> All letters capitalized",
+        "<strong>lowercase:</strong> All letters in lowercase",
+        "<strong>camelCase:</strong> First word lowercase, rest capitalized",
+        "<strong>snake_case:</strong> Lowercase with underscores",
+        "<strong>kebab-case:</strong> Lowercase with hyphens"
+      ]
+    }
+  ]
+}

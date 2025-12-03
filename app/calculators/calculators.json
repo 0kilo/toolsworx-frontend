@@ -1,0 +1,21 @@
+{
+  "id": "calculators",
+  "name": "Calculators",
+  "description": "Professional calculators for health, finance, construction, and everyday calculations",
+  "tools": [
+    "bmi",
+    "calorie",
+    "concrete",
+    "date-calculator",
+    "flooring",
+    "graphing",
+    "loan",
+    "mortgage",
+    "paint",
+    "percentage",
+    "pregnancy",
+    "protein",
+    "scientific",
+    "tip"
+  ]
+}

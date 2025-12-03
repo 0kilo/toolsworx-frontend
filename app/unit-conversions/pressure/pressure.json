@@ -1,0 +1,46 @@
+{
+  "id": "pressure",
+  "title": "Pressure Converter",
+  "description": "Convert between pascals, bar, PSI, atmospheres, and torr",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Pressure Conversion",
+      "type": "text",
+      "content": [
+        "Pressure conversion is essential for engineering, meteorology, automotive, and scientific applications across different measurement systems."
+      ]
+    },
+    {
+      "title": "Pressure Units",
+      "type": "list",
+      "content": [
+        "Scientific: Pascal (Pa), Kilopascal (kPa), Megapascal (MPa)",
+        "Common: Bar, Atmosphere (atm), Pounds per Square Inch (psi)",
+        "Medical/Scientific: Torr, Millimeters of Mercury (mmHg)",
+        "Automotive typically uses psi or bar"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 atm = 101,325 Pa = 1.01325 bar = 14.696 psi",
+        "1 bar = 100,000 Pa = 14.504 psi",
+        "1 psi = 6,894.76 Pa = 0.0689476 bar",
+        "1 torr = 133.322 Pa = 1 mmHg"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Tire pressure specifications",
+        "Weather and atmospheric pressure",
+        "Hydraulic and pneumatic systems",
+        "Scuba diving and altitude calculations",
+        "Industrial process control"
+      ]
+    }
+  ]
+}

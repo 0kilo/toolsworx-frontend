@@ -1,0 +1,37 @@
+{
+  "id": "audio-noise-reduction",
+  "title": "Noise Reduction",
+  "description": "Remove background noise and improve audio clarity",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Noise Reduction",
+      "type": "text",
+      "content": [
+        "Noise reduction removes unwanted background sounds like hiss, hum, and environmental noise while preserving the quality of the main audio content."
+      ]
+    },
+    {
+      "title": "What It Removes",
+      "type": "list",
+      "content": [
+        "Background hiss from recordings",
+        "Air conditioning and fan noise",
+        "Electrical hum and buzz",
+        "Wind noise from outdoor recordings",
+        "Room tone and ambient noise"
+      ]
+    },
+    {
+      "title": "Best Practices",
+      "type": "list",
+      "content": [
+        "Record in quiet environments when possible",
+        "Use noise reduction sparingly to avoid artifacts",
+        "Apply before other processing effects",
+        "Check results with headphones for quality",
+        "Consider the trade-off between noise removal and audio quality"
+      ]
+    }
+  ]
+}

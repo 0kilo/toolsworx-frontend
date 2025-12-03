@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AboutDescription } from "@/components/ui/about-description"
 import { evaluate, derivative, simplify, parse, matrix, det, inv, transpose, multiply, add, subtract } from "mathjs"
 import { Calculator, TrendingUp } from "lucide-react"
+import toolContent from "./scientific.json"
 
 export default function ScientificCalculatorPage() {
   const [display, setDisplay] = useState("0")
@@ -676,45 +677,13 @@ export default function ScientificCalculatorPage() {
 
 
           <AboutDescription
-            title="About Advanced Scientific Calculator"
-            description="This professional-grade scientific calculator provides comprehensive mathematical capabilities including basic arithmetic, advanced functions, calculus operations, and matrix algebra."
-            sections={[
-              {
-                title: "Calculator Functions",
-                content: [
-                  "<strong>Trigonometric:</strong> sin, cos, tan, asin, acos, atan with degree/radian modes",
-                  "<strong>Logarithmic:</strong> log₁₀, ln (natural log), exponential functions",
-                  "<strong>Powers & Roots:</strong> x², x^y, √x, factorial, absolute value",
-                  "<strong>Constants:</strong> π (pi), e (Euler's number)",
-                  "<strong>Advanced:</strong> Modulo operations, complex expressions"
-                ]
-              },
-              {
-                title: "Calculus Operations",
-                content: [
-                  "<strong>Derivatives:</strong> Symbolic differentiation of mathematical expressions",
-                  "<strong>Simplification:</strong> Algebraic simplification and expression manipulation",
-                  "<strong>Expression Parsing:</strong> Support for complex mathematical notation"
-                ]
-              },
-              {
-                title: "Matrix Operations",
-                content: [
-                  "<strong>Basic Operations:</strong> Addition, subtraction, multiplication",
-                  "<strong>Linear Algebra:</strong> Determinant, inverse, transpose",
-                  "<strong>Matrix Format:</strong> JSON array notation for easy input"
-                ]
-              },
-              {
-                title: "Professional Applications",
-                content: [
-                  "<strong>Engineering:</strong> Complex calculations and matrix operations",
-                  "<strong>Physics:</strong> Trigonometric and calculus computations",
-                  "<strong>Mathematics:</strong> Symbolic math and algebraic manipulation",
-                  "<strong>Computer Science:</strong> Linear algebra and numerical methods"
-                ]
-              }
-            ]}
+            title={`About ${toolContent.title}`}
+            description={toolContent.description}
+            sections={toolContent.sections.map(section => ({
+              title: section.title,
+              content: section.content,
+              type: section.type as 'list' | 'subsections' | undefined
+            }))}
           />
         </div>
 

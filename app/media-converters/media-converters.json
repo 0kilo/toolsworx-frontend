@@ -1,0 +1,11 @@
+{
+  "id": "media-converters",
+  "name": "Media Converters",
+  "description": "Convert audio, video, and images between different formats",
+  "tools": [
+    "audio",
+    "image",
+    "speech-to-text",
+    "video"
+  ]
+}

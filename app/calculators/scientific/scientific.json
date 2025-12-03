@@ -1,0 +1,47 @@
+{
+  "id": "scientific",
+  "title": "Advanced Scientific Calculator",
+  "description": "This professional-grade scientific calculator provides comprehensive mathematical capabilities including basic arithmetic, advanced functions, calculus operations, and matrix algebra.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Calculator Functions",
+      "type": "list",
+      "content": [
+        "<strong>Trigonometric:</strong> sin, cos, tan, asin, acos, atan with degree/radian modes",
+        "<strong>Logarithmic:</strong> log₁₀, ln (natural log), exponential functions",
+        "<strong>Powers & Roots:</strong> x², x^y, √x, factorial, absolute value",
+        "<strong>Constants:</strong> π (pi), e (Euler's number)",
+        "<strong>Advanced:</strong> Modulo operations, complex expressions"
+      ]
+    },
+    {
+      "title": "Calculus Operations",
+      "type": "list",
+      "content": [
+        "<strong>Derivatives:</strong> Symbolic differentiation of mathematical expressions",
+        "<strong>Simplification:</strong> Algebraic simplification and expression manipulation",
+        "<strong>Expression Parsing:</strong> Support for complex mathematical notation"
+      ]
+    },
+    {
+      "title": "Matrix Operations",
+      "type": "list",
+      "content": [
+        "<strong>Basic Operations:</strong> Addition, subtraction, multiplication",
+        "<strong>Linear Algebra:</strong> Determinant, inverse, transpose",
+        "<strong>Matrix Format:</strong> JSON array notation for easy input"
+      ]
+    },
+    {
+      "title": "Professional Applications",
+      "type": "list",
+      "content": [
+        "<strong>Engineering:</strong> Complex calculations and matrix operations",
+        "<strong>Physics:</strong> Trigonometric and calculus computations",
+        "<strong>Mathematics:</strong> Symbolic math and algebraic manipulation",
+        "<strong>Computer Science:</strong> Linear algebra and numerical methods"
+      ]
+    }
+  ]
+}

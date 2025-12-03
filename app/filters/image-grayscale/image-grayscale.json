@@ -1,0 +1,45 @@
+{
+  "id": "image-grayscale",
+  "title": "Grayscale Filter",
+  "description": "Convert your images to grayscale with adjustable intensity",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Grayscale Filter",
+      "type": "text",
+      "content": [
+        "Grayscale conversion removes color information while preserving luminance, creating classic black and white images."
+      ]
+    },
+    {
+      "title": "When to Use Grayscale",
+      "type": "list",
+      "content": [
+        "Professional photography and portraits",
+        "Vintage or artistic effects",
+        "Print materials to save on color costs",
+        "Accessibility improvements for colorblind users",
+        "Focus attention on composition and contrast"
+      ]
+    },
+    {
+      "title": "Grayscale Conversion Formula",
+      "type": "list",
+      "content": [
+        "Luminance method: $Y = 0.299R + 0.587G + 0.114B$",
+        "Weights based on human eye sensitivity to colors",
+        "Green contributes most (58.7%), blue least (11.4%)",
+        "Alternative: Average method $Y = \\frac{R+G+B}{3}$ (simpler, less accurate)"
+      ]
+    },
+    {
+      "title": "Technical Details",
+      "type": "list",
+      "content": [
+        "Preserves image luminance and contrast",
+        "Maintains original image dimensions and quality",
+        "Compatible with all common image formats"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "data",
+  "title": "Data Format Converter",
+  "description": "Convert structured data between popular formats for APIs, configuration files, and data exchange. Supports JSON, XML, YAML, and CSV formats.",
+  "category": "file-converters",
+  "sections": [
+    {
+      "title": "About Data Format Conversion",
+      "type": "text",
+      "content": [
+        "Convert structured data between popular formats for APIs, configuration files, and data exchange."
+      ]
+    },
+    {
+      "title": "Supported Formats",
+      "type": "list",
+      "content": [
+        "JSON - JavaScript Object Notation",
+        "XML - Extensible Markup Language",
+        "YAML - YAML Ain't Markup Language",
+        "CSV - Comma Separated Values"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "API data transformation",
+        "Configuration file conversion",
+        "Data migration between systems",
+        "Convert CSV data to structured formats"
+      ]
+    }
+  ]
+}

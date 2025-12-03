@@ -1,0 +1,61 @@
+{
+  "id": "cheatsheet-builder",
+  "title": "Cheatsheet Builder",
+  "description": "Create custom cheatsheets with LaTeX support and export to PDF or TXT",
+  "category": "helpful-calculators",
+  "sections": [
+    {
+      "title": "About Cheatsheet Builder",
+      "type": "text",
+      "content": [
+        "Create custom cheatsheets with LaTeX mathematical notation support, perfect for studying and quick reference."
+      ]
+    },
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Create unlimited cheatsheets for free",
+        "LaTeX support for mathematical formulas",
+        "Customizable layouts (single/double column)",
+        "Adjustable font sizes and color schemes",
+        "Drag and reorder content items",
+        "Export to PDF or plain text",
+        "Import/export JSON for sharing and backup"
+      ]
+    },
+    {
+      "title": "LaTeX Math Support",
+      "type": "list",
+      "content": [
+        "Inline math: Use $formula$ for inline equations",
+        "Display math: Use $$formula$$ for centered equations",
+        "Example: $x^2 + y^2 = r^2$ for inline",
+        "Example: $$\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$ for display",
+        "Supports fractions, roots, exponents, Greek letters, and more",
+        "Live preview shows rendered formulas as you type"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Math and science formula sheets",
+        "Exam quick reference guides",
+        "Programming language cheatsheets",
+        "Foreign language vocabulary lists",
+        "Study guides and revision notes",
+        "Quick command references"
+      ]
+    },
+    {
+      "title": "Export Options",
+      "type": "list",
+      "content": [
+        "PDF - High quality, preserves formatting and LaTeX rendering",
+        "TXT - Plain text with raw LaTeX formulas",
+        "JSON - Backup and share your cheatsheet data"
+      ]
+    }
+  ]
+}

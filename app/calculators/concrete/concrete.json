@@ -1,0 +1,40 @@
+{
+  "id": "concrete",
+  "title": "Concrete Calculator",
+  "description": "Calculate concrete volume and materials needed",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Volume Formulas",
+      "type": "formula",
+      "content": [
+        "Rectangular slab: $V = length \\times width \\times thickness$",
+        "Circular slab: $V = \\pi r^2 \\times thickness$",
+        "Cylindrical column: $V = \\pi r^2 \\times height$"
+      ]
+    },
+    {
+      "title": "Material Ratios",
+      "type": "list",
+      "content": [
+        "Standard mix: 1 part cement : 2 parts sand : 3 parts gravel",
+        "Strong mix: 1 part cement : 1.5 parts sand : 2.5 parts gravel",
+        "Water-cement ratio: 0.4 - 0.6 by weight"
+      ]
+    },
+    {
+      "title": "Coverage",
+      "type": "list",
+      "content": [
+        "One cubic yard covers 81 sq ft at 4 inches thick",
+        "One 80-lb bag makes approximately 0.6 cubic feet",
+        "Add 10% extra for waste and spillage"
+      ]
+    }
+  ],
+  "tips": [
+    "Always order 10% more concrete than calculated",
+    "Concrete sets in 24-48 hours but cures fully in 28 days",
+    "Work quickly - concrete begins setting within 90 minutes"
+  ]
+}

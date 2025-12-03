@@ -1,0 +1,32 @@
+{
+  "id": "filters",
+  "name": "Filters & Effects",
+  "description": "Apply filters and effects to images, audio, and text",
+  "tools": [
+    "audio-bass-boost",
+    "audio-echo",
+    "audio-equalizer",
+    "audio-noise-reduction",
+    "audio-normalize",
+    "audio-reverb",
+    "csv-clean",
+    "extract-emails",
+    "extract-urls",
+    "image-blur",
+    "image-brightness",
+    "image-contrast",
+    "image-grayscale",
+    "image-inverse",
+    "image-saturation",
+    "image-sepia",
+    "image-sharpen",
+    "image-vintage",
+    "json-format",
+    "json-minify",
+    "nashville",
+    "text-case",
+    "valencia",
+    "xml-format",
+    "xpro2"
+  ]
+}

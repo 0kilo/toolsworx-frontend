@@ -1,0 +1,47 @@
+{
+  "id": "image-brightness",
+  "title": "Adjust Brightness",
+  "description": "Adjust image brightness levels",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Adjust Brightness",
+      "type": "text",
+      "content": [
+        "Adjust the brightness of your images to correct exposure, enhance visibility, or create specific moods. Fine-tune light levels for perfect results."
+      ]
+    },
+    {
+      "title": "Brightness Formula",
+      "type": "list",
+      "content": [
+        "Linear adjustment: $P_{out} = P_{in} + b$",
+        "Where $P$ = pixel value (0-255), $b$ = brightness offset",
+        "Positive $b$ brightens, negative $b$ darkens",
+        "Applied to RGB channels: $(R+b, G+b, B+b)$"
+      ]
+    },
+    {
+      "title": "When to Adjust Brightness",
+      "type": "list",
+      "content": [
+        "Underexposed photos: Brighten dark images",
+        "Overexposed photos: Darken washed-out images",
+        "Mood creation: Adjust for dramatic or cheerful effects",
+        "Print preparation: Optimize for different media",
+        "Screen optimization: Adjust for various displays"
+      ]
+    },
+    {
+      "title": "Tips for Best Results",
+      "type": "list",
+      "content": [
+        "Make small adjustments to preserve image quality",
+        "Combine with contrast adjustment for better results",
+        "Check histogram to avoid clipping highlights or shadows",
+        "Adjust brightness before applying other filters",
+        "Preview on different devices to ensure consistency"
+      ]
+    }
+  ]
+}

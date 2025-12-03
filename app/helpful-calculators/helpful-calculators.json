@@ -1,0 +1,14 @@
+{
+  "id": "helpful-calculators",
+  "name": "Helpful Calculators",
+  "description": "Useful calculators and tools for everyday tasks",
+  "tools": [
+    "cheatsheet-builder",
+    "crypto-converter",
+    "holiday-countdown",
+    "password-generator",
+    "recipe-scaler",
+    "secret-santa",
+    "shipping-cost"
+  ]
+}

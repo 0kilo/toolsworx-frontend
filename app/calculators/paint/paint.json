@@ -1,0 +1,25 @@
+{
+  "id": "paint",
+  "title": "Paint Calculator",
+  "description": "Calculate how many gallons of paint you need for your room.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "Wall Area: $A = 2(\\text{length} \\times \\text{height}) + 2(\\text{width} \\times \\text{height})$",
+        "Gallons Needed: $G = \\frac{A \\times \\text{coats}}{350}$"
+      ]
+    },
+    {
+      "title": "Coverage",
+      "type": "list",
+      "content": [
+        "One gallon covers approximately 350 square feet",
+        "This assumes smooth walls and one coat",
+        "Textured walls may require more paint"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "unit-conversions",
+  "name": "Unit Conversions",
+  "description": "Convert between different measurement units",
+  "tools": [
+    "area",
+    "currency",
+    "data",
+    "energy",
+    "length",
+    "mass",
+    "pressure",
+    "spacetime",
+    "speed",
+    "temperature",
+    "time",
+    "volume"
+  ]
+}

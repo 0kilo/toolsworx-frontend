@@ -9,6 +9,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { AboutDescription } from "@/components/ui/about-description"
 import { evaluate } from "mathjs"
 import { Plus, Trash2, ZoomIn, ZoomOut, Home, Maximize, Minimize, Camera } from "lucide-react"
+import toolContent from "./graphing.json"
 
 interface FunctionData {
   id: string
@@ -588,57 +589,13 @@ export default function GraphingCalculatorPage() {
 
 
       <AboutDescription
-        title="About Graphing Calculator"
-        description="A graphing calculator is an essential tool for visualizing mathematical functions. Plot equations, analyze behavior, and understand mathematical relationships through interactive graphs."
-        sections={[
-          {
-            title: "Supported Functions",
-            content: [
-              "<strong>Arithmetic:</strong> +, -, *, /, ^ (power)",
-              "<strong>Trigonometric:</strong> sin(x), cos(x), tan(x), asin(x), acos(x), atan(x)",
-              "<strong>Exponential & Logarithmic:</strong> exp(x), e^x, log(x), ln(x)",
-              "<strong>Other:</strong> sqrt(x), abs(x), ceil(x), floor(x), round(x)",
-              "<strong>Constants:</strong> pi, e"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Enter a mathematical expression using 'x' as the variable",
-              "Click the '+' button or press Enter to add the function",
-              "The function will be plotted on the graph with a unique color",
-              "Add multiple functions to compare them",
-              "Click the colored square to show/hide a function",
-              "Use zoom controls to adjust the view",
-              "Click the trash icon to remove a function"
-            ]
-          },
-          {
-            title: "Tips & Examples",
-            type: "subsections",
-            content: [
-              {
-                title: "Usage Tips",
-                items: [
-                  "Use parentheses for complex expressions: (x+1)/(x-1)",
-                  "Combine functions: sin(x) + cos(2*x)",
-                  "Zoom in to see detail, zoom out for the big picture",
-                  "Toggle functions on/off to compare subsets"
-                ]
-              },
-              {
-                title: "Example Expressions",
-                items: [
-                  "<strong>Parabola:</strong> x^2",
-                  "<strong>Circle:</strong> sqrt(25 - x^2) and -sqrt(25 - x^2)",
-                  "<strong>Exponential Growth:</strong> 2^x",
-                  "<strong>Damped Oscillation:</strong> e^(-x) * sin(5*x)",
-                  "<strong>Rational Function:</strong> 1/x"
-                ]
-              }
-            ]
-          }
-        ]}
+        title={`About ${toolContent.title}`}
+        description={toolContent.description}
+        sections={toolContent.sections.map(section => ({
+          title: section.title,
+          content: section.content,
+          type: section.type as 'list' | 'subsections' | undefined
+        }))}
       />
       <div className="mt-8">
       </div>

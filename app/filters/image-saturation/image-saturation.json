@@ -1,0 +1,47 @@
+{
+  "id": "image-saturation",
+  "title": "Adjust Saturation",
+  "description": "Adjust color saturation in images",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Adjust Saturation",
+      "type": "text",
+      "content": [
+        "Adjust the color saturation of your images to make colors more vivid or muted. Control the intensity of colors for perfect visual impact."
+      ]
+    },
+    {
+      "title": "Saturation Formula",
+      "type": "list",
+      "content": [
+        "HSL conversion: $S_{new} = S_{old} \\times f$",
+        "Where $f$ = saturation factor (>1 increases, <1 decreases)",
+        "Convert RGB → HSL → adjust S → convert back to RGB",
+        "$f = 0$ produces grayscale, $f = 2$ doubles saturation"
+      ]
+    },
+    {
+      "title": "Saturation Effects",
+      "type": "list",
+      "content": [
+        "Increase Saturation: Makes colors more vibrant and intense",
+        "Decrease Saturation: Creates muted, pastel-like colors",
+        "Zero Saturation: Converts to grayscale",
+        "Selective Saturation: Enhance specific color ranges",
+        "Oversaturation: Creates surreal, hyper-vivid effects"
+      ]
+    },
+    {
+      "title": "Common Applications",
+      "type": "list",
+      "content": [
+        "Enhance dull or faded photos",
+        "Create vintage or retro looks with desaturation",
+        "Make product photos more appealing",
+        "Artistic color grading for mood",
+        "Social media content optimization"
+      ]
+    }
+  ]
+}

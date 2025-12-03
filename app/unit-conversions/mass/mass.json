@@ -1,0 +1,46 @@
+{
+  "id": "mass",
+  "title": "Mass & Weight Converter",
+  "description": "Convert between different mass and weight units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Mass & Weight Conversion",
+      "type": "text",
+      "content": [
+        "Mass and weight conversions are crucial for cooking, shipping, science, and international commerce across different measurement systems."
+      ]
+    },
+    {
+      "title": "Common Mass Units",
+      "type": "list",
+      "content": [
+        "Metric: Microgram (μg), Milligram (mg), Gram (g), Kilogram (kg), Metric Ton (t)",
+        "Imperial: Ounce (oz), Pound (lb), Stone (st), Short Ton, Long Ton",
+        "Scientific: Typically uses metric system for precision",
+        "Cooking: Mix of grams, ounces, and pounds depending on region"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 kilogram = 2.20462 pounds = 35.274 ounces",
+        "1 pound = 0.453592 kilograms = 16 ounces",
+        "1 ounce = 28.3495 grams = 28,349.5 milligrams",
+        "1 metric ton = 1000 kilograms = 2204.62 pounds"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Cooking and recipe measurements",
+        "Shipping and logistics calculations",
+        "Scientific research and laboratory work",
+        "Medical dosage calculations",
+        "Industrial and manufacturing processes"
+      ]
+    }
+  ]
+}

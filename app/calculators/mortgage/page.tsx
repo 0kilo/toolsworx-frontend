@@ -3,6 +3,7 @@
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign } from "lucide-react"
+import toolContent from "./mortgage.json"
 
 const fields: CalculatorField[] = [
   {
@@ -95,40 +96,13 @@ function calculateMortgage(values: Record<string, string>): CalculatorResult[] {
 
 const infoContent = (
   <AboutDescription
-    title="About Mortgage Calculator"
-    description="Calculate your monthly mortgage payment including principal and interest. This calculator helps you estimate home affordability and compare loan options."
-    sections={[
-      {
-        title: "Key Mortgage Terms",
-        content: [
-          "<strong>Principal:</strong> The loan amount borrowed to purchase the home",
-          "<strong>Interest Rate:</strong> Annual percentage rate (APR) charged by the lender",
-          "<strong>Down Payment:</strong> Upfront payment, typically 10-20% of home price",
-          "<strong>Loan Term:</strong> Repayment period, commonly 15 or 30 years",
-          "<strong>PMI:</strong> Private mortgage insurance required if down payment < 20%"
-        ]
-      },
-      {
-        title: "Tips for Better Mortgage Rates",
-        content: [
-          "Make a larger down payment to reduce loan amount and avoid PMI",
-          "Choose shorter loan terms (15 years) for lower total interest",
-          "Improve credit score before applying for better rates",
-          "Shop around with multiple lenders for competitive rates",
-          "Consider paying points to reduce interest rate"
-        ]
-      },
-      {
-        title: "Additional Costs to Consider",
-        content: [
-          "Property taxes - varies by location and home value",
-          "Homeowners insurance - protects against damage and liability",
-          "HOA fees - monthly/annual homeowners association dues",
-          "Closing costs - typically 2-5% of home purchase price",
-          "Maintenance and repairs - budget 1-3% of home value annually"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 

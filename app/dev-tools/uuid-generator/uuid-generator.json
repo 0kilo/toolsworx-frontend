@@ -1,0 +1,30 @@
+{
+  "id": "uuid-generator",
+  "title": "UUID Generator",
+  "description": "Generate unique UUIDs (Universally Unique Identifiers). A UUID is a 128-bit number used to uniquely identify information in computer systems.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "UUID Format",
+      "type": "list",
+      "content": [
+        "Format: $\\text{xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx}$",
+        "128-bit number (32 hexadecimal digits)",
+        "Version 4 (random): $2^{122}$ possible UUIDs",
+        "Collision probability: $\\approx 10^{-18}$ for 1 billion UUIDs",
+        "Structure: time-low, time-mid, time-hi-version, clock-seq, node"
+      ]
+    },
+    {
+      "title": "Common Uses",
+      "type": "list",
+      "content": [
+        "Database primary keys",
+        "Session identifiers",
+        "Unique file names",
+        "API request tracking",
+        "Distributed systems coordination"
+      ]
+    }
+  ]
+}

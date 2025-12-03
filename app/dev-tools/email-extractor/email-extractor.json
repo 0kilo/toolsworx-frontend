@@ -1,0 +1,18 @@
+{
+  "id": "email-extractor",
+  "title": "Email Extractor",
+  "description": "Extract email addresses from any text using advanced regex patterns. Perfect for data processing, lead generation, and contact list management.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Extract emails from any text format",
+        "Automatic duplicate removal",
+        "Sorted alphabetical output",
+        "100% client-side processing for privacy"
+      ]
+    }
+  ]
+}

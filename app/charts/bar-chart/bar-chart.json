@@ -1,0 +1,31 @@
+{
+  "id": "bar-chart",
+  "title": "Bar Chart Generator",
+  "description": "Create interactive bar charts from your data. Bar charts are ideal for comparing discrete categories or showing rankings.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use Bar Charts",
+      "type": "list",
+      "content": [
+        "Comparing values across categories",
+        "Showing rankings or top performers",
+        "Displaying survey results",
+        "Visualizing discrete data points"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Sales by Quarter\",",
+        "  \"data\": [",
+        "    { \"label\": \"Q1\", \"value\": 120, \"color\": \"#3b82f6\" },",
+        "    { \"label\": \"Q2\", \"value\": 150, \"color\": \"#10b981\" }",
+        "  ]",
+        "}"
+      ]
+    }
+  ]
+}

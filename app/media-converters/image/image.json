@@ -1,0 +1,49 @@
+{
+  "id": "image",
+  "title": "Image Converter",
+  "description": "Convert images between JPG, PNG, WebP, GIF, BMP, and TIFF formats",
+  "category": "media-converters",
+  "sections": [
+    {
+      "title": "About Image Conversion",
+      "type": "text",
+      "content": [
+        "Convert images between popular formats with quality preservation and instant results. Perfect for web optimization, print preparation, and format compatibility."
+      ]
+    },
+    {
+      "title": "Supported Formats",
+      "type": "list",
+      "content": [
+        "JPG/JPEG - Most common compressed image format",
+        "PNG - Lossless format with transparency support",
+        "WebP - Modern web format with superior compression",
+        "GIF - Animated images and simple graphics",
+        "BMP - Uncompressed bitmap format",
+        "TIFF - High-quality format for print and archival"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Convert PNG to JPG to reduce file size",
+        "Convert JPG to PNG for transparency",
+        "Convert images to WebP for web optimization",
+        "Convert photos for different platforms",
+        "Prepare images for print or web"
+      ]
+    },
+    {
+      "title": "Format Comparison",
+      "type": "list",
+      "content": [
+        "JPG: Best for photos, smaller file sizes, no transparency",
+        "PNG: Best for graphics, supports transparency, larger files",
+        "WebP: Best for web, excellent compression, modern browsers",
+        "GIF: Best for simple animations, limited colors",
+        "TIFF: Best for print and professional photography"
+      ]
+    }
+  ]
+}

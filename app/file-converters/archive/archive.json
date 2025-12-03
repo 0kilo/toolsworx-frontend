@@ -1,0 +1,35 @@
+{
+  "id": "archive",
+  "title": "Archive Tools",
+  "description": "Compress multiple files into archives or extract files from existing archives. Create ZIP archives from multiple files or extract files from ZIP archives.",
+  "category": "file-converters",
+  "sections": [
+    {
+      "title": "About Archive Tools",
+      "type": "text",
+      "content": [
+        "Compress multiple files into archives or extract files from existing archives."
+      ]
+    },
+    {
+      "title": "Supported Operations",
+      "type": "list",
+      "content": [
+        "Create ZIP archives from multiple files",
+        "Extract files from ZIP archives",
+        "Compress files to save space",
+        "Batch file operations"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Backup multiple files",
+        "Send multiple files as one attachment",
+        "Reduce file size for storage",
+        "Extract downloaded archives"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "audio",
+  "title": "Audio Converter",
+  "description": "Convert between MP3, WAV, FLAC, AAC, and other audio formats",
+  "category": "media-converters",
+  "sections": [
+    {
+      "title": "About Audio Conversion",
+      "type": "text",
+      "content": [
+        "Convert audio files between popular formats while maintaining sound quality and optimizing file sizes."
+      ]
+    },
+    {
+      "title": "Supported Formats",
+      "type": "list",
+      "content": [
+        "MP3 - Most popular compressed audio format",
+        "WAV - Uncompressed high-quality audio",
+        "FLAC - Lossless compression for audiophiles",
+        "AAC - Advanced audio codec, iTunes standard",
+        "OGG - Open-source alternative to MP3",
+        "M4A - Apple's audio format"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Convert WAV to MP3 to reduce file size",
+        "Convert MP3 to FLAC for better quality",
+        "Convert audio for different devices/platforms",
+        "Extract audio from video files"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "image-inverse",
+  "title": "Inverse Filter",
+  "description": "Invert image colors for negative effects",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Inverse Filter",
+      "type": "text",
+      "content": [
+        "Inverse filter creates a negative effect by inverting all colors in the image, turning light areas dark and dark areas light."
+      ]
+    },
+    {
+      "title": "Creative Uses",
+      "type": "list",
+      "content": [
+        "Artistic negative effects",
+        "X-ray style imagery",
+        "High contrast design elements",
+        "Unique social media content",
+        "Film photography simulation"
+      ]
+    },
+    {
+      "title": "How It Works",
+      "type": "list",
+      "content": [
+        "Inverts RGB values (255 - original value)",
+        "White becomes black, black becomes white",
+        "Colors become their complementary opposites",
+        "Maintains image structure and detail"
+      ]
+    }
+  ]
+}

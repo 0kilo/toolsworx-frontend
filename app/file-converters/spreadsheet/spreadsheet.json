@@ -1,0 +1,34 @@
+{
+  "id": "spreadsheet",
+  "title": "Spreadsheet Converter",
+  "description": "Convert spreadsheets between popular formats while preserving data and formulas. Supports Excel (XLSX/XLS), CSV, and ODS formats.",
+  "category": "file-converters",
+  "sections": [
+    {
+      "title": "About Spreadsheet Conversion",
+      "type": "text",
+      "content": [
+        "Convert spreadsheets between popular formats while preserving data and formulas."
+      ]
+    },
+    {
+      "title": "Supported Formats",
+      "type": "list",
+      "content": [
+        "Excel (XLSX/XLS) - Microsoft Excel spreadsheets",
+        "CSV - Comma Separated Values",
+        "ODS - OpenDocument Spreadsheet"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "CSV to Excel for data analysis",
+        "Excel to CSV for data import/export",
+        "Convert between Excel versions",
+        "Open proprietary formats in open source tools"
+      ]
+    }
+  ]
+}

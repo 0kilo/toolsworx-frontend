@@ -1,0 +1,37 @@
+{
+  "id": "xml-format",
+  "title": "Format XML",
+  "description": "Format and prettify XML data",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Format XML",
+      "type": "text",
+      "content": [
+        "Format and prettify XML data with proper indentation, line breaks, and structure. Makes XML readable and easier to debug, validate, and maintain."
+      ]
+    },
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Automatic indentation with configurable spacing",
+        "Proper line breaks for nested elements",
+        "Syntax validation and error detection",
+        "Preserves XML structure and attributes",
+        "Handles CDATA sections and comments"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Making minified XML readable",
+        "Debugging SOAP and REST API responses",
+        "Configuration file formatting",
+        "XML document validation",
+        "Code review and documentation"
+      ]
+    }
+  ]
+}

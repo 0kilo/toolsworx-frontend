@@ -1,0 +1,38 @@
+{
+  "id": "sunburst-chart",
+  "title": "Sunburst Chart Generator",
+  "description": "Create hierarchical sunburst charts to visualize nested data structures. Sunburst charts are ideal for showing hierarchical relationships and proportions.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use Sunburst Charts",
+      "type": "list",
+      "content": [
+        "Visualizing hierarchical data",
+        "Showing nested proportions",
+        "Displaying organizational structures",
+        "File system or category breakdowns"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Organization Structure\",",
+        "  \"data\": {",
+        "    \"name\": \"Company\",",
+        "    \"children\": [",
+        "      {",
+        "        \"name\": \"Engineering\",",
+        "        \"children\": [",
+        "          { \"name\": \"Frontend\", \"value\": 30 }",
+        "        ]",
+        "      }",
+        "    ]",
+        "  }",
+        "}"
+      ]
+    }
+  ]
+}

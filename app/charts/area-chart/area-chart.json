@@ -1,0 +1,32 @@
+{
+  "id": "area-chart",
+  "title": "Area Chart Generator",
+  "description": "Create area charts to show cumulative data over time. Area charts are ideal for displaying trends and emphasizing the magnitude of change.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use Area Charts",
+      "type": "list",
+      "content": [
+        "Showing cumulative totals over time",
+        "Emphasizing the magnitude of change",
+        "Displaying trends with volume context",
+        "Comparing multiple data series (stacked areas)"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Website Traffic\",",
+        "  \"color\": \"#3b82f6\",",
+        "  \"data\": [",
+        "    { \"x\": \"Jan\", \"y\": 1000 },",
+        "    { \"x\": \"Feb\", \"y\": 1200 }",
+        "  ]",
+        "}"
+      ]
+    }
+  ]
+}

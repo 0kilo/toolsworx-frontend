@@ -1,4 +1,4 @@
-import { Image as ImageIcon, Video, Music, FileAudio, Film } from "lucide-react"
+import { Image as ImageIcon, Video, Music } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -36,5 +36,17 @@ export const mediaConverterTools: ConverterMetadata[] = [
     keywords: ["mp4", "avi", "mkv", "mov", "webm", "video", "convert"],
     popular: true,
   },
+  // Speech to Text - Temporarily disabled until OpenAI API budget available
+  // Uncomment to re-enable:
+  // {
+  //   id: "speech-to-text",
+  //   title: "Speech to Text",
+  //   description: "Convert speech to text in real-time with support for 30+ languages",
+  //   category: "audio",
+  //   icon: Mic,
+  //   href: "/media-converters/speech-to-text",
+  //   keywords: ["speech", "text", "transcribe", "voice", "dictation", "audio", "recognition", "stt"],
+  //   popular: true,
+  // },
 
 ]

@@ -1,0 +1,31 @@
+{
+  "id": "usa-map",
+  "title": "USA Map Chart Generator",
+  "description": "Create choropleth maps to visualize data across US states. USA maps are ideal for showing geographic distributions and regional comparisons.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use USA Maps",
+      "type": "list",
+      "content": [
+        "Showing geographic distributions",
+        "Comparing data across states",
+        "Visualizing regional patterns",
+        "Displaying demographic or economic data by location"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Population by State\",",
+        "  \"data\": [",
+        "    { \"state\": \"California\", \"value\": 39.5 },",
+        "    { \"state\": \"Texas\", \"value\": 29.1 }",
+        "  ]",
+        "}"
+      ]
+    }
+  ]
+}

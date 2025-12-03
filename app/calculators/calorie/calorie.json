@@ -1,0 +1,41 @@
+{
+  "id": "calorie",
+  "title": "Calorie Calculator",
+  "description": "Calculate daily caloric needs based on activity level",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "BMR Formulas",
+      "type": "formula",
+      "content": [
+        "Mifflin-St Jeor (Men): $BMR = 10 \\times weight(kg) + 6.25 \\times height(cm) - 5 \\times age + 5$",
+        "Mifflin-St Jeor (Women): $BMR = 10 \\times weight(kg) + 6.25 \\times height(cm) - 5 \\times age - 161$"
+      ]
+    },
+    {
+      "title": "Activity Multipliers",
+      "type": "list",
+      "content": [
+        "Sedentary (little/no exercise): BMR × 1.2",
+        "Lightly active (1-3 days/week): BMR × 1.375",
+        "Moderately active (3-5 days/week): BMR × 1.55",
+        "Very active (6-7 days/week): BMR × 1.725",
+        "Extremely active (athlete): BMR × 1.9"
+      ]
+    },
+    {
+      "title": "Weight Goals",
+      "type": "list",
+      "content": [
+        "Weight loss: Subtract 500-1000 calories/day (lose 1-2 lbs/week)",
+        "Weight maintenance: Consume calculated TDEE",
+        "Weight gain: Add 300-500 calories/day (gain 0.5-1 lb/week)"
+      ]
+    }
+  ],
+  "tips": [
+    "Track your food intake for accurate calorie counting",
+    "Adjust calorie intake based on weekly progress",
+    "Don't go below 1200 calories/day (women) or 1500 (men) without medical supervision"
+  ]
+}

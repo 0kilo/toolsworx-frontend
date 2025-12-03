@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Heart } from "lucide-react"
+import toolContent from "./bmi.json"
 
 const fields: CalculatorField[] = [
   {
@@ -104,28 +105,13 @@ function calculateBMI(values: Record<string, string>): CalculatorResult[] {
 
 const infoContent = (
   <AboutDescription
-    title="About BMI Calculator"
-    description="Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely used as a screening tool to identify potential weight problems."
-    sections={[
-      {
-        title: "BMI Categories",
-        content: [
-          "<strong>Underweight:</strong> BMI less than 18.5",
-          "<strong>Normal weight:</strong> BMI 18.5-24.9",
-          "<strong>Overweight:</strong> BMI 25-29.9",
-          "<strong>Obese:</strong> BMI 30 or greater"
-        ]
-      },
-      {
-        title: "Important Notes",
-        content: [
-          "BMI is a screening tool, not a diagnostic tool",
-          "It doesn't account for muscle mass, bone density, or body composition",
-          "Athletes and bodybuilders may have high BMI due to muscle mass, not excess fat",
-          "Always consult healthcare professionals for personalized advice"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 

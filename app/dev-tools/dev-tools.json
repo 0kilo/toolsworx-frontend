@@ -1,0 +1,22 @@
+{
+  "id": "dev-tools",
+  "name": "Developer Tools",
+  "description": "Essential utilities for developers including encoders, formatters, validators, and generators",
+  "tools": [
+    "base64",
+    "csv-formatter",
+    "email-extractor",
+    "hash-generator",
+    "json-formatter",
+    "json-minifier",
+    "json-validator",
+    "jwt-decoder",
+    "regex-tester",
+    "text-case-converter",
+    "timestamp",
+    "url-encoder",
+    "url-extractor",
+    "uuid-generator",
+    "xml-formatter"
+  ]
+}

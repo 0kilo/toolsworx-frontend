@@ -1,0 +1,29 @@
+{
+  "id": "url-encoder",
+  "title": "URL Encoder/Decoder",
+  "description": "Encode and decode URLs for safe transmission. URL encoding converts special characters into a format that can be safely transmitted over the internet.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "URL Encoding Rules",
+      "type": "list",
+      "content": [
+        "Alphanumeric characters (A-Z, a-z, 0-9) remain unchanged",
+        "Special characters encoded as: $\\text{char} \\rightarrow \\%\\text{HEX}$",
+        "Space: encoded as '+' or '%20'",
+        "Reserved characters: ! * ' ( ) ; : @ & = + $ , / ? # [ ]",
+        "Example: 'hello world' → 'hello+world' or 'hello%20world'"
+      ]
+    },
+    {
+      "title": "When to Use",
+      "type": "list",
+      "content": [
+        "Query parameters with special characters",
+        "Form data submission",
+        "API endpoint construction",
+        "Email links with parameters"
+      ]
+    }
+  ]
+}

@@ -4,17 +4,27 @@ import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign } from "lucide-react"
+import toolContent from "./loan.json"
 
 const fields: CalculatorField[] = [
   {
     name: "principal",
-    label: "Loan Amount",
+    label: "Loan Amount / Home Price",
     type: "number",
     placeholder: "Enter loan amount",
     required: true,
     min: 1000,
     max: 10000000,
-    helpText: "The total amount you want to borrow",
+    helpText: "The total amount you want to borrow (or home price for mortgages)",
+  },
+  {
+    name: "downPayment",
+    label: "Down Payment (optional)",
+    type: "number",
+    placeholder: "Enter down payment",
+    required: false,
+    min: 0,
+    helpText: "Amount you'll pay upfront (for mortgages, leave 0 for regular loans)",
   },
   {
     name: "interestRate",
@@ -29,7 +39,7 @@ const fields: CalculatorField[] = [
   },
   {
     name: "loanTerm",
-    label: "Loan Term",
+    label: "Loan Term (years)",
     type: "number",
     placeholder: "Enter loan term",
     required: true,
@@ -40,7 +50,9 @@ const fields: CalculatorField[] = [
 ]
 
 function calculateLoan(values: Record<string, string>): CalculatorResult[] {
-  const principal = parseFloat(values.principal)
+  const loanAmount = parseFloat(values.principal)
+  const downPayment = parseFloat(values.downPayment) || 0
+  const principal = loanAmount - downPayment
   const annualRate = parseFloat(values.interestRate) / 100
   const years = parseFloat(values.loanTerm)
 
@@ -60,7 +72,7 @@ function calculateLoan(values: Record<string, string>): CalculatorResult[] {
   // Total interest paid
   const totalInterest = totalPaid - principal
 
-  return [
+  const results: CalculatorResult[] = [
     {
       label: "Monthly Payment",
       value: `$${monthlyPayment.toFixed(2)}`,
@@ -68,8 +80,8 @@ function calculateLoan(values: Record<string, string>): CalculatorResult[] {
       highlight: true,
     },
     {
-      label: "Total Amount Paid",
-      value: `$${totalPaid.toFixed(2)}`,
+      label: "Principal Amount",
+      value: `$${principal.toFixed(2)}`,
       format: "currency",
     },
     {
@@ -78,56 +90,37 @@ function calculateLoan(values: Record<string, string>): CalculatorResult[] {
       format: "currency",
     },
     {
+      label: "Total Amount Paid",
+      value: `$${totalPaid.toFixed(2)}`,
+      format: "currency",
+    },
+    {
       label: "Interest as % of Loan",
       value: `${((totalInterest / principal) * 100).toFixed(1)}%`,
       format: "text",
     },
   ]
+
+  if (downPayment > 0) {
+    results.push({
+      label: "Down Payment",
+      value: `$${downPayment.toFixed(2)}`,
+      format: "currency",
+    })
+  }
+
+  return results
 }
 
 const infoContent = (
   <AboutDescription
-    title="About Loan Calculator"
-    description="Calculate monthly payments, total interest, and total cost for any loan. Perfect for mortgages, auto loans, personal loans, and business financing decisions."
-    sections={[
-      {
-        title: "How Loan Payments Work",
-        content: [
-          "Monthly payments are calculated using the loan amount, interest rate, and term",
-          "Early payments go mostly toward interest, later payments toward principal",
-          "Longer terms mean lower monthly payments but more total interest",
-          "Higher interest rates significantly increase the total cost of borrowing"
-        ]
-      },
-      {
-        title: "Loan Types",
-        content: [
-          "<strong>Mortgage:</strong> 15-30 year terms, typically 3-7% interest",
-          "<strong>Auto Loan:</strong> 3-7 year terms, typically 3-10% interest", 
-          "<strong>Personal Loan:</strong> 2-7 year terms, typically 6-25% interest",
-          "<strong>Business Loan:</strong> Variable terms, typically 5-15% interest"
-        ]
-      },
-      {
-        title: "Money-Saving Tips",
-        content: [
-          "Make extra principal payments to reduce total interest",
-          "Choose the shortest term you can afford for lower total cost",
-          "Shop around for the best interest rates",
-          "Consider bi-weekly payments to pay off loans faster",
-          "Improve your credit score before applying for better rates"
-        ]
-      },
-      {
-        title: "Important Notes",
-        content: [
-          "This calculator assumes fixed interest rates",
-          "Actual payments may include insurance, taxes, and fees",
-          "Results are estimates - consult with lenders for exact terms",
-          "Consider your debt-to-income ratio when taking new loans"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 
@@ -137,12 +130,12 @@ export default function LoanCalculatorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <CalculatorTemplate
-            title="Loan Calculator"
-            description="Calculate monthly payments and total cost for any loan"
+            title="Interest, Loan and Mortgage Calculator"
+            description="Calculate monthly payments, interest, and total cost for loans and mortgages"
             icon={DollarSign}
             fields={fields}
             onCalculate={calculateLoan}
-            resultTitle="Your Loan Details"
+            resultTitle="Your Payment Details"
             infoContent={infoContent}
           />
         </div>

@@ -1,0 +1,37 @@
+{
+  "id": "image-sepia",
+  "title": "Sepia Filter",
+  "description": "Apply vintage sepia tone effect",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Sepia Filter",
+      "type": "text",
+      "content": [
+        "Sepia tone creates a warm, brownish tint that mimics the look of antique photographs. Perfect for vintage aesthetics and nostalgic effects."
+      ]
+    },
+    {
+      "title": "What is Sepia Tone?",
+      "type": "list",
+      "content": [
+        "Warm brown tint reminiscent of old photographs",
+        "Originally a chemical process in film photography",
+        "Creates nostalgic and timeless appearance",
+        "Adds warmth and emotional depth to images",
+        "Popular for portraits and historical themes"
+      ]
+    },
+    {
+      "title": "Best Uses",
+      "type": "list",
+      "content": [
+        "Vintage and retro photography",
+        "Historical or period-themed content",
+        "Wedding and portrait photography",
+        "Artistic and creative projects",
+        "Social media posts with nostalgic themes"
+      ]
+    }
+  ]
+}

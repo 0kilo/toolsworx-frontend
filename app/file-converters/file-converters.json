@@ -1,0 +1,12 @@
+{
+  "id": "file-converters",
+  "name": "File Converters",
+  "description": "Convert files between different formats including documents, spreadsheets, data formats, and archives",
+  "tools": [
+    "archive",
+    "base64",
+    "data",
+    "documents",
+    "spreadsheet"
+  ]
+}

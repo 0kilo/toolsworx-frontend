@@ -3,6 +3,7 @@
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Percent } from "lucide-react"
+import toolContent from "./tip.json"
 
 const fields: CalculatorField[] = [
   {
@@ -79,28 +80,13 @@ function calculateTip(values: Record<string, string>): CalculatorResult[] {
 
 const infoContent = (
   <AboutDescription
-    title="About Tip Calculator"
-    description="Calculate tips and split bills easily. This calculator helps you determine the appropriate tip amount and divides the total among multiple people."
-    sections={[
-      {
-        title: "Standard Tipping Guidelines",
-        content: [
-          "<strong>15%:</strong> Acceptable service",
-          "<strong>18%:</strong> Good service",
-          "<strong>20%:</strong> Excellent service",
-          "<strong>25%+:</strong> Exceptional service"
-        ]
-      },
-      {
-        title: "When to Tip",
-        content: [
-          "<strong>Restaurants:</strong> 15-20% of bill before tax",
-          "<strong>Bars:</strong> $1-2 per drink or 15-20% of tab",
-          "<strong>Delivery:</strong> 10-15% or $2-5 minimum",
-          "<strong>Taxis/Rideshare:</strong> 15-20% of fare"
-        ]
-      }
-    ]}
+    title={`About ${toolContent.title}`}
+    description={toolContent.description}
+    sections={toolContent.sections.map(section => ({
+      title: section.title,
+      content: section.content,
+      type: section.type as 'list' | 'subsections' | undefined
+    }))}
   />
 )
 

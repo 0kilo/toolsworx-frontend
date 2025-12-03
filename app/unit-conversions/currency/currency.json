@@ -1,0 +1,47 @@
+{
+  "id": "currency",
+  "title": "Currency Converter",
+  "description": "Convert between major currencies with exchange rates updated every 30 minutes",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Currency Conversion",
+      "type": "text",
+      "content": [
+        "Currency conversion for informational purposes using exchange rates updated every 30 minutes. Not suitable for actual transactions."
+      ]
+    },
+    {
+      "title": "Exchange Rates",
+      "type": "list",
+      "content": [
+        "Rates updated every 30 minutes from market data sources",
+        "Stored in DynamoDB for fast access",
+        "Major fiat currencies supported",
+        "Data may be delayed up to 30 minutes"
+      ]
+    },
+    {
+      "title": "Important Disclaimers",
+      "type": "list",
+      "content": [
+        "Rates are for informational purposes only",
+        "Do not use for actual financial transactions",
+        "Banks and exchanges have different rates with spreads and fees",
+        "Data may be delayed - always verify with official sources",
+        "Not suitable for trading or time-sensitive decisions"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Travel budget planning and estimates",
+        "General price comparisons across countries",
+        "Educational and reference purposes",
+        "Rough estimates for financial planning",
+        "Learning about exchange rates and currency markets"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "base64",
+  "title": "Base64 Encoder/Decoder",
+  "description": "Base64 encoding converts binary data into ASCII text format for safe transmission over text-based protocols. Encode files to Base64 or decode Base64 to files.",
+  "category": "file-converters",
+  "sections": [
+    {
+      "title": "About Base64 Encoding",
+      "type": "text",
+      "content": [
+        "Base64 encoding converts binary data into ASCII text format for safe transmission over text-based protocols."
+      ]
+    },
+    {
+      "title": "What is Base64?",
+      "type": "list",
+      "content": [
+        "Text-safe encoding for binary data",
+        "Used in email attachments and web APIs",
+        "Converts any file type to ASCII text",
+        "Reversible encoding/decoding process"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Embed images in HTML/CSS",
+        "Send binary data in JSON APIs",
+        "Store files in databases as text",
+        "Email attachment encoding"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "extract-urls",
+  "title": "Extract URLs",
+  "description": "Extract URLs from text",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Extract URLs",
+      "type": "text",
+      "content": [
+        "Automatically extract all URLs and web links from text documents, web pages, or any text content. Perfect for link analysis, content auditing, and research."
+      ]
+    },
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Extracts all valid URLs (http, https, ftp)",
+        "Removes duplicate links",
+        "Validates URL format",
+        "Exports results as list or CSV",
+        "Handles various URL formats and protocols"
+      ]
+    },
+    {
+      "title": "Common Applications",
+      "type": "list",
+      "content": [
+        "Link analysis and SEO auditing",
+        "Content research and curation",
+        "Web scraping and data collection",
+        "Broken link detection",
+        "Reference extraction from documents"
+      ]
+    }
+  ]
+}

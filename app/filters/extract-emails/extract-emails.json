@@ -1,0 +1,37 @@
+{
+  "id": "extract-emails",
+  "title": "Extract Emails",
+  "description": "Extract email addresses from text",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Extract Emails",
+      "type": "text",
+      "content": [
+        "Automatically extract all email addresses from text documents, web pages, or any text content. Useful for building contact lists, data mining, and content analysis."
+      ]
+    },
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Extracts all valid email addresses from text",
+        "Removes duplicates automatically",
+        "Validates email format",
+        "Exports results as CSV or plain text",
+        "Handles large documents efficiently"
+      ]
+    },
+    {
+      "title": "Common Applications",
+      "type": "list",
+      "content": [
+        "Building contact lists from documents",
+        "Data mining and web scraping",
+        "Email list compilation",
+        "Content analysis and research",
+        "Lead generation from text sources"
+      ]
+    }
+  ]
+}

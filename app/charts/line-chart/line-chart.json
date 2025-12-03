@@ -1,0 +1,32 @@
+{
+  "id": "line-chart",
+  "title": "Line Chart Generator",
+  "description": "Create interactive line charts to show trends over time. Line charts are perfect for displaying continuous data and identifying patterns.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use Line Charts",
+      "type": "list",
+      "content": [
+        "Showing trends over time",
+        "Displaying continuous data",
+        "Comparing multiple time series",
+        "Identifying patterns and fluctuations"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Monthly Revenue\",",
+        "  \"color\": \"#3b82f6\",",
+        "  \"data\": [",
+        "    { \"x\": \"Jan\", \"y\": 4000 },",
+        "    { \"x\": \"Feb\", \"y\": 3000 }",
+        "  ]",
+        "}"
+      ]
+    }
+  ]
+}

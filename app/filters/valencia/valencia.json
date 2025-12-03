@@ -1,0 +1,37 @@
+{
+  "id": "valencia",
+  "title": "Valencia Filter",
+  "description": "Instagram Valencia filter effect",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Valencia Filter",
+      "type": "text",
+      "content": [
+        "Valencia filter creates a warm, faded look with yellow/orange tones and reduced contrast. Inspired by Instagram's Valencia filter, perfect for sunny, nostalgic vibes."
+      ]
+    },
+    {
+      "title": "Filter Characteristics",
+      "type": "list",
+      "content": [
+        "Warm yellow/orange color cast",
+        "Faded, washed-out appearance",
+        "Reduced contrast for soft look",
+        "Slightly desaturated colors",
+        "Brightened highlights"
+      ]
+    },
+    {
+      "title": "Best For",
+      "type": "list",
+      "content": [
+        "Sunny outdoor photos",
+        "Beach and summer scenes",
+        "Vintage and nostalgic aesthetics",
+        "Food photography with warm tones",
+        "Lifestyle and travel content"
+      ]
+    }
+  ]
+}

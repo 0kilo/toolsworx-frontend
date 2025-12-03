@@ -1,0 +1,47 @@
+{
+  "id": "image-contrast",
+  "title": "Adjust Contrast",
+  "description": "Adjust image contrast levels",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Adjust Contrast",
+      "type": "text",
+      "content": [
+        "Adjust the contrast of your images to enhance the difference between light and dark areas, making images more vivid and impactful."
+      ]
+    },
+    {
+      "title": "Contrast Formula",
+      "type": "list",
+      "content": [
+        "Linear adjustment: $P_{out} = c \\times (P_{in} - 128) + 128$",
+        "Where $c$ = contrast factor (>1 increases, <1 decreases)",
+        "Centers adjustment around middle gray (128)",
+        "Applied to RGB channels independently"
+      ]
+    },
+    {
+      "title": "What Contrast Does",
+      "type": "list",
+      "content": [
+        "Increases difference between light and dark areas",
+        "Makes images appear sharper and more defined",
+        "Enhances details and texture visibility",
+        "Improves visual impact and drama",
+        "Corrects flat or washed-out images"
+      ]
+    },
+    {
+      "title": "Common Applications",
+      "type": "list",
+      "content": [
+        "Enhance flat or dull images",
+        "Improve text readability in scanned documents",
+        "Create dramatic black and white photos",
+        "Correct hazy or foggy images",
+        "Prepare images for printing"
+      ]
+    }
+  ]
+}

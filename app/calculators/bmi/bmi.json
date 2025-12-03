@@ -1,0 +1,36 @@
+{
+  "id": "bmi",
+  "title": "BMI Calculator",
+  "description": "Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely used as a screening tool to identify potential weight problems.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "BMI (metric): $\\text{BMI} = \\frac{\\text{weight (kg)}}{\\text{height (m)}^2}$",
+        "BMI (imperial): $\\text{BMI} = \\frac{\\text{weight (lbs)} \\times 703}{\\text{height (in)}^2}$"
+      ]
+    },
+    {
+      "title": "BMI Categories",
+      "type": "list",
+      "content": [
+        "<strong>Underweight:</strong> BMI less than 18.5",
+        "<strong>Normal weight:</strong> BMI 18.5-24.9",
+        "<strong>Overweight:</strong> BMI 25-29.9",
+        "<strong>Obese:</strong> BMI 30 or greater"
+      ]
+    },
+    {
+      "title": "Important Notes",
+      "type": "list",
+      "content": [
+        "BMI is a screening tool, not a diagnostic tool",
+        "It doesn't account for muscle mass, bone density, or body composition",
+        "Athletes and bodybuilders may have high BMI due to muscle mass, not excess fat",
+        "Always consult healthcare professionals for personalized advice"
+      ]
+    }
+  ]
+}

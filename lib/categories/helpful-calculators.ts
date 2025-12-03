@@ -1,4 +1,4 @@
-import { ChefHat, Gift, Calendar, Package, Bitcoin, Key } from "lucide-react"
+import { ChefHat, Gift, Calendar, Package, Bitcoin, Key, FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 export const helpfulCalculators: ConverterMetadata[] = [
@@ -32,16 +32,18 @@ export const helpfulCalculators: ConverterMetadata[] = [
     keywords: ["countdown", "holiday", "christmas", "new year", "birthday", "event", "timer"],
     popular: true,
   },
-  {
-    id: "shipping-cost-calculator",
-    title: "Shipping Cost Calculator",
-    description: "Compare shipping rates from USPS, UPS, FedEx, and DHL",
-    category: "helpful",
-    icon: Package,
-    href: "/helpful-calculators/shipping-cost",
-    keywords: ["shipping", "cost", "usps", "ups", "fedex", "dhl", "delivery", "package", "mail", "holiday"],
-    popular: true,
-  },
+  // Shipping Cost Calculator - Temporarily disabled (USPS API unavailable)
+  // Uncomment when USPS API access is available:
+  // {
+  //   id: "shipping-cost-calculator",
+  //   title: "Shipping Cost Calculator",
+  //   description: "Compare shipping rates from USPS, UPS, FedEx, and DHL",
+  //   category: "helpful",
+  //   icon: Package,
+  //   href: "/helpful-calculators/shipping-cost",
+  //   keywords: ["shipping", "cost", "usps", "ups", "fedex", "dhl", "delivery", "package", "mail", "holiday"],
+  //   popular: true,
+  // },
   {
     id: "crypto-converter",
     title: "Crypto Currency Converter",
@@ -60,6 +62,16 @@ export const helpfulCalculators: ConverterMetadata[] = [
     icon: Key,
     href: "/helpful-calculators/password-generator",
     keywords: ["password", "generator", "security", "random", "strong", "secure"],
+    popular: true,
+  },
+  {
+    id: "cheatsheet-builder",
+    title: "Cheatsheet Builder",
+    description: "Create custom cheatsheets with LaTeX support and export to PDF",
+    category: "helpful",
+    icon: FileText,
+    href: "/helpful-calculators/cheatsheet-builder",
+    keywords: ["cheatsheet", "study guide", "latex", "formula", "pdf", "exam", "notes", "reference"],
     popular: true,
   },
 ]

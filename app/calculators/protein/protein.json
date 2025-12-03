@@ -1,0 +1,26 @@
+{
+  "id": "protein",
+  "title": "Protein Calculator",
+  "description": "Calculate your daily protein needs based on weight, activity level, and fitness goals.",
+  "category": "calculators",
+  "sections": [
+    {
+      "title": "Formula",
+      "type": "list",
+      "content": [
+        "Daily Protein: $P = W \\times M$",
+        "Where: $W$ = body weight (kg), $M$ = multiplier based on activity and goal",
+        "Multipliers range from 0.8 (sedentary) to 2.2 (athlete building muscle)"
+      ]
+    },
+    {
+      "title": "Protein Requirements",
+      "type": "list",
+      "content": [
+        "Sedentary: 0.8-1.0g per kg body weight",
+        "Active: 1.2-1.6g per kg body weight",
+        "Athletes: 1.6-2.2g per kg body weight"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "time",
+  "title": "Time Converter",
+  "description": "Convert between different time units from nanoseconds to years",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Time Conversion",
+      "type": "text",
+      "content": [
+        "Time conversion is essential for programming, scientific calculations, project planning, and everyday time management."
+      ]
+    },
+    {
+      "title": "Time Units",
+      "type": "list",
+      "content": [
+        "Precise: Nanosecond (ns), Microsecond (μs), Millisecond (ms), Second (s)",
+        "Common: Minute (min), Hour (h), Day (d), Week (wk)",
+        "Extended: Month (30 days), Year (365 days)",
+        "Scientific applications often use precise units"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 hour = 3,600 seconds = 60 minutes",
+        "1 day = 24 hours = 1,440 minutes = 86,400 seconds",
+        "1 week = 7 days = 168 hours = 604,800 seconds",
+        "1 year = 365 days = 8,760 hours = 31,536,000 seconds"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Programming timeouts and delays",
+        "Scientific experiment timing",
+        "Project management and scheduling",
+        "Performance benchmarking",
+        "Age calculations and time spans"
+      ]
+    }
+  ]
+}

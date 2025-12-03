@@ -1,0 +1,46 @@
+{
+  "id": "area",
+  "title": "Area Converter",
+  "description": "Convert between different area and surface measurement units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Area Conversion",
+      "type": "text",
+      "content": [
+        "Area conversion is essential for real estate, construction, agriculture, and land management across different measurement systems."
+      ]
+    },
+    {
+      "title": "Area Units",
+      "type": "list",
+      "content": [
+        "Small: Square millimeter (mm²), Square centimeter (cm²), Square inch (in²)",
+        "Common: Square foot (ft²), Square yard (yd²), Square meter (m²)",
+        "Land: Acre (ac), Hectare (ha)",
+        "Large: Square kilometer (km²), Square mile (mi²)"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 square meter = 10.764 square feet = 1.196 square yards",
+        "1 acre = 4,047 square meters = 43,560 square feet",
+        "1 hectare = 10,000 square meters = 2.471 acres",
+        "1 square kilometer = 100 hectares = 247.1 acres = 0.386 square miles"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Real estate property measurements",
+        "Construction and architectural planning",
+        "Agricultural land calculations",
+        "Interior design and flooring",
+        "Geographic and mapping applications"
+      ]
+    }
+  ]
+}

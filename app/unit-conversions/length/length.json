@@ -1,0 +1,46 @@
+{
+  "id": "length",
+  "title": "Length Converter",
+  "description": "Convert between different length and distance units",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Length Conversion",
+      "type": "text",
+      "content": [
+        "Length conversion is essential for engineering, construction, science, and everyday measurements across different unit systems."
+      ]
+    },
+    {
+      "title": "Common Length Units",
+      "type": "list",
+      "content": [
+        "Metric: Micron (μm), Millimeter (mm), Centimeter (cm), Meter (m), Kilometer (km)",
+        "Imperial: Inch (in), Foot (ft), Yard (yd), Mile (mi)",
+        "Scientific: Often uses metric system for precision",
+        "Construction: Mix of imperial and metric depending on region"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 meter = 3.28084 feet = 39.3701 inches",
+        "1 kilometer = 0.621371 miles = 3280.84 feet",
+        "1 inch = 2.54 centimeters = 25.4 millimeters",
+        "1 mile = 1.60934 kilometers = 5280 feet"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Engineering and construction measurements",
+        "International shipping and logistics",
+        "Scientific research and laboratory work",
+        "Travel distance calculations",
+        "Sports and athletics measurements"
+      ]
+    }
+  ]
+}

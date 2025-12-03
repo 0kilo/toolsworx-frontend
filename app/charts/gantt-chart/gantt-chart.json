@@ -1,0 +1,40 @@
+{
+  "id": "gantt-chart",
+  "title": "Gantt Chart Generator",
+  "description": "Create interactive project timelines with tasks, dependencies, and recurring events. Gantt charts are essential for project management and scheduling.",
+  "category": "charts",
+  "sections": [
+    {
+      "title": "When to Use Gantt Charts",
+      "type": "list",
+      "content": [
+        "Project planning and scheduling",
+        "Tracking task dependencies",
+        "Resource allocation visualization",
+        "Timeline management",
+        "Progress monitoring"
+      ]
+    },
+    {
+      "title": "Data Structure",
+      "type": "code",
+      "content": [
+        "{",
+        "  \"title\": \"Project Timeline\",",
+        "  \"startDate\": \"2024-01-01\",",
+        "  \"endDate\": \"2024-04-30\",",
+        "  \"tasks\": [",
+        "    {",
+        "      \"id\": \"task1\",",
+        "      \"name\": \"Planning\",",
+        "      \"start\": \"2024-01-01\",",
+        "      \"end\": \"2024-01-15\",",
+        "      \"progress\": 100,",
+        "      \"dependencies\": []",
+        "    }",
+        "  ]",
+        "}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "json-validator",
+  "title": "JSON Validator",
+  "description": "Validate JSON syntax and identify formatting errors quickly. Perfect for debugging API responses, configuration files, and data structures.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Instant JSON syntax validation",
+        "Clear error messages with line information",
+        "Visual indicators for valid/invalid JSON",
+        "100% client-side processing for privacy"
+      ]
+    }
+  ]
+}

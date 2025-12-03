@@ -1,0 +1,29 @@
+{
+  "id": "hash-generator",
+  "title": "Hash Generator",
+  "description": "Generate MD5, SHA-1, SHA-256 hashes and Base64 encoding. Hash functions convert input data into fixed-size strings for security and data integrity.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Hash Algorithms",
+      "type": "list",
+      "content": [
+        "<strong>MD5:</strong> $H(m) = 128\\text{-bit hash}$ (collision vulnerable)",
+        "<strong>SHA-1:</strong> $H(m) = 160\\text{-bit hash}$ (deprecated)",
+        "<strong>SHA-256:</strong> $H(m) = 256\\text{-bit hash}$ (secure)",
+        "One-way function: Easy to compute $H(m)$, infeasible to reverse",
+        "Avalanche effect: Small input change → completely different hash"
+      ]
+    },
+    {
+      "title": "Hash Types",
+      "type": "list",
+      "content": [
+        "<strong>MD5:</strong> 128-bit hash, fast but not secure for passwords",
+        "<strong>SHA-1:</strong> 160-bit hash, deprecated for security applications",
+        "<strong>SHA-256:</strong> 256-bit hash, secure and widely used",
+        "<strong>Base64:</strong> Encoding (not hashing) for data transmission"
+      ]
+    }
+  ]
+}

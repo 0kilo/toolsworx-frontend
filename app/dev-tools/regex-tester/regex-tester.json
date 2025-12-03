@@ -1,0 +1,18 @@
+{
+  "id": "regex-tester",
+  "title": "Regex Tester",
+  "description": "Test and debug regular expressions with live matching, highlighting, and detailed match information. Perfect for developers and data analysts working with pattern matching.",
+  "category": "dev-tools",
+  "sections": [
+    {
+      "title": "Features",
+      "type": "list",
+      "content": [
+        "Live regex testing with instant results",
+        "Visual highlighting of matches in text",
+        "Detailed match information including position and groups",
+        "Support for all JavaScript regex flags"
+      ]
+    }
+  ]
+}

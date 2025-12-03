@@ -1,0 +1,56 @@
+{
+  "id": "energy",
+  "title": "Energy Converter",
+  "description": "Convert between joules, calories, BTU, kilowatt hours, and electron volts",
+  "category": "unit-conversions",
+  "sections": [
+    {
+      "title": "About Energy Conversion",
+      "type": "text",
+      "content": [
+        "Energy conversion is essential for physics, engineering, nutrition, and understanding power consumption across different measurement systems."
+      ]
+    },
+    {
+      "title": "Energy Units",
+      "type": "list",
+      "content": [
+        "Scientific: Joule (J), Kilojoule (kJ), Electron Volt (eV)",
+        "Thermal: Calorie (cal), Kilocalorie (kcal), British Thermal Unit (BTU)",
+        "Electrical: Kilowatt Hour (kWh), Watt Hour (Wh)",
+        "Food energy typically measured in kilocalories (kcal)"
+      ]
+    },
+    {
+      "title": "Conversion Formulas",
+      "type": "list",
+      "content": [
+        "Joules to calories: $\\text{cal} = \\frac{J}{4.184}$",
+        "kWh to joules: $J = \\text{kWh} \\times 3.6 \\times 10^6$",
+        "BTU to joules: $J = \\text{BTU} \\times 1055.06$",
+        "Kinetic energy: $E_k = \\frac{1}{2}mv^2$"
+      ]
+    },
+    {
+      "title": "Conversion Examples",
+      "type": "list",
+      "content": [
+        "1 kWh = 3,600,000 joules = 860 kilocalories",
+        "1 BTU = 1,055 joules = 0.252 kilocalories",
+        "1 kilocalorie = 4,184 joules = 3.97 BTU",
+        "1 joule = 0.239 calories"
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Electricity consumption calculations",
+        "Nutritional energy content",
+        "HVAC and heating system specifications",
+        "Physics and engineering calculations",
+        "Renewable energy system planning"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "csv-clean",
+  "title": "Clean CSV",
+  "description": "Clean and format CSV data",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "About Clean CSV",
+      "type": "text",
+      "content": [
+        "Clean and format CSV data to remove inconsistencies, fix formatting issues, and standardize your data structure. Perfect for data preparation and analysis."
+      ]
+    },
+    {
+      "title": "What It Does",
+      "type": "list",
+      "content": [
+        "Removes duplicate rows and empty lines",
+        "Standardizes delimiters and quote characters",
+        "Trims whitespace from cells",
+        "Fixes inconsistent line endings",
+        "Validates and repairs malformed CSV structure"
+      ]
+    },
+    {
+      "title": "Common Use Cases",
+      "type": "list",
+      "content": [
+        "Preparing data for import into databases",
+        "Cleaning exported data from various sources",
+        "Standardizing CSV files for data analysis",
+        "Fixing formatting issues before processing",
+        "Removing duplicates and empty entries"
+      ]
+    }
+  ]
+}
