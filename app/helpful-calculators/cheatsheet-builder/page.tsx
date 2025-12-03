@@ -54,6 +54,7 @@ export default function CheatsheetBuilderPage() {
   const [availableTools, setAvailableTools] = useState<ToolData[]>([])
   const [selectedTools, setSelectedTools] = useState<Set<string>>(new Set())
   const [isLoadingTools, setIsLoadingTools] = useState(false)
+  const [previewOrientation, setPreviewOrientation] = useState<'portrait' | 'landscape'>('portrait')
 
   // Load all tools
   useEffect(() => {
@@ -304,8 +305,8 @@ export default function CheatsheetBuilderPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* LEFT: FORM BUILDER */}
+      <div className="space-y-6 mb-6">
+        {/* FORM BUILDER */}
         <Card>
           <CardHeader>
             <CardTitle>Build Your Cheatsheet</CardTitle>
@@ -549,33 +550,50 @@ export default function CheatsheetBuilderPage() {
                   <FileText className="h-4 w-4 mr-2" />
                   Export JSON
                 </Button>
-                <Button variant="outline" className="flex-1" asChild>
-                  <label className="cursor-pointer">
+                <label className="flex-1">
+                  <Button variant="outline" className="w-full cursor-pointer">
                     <FileText className="h-4 w-4 mr-2" />
                     Import JSON
-                    <input
-                      type="file"
-                      accept=".json"
-                      onChange={importFromJSON}
-                      className="hidden"
-                    />
-                  </label>
-                </Button>
+                  </Button>
+                  <input
+                    type="file"
+                    accept=".json"
+                    onChange={importFromJSON}
+                    className="hidden"
+                  />
+                </label>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* RIGHT: PREVIEW */}
+        {/* PREVIEW */}
         <Card>
           <CardHeader>
-            <CardTitle>Live Preview</CardTitle>
-            <CardDescription>See how your cheatsheet looks</CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Live Preview</CardTitle>
+                <CardDescription>See how your cheatsheet looks</CardDescription>
+              </div>
+              <Select
+                value={previewOrientation}
+                onValueChange={(value) => setPreviewOrientation(value as 'portrait' | 'landscape')}
+              >
+                <SelectTrigger className="w-32">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="portrait">Portrait</SelectItem>
+                  <SelectItem value="landscape">Landscape</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </CardHeader>
           <CardContent>
             <div
               id="cheatsheet-preview"
-              className={`p-6 rounded-lg border-2 ${currentScheme.bg} ${currentScheme.text} ${currentScheme.accent}`}
+              className={`p-6 rounded-lg border-2 ${currentScheme.bg} ${currentScheme.text} ${currentScheme.accent} ${previewOrientation === 'landscape' ? 'max-w-4xl mx-auto' : 'max-w-2xl mx-auto'}`}
+              style={previewOrientation === 'landscape' ? { aspectRatio: '1.414/1' } : { aspectRatio: '1/1.414' }}
             >
               {/* Header */}
               <div className={`p-4 rounded-lg mb-4 ${currentScheme.header}`}>
