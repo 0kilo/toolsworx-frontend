@@ -2,6 +2,7 @@
 
 import { MediaConverter } from "@/components/shared/media-converter"
 import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./audio.json"
 
 const audioFormats = [
   { value: 'mp3', label: 'MP3', extensions: ['mp3'], accept: '.mp3,audio/mpeg' },
@@ -18,9 +19,9 @@ export default function AudioConverterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Audio Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Convert between MP3, WAV, FLAC, AAC, and other audio formats
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -36,30 +37,9 @@ export default function AudioConverterPage() {
 
 
           <AboutDescription
-            title="About Audio Conversion"
-            description="Convert audio files between popular formats while maintaining sound quality and optimizing file sizes."
-            sections={[
-              {
-                title: "Supported Formats",
-                content: [
-                  "MP3 - Most popular compressed audio format",
-                  "WAV - Uncompressed high-quality audio",
-                  "FLAC - Lossless compression for audiophiles",
-                  "AAC - Advanced audio codec, iTunes standard",
-                  "OGG - Open-source alternative to MP3",
-                  "M4A - Apple's audio format"
-                ]
-              },
-              {
-                title: "Common Use Cases",
-                content: [
-                  "Convert WAV to MP3 to reduce file size",
-                  "Convert MP3 to FLAC for better quality",
-                  "Convert audio for different devices/platforms",
-                  "Extract audio from video files"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

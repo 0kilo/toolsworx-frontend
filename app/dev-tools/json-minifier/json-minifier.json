@@ -1,12 +1,15 @@
 {
   "id": "json-minifier",
   "title": "JSON Minifier",
-  "description": "Minify JSON data by removing unnecessary whitespace, line breaks, and indentation. Perfect for reducing file sizes and optimizing data transmission.",
+  "description": "Minify JSON data by removing unnecessary whitespace, line breaks, and indentation",
+  "pageTitle": "JSON Minifier",
+  "pageDescription": "Minify JSON data by removing unnecessary whitespace, line breaks, and indentation",
+  "aboutTitle": "About JSON Minifier",
+  "aboutDescription": "Minify JSON data by removing unnecessary whitespace, line breaks, and indentation. Perfect for reducing file sizes and optimizing data transmission. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Benefits",
-      "type": "list",
       "content": [
         "Reduced file size - up to 50% smaller",
         "Faster data transmission over networks",

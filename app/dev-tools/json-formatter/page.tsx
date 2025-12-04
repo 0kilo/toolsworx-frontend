@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Copy, Check, FileText, Sparkles } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { formatJSON, minifyJSON, validateJSON } from "@/lib/tools/logic/dev-tools/tool-json"
+import toolContent from "./json-formatter.json"
 
 export default function JSONFormatterPage() {
   const [input, setInput] = useState("")
@@ -16,56 +18,39 @@ export default function JSONFormatterPage() {
   const [copied, setCopied] = useState(false)
   const [indent, setIndent] = useState("2")
 
-  const formatJSON = () => {
+  const handleFormat = () => {
     setError("")
     setOutput("")
 
-    if (!input.trim()) {
-      setError("Please enter JSON to format")
-      return
-    }
-
     try {
-      const parsed = JSON.parse(input)
-      const formatted = JSON.stringify(parsed, null, parseInt(indent))
-      setOutput(formatted)
+      const result = formatJSON({ text: input, indent: parseInt(indent) })
+      setOutput(result.result)
     } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
+      setError(e.message)
     }
   }
 
-  const minifyJSON = () => {
+  const handleMinify = () => {
     setError("")
     setOutput("")
 
-    if (!input.trim()) {
-      setError("Please enter JSON to minify")
-      return
-    }
-
     try {
-      const parsed = JSON.parse(input)
-      const minified = JSON.stringify(parsed)
-      setOutput(minified)
+      const result = minifyJSON({ text: input })
+      setOutput(result.result)
     } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
+      setError(e.message)
     }
   }
 
-  const validateJSON = () => {
+  const handleValidate = () => {
     setError("")
     setOutput("")
 
-    if (!input.trim()) {
-      setError("Please enter JSON to validate")
-      return
-    }
-
     try {
-      JSON.parse(input)
-      setOutput("✓ Valid JSON")
+      const result = validateJSON({ text: input })
+      setOutput(result.result)
     } catch (e: any) {
-      setError(`Invalid JSON: ${e.message}`)
+      setError(e.message)
     }
   }
 
@@ -91,9 +76,9 @@ export default function JSONFormatterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JSON Formatter & Validator</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Format, validate, and minify JSON data instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -131,16 +116,16 @@ export default function JSONFormatterPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              <Button onClick={formatJSON} className="w-full">
+              <Button onClick={handleFormat} className="w-full">
                 <Sparkles className="h-4 w-4 mr-2" />
                 Format
               </Button>
-              <Button onClick={minifyJSON} variant="outline" className="w-full">
+              <Button onClick={handleMinify} variant="outline" className="w-full">
                 Minify
               </Button>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <Button onClick={validateJSON} variant="outline" className="w-full">
+              <Button onClick={handleValidate} variant="outline" className="w-full">
                 Validate
               </Button>
               <Button onClick={handleClear} variant="outline" className="w-full">
@@ -199,29 +184,9 @@ export default function JSONFormatterPage() {
       </div>
 
       <AboutDescription
-        title="About JSON Formatter"
-        description="Our JSON Formatter helps you format, validate, and minify JSON data instantly. Perfect for developers working with APIs, configuration files, or any JSON data. All processing happens in your browser - no data is sent to any server."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Format JSON with customizable indentation",
-              "Minify JSON to reduce file size",
-              "Validate JSON syntax",
-              "Copy formatted JSON with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your JSON in the input field",
-              "Choose your preferred indentation",
-              "Click 'Format', 'Minify', or 'Validate'",
-              "Copy the result or continue editing"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

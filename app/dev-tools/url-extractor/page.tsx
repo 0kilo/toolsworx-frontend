@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, Link, Sparkles } from "lucide-react"
+import { extractURLs } from "@/lib/tools/logic/dev-tools/tool-url"
+import toolContent from "./url-extractor.json"
 
 export default function URLExtractorPage() {
   const [input, setInput] = useState("")
@@ -23,14 +25,9 @@ export default function URLExtractorPage() {
     }
 
     try {
-      // URL regex pattern - matches http, https, ftp, and www URLs
-      const urlRegex = /(https?:\/\/[^\s]+)|(ftp:\/\/[^\s]+)|(www\.[^\s]+\.[^\s]+)/gi
-      const urls = input.match(urlRegex)
-      
-      if (urls && urls.length > 0) {
-        // Remove duplicates and sort
-        const uniqueUrls = [...new Set(urls)].sort()
-        setOutput(uniqueUrls.join('\n'))
+      const result = extractURLs({ text: input })
+      if (result.urls.length > 0) {
+        setOutput(result.urls.join('\n'))
       } else {
         setOutput("No URLs found")
       }
@@ -61,9 +58,9 @@ export default function URLExtractorPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">URL Extractor</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Extract URLs and links from any text instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -146,42 +143,9 @@ export default function URLExtractorPage() {
       </div>
 
       <AboutDescription
-        title="About URL Extractor"
-        description="Extract URLs and web links from any text using advanced regex patterns. Perfect for data processing, link analysis, and content management. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Extract URLs from any text format",
-              "Supports HTTP, HTTPS, FTP, and www links",
-              "Automatic duplicate removal",
-              "Sorted alphabetical output",
-              "Copy results with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your text containing URLs",
-              "Click 'Extract URLs' to find all valid links",
-              "Copy the clean list of unique URLs",
-              "Use for link analysis, SEO audits, or data cleaning"
-            ]
-          },
-          {
-            title: "Supported URL Formats",
-            content: [
-              "HTTPS: https://example.com",
-              "HTTP: http://example.com", 
-              "FTP: ftp://files.example.com",
-              "WWW: www.example.com",
-              "Subdomains: https://blog.example.com",
-              "Paths: https://example.com/page/path",
-              "Query parameters: https://example.com?param=value"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

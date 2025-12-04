@@ -1,8 +1,51 @@
 {
   "id": "mortgage",
   "title": "Mortgage Calculator",
-  "description": "Calculate your monthly mortgage payment including principal and interest. This calculator helps you estimate home affordability and compare loan options.",
+  "description": "Calculate your monthly mortgage payment and total interest",
+  "aboutDescription": "Calculate your monthly mortgage payment including principal and interest. This calculator helps you estimate home affordability and compare loan options.",
+  "icon": "DollarSign",
+  "resultTitle": "Your Monthly Payment",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "loanAmount",
+      "label": "Home Price / Loan Amount",
+      "type": "number",
+      "placeholder": "Enter loan amount",
+      "required": true,
+      "min": 1000,
+      "helpText": "Total amount you want to borrow"
+    },
+    {
+      "name": "downPayment",
+      "label": "Down Payment",
+      "type": "number",
+      "placeholder": "Enter down payment",
+      "required": true,
+      "min": 0,
+      "helpText": "Amount you'll pay upfront"
+    },
+    {
+      "name": "interestRate",
+      "label": "Annual Interest Rate (%)",
+      "type": "number",
+      "placeholder": "Enter interest rate",
+      "required": true,
+      "min": 0,
+      "max": 30,
+      "helpText": "Annual interest rate as percentage"
+    },
+    {
+      "name": "loanTerm",
+      "label": "Loan Term (years)",
+      "type": "number",
+      "placeholder": "Enter loan term",
+      "required": true,
+      "min": 1,
+      "max": 40,
+      "helpText": "Number of years to repay"
+    }
+  ],
   "sections": [
     {
       "title": "Key Mortgage Terms",

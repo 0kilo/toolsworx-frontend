@@ -19,6 +19,7 @@ import html2canvas from "html2canvas"
 import { saveAs } from "file-saver"
 import "katex/dist/katex.min.css"
 import appData from "@/app/app.json"
+import toolContent from "./cheatsheet-builder.json"
 
 interface ToolData {
   id: string
@@ -299,9 +300,9 @@ export default function CheatsheetBuilderPage() {
   return (
     <div className="container py-8">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Cheatsheet Builder</h1>
+        <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
         <p className="text-muted-foreground">
-          Create custom cheatsheets with LaTeX support and export to PDF or TXT
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -646,52 +647,9 @@ export default function CheatsheetBuilderPage() {
       </div>
 
       <AboutDescription
-        title="About Cheatsheet Builder"
-        description="Create custom cheatsheets with LaTeX mathematical notation support, perfect for studying and quick reference."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Create unlimited cheatsheets for free",
-              "LaTeX support for mathematical formulas",
-              "Customizable layouts (single/double column)",
-              "Adjustable font sizes and color schemes",
-              "Drag and reorder content items",
-              "Export to PDF or plain text",
-              "Import/export JSON for sharing and backup"
-            ]
-          },
-          {
-            title: "LaTeX Math Support",
-            content: [
-              "Inline math: Use $formula$ for inline equations",
-              "Display math: Use $$formula$$ for centered equations",
-              "Example: $x^2 + y^2 = r^2$ for inline",
-              "Example: $$\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$ for display",
-              "Supports fractions, roots, exponents, Greek letters, and more",
-              "Live preview shows rendered formulas as you type"
-            ]
-          },
-          {
-            title: "Common Use Cases",
-            content: [
-              "Math and science formula sheets",
-              "Exam quick reference guides",
-              "Programming language cheatsheets",
-              "Foreign language vocabulary lists",
-              "Study guides and revision notes",
-              "Quick command references"
-            ]
-          },
-          {
-            title: "Export Options",
-            content: [
-              "PDF - High quality, preserves formatting and LaTeX rendering",
-              "TXT - Plain text with raw LaTeX formulas",
-              "JSON - Backup and share your cheatsheet data"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

@@ -2,18 +2,14 @@
   "id": "speech-to-text",
   "title": "Speech to Text Converter",
   "description": "Convert speech to text in real-time with support for 30+ languages",
+  "pageTitle": "Speech to Text Converter",
+  "pageDescription": "Convert speech to text in real-time with support for 30+ languages",
+  "aboutTitle": "About Speech to Text",
+  "aboutDescription": "Convert spoken words into written text using advanced speech recognition technology. Perfect for transcription, note-taking, and accessibility.",
   "category": "media-converters",
   "sections": [
     {
-      "title": "About Speech to Text",
-      "type": "text",
-      "content": [
-        "Convert spoken words into written text using advanced speech recognition technology. Perfect for transcription, note-taking, and accessibility."
-      ]
-    },
-    {
       "title": "Two Transcription Modes",
-      "type": "list",
       "content": [
         "Live Recording - Unlimited real-time transcription through your microphone (100% FREE)",
         "File Upload - Upload audio files for high-accuracy transcription (3 per 24 hours)",
@@ -23,7 +19,6 @@
     },
     {
       "title": "Supported Languages",
-      "type": "list",
       "content": [
         "English (US, UK) - Most accurate recognition",
         "Vietnamese (Tiếng Việt) - Full tone support",
@@ -37,7 +32,6 @@
     },
     {
       "title": "File Upload Features",
-      "type": "list",
       "content": [
         "Supported formats: MP3, WAV, FLAC, M4A, OGG",
         "Maximum file size: 25MB",
@@ -49,7 +43,6 @@
     },
     {
       "title": "Common Use Cases",
-      "type": "list",
       "content": [
         "Meeting notes and transcription",
         "Dictation for writing and emails",
@@ -63,7 +56,6 @@
     },
     {
       "title": "Tips for Best Results",
-      "type": "list",
       "content": [
         "Live Mode: Use a good quality microphone",
         "Live Mode: Minimize background noise",
@@ -77,7 +69,6 @@
     },
     {
       "title": "Privacy & Cost",
-      "type": "list",
       "content": [
         "Live mode: 100% FREE, unlimited use",
         "File mode: 3 transcriptions per 24 hours",

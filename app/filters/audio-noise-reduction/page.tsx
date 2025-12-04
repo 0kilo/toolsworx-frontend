@@ -2,6 +2,7 @@
 
 import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./audio-noise-reduction.json"
 
 export default function AudioNoiseReductionPage() {
   return (
@@ -9,9 +10,9 @@ export default function AudioNoiseReductionPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Noise Reduction</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Remove background noise and improve audio clarity
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -22,30 +23,9 @@ export default function AudioNoiseReductionPage() {
           />
 
           <AboutDescription
-            title="About Noise Reduction"
-            description="Noise reduction removes unwanted background sounds like hiss, hum, and environmental noise while preserving the quality of the main audio content."
-            sections={[
-              {
-                title: "What It Removes",
-                content: [
-                  "Background hiss from recordings",
-                  "Air conditioning and fan noise", 
-                  "Electrical hum and buzz",
-                  "Wind noise from outdoor recordings",
-                  "Room tone and ambient noise"
-                ]
-              },
-              {
-                title: "Best Practices",
-                content: [
-                  "Record in quiet environments when possible",
-                  "Use noise reduction sparingly to avoid artifacts",
-                  "Apply before other processing effects",
-                  "Check results with headphones for quality",
-                  "Consider the trade-off between noise removal and audio quality"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
         <div className="lg:col-span-1"></div>

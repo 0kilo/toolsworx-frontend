@@ -2,94 +2,65 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Truck } from "lucide-react"
+import * as Icons from "lucide-react"
 import toolContent from "./concrete.json"
+import { calculateConcrete, ConcreteInput } from "@/lib/tools/logic/calculators/calculator-concrete"
 
-const fields: CalculatorField[] = [
-  {
-    name: "length",
-    label: "Length (feet)",
-    type: "number",
-    placeholder: "Enter length",
-    required: true,
-  },
-  {
-    name: "width",
-    label: "Width (feet)",
-    type: "number",
-    placeholder: "Enter width",
-    required: true,
-  },
-  {
-    name: "depth",
-    label: "Depth (inches)",
-    type: "number",
-    placeholder: "Enter depth",
-    required: true,
-  },
-]
+function handleCalculate(values: Record<string, string>): CalculatorResult[] {
+  const input: ConcreteInput = {
+    length: parseFloat(values.length),
+    width: parseFloat(values.width),
+    depth: parseFloat(values.depth),
+  }
 
-function calculateConcrete(values: Record<string, string>): CalculatorResult[] {
-  const length = parseFloat(values.length)
-  const width = parseFloat(values.width)
-  const depthInches = parseFloat(values.depth)
-
-  // Convert depth to feet
-  const depthFeet = depthInches / 12
-
-  // Calculate cubic feet
-  const cubicFeet = length * width * depthFeet
-
-  // Convert to cubic yards (27 cubic feet = 1 cubic yard)
-  const cubicYards = cubicFeet / 27
-
-  // Add 10% for waste
-  const totalCubicYards = cubicYards * 1.1
+  const result = calculateConcrete(input)
 
   return [
     {
       label: "Concrete Needed (cubic yards)",
-      value: totalCubicYards.toFixed(2),
+      value: result.cubicYards.toFixed(2),
       format: "text",
       highlight: true,
     },
     {
       label: "Volume (cubic feet)",
-      value: Math.round(cubicFeet),
+      value: result.cubicFeet,
       format: "number",
     },
     {
       label: "With 10% Waste (cubic yards)",
-      value: Math.ceil(totalCubicYards),
+      value: result.withWaste,
       format: "number",
     },
   ]
 }
 
-const infoContent = (
-  <AboutDescription
-    title={`About ${toolContent.title}`}
-    description={toolContent.description}
-    sections={toolContent.sections.map(section => ({
-      title: section.title,
-      content: section.content,
-      type: section.type as 'list' | 'subsections' | undefined
-    }))}
-  />
-)
-
 export default function ConcreteCalculatorPage() {
+  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
+  
+  const infoContent = (
+    <AboutDescription
+      title={`About ${toolContent.title}`}
+      description={toolContent.aboutDescription}
+      sections={toolContent.sections.map(section => ({
+        title: section.title,
+        content: section.content,
+        type: section.type as 'list' | 'subsections' | undefined
+      }))}
+    />
+  )
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <CalculatorTemplate
-            title="Concrete Calculator"
-            description="Calculate cubic yards of concrete needed"
-            icon={Truck}
-            fields={fields}
-            onCalculate={calculateConcrete}
-            resultTitle="Concrete Requirements"
+            title={toolContent.title}
+            description={toolContent.description}
+            icon={Icon}
+            fields={toolContent.fields as CalculatorField[]}
+            onCalculate={handleCalculate}
+            resultTitle={toolContent.resultTitle}
             infoContent={infoContent}
           />
         </div>

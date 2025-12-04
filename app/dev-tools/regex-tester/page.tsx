@@ -9,22 +9,18 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Copy, Check, Search, Sparkles } from "lucide-react"
-
-interface Match {
-  match: string
-  index: number
-  groups?: string[]
-}
+import { testRegex, highlightMatches, type RegexMatch } from "@/lib/tools/logic/dev-tools/tool-regex"
+import toolContent from "./regex-tester.json"
 
 export default function RegexTesterPage() {
   const [pattern, setPattern] = useState("")
   const [flags, setFlags] = useState("g")
   const [testString, setTestString] = useState("")
-  const [matches, setMatches] = useState<Match[]>([])
+  const [matches, setMatches] = useState<RegexMatch[]>([])
   const [error, setError] = useState("")
   const [copied, setCopied] = useState(false)
 
-  const testRegex = () => {
+  const runTest = () => {
     setError("")
     setMatches([])
 
@@ -39,31 +35,8 @@ export default function RegexTesterPage() {
     }
 
     try {
-      const regex = new RegExp(pattern, flags)
-      const foundMatches: Match[] = []
-      
-      if (flags.includes('g')) {
-        let match
-        while ((match = regex.exec(testString)) !== null) {
-          foundMatches.push({
-            match: match[0],
-            index: match.index,
-            groups: match.slice(1)
-          })
-          if (match.index === regex.lastIndex) break
-        }
-      } else {
-        const match = regex.exec(testString)
-        if (match) {
-          foundMatches.push({
-            match: match[0],
-            index: match.index,
-            groups: match.slice(1)
-          })
-        }
-      }
-
-      setMatches(foundMatches)
+      const result = testRegex({ pattern, flags, testString })
+      setMatches(result.matches)
     } catch (e: any) {
       setError(`Invalid regex: ${e.message}`)
     }
@@ -87,28 +60,14 @@ export default function RegexTesterPage() {
     setCopied(false)
   }
 
-  const highlightMatches = (text: string, matches: Match[]) => {
-    if (matches.length === 0) return text
 
-    let result = ""
-    let lastIndex = 0
-
-    matches.forEach((match, i) => {
-      result += text.slice(lastIndex, match.index)
-      result += `<mark class="bg-yellow-200 px-1 rounded">${match.match}</mark>`
-      lastIndex = match.index + match.match.length
-    })
-    result += text.slice(lastIndex)
-
-    return result
-  }
 
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Regex Tester</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Test and debug regular expressions with live matching and highlighting
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -161,7 +120,7 @@ export default function RegexTesterPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-2">
-              <Button onClick={testRegex} className="w-full">
+              <Button onClick={runTest} className="w-full">
                 <Search className="h-4 w-4 mr-2" />
                 Test Regex
               </Button>
@@ -274,41 +233,9 @@ export default function RegexTesterPage() {
       </div>
 
       <AboutDescription
-        title="About Regex Tester"
-        description="Test and debug regular expressions with live matching, highlighting, and detailed match information. Perfect for developers, data analysts, and anyone working with pattern matching."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Live regex testing with instant results",
-              "Visual highlighting of matches in text",
-              "Detailed match information including position and groups",
-              "Support for all JavaScript regex flags",
-              "Copy matches and results with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Enter your regular expression pattern",
-              "Set appropriate flags (g for global, i for case-insensitive, etc.)",
-              "Enter your test string",
-              "Click 'Test Regex' to see matches and highlights",
-              "Copy individual matches or the full result"
-            ]
-          },
-          {
-            title: "Common Regex Patterns",
-            content: [
-              "<code>\\d+</code> - Match one or more digits",
-              "<code>[a-zA-Z]+</code> - Match letters only",
-              "<code>\\w+@\\w+\\.\\w+</code> - Simple email pattern",
-              "<code>https?://[^\\s]+</code> - Match URLs",
-              "<code>\\b\\w{4}\\b</code> - Match 4-letter words"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

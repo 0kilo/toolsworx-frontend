@@ -1,19 +1,27 @@
 {
   "id": "time",
   "title": "Time Converter",
-  "description": "Convert between different time units from nanoseconds to years",
+  "description": "Time conversion is essential for programming, scientific calculations, project planning, and everyday time management.",
   "category": "unit-conversions",
+  "icon": "Clock",
+  "units": [
+    { "value": "nanosecond", "label": "Nanosecond", "abbreviation": "ns", "factor": 0.000000001 },
+    { "value": "microsecond", "label": "Microsecond", "abbreviation": "μs", "factor": 0.000001 },
+    { "value": "millisecond", "label": "Millisecond", "abbreviation": "ms", "factor": 0.001 },
+    { "value": "second", "label": "Second", "abbreviation": "s", "factor": 1 },
+    { "value": "minute", "label": "Minute", "abbreviation": "min", "factor": 60 },
+    { "value": "hour", "label": "Hour", "abbreviation": "h", "factor": 3600 },
+    { "value": "day", "label": "Day", "abbreviation": "d", "factor": 86400 },
+    { "value": "week", "label": "Week", "abbreviation": "wk", "factor": 604800 },
+    { "value": "month", "label": "Month (30 days)", "abbreviation": "mo", "factor": 2592000 },
+    { "value": "year", "label": "Year (365 days)", "abbreviation": "yr", "factor": 31536000 }
+  ],
+  "baseUnit": "second",
+  "defaultFromUnit": "hour",
+  "defaultToUnit": "second",
   "sections": [
     {
-      "title": "About Time Conversion",
-      "type": "text",
-      "content": [
-        "Time conversion is essential for programming, scientific calculations, project planning, and everyday time management."
-      ]
-    },
-    {
       "title": "Time Units",
-      "type": "list",
       "content": [
         "Precise: Nanosecond (ns), Microsecond (μs), Millisecond (ms), Second (s)",
         "Common: Minute (min), Hour (h), Day (d), Week (wk)",
@@ -23,7 +31,6 @@
     },
     {
       "title": "Conversion Examples",
-      "type": "list",
       "content": [
         "1 hour = 3,600 seconds = 60 minutes",
         "1 day = 24 hours = 1,440 minutes = 86,400 seconds",
@@ -33,7 +40,6 @@
     },
     {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "Programming timeouts and delays",
         "Scientific experiment timing",

@@ -2,38 +2,24 @@
   "id": "audio-bass-boost",
   "title": "Bass Boost",
   "description": "Enhance low frequencies for deeper, richer sound",
+  "pageTitle": "Bass Boost",
+  "pageDescription": "Enhance low frequencies for deeper, richer sound",
+  "aboutTitle": "About Bass Boost",
+  "aboutDescription": "Bass boost enhances low-frequency content (typically 20-250Hz) to add warmth, power, and depth to your audio. Perfect for music, podcasts, and sound design.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Bass Boost",
-      "type": "text",
-      "content": [
-        "Bass boost enhances low-frequency content (typically 20-250Hz) to add warmth, power, and depth to your audio. Perfect for music, podcasts, and sound design."
-      ]
-    },
-    {
-      "title": "Bass Boost Formula",
-      "type": "list",
-      "content": [
-        "Low-shelf filter: $H(f) = A \\times \\sqrt{\\frac{1 + (f/f_c)^{2n}}{1 + A^2(f/f_c)^{2n}}}$",
-        "Where $A$ = gain factor, $f_c$ = cutoff frequency, $n$ = filter order",
-        "Typical boost: 3-12dB at 60-100Hz",
-        "Q factor controls slope steepness"
-      ]
-    },
-    {
       "title": "Bass Frequency Ranges",
-      "type": "list",
       "content": [
-        "Sub-bass (20-60Hz): Deep rumble, felt more than heard",
-        "Bass (60-110Hz): Fundamental bass notes, kick drums",
-        "Low-mid (110-250Hz): Warmth, body of bass instruments",
-        "Upper bass (250-500Hz): Punch and presence"
+        "<strong>Sub-bass (20-60Hz):</strong> Deep rumble, felt more than heard",
+        "<strong>Bass (60-110Hz):</strong> Fundamental bass notes, kick drums",
+        "<strong>Low-mid (110-250Hz):</strong> Warmth, body of bass instruments",
+        "<strong>Upper bass (250-500Hz):</strong> Punch and presence"
       ]
     },
+    
     {
       "title": "When to Use Bass Boost",
-      "type": "list",
       "content": [
         "Music with weak or thin bass response",
         "Podcasts and voice recordings lacking warmth",
@@ -42,9 +28,9 @@
         "Sound design for impact and power"
       ]
     },
+    
     {
       "title": "Bass Boost Tips",
-      "type": "list",
       "content": [
         "Start with small amounts (3-6dB) and adjust to taste",
         "Be careful not to muddy the mix with too much boost",

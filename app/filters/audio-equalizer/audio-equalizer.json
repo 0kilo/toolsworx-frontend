@@ -2,39 +2,25 @@
   "id": "audio-equalizer",
   "title": "Audio Equalizer",
   "description": "Adjust frequency bands to enhance your audio",
+  "pageTitle": "Audio Equalizer",
+  "pageDescription": "Adjust frequency bands to enhance your audio",
+  "aboutTitle": "About Audio Equalizer",
+  "aboutDescription": "An audio equalizer allows you to adjust the balance between frequency components of audio signals. Perfect for enhancing music, podcasts, and voice recordings.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Audio Equalizer",
-      "type": "text",
-      "content": [
-        "An audio equalizer allows you to adjust the balance between frequency components of audio signals. Perfect for enhancing music, podcasts, and voice recordings."
-      ]
-    },
-    {
-      "title": "Equalizer Formula",
-      "type": "list",
-      "content": [
-        "Parametric EQ: $H(f) = \\frac{1 + \\frac{G}{Q}\\frac{f/f_0}{1+(f/f_0)^2}}{1 + \\frac{1}{Q}\\frac{f/f_0}{1+(f/f_0)^2}}$",
-        "Where $G$ = gain, $Q$ = quality factor (bandwidth), $f_0$ = center frequency",
-        "Shelf filter for bass/treble: different transfer function",
-        "Each band independently adjusts frequency response"
-      ]
-    },
-    {
       "title": "Frequency Bands",
-      "type": "list",
       "content": [
-        "32-125Hz (Bass): Deep bass, kick drums, bass guitar fundamentals",
-        "250-500Hz (Low-Mid): Warmth, body of vocals and instruments",
-        "1-2kHz (Mid): Presence, clarity of vocals and lead instruments",
-        "4-8kHz (High-Mid): Brightness, attack of instruments",
-        "16kHz (Treble): Air, sparkle, cymbals and high harmonics"
+        "<strong>32-125Hz (Bass):</strong> Deep bass, kick drums, bass guitar fundamentals",
+        "<strong>250-500Hz (Low-Mid):</strong> Warmth, body of vocals and instruments",
+        "<strong>1-2kHz (Mid):</strong> Presence, clarity of vocals and lead instruments",
+        "<strong>4-8kHz (High-Mid):</strong> Brightness, attack of instruments",
+        "<strong>16kHz (Treble):</strong> Air, sparkle, cymbals and high harmonics"
       ]
     },
+    
     {
       "title": "EQ Tips",
-      "type": "list",
       "content": [
         "Boost frequencies sparingly - cutting is often more effective",
         "Use narrow Q (bandwidth) for problem frequencies",
@@ -43,14 +29,14 @@
         "Trust your ears over visual feedback"
       ]
     },
+    
     {
       "title": "Common Adjustments",
-      "type": "list",
       "content": [
-        "Vocal Enhancement: Slight boost at 2-5kHz for presence",
-        "Bass Boost: Gentle boost at 60-100Hz for warmth",
-        "Brightness: Boost 8-12kHz for air and sparkle",
-        "Mud Removal: Cut 200-500Hz to clean up muddiness"
+        "<strong>Vocal Enhancement:</strong> Slight boost at 2-5kHz for presence",
+        "<strong>Bass Boost:</strong> Gentle boost at 60-100Hz for warmth",
+        "<strong>Brightness:</strong> Boost 8-12kHz for air and sparkle",
+        "<strong>Mud Removal:</strong> Cut 200-500Hz to clean up muddiness"
       ]
     }
   ]

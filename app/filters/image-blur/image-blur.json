@@ -2,45 +2,30 @@
   "id": "image-blur",
   "title": "Blur Image",
   "description": "Apply blur effect to images",
+  "pageTitle": "Blur Image",
+  "pageDescription": "Apply blur effect to images",
+  "aboutTitle": "About Blur Image",
+  "aboutDescription": "Apply blur effects to images for artistic purposes, privacy protection, or to create depth of field effects. Adjustable blur intensity for precise control.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Blur Image",
-      "type": "text",
-      "content": [
-        "Apply blur effects to images for artistic purposes, privacy protection, or to create depth of field effects. Adjustable blur intensity for precise control."
-      ]
-    },
-    {
-      "title": "Gaussian Blur Formula",
-      "type": "list",
-      "content": [
-        "Convolution kernel: $G(x,y) = \\frac{1}{2\\pi\\sigma^2}e^{-\\frac{x^2+y^2}{2\\sigma^2}}$",
-        "Where $\\sigma$ = standard deviation (blur radius)",
-        "Larger $\\sigma$ = more blur",
-        "Applied to each pixel using weighted average of neighbors"
-      ]
-    },
-    {
       "title": "Blur Types",
-      "type": "list",
       "content": [
-        "Gaussian Blur: Smooth, natural-looking blur effect",
-        "Motion Blur: Simulates movement in a specific direction",
-        "Radial Blur: Blur radiating from a center point",
-        "Box Blur: Fast, uniform blur effect",
-        "Lens Blur: Simulates camera depth of field"
+        "<strong>Gaussian Blur:</strong> Smooth, natural-looking blur effect",
+        "<strong>Motion Blur:</strong> Simulates movement in a specific direction",
+        "<strong>Radial Blur:</strong> Blur radiating from a center point",
+        "<strong>Box Blur:</strong> Fast, uniform blur effect",
+        "<strong>Lens Blur:</strong> Simulates camera depth of field"
       ]
     },
     {
       "title": "Common Uses",
-      "type": "list",
       "content": [
-        "Privacy: Blur faces, license plates, or sensitive information",
-        "Artistic Effects: Create dreamy or soft-focus images",
-        "Background Blur: Emphasize subjects with bokeh effects",
-        "Reduce Noise: Smooth out grainy images",
-        "Web Graphics: Create subtle background effects"
+        "<strong>Privacy:</strong> Blur faces, license plates, or sensitive information",
+        "<strong>Artistic Effects:</strong> Create dreamy or soft-focus images",
+        "<strong>Background Blur:</strong> Emphasize subjects with bokeh effects",
+        "<strong>Reduce Noise:</strong> Smooth out grainy images",
+        "<strong>Web Graphics:</strong> Create subtle background effects"
       ]
     }
   ]

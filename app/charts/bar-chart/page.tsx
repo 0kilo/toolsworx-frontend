@@ -6,93 +6,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Download, ImageIcon, FileText } from "lucide-react"
-import * as d3 from "d3"
-
-interface BarData {
-  title: string
-  data: Array<{
-    label: string
-    value: number
-    color?: string
-  }>
-}
-
-const exampleData: BarData = {
-  title: "Sales by Quarter",
-  data: [
-    { label: "Q1", value: 120, color: "#3b82f6" },
-    { label: "Q2", value: 150, color: "#10b981" },
-    { label: "Q3", value: 180, color: "#f59e0b" },
-    { label: "Q4", value: 200, color: "#ef4444" }
-  ]
-}
-
-const exampleJson = `{
-  "title": "Sales by Quarter",
-  "data": [
-    { "label": "Q1", "value": 120, "color": "#3b82f6" },
-    { "label": "Q2", "value": 150, "color": "#10b981" },
-    { "label": "Q3", "value": 180, "color": "#f59e0b" },
-    { "label": "Q4", "value": 200, "color": "#ef4444" }
-  ]
-}`
+import { renderBarChart, exportBarChartSVG, exportBarChartJSON, type BarChartData } from "@/lib/tools/logic/charts/chart-bar"
+import toolContent from "./bar-chart.json"
 
 export default function BarChartPage() {
-  const [data, setData] = useState<BarData>(exampleData)
+  const [data, setData] = useState<BarChartData>(toolContent.exampleData as BarChartData)
   const chartRef = useRef<HTMLDivElement>(null)
 
   const renderChart = useCallback(() => {
     if (!chartRef.current || !data.data.length) return
-
-    d3.select(chartRef.current).selectAll('*').remove()
-
-    const margin = { top: 20, right: 30, bottom: 40, left: 40 }
-    const width = 600 - margin.left - margin.right
-    const height = 400 - margin.top - margin.bottom
-
-    const svg = d3.select(chartRef.current)
-      .append('svg')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-
-    const g = svg.append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`)
-
-    const x = d3.scaleBand()
-      .rangeRound([0, width])
-      .padding(0.1)
-      .domain(data.data.map(d => d.label))
-
-    const y = d3.scaleLinear()
-      .rangeRound([height, 0])
-      .domain([0, d3.max(data.data, d => d.value) || 0])
-
-    g.append('g')
-      .attr('transform', `translate(0,${height})`)
-      .call(d3.axisBottom(x))
-
-    g.append('g')
-      .call(d3.axisLeft(y))
-
-    g.selectAll('.bar')
-      .data(data.data)
-      .enter().append('rect')
-      .attr('class', 'bar')
-      .attr('x', d => x(d.label) || 0)
-      .attr('y', d => y(d.value))
-      .attr('width', x.bandwidth())
-      .attr('height', d => height - y(d.value))
-      .attr('fill', d => d.color || '#3b82f6')
-
-    g.selectAll('.value-label')
-      .data(data.data)
-      .enter().append('text')
-      .attr('class', 'value-label')
-      .attr('x', d => (x(d.label) || 0) + x.bandwidth() / 2)
-      .attr('y', d => y(d.value) - 5)
-      .attr('text-anchor', 'middle')
-      .attr('font-size', '12px')
-      .text(d => d.value)
+    renderBarChart(chartRef.current, data)
   }, [data])
 
   useEffect(() => {
@@ -101,38 +24,18 @@ export default function BarChartPage() {
 
   const handleDownload = () => {
     if (!chartRef.current) return
-    const svg = chartRef.current.querySelector('svg')
-    if (!svg) return
-
-    const serializer = new XMLSerializer()
-    const svgString = serializer.serializeToString(svg)
-    const blob = new Blob([svgString], { type: "image/svg+xml" })
-    const url = URL.createObjectURL(blob)
-    
-    const a = document.createElement("a")
-    a.href = url
-    a.download = `${data.title.replace(/\s+/g, "_")}_bar_chart.svg`
-    a.click()
-    URL.revokeObjectURL(url)
+    exportBarChartSVG(chartRef.current, data.title)
   }
 
   const handleExportJSON = () => {
-    const jsonString = JSON.stringify(data, null, 2)
-    const blob = new Blob([jsonString], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${data.title.replace(/\s+/g, '_')}_bar_chart.json`
-    a.click()
-    URL.revokeObjectURL(url)
+    exportBarChartJSON(data)
   }
 
   return (
     <div className="container py-8 space-y-6">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Bar Chart Generator</h1>
-        <p className="text-muted-foreground">Create interactive bar charts from your data</p>
+        <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
+        <p className="text-muted-foreground">{toolContent.pageDescription}</p>
       </div>
 
       <Card>
@@ -163,12 +66,12 @@ export default function BarChartPage() {
       </Card>
 
       <ChartTemplate
-        title="Chart Data"
-        description="Configure your bar chart using JSON data or import from external sources"
+        title={toolContent.chartDataTitle}
+        description={toolContent.chartDataDescription}
         data={data}
         onDataChange={setData}
         onDownload={handleDownload}
-        exampleJson={exampleJson}
+        exampleJson={toolContent.exampleJson}
       >
         <div></div>
       </ChartTemplate>

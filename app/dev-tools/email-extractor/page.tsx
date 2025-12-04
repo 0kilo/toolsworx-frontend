@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, Mail, Sparkles } from "lucide-react"
+import { extractEmails } from "@/lib/tools/logic/dev-tools/tool-email"
+import toolContent from "./email-extractor.json"
 
 export default function EmailExtractorPage() {
   const [input, setInput] = useState("")
@@ -23,14 +25,9 @@ export default function EmailExtractorPage() {
     }
 
     try {
-      // Email regex pattern
-      const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g
-      const emails = input.match(emailRegex)
-      
-      if (emails && emails.length > 0) {
-        // Remove duplicates and sort
-        const uniqueEmails = [...new Set(emails)].sort()
-        setOutput(uniqueEmails.join('\n'))
+      const result = extractEmails({ text: input })
+      if (result.emails.length > 0) {
+        setOutput(result.emails.join('\n'))
       } else {
         setOutput("No email addresses found")
       }
@@ -61,9 +58,9 @@ export default function EmailExtractorPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Email Extractor</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Extract email addresses from any text instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -146,39 +143,9 @@ export default function EmailExtractorPage() {
       </div>
 
       <AboutDescription
-        title="About Email Extractor"
-        description="Extract email addresses from any text using advanced regex patterns. Perfect for data processing, lead generation, and contact list management. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Extract emails from any text format",
-              "Automatic duplicate removal",
-              "Sorted alphabetical output",
-              "Copy results with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your text containing email addresses",
-              "Click 'Extract Emails' to find all valid emails",
-              "Copy the clean list of unique emails",
-              "Use for contact lists, lead generation, or data cleaning"
-            ]
-          },
-          {
-            title: "Supported Formats",
-            content: [
-              "Standard emails: user@domain.com",
-              "Subdomains: user@mail.domain.com", 
-              "Plus addressing: user+tag@domain.com",
-              "Dots in username: first.last@domain.com",
-              "Numbers and hyphens: user123@my-domain.org"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

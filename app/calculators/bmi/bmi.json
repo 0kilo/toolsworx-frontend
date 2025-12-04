@@ -1,8 +1,53 @@
 {
   "id": "bmi",
   "title": "BMI Calculator",
-  "description": "Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely used as a screening tool to identify potential weight problems.",
+  "description": "Calculate your Body Mass Index and understand your weight category",
+  "aboutDescription": "Body Mass Index (BMI) is a measure of body fat based on height and weight. It's widely used as a screening tool to identify potential weight problems.",
+  "icon": "Heart",
+  "resultTitle": "Your Results",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "weight",
+      "label": "Weight",
+      "type": "number",
+      "placeholder": "Enter weight",
+      "required": true,
+      "min": 20,
+      "max": 500,
+      "helpText": "Your weight"
+    },
+    {
+      "name": "weightUnit",
+      "label": "Weight Unit",
+      "type": "select",
+      "options": [
+        { "value": "kg", "label": "Kilograms (kg)" },
+        { "value": "lbs", "label": "Pounds (lbs)" }
+      ],
+      "required": true
+    },
+    {
+      "name": "height",
+      "label": "Height",
+      "type": "number",
+      "placeholder": "Enter height",
+      "required": true,
+      "min": 50,
+      "max": 300,
+      "helpText": "Your height"
+    },
+    {
+      "name": "heightUnit",
+      "label": "Height Unit",
+      "type": "select",
+      "options": [
+        { "value": "cm", "label": "Centimeters (cm)" },
+        { "value": "in", "label": "Inches (in)" }
+      ],
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "Formula",

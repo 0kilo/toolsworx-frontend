@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, Key, Sparkles } from "lucide-react"
+import { decodeJWT } from "@/lib/tools/logic/dev-tools/tool-jwt"
+import toolContent from "./jwt-decoder.json"
 
 export default function JWTDecoderPage() {
   const [input, setInput] = useState("")
@@ -23,26 +25,8 @@ export default function JWTDecoderPage() {
     }
 
     try {
-      // Simple JWT decoding without verification (frontend only)
-      const parts = input.trim().split('.')
-      
-      if (parts.length !== 3) {
-        setError("Invalid JWT format. JWT should have 3 parts separated by dots.")
-        return
-      }
-
-      // Decode header and payload (skip signature verification for frontend)
-      const header = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')))
-      const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')))
-      
-      const decoded = {
-        header,
-        payload,
-        signature: parts[2],
-        note: "⚠️ This is decode-only. Signature verification requires server-side validation."
-      }
-
-      setOutput(JSON.stringify(decoded, null, 2))
+      const result = decodeJWT({ token: input })
+      setOutput(JSON.stringify(result, null, 2))
     } catch (e: any) {
       setError(`Decoding failed: ${e.message}`)
     }
@@ -70,9 +54,9 @@ export default function JWTDecoderPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JWT Decoder</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Decode JWT tokens to view header and payload information
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -155,47 +139,9 @@ export default function JWTDecoderPage() {
       </div>
 
       <AboutDescription
-        title="About JWT Decoder"
-        description="Decode JSON Web Tokens (JWT) to view header and payload information. This tool decodes tokens client-side for inspection but does not verify signatures. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Decode JWT header and payload",
-              "View token expiration and claims",
-              "Copy decoded JSON with one click",
-              "100% client-side processing for privacy",
-              "No signature verification (decode only)"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your JWT token in the input field",
-              "Click 'Decode JWT' to extract information",
-              "Review the header, payload, and signature",
-              "Copy the decoded JSON for further analysis"
-            ]
-          },
-          {
-            title: "JWT Structure",
-            content: [
-              "<strong>Header:</strong> Contains algorithm and token type",
-              "<strong>Payload:</strong> Contains claims and user data",
-              "<strong>Signature:</strong> Used to verify token authenticity",
-              "Format: header.payload.signature (Base64 encoded)"
-            ]
-          },
-          {
-            title: "Security Note",
-            content: [
-              "This tool only decodes tokens - it does not verify signatures",
-              "Never trust JWT data without proper signature verification",
-              "Use server-side libraries for production token validation",
-              "Expired tokens should be rejected by your application"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

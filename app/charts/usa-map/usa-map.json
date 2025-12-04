@@ -1,7 +1,27 @@
 {
   "id": "usa-map",
   "title": "USA Map Chart Generator",
-  "description": "Create choropleth maps to visualize data across US states. USA maps are ideal for showing geographic distributions and regional comparisons.",
+  "description": "Create choropleth maps to visualize data across US states",
+  "pageTitle": "USA Map Chart Generator",
+  "pageDescription": "Create choropleth maps to visualize data across US states. USA maps are ideal for showing geographic distributions and regional comparisons.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your USA map with state-level data. Values determine circle size and color intensity.",
+  "exampleJson": "{\n  \"title\": \"Population by State (millions)\",\n  \"data\": [\n    { \"state\": \"California\", \"value\": 39.5 },\n    { \"state\": \"Texas\", \"value\": 29.1 },\n    { \"state\": \"Florida\", \"value\": 21.5 },\n    { \"state\": \"New York\", \"value\": 19.8 },\n    { \"state\": \"Pennsylvania\", \"value\": 13.0 }\n  ]\n}",
+  "exampleData": {
+    "title": "Population by State (millions)",
+    "data": [
+      { "state": "California", "value": 39.5 },
+      { "state": "Texas", "value": 29.1 },
+      { "state": "Florida", "value": 21.5 },
+      { "state": "New York", "value": 19.8 },
+      { "state": "Pennsylvania", "value": 13.0 },
+      { "state": "Illinois", "value": 12.8 },
+      { "state": "Ohio", "value": 11.8 },
+      { "state": "Georgia", "value": 10.7 },
+      { "state": "North Carolina", "value": 10.4 },
+      { "state": "Michigan", "value": 10.0 }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

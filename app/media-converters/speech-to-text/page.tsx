@@ -13,6 +13,7 @@ import { SpeechToText, SUPPORTED_LANGUAGES } from "@/lib/utils/speech-to-text"
 import { TranscriptionLimiter } from "@/lib/utils/transcription-limiter"
 import { Badge } from "@/components/ui/badge"
 import { FileDropzone } from "@/components/shared/file-dropzone"
+import toolContent from "./speech-to-text.json"
 
 export default function SpeechToTextPage() {
   const [transcript, setTranscript] = useState("")
@@ -185,9 +186,9 @@ export default function SpeechToTextPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Speech to Text Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Convert speech to text in real-time with support for 30+ languages
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -410,81 +411,9 @@ export default function SpeechToTextPage() {
           </Card>
 
           <AboutDescription
-            title="About Speech to Text"
-            description="Convert spoken words into written text using advanced speech recognition technology. Perfect for transcription, note-taking, and accessibility."
-            sections={[
-              {
-                title: "Two Transcription Modes",
-                content: [
-                  "Live Recording - Unlimited real-time transcription through your microphone (100% FREE)",
-                  "File Upload - Upload audio files for high-accuracy transcription (3 per 24 hours)",
-                  "Live mode uses browser Web Speech API (instant, no cost)",
-                  "File mode uses OpenAI Whisper (higher accuracy, better quality)",
-                ]
-              },
-              {
-                title: "Supported Languages",
-                content: [
-                  "English (US, UK) - Most accurate recognition",
-                  "Vietnamese (Tiếng Việt) - Full tone support",
-                  "Chinese (Mandarin, Cantonese, Traditional)",
-                  "Spanish (Spain, Mexico) - Multiple dialects",
-                  "French, German, Italian, Portuguese",
-                  "Japanese, Korean, Thai, Indonesian",
-                  "Arabic, Hindi, Russian, Turkish",
-                  "And 20+ additional languages"
-                ]
-              },
-              {
-                title: "File Upload Features",
-                content: [
-                  "Supported formats: MP3, WAV, FLAC, M4A, OGG",
-                  "Maximum file size: 25MB",
-                  "Limit: 3 transcriptions per 24 hours",
-                  "Powered by OpenAI Whisper for best accuracy",
-                  "Files are not stored - processed and discarded immediately",
-                  "Counter resets every 24 hours"
-                ]
-              },
-              {
-                title: "Common Use Cases",
-                content: [
-                  "Meeting notes and transcription",
-                  "Dictation for writing and emails",
-                  "Accessibility for hands-free input",
-                  "Language learning and pronunciation practice",
-                  "Interview transcription",
-                  "Voice memos and quick notes",
-                  "Podcast and video transcription",
-                  "Subtitle creation for videos"
-                ]
-              },
-              {
-                title: "Tips for Best Results",
-                content: [
-                  "Live Mode: Use a good quality microphone",
-                  "Live Mode: Minimize background noise",
-                  "File Mode: Clear audio yields better transcriptions",
-                  "Speak clearly and at a moderate pace",
-                  "Ensure stable internet connection",
-                  "Allow microphone permissions when prompted (live mode)",
-                  "Use Chrome, Edge, or Safari for best support",
-                  "Different languages may have varying accuracy levels"
-                ]
-              },
-              {
-                title: "Privacy & Cost",
-                content: [
-                  "Live mode: 100% FREE, unlimited use",
-                  "File mode: 3 transcriptions per 24 hours",
-                  "Audio files are NOT stored on our servers",
-                  "Files processed by OpenAI Whisper API",
-                  "Live audio processed by browser speech recognition",
-                  "Transcripts remain in your browser session",
-                  "Download or copy your transcript before closing the page"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

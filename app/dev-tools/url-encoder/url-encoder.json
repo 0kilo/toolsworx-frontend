@@ -1,12 +1,15 @@
 {
   "id": "url-encoder",
   "title": "URL Encoder/Decoder",
-  "description": "Encode and decode URLs for safe transmission. URL encoding converts special characters into a format that can be safely transmitted over the internet.",
+  "description": "Encode and decode URLs for safe transmission",
+  "pageTitle": "URL Encoder/Decoder",
+  "pageDescription": "Encode and decode URLs for safe transmission",
+  "aboutTitle": "About URL Encoding",
+  "aboutDescription": "Encode and decode URLs for safe transmission. URL encoding converts special characters into a format that can be safely transmitted over the internet. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "URL Encoding Rules",
-      "type": "list",
       "content": [
         "Alphanumeric characters (A-Z, a-z, 0-9) remain unchanged",
         "Special characters encoded as: $\\text{char} \\rightarrow \\%\\text{HEX}$",
@@ -17,7 +20,6 @@
     },
     {
       "title": "When to Use",
-      "type": "list",
       "content": [
         "Query parameters with special characters",
         "Form data submission",

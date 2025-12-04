@@ -1,55 +1,37 @@
 {
   "id": "spacetime",
-  "title": "Space-Time Converter",
-  "description": "Convert between astronomical distances and cosmic time scales",
+  "title": "Lorentz Transformation Calculator",
+  "description": "The Lorentz transformation describes how space and time coordinates change between reference frames moving at constant velocities in special relativity.",
   "category": "unit-conversions",
   "sections": [
     {
-      "title": "About Space-Time Conversion",
-      "type": "text",
+      "title": "Transformation Equations",
       "content": [
-        "Space-time conversion helps understand vast astronomical distances and cosmic time scales used in astronomy and astrophysics."
+        "x' = γ(x - vt) - Position transformation",
+        "t' = γ(t - vx/c²) - Time transformation",
+        "γ = 1/√(1 - v²/c²) - Lorentz factor",
+        "β = v/c - Velocity ratio to speed of light",
+        "c = 299,792,458 m/s - Speed of light (constant)"
       ]
     },
     {
-      "title": "Astronomical Distance Units",
-      "type": "list",
+      "title": "Key Concepts",
       "content": [
-        "Astronomical Unit (AU) - Earth-Sun distance",
-        "Light Year (ly) - Distance light travels in one year",
-        "Parsec (pc) - Parallax of one arcsecond",
-        "Light Second/Minute/Hour - Distance light travels in that time"
+        "Time Dilation: Moving clocks run slower (t' ≠ t)",
+        "Length Contraction: Moving objects appear shorter",
+        "Simultaneity: Events simultaneous in one frame may not be in another",
+        "Speed Limit: Nothing can travel faster than light (v < c)",
+        "Invariant Interval: s² = c²t² - x² remains constant"
       ]
     },
     {
-      "title": "Conversion Formulas",
-      "type": "list",
+      "title": "Applications",
       "content": [
-        "Light year: $1\\text{ ly} = c \\times 365.25 \\times 24 \\times 3600\\text{ s}$",
-        "Where $c = 299,792,458$ m/s (speed of light)",
-        "Parsec: $1\\text{ pc} = \\frac{1\\text{ AU}}{\\tan(1'')} \\approx 3.26\\text{ ly}$",
-        "AU to km: $1\\text{ AU} = 149,597,870.7$ km"
-      ]
-    },
-    {
-      "title": "Conversion Examples",
-      "type": "list",
-      "content": [
-        "1 AU = 149,597,871 km = 8.317 light minutes",
-        "1 light year = 9.461 trillion km = 63,241 AU",
-        "1 parsec = 3.26 light years = 206,265 AU",
-        "Speed of light = 299,792 km/s"
-      ]
-    },
-    {
-      "title": "Use Cases",
-      "type": "list",
-      "content": [
-        "Astronomy and astrophysics calculations",
-        "Understanding cosmic distances",
-        "Space mission planning",
-        "Educational astronomy",
-        "Science communication"
+        "Particle Physics: High-energy particle interactions",
+        "GPS Satellites: Time corrections for accurate positioning",
+        "Astronomy: Understanding relativistic jets and pulsars",
+        "Nuclear Physics: Particle accelerator calculations",
+        "Cosmology: Understanding space-time and black holes"
       ]
     }
   ]

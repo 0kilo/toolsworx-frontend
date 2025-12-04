@@ -13,6 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Download, Link, ImageIcon, FileText, FileSpreadsheet } from "lucide-react"
 import * as d3 from "d3"
 import { createProfessionalGanttExcel } from "@/lib/excel-gantt-formatter"
+import toolContent from "./gantt-chart.json"
 
 interface GanttTask {
   id: string
@@ -43,62 +44,8 @@ interface GanttData {
   recurrences?: GanttRecurrence[]
 }
 
-const exampleData: GanttData = {
-  title: "Project Timeline",
-  startDate: "2025-01-01",
-  endDate: "2025-12-31",
-  tasks: [
-    {
-      id: "task1",
-      name: "Planning Phase",
-      start: "2025-01-01",
-      end: "2025-01-15",
-      progress: 100
-    },
-    {
-      id: "task2", 
-      name: "Development",
-      start: "2025-01-10",
-      end: "2025-02-28",
-      progress: 60,
-      dependencies: ["task1"]
-    },
-    {
-      id: "task3",
-      name: "Testing",
-      start: "2025-02-20",
-      end: "2025-03-15",
-      progress: 20,
-      dependencies: ["task2"]
-    }
-  ]
-}
-
-const exampleJson = `{
-  "title": "Project Timeline",
-  "startDate": "2024-01-01",
-  "endDate": "2024-04-30",
-  "tasks": [
-    {
-      "id": "task1",
-      "name": "Planning Phase", 
-      "start": "2024-01-01",
-      "end": "2024-01-15",
-      "progress": 100
-    },
-    {
-      "id": "task2",
-      "name": "Development",
-      "start": "2024-01-10", 
-      "end": "2024-02-28",
-      "progress": 60,
-      "dependencies": ["task1"]
-    }
-  ]
-}`
-
 function GanttChartContent() {
-  const [data, setData] = useState<GanttData>(exampleData)
+  const [data, setData] = useState<GanttData>(toolContent.exampleData as GanttData)
   const [resolution, setResolution] = useState<number>(7)
   const [currentFileId, setCurrentFileId] = useState<string | null>(null)
   const searchParams = useSearchParams()
@@ -417,8 +364,8 @@ function GanttChartContent() {
     <div className="space-y-6">
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Gantt Chart Generator</h1>
-        <p className="text-muted-foreground">Create interactive project timelines with tasks, dependencies, and recurring events</p>
+        <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
+        <p className="text-muted-foreground">{toolContent.pageDescription}</p>
       </div>
 
       {/* Graphical Chart */}
@@ -477,13 +424,13 @@ function GanttChartContent() {
 
       {/* Chart Data */}
       <ChartTemplate
-        title="Chart Data"
-        description="Configure your chart using JSON data or import from external sources"
+        title={toolContent.chartDataTitle}
+        description={toolContent.chartDataDescription}
         data={data}
         onDataChange={setData}
         onDownload={handleDownload}
         onImport={handleImportFromDrive}
-        exampleJson={exampleJson}
+        exampleJson={toolContent.exampleJson}
       >
         <div></div>
       </ChartTemplate>

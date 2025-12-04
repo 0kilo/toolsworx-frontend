@@ -1,55 +1,55 @@
 {
   "id": "energy",
   "title": "Energy Converter",
-  "description": "Convert between joules, calories, BTU, kilowatt hours, and electron volts",
+  "description": "Energy conversion is fundamental in physics, engineering, and everyday applications from nutrition to power generation.",
   "category": "unit-conversions",
+  "icon": "Zap",
+  "units": [
+    { "value": "J", "label": "Joules", "abbreviation": "J" },
+    { "value": "kJ", "label": "Kilojoules", "abbreviation": "kJ" },
+    { "value": "cal", "label": "Calories", "abbreviation": "cal" },
+    { "value": "kcal", "label": "Kilocalories", "abbreviation": "kcal" },
+    { "value": "Wh", "label": "Watt Hours", "abbreviation": "Wh" },
+    { "value": "kWh", "label": "Kilowatt Hours", "abbreviation": "kWh" },
+    { "value": "BTU", "label": "British Thermal Units", "abbreviation": "BTU" },
+    { "value": "eV", "label": "Electron Volts", "abbreviation": "eV" },
+    { "value": "keV", "label": "Kiloelectron Volts", "abbreviation": "keV" },
+    { "value": "MeV", "label": "Megaelectron Volts", "abbreviation": "MeV" },
+    { "value": "GeV", "label": "Gigaelectron Volts", "abbreviation": "GeV" },
+    { "value": "ft-lbf", "label": "Foot-Pounds Force", "abbreviation": "ft·lbf" }
+  ],
+  "defaultFromUnit": "J",
+  "defaultToUnit": "cal",
   "sections": [
     {
-      "title": "About Energy Conversion",
-      "type": "text",
+      "title": "Common Energy Units",
       "content": [
-        "Energy conversion is essential for physics, engineering, nutrition, and understanding power consumption across different measurement systems."
+        "Joule (J): SI base unit of energy, work, and heat",
+        "Calorie (cal): Energy to heat 1g water by 1°C (4.184 J)",
+        "Kilocalorie (kcal): Food calories, 1000 calories",
+        "BTU: British Thermal Unit, energy to heat 1 lb water by 1°F",
+        "kWh: Kilowatt hour, electrical energy unit (3.6 MJ)",
+        "Electron Volt (eV): Energy of electron accelerated by 1 volt"
       ]
     },
     {
-      "title": "Energy Units",
-      "type": "list",
+      "title": "Energy Equivalents",
       "content": [
-        "Scientific: Joule (J), Kilojoule (kJ), Electron Volt (eV)",
-        "Thermal: Calorie (cal), Kilocalorie (kcal), British Thermal Unit (BTU)",
-        "Electrical: Kilowatt Hour (kWh), Watt Hour (Wh)",
-        "Food energy typically measured in kilocalories (kcal)"
+        "1 kWh = 3,600,000 J = 860,421 cal",
+        "1 BTU = 1,055 J = 252 cal",
+        "1 kcal = 4,184 J = 1.163 Wh",
+        "1 eV = 1.602 × 10⁻¹⁹ J",
+        "1 GeV = 1.602 × 10⁻¹⁰ J"
       ]
     },
     {
-      "title": "Conversion Formulas",
-      "type": "list",
+      "title": "Applications",
       "content": [
-        "Joules to calories: $\\text{cal} = \\frac{J}{4.184}$",
-        "kWh to joules: $J = \\text{kWh} \\times 3.6 \\times 10^6$",
-        "BTU to joules: $J = \\text{BTU} \\times 1055.06$",
-        "Kinetic energy: $E_k = \\frac{1}{2}mv^2$"
-      ]
-    },
-    {
-      "title": "Conversion Examples",
-      "type": "list",
-      "content": [
-        "1 kWh = 3,600,000 joules = 860 kilocalories",
-        "1 BTU = 1,055 joules = 0.252 kilocalories",
-        "1 kilocalorie = 4,184 joules = 3.97 BTU",
-        "1 joule = 0.239 calories"
-      ]
-    },
-    {
-      "title": "Use Cases",
-      "type": "list",
-      "content": [
-        "Electricity consumption calculations",
-        "Nutritional energy content",
-        "HVAC and heating system specifications",
-        "Physics and engineering calculations",
-        "Renewable energy system planning"
+        "Nutrition: Food energy in calories/kcal",
+        "Physics: Particle energies in electron volts",
+        "Engineering: Mechanical work in joules",
+        "Utilities: Electrical consumption in kWh",
+        "HVAC: Heating/cooling capacity in BTU"
       ]
     }
   ]

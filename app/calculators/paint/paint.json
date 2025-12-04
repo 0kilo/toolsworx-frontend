@@ -1,8 +1,45 @@
 {
   "id": "paint",
   "title": "Paint Calculator",
-  "description": "Calculate how many gallons of paint you need for your room.",
+  "description": "Calculate gallons of paint needed",
+  "aboutDescription": "Calculate how many gallons of paint you need for your room.",
+  "icon": "Paintbrush",
+  "resultTitle": "Paint Requirements",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "length",
+      "label": "Room Length (feet)",
+      "type": "number",
+      "placeholder": "Enter length",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "Room Width (feet)",
+      "type": "number",
+      "placeholder": "Enter width",
+      "required": true
+    },
+    {
+      "name": "height",
+      "label": "Wall Height (feet)",
+      "type": "number",
+      "placeholder": "Enter height",
+      "required": true
+    },
+    {
+      "name": "coats",
+      "label": "Number of Coats",
+      "type": "select",
+      "options": [
+        { "value": "1", "label": "1 Coat" },
+        { "value": "2", "label": "2 Coats" },
+        { "value": "3", "label": "3 Coats" }
+      ],
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "Formula",

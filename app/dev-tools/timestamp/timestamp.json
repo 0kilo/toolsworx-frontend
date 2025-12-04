@@ -1,12 +1,15 @@
 {
   "id": "timestamp",
   "title": "Timestamp Converter",
-  "description": "Convert between Unix timestamps and human-readable dates. Unix timestamps represent time as seconds since January 1, 1970 (Unix epoch).",
+  "description": "Convert between Unix timestamps and human-readable dates",
+  "pageTitle": "Timestamp Converter",
+  "pageDescription": "Convert between Unix timestamps and human-readable dates",
+  "aboutTitle": "About Timestamp Converter",
+  "aboutDescription": "Convert between Unix timestamps and human-readable dates. Unix timestamps represent time as seconds since January 1, 1970 (Unix epoch). All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Unix Timestamp Formula",
-      "type": "list",
       "content": [
         "Unix Timestamp: $t = \\text{seconds since 1970-01-01 00:00:00 UTC}$",
         "To Date: $\\text{Date} = \\text{Epoch} + (t \\times 1000)\\text{ ms}$",
@@ -16,7 +19,6 @@
     },
     {
       "title": "Common Use Cases",
-      "type": "list",
       "content": [
         "Database storage - efficient time representation",
         "API responses - standardized time format",

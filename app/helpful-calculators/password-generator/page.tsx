@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Slider } from "@/components/ui/slider"
 import { Copy, RefreshCw, Key } from "lucide-react"
+import { generatePassword } from "@/lib/tools/logic/helpful-calculators/helper-password"
+import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./password-generator.json"
 
 export default function PasswordGeneratorPage() {
   const [password, setPassword] = useState("")
@@ -18,23 +21,9 @@ export default function PasswordGeneratorPage() {
   const [symbols, setSymbols] = useState(true)
   const [copied, setCopied] = useState(false)
 
-  const generatePassword = () => {
-    let charset = ""
-    if (uppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    if (lowercase) charset += "abcdefghijklmnopqrstuvwxyz"
-    if (numbers) charset += "0123456789"
-    if (symbols) charset += "!@#$%^&*()_+-=[]{}|;:,.<>?"
-
-    if (charset === "") {
-      setPassword("")
-      return
-    }
-
-    let newPassword = ""
-    for (let i = 0; i < length; i++) {
-      newPassword += charset.charAt(Math.floor(Math.random() * charset.length))
-    }
-    setPassword(newPassword)
+  const handleGenerate = () => {
+    const result = generatePassword({ length, uppercase, lowercase, numbers, symbols })
+    setPassword(result.password)
     setCopied(false)
   }
 
@@ -60,9 +49,9 @@ export default function PasswordGeneratorPage() {
     <div className="container py-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Password Generator</h1>
+          <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
           <p className="text-muted-foreground">
-            Generate strong, secure passwords with customizable options
+            {toolContent.pageDescription}
           </p>
         </div>
 
@@ -180,7 +169,7 @@ export default function PasswordGeneratorPage() {
 
             {/* Action Buttons */}
             <div className="flex gap-2">
-              <Button onClick={generatePassword} className="flex-1">
+              <Button onClick={handleGenerate} className="flex-1">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Generate Password
               </Button>
@@ -223,19 +212,11 @@ export default function PasswordGeneratorPage() {
           </CardContent>
         </Card>
 
-        {/* Tips */}
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle>Password Security Tips</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm text-muted-foreground">
-            <p>• Use at least 12-16 characters for strong passwords</p>
-            <p>• Include a mix of uppercase, lowercase, numbers, and symbols</p>
-            <p>• Avoid using personal information or common words</p>
-            <p>• Use a unique password for each account</p>
-            <p>• Consider using a password manager to store passwords securely</p>
-          </CardContent>
-        </Card>
+        <AboutDescription
+          title={toolContent.aboutTitle}
+          description={toolContent.aboutDescription}
+          sections={toolContent.sections}
+        />
       </div>
     </div>
   )

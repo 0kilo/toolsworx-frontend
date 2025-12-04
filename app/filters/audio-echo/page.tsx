@@ -5,6 +5,7 @@ import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
+import toolContent from "./audio-echo.json"
 
 export default function AudioEchoPage() {
   const [delay, setDelay] = useState([500])
@@ -53,9 +54,9 @@ export default function AudioEchoPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Echo Effect</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Add echo with adjustable delay and decay
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -68,29 +69,9 @@ export default function AudioEchoPage() {
           />
 
           <AboutDescription
-            title="About Echo Effect"
-            description="Echo creates distinct repetitions of the original sound with adjustable delay time and decay rate. Perfect for creating depth and rhythmic interest in audio."
-            sections={[
-              {
-                title: "Echo Parameters",
-                content: [
-                  "<strong>Delay Time:</strong> Time between original sound and echo (100-2000ms)",
-                  "<strong>Decay Rate:</strong> How quickly each echo fades out",
-                  "<strong>Feedback:</strong> Amount of echo fed back to create multiple repeats",
-                  "<strong>Mix Level:</strong> Balance between dry and wet signal"
-                ]
-              },
-              {
-                title: "Creative Uses",
-                content: [
-                  "Vocals: Create dramatic effects or simulate large spaces",
-                  "Guitars: Classic slapback echo for rockabilly and country",
-                  "Drums: Add rhythmic interest to snare hits",
-                  "Sound Design: Create sci-fi and atmospheric effects",
-                  "Dub Music: Essential for reggae and dub production"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
         <div className="lg:col-span-1"></div>

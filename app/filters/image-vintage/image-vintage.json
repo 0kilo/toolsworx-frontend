@@ -2,35 +2,30 @@
   "id": "image-vintage",
   "title": "Vintage Filter",
   "description": "Apply vintage photo effect",
+  "pageTitle": "Vintage Filter",
+  "pageDescription": "Apply vintage photo effect",
+  "aboutTitle": "About Vintage Filter",
+  "aboutDescription": "Vintage filter creates an aged, retro look by combining faded colors, grain, vignetting, and light leaks to simulate old film photography.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Vintage Filter",
-      "type": "text",
-      "content": [
-        "Vintage filter creates an aged, retro look by combining faded colors, grain, vignetting, and light leaks to simulate old film photography."
-      ]
-    },
-    {
       "title": "Vintage Effect Components",
-      "type": "list",
       "content": [
-        "Faded Colors: Reduced saturation for aged appearance",
-        "Film Grain: Adds texture like old film stock",
-        "Vignetting: Darkened corners and edges",
-        "Light Leaks: Simulates film exposure artifacts",
-        "Color Shifts: Warm or cool tones for period looks"
+        "<strong>Faded Colors:</strong> Reduced saturation for aged appearance",
+        "<strong>Film Grain:</strong> Adds texture like old film stock",
+        "<strong>Vignetting:</strong> Darkened corners and edges",
+        "<strong>Light Leaks:</strong> Simulates film exposure artifacts",
+        "<strong>Color Shifts:</strong> Warm or cool tones for period looks"
       ]
     },
     {
       "title": "Popular Vintage Styles",
-      "type": "list",
       "content": [
-        "1970s: Warm tones, high contrast, orange/brown hues",
-        "1980s: Faded pastels, soft focus, pink/purple tints",
-        "Polaroid: Instant film look with characteristic borders",
-        "Film Noir: High contrast black and white",
-        "Cross-processed: Unusual color shifts and high saturation"
+        "<strong>1970s:</strong> Warm tones, high contrast, orange/brown hues",
+        "<strong>1980s:</strong> Faded pastels, soft focus, pink/purple tints",
+        "<strong>Polaroid:</strong> Instant film look with characteristic borders",
+        "<strong>Film Noir:</strong> High contrast black and white",
+        "<strong>Cross-processed:</strong> Unusual color shifts and high saturation"
       ]
     }
   ]

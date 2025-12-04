@@ -1,12 +1,15 @@
 {
   "id": "base64",
   "title": "Base64 Encoder/Decoder",
-  "description": "Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format. It's commonly used to encode data in emails, URLs, and data URIs.",
+  "description": "Encode and decode Base64 strings instantly",
+  "pageTitle": "Base64 Encoder/Decoder",
+  "pageDescription": "Encode and decode Base64 strings instantly",
+  "aboutTitle": "About Base64 Encoding",
+  "aboutDescription": "Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format. It's commonly used to encode data in emails, URLs, and data URIs.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Encoding Algorithm",
-      "type": "list",
       "content": [
         "Groups input into 3-byte (24-bit) chunks",
         "Divides each chunk into four 6-bit groups",
@@ -16,15 +19,7 @@
       ]
     },
     {
-      "title": "About Base64 Encoding",
-      "type": "text",
-      "content": [
-        "Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format. It's commonly used to encode data in emails, URLs, and data URIs."
-      ]
-    },
-    {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "Encoding binary data for transmission over text-based protocols",
         "Embedding images in HTML/CSS using data URIs",

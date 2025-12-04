@@ -1,8 +1,20 @@
 {
   "id": "pregnancy",
   "title": "Pregnancy Due Date Calculator",
-  "description": "Calculate your due date and track pregnancy progress based on your last menstrual period.",
+  "description": "Calculate your due date and weeks pregnant",
+  "aboutDescription": "Calculate your due date and track pregnancy progress based on your last menstrual period.",
+  "icon": "Baby",
+  "resultTitle": "Your Pregnancy Timeline",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "lastPeriod",
+      "label": "First Day of Last Period",
+      "type": "date",
+      "required": true,
+      "helpText": "Enter the first day of your last menstrual period"
+    }
+  ],
   "sections": [
     {
       "title": "Formula",

@@ -1,7 +1,24 @@
 {
   "id": "area-chart",
   "title": "Area Chart Generator",
-  "description": "Create area charts to show cumulative data over time. Area charts are ideal for displaying trends and emphasizing the magnitude of change.",
+  "description": "Create area charts to show cumulative data over time",
+  "pageTitle": "Area Chart Generator",
+  "pageDescription": "Create area charts to show cumulative data over time. Area charts are ideal for displaying trends and emphasizing the magnitude of change.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your area chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Website Traffic\",\n  \"color\": \"#3b82f6\",\n  \"data\": [\n    { \"x\": \"Jan\", \"y\": 1000 },\n    { \"x\": \"Feb\", \"y\": 1200 },\n    { \"x\": \"Mar\", \"y\": 1500 },\n    { \"x\": \"Apr\", \"y\": 1800 },\n    { \"x\": \"May\", \"y\": 2200 },\n    { \"x\": \"Jun\", \"y\": 2000 }\n  ]\n}",
+  "exampleData": {
+    "title": "Website Traffic",
+    "color": "#3b82f6",
+    "data": [
+      { "x": "Jan", "y": 1000 },
+      { "x": "Feb", "y": 1200 },
+      { "x": "Mar", "y": 1500 },
+      { "x": "Apr", "y": 1800 },
+      { "x": "May", "y": 2200 },
+      { "x": "Jun", "y": 2000 }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

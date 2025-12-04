@@ -1,7 +1,22 @@
 {
   "id": "scatter-chart",
   "title": "Scatter Chart Generator",
-  "description": "Create scatter plots to show correlations between two variables. Scatter charts are ideal for identifying relationships and patterns in data.",
+  "description": "Create scatter plots to show correlations between two variables",
+  "pageTitle": "Scatter Chart Generator",
+  "pageDescription": "Create scatter plots to show correlations between two variables. Scatter charts are ideal for identifying relationships and patterns in data.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your scatter chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Sales vs Marketing Spend\",\n  \"data\": [\n    { \"x\": 100, \"y\": 200, \"label\": \"Q1\", \"color\": \"#3b82f6\" },\n    { \"x\": 150, \"y\": 300, \"label\": \"Q2\", \"color\": \"#10b981\" },\n    { \"x\": 200, \"y\": 450, \"label\": \"Q3\", \"color\": \"#f59e0b\" },\n    { \"x\": 250, \"y\": 500, \"label\": \"Q4\", \"color\": \"#ef4444\" }\n  ]\n}",
+  "exampleData": {
+    "title": "Sales vs Marketing Spend",
+    "data": [
+      { "x": 100, "y": 200, "label": "Q1", "color": "#3b82f6" },
+      { "x": 150, "y": 300, "label": "Q2", "color": "#10b981" },
+      { "x": 200, "y": 450, "label": "Q3", "color": "#f59e0b" },
+      { "x": 250, "y": 500, "label": "Q4", "color": "#ef4444" },
+      { "x": 180, "y": 380, "label": "Q5", "color": "#8b5cf6" }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

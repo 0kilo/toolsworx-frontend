@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Download, ImageIcon, FileText } from "lucide-react"
 import * as d3 from "d3"
+import toolContent from "./sunburst-chart.json"
 
 interface SunburstNode {
   name: string
@@ -19,72 +20,8 @@ interface SunburstData {
   data: SunburstNode
 }
 
-const exampleData: SunburstData = {
-  title: "Organization Structure",
-  data: {
-    name: "Company",
-    children: [
-      {
-        name: "Engineering",
-        children: [
-          { name: "Frontend", value: 30 },
-          { name: "Backend", value: 40 },
-          { name: "DevOps", value: 20 }
-        ]
-      },
-      {
-        name: "Sales",
-        children: [
-          { name: "Enterprise", value: 50 },
-          { name: "SMB", value: 30 }
-        ]
-      },
-      {
-        name: "Marketing",
-        children: [
-          { name: "Content", value: 25 },
-          { name: "Social", value: 15 },
-          { name: "SEO", value: 20 }
-        ]
-      }
-    ]
-  }
-}
-
-const exampleJson = `{
-  "title": "Organization Structure",
-  "data": {
-    "name": "Company",
-    "children": [
-      {
-        "name": "Engineering",
-        "children": [
-          { "name": "Frontend", "value": 30 },
-          { "name": "Backend", "value": 40 },
-          { "name": "DevOps", "value": 20 }
-        ]
-      },
-      {
-        "name": "Sales",
-        "children": [
-          { "name": "Enterprise", "value": 50 },
-          { "name": "SMB", "value": 30 }
-        ]
-      },
-      {
-        "name": "Marketing",
-        "children": [
-          { "name": "Content", "value": 25 },
-          { "name": "Social", "value": 15 },
-          { "name": "SEO", "value": 20 }
-        ]
-      }
-    ]
-  }
-}`
-
 export default function SunburstChartPage() {
-  const [data, setData] = useState<SunburstData>(exampleData)
+  const [data, setData] = useState<SunburstData>(toolContent.exampleData as SunburstData)
   const chartRef = useRef<HTMLDivElement>(null)
 
   const renderChart = useCallback(() => {
@@ -185,8 +122,8 @@ export default function SunburstChartPage() {
   return (
     <div className="container py-8 space-y-6">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Sunburst Chart Generator</h1>
-        <p className="text-muted-foreground">Create hierarchical sunburst charts to visualize nested data structures</p>
+        <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
+        <p className="text-muted-foreground">{toolContent.pageDescription}</p>
       </div>
 
       <Card>
@@ -217,12 +154,12 @@ export default function SunburstChartPage() {
       </Card>
 
       <ChartTemplate
-        title="Chart Data"
-        description="Configure your sunburst chart using hierarchical JSON data"
+        title={toolContent.chartDataTitle}
+        description={toolContent.chartDataDescription}
         data={data}
         onDataChange={setData}
         onDownload={handleDownload}
-        exampleJson={exampleJson}
+        exampleJson={toolContent.exampleJson}
       >
         <div></div>
       </ChartTemplate>

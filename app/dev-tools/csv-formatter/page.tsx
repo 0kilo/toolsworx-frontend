@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, Table, Sparkles } from "lucide-react"
+import { formatCSV, csvToJSON } from "@/lib/tools/logic/dev-tools/tool-csv"
+import toolContent from "./csv-formatter.json"
 
 export default function CSVFormatterPage() {
   const [input, setInput] = useState("")
@@ -23,49 +25,11 @@ export default function CSVFormatterPage() {
     }
 
     try {
-      // Simple CSV parsing and formatting (frontend only)
-      const lines = input.trim().split('\n')
-      const rows = lines.map(line => parseCSVLine(line))
-      
-      // Find max width for each column
-      const maxWidths = rows.reduce((widths, row) => {
-        row.forEach((cell, index) => {
-          widths[index] = Math.max(widths[index] || 0, cell.length)
-        })
-        return widths
-      }, [] as number[])
-
-      // Format as aligned table
-      const formatted = rows.map(row => 
-        row.map((cell, index) => cell.padEnd(maxWidths[index] || 0)).join(' | ')
-      ).join('\n')
-
-      setOutput(formatted)
+      const result = formatCSV({ csv: input })
+      setOutput(result.formatted)
     } catch (e: any) {
       setError(`Formatting failed: ${e.message}`)
     }
-  }
-
-  const parseCSVLine = (line: string): string[] => {
-    const result = []
-    let current = ''
-    let inQuotes = false
-    
-    for (let i = 0; i < line.length; i++) {
-      const char = line[i]
-      
-      if (char === '"') {
-        inQuotes = !inQuotes
-      } else if (char === ',' && !inQuotes) {
-        result.push(current.trim())
-        current = ''
-      } else {
-        current += char
-      }
-    }
-    
-    result.push(current.trim())
-    return result
   }
 
   const convertToJSON = () => {
@@ -78,23 +42,8 @@ export default function CSVFormatterPage() {
     }
 
     try {
-      const lines = input.trim().split('\n')
-      if (lines.length < 2) {
-        setError("CSV must have at least a header row and one data row")
-        return
-      }
-
-      const headers = parseCSVLine(lines[0])
-      const data = lines.slice(1).map(line => {
-        const values = parseCSVLine(line)
-        const obj: Record<string, string> = {}
-        headers.forEach((header, index) => {
-          obj[header] = values[index] || ''
-        })
-        return obj
-      })
-
-      setOutput(JSON.stringify(data, null, 2))
+      const result = csvToJSON({ csv: input })
+      setOutput(result.json)
     } catch (e: any) {
       setError(`Conversion failed: ${e.message}`)
     }
@@ -122,9 +71,9 @@ export default function CSVFormatterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">CSV Formatter</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Format CSV data as aligned tables or convert to JSON
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -210,39 +159,9 @@ export default function CSVFormatterPage() {
       </div>
 
       <AboutDescription
-        title="About CSV Formatter"
-        description="Format CSV data as aligned tables or convert to JSON format. Perfect for data analysis, reporting, and data transformation tasks. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Format CSV as aligned, readable tables",
-              "Convert CSV to JSON format",
-              "Handle quoted fields and commas",
-              "Copy formatted results with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your CSV data in the input field",
-              "Click 'Format Table' for aligned table view",
-              "Click 'Convert to JSON' for JSON format",
-              "Copy the result for use in other applications"
-            ]
-          },
-          {
-            title: "CSV Best Practices",
-            content: [
-              "Use quotes around fields containing commas",
-              "Include header row for better JSON conversion",
-              "Escape quotes within fields by doubling them",
-              "Keep consistent column count across rows",
-              "Use UTF-8 encoding for international characters"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

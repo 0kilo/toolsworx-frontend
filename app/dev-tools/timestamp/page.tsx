@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Clock, Copy, Check } from "lucide-react"
+import { timestampToDate, dateToTimestamp, getCurrentTimestamp } from "@/lib/tools/logic/dev-tools/tool-timestamp"
+import toolContent from "./timestamp.json"
 
 export default function TimestampPage() {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -23,9 +25,8 @@ export default function TimestampPage() {
 
   const handleTimestampToDate = () => {
     try {
-      const timestamp = parseInt(inputTimestamp)
-      const date = new Date(timestamp * 1000)
-      setConvertedDate(date.toISOString())
+      const result = timestampToDate({ timestamp: parseInt(inputTimestamp) })
+      setConvertedDate(result.date)
     } catch (error) {
       setConvertedDate("Invalid timestamp")
     }
@@ -33,9 +34,8 @@ export default function TimestampPage() {
 
   const handleDateToTimestamp = () => {
     try {
-      const date = new Date(inputDate)
-      const timestamp = Math.floor(date.getTime() / 1000)
-      setConvertedTimestamp(timestamp.toString())
+      const result = dateToTimestamp({ date: inputDate })
+      setConvertedTimestamp(result.timestamp.toString())
     } catch (error) {
       setConvertedTimestamp("Invalid date")
     }
@@ -51,16 +51,16 @@ export default function TimestampPage() {
     }
   }
 
-  const currentTimestamp = Math.floor(currentTime.getTime() / 1000)
+  const currentTimestamp = getCurrentTimestamp()
 
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Timestamp Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Convert between Unix timestamps and human-readable dates
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -179,28 +179,9 @@ export default function TimestampPage() {
 
 
           <AboutDescription
-            title="About Unix Timestamps"
-            description="Unix timestamps represent time as seconds since January 1, 1970 (Unix epoch). They're widely used in programming and databases."
-            sections={[
-              {
-                title: "Common Use Cases",
-                content: [
-                  "Database storage - efficient time representation",
-                  "API responses - standardized time format",
-                  "Log files - precise event timing",
-                  "Caching - expiration time calculation"
-                ]
-              },
-              {
-                title: "Timestamp Formats",
-                content: [
-                  "Unix timestamp: 1640995200 (seconds since epoch)",
-                  "JavaScript timestamp: 1640995200000 (milliseconds)",
-                  "ISO 8601: 2022-01-01T00:00:00.000Z",
-                  "Human readable: January 1, 2022 12:00:00 AM UTC"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

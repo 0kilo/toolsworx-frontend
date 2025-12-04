@@ -1,7 +1,42 @@
 {
   "id": "gantt-chart",
   "title": "Gantt Chart Generator",
-  "description": "Create interactive project timelines with tasks, dependencies, and recurring events. Gantt charts are essential for project management and scheduling.",
+  "description": "Create interactive project timelines with tasks, dependencies, and recurring events",
+  "pageTitle": "Gantt Chart Generator",
+  "pageDescription": "Create interactive project timelines with tasks, dependencies, and recurring events. Gantt charts are essential for project management and scheduling.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Project Timeline\",\n  \"startDate\": \"2024-01-01\",\n  \"endDate\": \"2024-04-30\",\n  \"tasks\": [\n    {\n      \"id\": \"task1\",\n      \"name\": \"Planning Phase\", \n      \"start\": \"2024-01-01\",\n      \"end\": \"2024-01-15\",\n      \"progress\": 100\n    },\n    {\n      \"id\": \"task2\",\n      \"name\": \"Development\",\n      \"start\": \"2024-01-10\", \n      \"end\": \"2024-02-28\",\n      \"progress\": 60,\n      \"dependencies\": [\"task1\"]\n    }\n  ]\n}",
+  "exampleData": {
+    "title": "Project Timeline",
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "tasks": [
+      {
+        "id": "task1",
+        "name": "Planning Phase",
+        "start": "2025-01-01",
+        "end": "2025-01-15",
+        "progress": 100
+      },
+      {
+        "id": "task2", 
+        "name": "Development",
+        "start": "2025-01-10",
+        "end": "2025-02-28",
+        "progress": 60,
+        "dependencies": ["task1"]
+      },
+      {
+        "id": "task3",
+        "name": "Testing",
+        "start": "2025-02-20",
+        "end": "2025-03-15",
+        "progress": 20,
+        "dependencies": ["task2"]
+      }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

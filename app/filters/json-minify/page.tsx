@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AboutDescription } from "@/components/ui/about-description"
 import { Button } from "@/components/ui/button"
 import { Upload, Download } from "lucide-react"
+import toolContent from "./json-minify.json"
 
 export default function JsonMinify_Page() {
   return (
@@ -11,9 +12,9 @@ export default function JsonMinify_Page() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Minify JSON</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Compress JSON by removing whitespace
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -44,28 +45,9 @@ export default function JsonMinify_Page() {
 
 
           <AboutDescription
-            title="About Minify JSON"
-            description="Compress JSON by removing whitespace This conversion maintains quality and formatting while ensuring your privacy with automatic file deletion."
-            sections={[
-              {
-                title: "How It Works",
-                content: [
-                  "Upload your source file",
-                  "File is converted using industry-standard tools",
-                  "Download your converted file instantly",
-                  "Files are automatically deleted after 1 hour"
-                ]
-              },
-              {
-                title: "Features",
-                content: [
-                  "Fast and reliable conversion",
-                  "Maintains formatting and quality",
-                  "Secure processing with auto-deletion",
-                  "No registration required"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

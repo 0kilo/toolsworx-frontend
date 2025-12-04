@@ -1,80 +1,50 @@
 "use client"
 
-import { Metadata } from "next"
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Percent } from "lucide-react"
+import * as Icons from "lucide-react"
 import toolContent from "./percentage.json"
+import { calculatePercentage, PercentageInput } from "@/lib/tools/logic/calculators/calculator-percentage"
 
-const fields: CalculatorField[] = [
-  {
-    name: "value",
-    label: "Value",
-    type: "number",
-    placeholder: "Enter value",
-    required: true,
-    helpText: "The number to calculate percentage from",
-  },
-  {
-    name: "percentage",
-    label: "Percentage",
-    type: "number",
-    placeholder: "Enter percentage",
-    required: true,
-    helpText: "The percentage to calculate (e.g., 25 for 25%)",
-  },
-  {
-    name: "total",
-    label: "Total (optional)",
-    type: "number",
-    placeholder: "Enter total",
-    required: false,
-    helpText: "For calculating what percentage a value is of a total",
-  },
-]
+function handleCalculate(values: Record<string, string>): CalculatorResult[] {
+  const input: PercentageInput = {
+    value: parseFloat(values.value) || 0,
+    percentage: parseFloat(values.percentage) || 0,
+    total: parseFloat(values.total) || undefined,
+  }
 
-function calculatePercentage(values: Record<string, string>): CalculatorResult[] {
-  const value = parseFloat(values.value) || 0
-  const percentage = parseFloat(values.percentage) || 0
-  const total = parseFloat(values.total) || 0
-
+  const result = calculatePercentage(input)
   const results: CalculatorResult[] = []
 
-  // Calculate percentage of value
-  if (value && percentage) {
-    const percentageOfValue = (value * percentage) / 100
+  if (result.percentageOf !== undefined) {
     results.push({
-      label: `${percentage}% of ${value}`,
-      value: percentageOfValue.toFixed(2),
+      label: `${input.percentage}% of ${input.value}`,
+      value: result.percentageOf.toFixed(2),
       format: "number",
       highlight: true,
     })
   }
 
-  // Calculate what percentage value is of total
-  if (value && total && total !== 0) {
-    const valueAsPercentage = (value / total) * 100
+  if (result.valueAsPercentage !== undefined) {
     results.push({
-      label: `${value} is what % of ${total}`,
-      value: `${valueAsPercentage.toFixed(2)}%`,
+      label: `${input.value} is what % of ${input.total}`,
+      value: `${result.valueAsPercentage}%`,
       format: "text",
     })
   }
 
-  // Calculate percentage increase/decrease
-  if (value && percentage) {
-    const increase = value + (value * percentage) / 100
-    const decrease = value - (value * percentage) / 100
-    
+  if (result.increase !== undefined) {
     results.push({
-      label: `${value} + ${percentage}%`,
-      value: increase.toFixed(2),
+      label: `${input.value} + ${input.percentage}%`,
+      value: result.increase.toFixed(2),
       format: "number",
     })
-    
+  }
+
+  if (result.decrease !== undefined) {
     results.push({
-      label: `${value} - ${percentage}%`,
-      value: decrease.toFixed(2),
+      label: `${input.value} - ${input.percentage}%`,
+      value: result.decrease.toFixed(2),
       format: "number",
     })
   }
@@ -82,30 +52,32 @@ function calculatePercentage(values: Record<string, string>): CalculatorResult[]
   return results
 }
 
-const infoContent = (
-  <AboutDescription
-    title={`About ${toolContent.title}`}
-    description={toolContent.description}
-    sections={toolContent.sections.map(section => ({
-      title: section.title,
-      content: section.content,
-      type: section.type as 'list' | 'subsections' | undefined
-    }))}
-  />
-)
-
 export default function PercentageCalculatorPage() {
+  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
+  
+  const infoContent = (
+    <AboutDescription
+      title={`About ${toolContent.title}`}
+      description={toolContent.aboutDescription}
+      sections={toolContent.sections.map(section => ({
+        title: section.title,
+        content: section.content,
+        type: section.type as 'list' | 'subsections' | undefined
+      }))}
+    />
+  )
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <CalculatorTemplate
-            title="Percentage Calculator"
-            description="Calculate percentages, increases, decreases, and ratios"
-            icon={Percent}
-            fields={fields}
-            onCalculate={calculatePercentage}
-            resultTitle="Your Results"
+            title={toolContent.title}
+            description={toolContent.description}
+            icon={Icon}
+            fields={toolContent.fields as CalculatorField[]}
+            onCalculate={handleCalculate}
+            resultTitle={toolContent.resultTitle}
             infoContent={infoContent}
           />
         </div>

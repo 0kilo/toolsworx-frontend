@@ -1,12 +1,15 @@
 {
   "id": "uuid-generator",
   "title": "UUID Generator",
-  "description": "Generate unique UUIDs (Universally Unique Identifiers). A UUID is a 128-bit number used to uniquely identify information in computer systems.",
+  "description": "Generate unique UUIDs (Universally Unique Identifiers)",
+  "pageTitle": "UUID Generator",
+  "pageDescription": "Generate unique UUIDs (Universally Unique Identifiers)",
+  "aboutTitle": "About UUIDs",
+  "aboutDescription": "A UUID (Universally Unique Identifier) is a 128-bit number used to uniquely identify information in computer systems. The probability of generating duplicate UUIDs is negligibly small.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "UUID Format",
-      "type": "list",
       "content": [
         "Format: $\\text{xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx}$",
         "128-bit number (32 hexadecimal digits)",
@@ -16,8 +19,13 @@
       ]
     },
     {
+      "title": "UUID Version 4",
+      "content": [
+        "This tool generates Version 4 UUIDs, which are randomly generated. The 4 most significant bits of the 7th byte are set to 0100 (version 4), and the 2-3 most significant bits of the 9th byte are set to 10 (variant 1)."
+      ]
+    },
+    {
       "title": "Common Uses",
-      "type": "list",
       "content": [
         "Database primary keys",
         "Session identifiers",

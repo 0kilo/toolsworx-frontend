@@ -1,7 +1,22 @@
 {
   "id": "pie-chart",
   "title": "Pie Chart Generator",
-  "description": "Create interactive pie charts to show proportional data. Pie charts are ideal for displaying parts of a whole and percentage distributions.",
+  "description": "Create interactive pie charts to show proportional data",
+  "pageTitle": "Pie Chart Generator",
+  "pageDescription": "Create interactive pie charts to show proportional data. Pie charts are ideal for displaying parts of a whole and percentage distributions.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your pie chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Market Share\",\n  \"data\": [\n    { \"label\": \"Product A\", \"value\": 30, \"color\": \"#3b82f6\" },\n    { \"label\": \"Product B\", \"value\": 25, \"color\": \"#10b981\" },\n    { \"label\": \"Product C\", \"value\": 20, \"color\": \"#f59e0b\" },\n    { \"label\": \"Product D\", \"value\": 15, \"color\": \"#ef4444\" },\n    { \"label\": \"Others\", \"value\": 10, \"color\": \"#8b5cf6\" }\n  ]\n}",
+  "exampleData": {
+    "title": "Market Share",
+    "data": [
+      { "label": "Product A", "value": 30, "color": "#3b82f6" },
+      { "label": "Product B", "value": 25, "color": "#10b981" },
+      { "label": "Product C", "value": 20, "color": "#f59e0b" },
+      { "label": "Product D", "value": 15, "color": "#ef4444" },
+      { "label": "Others", "value": 10, "color": "#8b5cf6" }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

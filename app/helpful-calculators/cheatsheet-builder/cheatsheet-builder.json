@@ -2,18 +2,14 @@
   "id": "cheatsheet-builder",
   "title": "Cheatsheet Builder",
   "description": "Create custom cheatsheets with LaTeX support and export to PDF or TXT",
+  "pageTitle": "Cheatsheet Builder",
+  "pageDescription": "Create custom cheatsheets with LaTeX support and export to PDF or TXT",
+  "aboutTitle": "About Cheatsheet Builder",
+  "aboutDescription": "Create custom cheatsheets with LaTeX mathematical notation support, perfect for studying and quick reference.",
   "category": "helpful-calculators",
   "sections": [
     {
-      "title": "About Cheatsheet Builder",
-      "type": "text",
-      "content": [
-        "Create custom cheatsheets with LaTeX mathematical notation support, perfect for studying and quick reference."
-      ]
-    },
-    {
       "title": "Features",
-      "type": "list",
       "content": [
         "Create unlimited cheatsheets for free",
         "LaTeX support for mathematical formulas",
@@ -26,7 +22,6 @@
     },
     {
       "title": "LaTeX Math Support",
-      "type": "list",
       "content": [
         "Inline math: Use $formula$ for inline equations",
         "Display math: Use $$formula$$ for centered equations",
@@ -38,7 +33,6 @@
     },
     {
       "title": "Common Use Cases",
-      "type": "list",
       "content": [
         "Math and science formula sheets",
         "Exam quick reference guides",
@@ -50,7 +44,6 @@
     },
     {
       "title": "Export Options",
-      "type": "list",
       "content": [
         "PDF - High quality, preserves formatting and LaTeX rendering",
         "TXT - Plain text with raw LaTeX formulas",

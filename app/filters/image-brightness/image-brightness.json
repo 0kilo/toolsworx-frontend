@@ -2,39 +2,24 @@
   "id": "image-brightness",
   "title": "Adjust Brightness",
   "description": "Adjust image brightness levels",
+  "pageTitle": "Adjust Brightness",
+  "pageDescription": "Adjust image brightness levels",
+  "aboutTitle": "About Adjust Brightness",
+  "aboutDescription": "Adjust the brightness of your images to correct exposure, enhance visibility, or create specific moods. Fine-tune light levels for perfect results.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Adjust Brightness",
-      "type": "text",
-      "content": [
-        "Adjust the brightness of your images to correct exposure, enhance visibility, or create specific moods. Fine-tune light levels for perfect results."
-      ]
-    },
-    {
-      "title": "Brightness Formula",
-      "type": "list",
-      "content": [
-        "Linear adjustment: $P_{out} = P_{in} + b$",
-        "Where $P$ = pixel value (0-255), $b$ = brightness offset",
-        "Positive $b$ brightens, negative $b$ darkens",
-        "Applied to RGB channels: $(R+b, G+b, B+b)$"
-      ]
-    },
-    {
       "title": "When to Adjust Brightness",
-      "type": "list",
       "content": [
-        "Underexposed photos: Brighten dark images",
-        "Overexposed photos: Darken washed-out images",
-        "Mood creation: Adjust for dramatic or cheerful effects",
-        "Print preparation: Optimize for different media",
-        "Screen optimization: Adjust for various displays"
+        "<strong>Underexposed photos:</strong> Brighten dark images",
+        "<strong>Overexposed photos:</strong> Darken washed-out images",
+        "<strong>Mood creation:</strong> Adjust for dramatic or cheerful effects",
+        "<strong>Print preparation:</strong> Optimize for different media",
+        "<strong>Screen optimization:</strong> Adjust for various displays"
       ]
     },
     {
       "title": "Tips for Best Results",
-      "type": "list",
       "content": [
         "Make small adjustments to preserve image quality",
         "Combine with contrast adjustment for better results",

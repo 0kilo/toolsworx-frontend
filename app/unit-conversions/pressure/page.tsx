@@ -1,29 +1,44 @@
 "use client"
 
 import { UnitConverter } from "@/components/shared/unit-converter"
-import { Gauge } from "lucide-react"
-
-const pressureUnits = [
-  { value: "Pa", label: "Pascal", abbreviation: "Pa", factor: 1 },
-  { value: "kPa", label: "Kilopascal", abbreviation: "kPa", factor: 1000 },
-  { value: "MPa", label: "Megapascal", abbreviation: "MPa", factor: 1000000 },
-  { value: "bar", label: "Bar", abbreviation: "bar", factor: 100000 },
-  { value: "atm", label: "Atmosphere", abbreviation: "atm", factor: 101325 },
-  { value: "psi", label: "Pounds per Square Inch", abbreviation: "psi", factor: 6894.76 },
-  { value: "torr", label: "Torr", abbreviation: "torr", factor: 133.322 },
-  { value: "mmHg", label: "Millimeters of Mercury", abbreviation: "mmHg", factor: 133.322 },
-]
+import { AboutDescription } from "@/components/ui/about-description"
+import * as Icons from "lucide-react"
+import toolContent from "./pressure.json"
 
 export default function PressureConverterPage() {
+  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
+
   return (
-    <UnitConverter
-      title="Pressure Converter"
-      description="Convert between pascals, bar, PSI, atmospheres, and torr"
-      icon={Gauge}
-      units={pressureUnits}
-      baseUnit="Pa"
-      defaultFromUnit="Pa"
-      defaultToUnit="psi"
-    />
+    <div className="container py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="lg:col-span-3">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold mb-2">Pressure Converter</h1>
+            <p className="text-muted-foreground">
+              Convert between different pressure units
+            </p>
+          </div>
+
+          <UnitConverter
+            title="Pressure Conversion"
+            description="Convert between pascals, bar, PSI, atmospheres, and torr"
+            icon={Icon}
+            units={toolContent.units}
+            baseUnit={toolContent.baseUnit}
+            defaultFromUnit={toolContent.defaultFromUnit}
+            defaultToUnit={toolContent.defaultToUnit}
+          />
+
+          <AboutDescription
+            title={`About ${toolContent.title}`}
+            description={toolContent.description}
+            sections={toolContent.sections}
+          />
+        </div>
+
+        <div className="lg:col-span-1">
+        </div>
+      </div>
+    </div>
   )
 }

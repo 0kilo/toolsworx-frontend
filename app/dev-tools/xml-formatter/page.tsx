@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, FileText, Sparkles } from "lucide-react"
+import { formatXML, minifyXML, validateXML } from "@/lib/tools/logic/dev-tools/tool-xml"
+import toolContent from "./xml-formatter.json"
 
 export default function XMLFormatterPage() {
   const [input, setInput] = useState("")
@@ -23,50 +25,15 @@ export default function XMLFormatterPage() {
     }
 
     try {
-      // Simple XML formatting using DOMParser (frontend only)
-      const parser = new DOMParser()
-      const xmlDoc = parser.parseFromString(input.trim(), "text/xml")
-      
-      // Check for parsing errors
-      const parserError = xmlDoc.getElementsByTagName("parsererror")
-      if (parserError.length > 0) {
-        setError("Invalid XML: " + parserError[0].textContent)
-        return
-      }
-
-      // Format XML with indentation
-      const formatted = formatXML(input.trim())
-      setOutput(formatted)
+      validateXML({ xml: input })
+      const result = formatXML({ xml: input })
+      setOutput(result.formatted)
     } catch (e: any) {
       setError(`Formatting failed: ${e.message}`)
     }
   }
 
-  const formatXML = (xml: string): string => {
-    const PADDING = '  ' // 2 spaces for indentation
-    const reg = /(>)(<)(\/*)/g
-    let formatted = xml.replace(reg, '$1\r\n$2$3')
-    
-    let pad = 0
-    return formatted.split('\r\n').map((node) => {
-      let indent = 0
-      if (node.match(/.+<\/\w[^>]*>$/)) {
-        indent = 0
-      } else if (node.match(/^<\/\w/) && pad > 0) {
-        pad -= 1
-      } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
-        indent = 1
-      } else {
-        indent = 0
-      }
-      
-      const padding = PADDING.repeat(pad)
-      pad += indent
-      return padding + node
-    }).join('\r\n')
-  }
-
-  const minifyXML = () => {
+  const handleMinify = () => {
     setError("")
     setOutput("")
 
@@ -76,13 +43,8 @@ export default function XMLFormatterPage() {
     }
 
     try {
-      // Remove whitespace between tags
-      const minified = input.trim()
-        .replace(/>\s+</g, '><')
-        .replace(/\s+/g, ' ')
-        .trim()
-      
-      setOutput(minified)
+      const result = minifyXML({ xml: input })
+      setOutput(result.minified)
     } catch (e: any) {
       setError(`Minification failed: ${e.message}`)
     }
@@ -110,9 +72,9 @@ export default function XMLFormatterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">XML Formatter</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Format, validate, and minify XML data instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -139,7 +101,7 @@ export default function XMLFormatterPage() {
                 <Sparkles className="h-4 w-4 mr-2" />
                 Format XML
               </Button>
-              <Button onClick={minifyXML} variant="outline" className="w-full">
+              <Button onClick={handleMinify} variant="outline" className="w-full">
                 Minify XML
               </Button>
             </div>
@@ -198,40 +160,9 @@ export default function XMLFormatterPage() {
       </div>
 
       <AboutDescription
-        title="About XML Formatter"
-        description="Format, validate, and minify XML data using browser-native parsing. Perfect for developers working with APIs, configuration files, or any XML data. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Format XML with proper indentation",
-              "Minify XML to reduce file size",
-              "Validate XML syntax using browser parser",
-              "Copy formatted XML with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your XML in the input field",
-              "Click 'Format XML' to add proper indentation",
-              "Click 'Minify XML' to remove whitespace",
-              "Copy the result or continue editing"
-            ]
-          },
-          {
-            title: "XML Use Cases",
-            content: [
-              "API responses and requests",
-              "Configuration files",
-              "Data exchange between systems",
-              "Web service definitions (WSDL, SOAP)",
-              "Document markup and structure",
-              "RSS feeds and sitemaps"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

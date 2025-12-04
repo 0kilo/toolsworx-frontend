@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, FileText, Sparkles } from "lucide-react"
+import { minifyJSON } from "@/lib/tools/logic/dev-tools/tool-json"
+import toolContent from "./json-minifier.json"
 
 export default function JSONMinifierPage() {
   const [input, setInput] = useState("")
@@ -23,10 +25,8 @@ export default function JSONMinifierPage() {
     }
 
     try {
-      // Parse and minify JSON
-      const parsed = JSON.parse(input)
-      const minified = JSON.stringify(parsed)
-      setOutput(minified)
+      const result = minifyJSON({ text: input })
+      setOutput(result.result)
     } catch (e: any) {
       setError(`Invalid JSON: ${e.message}`)
     }
@@ -54,9 +54,9 @@ export default function JSONMinifierPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JSON Minifier</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Minify JSON data to reduce file size and remove whitespace
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -139,40 +139,9 @@ export default function JSONMinifierPage() {
       </div>
 
       <AboutDescription
-        title="About JSON Minifier"
-        description="Minify JSON data by removing unnecessary whitespace, line breaks, and indentation. Perfect for reducing file sizes and optimizing data transmission. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Remove all unnecessary whitespace",
-              "Compress JSON to smallest possible size",
-              "Validate JSON syntax during minification",
-              "Copy minified result with one click",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your formatted JSON in the input field",
-              "Click 'Minify JSON' to compress the data",
-              "Copy the minified result",
-              "Use for API payloads, configuration files, or storage optimization"
-            ]
-          },
-          {
-            title: "Benefits of Minification",
-            content: [
-              "Reduced file size - up to 50% smaller",
-              "Faster data transmission over networks",
-              "Lower bandwidth usage",
-              "Improved API response times",
-              "Reduced storage requirements",
-              "Better performance in web applications"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

@@ -2,38 +2,33 @@
   "id": "text-case",
   "title": "Text Case Converter",
   "description": "Convert text between different cases",
+  "pageTitle": "Text Case Converter",
+  "pageDescription": "Convert text between different cases",
+  "aboutTitle": "About Text Case Converter",
+  "aboutDescription": "Convert text between various case formats including uppercase, lowercase, title case, sentence case, and more. Essential for text formatting and data standardization.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Text Case Converter",
-      "type": "text",
-      "content": [
-        "Convert text between various case formats including uppercase, lowercase, title case, sentence case, and more. Essential for text formatting and data standardization."
-      ]
-    },
-    {
       "title": "Available Case Types",
-      "type": "list",
       "content": [
-        "UPPERCASE: ALL LETTERS IN CAPITALS",
-        "lowercase: all letters in small case",
-        "Title Case: First Letter Of Each Word Capitalized",
-        "Sentence case: First letter of sentence capitalized",
-        "camelCase: firstWordLowercaseRestCapitalized",
-        "PascalCase: AllWordsCapitalizedNoSpaces",
-        "snake_case: words_separated_by_underscores",
-        "kebab-case: words-separated-by-hyphens"
+        "<strong>UPPERCASE:</strong> ALL LETTERS IN CAPITALS",
+        "<strong>lowercase:</strong> all letters in small case",
+        "<strong>Title Case:</strong> First Letter Of Each Word Capitalized",
+        "<strong>Sentence case:</strong> First letter of sentence capitalized",
+        "<strong>camelCase:</strong> firstWordLowercaseRestCapitalized",
+        "<strong>PascalCase:</strong> AllWordsCapitalizedNoSpaces",
+        "<strong>snake_case:</strong> words_separated_by_underscores",
+        "<strong>kebab-case:</strong> words-separated-by-hyphens"
       ]
     },
     {
       "title": "Common Applications",
-      "type": "list",
       "content": [
-        "Programming: Convert variable names between conventions",
-        "Data Cleaning: Standardize text data",
-        "Content Writing: Format titles and headings",
-        "SEO: Create URL-friendly slugs",
-        "Database Import: Normalize text fields"
+        "<strong>Programming:</strong> Convert variable names between conventions",
+        "<strong>Data Cleaning:</strong> Standardize text data",
+        "<strong>Content Writing:</strong> Format titles and headings",
+        "<strong>SEO:</strong> Create URL-friendly slugs",
+        "<strong>Database Import:</strong> Normalize text fields"
       ]
     }
   ]

@@ -1,12 +1,15 @@
 {
   "id": "email-extractor",
   "title": "Email Extractor",
-  "description": "Extract email addresses from any text using advanced regex patterns. Perfect for data processing, lead generation, and contact list management.",
+  "description": "Extract email addresses from any text using advanced regex patterns",
+  "pageTitle": "Email Extractor",
+  "pageDescription": "Extract email addresses from any text using advanced regex patterns",
+  "aboutTitle": "About Email Extractor",
+  "aboutDescription": "Extract email addresses from any text using advanced regex patterns. Perfect for data processing, lead generation, and contact list management. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Features",
-      "type": "list",
       "content": [
         "Extract emails from any text format",
         "Automatic duplicate removal",

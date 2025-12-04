@@ -2,18 +2,14 @@
   "id": "image-sharpen",
   "title": "Sharpen Image",
   "description": "Enhance image sharpness and details",
+  "pageTitle": "Sharpen Image",
+  "pageDescription": "Enhance image sharpness and details",
+  "aboutTitle": "About Sharpen Image",
+  "aboutDescription": "Sharpen filter enhances edge definition and fine details in images, making them appear crisper and more defined. Essential for correcting soft or blurry photos.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Sharpen Image",
-      "type": "text",
-      "content": [
-        "Sharpen filter enhances edge definition and fine details in images, making them appear crisper and more defined. Essential for correcting soft or blurry photos."
-      ]
-    },
-    {
       "title": "When to Sharpen",
-      "type": "list",
       "content": [
         "Slightly out-of-focus images",
         "Photos that appear soft or blurry",
@@ -24,7 +20,6 @@
     },
     {
       "title": "Sharpening Tips",
-      "type": "list",
       "content": [
         "Apply sharpening as the final step in editing",
         "Use moderate amounts to avoid halos and artifacts",

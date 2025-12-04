@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, FileText, Sparkles, CheckCircle, XCircle } from "lucide-react"
+import { validateJSON } from "@/lib/tools/logic/dev-tools/tool-json"
+import toolContent from "./json-validator.json"
 
 export default function JSONValidatorPage() {
   const [input, setInput] = useState("")
@@ -25,9 +27,11 @@ export default function JSONValidatorPage() {
     }
 
     try {
-      const parsed = JSON.parse(input)
-      setIsValid(true)
-      setOutput("✅ Valid JSON\n\nParsed successfully!")
+      const result = validateJSON({ text: input })
+      setIsValid(result.isValid || false)
+      if (result.isValid) {
+        setOutput("✅ Valid JSON\n\nParsed successfully!")
+      }
     } catch (e: any) {
       setIsValid(false)
       setError(`❌ Invalid JSON: ${e.message}`)
@@ -57,9 +61,9 @@ export default function JSONValidatorPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">JSON Validator</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Validate JSON syntax and check for formatting errors
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -146,40 +150,9 @@ export default function JSONValidatorPage() {
       </div>
 
       <AboutDescription
-        title="About JSON Validator"
-        description="Validate JSON syntax and identify formatting errors quickly. Perfect for debugging API responses, configuration files, and data structures. All processing happens in your browser for privacy."
-        sections={[
-          {
-            title: "Features",
-            content: [
-              "Instant JSON syntax validation",
-              "Clear error messages with line information",
-              "Visual indicators for valid/invalid JSON",
-              "Copy validation results",
-              "100% client-side processing for privacy"
-            ]
-          },
-          {
-            title: "How to Use",
-            content: [
-              "Paste your JSON in the input field",
-              "Click 'Validate JSON' to check syntax",
-              "Review validation results and error messages",
-              "Fix any syntax errors and re-validate"
-            ]
-          },
-          {
-            title: "Common JSON Errors",
-            content: [
-              "Missing quotes around property names",
-              "Trailing commas after last property",
-              "Unescaped quotes in string values",
-              "Missing closing brackets or braces",
-              "Invalid characters or control sequences",
-              "Incorrect number formatting"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

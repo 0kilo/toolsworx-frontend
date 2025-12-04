@@ -1,12 +1,15 @@
 {
   "id": "csv-formatter",
   "title": "CSV Formatter",
-  "description": "Format CSV data as aligned tables or convert to JSON format. Perfect for data analysis, reporting, and data transformation tasks.",
+  "description": "Format CSV data as aligned tables or convert to JSON format",
+  "pageTitle": "CSV Formatter",
+  "pageDescription": "Format CSV data as aligned tables or convert to JSON format",
+  "aboutTitle": "About CSV Formatter",
+  "aboutDescription": "Format CSV data as aligned tables or convert to JSON format. Perfect for data analysis, reporting, and data transformation tasks. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Features",
-      "type": "list",
       "content": [
         "Format CSV as aligned, readable tables",
         "Convert CSV to JSON format",

@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, Type } from "lucide-react"
+import { convertTextCase } from "@/lib/tools/logic/dev-tools/tool-text-case"
+import toolContent from "./text-case-converter.json"
 
 export default function TextCaseConverterPage() {
   const [input, setInput] = useState("")
@@ -23,36 +25,8 @@ export default function TextCaseConverterPage() {
 
   const convertText = () => {
     if (!input.trim()) return
-
-    const text = input.trim()
-    
-    setResults({
-      uppercase: text.toUpperCase(),
-      lowercase: text.toLowerCase(),
-      titlecase: text.replace(/\w\S*/g, (txt) => 
-        txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-      ),
-      camelcase: text
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => 
-          index === 0 ? word.toLowerCase() : word.toUpperCase()
-        )
-        .replace(/\s+/g, ''),
-      pascalcase: text
-        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase())
-        .replace(/\s+/g, ''),
-      snakecase: text
-        .toLowerCase()
-        .replace(/\s+/g, '_')
-        .replace(/[^\w_]/g, ''),
-      kebabcase: text
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]/g, ''),
-      constantcase: text
-        .toUpperCase()
-        .replace(/\s+/g, '_')
-        .replace(/[^\w_]/g, '')
-    })
+    const result = convertTextCase({ text: input })
+    setResults(result)
   }
 
   const handleCopy = async (text: string, type: string) => {
@@ -94,9 +68,9 @@ export default function TextCaseConverterPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Text Case Converter</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Convert text between different case formats instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -177,45 +151,9 @@ export default function TextCaseConverterPage() {
       </div>
 
       <AboutDescription
-        title="About Text Case Conversion"
-        description="Convert text between different case formats commonly used in programming, writing, and data processing. Perfect for developers, writers, and data analysts."
-        sections={[
-          {
-            title: "Case Types Explained",
-            content: [
-              "<strong>UPPERCASE:</strong> All letters converted to capital letters",
-              "<strong>lowercase:</strong> All letters converted to small letters", 
-              "<strong>Title Case:</strong> First letter of each word capitalized",
-              "<strong>camelCase:</strong> First word lowercase, subsequent words capitalized, no spaces",
-              "<strong>PascalCase:</strong> All words capitalized, no spaces (like camelCase but first word capitalized)",
-              "<strong>snake_case:</strong> All lowercase with underscores between words",
-              "<strong>kebab-case:</strong> All lowercase with hyphens between words",
-              "<strong>CONSTANT_CASE:</strong> All uppercase with underscores (for constants)"
-            ]
-          },
-          {
-            title: "Common Use Cases",
-            content: [
-              "Programming: Variable and function naming conventions",
-              "URLs: Converting titles to URL-friendly formats (kebab-case)",
-              "Database: Column names and table names (snake_case)",
-              "Constants: Environment variables and configuration (CONSTANT_CASE)",
-              "APIs: JSON property names (camelCase)",
-              "File names: Converting spaces to underscores or hyphens"
-            ]
-          },
-          {
-            title: "Programming Languages",
-            content: [
-              "JavaScript/TypeScript: camelCase for variables, PascalCase for classes",
-              "Python: snake_case for variables and functions",
-              "Java: camelCase for variables, PascalCase for classes",
-              "C++: Various conventions, often snake_case or camelCase",
-              "CSS: kebab-case for class names and properties",
-              "SQL: Often UPPERCASE for keywords, snake_case for names"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

@@ -1,8 +1,53 @@
 {
   "id": "date-calculator",
   "title": "Date Calculator",
-  "description": "Calculate differences between dates, add time periods to dates, and perform various date-related calculations. Perfect for project planning, age calculations, and deadline management.",
+  "description": "Calculate date differences, add time periods, and perform date math",
+  "aboutDescription": "Calculate differences between dates, add time periods to dates, and perform various date-related calculations. Perfect for project planning, age calculations, and deadline management.",
+  "icon": "Calendar",
+  "resultTitle": "Date Calculations",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "startDate",
+      "label": "Start Date",
+      "type": "date",
+      "placeholder": "Select start date",
+      "required": true,
+      "helpText": "The beginning date for calculation"
+    },
+    {
+      "name": "endDate",
+      "label": "End Date",
+      "type": "date",
+      "placeholder": "Select end date",
+      "required": false,
+      "helpText": "The ending date (leave empty to use today)"
+    },
+    {
+      "name": "addDays",
+      "label": "Add Days",
+      "type": "number",
+      "placeholder": "Days to add",
+      "required": false,
+      "helpText": "Number of days to add to start date"
+    },
+    {
+      "name": "addMonths",
+      "label": "Add Months",
+      "type": "number",
+      "placeholder": "Months to add",
+      "required": false,
+      "helpText": "Number of months to add to start date"
+    },
+    {
+      "name": "addYears",
+      "label": "Add Years",
+      "type": "number",
+      "placeholder": "Years to add",
+      "required": false,
+      "helpText": "Number of years to add to start date"
+    }
+  ],
   "sections": [
     {
       "title": "Calculation Types",

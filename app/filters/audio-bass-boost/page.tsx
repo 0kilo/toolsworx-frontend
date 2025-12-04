@@ -5,6 +5,7 @@ import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
+import toolContent from "./audio-bass-boost.json"
 
 export default function AudioBassBoostPage() {
   const [gain, setGain] = useState([5])
@@ -35,9 +36,9 @@ export default function AudioBassBoostPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Bass Boost</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Enhance low frequencies for deeper, richer sound
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -50,39 +51,9 @@ export default function AudioBassBoostPage() {
           />
 
           <AboutDescription
-            title="About Bass Boost"
-            description="Bass boost enhances low-frequency content (typically 20-250Hz) to add warmth, power, and depth to your audio. Perfect for music, podcasts, and sound design."
-            sections={[
-              {
-                title: "Bass Frequency Ranges",
-                content: [
-                  "<strong>Sub-bass (20-60Hz):</strong> Deep rumble, felt more than heard",
-                  "<strong>Bass (60-110Hz):</strong> Fundamental bass notes, kick drums",
-                  "<strong>Low-mid (110-250Hz):</strong> Warmth, body of bass instruments",
-                  "<strong>Upper bass (250-500Hz):</strong> Punch and presence"
-                ]
-              },
-              {
-                title: "When to Use Bass Boost",
-                content: [
-                  "Music with weak or thin bass response",
-                  "Podcasts and voice recordings lacking warmth",
-                  "Audio played on small speakers or headphones",
-                  "Electronic music and hip-hop production",
-                  "Sound design for impact and power"
-                ]
-              },
-              {
-                title: "Bass Boost Tips",
-                content: [
-                  "Start with small amounts (3-6dB) and adjust to taste",
-                  "Be careful not to muddy the mix with too much boost",
-                  "Consider the playback system - some have natural bass emphasis",
-                  "Use high-pass filtering to remove unwanted sub-sonic content",
-                  "Monitor on different speakers to check translation"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
         <div className="lg:col-span-1"></div>

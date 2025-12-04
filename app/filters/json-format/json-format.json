@@ -2,18 +2,14 @@
   "id": "json-format",
   "title": "Format JSON",
   "description": "Format and prettify JSON data",
+  "pageTitle": "Format JSON",
+  "pageDescription": "Format and prettify JSON data",
+  "aboutTitle": "About Format JSON",
+  "aboutDescription": "Format and prettify JSON data with proper indentation, line breaks, and structure. Makes JSON readable and easier to debug and maintain.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Format JSON",
-      "type": "text",
-      "content": [
-        "Format and prettify JSON data with proper indentation, line breaks, and structure. Makes JSON readable and easier to debug and maintain."
-      ]
-    },
-    {
       "title": "Features",
-      "type": "list",
       "content": [
         "Automatic indentation with configurable spacing",
         "Proper line breaks for readability",
@@ -24,7 +20,6 @@
     },
     {
       "title": "Common Use Cases",
-      "type": "list",
       "content": [
         "Making minified JSON readable",
         "Debugging API responses",

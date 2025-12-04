@@ -8,13 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { ChefHat, Plus, Trash2, Copy } from "lucide-react"
-
-interface Ingredient {
-  id: number
-  amount: string
-  unit: string
-  name: string
-}
+import { scaleRecipe, type Ingredient } from "@/lib/tools/logic/helpful-calculators/helper-recipe"
+import toolContent from "./recipe-scaler.json"
 
 export default function RecipeScalerPage() {
   const [recipeName, setRecipeName] = useState("")
@@ -40,75 +35,13 @@ export default function RecipeScalerPage() {
     ))
   }
 
-  const parseAmount = (amount: string): number => {
-    // Handle fractions like "1/2", "1 1/2", decimals, and whole numbers
-    const trimmed = amount.trim()
-
-    // Match patterns like "1 1/2" or "1/2"
-    const mixedMatch = trimmed.match(/^(\d+)\s+(\d+)\/(\d+)$/)
-    if (mixedMatch) {
-      const whole = parseInt(mixedMatch[1])
-      const numerator = parseInt(mixedMatch[2])
-      const denominator = parseInt(mixedMatch[3])
-      return whole + (numerator / denominator)
-    }
-
-    // Match simple fraction like "1/2"
-    const fractionMatch = trimmed.match(/^(\d+)\/(\d+)$/)
-    if (fractionMatch) {
-      const numerator = parseInt(fractionMatch[1])
-      const denominator = parseInt(fractionMatch[2])
-      return numerator / denominator
-    }
-
-    // Handle decimal or whole number
-    return parseFloat(trimmed) || 0
-  }
-
-  const formatAmount = (num: number): string => {
-    if (num === 0) return "0"
-
-    // If it's a whole number, return it as is
-    if (num % 1 === 0) return num.toString()
-
-    // Common fractions
-    const fractions: { [key: number]: string } = {
-      0.25: "1/4",
-      0.33: "1/3",
-      0.5: "1/2",
-      0.66: "2/3",
-      0.75: "3/4"
-    }
-
-    const whole = Math.floor(num)
-    const decimal = num - whole
-
-    // Check if decimal part matches a common fraction (with tolerance)
-    for (const [value, fraction] of Object.entries(fractions)) {
-      if (Math.abs(decimal - parseFloat(value)) < 0.01) {
-        return whole > 0 ? `${whole} ${fraction}` : fraction
-      }
-    }
-
-    // Otherwise return as decimal rounded to 2 places
-    return num.toFixed(2).replace(/\.?0+$/, '')
-  }
-
-  const scaleRecipe = () => {
-    const original = parseFloat(originalServings) || 1
-    const target = parseFloat(targetServings) || 1
-    const multiplier = target / original
-
-    const scaled = ingredients.map(ingredient => {
-      const amount = parseAmount(ingredient.amount)
-      const scaledAmount = amount * multiplier
-      return {
-        ...ingredient,
-        amount: formatAmount(scaledAmount)
-      }
+  const handleScale = () => {
+    const result = scaleRecipe({
+      ingredients,
+      originalServings: parseFloat(originalServings) || 1,
+      targetServings: parseFloat(targetServings) || 1
     })
-
-    setScaledIngredients(scaled)
+    setScaledIngredients(result.scaledIngredients)
   }
 
   const copyToClipboard = () => {
@@ -128,9 +61,9 @@ export default function RecipeScalerPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Recipe Scaler</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Scale recipe ingredients for any number of servings
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -226,7 +159,7 @@ export default function RecipeScalerPage() {
                   Add Ingredient
                 </Button>
 
-                <Button onClick={scaleRecipe} className="w-full" size="lg">
+                <Button onClick={handleScale} className="w-full" size="lg">
                   <ChefHat className="mr-2 h-4 w-4" />
                   Scale Recipe
                 </Button>
@@ -262,50 +195,9 @@ export default function RecipeScalerPage() {
 
 
           <AboutDescription
-            title="About Recipe Scaler"
-            description="Easily scale recipe ingredients for any number of servings. Perfect for holiday cooking, meal prep, or adjusting recipes for different group sizes."
-            sections={[
-              {
-                title: "How to Use",
-                content: [
-                  "Enter your recipe name and the original number of servings.",
-                  "Add each ingredient with its amount, unit, and name.",
-                  "You can use whole numbers (2), decimals (1.5), fractions (1/2), or mixed numbers (1 1/2).",
-                  "Then enter your target number of servings and click 'Scale Recipe' to automatically calculate the adjusted ingredient amounts."
-                ]
-              },
-              {
-                title: "Entering Amounts",
-                content: [
-                  "The calculator accepts multiple formats: whole numbers (2), decimals (1.5), simple fractions (1/2), and mixed numbers (1 1/2).",
-                  "Common fractions like 1/4, 1/3, 1/2, 2/3, and 3/4 are preserved in the output when possible for easier measuring."
-                ]
-              },
-              {
-                title: "Holiday Cooking Tips",
-                content: [
-                  "When cooking for holiday gatherings, remember that some recipes scale linearly while others (especially baked goods) may need adjustments.",
-                  "Baking times often don't scale proportionally - a doubled recipe may need only 50% more time.",
-                  "Always check for doneness using temperature or visual cues rather than relying solely on time."
-                ]
-              },
-              {
-                title: "Measurement Tips",
-                content: [
-                  "For best results, use measuring cups for dry ingredients and measuring spoons for small amounts.",
-                  "When scaling down recipes significantly (halving or quartering), be aware that spices and seasonings often don't scale linearly.",
-                  "Start with the scaled amount and adjust to taste."
-                ]
-              },
-              {
-                title: "Common Conversions",
-                content: [
-                  "Keep in mind: 3 teaspoons = 1 tablespoon, 16 tablespoons = 1 cup.",
-                  "2 cups = 1 pint, 2 pints = 1 quart, 4 quarts = 1 gallon.",
-                  "These conversions can help when scaling results in awkward measurements."
-                ]
-              },
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

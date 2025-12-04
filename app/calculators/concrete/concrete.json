@@ -1,8 +1,34 @@
 {
   "id": "concrete",
   "title": "Concrete Calculator",
-  "description": "Calculate concrete volume and materials needed",
+  "description": "Calculate cubic yards of concrete needed",
+  "aboutDescription": "Calculate concrete volume and materials needed",
+  "icon": "Truck",
+  "resultTitle": "Concrete Requirements",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "length",
+      "label": "Length (feet)",
+      "type": "number",
+      "placeholder": "Enter length",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "Width (feet)",
+      "type": "number",
+      "placeholder": "Enter width",
+      "required": true
+    },
+    {
+      "name": "depth",
+      "label": "Depth (inches)",
+      "type": "number",
+      "placeholder": "Enter depth",
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "Volume Formulas",

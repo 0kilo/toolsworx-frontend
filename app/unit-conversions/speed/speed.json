@@ -1,19 +1,24 @@
 {
   "id": "speed",
   "title": "Speed Converter",
-  "description": "Convert between different speed and velocity units",
+  "description": "Speed conversion is essential for transportation, physics, engineering, and navigation across different measurement systems.",
   "category": "unit-conversions",
+  "icon": "Gauge",
+  "units": [
+    { "value": "mps", "label": "Meters per Second", "abbreviation": "m/s", "factor": 1 },
+    { "value": "kph", "label": "Kilometers per Hour", "abbreviation": "km/h", "factor": 0.277778 },
+    { "value": "mph", "label": "Miles per Hour", "abbreviation": "mph", "factor": 0.44704 },
+    { "value": "fps", "label": "Feet per Second", "abbreviation": "ft/s", "factor": 0.3048 },
+    { "value": "knots", "label": "Knots", "abbreviation": "kn", "factor": 0.514444 },
+    { "value": "mach", "label": "Mach (at sea level)", "abbreviation": "Ma", "factor": 343 },
+    { "value": "c", "label": "Speed of Light", "abbreviation": "c", "factor": 299792458 }
+  ],
+  "baseUnit": "mps",
+  "defaultFromUnit": "mph",
+  "defaultToUnit": "kph",
   "sections": [
     {
-      "title": "About Speed Conversion",
-      "type": "text",
-      "content": [
-        "Speed conversion is essential for transportation, physics, engineering, and navigation across different measurement systems."
-      ]
-    },
-    {
       "title": "Speed Units",
-      "type": "list",
       "content": [
         "Metric: Meters per second (m/s), Kilometers per hour (km/h)",
         "Imperial: Miles per hour (mph), Feet per second (ft/s)",
@@ -22,18 +27,7 @@
       ]
     },
     {
-      "title": "Conversion Formulas",
-      "type": "list",
-      "content": [
-        "km/h to m/s: $v_{m/s} = \\frac{v_{km/h}}{3.6}$",
-        "mph to km/h: $v_{km/h} = v_{mph} \\times 1.60934$",
-        "Knots to km/h: $v_{km/h} = v_{kn} \\times 1.852$",
-        "Mach number: $M = \\frac{v}{v_{sound}}$ where $v_{sound} \\approx 343$ m/s"
-      ]
-    },
-    {
       "title": "Conversion Examples",
-      "type": "list",
       "content": [
         "60 mph = 96.56 km/h = 26.82 m/s",
         "100 km/h = 62.14 mph = 27.78 m/s",
@@ -43,7 +37,6 @@
     },
     {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "Vehicle speed limit conversions",
         "Aviation and marine navigation",

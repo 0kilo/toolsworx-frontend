@@ -2,27 +2,12 @@
 
 import { UnitConverter } from "@/components/shared/unit-converter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Ruler } from "lucide-react"
-
-const lengthUnits = [
-  { value: "micron", label: "Micron", abbreviation: "μm", factor: 0.000001 },
-  { value: "millimeter", label: "Millimeter", abbreviation: "mm", factor: 0.001 },
-  { value: "centimeter", label: "Centimeter", abbreviation: "cm", factor: 0.01 },
-  { value: "inch", label: "Inch", abbreviation: "in", factor: 0.0254 },
-  { value: "foot", label: "Foot", abbreviation: "ft", factor: 0.3048 },
-  { value: "yard", label: "Yard", abbreviation: "yd", factor: 0.9144 },
-  { value: "meter", label: "Meter", abbreviation: "m", factor: 1 },
-  { value: "kilometer", label: "Kilometer", abbreviation: "km", factor: 1000 },
-  { value: "mile", label: "Mile", abbreviation: "mi", factor: 1609.344 },
-  { value: "AU", label: "Astronomical Unit", abbreviation: "AU", factor: 149597870700 },
-  { value: "ly", label: "Light Year", abbreviation: "ly", factor: 9.4607304725808e15 },
-  { value: "pc", label: "Parsec", abbreviation: "pc", factor: 3.0856775814913673e16 },
-  { value: "ls", label: "Light Second", abbreviation: "ls", factor: 299792458 },
-  { value: "lm", label: "Light Minute", abbreviation: "lm", factor: 17987547480 },
-  { value: "lh", label: "Light Hour", abbreviation: "lh", factor: 1079252848800 },
-]
+import * as Icons from "lucide-react"
+import toolContent from "./length.json"
 
 export default function LengthConverterPage() {
+  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -37,47 +22,18 @@ export default function LengthConverterPage() {
           <UnitConverter
             title="Length & Distance Conversion"
             description="Convert between microns, millimeters, inches, feet, meters, kilometers, miles and more"
-            units={lengthUnits}
-            baseUnit="meter"
-            icon={Ruler}
-            defaultFromUnit="meter"
-            defaultToUnit="foot"
+            units={toolContent.units}
+            baseUnit={toolContent.baseUnit}
+            icon={Icon}
+            defaultFromUnit={toolContent.defaultFromUnit}
+            defaultToUnit={toolContent.defaultToUnit}
           />
 
 
           <AboutDescription
-            title="About Length Conversion"
-            description="Length conversion is essential for engineering, construction, science, and everyday measurements across different unit systems."
-            sections={[
-              {
-                title: "Common Length Units",
-                content: [
-                  "Metric: Micron (μm), Millimeter (mm), Centimeter (cm), Meter (m), Kilometer (km)",
-                  "Imperial: Inch (in), Foot (ft), Yard (yd), Mile (mi)",
-                  "Scientific: Often uses metric system for precision",
-                  "Construction: Mix of imperial and metric depending on region"
-                ]
-              },
-              {
-                title: "Conversion Examples",
-                content: [
-                  "1 meter = 3.28084 feet = 39.3701 inches",
-                  "1 kilometer = 0.621371 miles = 3280.84 feet",
-                  "1 inch = 2.54 centimeters = 25.4 millimeters",
-                  "1 mile = 1.60934 kilometers = 5280 feet"
-                ]
-              },
-              {
-                title: "Use Cases",
-                content: [
-                  "Engineering and construction measurements",
-                  "International shipping and logistics",
-                  "Scientific research and laboratory work",
-                  "Travel distance calculations",
-                  "Sports and athletics measurements"
-                ]
-              }
-            ]}
+            title={`About ${toolContent.title}`}
+            description={toolContent.description}
+            sections={toolContent.sections}
           />
         </div>
 

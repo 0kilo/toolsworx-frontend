@@ -6,6 +6,8 @@ import { AboutDescription } from "@/components/ui/about-description"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Copy, Check, ArrowRight, ArrowLeft } from "lucide-react"
+import { encodeBase64, decodeBase64 } from "@/lib/tools/logic/dev-tools/tool-base64"
+import toolContent from "./base64.json"
 
 export default function Base64EncoderPage() {
   const [input, setInput] = useState("")
@@ -15,29 +17,21 @@ export default function Base64EncoderPage() {
 
   const encode = () => {
     setError("")
-    if (!input) {
-      setError("Please enter text to encode")
-      return
-    }
     try {
-      const encoded = Buffer.from(input, 'utf-8').toString('base64')
-      setOutput(encoded)
+      const result = encodeBase64({ text: input })
+      setOutput(result.result)
     } catch (e: any) {
-      setError(`Encoding error: ${e.message}`)
+      setError(e.message)
     }
   }
 
   const decode = () => {
     setError("")
-    if (!input) {
-      setError("Please enter Base64 to decode")
-      return
-    }
     try {
-      const decoded = Buffer.from(input, 'base64').toString('utf-8')
-      setOutput(decoded)
+      const result = decodeBase64({ text: input })
+      setOutput(result.result)
     } catch (e: any) {
-      setError(`Decoding error: ${e.message}`)
+      setError(e.message)
     }
   }
 
@@ -67,9 +61,9 @@ export default function Base64EncoderPage() {
   return (
     <div className="container py-8 max-w-6xl">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Base64 Encoder/Decoder</h1>
+        <h1 className="text-4xl font-bold mb-4">{toolContent.pageTitle}</h1>
         <p className="text-xl text-muted-foreground">
-          Encode and decode Base64 strings instantly
+          {toolContent.pageDescription}
         </p>
       </div>
 
@@ -138,19 +132,9 @@ export default function Base64EncoderPage() {
       </div>
 
       <AboutDescription
-        title="About Base64 Encoding"
-        description="Base64 is a binary-to-text encoding scheme that represents binary data in ASCII format. It's commonly used to encode data in emails, URLs, and data URIs."
-        sections={[
-          {
-            title: "Use Cases",
-            content: [
-              "Encoding binary data for transmission over text-based protocols",
-              "Embedding images in HTML/CSS using data URIs",
-              "Encoding authentication credentials",
-              "Encoding data in JSON or XML where binary data isn't allowed"
-            ]
-          }
-        ]}
+        title={toolContent.aboutTitle}
+        description={toolContent.aboutDescription}
+        sections={toolContent.sections}
       />
     </div>
   )

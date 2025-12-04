@@ -2,18 +2,14 @@
   "id": "audio-reverb",
   "title": "Reverb Effect",
   "description": "Add natural reverb to create space and depth",
+  "pageTitle": "Reverb Effect",
+  "pageDescription": "Add natural reverb to create space and depth",
+  "aboutTitle": "About Reverb Effect",
+  "aboutDescription": "Reverb simulates the natural echo that occurs when sound reflects off surfaces in an acoustic space. It adds depth, warmth, and spatial dimension to audio recordings.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Reverb Effect",
-      "type": "text",
-      "content": [
-        "Reverb simulates the natural echo that occurs when sound reflects off surfaces in an acoustic space. It adds depth, warmth, and spatial dimension to audio recordings."
-      ]
-    },
-    {
       "title": "When to Use Reverb",
-      "type": "list",
       "content": [
         "Vocals: Add warmth and presence to dry vocal recordings",
         "Instruments: Create spatial depth for guitars, pianos, and drums",
@@ -24,18 +20,16 @@
     },
     {
       "title": "Reverb Types",
-      "type": "list",
       "content": [
-        "Room Reverb: Simulates small to medium rooms",
-        "Hall Reverb: Large concert hall acoustics",
-        "Plate Reverb: Vintage mechanical reverb sound",
-        "Spring Reverb: Classic guitar amp reverb",
-        "Chamber Reverb: Echo chamber acoustics"
+        "<strong>Room Reverb:</strong> Simulates small to medium rooms",
+        "<strong>Hall Reverb:</strong> Large concert hall acoustics",
+        "<strong>Plate Reverb:</strong> Vintage mechanical reverb sound",
+        "<strong>Spring Reverb:</strong> Classic guitar amp reverb",
+        "<strong>Chamber Reverb:</strong> Echo chamber acoustics"
       ]
     },
     {
       "title": "Tips for Using Reverb",
-      "type": "list",
       "content": [
         "Less is often more - start with subtle amounts",
         "Use pre-delay to separate the dry signal from reverb",

@@ -1,8 +1,37 @@
 {
   "id": "percentage",
   "title": "Percentage Calculator",
-  "description": "Calculate percentages, percentage increases/decreases, and determine what percentage one number is of another. Perfect for discounts, tips, taxes, and financial calculations.",
+  "description": "Calculate percentages, increases, decreases, and ratios",
+  "aboutDescription": "Calculate percentages, percentage increases/decreases, and determine what percentage one number is of another. Perfect for discounts, tips, taxes, and financial calculations.",
+  "icon": "Percent",
+  "resultTitle": "Your Results",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "value",
+      "label": "Value",
+      "type": "number",
+      "placeholder": "Enter value",
+      "required": true,
+      "helpText": "The number to calculate percentage from"
+    },
+    {
+      "name": "percentage",
+      "label": "Percentage",
+      "type": "number",
+      "placeholder": "Enter percentage",
+      "required": true,
+      "helpText": "The percentage to calculate (e.g., 25 for 25%)"
+    },
+    {
+      "name": "total",
+      "label": "Total (optional)",
+      "type": "number",
+      "placeholder": "Enter total",
+      "required": false,
+      "helpText": "For calculating what percentage a value is of a total"
+    }
+  ],
   "sections": [
     {
       "title": "Formulas",

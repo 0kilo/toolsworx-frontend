@@ -1,17 +1,30 @@
 {
   "id": "json-formatter",
   "title": "JSON Formatter & Validator",
-  "description": "Format, validate, and minify JSON data instantly. Perfect for developers working with APIs, configuration files, or any JSON data.",
+  "description": "Format, validate, and minify JSON data instantly",
+  "pageTitle": "JSON Formatter & Validator",
+  "pageDescription": "Format, validate, and minify JSON data instantly",
+  "aboutTitle": "About JSON Formatter",
+  "aboutDescription": "Our JSON Formatter helps you format, validate, and minify JSON data instantly. Perfect for developers working with APIs, configuration files, or any JSON data. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Features",
-      "type": "list",
       "content": [
         "Format JSON with customizable indentation",
         "Minify JSON to reduce file size",
         "Validate JSON syntax",
+        "Copy formatted JSON with one click",
         "100% client-side processing for privacy"
+      ]
+    },
+    {
+      "title": "How to Use",
+      "content": [
+        "Paste your JSON in the input field",
+        "Choose your preferred indentation",
+        "Click 'Format', 'Minify', or 'Validate'",
+        "Copy the result or continue editing"
       ]
     }
   ]

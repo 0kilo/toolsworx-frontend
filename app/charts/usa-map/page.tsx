@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Download, ImageIcon, FileText } from "lucide-react"
 import * as d3 from "d3"
+import toolContent from "./usa-map.json"
 
 interface StateData {
   state: string
@@ -18,35 +19,8 @@ interface USAMapData {
   data: StateData[]
 }
 
-const exampleData: USAMapData = {
-  title: "Population by State (millions)",
-  data: [
-    { state: "California", value: 39.5 },
-    { state: "Texas", value: 29.1 },
-    { state: "Florida", value: 21.5 },
-    { state: "New York", value: 19.8 },
-    { state: "Pennsylvania", value: 13.0 },
-    { state: "Illinois", value: 12.8 },
-    { state: "Ohio", value: 11.8 },
-    { state: "Georgia", value: 10.7 },
-    { state: "North Carolina", value: 10.4 },
-    { state: "Michigan", value: 10.0 }
-  ]
-}
-
-const exampleJson = `{
-  "title": "Population by State (millions)",
-  "data": [
-    { "state": "California", "value": 39.5 },
-    { "state": "Texas", "value": 29.1 },
-    { "state": "Florida", "value": 21.5 },
-    { "state": "New York", "value": 19.8 },
-    { "state": "Pennsylvania", "value": 13.0 }
-  ]
-}`
-
 export default function USAMapPage() {
-  const [data, setData] = useState<USAMapData>(exampleData)
+  const [data, setData] = useState<USAMapData>(toolContent.exampleData as USAMapData)
   const chartRef = useRef<HTMLDivElement>(null)
 
   const renderChart = useCallback(() => {
@@ -186,8 +160,8 @@ export default function USAMapPage() {
   return (
     <div className="container py-8 space-y-6">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">USA Map Chart Generator</h1>
-        <p className="text-muted-foreground">Create choropleth maps to visualize data across US states</p>
+        <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
+        <p className="text-muted-foreground">{toolContent.pageDescription}</p>
       </div>
 
       <Card>
@@ -218,12 +192,12 @@ export default function USAMapPage() {
       </Card>
 
       <ChartTemplate
-        title="Chart Data"
-        description="Configure your USA map with state-level data. Values determine circle size and color intensity."
+        title={toolContent.chartDataTitle}
+        description={toolContent.chartDataDescription}
         data={data}
         onDataChange={setData}
         onDownload={handleDownload}
-        exampleJson={exampleJson}
+        exampleJson={toolContent.exampleJson}
       >
         <div></div>
       </ChartTemplate>

@@ -9,17 +9,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Gift, Plus, Trash2, Shuffle, Mail, Copy, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-
-interface Participant {
-  id: number
-  name: string
-  email: string
-}
-
-interface Assignment {
-  giver: Participant
-  receiver: Participant
-}
+import { generateSecretSanta, type Participant, type Assignment } from "@/lib/tools/logic/helpful-calculators/helper-secret-santa"
+import toolContent from "./secret-santa.json"
 
 export default function SecretSantaGeneratorPage() {
   const [eventName, setEventName] = useState("")
@@ -49,33 +40,14 @@ export default function SecretSantaGeneratorPage() {
     ))
   }
 
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array]
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  const handleGenerate = () => {
+    try {
+      const result = generateSecretSanta({ participants })
+      setAssignments(result.assignments)
+      setMessage("Assignments generated! You can view them below or send emails to participants.")
+    } catch (error: any) {
+      alert(error.message)
     }
-    return shuffled
-  }
-
-  const generateAssignments = () => {
-    // Validate participants
-    const validParticipants = participants.filter(p => p.name.trim() && p.email.trim())
-
-    if (validParticipants.length < 3) {
-      alert("You need at least 3 participants with names and emails")
-      return
-    }
-
-    // Shuffle and create circular assignments (avoids anyone getting themselves)
-    const shuffled = shuffleArray(validParticipants)
-    const newAssignments: Assignment[] = shuffled.map((giver, index) => ({
-      giver,
-      receiver: shuffled[(index + 1) % shuffled.length]
-    }))
-
-    setAssignments(newAssignments)
-    setMessage("Assignments generated! You can view them below or send emails to participants.")
   }
 
   const copyAssignment = (assignment: Assignment) => {
@@ -102,9 +74,9 @@ export default function SecretSantaGeneratorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Secret Santa Generator</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Randomly assign Secret Santa pairs and send email notifications
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -193,7 +165,7 @@ export default function SecretSantaGeneratorPage() {
                 </Button>
 
                 <div className="flex gap-2">
-                  <Button onClick={generateAssignments} className="flex-1" size="lg">
+                  <Button onClick={handleGenerate} className="flex-1" size="lg">
                     <Shuffle className="mr-2 h-4 w-4" />
                     Generate Assignments
                   </Button>
@@ -294,55 +266,9 @@ export default function SecretSantaGeneratorPage() {
 
 
           <AboutDescription
-            title="About Secret Santa Generator"
-            description="Organize your Secret Santa gift exchange with randomly assigned pairs. Perfect for office parties, family gatherings, and friend groups during the holiday season."
-            sections={[
-              {
-                title: "How It Works",
-                content: [
-                  "Enter your event details including name, budget, and date.",
-                  "Add all participants with their names and email addresses (minimum 3 people).",
-                  "Click 'Generate Assignments' to randomly pair everyone.",
-                  "The algorithm ensures no one gets themselves and everyone has both a giver and receiver role."
-                ]
-              },
-              {
-                title: "Sending Notifications",
-                content: [
-                  "After generating assignments, you can send individual emails to each participant with their Secret Santa assignment.",
-                  "The 'Send Email' button opens your default email client with a pre-filled message.",
-                  "For large groups, consider using an email service API to automate the process while keeping assignments secret."
-                ]
-              },
-              {
-                title: "Privacy & Security",
-                content: [
-                  "All assignments are generated in your browser - no data is sent to any server.",
-                  "Only you (the organizer) can see who has whom.",
-                  "Never share the full assignment list with participants!",
-                  "Each person should only know their own assignment to keep the gift exchange fun and mysterious."
-                ]
-              },
-              {
-                title: "Tips for Success",
-                content: [
-                  "Set a clear budget to keep things fair.",
-                  "Give participants enough time (2-3 weeks) to shop for gifts.",
-                  "Consider creating a wishlist spreadsheet where people can anonymously add gift ideas.",
-                  "For office exchanges, remember to account for different work schedules when setting the exchange date."
-                ]
-              },
-              {
-                title: "Common Variations",
-                content: [
-                  "Traditional Secret Santa: everyone buys for one person.",
-                  "White Elephant: bring wrapped gifts and take turns choosing/stealing.",
-                  "Pollyanna: similar to Secret Santa but may include wishlists.",
-                  "Yankee Swap: participants steal gifts from each other.",
-                  "Choose the style that fits your group best!"
-                ]
-              },
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

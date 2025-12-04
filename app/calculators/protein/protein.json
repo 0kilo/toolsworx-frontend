@@ -1,8 +1,44 @@
 {
   "id": "protein",
   "title": "Protein Calculator",
-  "description": "Calculate your daily protein needs based on weight, activity level, and fitness goals.",
+  "description": "Calculate your daily protein needs",
+  "aboutDescription": "Calculate your daily protein needs based on weight, activity level, and fitness goals.",
+  "icon": "Dumbbell",
+  "resultTitle": "Your Protein Needs",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "placeholder": "Enter weight in kg",
+      "required": true
+    },
+    {
+      "name": "activity",
+      "label": "Activity Level",
+      "type": "select",
+      "options": [
+        { "value": "sedentary", "label": "Sedentary" },
+        { "value": "light", "label": "Light Activity" },
+        { "value": "moderate", "label": "Moderate Activity" },
+        { "value": "active", "label": "Very Active" },
+        { "value": "athlete", "label": "Athlete" }
+      ],
+      "required": true
+    },
+    {
+      "name": "goal",
+      "label": "Goal",
+      "type": "select",
+      "options": [
+        { "value": "maintain", "label": "Maintain Weight" },
+        { "value": "lose", "label": "Lose Weight" },
+        { "value": "gain", "label": "Build Muscle" }
+      ],
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "Formula",

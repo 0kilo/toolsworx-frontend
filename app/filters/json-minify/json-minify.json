@@ -2,18 +2,14 @@
   "id": "json-minify",
   "title": "Minify JSON",
   "description": "Compress JSON by removing whitespace",
+  "pageTitle": "Minify JSON",
+  "pageDescription": "Compress JSON by removing whitespace",
+  "aboutTitle": "About Minify JSON",
+  "aboutDescription": "Minify JSON by removing all unnecessary whitespace, line breaks, and formatting. Reduces file size for faster transmission and storage.",
   "category": "filters",
   "sections": [
     {
-      "title": "About Minify JSON",
-      "type": "text",
-      "content": [
-        "Minify JSON by removing all unnecessary whitespace, line breaks, and formatting. Reduces file size for faster transmission and storage."
-      ]
-    },
-    {
       "title": "What Gets Removed",
-      "type": "list",
       "content": [
         "All whitespace between tokens",
         "Line breaks and carriage returns",
@@ -24,7 +20,6 @@
     },
     {
       "title": "Benefits of Minification",
-      "type": "list",
       "content": [
         "Reduced file size (typically 30-50% smaller)",
         "Faster network transmission",
@@ -35,7 +30,6 @@
     },
     {
       "title": "When to Minify",
-      "type": "list",
       "content": [
         "Production API responses",
         "Configuration files for deployment",

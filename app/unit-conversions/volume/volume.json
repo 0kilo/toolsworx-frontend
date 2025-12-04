@@ -1,19 +1,27 @@
 {
   "id": "volume",
   "title": "Volume Converter",
-  "description": "Convert between different volume and liquid measurement units",
+  "description": "Volume conversion is essential for cooking, chemistry, fuel calculations, and liquid measurements across different systems.",
   "category": "unit-conversions",
+  "icon": "Droplet",
+  "units": [
+    { "value": "milliliter", "label": "Milliliter", "abbreviation": "ml", "factor": 0.001 },
+    { "value": "fluid-ounce", "label": "Fluid Ounce (US)", "abbreviation": "fl oz", "factor": 0.0295735 },
+    { "value": "cup", "label": "Cup (US)", "abbreviation": "cup", "factor": 0.236588 },
+    { "value": "pint", "label": "Pint (US)", "abbreviation": "pt", "factor": 0.473176 },
+    { "value": "quart", "label": "Quart (US)", "abbreviation": "qt", "factor": 0.946353 },
+    { "value": "liter", "label": "Liter", "abbreviation": "L", "factor": 1 },
+    { "value": "gallon", "label": "Gallon (US)", "abbreviation": "gal", "factor": 3.78541 },
+    { "value": "imperial-gallon", "label": "Imperial Gallon", "abbreviation": "imp gal", "factor": 4.54609 },
+    { "value": "cubic-meter", "label": "Cubic Meter", "abbreviation": "m³", "factor": 1000 },
+    { "value": "barrel", "label": "Barrel (Oil)", "abbreviation": "bbl", "factor": 158.987 }
+  ],
+  "baseUnit": "liter",
+  "defaultFromUnit": "liter",
+  "defaultToUnit": "gallon",
   "sections": [
     {
-      "title": "About Volume Conversion",
-      "type": "text",
-      "content": [
-        "Volume conversion is essential for cooking, chemistry, fuel calculations, and liquid measurements across different systems."
-      ]
-    },
-    {
       "title": "Common Volume Units",
-      "type": "list",
       "content": [
         "Metric: Milliliter (ml), Liter (L), Cubic Meter (m³)",
         "US Customary: Fluid Ounce, Cup, Pint, Quart, Gallon",
@@ -23,7 +31,6 @@
     },
     {
       "title": "Conversion Examples",
-      "type": "list",
       "content": [
         "1 liter = 1000 milliliters = 33.814 fluid ounces (US)",
         "1 gallon (US) = 3.78541 liters = 4 quarts = 8 pints",
@@ -33,7 +40,6 @@
     },
     {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "Cooking and baking recipe conversions",
         "Fuel consumption and efficiency calculations",

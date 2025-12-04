@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AboutDescription } from "@/components/ui/about-description"
 import { Calendar, Gift, Heart, Sparkles, PartyPopper, Clock } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
+import { calculateTimeRemaining, getEasterDate, getThanksgivingDate, type TimeRemaining } from "@/lib/tools/logic/helpful-calculators/helper-holiday"
+import toolContent from "./holiday-countdown.json"
 
 interface Holiday {
   name: string
@@ -14,14 +16,7 @@ interface Holiday {
   emoji: string
 }
 
-interface TimeRemaining {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-  totalDays: number
-  progress: number
-}
+
 
 export default function HolidayCountdownPage() {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -102,58 +97,7 @@ export default function HolidayCountdownPage() {
     })
   }
 
-  const getEasterDate = (year: number): Date => {
-    // Computus algorithm for Easter (Western)
-    const a = year % 19
-    const b = Math.floor(year / 100)
-    const c = year % 100
-    const d = Math.floor(b / 4)
-    const e = b % 4
-    const f = Math.floor((b + 8) / 25)
-    const g = Math.floor((b - f + 1) / 3)
-    const h = (19 * a + b - d - g + 15) % 30
-    const i = Math.floor(c / 4)
-    const k = c % 4
-    const l = (32 + 2 * e + 2 * i - h - k) % 7
-    const m = Math.floor((a + 11 * h + 22 * l) / 451)
-    const month = Math.floor((h + l - 7 * m + 114) / 31) - 1
-    const day = ((h + l - 7 * m + 114) % 31) + 1
-    return new Date(year, month, day)
-  }
 
-  const getThanksgivingDate = (year: number): Date => {
-    // Fourth Thursday of November
-    const november = new Date(year, 10, 1) // November 1
-    const firstDay = november.getDay()
-    const daysUntilThursday = (4 - firstDay + 7) % 7
-    const firstThursday = 1 + daysUntilThursday
-    const fourthThursday = firstThursday + 21
-    return new Date(year, 10, fourthThursday)
-  }
-
-  const calculateTimeRemaining = (targetDate: Date): TimeRemaining => {
-    const now = currentTime.getTime()
-    const target = targetDate.getTime()
-    const difference = target - now
-
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-
-    // Calculate year start for progress
-    const yearStart = new Date(currentTime.getFullYear(), 0, 1)
-    const yearProgress = (now - yearStart.getTime()) / (365 * 24 * 60 * 60 * 1000) * 100
-
-    return {
-      days,
-      hours,
-      minutes,
-      seconds,
-      totalDays: days,
-      progress: yearProgress
-    }
-  }
 
   const holidays = getHolidays().sort((a, b) => a.date.getTime() - b.date.getTime())
 
@@ -162,9 +106,9 @@ export default function HolidayCountdownPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Holiday Countdown</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Countdown to Christmas, New Year, and other major holidays
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -194,7 +138,7 @@ export default function HolidayCountdownPage() {
 
           <div className="grid gap-6 mb-8">
             {holidays.map((holiday, index) => {
-              const timeRemaining = calculateTimeRemaining(holiday.date)
+              const timeRemaining = calculateTimeRemaining(holiday.date, currentTime)
               const IconComponent = holiday.icon
 
               return (
@@ -281,54 +225,9 @@ export default function HolidayCountdownPage() {
 
 
           <AboutDescription
-            title="About Holiday Countdown"
-            description="Track the time until your favorite holidays with live countdowns. Perfect for planning celebrations, shopping, travel, and building excitement for upcoming special days."
-            sections={[
-              {
-                title: "How It Works",
-                content: [
-                  "The countdown automatically updates every second, showing you exactly how many days, hours, minutes, and seconds remain until each major holiday.",
-                  "Holidays are sorted chronologically, so the next upcoming holiday appears first.",
-                  "The progress bar shows how far through the year we've progressed toward each celebration."
-                ]
-              },
-              {
-                title: "Featured Holidays",
-                content: [
-                  "We track major holidays including Christmas, New Year's Day, Valentine's Day, Easter, Independence Day, Halloween, and Thanksgiving.",
-                  "Easter and Thanksgiving dates are calculated automatically based on their traditional scheduling rules.",
-                  "Easter uses the Computus algorithm, Thanksgiving is the fourth Thursday of November."
-                ]
-              },
-              {
-                title: "Holiday Planning Tips",
-                content: [
-                  "Use these countdowns to plan ahead!",
-                  "For Christmas, most people start shopping 6-8 weeks before.",
-                  "For travel, book flights 3-4 months in advance for best prices.",
-                  "For party planning, send invitations 3-4 weeks ahead.",
-                  "The one-week alerts help you remember last-minute preparations."
-                ]
-              },
-              {
-                title: "Shopping Deadlines",
-                content: [
-                  "Major retailers typically set shipping deadlines 1-2 weeks before holidays to guarantee delivery.",
-                  "For Christmas, expect cutoffs around December 18-20 for standard shipping, later for express.",
-                  "Black Friday (day after Thanksgiving) and Cyber Monday are prime shopping days with significant discounts."
-                ]
-              },
-              {
-                title: "Making the Most of Holidays",
-                content: [
-                  "Holidays are more enjoyable with proper planning.",
-                  "Create shopping lists early, budget for gifts and celebrations.",
-                  "Book travel and accommodations well in advance.",
-                  "Consider starting traditions that make each holiday special for your family and friends.",
-                  "The anticipation is part of the fun!"
-                ]
-              },
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

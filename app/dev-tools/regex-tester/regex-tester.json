@@ -1,12 +1,15 @@
 {
   "id": "regex-tester",
   "title": "Regex Tester",
-  "description": "Test and debug regular expressions with live matching, highlighting, and detailed match information. Perfect for developers and data analysts working with pattern matching.",
+  "description": "Test and debug regular expressions with live matching, highlighting, and detailed match information",
+  "pageTitle": "Regex Tester",
+  "pageDescription": "Test and debug regular expressions with live matching, highlighting, and detailed match information",
+  "aboutTitle": "About Regex Tester",
+  "aboutDescription": "Test and debug regular expressions with live matching, highlighting, and detailed match information. Perfect for developers and data analysts working with pattern matching. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Features",
-      "type": "list",
       "content": [
         "Live regex testing with instant results",
         "Visual highlighting of matches in text",

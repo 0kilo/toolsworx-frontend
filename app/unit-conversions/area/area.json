@@ -1,19 +1,27 @@
 {
   "id": "area",
   "title": "Area Converter",
-  "description": "Convert between different area and surface measurement units",
+  "description": "Area conversion is essential for real estate, construction, agriculture, and land management across different measurement systems.",
   "category": "unit-conversions",
+  "icon": "Square",
+  "units": [
+    { "value": "sqmm", "label": "Square Millimeter", "abbreviation": "mm²", "factor": 0.000001 },
+    { "value": "sqcm", "label": "Square Centimeter", "abbreviation": "cm²", "factor": 0.0001 },
+    { "value": "sqin", "label": "Square Inch", "abbreviation": "in²", "factor": 0.00064516 },
+    { "value": "sqft", "label": "Square Foot", "abbreviation": "ft²", "factor": 0.092903 },
+    { "value": "sqyd", "label": "Square Yard", "abbreviation": "yd²", "factor": 0.836127 },
+    { "value": "sqm", "label": "Square Meter", "abbreviation": "m²", "factor": 1 },
+    { "value": "acre", "label": "Acre", "abbreviation": "ac", "factor": 4046.86 },
+    { "value": "hectare", "label": "Hectare", "abbreviation": "ha", "factor": 10000 },
+    { "value": "sqkm", "label": "Square Kilometer", "abbreviation": "km²", "factor": 1000000 },
+    { "value": "sqmi", "label": "Square Mile", "abbreviation": "mi²", "factor": 2589988 }
+  ],
+  "baseUnit": "sqm",
+  "defaultFromUnit": "sqft",
+  "defaultToUnit": "sqm",
   "sections": [
     {
-      "title": "About Area Conversion",
-      "type": "text",
-      "content": [
-        "Area conversion is essential for real estate, construction, agriculture, and land management across different measurement systems."
-      ]
-    },
-    {
       "title": "Area Units",
-      "type": "list",
       "content": [
         "Small: Square millimeter (mm²), Square centimeter (cm²), Square inch (in²)",
         "Common: Square foot (ft²), Square yard (yd²), Square meter (m²)",
@@ -23,7 +31,6 @@
     },
     {
       "title": "Conversion Examples",
-      "type": "list",
       "content": [
         "1 square meter = 10.764 square feet = 1.196 square yards",
         "1 acre = 4,047 square meters = 43,560 square feet",
@@ -33,7 +40,6 @@
     },
     {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "Real estate property measurements",
         "Construction and architectural planning",

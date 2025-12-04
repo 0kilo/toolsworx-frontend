@@ -1,7 +1,24 @@
 {
   "id": "line-chart",
   "title": "Line Chart Generator",
-  "description": "Create interactive line charts to show trends over time. Line charts are perfect for displaying continuous data and identifying patterns.",
+  "description": "Create interactive line charts to show trends over time",
+  "pageTitle": "Line Chart Generator",
+  "pageDescription": "Create interactive line charts to show trends over time. Line charts are perfect for displaying continuous data and identifying patterns.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your line chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Monthly Revenue\",\n  \"color\": \"#3b82f6\",\n  \"data\": [\n    { \"x\": \"Jan\", \"y\": 4000 },\n    { \"x\": \"Feb\", \"y\": 3000 },\n    { \"x\": \"Mar\", \"y\": 5000 },\n    { \"x\": \"Apr\", \"y\": 4500 },\n    { \"x\": \"May\", \"y\": 6000 },\n    { \"x\": \"Jun\", \"y\": 5500 }\n  ]\n}",
+  "exampleData": {
+    "title": "Monthly Revenue",
+    "color": "#3b82f6",
+    "data": [
+      { "x": "Jan", "y": 4000 },
+      { "x": "Feb", "y": 3000 },
+      { "x": "Mar", "y": 5000 },
+      { "x": "Apr", "y": 4500 },
+      { "x": "May", "y": 6000 },
+      { "x": "Jun", "y": 5500 }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

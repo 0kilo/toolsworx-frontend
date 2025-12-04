@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Hash, Copy, Check } from "lucide-react"
+import { generateHash, generateRandomString, type HashInput } from "@/lib/tools/logic/dev-tools/tool-hash"
+import toolContent from "./hash-generator.json"
 
 export default function HashGeneratorPage() {
   const [input, setInput] = useState("")
@@ -16,35 +18,19 @@ export default function HashGeneratorPage() {
   const [hash, setHash] = useState("")
   const [copied, setCopied] = useState(false)
 
-  const generateHash = async () => {
+  const handleGenerateHash = async () => {
     if (!input) return
 
     try {
-      let result = ""
-      
-      if (algorithm === "md5") {
-        // Simple MD5 implementation for demo
-        result = await simpleHash(input, "MD5")
-      } else if (algorithm === "sha1") {
-        result = await simpleHash(input, "SHA-1")
-      } else if (algorithm === "sha256") {
-        result = await simpleHash(input, "SHA-256")
-      } else if (algorithm === "base64") {
-        result = btoa(input)
+      const hashInput: HashInput = {
+        text: input,
+        algorithm: algorithm as HashInput["algorithm"]
       }
-      
-      setHash(result)
-    } catch (error) {
-      setHash("Error generating hash")
+      const result = await generateHash(hashInput)
+      setHash(result.hash)
+    } catch (error: any) {
+      setHash(error.message || "Error generating hash")
     }
-  }
-
-  const simpleHash = async (text: string, algorithm: string) => {
-    const encoder = new TextEncoder()
-    const data = encoder.encode(text)
-    const hashBuffer = await crypto.subtle.digest(algorithm, data)
-    const hashArray = Array.from(new Uint8Array(hashBuffer))
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
   }
 
   const handleCopy = async () => {
@@ -58,12 +44,7 @@ export default function HashGeneratorPage() {
   }
 
   const generateRandom = () => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    let result = ''
-    for (let i = 0; i < 32; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length))
-    }
-    setInput(result)
+    setInput(generateRandomString(32))
   }
 
   return (
@@ -71,9 +52,9 @@ export default function HashGeneratorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Hash Generator</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Generate MD5, SHA-1, SHA-256 hashes and Base64 encoding
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -120,7 +101,7 @@ export default function HashGeneratorPage() {
                 </Select>
               </div>
 
-              <Button onClick={generateHash} className="w-full">
+              <Button onClick={handleGenerateHash} className="w-full">
                 Generate Hash
               </Button>
 
@@ -144,38 +125,9 @@ export default function HashGeneratorPage() {
 
 
           <AboutDescription
-            title="About Hash Functions"
-            description="Hash functions convert input data into fixed-size strings. They're essential for security, data integrity, and password storage."
-            sections={[
-              {
-                title: "Hash Types",
-                content: [
-                  "<strong>MD5:</strong> 128-bit hash, fast but not secure for passwords",
-                  "<strong>SHA-1:</strong> 160-bit hash, deprecated for security applications",
-                  "<strong>SHA-256:</strong> 256-bit hash, secure and widely used",
-                  "<strong>Base64:</strong> Encoding (not hashing) for data transmission"
-                ]
-              },
-              {
-                title: "Common Uses",
-                content: [
-                  "Password storage (use SHA-256 with salt)",
-                  "File integrity verification",
-                  "Digital signatures and certificates",
-                  "Blockchain and cryptocurrency",
-                  "Data deduplication"
-                ]
-              },
-              {
-                title: "Security Notes",
-                content: [
-                  "Never use MD5 or SHA-1 for passwords",
-                  "Always use salt with password hashes",
-                  "SHA-256 is currently secure for most applications",
-                  "Consider bcrypt or Argon2 for password hashing"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

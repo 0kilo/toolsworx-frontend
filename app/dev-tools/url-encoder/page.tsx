@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Link, Copy, Check } from "lucide-react"
+import { encodeURL, decodeURL } from "@/lib/tools/logic/dev-tools/tool-url"
+import toolContent from "./url-encoder.json"
 
 export default function URLEncoderPage() {
   const [input, setInput] = useState("")
@@ -16,7 +18,8 @@ export default function URLEncoderPage() {
 
   const handleEncode = () => {
     try {
-      setEncoded(encodeURIComponent(input))
+      const result = encodeURL({ text: input })
+      setEncoded(result.encoded)
     } catch (error) {
       setEncoded("Error encoding")
     }
@@ -24,7 +27,8 @@ export default function URLEncoderPage() {
 
   const handleDecode = () => {
     try {
-      setDecoded(decodeURIComponent(input))
+      const result = decodeURL({ text: input })
+      setDecoded(result.decoded)
     } catch (error) {
       setDecoded("Error decoding")
     }
@@ -45,9 +49,9 @@ export default function URLEncoderPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">URL Encoder/Decoder</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Encode and decode URLs for safe transmission
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -118,29 +122,9 @@ export default function URLEncoderPage() {
 
 
           <AboutDescription
-            title="About URL Encoding"
-            description="URL encoding converts special characters into a format that can be safely transmitted over the internet."
-            sections={[
-              {
-                title: "Common Encoded Characters",
-                content: [
-                  "Space ( ) → %20",
-                  "Ampersand (&) → %26", 
-                  "Question mark (?) → %3F",
-                  "Hash (#) → %23",
-                  "Plus (+) → %2B"
-                ]
-              },
-              {
-                title: "When to Use",
-                content: [
-                  "Query parameters with special characters",
-                  "Form data submission",
-                  "API endpoint construction",
-                  "Email links with parameters"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

@@ -5,28 +5,29 @@
  */
 
 import { MCPTool } from "./conversion-tools.js";
+import { calculateBMI, BMIInput } from "../../../lib/tools/logic/calculators/calculator-bmi.js";
 
 export const calculatorTools: MCPTool[] = [
   {
     name: "calculate-bmi",
-    description: "Calculate Body Mass Index (BMI) from height and weight",
+    description: "Calculate Body Mass Index (BMI) from height and weight. Returns BMI value, category (Underweight/Normal/Overweight/Obese), and health advice.",
     inputSchema: {
       type: "object",
       properties: {
         weight: {
           type: "number",
-          description: "Weight value",
+          description: "Weight value (20-500)",
           minimum: 20,
           maximum: 500,
         },
         weightUnit: {
           type: "string",
-          enum: ["kg", "lb"],
+          enum: ["kg", "lbs"],
           description: "Unit of weight measurement",
         },
         height: {
           type: "number",
-          description: "Height value",
+          description: "Height value (50-300)",
           minimum: 50,
           maximum: 300,
         },
@@ -40,62 +41,24 @@ export const calculatorTools: MCPTool[] = [
     },
     execute: async (args: {
       weight: number;
-      weightUnit: string;
+      weightUnit: "kg" | "lbs";
       height: number;
-      heightUnit: string;
+      heightUnit: "cm" | "in";
     }) => {
-      let { weight, height } = args;
-      const { weightUnit, heightUnit } = args;
+      const input: BMIInput = {
+        weight: args.weight,
+        weightUnit: args.weightUnit,
+        height: args.height,
+        heightUnit: args.heightUnit,
+      };
 
-      // Convert to metric
-      if (weightUnit === "lb") {
-        weight = weight * 0.453592;
-      }
-      if (heightUnit === "in") {
-        height = height * 2.54;
-      }
-
-      // Calculate BMI
-      const heightInMeters = height / 100;
-      const bmi = weight / (heightInMeters * heightInMeters);
-
-      // Determine category
-      let category: string;
-      let advice: string;
-
-      if (bmi < 18.5) {
-        category = "Underweight";
-        advice = "Consider consulting a healthcare provider for guidance";
-      } else if (bmi < 25) {
-        category = "Normal weight";
-        advice = "Maintain your healthy lifestyle";
-      } else if (bmi < 30) {
-        category = "Overweight";
-        advice = "Consider a balanced diet and regular exercise";
-      } else {
-        category = "Obese";
-        advice = "Consult a healthcare provider for personalized advice";
-      }
-
-      // Calculate healthy weight range
-      const minHealthyWeight = 18.5 * heightInMeters * heightInMeters;
-      const maxHealthyWeight = 24.9 * heightInMeters * heightInMeters;
+      const result = calculateBMI(input);
 
       return {
-        bmi: parseFloat(bmi.toFixed(1)),
-        category,
-        advice,
-        healthyWeightRange: {
-          min: parseFloat(minHealthyWeight.toFixed(1)),
-          max: parseFloat(maxHealthyWeight.toFixed(1)),
-          unit: "kg",
-        },
-        input: {
-          weight: args.weight,
-          weightUnit: args.weightUnit,
-          height: args.height,
-          heightUnit: args.heightUnit,
-        },
+        bmi: result.bmi,
+        category: result.category,
+        advice: result.advice,
+        input: args,
       };
     },
   },

@@ -2,6 +2,7 @@
 
 import { MediaConverter } from "@/components/shared/media-converter"
 import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./video.json"
 
 const videoFormats = [
   { value: 'mp4', label: 'MP4', extensions: ['mp4'], accept: '.mp4,video/mp4' },
@@ -18,9 +19,9 @@ export default function VideoConverterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Video Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Convert between MP4, AVI, MKV, MOV, and other video formats
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -36,30 +37,9 @@ export default function VideoConverterPage() {
 
 
           <AboutDescription
-            title="About Video Conversion"
-            description="Convert video files between popular formats while maintaining quality and optimizing for different platforms."
-            sections={[
-              {
-                title: "Supported Formats",
-                content: [
-                  "MP4 - Most compatible format for web and mobile",
-                  "AVI - Classic Windows video format",
-                  "MKV - Open-source container with advanced features",
-                  "MOV - Apple QuickTime format",
-                  "WebM - Google's web-optimized format",
-                  "WMV - Windows Media Video format"
-                ]
-              },
-              {
-                title: "Common Use Cases",
-                content: [
-                  "Convert AVI to MP4 for better compatibility",
-                  "Convert MOV to MP4 for web publishing",
-                  "Convert videos for different devices",
-                  "Reduce file size while maintaining quality"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

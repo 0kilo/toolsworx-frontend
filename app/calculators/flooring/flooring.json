@@ -1,8 +1,38 @@
 {
   "id": "flooring",
   "title": "Flooring Calculator",
-  "description": "Calculate square footage and materials needed for flooring projects.",
+  "description": "Calculate square footage and materials needed",
+  "aboutDescription": "Calculate square footage and materials needed for flooring projects.",
+  "icon": "Home",
+  "resultTitle": "Flooring Requirements",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "length",
+      "label": "Room Length (feet)",
+      "type": "number",
+      "placeholder": "Enter length",
+      "required": true
+    },
+    {
+      "name": "width",
+      "label": "Room Width (feet)",
+      "type": "number",
+      "placeholder": "Enter width",
+      "required": true
+    },
+    {
+      "name": "waste",
+      "label": "Waste Factor",
+      "type": "select",
+      "options": [
+        { "value": "5", "label": "5% (Standard)" },
+        { "value": "10", "label": "10% (Diagonal/Pattern)" },
+        { "value": "15", "label": "15% (Complex Layout)" }
+      ],
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "Formula",

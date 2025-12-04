@@ -1,7 +1,21 @@
 {
   "id": "bar-chart",
   "title": "Bar Chart Generator",
-  "description": "Create interactive bar charts from your data. Bar charts are ideal for comparing discrete categories or showing rankings.",
+  "description": "Create interactive bar charts from your data",
+  "pageTitle": "Bar Chart Generator",
+  "pageDescription": "Create interactive bar charts from your data. Bar charts are ideal for comparing discrete categories or showing rankings.",
+  "chartDataTitle": "Chart Data",
+  "chartDataDescription": "Configure your bar chart using JSON data or import from external sources",
+  "exampleJson": "{\n  \"title\": \"Sales by Quarter\",\n  \"data\": [\n    { \"label\": \"Q1\", \"value\": 120, \"color\": \"#3b82f6\" },\n    { \"label\": \"Q2\", \"value\": 150, \"color\": \"#10b981\" },\n    { \"label\": \"Q3\", \"value\": 180, \"color\": \"#f59e0b\" },\n    { \"label\": \"Q4\", \"value\": 200, \"color\": \"#ef4444\" }\n  ]\n}",
+  "exampleData": {
+    "title": "Sales by Quarter",
+    "data": [
+      { "label": "Q1", "value": 120, "color": "#3b82f6" },
+      { "label": "Q2", "value": 150, "color": "#10b981" },
+      { "label": "Q3", "value": 180, "color": "#f59e0b" },
+      { "label": "Q4", "value": 200, "color": "#ef4444" }
+    ]
+  },
   "category": "charts",
   "sections": [
     {

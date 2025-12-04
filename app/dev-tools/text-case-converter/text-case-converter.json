@@ -1,12 +1,15 @@
 {
   "id": "text-case-converter",
   "title": "Text Case Converter",
-  "description": "Convert text between different case formats commonly used in programming, writing, and data processing. Perfect for developers, writers, and data analysts.",
+  "description": "Convert text between different case formats commonly used in programming, writing, and data processing",
+  "pageTitle": "Text Case Converter",
+  "pageDescription": "Convert text between different case formats commonly used in programming, writing, and data processing",
+  "aboutTitle": "About Text Case Converter",
+  "aboutDescription": "Convert text between different case formats commonly used in programming, writing, and data processing. Perfect for developers, writers, and data analysts. All processing happens in your browser - no data is sent to any server.",
   "category": "dev-tools",
   "sections": [
     {
       "title": "Case Types",
-      "type": "list",
       "content": [
         "<strong>UPPERCASE:</strong> All letters capitalized",
         "<strong>lowercase:</strong> All letters in lowercase",

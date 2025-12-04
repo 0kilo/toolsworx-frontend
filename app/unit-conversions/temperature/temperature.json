@@ -1,57 +1,44 @@
 {
   "id": "temperature",
   "title": "Temperature Converter",
-  "description": "Convert between Celsius, Fahrenheit, Kelvin, and Rankine",
+  "description": "Temperature conversion is essential for science, cooking, weather, and international communication across different temperature scales.",
   "category": "unit-conversions",
+  "icon": "Thermometer",
+  "units": [
+    { "value": "celsius", "label": "Celsius", "abbreviation": "°C" },
+    { "value": "fahrenheit", "label": "Fahrenheit", "abbreviation": "°F" },
+    { "value": "kelvin", "label": "Kelvin", "abbreviation": "K" },
+    { "value": "rankine", "label": "Rankine", "abbreviation": "°R" }
+  ],
+  "defaultFromUnit": "celsius",
+  "defaultToUnit": "fahrenheit",
   "sections": [
     {
-      "title": "About Temperature Conversion",
-      "type": "text",
-      "content": [
-        "Temperature conversion is essential for weather, cooking, science, and international communication across different temperature scales."
-      ]
-    },
-    {
       "title": "Temperature Scales",
-      "type": "list",
       "content": [
-        "Celsius (°C) - Metric standard, water freezes at 0°C, boils at 100°C",
-        "Fahrenheit (°F) - US standard, water freezes at 32°F, boils at 212°F",
-        "Kelvin (K) - Scientific absolute scale, 0K is absolute zero",
-        "Rankine (°R) - Absolute scale using Fahrenheit degrees"
+        "Celsius (°C): Water freezes at 0°C, boils at 100°C - used worldwide",
+        "Fahrenheit (°F): Water freezes at 32°F, boils at 212°F - used in US",
+        "Kelvin (K): Absolute temperature scale starting at absolute zero (-273.15°C)",
+        "Rankine (°R): Absolute scale using Fahrenheit degrees, rarely used"
       ]
     },
     {
       "title": "Conversion Formulas",
-      "type": "list",
       "content": [
-        "Celsius to Fahrenheit: $F = \\frac{9}{5}C + 32$",
-        "Fahrenheit to Celsius: $C = \\frac{5}{9}(F - 32)$",
-        "Celsius to Kelvin: $K = C + 273.15$",
-        "Fahrenheit to Rankine: $R = F + 459.67$",
-        "Kelvin to Rankine: $R = \\frac{9}{5}K$"
+        "°F = (°C × 9/5) + 32",
+        "°C = (°F - 32) × 5/9",
+        "K = °C + 273.15",
+        "°R = °F + 459.67"
       ]
     },
     {
       "title": "Common Reference Points",
-      "type": "list",
       "content": [
-        "Absolute zero: -273.15°C = -459.67°F = 0K",
-        "Water freezes: 0°C = 32°F = 273.15K",
-        "Room temperature: ~20°C = 68°F = 293K",
-        "Body temperature: 37°C = 98.6°F = 310K",
-        "Water boils: 100°C = 212°F = 373K"
-      ]
-    },
-    {
-      "title": "Use Cases",
-      "type": "list",
-      "content": [
-        "Weather forecasts and climate data",
-        "Cooking and baking temperatures",
-        "Scientific research and experiments",
-        "HVAC and climate control",
-        "International travel and communication"
+        "Absolute Zero: -273.15°C = -459.67°F = 0K",
+        "Water Freezing: 0°C = 32°F = 273.15K",
+        "Room Temperature: ~20°C = ~68°F = ~293K",
+        "Body Temperature: 37°C = 98.6°F = 310K",
+        "Water Boiling: 100°C = 212°F = 373.15K"
       ]
     }
   ]

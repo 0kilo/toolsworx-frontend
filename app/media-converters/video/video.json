@@ -2,18 +2,14 @@
   "id": "video",
   "title": "Video Converter",
   "description": "Convert between MP4, AVI, MKV, MOV, and other video formats",
+  "pageTitle": "Video Converter",
+  "pageDescription": "Convert between MP4, AVI, MKV, MOV, and other video formats",
+  "aboutTitle": "About Video Conversion",
+  "aboutDescription": "Convert video files between popular formats while maintaining quality and optimizing for different platforms.",
   "category": "media-converters",
   "sections": [
     {
-      "title": "About Video Conversion",
-      "type": "text",
-      "content": [
-        "Convert video files between popular formats while maintaining quality and optimizing for different platforms."
-      ]
-    },
-    {
       "title": "Supported Formats",
-      "type": "list",
       "content": [
         "MP4 - Most compatible format for web and mobile",
         "AVI - Classic Windows video format",
@@ -25,7 +21,6 @@
     },
     {
       "title": "Common Use Cases",
-      "type": "list",
       "content": [
         "Convert AVI to MP4 for better compatibility",
         "Convert MOV to MP4 for web publishing",

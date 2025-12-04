@@ -2,90 +2,65 @@
 
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Home } from "lucide-react"
+import * as Icons from "lucide-react"
 import toolContent from "./flooring.json"
+import { calculateFlooring, FlooringInput } from "@/lib/tools/logic/calculators/calculator-flooring"
 
-const fields: CalculatorField[] = [
-  {
-    name: "length",
-    label: "Room Length (feet)",
-    type: "number",
-    placeholder: "Enter length",
-    required: true,
-  },
-  {
-    name: "width",
-    label: "Room Width (feet)",
-    type: "number",
-    placeholder: "Enter width",
-    required: true,
-  },
-  {
-    name: "waste",
-    label: "Waste Factor",
-    type: "select",
-    options: [
-      { value: "5", label: "5% (Standard)" },
-      { value: "10", label: "10% (Diagonal/Pattern)" },
-      { value: "15", label: "15% (Complex Layout)" },
-    ],
-    required: true,
-  },
-]
+function handleCalculate(values: Record<string, string>): CalculatorResult[] {
+  const input: FlooringInput = {
+    length: parseFloat(values.length),
+    width: parseFloat(values.width),
+    waste: parseFloat(values.waste),
+  }
 
-function calculateFlooring(values: Record<string, string>): CalculatorResult[] {
-  const length = parseFloat(values.length)
-  const width = parseFloat(values.width)
-  const waste = parseFloat(values.waste)
-
-  const area = length * width
-  const wasteAmount = area * (waste / 100)
-  const totalArea = area + wasteAmount
+  const result = calculateFlooring(input)
 
   return [
     {
       label: "Total Square Footage Needed (sq ft)",
-      value: Math.ceil(totalArea),
+      value: result.totalArea,
       format: "number",
       highlight: true,
     },
     {
       label: "Room Area (sq ft)",
-      value: Math.round(area),
+      value: result.roomArea,
       format: "number",
     },
     {
       label: "Waste Allowance (sq ft)",
-      value: Math.round(wasteAmount),
+      value: result.wasteAmount,
       format: "number",
     },
   ]
 }
 
-const infoContent = (
-  <AboutDescription
-    title={`About ${toolContent.title}`}
-    description={toolContent.description}
-    sections={toolContent.sections.map(section => ({
-      title: section.title,
-      content: section.content,
-      type: section.type as 'list' | 'subsections' | undefined
-    }))}
-  />
-)
-
 export default function FlooringCalculatorPage() {
+  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
+  
+  const infoContent = (
+    <AboutDescription
+      title={`About ${toolContent.title}`}
+      description={toolContent.aboutDescription}
+      sections={toolContent.sections.map(section => ({
+        title: section.title,
+        content: section.content,
+        type: section.type as 'list' | 'subsections' | undefined
+      }))}
+    />
+  )
+
   return (
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <CalculatorTemplate
-            title="Flooring Calculator"
-            description="Calculate square footage and materials needed"
-            icon={Home}
-            fields={fields}
-            onCalculate={calculateFlooring}
-            resultTitle="Flooring Requirements"
+            title={toolContent.title}
+            description={toolContent.description}
+            icon={Icon}
+            fields={toolContent.fields as CalculatorField[]}
+            onCalculate={handleCalculate}
+            resultTitle={toolContent.resultTitle}
             infoContent={infoContent}
           />
         </div>

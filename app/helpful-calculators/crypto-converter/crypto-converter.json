@@ -3,17 +3,13 @@
   "title": "Crypto Currency Converter",
   "description": "Convert cryptocurrencies to fiat currencies with market rates updated every 30 minutes",
   "category": "helpful-calculators",
+  "pageTitle": "Crypto Currency Converter",
+  "pageDescription": "Convert cryptocurrencies to fiat currencies with market rates updated every 30 minutes",
+  "aboutTitle": "About Cryptocurrency Conversion",
+  "aboutDescription": "Cryptocurrency to fiat currency conversion using market data updated every 30 minutes. For informational purposes only.",
   "sections": [
     {
-      "title": "About Cryptocurrency Conversion",
-      "type": "text",
-      "content": [
-        "Cryptocurrency to fiat currency conversion using market data updated every 30 minutes. For informational purposes only."
-      ]
-    },
-    {
       "title": "Supported Cryptocurrencies",
-      "type": "list",
       "content": [
         "Bitcoin (BTC) - The original cryptocurrency",
         "Ethereum (ETH) - Smart contract platform",
@@ -27,7 +23,6 @@
     },
     {
       "title": "Market Data",
-      "type": "list",
       "content": [
         "Prices updated every 30 minutes from market data sources",
         "Stored in DynamoDB for fast access",
@@ -38,7 +33,6 @@
     },
     {
       "title": "Use Cases",
-      "type": "list",
       "content": [
         "General portfolio value estimates",
         "Educational and learning purposes",

@@ -1,8 +1,41 @@
 {
   "id": "tip",
   "title": "Tip Calculator",
-  "description": "Calculate tips and split bills easily. This calculator helps you determine the appropriate tip amount and divides the total among multiple people.",
+  "description": "Calculate tips and split bills between multiple people",
+  "aboutDescription": "Calculate tips and split bills easily. This calculator helps you determine the appropriate tip amount and divides the total among multiple people.",
+  "icon": "Percent",
+  "resultTitle": "Tip Breakdown",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "billAmount",
+      "label": "Bill Amount",
+      "type": "number",
+      "placeholder": "Enter bill amount",
+      "required": true,
+      "min": 0,
+      "helpText": "Total bill before tip"
+    },
+    {
+      "name": "tipPercentage",
+      "label": "Tip Percentage (%)",
+      "type": "number",
+      "placeholder": "Enter tip percentage",
+      "required": true,
+      "min": 0,
+      "max": 100,
+      "helpText": "How much to tip (typically 15-20%)"
+    },
+    {
+      "name": "numberOfPeople",
+      "label": "Number of People",
+      "type": "number",
+      "placeholder": "Enter number of people",
+      "required": true,
+      "min": 1,
+      "helpText": "Split the bill between how many people?"
+    }
+  ],
   "sections": [
     {
       "title": "Formulas",

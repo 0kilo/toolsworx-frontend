@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Bitcoin, ArrowUpDown, RefreshCw, TrendingUp, TrendingDown } from "lucide-react"
 import { amplifyApiClient } from "@/lib/services/amplify-client"
+import { convertCrypto } from "@/lib/tools/logic/helpful-calculators/helper-crypto"
+import toolContent from "./crypto-converter.json"
 
 const cryptos = [
   { value: "BTC", label: "Bitcoin", symbol: "₿" },
@@ -41,22 +43,19 @@ export default function CryptoConverterPage() {
   const [loading, setLoading] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
 
-  const convertCrypto = (value: string, from: string, to: string) => {
+  const handleConvert = (value: string, from: string, to: string) => {
     if (!value || isNaN(Number(value)) || !rates[from] || !rates[from].price) {
       return ""
     }
 
-    const amount = Number(value)
-    const cryptoInUSD = amount * rates[from].price
+    const result = convertCrypto({
+      amount: Number(value),
+      fromCrypto: from,
+      toCurrency: to,
+      cryptoPrice: rates[from].price
+    })
 
-    // If converting to USD, return directly
-    if (to === 'USD') {
-      return cryptoInUSD.toFixed(2)
-    }
-
-    // For other currencies, would need currency conversion rate
-    // For now, just return USD value
-    return cryptoInUSD.toFixed(2)
+    return result.result.toFixed(2)
   }
 
   const fetchRate = async (symbol: string) => {
@@ -93,7 +92,7 @@ export default function CryptoConverterPage() {
   // Re-convert when rates change
   useEffect(() => {
     if (fromValue) {
-      const result = convertCrypto(fromValue, fromCrypto, toCurrency)
+      const result = handleConvert(fromValue, fromCrypto, toCurrency)
       setToValue(result)
     } else {
       setToValue("")
@@ -154,9 +153,9 @@ export default function CryptoConverterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Crypto Currency Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.pageTitle}</h1>
             <p className="text-muted-foreground">
-              Convert cryptocurrencies to fiat currencies with market rates updated every 30 minutes
+              {toolContent.pageDescription}
             </p>
           </div>
 
@@ -261,43 +260,9 @@ export default function CryptoConverterPage() {
           </Card>
 
           <AboutDescription
-            title="About Cryptocurrency Conversion"
-            description="Cryptocurrency to fiat currency conversion using market data updated every 30 minutes. For informational purposes only."
-            sections={[
-              {
-                title: "Supported Cryptocurrencies",
-                content: [
-                  "Bitcoin (BTC) - The original cryptocurrency",
-                  "Ethereum (ETH) - Smart contract platform",
-                  "Binance Coin (BNB) - Exchange token",
-                  "Ripple (XRP) - Cross-border payments",
-                  "Cardano (ADA) - Proof-of-stake blockchain",
-                  "Dogecoin (DOGE) - Meme cryptocurrency",
-                  "Solana (SOL) - High-performance blockchain",
-                  "And more popular cryptocurrencies"
-                ]
-              },
-              {
-                title: "Market Data",
-                content: [
-                  "Prices updated every 30 minutes from market data sources",
-                  "Stored in DynamoDB for fast access",
-                  "Data may be delayed - not suitable for trading decisions",
-                  "For informational and educational purposes only",
-                  "Accurate to 8 decimal places"
-                ]
-              },
-              {
-                title: "Use Cases",
-                content: [
-                  "General portfolio value estimates",
-                  "Educational and learning purposes",
-                  "Rough tax calculation estimates (verify with official sources)",
-                  "Understanding cryptocurrency values",
-                  "Informational reference only - not for trading"
-                ]
-              }
-            ]}
+            title={toolContent.aboutTitle}
+            description={toolContent.aboutDescription}
+            sections={toolContent.sections}
           />
         </div>
 

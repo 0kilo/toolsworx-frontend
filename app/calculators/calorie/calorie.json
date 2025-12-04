@@ -1,8 +1,57 @@
 {
   "id": "calorie",
   "title": "Calorie Calculator",
-  "description": "Calculate daily caloric needs based on activity level",
+  "description": "Calculate your daily calorie needs",
+  "aboutDescription": "Calculate daily caloric needs based on activity level",
+  "icon": "Utensils",
+  "resultTitle": "Your Calorie Needs",
   "category": "calculators",
+  "fields": [
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "number",
+      "placeholder": "Enter your age",
+      "required": true
+    },
+    {
+      "name": "gender",
+      "label": "Gender",
+      "type": "select",
+      "options": [
+        { "value": "male", "label": "Male" },
+        { "value": "female", "label": "Female" }
+      ],
+      "required": true
+    },
+    {
+      "name": "weight",
+      "label": "Weight (kg)",
+      "type": "number",
+      "placeholder": "Enter weight in kg",
+      "required": true
+    },
+    {
+      "name": "height",
+      "label": "Height (cm)",
+      "type": "number",
+      "placeholder": "Enter height in cm",
+      "required": true
+    },
+    {
+      "name": "activity",
+      "label": "Activity Level",
+      "type": "select",
+      "options": [
+        { "value": "sedentary", "label": "Sedentary (little or no exercise)" },
+        { "value": "light", "label": "Light (exercise 1-3 days/week)" },
+        { "value": "moderate", "label": "Moderate (exercise 3-5 days/week)" },
+        { "value": "active", "label": "Active (exercise 6-7 days/week)" },
+        { "value": "very_active", "label": "Very Active (intense exercise daily)" }
+      ],
+      "required": true
+    }
+  ],
   "sections": [
     {
       "title": "BMR Formulas",
