@@ -1,4 +1,4 @@
-import { Sliders, ImageIcon, Music, FileCode, Wand2, Palette } from "lucide-react"
+import { Sliders, ImageIcon, Music, FileCode, Wand2, Palette, Sparkles, FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -6,6 +6,28 @@ import { ConverterMetadata } from "@/types/converter"
  * All filter tools from FILTER_SERVICE_SPEC.md (image, audio, and data filters)
  */
 export const filterTools: ConverterMetadata[] = [
+  // Unified Tools (NEW)
+  {
+    id: "image-effects",
+    title: "Image Effects & Filters",
+    description: "Apply 10+ professional filters and effects to your images",
+    category: "image-filter",
+    icon: Sparkles,
+    href: "/filters/image-effects",
+    keywords: ["image", "filter", "effects", "grayscale", "sepia", "vintage", "brightness", "contrast", "saturation", "instagram"],
+    popular: true,
+  },
+  {
+    id: "text-processor",
+    title: "Text Processor & Data Tools",
+    description: "Extract data, format code, and transform text in one tool",
+    category: "data-filter",
+    icon: FileText,
+    href: "/filters/text-processor",
+    keywords: ["text", "extract", "email", "url", "json", "xml", "csv", "case", "format"],
+    popular: true,
+  },
+
   // Image Filters - Basic Adjustments
   {
     id: "image-brightness",
@@ -15,7 +37,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/image-brightness",
     keywords: ["brightness", "image", "adjust", "light", "dark"],
-    popular: true,
+    popular: false,
   },
   {
     id: "image-contrast",
@@ -25,7 +47,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/image-contrast",
     keywords: ["contrast", "image", "adjust"],
-    popular: true,
+    popular: false,
   },
   {
     id: "image-saturation",
@@ -35,7 +57,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Palette,
     href: "/filters/image-saturation",
     keywords: ["saturation", "image", "color", "vibrance"],
-    popular: true,
+    popular: false,
   },
 
   // Image Filters - Color Effects
@@ -47,7 +69,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: ImageIcon,
     href: "/filters/image-grayscale",
     keywords: ["grayscale", "black white", "image", "filter"],
-    popular: true,
+    popular: false,
   },
   {
     id: "image-sepia",
@@ -57,7 +79,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Wand2,
     href: "/filters/image-sepia",
     keywords: ["sepia", "vintage", "image", "filter", "retro"],
-    popular: true,
+    popular: false,
   },
   {
     id: "image-vintage",
@@ -67,7 +89,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Wand2,
     href: "/filters/image-vintage",
     keywords: ["vintage", "retro", "image", "filter", "old"],
-    popular: true,
+    popular: false,
   },
 
   // Image Filters - Enhancement
@@ -133,7 +155,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/audio-equalizer",
     keywords: ["equalizer", "audio", "eq", "bass", "treble"],
-    popular: false,
+    popular: true,
   },
   {
     id: "audio-reverb",
@@ -143,7 +165,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-reverb",
     keywords: ["reverb", "audio", "echo", "effect", "space"],
-    popular: false,
+    popular: true,
   },
   {
     id: "audio-echo",
@@ -153,7 +175,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-echo",
     keywords: ["echo", "audio", "delay", "effect"],
-    popular: false,
+    popular: true,
   },
   {
     id: "audio-noise-reduction",
@@ -163,7 +185,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-noise-reduction",
     keywords: ["noise", "reduction", "audio", "clean", "denoise"],
-    popular: false,
+    popular: true,
   },
   {
     id: "audio-normalize",
@@ -173,7 +195,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Sliders,
     href: "/filters/audio-normalize",
     keywords: ["normalize", "audio", "volume", "level"],
-    popular: false,
+    popular: true,
   },
   {
     id: "audio-bass-boost",
@@ -183,7 +205,7 @@ export const filterTools: ConverterMetadata[] = [
     icon: Music,
     href: "/filters/audio-bass-boost",
     keywords: ["bass", "boost", "audio", "low frequency", "enhance"],
-    popular: false,
+    popular: true,
   },
 
 

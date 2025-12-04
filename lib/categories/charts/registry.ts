@@ -1,5 +1,5 @@
 import { ConverterMetadata } from "@/types/converter"
-import { BarChart3, TrendingUp, PieChart, Zap, Activity } from "lucide-react"
+import { BarChart3, TrendingUp, PieChart, Zap, Activity, Sun } from "lucide-react"
 
 export const chartTools: ConverterMetadata[] = [
   {
@@ -61,5 +61,15 @@ export const chartTools: ConverterMetadata[] = [
     href: "/charts/area-chart",
     keywords: ["area", "chart", "cumulative", "time", "trend", "filled"],
     popular: false,
+  },
+  {
+    id: "sunburst-chart",
+    title: "Sunburst Chart Generator",
+    description: "Create hierarchical sunburst charts to visualize nested data structures",
+    category: "chart",
+    icon: Sun,
+    href: "/charts/sunburst-chart",
+    keywords: ["sunburst", "chart", "hierarchical", "nested", "radial", "circular"],
+    popular: true,
   },
 ]
