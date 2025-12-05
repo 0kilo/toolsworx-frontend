@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { FileDropzone } from "./file-dropzone"
 import { Download, Music, Loader2 } from "lucide-react"
+import { getGA4ClientId } from "@/lib/utils/session-id"
+import { incrementUsage } from "@/lib/utils/rate-limiter"
 
 interface AudioFilterProps {
   title: string
@@ -36,12 +38,18 @@ export function AudioFilter({ title, description, filterType, controls, getOptio
     setError(null)
 
     try {
+      // Get GA4 Client ID for rate limiting
+      const sessionId = await getGA4ClientId()
+      
       // Import amplify client
       const { amplifyApiClient } = await import('@/lib/services/amplify-client')
       
-      // Call Amplify audio filter function
-      const result = await amplifyApiClient.applyAudioFilter(selectedFile, filterType, options)
+      // Call Amplify audio filter function with session ID
+      const result = await amplifyApiClient.applyAudioFilter(selectedFile, filterType, { ...options, sessionId })
       setProcessedAudio(result.downloadUrl || null)
+      
+      // Increment usage count on success
+      incrementUsage(`audio-${filterType}`)
     } catch (err: any) {
       setError(err.message || 'Processing failed')
     } finally {

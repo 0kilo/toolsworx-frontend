@@ -4,5 +4,6 @@ export const audioFilter = defineFunction({
   name: 'audioFilter',
   entry: './handler.ts',
   timeoutSeconds: 300,
-  memoryMB: 2048
+  memoryMB: 2048,
+  resourceGroupName: 'data'
 });

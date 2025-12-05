@@ -76,6 +76,11 @@ export default function PrivacyPage() {
               We do not permanently store your files or their content. Our systems are designed to process and delete files automatically.
             </p>
 
+            <h4>Content Monitoring</h4>
+            <p>
+              We may scan uploaded files for malicious content, viruses, and policy violations to protect our service and users. Files violating our content policy will be rejected.
+            </p>
+
             <h4>Security Measures</h4>
             <p>
               All file processing occurs on secure, encrypted servers with restricted access.

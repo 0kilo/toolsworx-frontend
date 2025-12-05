@@ -2,13 +2,25 @@ import { spawn } from 'child_process';
 import { writeFileSync, readFileSync, mkdtempSync, rmSync } from 'fs';
 import { join } from 'path';
 import { tmpdir } from 'os';
+import { LambdaClient, InvokeCommand } from '@aws-sdk/client-lambda';
+import { checkRateLimit, incrementRateLimit } from '../rate-limiter';
+
+const lambda = new LambdaClient({ region: process.env.AWS_REGION });
 
 export const handler = async (event: any) => {
   const { jobId, fileData, fileName, filterType, options } = event.arguments;
   const filterOptions = options || {};
+  const sessionId = filterOptions.sessionId || 'unknown';
 
   if (!fileData || !filterType) {
     throw new Error('Missing fileData or filterType');
+  }
+
+  // Check rate limit
+  const rateLimit = await checkRateLimit(sessionId, `audio-${filterType}`);
+  if (!rateLimit.allowed) {
+    const resetDate = new Date(rateLimit.resetAt);
+    throw new Error(`Rate limit exceeded. Resets at ${resetDate.toISOString()}. Daily limit: 3 uses.`);
   }
 
   const tempDir = mkdtempSync(join(tmpdir(), 'audio-'));
@@ -27,11 +39,18 @@ export const handler = async (event: any) => {
     const outputBuffer = readFileSync(outputPath);
     const base64Output = outputBuffer.toString('base64');
 
+    // Increment rate limit on success
+    await incrementRateLimit(sessionId, `audio-${filterType}`);
+
+    // Example: Invoke another Lambda function
+    // await invokeLambda('other-function-name', { data: 'example' });
+
     return {
       success: true,
       jobId,
       downloadUrl: `data:audio/${outputExt};base64,${base64Output}`,
-      filterApplied: filterType
+      filterApplied: filterType,
+      remaining: rateLimit.remaining
     };
 
   } finally {
@@ -120,4 +139,15 @@ async function applyAudioFilter(
       reject(err);
     });
   });
+}
+
+// Helper function to invoke another Lambda
+async function invokeLambda(functionName: string, payload: any) {
+  const command = new InvokeCommand({
+    FunctionName: functionName,
+    Payload: JSON.stringify(payload)
+  });
+  
+  const response = await lambda.send(command);
+  return JSON.parse(new TextDecoder().decode(response.Payload));
 }

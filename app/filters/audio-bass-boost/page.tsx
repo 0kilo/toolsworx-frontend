@@ -5,6 +5,7 @@ import { AudioFilter } from "@/components/shared/audio-filter"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
+import { RateLimitGuard } from "@/components/shared/rate-limit-guard"
 import toolContent from "./audio-bass-boost.json"
 
 export default function AudioBassBoostPage() {
@@ -42,13 +43,15 @@ export default function AudioBassBoostPage() {
             </p>
           </div>
 
-          <AudioFilter
-            title="Audio Bass Boost"
-            description="Upload an audio file and boost bass frequencies for a fuller, more powerful sound"
-            filterType="bass-boost"
-            controls={controls}
-            getOptions={() => ({ gain: gain[0] })}
-          />
+          <RateLimitGuard toolId="audio-bass-boost" limit={3}>
+            <AudioFilter
+              title="Audio Bass Boost"
+              description="Upload an audio file and boost bass frequencies for a fuller, more powerful sound"
+              filterType="bass-boost"
+              controls={controls}
+              getOptions={() => ({ gain: gain[0] })}
+            />
+          </RateLimitGuard>
 
           <AboutDescription
             title={toolContent.aboutTitle}

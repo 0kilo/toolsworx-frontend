@@ -77,7 +77,29 @@ const ratesFetcherRule = new events.Rule(
 
 ratesFetcherRule.addTarget(new targets.LambdaFunction(ratesFetcherLambda));
 
+// Create Rate Limit DynamoDB Table
+const rateLimitTable = new dynamodb.Table(dataStack, 'RateLimitTable', {
+  partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+  billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+  timeToLiveAttribute: 'ttl',
+  removalPolicy: RemovalPolicy.DESTROY,
+});
 
+// Grant Lambda functions access to rate limit table
+const audioFilterLambda = backend.audioFilter.resources.lambda as lambda.Function;
+const fileConversionLambda = backend.fileConversion.resources.lambda as lambda.Function;
+const mediaConversionLambda = backend.mediaConversion.resources.lambda as lambda.Function;
+
+rateLimitTable.grantReadWriteData(audioFilterLambda);
+rateLimitTable.grantReadWriteData(fileConversionLambda);
+rateLimitTable.grantReadWriteData(mediaConversionLambda);
+rateLimitTable.grantReadWriteData(filterLambda);
+
+// Add table name to Lambda environments
+audioFilterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+fileConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+mediaConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+filterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
 
 // Configure CloudWatch Logs for AppSync API (for resolver logging)
 const cfnGraphqlApi = backend.data.resources.cfnResources.cfnGraphqlApi;

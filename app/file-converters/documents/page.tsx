@@ -2,6 +2,7 @@
 
 import { FileConverter } from "@/components/shared/file-converter"
 import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./documents.json"
 
 const documentFormats = [
   { value: 'pdf', label: 'PDF', extensions: ['pdf'], accept: '.pdf,application/pdf' },
@@ -19,47 +20,29 @@ export default function DocumentConverterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Document Converter</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
             <p className="text-muted-foreground">
-              Convert between PDF, Word, Text, and other document formats
+              {toolContent.description}
             </p>
           </div>
 
           <FileConverter
-            title="Document Format Converter"
-            description="Convert between PDF, Word, and text formats"
+            title={toolContent.title}
+            description={toolContent.description}
             fromFormats={documentFormats}
             toFormats={documentFormats}
             defaultFrom="pdf"
             defaultTo="docx"
           />
 
-
           <AboutDescription
-            title="About Document Conversion"
-            description="Convert documents between popular formats while maintaining formatting and quality."
-            sections={[
-              {
-                title: "Supported Formats",
-                content: [
-                  "PDF - Portable Document Format",
-                  "Word (DOCX/DOC) - Microsoft Word documents",
-                  "Text (TXT) - Plain text files",
-                  "RTF - Rich Text Format",
-                  "ODT - OpenDocument Text",
-                  "HTML - Web page format"
-                ]
-              },
-              {
-                title: "Common Use Cases",
-                content: [
-                  "PDF to Word for editing documents",
-                  "Word to PDF for sharing and printing",
-                  "Extract text from PDF files",
-                  "Convert HTML to PDF for archiving"
-                ]
-              }
-            ]}
+            title={toolContent.sections[0].title}
+            description={toolContent.sections[0].content[0]}
+            sections={toolContent.sections.slice(1).map(s => ({
+              title: s.title,
+              content: s.content,
+              type: s.type as 'list' | 'subsections' | undefined
+            }))}
           />
         </div>
 

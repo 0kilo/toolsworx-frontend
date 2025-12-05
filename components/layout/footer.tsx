@@ -31,6 +31,12 @@ export function Footer() {
           >
             Contact
           </Link>
+          <Link
+            href="/content-policy"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Content Policy
+          </Link>
         </div>
       </div>
     </footer>

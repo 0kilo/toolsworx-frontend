@@ -2,6 +2,7 @@
 
 import { FileConverter } from "@/components/shared/file-converter"
 import { AboutDescription } from "@/components/ui/about-description"
+import toolContent from "./archive.json"
 
 const archiveFormats = [
   { value: 'files', label: 'Individual Files', extensions: ['*'], accept: '*' },
@@ -14,45 +15,29 @@ export default function ArchiveConverterPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Archive Tools</h1>
+            <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
             <p className="text-muted-foreground">
-              Create ZIP archives or extract files from archives
+              {toolContent.description}
             </p>
           </div>
 
           <FileConverter
-            title="Archive Tools"
-            description="Create ZIP archives or extract files from archives"
+            title={toolContent.title}
+            description={toolContent.description}
             fromFormats={archiveFormats}
             toFormats={archiveFormats}
             defaultFrom="files"
             defaultTo="zip"
           />
 
-
           <AboutDescription
-            title="About Archive Tools"
-            description="Compress multiple files into archives or extract files from existing archives."
-            sections={[
-              {
-                title: "Supported Operations",
-                content: [
-                  "Create ZIP archives from multiple files",
-                  "Extract files from ZIP archives",
-                  "Compress files to save space",
-                  "Batch file operations"
-                ]
-              },
-              {
-                title: "Common Use Cases",
-                content: [
-                  "Backup multiple files",
-                  "Send multiple files as one attachment",
-                  "Reduce file size for storage",
-                  "Extract downloaded archives"
-                ]
-              }
-            ]}
+            title={toolContent.sections[0].title}
+            description={toolContent.sections[0].content[0]}
+            sections={toolContent.sections.slice(1).map(s => ({
+              title: s.title,
+              content: s.content,
+              type: s.type as 'list' | 'subsections' | undefined
+            }))}
           />
         </div>
 
