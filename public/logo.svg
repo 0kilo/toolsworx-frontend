@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300mm"
+   height="300mm"
+   viewBox="0 0 300 300"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="logo150-1.png"
+   inkscape:export-xdpi="42.330002"
+   inkscape:export-ydpi="42.330002"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.42587761"
+     inkscape:cx="434.39711"
+     inkscape:cy="374.52075"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="66"
+     inkscape:window-y="872"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4"
+       transform="matrix(0.43610874,0,0,0.43610874,80.375106,76.916738)"
+       inkscape:export-filename="logo150.png"
+       inkscape:export-xdpi="42.330002"
+       inkscape:export-ydpi="42.330002">
+      <path
+         id="path1"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.276881;stroke-miterlimit:3.8"
+         d="m 153.00598,30.159857 -107.867533,62.287155 0.0088,124.559318 107.875793,62.27217 107.86753,-62.28715 -0.009,-124.559324 z m -1.1529,34.92965 a 92.417618,92.417442 0.02148561 0 1 92.41779,92.417613 92.417618,92.417442 0.02148561 0 1 -92.4178,92.4171 92.417618,92.417442 0.02148561 0 1 -92.417276,-92.4171 92.417618,92.417442 0.02148561 0 1 92.417286,-92.417613 z"
+         inkscape:export-filename="logo150-1.png"
+         inkscape:export-xdpi="17.63652"
+         inkscape:export-ydpi="17.63652" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:110px;line-height:0px;font-family:Quicksand;-inkscape-font-specification:'Quicksand Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.135114;stroke-miterlimit:3.8"
+         x="73.387604"
+         y="176.90883"
+         id="text2"
+         transform="scale(0.97566297,1.0249441)"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:110px;font-family:'Alumni Sans';-inkscape-font-specification:'Alumni Sans Bold';stroke-width:0.135114"
+           x="73.387604"
+           y="176.90883">Tools</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:110px;stroke-width:0.135114"
+           x="73.387604"
+           y="182.40883"
+           id="tspan3" /></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:62.9354px;line-height:0px;font-family:Quicksand;-inkscape-font-specification:'Quicksand Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.140556;stroke-miterlimit:3.8"
+         x="101.79948"
+         y="221.06485"
+         id="text4"
+         transform="scale(0.96472997,1.0365595)"><tspan
+           sodipodi:role="line"
+           id="tspan4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Alumni Sans';-inkscape-font-specification:'Alumni Sans';stroke-width:0.140556"
+           x="101.79948"
+           y="221.06485">WORX</tspan></text>
+    </g>
+  </g>
+</svg>

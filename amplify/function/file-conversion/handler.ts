@@ -1,5 +1,5 @@
 import { spawn } from 'child_process';
-import { writeFileSync, readFileSync, mkdtempSync, rmSync } from 'fs';
+import { writeFileSync, readFileSync, mkdtempSync, rmSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
 import { tmpdir } from 'os';
 import { randomUUID } from 'crypto';
@@ -25,11 +25,14 @@ export const handler = async (event: any) => {
 
     const docFormats = ['pdf', 'doc', 'docx', 'odt', 'rtf', 'txt', 'html'];
     const sheetFormats = ['xlsx', 'xls', 'csv', 'ods'];
+    const archiveFormats = ['zip', 'tar', 'bz2'];
 
     if (docFormats.includes(inputExt) && docFormats.includes(targetFormat)) {
       outputPath = await convertDocument(inputPath, tempDir, targetFormat);
     } else if (sheetFormats.includes(inputExt) && sheetFormats.includes(targetFormat)) {
       outputPath = await convertSpreadsheet(inputPath, tempDir, targetFormat);
+    } else if (archiveFormats.includes(inputExt) || archiveFormats.includes(targetFormat)) {
+      outputPath = await convertArchive(inputPath, tempDir, inputExt, targetFormat, options);
     } else {
       throw new Error(`Unsupported conversion: ${inputExt} to ${targetFormat}`);
     }
@@ -96,13 +99,116 @@ async function convertSpreadsheet(inputPath: string, tempDir: string, targetForm
   return outputPath;
 }
 
+async function convertArchive(inputPath: string, tempDir: string, inputExt: string, targetFormat: string, options: any): Promise<string> {
+  const extractDir = join(tempDir, 'extracted');
+  const outputPath = join(tempDir, `output.${targetFormat}`);
+
+  // Extract archive first
+  if (['zip', 'tar', 'bz2'].includes(inputExt)) {
+    await extractArchiveFile(inputPath, extractDir, inputExt);
+  }
+
+  // Create new archive
+  await createArchiveFile(extractDir, outputPath, targetFormat, options);
+  return outputPath;
+}
+
+async function extractArchiveFile(inputPath: string, outputDir: string, format: string): Promise<void> {
+  const yauzl = require('yauzl');
+  const tar = require('tar');
+  const { mkdirSync, createWriteStream } = require('fs');
+  const { join, dirname } = require('path');
+
+  mkdirSync(outputDir, { recursive: true });
+
+  if (format === 'zip') {
+    return new Promise((resolve, reject) => {
+      yauzl.open(inputPath, { lazyEntries: true }, (err: any, zipfile: any) => {
+        if (err) return reject(err);
+        
+        zipfile.readEntry();
+        zipfile.on('entry', (entry: any) => {
+          const fullPath = join(outputDir, entry.fileName);
+          
+          if (/\/$/.test(entry.fileName)) {
+            mkdirSync(fullPath, { recursive: true });
+            zipfile.readEntry();
+          } else {
+            mkdirSync(dirname(fullPath), { recursive: true });
+            zipfile.openReadStream(entry, (err: any, readStream: any) => {
+              if (err) return reject(err);
+              readStream.pipe(createWriteStream(fullPath));
+              readStream.on('end', () => zipfile.readEntry());
+            });
+          }
+        });
+        
+        zipfile.on('end', resolve);
+        zipfile.on('error', reject);
+      });
+    });
+  } else if (format === 'tar' || format === 'bz2') {
+    return tar.x({ file: inputPath, cwd: outputDir });
+  } else {
+    throw new Error(`Unsupported extraction format: ${format}. Only ZIP and TAR supported.`);
+  }
+}
+
+async function createArchiveFile(inputDir: string, outputPath: string, format: string, options: any): Promise<void> {
+  const yazl = require('yazl');
+  const tar = require('tar');
+  const { readdirSync, statSync, createReadStream, createWriteStream } = require('fs');
+  const { join, relative } = require('path');
+
+  if (format === 'zip') {
+    return new Promise((resolve, reject) => {
+      const zipfile = new yazl.ZipFile();
+      
+      function addDirectory(dir: string) {
+        const files = readdirSync(dir);
+        for (const file of files) {
+          const fullPath = join(dir, file);
+          const relativePath = relative(inputDir, fullPath);
+          const stat = statSync(fullPath);
+          
+          if (stat.isDirectory()) {
+            addDirectory(fullPath);
+          } else {
+            zipfile.addFile(fullPath, relativePath);
+          }
+        }
+      }
+      
+      addDirectory(inputDir);
+      zipfile.end();
+      
+      zipfile.outputStream
+        .pipe(createWriteStream(outputPath))
+        .on('close', resolve)
+        .on('error', reject);
+    });
+  } else if (format === 'tar' || format === 'bz2') {
+    const tarOptions: any = { 
+      file: outputPath, 
+      cwd: inputDir,
+      gzip: format === 'bz2'
+    };
+    return tar.c(tarOptions, ['.']);
+  } else {
+    throw new Error(`Unsupported compression format: ${format}. Only ZIP and TAR supported.`);
+  }
+}
+
 function getContentType(format: string): string {
   const types: Record<string, string> = {
     pdf: 'application/pdf',
     doc: 'application/msword',
     docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    csv: 'text/csv'
+    csv: 'text/csv',
+    zip: 'application/zip',
+    tar: 'application/x-tar',
+    bz2: 'application/x-bzip2'
   };
   return types[format] || 'application/octet-stream';
 }

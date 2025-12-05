@@ -1,0 +1,10 @@
+{
+  "name": "archive-tools-layer",
+  "version": "1.0.0",
+  "description": "Archive tools for Lambda",
+  "dependencies": {
+    "yauzl": "^2.10.0",
+    "yazl": "^2.5.1",
+    "tar": "^6.2.1"
+  }
+}

@@ -26,8 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Google tag (gtag.js) */}
+      <body className={inter.className}>
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-6KELGGJCTR"
@@ -47,8 +46,6 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8286321884742507"
           crossOrigin="anonymous"
         />
-      </head>
-      <body className={inter.className}>
         <AmplifyProvider>
           <Header />
           <main className="min-h-screen">

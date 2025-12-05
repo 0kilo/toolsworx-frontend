@@ -18,10 +18,10 @@ export function Header() {
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/logo60.png"
+                src="/logo150.png"
                 alt={siteConfig.name}
                 width={60}
-                height={30}
+                height={80}
                 className="h-10 w-auto"
                 priority
               />

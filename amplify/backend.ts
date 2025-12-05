@@ -47,7 +47,7 @@ const sharpLayer = new lambda.LayerVersion(
   }
 );
 
-// Add Sharp layer to media-conversion and file-filter functions
+// Add layers to functions
 const mediaLambda = backend.mediaConversion.resources.lambda as lambda.Function;
 const filterLambda = backend.filterService.resources.lambda as lambda.Function;
 
