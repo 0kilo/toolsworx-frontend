@@ -1,20 +1,20 @@
-import { Sliders, ImageIcon, Music, FileCode, Wand2, Palette, Sparkles, FileText } from "lucide-react"
+import { Sliders, Music, Sparkles, FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
  * Filters Registry
- * All filter tools from FILTER_SERVICE_SPEC.md (image, audio, and data filters)
+ * Consolidated filter tools with actual pages
  */
 export const filterTools: ConverterMetadata[] = [
-  // Unified Tools (NEW)
+  // Unified Image & Text Tools
   {
     id: "image-effects",
     title: "Image Effects & Filters",
-    description: "Apply 10+ professional filters and effects to your images",
+    description: "Apply 10+ professional filters and effects to your images including grayscale, sepia, vintage, brightness, contrast, saturation, and Instagram-style filters",
     category: "image-filter",
     icon: Sparkles,
     href: "/filters/image-effects",
-    keywords: ["image", "filter", "effects", "grayscale", "sepia", "vintage", "brightness", "contrast", "saturation", "instagram"],
+    keywords: ["image", "filter", "effects", "grayscale", "sepia", "vintage", "brightness", "contrast", "saturation", "instagram", "blur", "sharpen", "valencia", "nashville", "xpro"],
     popular: true,
   },
   {
@@ -26,124 +26,6 @@ export const filterTools: ConverterMetadata[] = [
     href: "/filters/text-processor",
     keywords: ["text", "extract", "email", "url", "json", "xml", "csv", "case", "format"],
     popular: true,
-  },
-
-  // Image Filters - Basic Adjustments
-  {
-    id: "image-brightness",
-    title: "Adjust Brightness",
-    description: "Adjust image brightness levels",
-    category: "image-filter",
-    icon: Sliders,
-    href: "/filters/image-brightness",
-    keywords: ["brightness", "image", "adjust", "light", "dark"],
-    popular: false,
-  },
-  {
-    id: "image-contrast",
-    title: "Adjust Contrast",
-    description: "Adjust image contrast levels",
-    category: "image-filter",
-    icon: Sliders,
-    href: "/filters/image-contrast",
-    keywords: ["contrast", "image", "adjust"],
-    popular: false,
-  },
-  {
-    id: "image-saturation",
-    title: "Adjust Saturation",
-    description: "Adjust color saturation in images",
-    category: "image-filter",
-    icon: Palette,
-    href: "/filters/image-saturation",
-    keywords: ["saturation", "image", "color", "vibrance"],
-    popular: false,
-  },
-
-  // Image Filters - Color Effects
-  {
-    id: "image-grayscale",
-    title: "Grayscale Filter",
-    description: "Convert images to black and white",
-    category: "image-filter",
-    icon: ImageIcon,
-    href: "/filters/image-grayscale",
-    keywords: ["grayscale", "black white", "image", "filter"],
-    popular: false,
-  },
-  {
-    id: "image-sepia",
-    title: "Sepia Filter",
-    description: "Apply vintage sepia tone effect",
-    category: "image-filter",
-    icon: Wand2,
-    href: "/filters/image-sepia",
-    keywords: ["sepia", "vintage", "image", "filter", "retro"],
-    popular: false,
-  },
-  {
-    id: "image-vintage",
-    title: "Vintage Filter",
-    description: "Apply vintage photo effect",
-    category: "image-filter",
-    icon: Wand2,
-    href: "/filters/image-vintage",
-    keywords: ["vintage", "retro", "image", "filter", "old"],
-    popular: false,
-  },
-
-  // Image Filters - Enhancement
-  {
-    id: "image-blur",
-    title: "Blur Image",
-    description: "Apply blur effect to images",
-    category: "image-filter",
-    icon: Sliders,
-    href: "/filters/image-blur",
-    keywords: ["blur", "image", "soften", "gaussian"],
-    popular: false,
-  },
-  {
-    id: "image-sharpen",
-    title: "Sharpen Image",
-    description: "Enhance image sharpness and details",
-    category: "image-filter",
-    icon: Sliders,
-    href: "/filters/image-sharpen",
-    keywords: ["sharpen", "image", "enhance", "details", "clarity"],
-    popular: false,
-  },
-
-  // Instagram-style Filters
-  {
-    id: "filter-valencia",
-    title: "Valencia Filter",
-    description: "Instagram Valencia filter effect",
-    category: "image-filter",
-    icon: Wand2,
-    href: "/filters/valencia",
-    keywords: ["valencia", "instagram", "filter", "warm"],
-    popular: false,
-  },
-  {
-    id: "filter-nashville",
-    title: "Nashville Filter",
-    description: "Instagram Nashville filter effect",
-    category: "image-filter",
-    icon: Wand2,
-    href: "/filters/nashville",
-    keywords: ["nashville", "instagram", "filter", "warm", "vintage"],
-    popular: false,
-  },
-  {
-    id: "filter-xpro2",
-    title: "X-Pro II Filter",
-    description: "Instagram X-Pro II filter effect",
-    category: "image-filter",
-    icon: Wand2,
-    href: "/filters/xpro2",
-    keywords: ["xpro", "instagram", "filter", "dramatic"],
-    popular: false,
   },
 
   // Audio Filters

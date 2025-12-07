@@ -62,7 +62,7 @@ export const developerTools: ConverterMetadata[] = [
     description: "Convert between Unix timestamps and human-readable dates",
     category: "developer",
     icon: Clock,
-    href: "/dev-tools/timestamp-converter",
+    href: "/dev-tools/timestamp",
     keywords: ["timestamp", "unix", "epoch", "date", "time", "convert"],
     popular: true,
   },

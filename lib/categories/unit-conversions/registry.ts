@@ -116,4 +116,14 @@ export const unitConversionTools: ConverterMetadata[] = [
     keywords: ["data", "storage", "kb", "mb", "gb", "tb", "bytes", "bits"],
     popular: false,
   },
+  {
+    id: "spacetime",
+    title: "Spacetime Converter (Lorentz Transformation)",
+    description: "Convert relativistic space-time coordinates using Lorentz transformations",
+    category: "spacetime",
+    icon: Orbit,
+    href: "/unit-conversions/spacetime",
+    keywords: ["spacetime", "lorentz", "relativity", "physics", "transformation", "einstein", "light years", "parsecs"],
+    popular: false,
+  },
 ]

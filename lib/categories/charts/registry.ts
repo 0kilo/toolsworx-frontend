@@ -1,5 +1,5 @@
 import { ConverterMetadata } from "@/types/converter"
-import { BarChart3, TrendingUp, PieChart, Zap, Activity, Sun } from "lucide-react"
+import { BarChart3, TrendingUp, PieChart, Zap, Activity, Sun, Map } from "lucide-react"
 
 export const chartTools: ConverterMetadata[] = [
   {
@@ -70,6 +70,16 @@ export const chartTools: ConverterMetadata[] = [
     icon: Sun,
     href: "/charts/sunburst-chart",
     keywords: ["sunburst", "chart", "hierarchical", "nested", "radial", "circular"],
+    popular: true,
+  },
+  {
+    id: "usa-map",
+    title: "USA Map Visualizer",
+    description: "Create interactive choropleth maps of the United States with state-level data",
+    category: "chart",
+    icon: Map,
+    href: "/charts/usa-map",
+    keywords: ["usa", "map", "united states", "choropleth", "states", "visualization", "geography"],
     popular: true,
   },
 ]

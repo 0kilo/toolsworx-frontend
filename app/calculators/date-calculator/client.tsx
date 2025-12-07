@@ -3,7 +3,7 @@
 import { CalculatorTemplate, CalculatorField, CalculatorResult } from "@/lib/categories/calculators"
 import { AboutDescription } from "@/components/ui/about-description"
 import * as Icons from "lucide-react"
-import toolContent from "./DateCalculator.json"
+import toolContent from "./date-calculator.json"
 import { calculateDate, DateInput } from "@/lib/tools/logic/calculators/calculator-date"
 
 function handleCalculate(values: Record<string, string>): CalculatorResult[] {
@@ -79,7 +79,7 @@ function handleCalculate(values: Record<string, string>): CalculatorResult[] {
   return results
 }
 
-export default function Date-calculatorCalculatorClient() {
+export default function DateCalculatorClient() {
   const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
   
   const infoContent = (
