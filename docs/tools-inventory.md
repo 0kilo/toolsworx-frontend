@@ -5,7 +5,7 @@ This document provides a comprehensive inventory of all tools available in TOOLS
 
 ## Categories
 
-### 1. Calculators (15 tools)
+### 1. Calculators (14 tools)
 
 #### BMI Calculator
 - **Function**: `calculateBMI(input: BMIInput): BMIOutput`
@@ -223,7 +223,7 @@ This document provides a comprehensive inventory of all tools available in TOOLS
 - **Input**: XLS, XLSX, CSV, ODS files
 - **Output**: Converted spreadsheets in target format
 
-### 5. Filters (9 tools)
+### 5. Filters (8 tools)
 
 #### Audio Bass Boost
 - **Function**: Server-side audio processing using FFmpeg
@@ -302,7 +302,7 @@ This document provides a comprehensive inventory of all tools available in TOOLS
 - **Input**: Package dimensions, weight, origin, destination
 - **Output**: Shipping rates from multiple carriers
 
-### 7. Media Converters (5 tools)
+### 7. Media Converters (4 tools)
 
 #### Audio Converter
 - **Function**: Server-side audio format conversion using FFmpeg
@@ -388,11 +388,19 @@ This document provides a comprehensive inventory of all tools available in TOOLS
 
 ## Summary
 
-**Total Tools**: 88 tools across 8 categories
+**Total Tools**: 75 tools across 8 categories
+- Calculators: 14 tools
+- Charts: 9 tools
+- Developer Tools: 16 tools
+- File Converters: 5 tools
+- Filters: 8 tools
+- Helpful Calculators: 7 tools
+- Media Converters: 4 tools
+- Unit Conversions: 12 tools
 
 **Processing Types**:
-- **Client-side**: 45 tools (calculators, charts, dev tools, unit conversions)
-- **Server-side**: 43 tools (file converters, media converters, filters, some helpful calculators)
+- **Client-side**: 58 tools (calculators, charts, dev tools, unit conversions, helpful calculators)
+- **Server-side**: 17 tools (file converters, media converters, filters)
 
 **Backend Services**:
 - **File Conversion Service**: LibreOffice-based document processing

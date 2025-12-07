@@ -7,6 +7,8 @@
  * @module tools/logic/dev-tools/tool-hash
  */
 
+import md5 from "md5"
+
 export interface HashInput {
   text: string
   algorithm: "md5" | "sha1" | "sha256" | "base64"
@@ -35,9 +37,10 @@ export async function generateHash(input: HashInput): Promise<HashOutput> {
     
     if (input.algorithm === "base64") {
       result = btoa(input.text)
+    } else if (input.algorithm === "md5") {
+      result = md5(input.text)
     } else {
       const algorithmMap: Record<string, string> = {
-        md5: "MD5",
         sha1: "SHA-1",
         sha256: "SHA-256"
       }

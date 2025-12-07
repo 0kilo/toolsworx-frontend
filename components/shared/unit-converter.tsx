@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -72,6 +72,12 @@ export function UnitConverter({
     setFromValue(toValue)
     setToValue(fromValue)
   }
+
+  useEffect(() => {
+    if (fromValue) {
+      setToValue(convertValue(fromValue, fromUnit, toUnit))
+    }
+  }, [fromUnit, toUnit])
 
   const clearValues = () => {
     setFromValue("")

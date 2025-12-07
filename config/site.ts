@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "TOOLS WORX",
   description: "Free online conversion tools for documents, images, videos, and unit calculations. Convert files and measurements instantly with 88+ professional tools.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://toolsworx.com",
-  ogImage: "https://toolsworx.com/og-image.jpg",
+  ogImage: "https://toolsworx.com/og-image.png",
   keywords: [
     "converter", "conversion tools", "file converter", "image converter", 
     "video converter", "audio converter", "unit converter", "calculator",

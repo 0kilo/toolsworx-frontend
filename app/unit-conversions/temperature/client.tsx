@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -38,6 +38,12 @@ export default function TemperatureConverterClient() {
     setToValue(value)
     setFromValue(handleConvert(value, toUnit, fromUnit))
   }
+
+  useEffect(() => {
+    if (fromValue) {
+      setToValue(handleConvert(fromValue, fromUnit, toUnit))
+    }
+  }, [fromUnit, toUnit])
 
   const swapUnits = () => {
     setFromUnit(toUnit)

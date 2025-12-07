@@ -1,45 +1,13 @@
-"use client"
+import { Metadata } from 'next'
+import { generateToolMetadata } from '@/lib/metadata-generator'
+import { toolMetadata } from '@/lib/tool-metadata'
+import AreaConverterClient from './client'
 
-import { UnitConverter } from "@/components/shared/unit-converter"
-import { AboutDescription } from "@/components/ui/about-description"
-import * as Icons from "lucide-react"
-import toolContent from "./area.json"
+export const metadata: Metadata = generateToolMetadata({
+  ...toolMetadata.area,
+  category: 'unit-conversions/area'
+})
 
 export default function AreaConverterPage() {
-  const Icon = Icons[toolContent.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>
-
-  return (
-    <div className="container py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-3">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">Area Converter</h1>
-            <p className="text-muted-foreground">
-              Convert between different area and surface measurement units
-            </p>
-          </div>
-
-          <UnitConverter
-            title="Area & Surface Conversion"
-            description="Convert between square meters, feet, acres, hectares, and more"
-            units={toolContent.units}
-            baseUnit={toolContent.baseUnit}
-            icon={Icon}
-            defaultFromUnit={toolContent.defaultFromUnit}
-            defaultToUnit={toolContent.defaultToUnit}
-          />
-
-
-          <AboutDescription
-            title={`About ${toolContent.title}`}
-            description={toolContent.description}
-            sections={toolContent.sections}
-          />
-        </div>
-
-        <div className="lg:col-span-1">
-        </div>
-      </div>
-    </div>
-  )
+  return <AreaConverterClient />
 }
