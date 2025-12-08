@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Debug authentication issues by inspecting JWT token contents - instantly see user ID, permissions, expiration time (exp), issued-at (iat), and custom claims without writing code or understanding Base64 decoding",
+        "✓ Verify token expiration to troubleshoot 'token expired' errors - decode exp claim (Unix timestamp) to see exact expiry date/time, compare with current time to determine if token is truly expired or if there's a clock skew issue between systems",
+        "✓ Understand what data your application stores in JWTs - review payload to see if sensitive data (passwords, credit cards) is being stored unsafely, check token size (large payloads slow requests), verify expected claims are present",
+        "✓ Test API authentication during development - decode tokens returned from login endpoints to verify correct user info, check role/permission claims match expected values, validate token structure before making authenticated API calls",
+        "✓ 100% client-side decoding means your auth tokens never leave browser - unlike online JWT decoders that might log tokens, this tool decodes locally protecting your authentication credentials and user data from external services"
+      ]
+    },
+    {
       "title": "JWT Structure",
       "content": [
         "<strong>Header:</strong> Contains algorithm and token type",
         "<strong>Payload:</strong> Contains claims and user data",
         "<strong>Signature:</strong> Used to verify token authenticity",
         "Format: header.payload.signature (Base64 encoded)"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Why can I decode a JWT without a secret key?</strong> JWTs are encoded (Base64URL), not encrypted. Anyone can decode header and payload to read contents - this is by design for transparency. The signature (third part) prevents tampering, not reading. Example: eyJhbGciOi... → decode → {\"alg\":\"HS256\",\"typ\":\"JWT\"}. Signature verifies token wasn't modified, using secret key only server knows. Common misconception: thinking JWT is encrypted and secure by itself. Reality: JWT contents are readable by anyone, but only server with secret can verify authenticity. NEVER put sensitive data (passwords, credit cards, SSN) in JWT payload - assume it can be read by anyone.",
+        "<strong>Q: What's the difference between decoding and verifying a JWT?</strong> Decoding = reading contents (header + payload) by Base64URL decoding - anyone can do this, doesn't require secret. Verifying = checking signature matches header+payload using secret key - only server with secret can do this, proves token hasn't been tampered with. This tool decodes only, doesn't verify. Malicious actor could create fake JWT with payload {\"admin\":true}, this tool would decode it, but server verification would fail (signature won't match). Always verify JWTs server-side before trusting contents. Client-side decoding is for debugging only, never for security decisions.",
+        "<strong>Q: What are standard JWT claims (iss, sub, exp, iat, etc.)?</strong> Registered claims have specific meanings: 'iss' (issuer) = who created token (e.g., 'https://auth.example.com'), 'sub' (subject) = user identifier (user ID), 'aud' (audience) = intended recipient (your API), 'exp' (expiration) = Unix timestamp when token expires, 'iat' (issued at) = Unix timestamp when token was created, 'nbf' (not before) = token not valid until this time, 'jti' (JWT ID) = unique token identifier. Custom claims: add your own like {'userId': 123, 'role': 'admin', 'email': 'user@example.com'}. Best practice: use standard claims for interoperability, add custom claims for app-specific data.",
+        "<strong>Q: Should I store JWTs in localStorage or cookies?</strong> Security tradeoff: localStorage = vulnerable to XSS (malicious JavaScript can steal token), accessible to all scripts, persists across tabs/sessions. Cookies (HttpOnly, Secure, SameSite) = not accessible to JavaScript (XSS protection), vulnerable to CSRF without SameSite, automatic inclusion in requests. Best practice: use HttpOnly cookie with SameSite=Strict for authentication token (immune to XSS), store in localStorage only if you need JavaScript access and trust your code/dependencies. For maximum security: HttpOnly cookie + CSRF token. For convenience (mobile apps, SPAs): localStorage + short expiration + refresh tokens.",
+        "<strong>Q: How do I handle JWT expiration and token refresh?</strong> JWTs expire (exp claim) to limit damage if stolen. Typical lifespans: access token 15 mins-1 hour (short-lived), refresh token days-months (long-lived, more protected). Flow: (1) Login → get access token (short) + refresh token (long). (2) Use access token for API calls. (3) When access token expires, use refresh token to get new access token. (4) When refresh token expires, require re-login. Implementation: catch 401 errors, automatically request new access token using refresh token, retry original request. Security: refresh tokens should be HttpOnly cookies or securely stored, rotated on each use, revocable in database."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Check the 'alg' header to understand signature algorithm and security:</strong> Header 'alg' field specifies signing algorithm: HS256 (HMAC-SHA256) = symmetric key (same secret signs and verifies), faster but key must be shared. RS256 (RSA-SHA256) = asymmetric (private key signs, public key verifies), more secure for multi-service architectures. ES256 (ECDSA) = newer, shorter signatures than RSA. Security issue: 'alg: none' attack - malicious JWT with no signature. Servers must reject 'none' algorithm. If you see 'alg: none' in production tokens, critical security bug. Decode tokens with this tool to verify expected algorithm is being used.",
+        "💡 <strong>Use this tool to calculate token size and optimize payload:</strong> JWTs are sent in every request (Authorization header or cookie), large payloads slow requests. Decode token, count payload size. Example: JWT with 50 claims and long values = 2KB+ = 2KB overhead per API call = 200KB for 100 requests. Optimization: only include essential claims (user ID, roles), avoid storing full user objects, use short claim names ('uid' vs 'userId'), consider reference tokens (opaque token → database lookup) for large permissions. Measure: paste token here, check decoded size, aim for <1KB.",
+        "💡 <strong>Verify token expiration by converting exp and iat claims:</strong> Use our Timestamp Converter tool to decode exp (expiration) and iat (issued at) timestamps. Example: exp: 1700000000 → Nov 14, 2023, 22:13:20 UTC. Check: is token expired? (exp < now = expired). Check token age: now - iat = token age (fresh vs old token). Debug clock skew: if server says expired but exp shows future time, clocks are out of sync. Best practice: tokens should have reasonable lifetime (15min-1hour for access, days for refresh), verify exp is set and reasonable.",
+        "💡 <strong>Check for sensitive data leaking in JWT payload:</strong> Decode your production tokens and review payload - common security mistakes: including passwords (even hashed), credit card numbers, SSN, PII (phone, address), internal system details (database IDs, server IPs). Remember: JWT is readable by anyone including users via browser DevTools. Only store: user identifier, roles/permissions, non-sensitive metadata. If you need to store sensitive data, encrypt it separately and only put encrypted reference in JWT, or use opaque tokens instead.",
+        "💡 <strong>Understand that token size affects performance at scale:</strong> Math: 2KB JWT × 1000 requests/second = 2MB/s = 5.3GB/month just for token overhead. Mobile apps on metered connections pay for this. Optimization strategies: (1) Use short claim names. (2) Minimize claims - only essential data. (3) Use token references (small JWT with ID → server looks up full data). (4) Consider token compression for very large claims. (5) Use RS256 instead of HS256 (public key distribution allows stateless verification without sharing secrets). Measure production tokens with this tool, calculate bandwidth cost at your request volume."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Authentication Debugging:</strong> Debug why authentication fails by inspecting token claims and expiration, verify tokens returned from login endpoints contain expected user data, troubleshoot 'invalid token' errors by checking token structure and format",
+        "<strong>API Integration:</strong> Inspect tokens from third-party APIs (Auth0, Firebase, Okta) to understand their structure, verify API tokens contain required claims before making authenticated requests, debug OAuth/OIDC flows by examining ID tokens and access tokens",
+        "<strong>Security Audits:</strong> Review tokens for sensitive data exposure (passwords, PII in payload), verify proper token expiration times are set (exp claim), check signing algorithm (alg header) is secure (not 'none' or weak algorithms)",
+        "<strong>Development & Testing:</strong> Decode tokens during local development to verify authentication logic, inspect test tokens to ensure correct claims for different user roles, debug token refresh flows by checking exp and iat timestamps",
+        "<strong>Permission & Role Verification:</strong> Check user roles and permissions stored in token claims, verify authorization logic by inspecting token claims that control access, debug role-based access control (RBAC) issues",
+        "<strong>Token Size Optimization:</strong> Measure token size by decoding and reviewing payload length, identify unnecessary claims that can be removed to reduce bandwidth, optimize token structure for mobile or high-traffic applications"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/base64'>Base64 Encoder/Decoder</a> to manually decode JWT parts (JWTs use Base64URL encoding)",
+        "Use our <a href='/dev-tools/timestamp'>Timestamp Converter</a> to convert JWT exp and iat claims to readable dates",
+        "Check our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format and validate JWT payload JSON for better readability",
+        "Explore our <a href='/dev-tools/hash-generator'>Hash Generator</a> to understand HMAC-SHA256 signatures used in HS256 JWTs"
       ]
     }
   ]

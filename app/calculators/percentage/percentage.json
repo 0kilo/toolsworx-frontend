@@ -34,6 +34,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly calculate any percentage operation - find X% of a number, determine what % one number is of another, calculate increases/decreases all in one place",
+        "✓ Avoid common percentage mistakes (like thinking a 50% increase followed by 50% decrease returns to original - it doesn't!) with accurate calculations",
+        "✓ Compare discounts instantly - see if '30% off' or 'buy 2 get 1 free' (33% off) is better, calculate final prices with multiple discounts and taxes",
+        "✓ Perfect for shopping, grades, finance, and statistics - more versatile than your phone's basic calculator which requires you to do the percentage math yourself",
+        "✓ Free and instant - no ads interrupting your shopping decisions, no account needed, works on any device in your browser"
+      ]
+    },
+    {
       "title": "Formulas",
       "type": "list",
       "content": [
@@ -72,6 +83,50 @@
         "Enter the percentage (just the number, e.g., 25 for 25%)",
         "Optionally enter a total to find what percentage your value represents",
         "View all calculated results including increases and decreases"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How do I calculate percentage change between two numbers?</strong> Formula: ((New - Old) / Old) × 100. For increase from 50 to 75: ((75-50)/50) × 100 = 50% increase. For decrease from 100 to 80: ((80-100)/100) × 100 = -20% decrease. Common mistake: dividing by the new number instead of old. If price goes from $20 to $25, that's $5 increase on $20 base = 25% increase, not on $25 base which would be 20%. Always divide by the original (old) value.",
+        "<strong>Q: If something increases 50% then decreases 50%, do you end up at the original value?</strong> No! This is a common misconception. Start with 100. Increase 50%: 100 × 1.5 = 150. Decrease 50%: 150 × 0.5 = 75. You end at 75, not 100! The 50% decrease applies to the larger number (150), so you lose more than you gained. Percentages aren't commutative. To return to original after 50% increase, you need ~33% decrease: 150 × 0.667 ≈ 100.",
+        "<strong>Q: What's the difference between percentage points and percent change?</strong> Percentage points measure absolute difference in percentages. Percent change measures relative change. If interest rate goes from 5% to 8%, that's +3 percentage points (8-5=3) but a 60% increase ((8-5)/5 × 100). If approval rating drops from 50% to 45%, that's -5 percentage points but a -10% decrease. Media often confuses these - '5 point drop' is different from '5% drop'. For rates, always clarify which you mean.",
+        "<strong>Q: How do I work backwards from a discounted price to find the original?</strong> If you know final price and discount %, divide by (100 - discount%) × 100. Sale item is $60 after 25% off. Original: $60 ÷ 0.75 = $80. Check: $80 × 0.25 = $20 off, $80 - $20 = $60 ✓. Another example: paid $85 after 15% discount. Original: $85 ÷ 0.85 = $100. This is 'reverse percentage' - dividing instead of multiplying because you're undoing the discount.",
+        "<strong>Q: How do multiple discounts stack - do you add them?</strong> No, never add sequential discounts! Each applies to the reduced price. A $100 item with 20% off then additional 10% off: First: $100 × 0.8 = $80. Second: $80 × 0.9 = $72 final. Total savings: $28 = 28% (not 30%). To calculate stacked discount: multiply the 'keep' percentages: 0.8 × 0.9 = 0.72, meaning you pay 72%, so 28% off. '20% + 10% off' really means ~28% off, not 30%. Stores use this to make deals seem bigger than they are."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Mental math shortcuts for common percentages:</strong> 10% = divide by 10 (move decimal left), 5% = half of 10%, 1% = move decimal left twice. To find 15% of $80: 10% = $8, 5% = $4, total = $12. For 25% (quarter), divide by 4. For 33% (third), divide by 3. For 75% (three-quarters), divide by 4 then multiply by 3. These let you calculate tips, discounts, and taxes instantly without a calculator - impress friends and make faster shopping decisions.",
+        "💡 <strong>Always calculate sales tax on the discounted price, not original:</strong> Common mistake: item is $100, 20% off = $80, 8% sales tax. WRONG: $100 × 0.08 = $8 tax. RIGHT: $80 × 0.08 = $6.40 tax. You pay tax on what you actually buy ($80), not original price. Final: $80 + $6.40 = $86.40. To calculate in one step: original × (1 - discount%) × (1 + tax%), here: $100 × 0.8 × 1.08 = $86.40. This saves money - $1.60 in this example.",
+        "💡 <strong>Understand 'up to' vs 'at least' percentage changes:</strong> In finance and statistics, direction matters. Stock down 50% needs 100% gain to recover (not 50%). If you lose 50% of $100 = $50 left, you need $50 gain on $50 base = 100% increase to return to $100. Conversely, 100% increase only needs ~33% decrease to undo. Always calculate from current value, not original. This is why market crashes are harder to recover from - 50% crash needs 100% rally.",
+        "💡 <strong>Compare discounts fairly using final price, not percentage:</strong> Store A: $100 item, 30% off = $70. Store B: $90 item, 20% off = $72. Store A is better despite smaller original price. Or: Store A offers 40% off $150 = $90. Store B offers 30% off $120 = $84. Store B wins! Don't assume bigger percentage means better deal. Also beware 'original price' inflation where stores mark up before 'discounting' back to normal price. Use this calculator to find true final costs.",
+        "💡 <strong>Grade calculations with percentages:</strong> To find needed score on final exam, use: (target grade - current weighted %) / final weight. If you have 75% and want 80% total, with final worth 40%: (80 - 75×0.6) / 0.4 = (80 - 45) / 0.4 = 87.5% needed on final. Or to calculate current grade: sum (score × weight) for each assignment. Quiz 80% (20% weight): 80×0.2=16. Test 90% (30% weight): 90×0.3=27. Current: 16+27=43% of total so far. If 50% remains, you can still reach any grade between 43% and 93%."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Shopping & Discounts:</strong> Calculate final prices after sales discounts and coupons, compare deals (30% off vs $20 off - which is better?), determine if sale prices beat competitor prices, calculate savings on Black Friday/Cyber Monday deals",
+        "<strong>Finance & Investing:</strong> Calculate investment returns and losses, determine compound interest percentages, analyze stock price changes, compare savings account interest rates (APY), calculate loan interest or down payment percentages",
+        "<strong>School & Grading:</strong> Calculate current class grades from weighted assignments, determine needed score on final exam to reach target grade, convert raw scores to percentage grades, calculate GPA contributions",
+        "<strong>Work & Business:</strong> Calculate sales commission (7% of $50,000 sales), determine profit margins (profit/revenue × 100), calculate percentage of budget used, analyze year-over-year growth rates, determine raise or salary increase percentages",
+        "<strong>Health & Fitness:</strong> Calculate percentage of daily calorie goals achieved, determine body fat percentage changes, track weight loss progress as percentage, calculate macro nutrient percentages (40/30/30 carbs/protein/fat)",
+        "<strong>Taxes & Tips:</strong> Calculate sales tax on purchases (varies by state: 0-10%), determine restaurant tips (15-20% of bill), calculate property tax rates, estimate tax refunds as percentage of income"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/tip'>Tip Calculator</a> for specialized restaurant tipping with bill splitting features beyond basic percentages",
+        "Use our <a href='/calculators/loan'>Loan Calculator</a> to calculate percentage-based interest rates, APR, and total interest paid over loan terms",
+        "Check our <a href='/calculators/bmi'>BMI Calculator</a> for health percentiles and body mass percentage categories based on height and weight",
+        "Explore our <a href='/calculators/scientific'>Scientific Calculator</a> for complex percentage calculations involving exponents, logarithms, or multi-step operations"
       ]
     }
   ]

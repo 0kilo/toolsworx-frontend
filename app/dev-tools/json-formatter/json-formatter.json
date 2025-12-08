@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly format minified or compressed JSON from API responses, making nested data structures readable for debugging (one-line response with 50+ keys becomes properly indented hierarchy in milliseconds)",
+        "✓ Validate JSON syntax before deployment to catch errors early - finds missing commas, unquoted keys, trailing commas, unclosed brackets that would crash production APIs or break configuration files",
+        "✓ Minify JSON for production to reduce file size by 15-40% (removes whitespace, newlines, unnecessary spacing) for faster API responses, smaller config files, reduced bandwidth costs at scale",
+        "✓ 100% client-side processing means your sensitive data (API keys, authentication tokens, customer data) never leaves your browser - no server uploads, no logging, no privacy concerns unlike online validators",
+        "✓ Free, instant, and always accessible - bookmark for daily use when working with REST APIs, GraphQL responses, npm package.json files, VSCode settings.json, or any JSON configuration"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Format JSON with customizable indentation",
@@ -25,6 +36,50 @@
         "Choose your preferred indentation",
         "Click 'Format', 'Minify', or 'Validate'",
         "Copy the result or continue editing"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between JSON formatting and JSON validation?</strong> Formatting rearranges valid JSON to be human-readable by adding indentation, newlines, and spacing (doesn't change the data). Validation checks if JSON syntax is correct according to JSON specification - finds errors like missing quotes around keys, trailing commas (allowed in JavaScript but invalid in JSON), single quotes instead of double quotes, undefined/NaN values (JavaScript concepts not in JSON), or unescaped special characters. You can format invalid JSON for readability, but it won't validate until syntax errors are fixed. Always validate before deploying to production.",
+        "<strong>Q: Why does my JSON validate in JavaScript but fail JSON validation?</strong> JavaScript is more permissive than strict JSON specification. Common gotchas: (1) Trailing commas - `{\"a\": 1, \"b\": 2,}` valid in JS, invalid in JSON. (2) Single quotes - `{'key': 'value'}` valid in JS object literal, invalid in JSON (requires double quotes). (3) Unquoted keys - `{key: \"value\"}` valid in JS, invalid in JSON (keys must be quoted). (4) Comments - `// comment` or `/* comment */` valid in JavaScript/JSON5, invalid in standard JSON. (5) Undefined/NaN/Infinity - valid JavaScript values, not allowed in JSON (use null instead). Use strict JSON for APIs and config files that other languages will parse.",
+        "<strong>Q: Should I minify JSON for production or keep it formatted?</strong> Minify for production when: serving JSON from APIs (reduces response size by 15-40%, faster load times, lower bandwidth costs - for 100KB API response serving 1M requests/month, minification saves 15-40GB bandwidth = $5-20/month on AWS), storing config files in version control (smaller diffs, faster clones), embedding JSON in web pages. Keep formatted when: debugging locally, writing configuration files developers edit manually (package.json, tsconfig.json), storing in databases where readability matters for manual queries. Best practice: format during development, minify in build pipeline (webpack/rollup do this automatically).",
+        "<strong>Q: How can I find errors in large JSON files?</strong> Paste JSON into validator - error messages show line number and nature of error (\"Unexpected token } at line 47\" = extra closing bracket, \"Expected comma at line 23\" = missing comma between properties). Common debugging strategy: (1) Use validator to find first error. (2) Fix that error only. (3) Re-validate - often first error cascades (missing opening bracket makes everything after it appear invalid). (4) Repeat until valid. For huge files (10,000+ lines), use binary search: split file in half, validate each half separately to isolate which section contains error, repeat until found.",
+        "<strong>Q: What indentation size should I use for JSON formatting?</strong> 2 spaces is most common in web development (used by Prettier, ESLint defaults, Google/Airbnb style guides) - balances readability with horizontal space, prevents deep nesting from pushing content off-screen. 4 spaces preferred in some enterprise environments or when working with Python projects (Python uses 4-space indentation, JSON config files match). Tabs less common (inconsistent rendering across editors, GitHub shows as 8 spaces making JSON hard to read in PRs). Most tools default to 2 spaces - only change if team/project has established different standard."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use this tool to debug API responses in browser DevTools:</strong> When inspecting API calls in Chrome/Firefox DevTools Network tab, copy response as text (often minified one-liner), paste into formatter, instantly see structure to verify response shape, find nested values, or debug missing fields. Much faster than manually expanding collapsed objects in DevTools JSON viewer, especially for responses with 50+ fields or deep nesting (5+ levels). Bookmark this tool and keep tab open during API development for instant formatting without leaving browser.",
+        "💡 <strong>Validate before committing configuration files to version control:</strong> Invalid JSON in config files (package.json, tsconfig.json, .eslintrc.json, VS Code settings.json) causes cryptic build errors or silent failures. Before git commit, paste config into validator to catch trailing commas (especially after copy-pasting), missing quotes, or bracket mismatches. This catches 90% of config-related build failures before they break CI/CD or teammate's local environments. Takes 5 seconds, saves 30 minutes of debugging why npm install suddenly fails.",
+        "💡 <strong>Learn common JSON error patterns to fix faster:</strong> \"Unexpected token }\" = extra closing bracket or missing opening bracket above. \"Unexpected token ,\" = trailing comma at end of array/object (last element shouldn't have comma). \"Unexpected string\" = probably missing comma between properties. \"Unexpected token :\" = likely forgot quotes around key name. \"Bad control character\" = unescaped newline/tab in string value (use \\n or \\t). Most JSON errors are punctuation - commas, brackets, quotes - not data issues.",
+        "💡 <strong>Use minification to compare JSON objects for equality:</strong> Two JSON objects with same data but different formatting (different indentation, different property order, different newlines) look different in text diff but are semantically identical. Minify both objects, then compare minified versions - if minified strings match exactly, JSONs are equivalent. Useful for testing API responses (expected vs actual), comparing config files across environments, or verifying data transformation didn't change values. Note: property order can still differ in minified version if objects have properties in different order.",
+        "💡 <strong>Keep formatted JSON in development, automate minification for production:</strong> Don't manually minify JSON files you need to edit (config files, test fixtures, mock data) - wastes time and makes future edits error-prone. Keep files formatted for readability, use build tools to minify automatically: webpack/rollup have JSON minification built-in, API servers can compress responses with gzip (achieves better compression than JSON minification alone), CI/CD pipelines can minify before deployment. Only manually minify when embedding JSON directly in HTML or pasting into environments without build pipeline."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>API Development & Debugging:</strong> Format minified API responses from fetch/axios calls to inspect response structure, validate request payloads before sending to API to catch malformed JSON, debug authentication tokens (JWT payloads are base64-encoded JSON - decode and format to read claims)",
+        "<strong>Configuration File Management:</strong> Validate package.json, tsconfig.json, .eslintrc, or other JSON config files before committing, format configuration files that were accidentally minified or poorly formatted, check JSON syntax when configuration changes cause mysterious errors",
+        "<strong>Data Transformation & Migration:</strong> Validate JSON output from database exports or data transformation scripts, format large JSON datasets for manual inspection during data migration projects, verify JSON structure after converting from XML, CSV, or other formats",
+        "<strong>Code Review & Documentation:</strong> Format JSON examples for documentation, README files, or API documentation (formatted JSON much easier to understand), prepare JSON samples for code review comments or bug reports, create readable JSON fixtures for unit tests",
+        "<strong>Learning & Education:</strong> Validate JSON syntax when learning web development or API integration, debug exercises in JavaScript/Node.js courses that involve JSON parsing, understand structure of complex JSON objects from third-party APIs (Stripe, GitHub, AWS)",
+        "<strong>Security & Privacy Audits:</strong> Inspect and format JSON web tokens (JWT) to examine claims and permissions, validate JSON configuration for security tools without sending sensitive data to external validators, format JSON logs or security scan results for analysis"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/json-minifier'>JSON Minifier</a> for specialized minification with additional compression options and file size statistics",
+        "Use our <a href='/dev-tools/json-validator'>JSON Validator</a> for dedicated validation with detailed error messages and syntax highlighting",
+        "Check our <a href='/dev-tools/base64'>Base64 Encoder/Decoder</a> to decode JWT tokens (JSON Web Tokens) which contain base64-encoded JSON payloads",
+        "Explore our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to specifically decode and validate JSON Web Tokens for authentication debugging"
       ]
     }
   ]

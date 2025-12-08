@@ -21,12 +21,23 @@
   "defaultToUnit": "pound",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ Convert between 10 mass/weight units from microscopic (micrograms) to industrial (tons)",
+        "✓ Supports metric, imperial, and specialized units like stones for international applications",
+        "✓ High-precision conversions critical for cooking, shipping, medical dosing, and scientific research",
+        "✓ Handles fractional ounces and pounds perfectly - essential for accurate recipe scaling",
+        "✓ Privacy-first design - all calculations performed locally in your browser"
+      ]
+    },
+    {
       "title": "Common Mass Units",
       "content": [
         "Metric: Microgram (μg), Milligram (mg), Gram (g), Kilogram (kg), Metric Ton (t)",
-        "Imperial: Ounce (oz), Pound (lb), Stone (st), Short Ton, Long Ton",
-        "Scientific: Typically uses metric system for precision",
-        "Cooking: Mix of grams, ounces, and pounds depending on region"
+        "Imperial: Ounce (oz), Pound (lb), Stone (st), Short Ton (US), Long Ton (UK)",
+        "Scientific: Typically uses metric system for precision and consistency",
+        "Cooking: Mix of grams, ounces, and pounds depending on region and recipe origin",
+        "Medical: Primarily milligrams (mg) and micrograms (μg) for precise pharmaceutical dosing"
       ]
     },
     {
@@ -35,17 +46,59 @@
         "1 kilogram = 2.20462 pounds = 35.274 ounces",
         "1 pound = 0.453592 kilograms = 16 ounces",
         "1 ounce = 28.3495 grams = 28,349.5 milligrams",
-        "1 metric ton = 1000 kilograms = 2204.62 pounds"
+        "1 metric ton = 1000 kilograms = 2204.62 pounds",
+        "1 stone = 14 pounds = 6.35029 kilograms (common in UK/Ireland)"
       ]
     },
     {
       "title": "Use Cases",
       "content": [
-        "Cooking and recipe measurements",
-        "Shipping and logistics calculations",
-        "Scientific research and laboratory work",
-        "Medical dosage calculations",
-        "Industrial and manufacturing processes"
+        "Cooking and recipe measurements - converting between US and European recipes",
+        "Shipping and logistics calculations - accurate weight for freight quotes",
+        "Scientific research and laboratory work - precise chemical measurements",
+        "Medical dosage calculations - critical for patient safety",
+        "Industrial and manufacturing processes - quality control and specifications",
+        "Personal weight tracking - converting between scales using different units"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: What's the difference between mass and weight?</strong> Mass is the amount of matter in an object (measured in kg or lb), while weight is the force of gravity on that mass. In everyday use, we use them interchangeably. On Earth, 1 kg of mass weighs 1 kg, but on the Moon, that same mass would weigh only about 1/6th as much due to lower gravity.",
+        "<strong>Q: Why do recipes use both weight and volume measurements?</strong> Weight (grams, ounces) is more accurate than volume (cups, tablespoons), especially for baking. Professional bakers use weight exclusively. For example, 1 cup of flour can vary by 30+ grams depending on how you scoop it, but 125g of flour is always exactly 125g.",
+        "<strong>Q: How accurate do my measurements need to be for cooking?</strong> For most cooking, ±5% accuracy is fine. For baking (especially bread and pastries), aim for ±2% accuracy as chemical reactions are sensitive. For molecular gastronomy or pharmaceutical work, you need ±0.1% or better.",
+        "<strong>Q: What's a 'stone' and why do some countries use it?</strong> A stone is 14 pounds (6.35 kg), commonly used in the UK and Ireland for measuring body weight. It originated from using standardized stones for weighing goods in markets. A person might say 'I weigh 11 stone' meaning 154 pounds or 70 kg.",
+        "<strong>Q: Can I use this for shipping weight calculations?</strong> Yes! Our converter is perfect for calculating shipping weights when freight companies use different units. Always round UP to the nearest whole unit for shipping quotes to avoid underestimating costs."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Cooking conversion:</strong> 1 pound = roughly 450 grams (exact: 453.6g). For quick mental math in recipes, use 450g.",
+        "💡 <strong>Baking accuracy:</strong> Invest in a digital kitchen scale and use weight (grams) instead of volume (cups) for consistent baking results. Professional bakers never use cups!",
+        "💡 <strong>Shipping tip:</strong> When calculating international shipping, remember freight companies often round UP to the next pound or kilogram. A 2.1 lb package may be billed as 3 lbs.",
+        "💡 <strong>Medical safety:</strong> When dealing with medications, NEVER estimate conversions. Use a precision scale and this converter for exact dosing. Small errors can be dangerous.",
+        "💡 <strong>Remember the ounce:</strong> 1 ounce = about 28.35 grams. For rough cooking estimates, 30g ≈ 1 oz works well."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Recipe Conversion:</strong> Adapting US recipes (pounds, ounces) to metric measurements (grams, kilograms) or vice versa",
+        "<strong>International Shipping:</strong> Converting package weights between systems for accurate freight quotes and customs forms",
+        "<strong>Fitness Tracking:</strong> Converting body weight between pounds and kilograms when using international fitness apps or equipment",
+        "<strong>Medical Applications:</strong> Precise dosage calculations when prescriptions use different unit systems",
+        "<strong>Laboratory Work:</strong> Converting chemical measurements in scientific experiments requiring specific mass units",
+        "<strong>Grocery Shopping:</strong> Understanding product weights when shopping internationally or comparing prices per unit weight"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Try our <a href='/unit-conversions/volume'>Volume Converter</a> for converting liquid measurements in recipes alongside weight conversions",
+        "Use our <a href='/helpful-calculators/recipe-scaler'>Recipe Scaler</a> to automatically adjust all ingredient weights for different serving sizes",
+        "Check our <a href='/calculators/bmi'>BMI Calculator</a> for health metrics that use weight and height measurements",
+        "Explore our <a href='/unit-conversions/temperature'>Temperature Converter</a> for complete recipe conversions including oven temperatures"
       ]
     }
   ]

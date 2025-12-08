@@ -41,6 +41,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate personalized daily protein needs based on your weight, activity level, and specific fitness goals - not generic one-size-fits-all recommendations",
+        "✓ Optimize muscle building and recovery - consuming adequate protein (0.7-1g per lb bodyweight) is critical for gaining strength, preventing muscle loss during weight loss, and recovery from workouts",
+        "✓ Avoid undereating protein which causes muscle loss, weakness, slow recovery, constant hunger, and poor body composition even if losing weight on scale",
+        "✓ Prevent overeating protein unnecessarily - excess protein beyond ~2.2g/kg provides no benefit, wastes money on expensive protein sources, and may displace other important nutrients",
+        "✓ Free and science-based calculations using recommendations from sports nutrition research, bodybuilding community consensus, and registered dietitian guidelines"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -56,6 +67,50 @@
         "Sedentary: 0.8-1.0g per kg body weight",
         "Active: 1.2-1.6g per kg body weight",
         "Athletes: 1.6-2.2g per kg body weight"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How much protein do I really need to build muscle?</strong> Research shows 0.7-1.0g per pound bodyweight (1.6-2.2g/kg) optimizes muscle growth when combined with resistance training. At 180 lbs, that's 125-180g daily. More doesn't help - studies show no added muscle gain above 2.2g/kg. Beginners might grow fine at 0.6g/lb due to 'newbie gains', but experienced lifters need higher intake. Distribute protein across 3-5 meals (30-40g per meal) for best muscle protein synthesis. Single 200g protein meal wastes potential compared to 4×50g throughout day.",
+        "<strong>Q: Can I eat too much protein? Is it harmful?</strong> For healthy people with normal kidney function, high protein (up to 2.2g/kg) is safe long-term according to research. Your body simply oxidizes excess for energy or converts to glucose/fat. However, eating 3-4g/kg is wasteful - no performance benefit and it displaces carbs/fats needed for energy and hormones. Exception: If you have existing kidney disease, high protein can worsen it - consult nephrologist. For healthy individuals, concerns about kidney damage, bone loss, or dehydration from high protein are myths debunked by modern research.",
+        "<strong>Q: What are the best protein sources to hit my daily target?</strong> Animal sources (complete proteins with all essential amino acids): chicken breast (31g per 100g), lean beef (26g), salmon (25g), eggs (6g each), Greek yogurt (10g per 100g), whey protein powder (25g per scoop). Plant sources (often incomplete, need variety): lentils (9g per 100g cooked), chickpeas (8g), tofu (8g), quinoa (4g), peanut butter (25g per 100g). Combine plant proteins (rice + beans, hummus + pita) to get complete amino acid profile. Protein powder is convenient supplement, not replacement for whole foods which provide other nutrients.",
+        "<strong>Q: Do I need more protein when cutting calories to lose fat?</strong> Yes! When in calorie deficit, increase protein to 1.0-1.2g per pound bodyweight (2.2-2.6g/kg) to preserve muscle mass. Without adequate protein + resistance training, 20-30% of weight lost can be muscle instead of fat, leaving you 'skinny-fat' with slow metabolism. Higher protein also increases satiety (keeps you full), has higher thermic effect (burns more calories digesting), and maintains strength during diet. At 180 lbs cutting, aim for 180-215g protein daily even as you reduce total calories.",
+        "<strong>Q: Does protein timing matter, or just daily total?</strong> Daily total matters most (80% of the equation), but timing provides minor edge (20%). Optimal: consume 30-40g protein within 2 hours post-workout to maximize muscle protein synthesis during 'anabolic window'. Distribute protein evenly across meals (4×40g better than 10g+10g+140g) for continuous synthesis. Pre-bed casein protein (30-40g) prevents overnight muscle breakdown during 8-hour fast. However, if you hit daily target, timing is optimization not requirement - don't stress if meal timing isn't perfect, daily total is most important."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Track protein first, other macros second:</strong> Most people dramatically underestimate protein intake. Track honestly for 3 days using MyFitnessPal or similar - you'll likely find you're eating 50-70g when you thought it was 120g. Make protein the priority macro in every meal: build meals around chicken, fish, eggs, Greek yogurt, then add carbs/fats. Easy check: each meal should have palm-sized protein portion (20-40g). Once you consistently hit protein target for 2 weeks, it becomes habit and you can relax strict tracking.",
+        "💡 <strong>Use protein powder strategically, not as meal replacement:</strong> Protein powder (whey, casein, plant-based) is supplement, not food replacement. Use it to fill gaps: post-workout shake (25-40g), blend into oatmeal (adds 20-30g), bedtime casein shake (30g slow-release protein overnight). Don't replace real meals with shakes - whole foods provide fiber, vitamins, minerals, satiety that powder lacks. Max 1-2 shakes daily, get remaining protein from whole foods. Powder is convenient and cheap (ounce for ounce), but chicken breast with veggies beats any shake nutritionally.",
+        "💡 <strong>Adjust protein based on lean body mass, not total weight, if obese:</strong> If significantly overweight (25%+ body fat men, 32%+ women), calculating protein on total body weight overestimates needs since fat tissue doesn't require much protein. Use lean body mass instead: if you're 220 lbs at 30% body fat, you have 154 lbs lean mass - aim for 0.8-1.0g per lb of 154 lbs = 125-155g protein, not 175-220g from total weight. This prevents overeating protein while ensuring muscle preservation. As you lose fat, recalculate based on new lean mass.",
+        "💡 <strong>Spread protein intake across the day for optimal muscle synthesis:</strong> Muscle protein synthesis peaks 1-2 hours after protein consumption and returns to baseline by 3-4 hours. Eating 200g protein in one meal wastes potential - your body can only synthesize ~30-40g worth at once, rest is oxidized for energy. Better: 4 meals × 40g = 160g with continuous synthesis. Practical split for 160g target: breakfast 35g (eggs + yogurt), lunch 40g (chicken salad), post-workout 30g (shake), dinner 45g (salmon), bedtime 10g (casein). Maintains positive nitrogen balance all day.",
+        "💡 <strong>Prioritize protein when eating out or traveling:</strong> Restaurant meals are often carb/fat heavy, protein light. Actively order double protein at restaurants (2 chicken breasts instead of 1), skip filler carbs (bread, chips), add protein sides (eggs, fish, extra meat). Fast food: Chipotle bowl with double chicken = 60-70g protein. Starbucks: egg bites = 13g. Convenience stores: Greek yogurt, beef jerky, hard-boiled eggs, protein bars. Traveling: pack protein powder (TSA-safe), protein bars, shelf-stable tuna packets. Don't let inconvenience derail protein goals - it's most important macro for body composition."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Muscle Building & Strength Training:</strong> Calculate protein needs for hypertrophy (muscle growth), determine optimal protein intake for powerlifting or bodybuilding programs, adjust protein as you gain lean mass",
+        "<strong>Fat Loss & Cutting:</strong> Calculate higher protein requirements to preserve muscle during calorie deficit, determine protein target for weight loss phase, ensure adequate protein to maintain metabolism and strength while dropping fat",
+        "<strong>Athletic Performance:</strong> Calculate protein for endurance athletes (recovery from long runs/rides), determine needs for team sports (soccer, basketball) with strength + conditioning, adjust protein for high-volume training blocks",
+        "<strong>Post-Injury Recovery:</strong> Calculate elevated protein needs during injury recovery and physical therapy, determine protein for surgery recovery (muscle tissue repair), support healing process with adequate amino acids",
+        "<strong>Aging & Muscle Preservation:</strong> Calculate protein for adults over 50 (higher needs to fight sarcopenia - age-related muscle loss), determine requirements for maintaining independence and function, prevent frailty through adequate protein intake",
+        "<strong>Special Diets:</strong> Calculate protein needs on vegetarian/vegan diets (may need higher total due to incomplete plant proteins), determine requirements for ketogenic diet (protein moderate, not high), adjust protein for intermittent fasting eating windows"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/calorie'>Calorie Calculator</a> to determine your total daily calorie needs (TDEE) and create appropriate deficit or surplus around your protein target",
+        "Use our <a href='/calculators/bmi'>BMI Calculator</a> to assess current body composition and determine if you're at healthy weight for your height",
+        "Check our <a href='/unit-conversions/mass'>Weight Converter</a> to convert between pounds and kilograms when using different scales or international protein recommendations",
+        "Explore our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate what percentage of your daily calories come from protein (ideal: 25-35% of total calories)"
       ]
     }
   ]

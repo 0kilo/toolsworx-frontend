@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Visualize CSV data as readable tables instantly - raw CSV files are hard to read (hundreds of comma-separated values), this tool aligns columns making data structure obvious for quick analysis without Excel/Sheets",
+        "✓ Convert CSV to JSON for API development and data processing - transform tabular data exports (database dumps, spreadsheet exports) into JSON arrays for REST APIs, JavaScript processing, or NoSQL database imports",
+        "✓ Debug CSV parsing issues by seeing formatted output - identify misaligned columns, unquoted commas breaking fields, encoding problems (UTF-8 vs ASCII), missing delimiters that cause data corruption",
+        "✓ Clean and validate CSV data before import - verify column alignment, check for malformed rows, ensure data integrity before importing into databases, CRMs, or analytics tools preventing import errors",
+        "✓ 100% client-side means sensitive data never leaves browser - safely format CSV containing customer lists, financial records, employee data, sales figures without uploading to external CSV tools"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Format CSV as aligned, readable tables",
         "Convert CSV to JSON format",
         "Handle quoted fields and commas",
         "100% client-side processing for privacy"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Why does my CSV look misaligned or have incorrect column splits?</strong> Common causes: (1) Commas in data not properly quoted - 'Smith, John' should be '\"Smith, John\"' otherwise splits into two columns. (2) Inconsistent delimiters - mixing commas and tabs/semicolons. (3) Newlines within quoted fields breaking rows. (4) Missing closing quotes causing everything after to merge. (5) Different CSV dialect (RFC 4180 standard vs Excel vs others). Fix: ensure data with commas/newlines is quoted, use consistent delimiter, close all quotes. Most CSV exports from databases/spreadsheets handle this automatically, issues arise with hand-edited CSV or malformed exports.",
+        "<strong>Q: What's the difference between CSV and TSV (tab-separated)?</strong> Both are delimited text formats. CSV (Comma-Separated Values) uses commas as delimiters, requires quoting fields containing commas/newlines. TSV (Tab-Separated Values) uses tabs (\\t) as delimiters, less common but useful when data contains many commas (addresses, lists). TSV rarely needs quoting since tabs are uncommon in data. Excel and Google Sheets export both formats. Use CSV for: standard interchange format, wide compatibility. Use TSV for: data heavy in commas, simpler parsing (no quote escaping). This tool expects CSV; for TSV, convert tabs to commas first or use TSV parser.",
+        "<strong>Q: How do I handle CSV files with headers vs. no headers?</strong> Headers (first row = column names) vs. no headers (all rows = data). With headers: first row becomes JSON keys when converting to JSON, easier to understand column meaning, better for self-documenting data. Without headers: all rows treated as data, generic keys (column1, column2) in JSON, requires external documentation of column meaning. Most CSV exports include headers. If your CSV lacks headers: manually add header row before formatting, or understand column order from source documentation. When converting to JSON, headers become object keys, so meaningful headers create readable JSON.",
+        "<strong>Q: Why does my CSV have strange characters or encoding issues?</strong> CSV encoding determines how special characters (accents, emojis, non-Latin alphabets) are stored. Common encodings: UTF-8 (supports all characters, modern standard), UTF-8 BOM (UTF-8 with byte order mark, used by Excel), Latin-1/ISO-8859-1 (Western European, legacy), Windows-1252 (Excel default on Windows). Symptoms of wrong encoding: � symbols, garbled accents (café → cafÃ©), Asian characters as gibberish. Fix: save CSV as UTF-8 (most text editors have this option), or if already saved, reopen specifying correct encoding. Excel on Windows defaults to Windows-1252, causing issues with international characters - save as 'CSV UTF-8' in Excel.",
+        "<strong>Q: Can I use this tool for large CSV files with thousands of rows?</strong> Depends on file size and browser memory. This tool processes entire CSV in browser memory, so limitations: small files (<1MB / ~10,000 rows) = instant processing, medium files (1-10MB / 10K-100K rows) = works but slower, large files (>10MB / >100K rows) = may freeze browser or crash due to memory limits. For very large CSVs: use command-line tools (csvkit, awk, Python pandas) or split file into chunks. This tool best for quick inspection/formatting of reasonably sized CSV exports, not production-scale big data processing."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Always quote CSV fields containing commas, quotes, or newlines:</strong> Proper CSV quoting prevents data corruption. Rules: if field contains comma, wrap in quotes ('\"value, with comma\"'). If field contains quotes, escape with double quotes ('\"He said \"\"hello\"\"\"' = He said \"hello\"). If field contains newlines, wrap in quotes with literal newlines. Excel/Sheets auto-quote when exporting, but hand-edited CSV or custom exports may skip quoting causing misaligned columns. Use this tool to verify quoting - if columns misalign, quoting is wrong.",
+        "💡 <strong>Convert CSV to JSON for easier API integration and data processing:</strong> JSON is easier to work with than CSV in APIs and JavaScript. Use this tool to convert CSV exports (from databases, CRMs, analytics) to JSON format for: REST API requests/responses, JavaScript data processing, NoSQL database imports (MongoDB, DynamoDB), configuration files. CSV = tabular, limited nesting. JSON = hierarchical, supports nested objects/arrays. If you need nested structures, preprocess CSV (multiple related CSVs or pivot data) then convert.",
+        "💡 <strong>Use CSV for data interchange, not complex data storage:</strong> CSV advantages: simple, human-readable, universal support (Excel, Sheets, databases), small file size. Disadvantages: no data types (everything is text), no nested structures, no standard for dates/booleans, fragile quoting rules. Use CSV for: data exports/imports, log files, simple tabular data, legacy system integration. Use JSON/XML for: APIs, complex nested data, type-safe data. Use database formats for: large datasets, query performance, data integrity.",
+        "💡 <strong>Validate CSV structure before importing to prevent data corruption:</strong> Use this tool to format CSV before importing to database/CRM - visual table shows: misaligned columns (wrong delimiters/quoting), missing values (empty cells), unexpected data (text in numeric column), extra/missing columns (schema mismatch). Catching issues here prevents: failed imports, partial data corruption, hours debugging production database. 5-minute validation saves hours of recovery.",
+        "💡 <strong>Understand CSV dialect differences between Excel, Sheets, and RFC 4180:</strong> 'CSV' isn't fully standardized. RFC 4180 (formal standard): comma delimiter, double-quote escaping, CRLF line endings. Excel: uses Windows-1252 encoding, BOM marker, sometimes semicolon delimiter (European Excel). Google Sheets: UTF-8 encoding, standard comma delimiter. If CSV looks broken: check delimiter (comma vs semicolon vs tab), encoding (UTF-8 vs Windows-1252), line endings (LF vs CRLF). Export from source with explicit UTF-8 encoding when possible."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Data Analysis & Reporting:</strong> Format CSV exports from databases or analytics tools for quick inspection, verify data structure before creating reports or visualizations, clean CSV data by identifying malformed rows or misaligned columns",
+        "<strong>API Integration:</strong> Convert CSV data exports to JSON for REST API requests, transform spreadsheet data into JSON format for web applications, prepare CSV data for import into JSON-based systems or NoSQL databases",
+        "<strong>Database Operations:</strong> Validate CSV structure before bulk database imports to prevent errors, format SQL query results exported as CSV for readability, check CSV dumps for data integrity before migration projects",
+        "<strong>Spreadsheet Data Transfer:</strong> Convert Excel/Google Sheets CSV exports for use in other systems, format CSV for readability when sharing data with non-technical stakeholders, prepare CSV data for import into different spreadsheet applications",
+        "<strong>ETL & Data Processing:</strong> Debug CSV parsing issues in ETL pipelines by visualizing formatted output, validate CSV intermediate files in data transformation workflows, verify CSV output from custom data export scripts",
+        "<strong>CRM & Marketing Tools:</strong> Format contact list CSV exports from CRMs (Salesforce, HubSpot), validate customer data CSV before importing into email marketing tools, clean CSV mailing lists by identifying formatting issues"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format and validate JSON created from CSV conversions",
+        "Use our <a href='/dev-tools/xml-formatter'>XML Formatter</a> as an alternative structured data format for complex hierarchical data",
+        "Check our <a href='/dev-tools/text-case-converter'>Text Case Converter</a> to normalize column names or data values in consistent format",
+        "Explore our <a href='/dev-tools/regex-tester'>Regex Tester</a> to create patterns for extracting or validating CSV field data"
       ]
     }
   ]

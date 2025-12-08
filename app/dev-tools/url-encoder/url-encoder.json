@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Safely encode URLs with special characters for query parameters - converts spaces, ampersands (&), question marks (?), and other special chars that break URLs if not encoded (invalid URLs cause 400 errors or pass wrong data to APIs)",
+        "✓ Debug broken URLs by decoding to see actual values - instantly reveal what's being sent in query strings, decode mailto: links with complex parameters, understand why API calls are failing (often due to improper encoding)",
+        "✓ Build API request URLs programmatically with correct encoding - ensure search queries with spaces/symbols work correctly, pass JSON or complex data structures in query parameters, construct OAuth redirect URLs with state parameters",
+        "✓ Fix copy-paste URL issues where special characters got mangled - repair URLs from emails/documents that broke during copy (smart quotes became garbage, spaces became random chars), decode tracking parameters to understand what data is being sent",
+        "✓ 100% client-side processing means sensitive URLs (with API keys, access tokens, user data in parameters) never leave browser - no server logging, no privacy concerns unlike online encoders"
+      ]
+    },
+    {
       "title": "URL Encoding Rules",
       "content": [
         "Alphanumeric characters (A-Z, a-z, 0-9) remain unchanged",
@@ -25,6 +36,50 @@
         "Form data submission",
         "API endpoint construction",
         "Email links with parameters"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between URL encoding and Base64 encoding?</strong> URL encoding (percent-encoding) is for making text URL-safe by replacing special characters with %XX codes (space becomes %20, & becomes %26). Used for query parameters and form data. Base64 is for converting binary data to text-safe alphabet (A-Z, a-z, 0-9, +, /). Different purposes: URL encode query string values, Base64 encode binary data. Example: search term 'cats & dogs' → URL encode to 'cats%20%26%20dogs' for query parameter. Image file → Base64 encode for embedding in data URI or JSON. You can URL-encode Base64 strings if passing encoded data in URL.",
+        "<strong>Q: Should I encode the entire URL or just parts of it?</strong> ONLY encode query parameter VALUES and URL path components with special characters - never encode the entire URL including protocol/domain/structure. Correct: `https://api.com/search?q=[ENCODE_THIS]&type=[ENCODE_THIS]`. Wrong: encoding entire URL turns `https://` into `https%3A%2F%2F` which browsers can't recognize as URL. Specifically: don't encode protocol (http://, https://), don't encode domain (example.com), don't encode path separators (/), don't encode query separator (?), don't encode parameter separators (&), don't encode key-value separator (=). Only encode the actual values after '=' and path segments with spaces/special chars.",
+        "<strong>Q: Why does space encode as '%20' sometimes and '+' other times?</strong> Two standards: (1) Query string encoding (application/x-www-form-urlencoded) uses '+' for spaces - used in HTML form submissions, most web frameworks decode '+' as space. (2) URL path encoding uses '%20' for spaces - used in URL paths, more universally compatible. Both decode to space character. Modern APIs prefer '%20' everywhere (works in paths and query strings). Use '+' only if specifically dealing with form data. When in doubt, use '%20' - it's never wrong. Example: search query 'hello world' → `?q=hello+world` (form encoding) or `?q=hello%20world` (percent encoding) - both work, both decode to 'hello world'.",
+        "<strong>Q: How do I encode URLs in different programming languages?</strong> Most languages have built-in functions: JavaScript: `encodeURIComponent('value')` for parameters, `encodeURI('url')` for full URLs. Python: `urllib.parse.quote('value')` or `requests.utils.quote('value')`. PHP: `urlencode('value')` for query strings, `rawurlencode('value')` for RFC 3986. Java: `URLEncoder.encode('value', 'UTF-8')`. Don't manually replace characters - use standard library functions that handle edge cases correctly. Common mistake: manually replacing spaces with '+' but forgetting other special characters.",
+        "<strong>Q: What characters need to be URL encoded?</strong> Always encode: spaces, quotes (' \"), less/greater than (< >), hash (#), percent (%), curly braces ({ }), pipe (|), backslash (\\), caret (^), square brackets ([ ]), backtick (`), non-ASCII characters (accented letters, emoji, Chinese/Arabic/etc). Reserved characters that need encoding in values: & (separates parameters), = (separates key-value), ? (starts query string), / (path separator in values), : (in values), @ (in values). Safe characters (never need encoding): letters A-Z a-z, digits 0-9, dash (-), underscore (_), period (.), tilde (~). When in doubt, encode it - extra encoding is safe, missing encoding breaks URLs."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use this tool to debug API calls that return 400 Bad Request errors:</strong> When API returns 400, often due to improperly encoded query parameters. Copy full request URL from browser DevTools Network tab or curl command, decode query string to see actual values being sent. Common culprits: unencoded '&' in value (looks like new parameter), unencoded spaces breaking parsing, double-encoding (value encoded twice becomes garbled). Fix by ensuring values are encoded exactly once. Bookmark this tool for instant URL debugging during API development.",
+        "💡 <strong>Never encode twice - common cause of garbled data:</strong> Encoding already-encoded URL breaks it. Example: 'hello world' → encode once → 'hello%20world' (correct). Encode twice → 'hello%2520world' (wrong - %20 became %2520, decodes to 'hello%20world' instead of 'hello world'). Check if string is already encoded before encoding again. In code: don't call `encodeURIComponent()` on values that might already be encoded. Symptom of double encoding: seeing %25 in URLs (% encoded as %25).",
+        "💡 <strong>Encode individual query parameter values, not entire query string:</strong> Correct pattern: `url + '?key1=' + encode(value1) + '&key2=' + encode(value2)`. Wrong: `url + encode('?key1=value1&key2=value2')` encodes the structure characters (?, &, =) breaking URL parsing. If using URL builders in code, they handle this automatically. If manually building URLs, encode ONLY values. Same for paths: encode individual path segments, not entire path with slashes.",
+        "💡 <strong>Test URLs with edge case characters before deploying:</strong> Common problematic characters in real-world data: ampersand (&) in company names 'AT&T', plus (+) in phone numbers '+1-555-1234', hash (#) in social media tags, quotes in user input, Unicode emoji and accented letters. Before deploying API or form, test with these values to ensure proper encoding/decoding. Create test cases: search query 'C++ programming', email 'user+tag@example.com', company 'Procter & Gamble', location 'São Paulo'.",
+        "💡 <strong>Use this tool to understand tracking parameters and privacy:</strong> URLs from Google, Facebook, email campaigns have tracking parameters: `?utm_source=...&fbclid=...&ref=...`. Decode these to see what data is being passed (campaign names, user IDs, referral sources). When sharing URLs, decide if you want to include tracking - often safe to remove `utm_*` and `fbclid` parameters. Also useful for understanding what analytics tools see about you from URLs. Privacy tip: clean URLs before sharing to avoid leaking referral information."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>API Development & Testing:</strong> Encode query parameters for API requests with spaces or special characters (search queries, filter values), decode API URLs from error logs to debug 400/422 errors, construct OAuth redirect URLs with properly encoded state and callback parameters",
+        "<strong>Query String Debugging:</strong> Decode complex URLs to see actual parameter values being passed, debug why form submissions aren't working (improper encoding), verify tracking parameters in marketing campaign URLs (UTM parameters)",
+        "<strong>Web Development:</strong> Encode user input before constructing links or redirects, build mailto: links with subject/body parameters containing special characters, create social media share URLs with pre-filled text (Twitter, Facebook share links)",
+        "<strong>Data Analysis & Privacy:</strong> Decode tracking pixels and analytics URLs to understand what data is collected, clean URLs by removing tracking parameters before sharing, analyze referral URLs in analytics to see original query parameters",
+        "<strong>Internationalization:</strong> Encode non-ASCII characters in URLs (accented letters, Chinese/Japanese/Arabic text, emoji), debug character encoding issues where non-English text appears garbled, ensure URLs with international characters work across all browsers",
+        "<strong>Security Testing:</strong> Decode suspicious URLs to check for XSS attempts or phishing (attackers often URL-encode malicious scripts), analyze URL parameters for potential injection attacks, verify redirects aren't sending users to malicious sites"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/base64'>Base64 Encoder/Decoder</a> for encoding binary data or authentication tokens (different from URL encoding)",
+        "Use our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format and validate JSON data before URL-encoding it for API parameters",
+        "Check our <a href='/dev-tools/hash-generator'>Hash Generator</a> to create URL-safe hashes for API signatures or data integrity checks",
+        "Explore our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to decode authentication tokens that might be passed in URL parameters"
       ]
     }
   ]

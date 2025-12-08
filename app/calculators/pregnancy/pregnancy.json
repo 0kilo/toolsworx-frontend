@@ -17,6 +17,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly calculate your estimated due date using the standard Naegele's Rule (280 days / 40 weeks from last menstrual period) used by doctors and midwives worldwide",
+        "✓ Track which week and trimester you're in to understand fetal development milestones, schedule prenatal appointments, and prepare for upcoming pregnancy phases",
+        "✓ Plan maternity leave, nursery setup, baby showers, and other preparations with accurate timeline from first positive pregnancy test through delivery",
+        "✓ Share accurate pregnancy timeline with healthcare providers, family, and employer for coordinating care and planning around delivery",
+        "✓ Free and private - calculate due date without doctor appointment, no personal health information required, instant results you can save or screenshot"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -41,6 +52,50 @@
         "First Trimester: Weeks 1-12",
         "Second Trimester: Weeks 13-26",
         "Third Trimester: Weeks 27-40"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Why does pregnancy count from my last period if I wasn't pregnant yet?</strong> Dating from last menstrual period (LMP) is medical convention because it's easier to know (first day of period) than exact conception date (ovulation typically 14 days after LMP, but varies). So you're technically 'pregnant' for 40 weeks, but conception happens around week 2. By the time you miss your period at 4 weeks, you're already '4 weeks pregnant' even though conception was only 2 weeks ago. First trimester ultrasound (8-12 weeks) may adjust due date by ±7 days if baby measures differently than LMP suggests.",
+        "<strong>Q: How accurate is this due date calculator?</strong> Naegele's Rule assumes 28-day menstrual cycle with ovulation on day 14, which is average but not universal. For women with longer/shorter cycles, actual ovulation may vary ±7 days, making due date estimate off by up to a week. First trimester ultrasound (dating scan at 8-13 weeks) measuring crown-rump length is most accurate method, usually within 5-7 days. Use this calculator for initial estimate, but expect your doctor to confirm or adjust based on ultrasound. Only 4-5% of babies arrive on exact due date - 'due week' is more realistic expectation.",
+        "<strong>Q: What if I don't remember my last period date?</strong> If you don't know LMP date, your doctor will estimate due date using early ultrasound (ideally 8-13 weeks when crown-rump length measurement is most accurate). Later ultrasounds (20+ weeks) are less accurate for dating (±2-3 weeks error possible) because fetal size varies more. If you have irregular periods or conceived while breastfeeding/on birth control, dating ultrasound is more reliable than LMP calculation. Tracking ovulation (basal temp, ovulation tests) before conception helps pinpoint conception date for better estimate.",
+        "<strong>Q: When should I tell people I'm pregnant?</strong> Common practice is waiting until after first trimester (12 weeks) when miscarriage risk drops significantly - 80% of miscarriages occur before 12 weeks. However, this is personal choice. Some tell close family/friends immediately for support if complications arise. Consider: early miscarriage is common (10-20% of known pregnancies), workplace accommodations may require earlier disclosure (physical job, morning sickness), pregnancy symptoms may be obvious making it hard to hide. No wrong answer - tell when you feel comfortable, understanding risks and needs.",
+        "<strong>Q: What happens if I go past my due date?</strong> Only 5% deliver on due date, 70% deliver within 10 days before/after. 'Full term' is 37-42 weeks. Most doctors won't induce until 41-42 weeks unless medical reasons (gestational diabetes, high blood pressure, low amniotic fluid). Post-term pregnancy (after 42 weeks) carries increased risks (placental aging, larger baby, stillbirth risk rises), so doctors typically induce by 41-42 weeks. Between 40-41 weeks, expect more frequent monitoring (non-stress tests, biophysical profiles) to ensure baby's wellbeing. First-time moms average 40+5 days, subsequent pregnancies average 40+3 days."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Schedule your first prenatal appointment for 8-10 weeks:</strong> Don't rush to doctor immediately after positive test unless you have complications (bleeding, severe pain, prior miscarriages). Most OB offices schedule first visit around 8-10 weeks when ultrasound can see heartbeat and confirm viability. Too early (5-6 weeks) and you might see empty sac or no heartbeat yet, causing unnecessary anxiety. Calculate your due date with this tool, then call to schedule around week 8. Exception: if you have chronic conditions (diabetes, hypertension) or pregnancy complications history, call sooner.",
+        "💡 <strong>Start prenatal vitamins immediately:</strong> Begin prenatal vitamins with 400-800mcg folic acid as soon as you start trying to conceive, or immediately upon positive test. Folic acid prevents neural tube defects (spina bifida) which develop in first 28 days after conception - before most women realize they're pregnant. Standard multivitamin has only 400mcg; prenatal provides 800mcg plus iron (prevent anemia), calcium (bone development), and DHA (brain development). Take with food to minimize nausea. If trying to conceive, start prenatals 3 months before.",
+        "💡 <strong>Understand 'full term' is 37-42 weeks, not just 40:</strong> 'Due date' suggests specific day, but normal pregnancy is 37-42 weeks (5-week range!). Babies born 37-38 weeks (early term) have slightly higher NICU rates than 39-40 weeks (full term). 41-42 weeks (late term) increases induction likelihood. Use due date as midpoint of 5-week window, not exact deadline. Plan maternity leave to start at 39 weeks (allows 1-2 weeks buffer before due date, plus 6-12 weeks after). Don't schedule major events (weddings, moves) during weeks 37-42 window.",
+        "💡 <strong>Track pregnancy by weeks, not months:</strong> Pregnancy is 40 weeks, which is ~9.3 calendar months, not 9 exact months. Doctors track by weeks for precision - huge difference between 37 weeks (early term) and 40 weeks (full term) even though both are 'month 9'. Use week-by-week apps (Ovia, What to Expect, The Bump) for milestone tracking. When people ask 'how far along?', answer in weeks ('28 weeks' or '28 weeks, second trimester ending soon') for accuracy. Monthly estimates get confusing after first trimester.",
+        "💡 <strong>Prepare for date changes after ultrasound:</strong> Don't be alarmed if your doctor adjusts due date by ±7 days after dating ultrasound. If difference is >7 days, doctor uses ultrasound date as more accurate. This doesn't mean something's wrong - just means your cycle timing was different than assumed, or you ovulated earlier/later than average day 14. Less than 7-day difference, doctor usually keeps original LMP date. Save early ultrasound photos - they're precious first baby pictures and confirm exact gestational age for future reference."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>First Positive Pregnancy Test:</strong> Calculate initial due date estimate before first doctor appointment, determine how far along you are based on last period, plan when to schedule first prenatal visit (8-10 weeks)",
+        "<strong>Pregnancy Planning:</strong> Estimate due date when planning maternity leave from work, determine baby shower timing (typically 28-32 weeks), plan nursery setup and major purchases timeline",
+        "<strong>Healthcare Coordination:</strong> Calculate weeks pregnant for scheduling prenatal appointments, determine trimester for specific testing windows (NT scan 11-14 weeks, anatomy scan 18-22 weeks, glucose test 24-28 weeks)",
+        "<strong>Work & Family Planning:</strong> Estimate when to tell employer (before second trimester for physical jobs, before showing for office jobs), plan announcement timing to family and friends, coordinate paternity leave with partner's work",
+        "<strong>Irregular Cycles:</strong> Get rough estimate even with irregular periods (will be confirmed by dating ultrasound), understand why doctor may adjust date after ultrasound, track pregnancy when unsure of ovulation timing",
+        "<strong>Pregnancy Milestone Tracking:</strong> Know which week you're in for reading pregnancy apps and books, track trimester transitions for understanding symptoms, calculate countdown to key milestones (viability at 24 weeks, full term at 37 weeks)"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/date-calculator'>Date Calculator</a> to calculate exact days until due date, weeks between appointments, or how many days until maternity leave starts",
+        "Use our <a href='/calculators/calorie'>Calorie Calculator</a> to determine pregnancy calorie needs (add 300-500 calories in 2nd/3rd trimesters) for healthy weight gain",
+        "Check our <a href='/unit-conversions/mass'>Weight Converter</a> to convert pregnancy weight gain between pounds and kilograms when using different scales or international guidelines",
+        "Explore our <a href='/calculators/bmi'>BMI Calculator</a> to assess pre-pregnancy BMI which determines recommended pregnancy weight gain (25-35 lbs for normal BMI)"
       ]
     }
   ]

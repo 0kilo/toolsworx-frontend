@@ -50,6 +50,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly calculate accurate monthly payments for any loan amount, interest rate, and term - know your exact payment before talking to lenders",
+        "✓ Compare multiple loan scenarios side-by-side: see how changing down payment, loan term, or interest rate affects your monthly budget and total interest paid",
+        "✓ Understand true loan costs beyond monthly payments - reveals total interest paid over loan lifetime (often $100,000+ on mortgages) to make informed financial decisions",
+        "✓ Plan your budget realistically - determine if you can afford a home or car based on monthly payment relative to your income (28/36 rule suggests max 28% of gross income)",
+        "✓ Free and private - no credit check, no lender contact, no personal information required, instant calculations you can save or share with family"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -109,6 +120,50 @@
         "Actual payments may include insurance, taxes, and fees",
         "Results are estimates - consult with lenders for exact terms",
         "Consider your debt-to-income ratio when taking new loans"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Should I choose a 15-year or 30-year mortgage?</strong> 15-year mortgages have higher monthly payments but save massive amounts on interest - on a $300,000 loan at 6%, you'd pay ~$2,532/month for 15 years (total interest: $155,769) vs ~$1,799/month for 30 years (total interest: $347,515). That's $191,746 more interest for the 30-year! Choose 15-year if you can afford higher payments and want to build equity faster. Choose 30-year if you need lower payments for budget flexibility or plan to invest the difference.",
+        "<strong>Q: How much house can I afford?</strong> Follow the 28/36 rule: housing costs (mortgage + taxes + insurance) shouldn't exceed 28% of gross monthly income, and total debt payments shouldn't exceed 36%. On $6,000/month income, max housing payment is $1,680 and max total debt is $2,160. If you have $500 in other debt (car, student loans), limit mortgage to $1,660. Use our calculator to find the loan amount that produces this payment. Also budget for down payment (20% avoids PMI), closing costs (2-5%), and emergency fund (6 months expenses).",
+        "<strong>Q: What's the impact of a larger down payment?</strong> Larger down payments reduce monthly payments, eliminate PMI (if ≥20%), save interest, and often qualify you for better rates. On a $400,000 home: 5% down ($20,000) = $380,000 loan at 6.5% APR = $2,401/month plus PMI ~$300 = $2,701 total. 20% down ($80,000) = $320,000 loan at 6.25% APR = $1,970/month, no PMI. That's $731/month savings ($262,000 over 30 years). However, if your down payment empties your emergency fund or prevents investing, a smaller down payment might be smarter.",
+        "<strong>Q: When should I refinance my mortgage?</strong> Refinancing makes sense when you can lower your rate by at least 0.75-1%, plan to stay in the home long enough to recoup closing costs (typically 2-3 years), or want to switch from adjustable to fixed rate. Calculate break-even: if refinancing costs $5,000 and saves $200/month, you break even in 25 months. Also consider refinancing to eliminate PMI once you have 20% equity, or to tap home equity for major expenses (though this increases debt and resets the loan clock).",
+        "<strong>Q: What's the difference between APR and interest rate?</strong> Interest rate is the cost of borrowing the principal (e.g., 6% annually). APR (Annual Percentage Rate) includes interest rate PLUS fees (origination, points, closing costs) expressed as a yearly rate - always higher than interest rate. If a lender offers 6% interest with $3,000 in fees, APR might be 6.25%. Compare APRs when shopping lenders to see true cost. However, if you plan to pay off early or refinance, focus more on interest rate and upfront costs since APR calculation assumes you hold the loan for full term."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Test different scenarios before committing:</strong> Use this calculator to compare at least 3-4 options. Try different down payments (10%, 15%, 20%), loan terms (15, 20, 30 years), and interest rates (get quotes from 3+ lenders). Create a spreadsheet with monthly payment, total interest, and total cost for each. The 'best' option balances affordable monthly payments with reasonable total interest. Don't just pick lowest payment - you might pay $100,000 extra in interest.",
+        "💡 <strong>Calculate the true monthly cost:</strong> The calculator shows principal + interest, but mortgages have additional costs. Add property taxes (1-2% of home value annually), homeowners insurance ($1,000-3,000/year), HOA fees if applicable, and PMI if down payment < 20% (0.5-1% of loan annually). A $2,000 P&I payment might become $2,800 total. Use the formula: Total = P&I + (home value × 0.015/12) + insurance/12 + PMI/12 to estimate real monthly housing cost.",
+        "💡 <strong>Understand amortization front-loading:</strong> Early loan payments go mostly to interest, barely touching principal. On a $300,000 loan at 6% for 30 years, your first $1,799 payment splits as $299 principal, $1,500 interest. After 10 years, you've paid $215,880 but only reduced principal by ~$49,000. After 20 years, balance is still ~$177,000. This is why extra principal payments early have huge impact - $100 extra monthly for 5 years saves ~$30,000 in interest over loan life.",
+        "💡 <strong>Use the 1% vs 28% mental math check:</strong> Quick affordability test: monthly payment at 1% of home price ≈ actual payment at ~6% interest rate. $400,000 home × 0.01 = $4,000, which is too high if that's over 28% of your gross income. Need $14,300/month income ($171,600 yearly) to afford comfortably. This isn't exact but helps you ballpark affordability while house hunting. Calculate precisely for offers you're serious about.",
+        "💡 <strong>Consider opportunity cost of large down payments:</strong> If you have $100,000 for a down payment and mortgage rate is 6%, but you can invest in index funds averaging 8-10% historically, you might be better off with 10% down ($50,000) and investing the other $50,000. Over 30 years at 8%, that $50,000 becomes ~$503,000. Your higher mortgage costs extra ~$300 monthly ($108,000 over 30 years), but your investment gains $453,000 net. However, this requires discipline to actually invest (not spend) the difference, and markets carry risk unlike guaranteed mortgage interest savings."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Home Buying:</strong> Calculate mortgage payments for different home prices to determine your budget, compare 15-year vs 30-year loan costs, evaluate how down payment size affects monthly payments and PMI requirements",
+        "<strong>Refinancing Decisions:</strong> Calculate savings from lower interest rates, determine if refinancing closing costs are worth the monthly payment reduction, evaluate cash-out refinancing for home improvements or debt consolidation",
+        "<strong>Auto Loans:</strong> Compare dealer financing vs bank/credit union rates, calculate total cost difference between 3-year, 5-year, and 7-year car loans, determine if you can afford a specific vehicle based on monthly budget",
+        "<strong>Personal Loans:</strong> Evaluate loan offers from different lenders by comparing total interest paid, calculate monthly payments for debt consolidation, determine affordability for major purchases or home improvements",
+        "<strong>Financial Planning:</strong> Model future loan scenarios when planning major life changes (marriage, career changes), calculate how extra principal payments reduce loan term and interest, evaluate rent vs buy decisions by comparing mortgage to rent costs",
+        "<strong>Pre-Approval Preparation:</strong> Know your numbers before meeting with lenders to negotiate confidently, verify lender quotes are accurate, determine realistic home price range based on what you can afford monthly"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate down payment amounts (10%, 20% of home price), interest savings, or loan-to-value ratios",
+        "Use our <a href='/calculators/tip'>Tip Calculator</a> for percentage-based calculations on closing costs (typically 2-5% of home price) or real estate commissions",
+        "Check our <a href='/unit-conversions/currency'>Currency Converter</a> if you're comparing international property investments or loans in different currencies",
+        "Explore our <a href='/calculators/bmi'>BMI Calculator</a> - wait, that's unrelated, but use our <a href='/calculators/date-calculator'>Date Calculator</a> to plan loan payment schedules or calculate days until loan payoff"
       ]
     }
   ]

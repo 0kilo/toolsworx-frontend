@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Catch JSON syntax errors before deployment or API calls - identify missing commas, unquoted keys, trailing commas, unclosed brackets that cause 'Unexpected token' errors in production preventing runtime failures, crashed applications, or failed API integrations",
+        "✓ Debug API responses that fail to parse or cause errors - paste raw API response JSON to validate structure, identify encoding issues (UTF-8 BOM, special characters), find invisible characters or formatting problems that crash JSON.parse() in JavaScript or json.loads() in Python",
+        "✓ Validate configuration files before server restart or deployment - check package.json, tsconfig.json, .eslintrc.json, AWS CloudFormation, Kubernetes manifests preventing deployment failures, server crashes, or misconfigured services that cost hours of downtime",
+        "✓ Learn JSON syntax rules and common mistakes interactively - see exactly where syntax errors occur with line numbers, understand why JSON is invalid (trailing comma allowed in JavaScript objects but not JSON), improve JSON literacy through immediate feedback",
+        "✓ 100% client-side means sensitive configs or API data stays private - safely validate JSON containing API keys, database credentials, customer data, internal configurations without uploading to external validators that might log or expose sensitive information"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Instant JSON syntax validation",
         "Clear error messages with line information",
         "Visual indicators for valid/invalid JSON",
         "100% client-side processing for privacy"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between JSON syntax validation and JSON schema validation?</strong> Two validation levels: (1) Syntax validation (this tool) = checks JSON follows basic rules (quoted keys, no trailing commas, valid characters, proper nesting) - ensures parseable by JSON.parse(). (2) Schema validation = checks data structure matches expected format (required fields present, correct data types, value constraints) - ensures semantic correctness. Example: {name: 123} passes syntax (valid JSON) but fails schema validation if 'name' must be string. Use syntax validator first (catch parsing errors), then schema validator (jsonschema.net, Ajv) to verify data structure. Most JSON errors are syntax errors - fix those first.",
+        "<strong>Q: What are the most common JSON syntax errors and how do I fix them?</strong> Top 5 errors: (1) Trailing comma - {\"a\":1,\"b\":2,} is invalid (remove last comma). JavaScript allows this, JSON doesn't. (2) Unquoted keys - {name: \"John\"} is invalid (keys must be quoted: {\"name\": \"John\"}). (3) Single quotes - {'name': 'John'} is invalid (JSON requires double quotes). (4) Missing comma - {\"a\":1 \"b\":2} is invalid (add comma between properties). (5) Comments - {\"a\":1, // comment} is invalid (JSON spec doesn't support comments, strip them first). Most validators show line/column of error - start debugging there.",
+        "<strong>Q: Why does my JSON validate here but fail in my application?</strong> Common causes: (1) Non-JSON format - your data might be JSON5 (allows trailing commas, unquoted keys), JSONC (JSON with comments), or JavaScript object literal (not valid JSON). This tool validates strict JSON (RFC 8259). (2) Encoding issues - invisible UTF-8 BOM characters, wrong encoding, copy-paste artifacts. (3) String content - if you're validating stringified JSON (JSON as string value), you need to parse outer layer first. (4) Parser strictness - some parsers allow lenient parsing (NaN, Infinity, undefined). Verify your application uses strict JSON parser.",
+        "<strong>Q: Can JSON have comments or how do I add documentation?</strong> No - JSON specification (RFC 8259) explicitly excludes comments. Why: JSON is data interchange format, not configuration language (comments are metadata, not data). Workarounds: (1) Use JSON5 (superset allowing comments) with JSON5 parser - not standard, limited support. (2) Use JSONC (JSON with Comments) - supported by VS Code, some tools. (3) Add documentation fields: {\"_comment\": \"This is a note\", \"data\": ...} - becomes part of data. (4) Use YAML instead (supports comments, converts to JSON). For config files: prefer formats supporting comments (YAML, TOML, HCL) over JSON.",
+        "<strong>Q: How do I validate very large JSON files efficiently?</strong> Large JSON (>5MB) may freeze browser validators. Strategies: (1) Use command-line validators - jsonlint, jq (faster, no memory limits): 'jq empty large.json' (validates without output). (2) Stream validation for huge files (>100MB) - use streaming JSON parsers (oboe.js, JSONStream). (3) Split file - validate sections separately to isolate errors. (4) Use language-native parsers - Python json.loads(), Node.js JSON.parse() in try-catch shows exact error location. For production validation at scale: use backend validation, not browser tools."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Validate JSON in CI/CD pipelines to prevent invalid configs from deploying:</strong> Add JSON validation to automated tests: fail build if any .json file is invalid. Tools: jsonlint-cli, ajv-cli for schemas, custom scripts. Example GitHub Actions: 'jsonlint **/*.json' in test job. Prevents: production crashes from malformed package.json, tsconfig.json errors breaking TypeScript compilation, invalid CloudFormation/Kubernetes manifests failing deployment. Cost: 5 seconds CI time saves hours debugging production. Validate: config files, API mock data, test fixtures, language files (i18n JSON).",
+        "💡 <strong>Use JSON schema validation in addition to syntax validation for robust APIs:</strong> Syntax validation only catches parsing errors, not data problems (missing required fields, wrong types, out-of-range values). After syntax validation passes, use JSON Schema (jsonschema.org): define expected structure (\"user must have name:string, age:number 0-120\"), validate with Ajv (JavaScript), jsonschema (Python), validate all incoming API requests against schema. Benefits: clear API contracts, automatic validation, self-documenting APIs, prevents invalid data reaching database. Example: user registration API requires validated email format, password length, age range.",
+        "💡 <strong>Keep JSON files in version control formatted for easier diff review:</strong> Commit formatted JSON (pretty-printed with consistent indentation), not minified one-liners. Git diffs show exactly what changed: added field, changed value, removed property. Minified JSON diffs show entire file changed (useless for review). Use .editorconfig or prettier to enforce consistent formatting across team: 2-space indents, trailing newline, no trailing commas. Pre-commit hooks validate JSON syntax automatically (husky + jsonlint). Prevents: invalid JSON reaching repo, merge conflicts from formatting differences.",
+        "💡 <strong>Be aware that JavaScript Object !== JSON:</strong> Common mistake: assume JavaScript object syntax is valid JSON. Differences: JSON requires double-quoted keys/strings (no single quotes), no trailing commas, no comments, no undefined/NaN/Infinity, no functions, no RegExp, numbers can't have leading zeros. Valid JavaScript: {a: 1, b: undefined,} - Invalid JSON. When copying JavaScript objects to JSON: quote all keys, remove trailing commas, replace undefined with null, convert special values. Use JSON.stringify() in JavaScript to ensure valid JSON output.",
+        "💡 <strong>Test JSON validators with edge cases to understand parser behavior:</strong> Not all JSON validators interpret spec identically. Test edge cases: empty strings (\"\"), empty objects/arrays ({}, []), deeply nested structures (50+ levels), large numbers (JavaScript max safe integer 2^53-1), Unicode escapes (\\u0000), escaped quotes (\\\"). Some parsers: allow duplicate keys (last wins), have depth limits (prevent stack overflow), handle large numbers differently (precision loss). Understanding your validator's behavior prevents surprises. For critical systems: test with actual target parser (JSON.parse, json.loads)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>API Development & Debugging:</strong> Validate API request/response payloads before sending to catch syntax errors, debug failed API calls by validating raw JSON responses for parsing issues, test API mock data or fixtures for syntax correctness before integration tests",
+        "<strong>Configuration File Validation:</strong> Check package.json, tsconfig.json, or other config files before deployment, validate JSON config files for services before server restart to prevent crashes, verify CloudFormation templates or Kubernetes manifests before applying",
+        "<strong>Data Import & ETL:</strong> Validate JSON data files before importing into databases or systems, verify JSON exports from legacy systems for parsing correctness, check JSON intermediate files in data transformation pipelines",
+        "<strong>Learning & Education:</strong> Learn JSON syntax rules through interactive validation feedback, understand common JSON errors and how to fix them, practice creating valid JSON structures for API design or data modeling",
+        "<strong>Security & Compliance:</strong> Validate JSON logs or audit trails for parsing issues before analysis, verify JSON data received from untrusted sources for injection attacks, check JSON configuration files for proper structure before security scans",
+        "<strong>Testing & Quality Assurance:</strong> Validate test data fixtures and mock API responses in test suites, verify JSON output from code generation or templating tools, check JSON dumps or backups for corruption before archival"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format valid JSON for readability after validation",
+        "Use our <a href='/dev-tools/json-minifier'>JSON Minifier</a> to minify validated JSON for production deployment",
+        "Check our <a href='/dev-tools/regex-tester'>Regex Tester</a> to create patterns for extracting data from JSON strings",
+        "Explore our <a href='/dev-tools/base64'>Base64 Encoder</a> to encode validated JSON for embedding in URLs"
       ]
     }
   ]

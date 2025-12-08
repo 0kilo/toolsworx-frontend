@@ -54,6 +54,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate personalized daily calorie needs based on your age, gender, height, weight, and actual activity level - no generic 2000-calorie recommendations",
+        "✓ Understand your BMR (calories burned at rest) vs TDEE (total daily expenditure with activity) to plan realistic weight loss, maintenance, or muscle gain goals",
+        "✓ Avoid extreme dieting mistakes - find safe calorie targets that support sustainable weight changes without metabolic damage or muscle loss",
+        "✓ Adjust calculations as your body changes - recalculate every 10-15 lbs lost/gained to maintain progress and avoid plateaus",
+        "✓ Free, private, science-based calculations using validated Mifflin-St Jeor formula endorsed by dietitians and nutrition researchers worldwide"
+      ]
+    },
+    {
       "title": "BMR Formulas",
       "type": "formula",
       "content": [
@@ -79,6 +90,50 @@
         "Weight loss: Subtract 500-1000 calories/day (lose 1-2 lbs/week)",
         "Weight maintenance: Consume calculated TDEE",
         "Weight gain: Add 300-500 calories/day (gain 0.5-1 lb/week)"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between BMR and TDEE?</strong> BMR (Basal Metabolic Rate) is calories your body burns at complete rest just staying alive - breathing, circulation, cell production. Think of it as your 'coma calories'. TDEE (Total Daily Energy Expenditure) is BMR multiplied by activity level to include movement, exercise, digestion. Example: 6ft tall, 180lb, 30-year-old male has BMR ~1,800 calories. If sedentary (desk job, no exercise), TDEE = 1,800 × 1.2 = 2,160 calories. If moderately active (gym 3-4x/week), TDEE = 1,800 × 1.55 = 2,790 calories. Never eat below BMR for extended periods - it can damage metabolism.",
+        "<strong>Q: How do I choose my activity level accurately?</strong> Most people overestimate! 'Sedentary' applies to 80% of office workers even with gym memberships. If you sit 8+ hours daily and exercise <3 hours/week total, you're sedentary. 'Lightly active' = 10,000+ steps daily OR 3-4 hours exercise weekly. 'Moderately active' = construction worker, server, or serious gym-goer (5+ hours/week). 'Very active' = athletes training 10+ hours weekly. When in doubt, choose lower activity level and adjust based on results after 2-3 weeks of tracking weight.",
+        "<strong>Q: Why am I not losing weight eating the calculated calorie deficit?</strong> Common reasons: (1) Underestimating food calories - restaurant meals, cooking oils, 'small' snacks add up. Track EVERYTHING for 1 week honestly. (2) Overestimating activity level - adjust down if not losing after 3 weeks. (3) Water retention masking fat loss - weigh daily and average weekly, not single weigh-ins. (4) Metabolic adaptation after months of dieting - take 1-2 week diet break at maintenance. (5) Medical issues - thyroid, PCOS, medications. See doctor if stuck despite accurate tracking.",
+        "<strong>Q: Is it safe to eat 1000 calories below my TDEE for faster weight loss?</strong> Maximum safe deficit: 500-750 calories for most people (1-1.5 lbs/week loss). Going below BMR or eating <1200 calories (women) or <1500 (men) risks: muscle loss, metabolic slowdown, nutrient deficiencies, hair loss, hormonal issues, extreme hunger/fatigue, binge eating. Exception: medically supervised very-low-calorie diets (VLCD) for obesity with doctor oversight. Slower is sustainable - 6 months to lose 25 lbs properly beats 2 months crash diet followed by 30 lb regain.",
+        "<strong>Q: Do I need more calories to build muscle?</strong> Yes! Muscle growth requires calorie surplus (eating above TDEE) + resistance training + adequate protein (0.7-1g per lb bodyweight). Start with TDEE + 300-500 calories. Gain 0.5-1 lb per week. More than 1 lb/week = mostly fat gain. Track strength progression - if lifts aren't increasing over 4-6 weeks despite surplus, either increase calories or fix training program. Cut/bulk cycles work better than 'recomposition' for most people. Build muscle in surplus, cut fat in deficit, repeat. Requires patience - natural muscle gain is 1-2 lbs/month max for beginners, slower for advanced lifters."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Recalculate every 10-15 lbs lost to avoid plateaus:</strong> As you lose weight, your BMR decreases (smaller body burns fewer calories). If you start at 200 lbs with 2,500 TDEE and eat 2,000 to lose weight, after losing 20 lbs (now 180), your new TDEE might be 2,300. Eating 2,000 is now only 300 deficit instead of 500, slowing progress. Recalculate BMR/TDEE every 10-15 lbs or when weight loss stalls for 3+ weeks. This is why final pounds are slowest - less margin for deficit.",
+        "💡 <strong>Track weekly average weight, not daily fluctuations:</strong> Weight varies 2-5 lbs daily from water retention (salty meal, carbs, workouts, menstrual cycle, sleep). Weigh daily at same time (morning, after bathroom) and average weekly. If weekly average trends down 0.5-2 lbs over 3-4 weeks, you're on track. Single day spikes mean nothing. Use apps like Happy Scale or Libra to smooth fluctuations into trendlines. This prevents emotional rollercoaster from seeing 'gain' that's just water.",
+        "💡 <strong>Prioritize protein to preserve muscle during calorie deficit:</strong> When losing weight, eat 0.7-1g protein per pound bodyweight to protect muscle mass. At 180 lbs, that's 125-180g protein daily (500-720 calories from protein). Without sufficient protein + strength training, 25% of weight lost can be muscle instead of fat, leaving you 'skinny-fat' and weak. Protein also keeps you full (high satiety). Track macros: 30-40% protein, 25-35% fat, remainder carbs. Protein powder helps hit targets if struggling with whole foods.",
+        "💡 <strong>Don't eat back all exercise calories - estimates are inflated:</strong> Treadmills, fitness watches, and apps overestimate calorie burn by 20-50%. If MyFitnessPal says you burned 500 calories running, you probably burned 300-400. Eating back all 'earned' calories often cancels your deficit. Better approach: set activity level to sedentary, create deficit from that baseline, treat exercise as bonus deficit, only eat back 50% of exercise calories if truly hungry. Or set activity level to include exercise and don't log workouts separately.",
+        "💡 <strong>Plan for diet breaks every 10-12 weeks to prevent metabolic adaptation:</strong> After 2-3 months in calorie deficit, metabolism adapts (burns fewer calories, increases hunger hormones). Schedule 1-2 week diet break eating at maintenance (calculated TDEE) to reset hormones, reduce fatigue, enjoy social events without guilt. You won't gain fat at maintenance (might gain 2-3 lbs water from more carbs/sodium, which drops when deficit resumes). This 'refeed' makes long-term dieting sustainable and may improve fat loss efficiency when you resume deficit. Marathon, not sprint!"
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Starting Weight Loss:</strong> Calculate calorie deficit for fat loss (500-1000 cal below TDEE), determine safe minimum calories to avoid metabolic damage, plan realistic timeline for goal weight",
+        "<strong>Muscle Building & Bulking:</strong> Calculate calorie surplus for muscle gain (300-500 above TDEE), determine protein needs for muscle synthesis (0.7-1g per lb), plan lean bulk to minimize fat gain",
+        "<strong>Weight Maintenance:</strong> Find TDEE to maintain current weight after diet, transition from deficit to maintenance after reaching goal, prevent weight regain by eating at calculated maintenance",
+        "<strong>Athletic Performance:</strong> Fuel training with adequate calories to support performance, calculate needs for endurance sports (higher activity multipliers), adjust for high-volume training periods vs deload weeks",
+        "<strong>Metabolic Tracking:</strong> Monitor metabolism changes as you age (BMR decreases ~1-2% per decade after 30), recalculate after significant weight changes, verify if plateaus are from metabolism vs tracking errors",
+        "<strong>Medical & Health Conditions:</strong> Establish baseline calorie needs before working with dietitian, calculate needs for pregnancy/breastfeeding (requires professional guidance, not this calculator), determine if current eating is above/below needs for diagnosed conditions"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/bmi'>BMI Calculator</a> to assess your current weight status and healthy weight ranges based on height",
+        "Use our <a href='/calculators/protein'>Protein Calculator</a> to determine optimal daily protein intake based on weight, activity, and fitness goals",
+        "Check our <a href='/unit-conversions/mass'>Weight Converter</a> to convert between pounds and kilograms for using different scales or tracking apps",
+        "Explore our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate macronutrient percentages (30% protein, 30% fat, 40% carbs) of your calorie target"
       ]
     }
   ],

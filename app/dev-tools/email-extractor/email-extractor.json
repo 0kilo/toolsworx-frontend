@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Extract all email addresses from any text instantly - paste documents, web pages, email threads, log files and get clean list of emails without manual copy-paste, perfect for building contact lists from unstructured data",
+        "✓ Clean and deduplicate email lists automatically - removes duplicate emails, sorts alphabetically, outputs clean list ready for CRM import, email campaigns, or contact management without Excel formulas or manual cleanup",
+        "✓ Parse emails from logs, error messages, or system output - extract customer emails from application logs for support follow-up, parse bounce notifications, identify email addresses in debug output or system reports",
+        "✓ Build contact lists from business cards, signatures, or documents - copy text from PDFs, images (after OCR), or scanned documents and extract all email addresses for networking, sales leads, or event attendee lists",
+        "✓ 100% client-side means sensitive contact data never leaves browser - safely extract emails from confidential documents, customer lists, employee directories without uploading to external email extractors that might harvest addresses"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Extract emails from any text format",
         "Automatic duplicate removal",
         "Sorted alphabetical output",
         "100% client-side processing for privacy"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Does this tool validate that email addresses are real and deliverable?</strong> No - this tool extracts text patterns matching email format (user@domain.com), doesn't verify domain exists or mailbox is valid. Extracted emails may include: typos (usre@gmail.com), fake addresses (test@test.com), deprecated domains (@aol.com that user abandoned), role addresses (no-reply@), disposable emails (tempmail services). For validation: use email verification APIs (ZeroBounce, NeverBounce, Hunter.io) after extraction to check deliverability, DNS records, mailbox existence. This tool does format validation only (correct @ placement, domain structure), not deliverability validation.",
+        "<strong>Q: Can this tool extract emails from images or PDFs?</strong> No - this tool works on text only. For extracting from PDFs: use PDF text extraction tool (pdftotext, Adobe Reader copy-paste, pdf.js), paste extracted text here. For images: use OCR (Optical Character Recognition) first - Google Vision API, Tesseract, built-in OCR in Adobe Acrobat, then paste OCR text here. Workflow: PDF/image → OCR tool → text → paste here → extract emails. OCR accuracy affects results - review extracted emails for OCR errors (O vs 0, I vs 1, rn vs m).",
+        "<strong>Q: Why are some email addresses not being extracted?</strong> Common reasons: (1) Uncommon TLDs - emails with new TLDs (.xyz, .tech, .io) might not match regex pattern. (2) Internationalized domains - emails with non-ASCII characters (Chinese, Arabic domains) use Punycode encoding, may not match. (3) Obfuscated emails - 'user [at] domain [dot] com' or 'user@domain(dot)com' (anti-spam obfuscation) won't match standard email regex. (4) Emails split across lines with hyphenation. (5) Invalid characters - spaces in email ('user name@domain.com') isn't valid. For obfuscated emails: manually de-obfuscate first, then extract.",
+        "<strong>Q: How do I avoid extracting unwanted email-like patterns?</strong> Text may contain email-like patterns that aren't real emails: code examples (user@localhost, test@example.com), file paths (C:\\user@machine\\file), version tags (package@1.0.0), social handles (@username), obfuscated text (AT_GMAIL_DOT_COM). This tool extracts anything matching email regex - can't distinguish context. To filter: (1) Review extracted list manually. (2) Remove known fake domains (example.com, test.com, localhost). (3) Filter by domain whitelist (only @company.com emails). (4) Remove role addresses (noreply@, admin@, info@) if targeting individuals.",
+        "<strong>Q: Is it legal to extract emails from websites or documents?</strong> Legal depends on context and jurisdiction. Generally allowed: extracting from your own data (customer emails from your database/logs), publicly available contact info (business websites, public directories), emails with permission (conference attendee lists you have rights to). Restricted/illegal: scraping emails from websites for spam (violates CAN-SPAM, GDPR), harvesting from social media (violates Terms of Service), extracting from protected documents without authorization. GDPR: personal data processing requires legal basis. Safe use: extract emails from sources you own/have rights to, use for legitimate business purposes, provide unsubscribe options. Consult lawyer for specific use case."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Always validate extracted email lists before using for outreach:</strong> Sending to invalid emails damages sender reputation, increases bounce rate, may get you blacklisted. After extraction: (1) Remove obvious fakes (test@, admin@example.com). (2) Check for typos in common domains (gmial.com vs gmail.com). (3) Use email verification service for bulk validation. (4) Start with small test batch before full campaign. (5) Monitor bounce rates. Invalid emails waste money (email service costs per send) and hurt deliverability for future campaigns.",
+        "💡 <strong>Combine with CRM deduplication to avoid double-contacting people:</strong> Extracted emails may already exist in CRM, double-adding causes: duplicate contact records, multiple marketing emails to same person (annoying, unprofessional), skewed analytics (one person counted twice). Before importing extracted emails: export existing CRM contacts, compare lists (Excel VLOOKUP, Python set operations), only import new emails. Most CRMs have deduplication rules - configure to detect duplicates by email, merge records automatically. For one-time extract: paste both lists into Google Sheets, use UNIQUE function.",
+        "💡 <strong>Extract emails from email client exported conversations for contact building:</strong> Email clients (Gmail, Outlook) export as .eml or .mbox files containing full conversation history including CC/BCC addresses. Workflow: export email folder/thread, open in text editor (emails are plain text with headers), copy all text, paste here, extract emails. Useful for: building contact list from project communications, finding all participants in long email thread, extracting vendor contacts from years of correspondence. Remember to respect privacy - only extract from emails you're authorized to process.",
+        "💡 <strong>Use domain filtering after extraction to segment by organization:</strong> After extracting mixed email list (customers, vendors, partners), segment by domain for targeted communication: extract all, copy to spreadsheet, use formula to extract domain (=RIGHT(A1,LEN(A1)-FIND(\"@\",A1))), sort/filter by domain. Example use: conference attendee list with mix of companies → extract all → filter by @targetcompany.com → focused outreach to specific company. Or filter personal emails (@gmail.com) vs business (@company.com) for B2B vs B2C targeting.",
+        "💡 <strong>Be aware of email extractors being used for spam - add protections to your contact forms:</strong> If publishing emails on website, know that spammers use extraction tools like this. Protections: (1) Use contact forms instead of displaying email. (2) Obfuscate emails (user [at] domain [dot] com). (3) Use JavaScript to render email (spambots often don't execute JS). (4) Use image of email address (not scrapable). (5) Implement CAPTCHA on contact form. Trade-off: these reduce spam but also reduce legitimate contact convenience. Balance based on spam volume. For critical contacts, use multiple methods (LinkedIn, Twitter, contact form) so one obfuscated email is acceptable."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Contact List Building:</strong> Extract emails from business cards or networking event attendee lists for follow-up, parse conference programs or speaker bios to build outreach lists, collect vendor contacts from old email threads or documents",
+        "<strong>Data Migration & CRM Import:</strong> Extract emails from legacy systems or documents for CRM import, parse customer emails from old spreadsheets or databases for migration, collect contact info from multiple sources for consolidation",
+        "<strong>Log Analysis & Support:</strong> Extract customer emails from application error logs for support outreach, parse bounce notification emails to identify failed delivery addresses, find user emails in debug output or system reports",
+        "<strong>Marketing & Lead Generation:</strong> Build prospect lists from publicly available sources (with proper permissions), extract leads from downloaded web pages or directories, compile email lists from event registrations or survey responses",
+        "<strong>Research & Analysis:</strong> Extract emails from research papers or academic documents for author contact, parse mailing list archives or forum posts for community building, collect contributor emails from open source projects",
+        "<strong>Email List Cleanup:</strong> Extract and deduplicate emails from messy spreadsheets or text files, combine multiple email lists into single clean list, remove duplicate addresses from merged contact databases"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/url-extractor'>URL Extractor</a> to extract URLs from text similar to email extraction",
+        "Use our <a href='/dev-tools/regex-tester'>Regex Tester</a> to create custom patterns for extracting emails with specific formats",
+        "Check our <a href='/dev-tools/text-case-converter'>Text Case Converter</a> to normalize email addresses to lowercase for consistency",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to format extracted email lists as CSV for spreadsheet import"
       ]
     }
   ]

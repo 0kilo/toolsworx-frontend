@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Verify file integrity by comparing hash before/after download - ensure files weren't corrupted during transfer or modified by malware (Linux ISOs, software downloads provide SHA-256 checksums to verify authenticity)",
+        "✓ Generate API signatures for authenticated requests - many REST APIs (AWS, Stripe, PayPal) require HMAC-SHA256 signatures to prove request hasn't been tampered with, use this tool to test signature generation before implementing in code",
+        "✓ Check if password has been compromised in data breaches - hash password with MD5/SHA-1, search hash on HaveIBeenPwned to see if it appears in leaked password databases (never share plain password, only hash)",
+        "✓ Detect duplicate files by hash comparison - identical files produce identical SHA-256 hashes regardless of filename, useful for finding duplicate photos/documents across folders or deduplicating backup archives",
+        "✓ 100% client-side processing means sensitive data (passwords, API keys, file contents) never leaves browser - no server uploads, no logging, safe for hashing confidential information"
+      ]
+    },
+    {
       "title": "Hash Types",
       "content": [
         "<strong>MD5:</strong> 128-bit hash, fast but not secure for passwords",
@@ -34,6 +45,50 @@
         "Always use salt with password hashes",
         "SHA-256 is currently secure for most applications",
         "Consider bcrypt or Argon2 for password hashing"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between hashing and encryption?</strong> Hashing is one-way (irreversible) - you can't get original data back from hash. Encryption is two-way (reversible) - you can decrypt with key. Hashing for data integrity, password storage (you verify by hashing input and comparing hashes, never decrypt). Encryption for protecting data in transit/storage where you need to recover original. Example: password hashing (login compares hash of entered password to stored hash), credit card encryption (merchant needs to decrypt to process payment). Common mistake: trying to 'decrypt' a hash - it's mathematically impossible by design.",
+        "<strong>Q: Which hash algorithm should I use?</strong> Depends on purpose: File integrity/checksums: SHA-256 (industry standard, secure, widely compatible). Password hashing: bcrypt, scrypt, or Argon2 (NOT plain SHA-256 - these are designed to be slow to prevent brute force). API signatures: HMAC-SHA256 (combines hash with secret key). Legacy systems: MD5 for checksums only (never security), SHA-1 for Git commits (being phased out). Avoid MD5/SHA-1 for anything security-related - both have known collision attacks (attackers can create fake data with same hash as legitimate data).",
+        "<strong>Q: Why can't I use MD5 or SHA-1 for passwords anymore?</strong> Both have collision vulnerabilities - attackers can create different inputs producing same hash. MD5 broken since 2004 (can generate collisions in seconds on modern hardware), SHA-1 broken since 2017. For passwords specifically, both are too fast - attackers can test billions of passwords per second using GPUs. Modern password hashing (bcrypt, Argon2) deliberately slow (0.1-1 second per attempt) to make brute force impractical. If you hash password with MD5, attacker with leaked database can try 10 billion passwords/second/GPU. With bcrypt, only 10 passwords/second/GPU. That's billion times slower.",
+        "<strong>Q: What is a 'salt' and why do I need it for passwords?</strong> Salt is random data added to password before hashing, producing unique hash even for identical passwords. Without salt: two users with password 'password123' have identical hashes (hash1 = hash2), attacker cracks one and knows both passwords. With salt: user1 'password123' + random salt 'xyz' → unique hash, user2 'password123' + different random salt 'abc' → different unique hash. Prevents rainbow tables (pre-computed hash databases) and reveals which users have identical passwords. Generate unique random salt for each password (16+ bytes), store salt alongside hash in database (salt isn't secret, just unique).",
+        "<strong>Q: How can I verify a file's integrity with hash?</strong> Download both file and official hash (from trusted source like software vendor's website). Hash the downloaded file using this tool with same algorithm vendor used (usually SHA-256). Compare your computed hash with official hash - if exact match (all characters identical), file is authentic and uncorrupted. Single bit difference produces completely different hash. Example: Linux distributions provide SHA-256 hashes for ISOs - hash your download to verify it wasn't tampered with or corrupted. Also works for verifying file didn't change over time (hash files in backup, compare later to detect corruption/tampering)."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use this tool to test API signature generation locally before implementing:</strong> Many APIs (AWS, Stripe, PayPal, Twilio) require HMAC-SHA256 signatures: canonical request string + secret key → SHA-256 hash → signature. Test signature generation: create request string following API docs, hash with secret key using HMAC mode (if tool supports) or hash(secretKey + requestData), compare result with API's expected signature. Debug signature mismatches by checking: request string format (order of parameters, encoding, newlines), secret key (leading/trailing spaces, wrong key), hash algorithm (SHA-256 vs SHA-1), encoding (hex vs base64 output). Get it working here before coding.",
+        "💡 <strong>Check if your password appeared in breaches WITHOUT revealing your password:</strong> Hash your password with SHA-1 or MD5, take first 5 characters of hash, search on HaveIBeenPwned API (send only first 5 chars, not full hash or password). API returns all hashes starting with those 5 chars, you check locally if your full hash is in the list. Example: password 'letmein' → SHA-1 hash starts with '5BAA6' → API returns ~500 hashes starting with 5BAA6 → you find your full hash means password is compromised. This process is called k-anonymity - you never reveal full password or hash to anyone.",
+        "💡 <strong>Use SHA-256 hashes as filenames to prevent duplicates and collisions:</strong> When storing user-uploaded files, don't use original filename (users may upload 'image.jpg' repeatedly overwriting previous). Hash file content with SHA-256, use hash as filename: `abc123def456...` with extension. Benefits: (1) No filename collisions even if uploading same filename. (2) Automatic deduplication - uploading identical file twice produces same hash, you detect it already exists. (3) No path traversal attacks from malicious filenames (../../etc/passwd). (4) Content-addressable storage - hash IS the content identifier. Used by Git, Docker, IPFS.",
+        "💡 <strong>Understand hash comparison must be exact - single character difference means completely different data:</strong> Hashes are designed so tiny input change causes massive output change (avalanche effect). Changing 1 bit in 1GB file produces completely different SHA-256 hash. Don't do fuzzy matching or 'close enough' comparisons on hashes. Use case: verifying file downloads - compute hash, compare with official hash character-by-character. One different character = file corrupted or tampered with, do not use it. No such thing as '99% matching hash' - either perfect match (identical data) or no match (different data).",
+        "💡 <strong>Never store passwords as plain hashes without salt, even with SHA-256:</strong> Even SHA-256 password hashes without salt are vulnerable to rainbow tables (pre-computed hash databases) and reveal which users have identical passwords. Proper password storage: (1) Use bcrypt/scrypt/Argon2 (better than manual salting). (2) If must use SHA-256, generate unique random salt per password, hash(salt + password), store salt and hash. (3) Never store plain passwords or reversible encryption. (4) Consider additional pepper (secret key in code, not database). Modern frameworks (Django, Rails, Laravel) handle this automatically - don't implement your own password hashing unless you know what you're doing."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>File Integrity Verification:</strong> Verify downloaded files match official checksums (Linux ISOs, software installers, firmware updates), detect file corruption by comparing hashes before and after storage/transmission, confirm file backups are exact copies without manually comparing gigabytes of data",
+        "<strong>API Development & Testing:</strong> Generate HMAC-SHA256 signatures for API authentication during development, test API signature algorithms before implementing in production code, debug signature mismatches by comparing expected vs actual hashes",
+        "<strong>Password Security Analysis:</strong> Hash passwords to check against breach databases (HaveIBeenPwned) without revealing plain password, test password hashing implementations by verifying output format, understand why MD5/SHA-1 are insecure by seeing how fast they compute",
+        "<strong>Duplicate Detection:</strong> Find duplicate files by comparing SHA-256 hashes across directories, deduplicate photo collections or document archives, verify two files are identical without byte-by-byte comparison",
+        "<strong>Data Integrity & Forensics:</strong> Create fingerprints of important files to detect tampering later, generate evidence hashes for digital forensics (proving data wasn't modified), verify data consistency across distributed systems or backups",
+        "<strong>Development & Learning:</strong> Understand hash collision resistance by trying to find two inputs with same hash, test hash function performance differences (MD5 faster than SHA-256), learn cryptographic concepts by experimenting with different inputs and observing outputs"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/base64'>Base64 Encoder/Decoder</a> to encode hashes for transmission in URLs or JSON (hashes are often Base64-encoded)",
+        "Use our <a href='/dev-tools/uuid-generator'>UUID Generator</a> to create unique identifiers that serve similar purpose as hashes for identifying resources",
+        "Check our <a href='/dev-tools/password-generator'>Password Generator</a> to create strong passwords before hashing them for storage",
+        "Explore our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to decode tokens that use HMAC-SHA256 signatures for authentication"
       ]
     }
   ]

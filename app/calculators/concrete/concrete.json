@@ -31,6 +31,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate exact cubic yards of concrete needed for slabs, driveways, patios, walkways, footings, and posts - avoid shortages (incomplete pour, cold joints) or waste (excess concrete disposal costs $150+)",
+        "✓ Budget concrete projects accurately - ready-mix costs $125-150 per cubic yard delivered, bags cost $5-7 per 80-lb bag (makes 0.6 cu ft), total project costs vary dramatically by approach",
+        "✓ Compare DIY vs professional - small jobs (<1 cubic yard) use bagged concrete from hardware store, medium jobs (1-5 yards) rent mixer + buy materials, large jobs (5+ yards) order ready-mix truck with minimum delivery",
+        "✓ Determine if project is DIY-feasible or requires contractor - 1 cubic yard = ~4,000 pounds, working time is limited (90-minute window before setting), mistakes are permanent (breaking out bad concrete costs more than hiring pro initially)",
+        "✓ Free and instant - calculate at store before buying 60 bags of concrete, verify contractor estimates, plan projects with material cost certainty"
+      ]
+    },
+    {
       "title": "Volume Formulas",
       "type": "formula",
       "content": [
@@ -55,6 +66,50 @@
         "One cubic yard covers 81 sq ft at 4 inches thick",
         "One 80-lb bag makes approximately 0.6 cubic feet",
         "Add 10% extra for waste and spillage"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Should I use bagged concrete or order ready-mix delivery?</strong> Bags (<1 cubic yard / 45 bags): DIY-friendly for small projects like fence posts, mailbox bases, small walkways. Cost $250-350 including labor but very physically demanding (mixing 45+ bags). Ready-mix (1+ cubic yard): Order delivery truck with 1-10 cubic yard minimum depending on supplier. Cost $125-150/yard + $60-150 delivery fee. Break-even around 1 cubic yard (45 bags × $6 = $270 vs $125+$100 = $225 delivered). For 3+ yards, ready-mix is dramatically cheaper and easier. Large jobs (10+ yards): ready-mix only option.",
+        "<strong>Q: What thickness do I need for different concrete projects?</strong> Sidewalks/patios: 4 inches minimum (thinner cracks easily). Driveways (regular cars): 4-6 inches depending on soil. Driveways (heavy vehicles/RVs): 6-8 inches with rebar. Garage floors: 4-6 inches. Footings: check local building code (typically 12+ inches deep below frost line). Fence posts: 8-12 inch diameter holes, 1/3 post height deep (4-foot fence = 16 inches deep minimum). Shed foundations: 4-inch slab with thickened 12-inch edges. Thinner saves money but risks cracking; thicker is overkill except for heavy loads.",
+        "<strong>Q: Do I need rebar, wire mesh, or fiber reinforcement?</strong> Rebar (steel bars): required for structural concrete (driveways, retaining walls, footings), use #4 rebar (1/2 inch diameter) in grid pattern 12-18 inches apart, positioned 2 inches from bottom of slab. Wire mesh (welded wire fabric): optional reinforcement for 4-inch slabs, cheaper than rebar but less strong. Fiber reinforcement (plastic fibers mixed in): prevents surface cracking, good for garage floors and patios. For DIY walkway/patio without vehicle traffic, you can skip reinforcement if using 4+ inch thickness and proper base preparation. For anything with wheels, use rebar.",
+        "<strong>Q: How long do I have to work with concrete before it sets?</strong> Initial set (unworkable): ~90 minutes in 70°F weather, faster in hot weather (60 mins at 85°F+), slower in cold (120+ mins at 50°F). Once poured, you have ~60 minutes to screed, float, and finish surface. Plan accordingly: have all tools ready, forms built, base prepared, helpers available before truck arrives or mixing begins. Can't stop midway - partial pour creates weak cold joint. If ready-mix truck arrives and you're not ready, concrete can harden in truck requiring expensive clean-out charge ($300-500). Have backup plan for rain (tarps, postpone).",
+        "<strong>Q: How much does concrete cost and what affects the price?</strong> Ready-mix: $125-150 per cubic yard base price + delivery fee $60-150 (waived for large orders 10+ yards). Special mixes cost more: high-strength (+$10-20/yard), fiber-reinforced (+$5-15/yard), colored (+$20-40/yard), fast-setting (+$15-30/yard). Bagged concrete: $5-7 per 80-lb bag (0.6 cu ft), so ~$270-380 per cubic yard equivalent plus hours of mixing labor. Additional costs: gravel base ($30-50/ton), rebar ($0.50-1/foot), forms (rental or lumber $50-200), tools (float, trowel, edger $50-100 buy or rent), labor (professional $3-10/sq ft for installation). For 10×12 foot patio (4 inches thick), expect $400-600 materials, $300-1200 labor."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Always order 5-10% extra concrete to avoid shortfall disasters:</strong> Running short by 0.25 cubic yards mid-pour creates disaster - can't go back to store (concrete hardens in 90 mins), can't match consistency if using second batch, creates weak cold joint in slab. Better to have 0.5 yard excess (use for stepping stones, fill low spots in yard, donate to neighbor) than be 0.2 yard short and need to break out hardened pour and start over ($500+ mistake). Ready-mix minimums often round up anyway (ordering 3.7 yards? Get charged for 4). For DIY mixing bags, buy extras knowing unopened bags are returnable at most stores.",
+        "💡 <strong>Proper base preparation is more important than concrete thickness:</strong> Concrete cracks from poor base, not thin concrete (within reason). Must have: compacted gravel base 4-6 inches deep (prevents sinking), proper drainage/slope (water under slab causes heaving), tamped firmly (rent plate compactor $40/day, worth it). Skip base prep and even 6-inch slab will crack. On clay soil, use 6 inches base instead of 4. For vehicle traffic, absolutely non-negotiable. For walkways, can get away with 3-inch base if well-compacted. Spray water and tamp in lifts (2-inch layers) - don't dump 6 inches and tamp once.",
+        "💡 <strong>Temperature matters - don't pour concrete in extreme weather:</strong> Ideal: 50-80°F during pour and 5-day cure. Below 40°F: concrete won't cure properly (takes months instead of days), may never reach full strength, needs insulated blankets and possibly heaters (professional only). Above 90°F: concrete sets too fast (30-40 min working time), surface dries before finishing causing cracks, needs constant misting and sunshades. Rain during pour: disaster (washes off surface cream, weakens concrete, ruins finish). Check 3-day weather forecast. Summer: pour in morning (coolest). Spring/Fall: best seasons. Winter in freezing climates: wait until spring or hire pro with heated concrete and blankets.",
+        "💡 <strong>Understand the difference between setting and curing:</strong> Set (unworkable): 90 minutes - can't finish surface anymore. Initial hard: 24-48 hours - can walk on it carefully, don't drive on it. Usable strength: 7 days - 70% of final strength, light traffic OK. Full cure: 28 days - 100% design strength, ready for heavy use. Common mistake: driving on driveway after 3 days (only 50% strength) causing surface damage. Keep concrete moist during cure by misting 2-3x daily for 7 days or using curing compound spray ($30/gallon, worth it). Longer cure = stronger concrete. Rush curing = permanent weakness.",
+        "💡 <strong>Have contingency plan for excess concrete:</strong> Ready-mix minimums mean you may get more than calculated (order 2.8 yards, minimum is 3 yards = 0.2 yard excess ≈ 16 sq ft at 4 inches or 270 lbs). Plan ahead: build forms for stepping stones, pour extra-thick areas in corners, fill existing low spots in yard/driveway, create concrete pad for trash cans or AC unit. Don't panic-pour bad locations (creates problems later). Absolute last resort: let truck dump on ground with plastic underneath, let harden, break up for drainage rock (wasteful but better than paying disposal fee or letting it harden in truck)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Driveways & Parking Pads:</strong> Calculate concrete for new driveway installation (4-6 inches thick depending on vehicle weight), estimate materials for RV parking pad or boat storage area, plan concrete for turnaround areas or apron extensions",
+        "<strong>Patios & Walkways:</strong> Determine concrete needed for backyard patio slab (4 inches thick standard), calculate materials for front walkway or side path, estimate concrete for outdoor entertainment area or pool deck",
+        "<strong>Foundations & Footings:</strong> Calculate concrete for shed foundation slab, determine footing concrete for deck posts or pergola supports, estimate materials for retaining wall footing (check local building codes)",
+        "<strong>Fence & Post Installation:</strong> Calculate concrete per fence post hole (typically 8-12 inch diameter), estimate materials for mailbox installation, determine concrete for gate post footings or structural posts",
+        "<strong>Garage Floors & Shop Slabs:</strong> Calculate concrete for garage floor replacement or new garage, estimate materials for workshop slab or storage building, plan concrete for enclosed carport conversion",
+        "<strong>Contractor Verification:</strong> Verify contractor concrete estimates aren't inflated or understated, calculate material costs for quotes and bids, determine if ready-mix or bagged concrete makes sense for project scope"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/flooring'>Flooring Calculator</a> to calculate square footage of concrete slab surface area and compare to indoor flooring costs",
+        "Use our <a href='/unit-conversions/volume'>Volume Converter</a> to convert between cubic yards, cubic feet, and cubic meters when using international concrete specifications",
+        "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate the 10% overage amount or determine concrete mix ratios by percentage",
+        "Explore our <a href='/unit-conversions/length'>Length Converter</a> to convert between inches, feet, and meters when measuring concrete depth and dimensions"
       ]
     }
   ],

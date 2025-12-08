@@ -51,6 +51,56 @@
         "Utilities: Electrical consumption in kWh",
         "HVAC: Heating/cooling capacity in BTU"
       ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>Nutrition Science:</strong> Understand food labels from any country by converting between calories, kilocalories, and kilojoules to accurately track dietary intake and energy expenditure",
+        "✓ <strong>Energy Bill Analysis:</strong> Compare electricity costs across regions by converting kilowatt-hours to joules or BTUs, helping you understand consumption patterns and optimize usage",
+        "✓ <strong>HVAC Planning:</strong> Choose the right air conditioner or heater by converting BTU ratings to kilowatts or joules for accurate capacity matching to room size",
+        "✓ <strong>Physics Research:</strong> Work seamlessly across different energy scales from electron volts in particle physics to megajoules in mechanical engineering without formula lookups",
+        "✓ <strong>Fitness Tracking:</strong> Convert exercise machine readouts between calories and joules to maintain consistent workout intensity measurements across different equipment brands"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: What's the difference between calories and Calories on food labels?</strong><br>This is one of nutrition's most confusing conventions. Food labels showing Calories with a capital C actually mean kilocalories (kcal). A 200-Calorie snack contains 200,000 small calories or 200 kcal. Scientific literature uses calories (lowercase c) as the small unit where one calorie equals 4.184 joules. When tracking food intake, always assume food Calories mean kilocalories. This converter helps translate between regions that use kcal, Calories, or kilojoules on packaging.",
+        "<strong>Q: How do I choose the right air conditioner size in BTUs for my room?</strong><br>Air conditioner capacity in BTUs relates directly to cooling power. A rough rule is 20 BTU per square foot of room area, so a 200-square-foot bedroom needs about 4,000 BTU. However, many countries rate AC units in kilowatts, where 1 kW equals approximately 3,412 BTU per hour. A 1.5 kW unit equals about 5,100 BTU. Convert between units to ensure you're comparing apples to apples when shopping for HVAC equipment internationally.",
+        "<strong>Q: Why do electricity bills use kilowatt-hours instead of joules?</strong><br>While the joule is the SI unit of energy, a kilowatt-hour is more practical for household electricity billing. One kWh equals 3.6 million joules, which is the energy consumed by a 1,000-watt appliance running for one hour. Your electric bill might show 500 kWh monthly usage, which equals 1.8 billion joules. The kWh scale makes billing numbers manageable. When comparing energy costs globally or analyzing consumption scientifically, converting to joules or megajoules can provide better perspective.",
+        "<strong>Q: How do electron volts relate to everyday energy units?</strong><br>Electron volts (eV) measure extremely small energy amounts used in atomic and particle physics. One electron volt equals 1.602 × 10⁻¹⁹ joules, an incomprehensibly tiny amount. However, when dealing with billions of particles, these add up. Particle accelerators work with GeV (gigaelectron volts) or TeV (teraelectron volts). To put this in perspective, the energy released by metabolizing one glucose molecule is about 30 eV per electron transferred. This converter helps physics students bridge the gap between atomic-scale and macroscopic energy measurements.",
+        "<strong>Q: Can I convert my daily calorie intake to understand it in other terms?</strong><br>Absolutely. A typical 2,000 Calorie (kcal) daily diet equals 8,368,000 joules or about 2.33 kilowatt-hours of energy. That's roughly the energy needed to power a laptop for 2-3 days or light a 100-watt bulb for 23 hours. When you exercise and burn 300 Calories, that's 1,255,200 joules or 0.35 kWh. Converting between units gives perspective on how much chemical energy our bodies process daily compared to electrical or mechanical energy."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Calorie Confusion Fix:</strong> When reading international food labels, remember that US labels show Calories (capital C), European labels show kcal, and Australian labels show kJ (kilojoules). To convert kJ to Calories, divide by 4.184. A 500 kJ snack equals about 119 Calories, not 500.",
+        "💡 <strong>Energy Bill Optimization:</strong> Track your appliance usage in kWh by noting wattage and hours used. A 1,500-watt space heater running 8 hours daily consumes 12 kWh per day or 360 kWh monthly. At $0.12 per kWh, that's $43.20 monthly just for heating. Convert to joules or BTUs when comparing with gas heating alternatives.",
+        "💡 <strong>HVAC Rule of Thumb:</strong> For quick BTU calculations, remember that 12,000 BTU equals 1 ton of cooling capacity and about 3.5 kW. Window AC units range from 5,000-12,000 BTU. Central air systems are rated in tons (24,000 BTU for a 2-ton unit). Always convert to consistent units when comparing equipment specifications.",
+        "💡 <strong>Fitness Reality Check:</strong> Exercise machines often overestimate calorie burn. A treadmill showing 400 Calories burned in 30 minutes is displaying kilocalories (400 kcal = 1,673,600 joules). Actual burn is typically 20-30% lower due to machine efficiency assumptions. Use this converter to cross-reference with metabolic equivalent (MET) calculations for accuracy.",
+        "💡 <strong>Scientific Writing:</strong> When publishing research, always use joules as the primary energy unit with other units in parentheses for clarity. Write 4.184 kJ (1 kcal) rather than mixing units inconsistently. This prevents confusion and maintains scientific rigor across international audiences."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Diet Planning:</strong> Converting between food label units when using international recipes or nutrition databases, tracking macronutrient energy content, comparing meal plans from different countries, or calculating total daily energy expenditure for weight management goals.",
+        "<strong>Home Energy Audit:</strong> Analyzing electricity bills to understand kilowatt-hour consumption patterns, comparing appliance efficiency ratings across different unit systems, calculating heating and cooling costs in BTUs versus kWh, or evaluating solar panel output specifications.",
+        "<strong>HVAC Selection:</strong> Choosing air conditioners with BTU ratings appropriate for room size, converting between tonnage and kilowatts for commercial systems, understanding dehumidifier capacity specifications, or comparing heat pump efficiency across metric and imperial units.",
+        "<strong>Physics Education:</strong> Solving thermodynamics problems requiring energy conversions, understanding particle physics experiments measured in electron volts, calculating mechanical work in joules, or analyzing chemical reactions with energy changes in various units.",
+        "<strong>Fitness Optimization:</strong> Tracking workout energy expenditure from machines showing different units, calculating caloric deficits for weight loss goals, comparing exercise intensity across different equipment brands, or validating fitness tracker calorie burn estimates.",
+        "<strong>Engineering Design:</strong> Specifying motor power requirements in consistent units, calculating heat transfer in HVAC systems, designing electrical systems with proper energy capacity, or analyzing renewable energy system outputs across different measurement standards."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Tracking power consumption? Use our <a href='/unit-conversions/power'>Power Converter</a> to convert between watts, horsepower, and BTU per hour.",
+        "Calculating thermal efficiency? Check our <a href='/unit-conversions/temperature'>Temperature Converter</a> for Celsius, Fahrenheit, and Kelvin conversions.",
+        "Planning solar installations? Try our <a href='/calculators/solar-panel-calculator'>Solar Panel Calculator</a> to estimate energy production and savings.",
+        "Monitoring fitness goals? Our <a href='/calculators/calorie-calculator'>Calorie Calculator</a> helps determine daily energy needs based on activity level."
+      ]
     }
   ]
 }

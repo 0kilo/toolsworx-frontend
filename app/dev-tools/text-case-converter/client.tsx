@@ -153,7 +153,7 @@ export default function TextcaseconverterClient() {
       <AboutDescription
         title={toolContent.aboutTitle}
         description={toolContent.aboutDescription}
-        sections={toolContent.sections}
+        sections={toolContent.sections as any}
       />
     </div>
   )

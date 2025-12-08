@@ -42,6 +42,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate exact gallons of paint needed for any room size to avoid buying too much (wasted money) or too little (mid-project store runs with color matching issues)",
+        "✓ Account for number of coats - primer + 2 finish coats for dramatic color changes, just 1-2 coats for touch-ups or similar colors",
+        "✓ Budget painting projects accurately - know paint costs upfront before starting (quality paint $30-50/gallon, premium $60-80/gallon)",
+        "✓ Compare DIY vs professional costs - calculate material costs for DIY estimates, verify contractor quotes aren't padding paint amounts",
+        "✓ Free and instant - no signup, works on phone while at paint store, calculate for multiple rooms and save estimates"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -56,6 +67,50 @@
         "One gallon covers approximately 350 square feet",
         "This assumes smooth walls and one coat",
         "Textured walls may require more paint"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How many coats of paint do I really need?</strong> Depends on color change and paint quality. Light color over light (white to beige): 1-2 coats. Dark to light (navy to white) or light to dark: primer + 2 coats minimum. Same color refresh: 1 coat often sufficient. Quality paint (Sherwin-Williams, Benjamin Moore) covers better in fewer coats than budget paint - 2 coats of quality = 3+ coats of cheap. Red, yellow, orange always need extra coats (poor coverage pigments). Test: paint small section, if previous color shows through after drying, add coat. New drywall always needs primer first.",
+        "<strong>Q: Should I account for doors and windows when calculating?</strong> This calculator measures total wall area without subtracting openings, giving 5-10% cushion for waste, touch-ups, and future repairs. For very large openings (patio doors, floor-to-ceiling windows), manually subtract: standard door = 20 sq ft, window = 15 sq ft. Most painters don't subtract small windows/doors - extra paint covers roller waste, edge work, and keeps leftover for repairs. Better to have 1/4 gallon extra than run out and risk color mismatch if buying new can later.",
+        "<strong>Q: What's the difference between paint and primer, do I need both?</strong> Primer seals surfaces and provides uniform base for paint adhesion. ALWAYS use primer when: painting new drywall (seals porous surface), making dramatic color changes (blocks old color bleed-through), covering stains/damage, painting slick surfaces (glossy paint, paneling). Skip primer when: same/similar color, quality paint with 'paint+primer' formula, well-prepped previously painted walls. Primer is cheaper ($20-30/gallon) than paint - using it saves money by reducing finish coat needs. Don't cheap out - primer prevents peeling and blotchiness.",
+        "<strong>Q: How much does ceiling paint differ from wall paint?</strong> Ceiling paint is flatter (matte) to hide imperfections and doesn't show roller marks from overhead application. Walls use eggshell/satin for easier cleaning. Coverage is same (350 sq ft/gallon), but calculate separately: ceiling area = length × width. Most rooms need 1 gallon wall paint + 1 gallon ceiling paint. White ceiling is standard, but painting ceilings same color as walls makes rooms feel larger. Pro tip: use 'ceiling white' not regular white - it's formulated to not drip when rolling overhead.",
+        "<strong>Q: Does textured or rough wall surface need more paint?</strong> Yes! Rough/textured surfaces absorb 10-25% more paint than smooth drywall. Popcorn ceilings and stucco can double paint needs. For textured walls, reduce coverage estimate from 350 sq ft/gallon to 300 sq ft/gallon (increase paint by ~15%). Brick and concrete are most absorbent - first coat may need 250 sq ft/gallon. Use this calculator's result as baseline, then add 10-15% for rough texture, 25% for brick/stucco, 50-100% for popcorn ceilings. Better to overbuy - most stores accept unopened paint returns."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Buy all paint cans from same batch to avoid color variations:</strong> Paint color varies slightly between batches, even for same color code. At store, check can labels for batch/mix date - buy all cans from same batch for consistent color. If painting large area needing 6+ gallons, 'box' the paint: pour all cans into 5-gallon bucket and mix thoroughly before starting. This averages out any variations. For room needing 2.5 gallons, buy 3 gallons same batch - unopened cans are returnable. Don't buy paint months apart for same project - impossible to match.",
+        "💡 <strong>Choose paint sheen based on room function, not just looks:</strong> Flat/matte hides imperfections but can't be cleaned (bedrooms, low-traffic). Eggshell has slight sheen, wipes clean, most versatile (living rooms, dining rooms, hallways). Satin is shinier and scrubable (kids' rooms, bathrooms, kitchens). Semi-gloss for high-moisture or high-contact areas (bathroom walls, kitchen cabinets, trim). Glossy for maximum durability (doors, cabinets). Shinier = easier to clean but shows every wall imperfection. Test small section before committing to sheen.",
+        "💡 <strong>Account for 'touch-up tax' - keep leftover paint properly:</strong> Always buy extra 1/4-1/2 gallon beyond calculation for future touch-ups (scuffs, nail holes, kids' artwork). Store leftover paint properly: clean rim, seal tight, store upside-down (creates seal), label with room name and date. Latex paint lasts 2 years, oil-based lasts 15 years if sealed. For small amounts (<1/4 gallon), transfer to smaller airtight container to minimize air exposure. Without proper leftover, you'll never match color perfectly later - paint fades over time.",
+        "💡 <strong>Calculate paint needs before choosing color:</strong> Expensive designer colors ($70-90/gallon) can shock you if room needs 5 gallons = $350-450 just for paint! Calculate gallons first, then multiply by price per gallon to budget. If sticker shock hits, consider accent wall in expensive color (1 gallon) with budget color for remaining walls. Or choose from paint store's 'mistinted' discount section - perfectly good paint in unwanted colors for 50-75% off, great for garages, basements, closets.",
+        "💡 <strong>For multi-room projects, calculate each room separately:</strong> Don't lump 'whole house' together - different rooms need different amounts and colors. Calculate: master bedroom (400 sq ft walls, 2 coats = 2.5 gallons), hallway (250 sq ft, 1.5 gallons), living room (600 sq ft, 3.5 gallons), etc. This prevents running out of paint in room 3 when you overused in room 1. Also helps break large projects into manageable phases - paint one room per weekend rather than overwhelming yourself. Save calculations - you'll reference when re-painting in 5-7 years."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>DIY Painting Projects:</strong> Calculate paint needed before shopping to buy correct amount, compare prices between paint brands knowing exact gallons needed, budget total project cost including paint, primer, and supplies",
+        "<strong>Home Renovations:</strong> Estimate painting costs for flip houses or rental property updates, plan material budgets for whole-house painting projects, calculate paint needs for staging homes before selling",
+        "<strong>Professional Estimates:</strong> Verify contractor paint quotes aren't inflated or understated, calculate material costs for your own painting business quotes, determine paint allowances for fixed-price contracts",
+        "<strong>Color Changes & Makeovers:</strong> Calculate extra paint needed when going from dark to light colors (3+ coats), estimate primer amounts for dramatic color changes, plan paint needs for accent walls vs full rooms",
+        "<strong>New Construction & Drywall:</strong> Calculate paint needs for new home construction (every surface needs primer + 2 coats), estimate materials for finishing basement drywalling projects, determine paint budget for new room additions",
+        "<strong>Ceiling Projects:</strong> Calculate ceiling paint separately from walls (flat white vs colored walls), estimate paint for cathedral or vaulted ceilings with accurate height measurements, plan materials for popcorn ceiling painting"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/flooring'>Flooring Calculator</a> to calculate square footage and materials needed for flooring projects in the same room",
+        "Use our <a href='/unit-conversions/area'>Area Converter</a> to convert between square feet and square meters when using international paint coverage specs",
+        "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate paint discount amounts or determine cost per square foot for labor quotes",
+        "Explore our <a href='/unit-conversions/volume'>Volume Converter</a> to convert between gallons, liters, and quarts when buying paint in different size containers"
       ]
     }
   ]

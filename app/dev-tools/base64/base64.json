@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly decode Base64-encoded data to inspect contents - decode JWT tokens to read claims, decode Basic Auth headers to verify credentials, decode data URIs to extract embedded images from HTML/CSS",
+        "✓ Encode binary data for transmission over text-only protocols (email, JSON APIs, XML) where raw binary would corrupt - common for sending images, PDFs, or file attachments via REST APIs that only accept text",
+        "✓ Debug authentication issues by decoding Base64 credentials in Authorization headers - quickly verify username:password format in Basic Auth or examine JWT payload structure without online tools that might log your tokens",
+        "✓ Create data URIs to embed small images directly in HTML/CSS for faster page loads (eliminates HTTP request) - ideal for icons, loading spinners, small logos under 10KB where single HTTP request overhead exceeds image size",
+        "✓ 100% client-side processing means sensitive data (API keys, passwords, authentication tokens) never leaves browser - unlike online Base64 tools that might log inputs, all encoding/decoding happens locally"
+      ]
+    },
+    {
       "title": "Encoding Algorithm",
       "content": [
         "Groups input into 3-byte (24-bit) chunks",
@@ -25,6 +36,50 @@
         "Embedding images in HTML/CSS using data URIs",
         "Encoding authentication credentials",
         "Encoding data in JSON or XML where binary data isn't allowed"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Is Base64 encoding the same as encryption?</strong> NO - Base64 is NOT encryption or security! It's simply encoding to represent binary data as text (ASCII). Anyone can decode Base64 instantly without keys or passwords - it provides ZERO security or privacy. Common mistake: encoding password as Base64 thinking it's protected (it's not - trivially reversible). Use Base64 for data format conversion (binary to text), not security. For security, use actual encryption (AES, RSA) then optionally Base64-encode the encrypted result for transmission. Never rely on Base64 alone to protect sensitive data.",
+        "<strong>Q: Why does Base64 encoding increase file size by 33%?</strong> Base64 uses 6 bits per character but each character occupies 8 bits (1 byte) in storage, wasting 2 bits per character. Math: 3 bytes input (24 bits) becomes 4 Base64 characters (32 bits) = 8 bits overhead per 24 bits = 33% increase. Example: 100KB binary file becomes ~133KB when Base64-encoded. This is why you shouldn't Base64-encode large files unnecessarily - use multipart/form-data for file uploads instead of JSON with Base64-encoded file content (saves bandwidth and processing time).",
+        "<strong>Q: What are data URIs and when should I use them?</strong> Data URI embeds file content directly in HTML/CSS using format: `data:[mimetype];base64,[base64data]`. Example: `<img src=\"data:image/png;base64,iVBORw0KG...\">` embeds PNG without separate HTTP request. Use for: small images <10KB (icons, bullets, loading spinners) where HTTP request overhead exceeds image size, inline SVG icons, small fonts. DON'T use for: images >10KB (bloats HTML, can't be cached separately), anything loaded multiple times across pages (defeats caching), large files (kills page load performance). Rule of thumb: if image is used once and <5KB, inline it; otherwise use separate file.",
+        "<strong>Q: How do I decode JWT tokens with Base64?</strong> JWT (JSON Web Token) format: `header.payload.signature` - header and payload are Base64URL-encoded JSON (slightly different alphabet than standard Base64). To decode: (1) Split JWT by '.' to get three parts. (2) Decode middle part (payload) using Base64URL decoder (replace '-' with '+', '_' with '/', then decode). (3) Result is JSON with claims (user ID, expiration, permissions). Example payload: `{\"sub\":\"123\",\"name\":\"John\",\"exp\":1234567890}`. Note: decoding JWT reveals contents but doesn't validate signature - anyone can decode but only server with secret key can verify authenticity.",
+        "<strong>Q: Why do I see '=' padding at the end of Base64 strings?</strong> Base64 processes data in 3-byte chunks (24 bits → 4 Base64 characters). If input isn't divisible by 3, last chunk is padded: 1 byte remaining gets 2 '=' padding, 2 bytes remaining gets 1 '=' padding. Example: \"Hi\" (2 bytes) encodes as \"SGk=\" (one '=' pad), \"Hello\" (5 bytes) encodes as \"SGVsbG8=\" (one '=' pad). Padding tells decoder how many bytes were in final chunk. Some implementations omit padding (URL-safe Base64) since length can be calculated - both padded and unpadded forms decode correctly."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Decode JWT tokens to debug authentication without external tools:</strong> JWT tokens in Authorization headers contain user info and permissions in middle section (payload). Instead of using online JWT decoders that might log your tokens, decode locally: copy token, decode middle part (between dots) with this tool, view claims as JSON. Quickly verify user ID, check expiration timestamp (exp claim - Unix timestamp), examine custom claims/permissions. Remember: decoding reveals content but doesn't validate signature - malicious tokens can have fake claims that fail signature verification.",
+        "💡 <strong>Use data URIs only for small images loaded once per page:</strong> Embedding images as data URIs eliminates HTTP request but increases HTML size and prevents browser caching. Math: 1KB image as separate file = 1KB download once (cached for repeat visits). Same image as data URI = 1.33KB (Base64 overhead) embedded in every page load, never cached. Break-even: ~5KB for images loaded on every page (use separate file), <2KB for images loaded once (inline as data URI). Best candidates: loading spinner GIFs, small SVG icons, placeholder images.",
+        "💡 <strong>Never store Base64-encoded data in databases unless necessary:</strong> Base64 encoding 33% size overhead wastes database storage, memory, and backup space. Only Base64-encode when actually transmitting via text protocol (JSON API response, XML, email). Store binary data as BLOB in database, only encode when serving via API. For 1 million 10KB images: raw binary = 10GB storage, Base64 = 13.3GB storage + extra CPU for encode/decode. Exception: if querying/indexing the data as text is required, Base64 storage might be acceptable.",
+        "💡 <strong>Use URL-safe Base64 for tokens and filenames:</strong> Standard Base64 uses '+' and '/' characters that have special meaning in URLs (+ becomes space, / is path separator) and filenames. URL-safe Base64 replaces: '+' → '-', '/' → '_', often omits '=' padding. Use URL-safe variant for: JWT tokens in URLs, filenames, query parameters, anything in URL path. Most modern tools handle both variants automatically, but if seeing garbled output, try URL-safe decoder. In code: most libraries have `base64url` variant or `urlsafe_b64encode` method.",
+        "💡 <strong>Understand that Base64 decoding reveals content - never send sensitive data Base64-encoded without encryption:</strong> Developers sometimes Base64-encode passwords or API keys thinking it provides security - it doesn't. Base64 is trivially reversible by anyone (this tool proves it). For sensitive data transmission: (1) Encrypt using AES/RSA with proper key management, (2) Optionally Base64-encode encrypted result for text compatibility, (3) Transmit over HTTPS. Example: credit card number should be encrypted THEN Base64-encoded, not just Base64-encoded. Base64 alone = security theater."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Authentication Debugging:</strong> Decode Basic Auth headers (Authorization: Basic [base64]) to verify username:password format, decode JWT tokens to inspect payload claims and expiration dates, verify API key encoding for authorization headers",
+        "<strong>Data URI Creation & Analysis:</strong> Encode small images/icons for embedding in HTML/CSS as data URIs (eliminates HTTP requests), decode data URIs from HTML source to extract embedded images for analysis, create Base64-encoded images for email HTML where external image links are blocked",
+        "<strong>API Development & Testing:</strong> Encode file contents for JSON API requests that don't support multipart uploads, decode Base64-encoded responses from APIs (documents, images returned as Base64 in JSON), test API authentication by encoding credentials for request headers",
+        "<strong>Binary Data Transmission:</strong> Encode binary files for transmission over text-only protocols (email, XML-RPC, JSON APIs), encode PDF/image attachments for email automation scripts, convert binary data to text format for storage in text-based config files",
+        "<strong>Security Analysis:</strong> Decode suspicious Base64 strings from logs or network traffic to identify content, analyze encoded data in security headers or tokens, decode obfuscated strings in malware analysis (attackers often Base64-encode payloads)",
+        "<strong>Development & Debugging:</strong> Decode error messages or logs that contain Base64-encoded data, test encoding/decoding implementations by comparing results, verify data integrity by encoding and decoding to ensure round-trip consistency"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to specifically decode and validate JSON Web Tokens with signature verification",
+        "Use our <a href='/dev-tools/url-encoder'>URL Encoder/Decoder</a> for URL percent-encoding which is different from Base64 (encodes special characters for URLs)",
+        "Check our <a href='/dev-tools/hash-generator'>Hash Generator</a> to create one-way cryptographic hashes (MD5, SHA-256) which unlike Base64 cannot be reversed",
+        "Explore our <a href='/file-converters/base64-file'>Base64 File Converter</a> to convert entire files to/from Base64 with download options"
       ]
     }
   ]

@@ -134,7 +134,11 @@ export default function Base64Client() {
       <AboutDescription
         title={toolContent.aboutTitle}
         description={toolContent.aboutDescription}
-        sections={toolContent.sections}
+        sections={toolContent.sections as Array<{
+          title: string;
+          content: string[] | { title: string; items: string[] }[];
+          type?: 'list' | 'subsections';
+        }>}
       />
     </div>
   )

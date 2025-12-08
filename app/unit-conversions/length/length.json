@@ -26,10 +26,21 @@
   "defaultToUnit": "foot",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ Convert between 15 different length units from microscopic (microns) to cosmic (light years, parsecs)",
+        "✓ Supports both metric and imperial systems plus astronomical units for scientific work",
+        "✓ Instant accurate conversions using precise conversion factors verified against international standards",
+        "✓ Perfect for engineering, construction, science, and international projects requiring unit compatibility",
+        "✓ Completely private - all conversions happen in your browser with no data transmission"
+      ]
+    },
+    {
       "title": "Common Length Units",
       "content": [
         "Metric: Micron (μm), Millimeter (mm), Centimeter (cm), Meter (m), Kilometer (km)",
         "Imperial: Inch (in), Foot (ft), Yard (yd), Mile (mi)",
+        "Astronomical: AU (Astronomical Units), Light Years, Parsecs, Light Seconds/Minutes/Hours",
         "Scientific: Often uses metric system for precision",
         "Construction: Mix of imperial and metric depending on region"
       ]
@@ -40,7 +51,9 @@
         "1 meter = 3.28084 feet = 39.3701 inches",
         "1 kilometer = 0.621371 miles = 3280.84 feet",
         "1 inch = 2.54 centimeters = 25.4 millimeters",
-        "1 mile = 1.60934 kilometers = 5280 feet"
+        "1 mile = 1.60934 kilometers = 5280 feet",
+        "1 AU = 149,597,871 km (Earth to Sun distance)",
+        "1 light year = 9.461 trillion kilometers"
       ]
     },
     {
@@ -50,7 +63,48 @@
         "International shipping and logistics",
         "Scientific research and laboratory work",
         "Travel distance calculations",
-        "Sports and athletics measurements"
+        "Sports and athletics measurements",
+        "Astronomy and space science calculations"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: Why do different countries use different measurement systems?</strong> The US primarily uses imperial units (feet, inches, miles) inherited from British colonial times, while most of the world adopted the metric system in the late 1800s for its simplicity and decimal-based structure. The metric system is easier for scientific calculations.",
+        "<strong>Q: How accurate are these conversions for construction?</strong> Our conversions use internationally recognized conversion factors accurate to 6+ decimal places, which exceeds the precision needed for most construction and engineering projects. Professional engineers worldwide trust these standard conversion factors.",
+        "<strong>Q: What's the difference between a meter and a yard?</strong> A meter (m) is slightly longer than a yard (yd). 1 meter = 1.09361 yards, or about 9% longer. A meter is 39.37 inches while a yard is exactly 36 inches. This difference matters in construction and fabric measurements.",
+        "<strong>Q: When should I use astronomical units like AU or light years?</strong> Use AU (Astronomical Units) for distances within our solar system - it's the Earth-Sun distance. Use light years or parsecs for interstellar distances. For example, Mars is 1.5 AU from the Sun, while the nearest star is 4.24 light years away.",
+        "<strong>Q: Why does the tool include microns?</strong> Microns (micrometers, μm) are essential in manufacturing, semiconductor fabrication, biology, and materials science. For example, human hair is about 70-100 microns thick, and bacteria are measured in microns."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Quick feet to meters:</strong> Divide feet by 3.28 to get approximate meters. For rough estimates, 3 feet ≈ 1 meter works well.",
+        "💡 <strong>Remember the inch:</strong> 1 inch = exactly 2.54 cm. This is the fundamental conversion between imperial and metric - all others derive from this.",
+        "💡 <strong>Construction rule:</strong> When working on international projects, always specify units explicitly in your measurements. Never assume - '5' means nothing without 'meters' or 'feet'.",
+        "💡 <strong>Fabric shopping tip:</strong> When buying fabric internationally, remember 1 yard = 0.9144 meters. A 2-yard cut is about 1.83 meters, not 2 meters!",
+        "💡 <strong>Running distances:</strong> A 5K race is 5 kilometers = 3.107 miles. A marathon (26.2 miles) = 42.195 kilometers. Memorize these for quick race conversions."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>International Construction Projects:</strong> Converting architectural plans between metric and imperial measurements",
+        "<strong>Scientific Research:</strong> Converting between units in physics, astronomy, or biology experiments",
+        "<strong>Manufacturing & Engineering:</strong> Ensuring part specifications match across global supply chains",
+        "<strong>Travel Planning:</strong> Understanding distances in countries using different measurement systems",
+        "<strong>Online Shopping:</strong> Converting product dimensions when purchasing from international sellers",
+        "<strong>Fitness & Sports:</strong> Converting race distances, swimming pool lengths, or athletic field measurements"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Use our <a href='/unit-conversions/area'>Area Converter</a> for converting square meters to square feet in construction and real estate",
+        "Try our <a href='/unit-conversions/volume'>Volume Converter</a> when length conversions are part of 3D volume calculations",
+        "Check our <a href='/unit-conversions/speed'>Speed Converter</a> to convert velocities that involve distance per time",
+        "Explore our <a href='/calculators/flooring'>Flooring Calculator</a> for practical applications of length conversions in home improvement"
       ]
     }
   ]

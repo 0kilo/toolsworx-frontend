@@ -50,6 +50,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instant BMI calculation with automatic category classification (Underweight, Normal, Overweight, Obese)",
+        "✓ Supports both metric (kg, cm) and imperial (lbs, inches) measurements for international users",
+        "✓ Based on WHO and CDC standards used by healthcare professionals worldwide",
+        "✓ Includes personalized health advice and recommendations for each BMI category",
+        "✓ Completely private - all calculations happen in your browser with no data stored or transmitted"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -75,6 +86,50 @@
         "It doesn't account for muscle mass, bone density, or body composition",
         "Athletes and bodybuilders may have high BMI due to muscle mass, not excess fat",
         "Always consult healthcare professionals for personalized advice"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Is BMI accurate for everyone?</strong> No, BMI has limitations. It doesn't distinguish between muscle and fat, so athletes with high muscle mass may be classified as overweight despite being healthy. It also doesn't account for age, gender, bone density, or fat distribution. BMI is best used as a screening tool - if your BMI is concerning, see a doctor for body composition analysis.",
+        "<strong>Q: What's a healthy BMI range?</strong> For most adults, a BMI between 18.5 and 24.9 is considered healthy. However, 'healthy' varies by ethnicity - Asian populations have higher health risks at lower BMIs, so some guidelines suggest 18.5-23 for Asians. Age also matters - slightly higher BMI (25-27) may be healthier for adults over 65. Always consult your doctor.",
+        "<strong>Q: Why does the imperial formula multiply by 703?</strong> The constant 703 converts the imperial units (pounds and inches) to match the metric formula's scale. Without it, BMI calculated with pounds/inches would give a much smaller number. The 703 factor was chosen to make imperial BMI values align with metric BMI values.",
+        "<strong>Q: Can I use BMI to track weight loss progress?</strong> Yes, but use it alongside other metrics. BMI tracks overall weight changes but doesn't show if you're losing fat or muscle. Combine BMI tracking with waist circumference measurements, body fat percentage, and how your clothes fit. Take progress photos and track strength/endurance improvements too.",
+        "<strong>Q: When should I see a doctor about my BMI?</strong> Consult a healthcare provider if your BMI is below 18.5 (underweight) or above 30 (obese), if you've had rapid weight changes (±10 lbs in a month), if you have obesity-related symptoms (sleep apnea, joint pain, difficulty breathing), or if you're planning significant weight changes. Your doctor can assess your overall health beyond just BMI."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Measure consistently:</strong> Weigh yourself at the same time each day (ideally morning, after bathroom, before eating) wearing similar clothing. Weight fluctuates 2-5 lbs daily due to water retention, food, and timing.",
+        "💡 <strong>Track trends, not single measurements:</strong> Don't obsess over one BMI reading. Track weekly averages over months. Temporary weight gain from salty meal or hard workout doesn't mean you've gained fat - look at the overall trend.",
+        "💡 <strong>Use BMI with other metrics:</strong> Measure waist circumference (health risk increases if >40 inches for men, >35 inches for women regardless of BMI), track body fat percentage, and monitor fitness levels. A runner and couch potato can have same BMI but very different health.",
+        "💡 <strong>Understand muscle weighs more than fat:</strong> If you're strength training, you might gain weight while getting healthier. Muscle is denser than fat, so you can lose fat, gain muscle, stay same weight, but look and feel better. Use a tape measure and photos alongside BMI.",
+        "💡 <strong>BMI doesn't equal health:</strong> You can be 'normal weight' but unhealthy (poor diet, no exercise), or 'overweight' but very healthy (muscular, active). Focus on healthy behaviors - nutritious food, regular exercise, adequate sleep, stress management - rather than hitting a specific BMI number."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Health Screenings:</strong> Initial assessment of weight status before deeper health evaluations or lifestyle changes",
+        "<strong>Weight Management:</strong> Tracking progress during weight loss or weight gain programs over weeks and months",
+        "<strong>Fitness Goals:</strong> Setting realistic body composition targets for general fitness (but use body fat % for athletic goals)",
+        "<strong>Medical Appointments:</strong> Preparing for doctor visits by knowing your BMI category to discuss health implications",
+        "<strong>Insurance Applications:</strong> Some health and life insurance companies use BMI in their underwriting assessments",
+        "<strong>Research Participation:</strong> Many health studies use BMI as an inclusion/exclusion criterion for participants"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/calorie'>Calorie Calculator</a> to determine daily calorie needs based on your BMI category and weight goals",
+        "Use our <a href='/calculators/protein'>Protein Calculator</a> to find optimal daily protein intake for your body weight and fitness level",
+        "Check our <a href='/unit-conversions/mass'>Mass & Weight Converter</a> for converting between pounds and kilograms when using different scales",
+        "Explore our <a href='/unit-conversions/length'>Length Converter</a> for converting height measurements between inches and centimeters"
       ]
     }
   ]

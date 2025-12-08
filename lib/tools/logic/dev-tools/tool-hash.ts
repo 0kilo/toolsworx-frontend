@@ -7,7 +7,7 @@
  * @module tools/logic/dev-tools/tool-hash
  */
 
-import md5 from "md5"
+const md5 = require("md5")
 
 export interface HashInput {
   text: string

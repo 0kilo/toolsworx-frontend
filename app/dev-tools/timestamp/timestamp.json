@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Debug API responses and database timestamps instantly - decode cryptic Unix timestamps (1734528000) to readable dates (December 18, 2024) when analyzing logs, API responses, or database records without writing code or looking up epoch calculators",
+        "✓ Calculate exact time differences across timezones without confusion - Unix timestamps are timezone-agnostic (always UTC), eliminating daylight saving time bugs, timezone conversion errors, and '5pm PST vs EST' ambiguity that plague date strings",
+        "✓ Verify token expiration times and session TTLs - JWT tokens, OAuth tokens, and cookies often use Unix timestamps for 'exp' (expiration) and 'iat' (issued at) claims, instantly convert to see if token is expired or calculate remaining validity period",
+        "✓ Test time-based features and caching logic - convert future dates to timestamps for testing scheduled tasks, cache expiration (expire at 1735000000), countdown timers, or time-sensitive features without waiting for actual time to pass",
+        "✓ Understand historical data and log timestamps - convert old Unix timestamps from logs or databases to see exactly when events occurred, useful for incident investigation, audit trails, or data analysis across years of records"
+      ]
+    },
+    {
       "title": "Unix Timestamp Formula",
       "content": [
         "Unix Timestamp: $t = \\text{seconds since 1970-01-01 00:00:00 UTC}$",
@@ -24,6 +35,50 @@
         "API responses - standardized time format",
         "Log files - precise event timing",
         "Caching - expiration time calculation"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between seconds and milliseconds timestamps?</strong> Unix timestamps traditionally use seconds since epoch (1970-01-01 00:00:00 UTC). Example: 1700000000 = Nov 14, 2023. Milliseconds timestamps are 1000x larger (include milliseconds). Example: 1700000000000 = same date. How to tell: if timestamp is 10 digits = seconds (max ~2286), if 13 digits = milliseconds (max year ~2286000). JavaScript uses milliseconds (Date.now() returns 13 digits), most other languages use seconds (Python time.time(), PHP time(), Unix systems). When converting: seconds timestamp × 1000 = milliseconds, milliseconds ÷ 1000 = seconds. Common bug: passing seconds timestamp to JavaScript Date() which expects milliseconds, resulting in date shown as 1970.",
+        "<strong>Q: Why does Unix time start at 1970?</strong> Unix operating system was created at Bell Labs in early 1970s, developers chose January 1, 1970 as zero point (epoch) for convenience - recent enough to be relevant, round number. Not particularly significant date historically. All dates before 1970 are negative timestamps (example: -86400 = December 31, 1969). System clocks count seconds from this arbitrary starting point. Alternative epoch systems exist: Windows FILETIME uses 1601-01-01, NTP uses 1900-01-01, but Unix epoch became de facto standard because Unix/Linux dominance in servers and standardization in POSIX.",
+        "<strong>Q: What is the Year 2038 problem?</strong> On 32-bit systems, Unix timestamps stored as signed 32-bit integers max out at 2,147,483,647 (January 19, 2038, 03:14:07 UTC), then overflow to negative number causing dates to wrap to 1901. This affects legacy 32-bit systems, embedded devices, old IoT devices, some databases using 32-bit integers. Modern 64-bit systems use 64-bit timestamps supporting dates 292 billion years in future - no practical limit. Solution: upgrade to 64-bit systems/timestamps before 2038. Similar to Y2K but affects fewer systems (most modern infrastructure already 64-bit). Check your database schema: INT for timestamps = vulnerable, BIGINT or native TIMESTAMP type = safe.",
+        "<strong>Q: How do I handle timezones with Unix timestamps?</strong> Unix timestamps are ALWAYS UTC - no timezone information encoded. 1700000000 represents same instant globally (Nov 14, 2023, 22:13:20 UTC), converted to local time based on timezone. When displaying to users: convert timestamp to user's timezone (EST = UTC-5, PST = UTC-8). When storing user input: convert local time to UTC timestamp. Never store local time as timestamp without timezone context. Best practice: store UTC timestamps in database, convert to user timezone only for display. Avoid: storing timestamps in local time (causes DST bugs, timezone migration issues, ambiguous overlap periods during DST transitions).",
+        "<strong>Q: What is ISO 8601 format and how does it compare to Unix timestamps?</strong> ISO 8601 is human-readable date format: '2024-12-18T15:30:00Z' (Z means UTC) or '2024-12-18T15:30:00-05:00' (with timezone offset). Advantages: human-readable, includes timezone info, sortable as string. Disadvantages: longer storage (24 bytes vs 4-8 bytes for timestamp), slower comparisons, timezone complexity. Unix timestamp advantages: compact storage, fast integer comparison, timezone-agnostic, simple math (add seconds for future time). Use ISO 8601 for: API responses (human-readable), configuration files, user-facing data. Use Unix timestamps for: database storage (efficiency), internal calculations, sorting by time, cache expiration."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Always store timestamps in UTC, convert to local timezone only for display:</strong> Storing local time causes permanent data corruption when timezone rules change (DST, government timezone adjustments). Example disaster: store meeting time as '2024-03-10 02:30 EST' but that hour doesn't exist (DST spring forward skips 2am-3am). Correct: store 1710043800 (UTC timestamp), convert to user timezone at display time. This handles: users in different timezones, users traveling, DST transitions, timezone database updates. Never store '5pm PST' - store equivalent UTC timestamp. Exception: if truly need local time (alarm clock app), store both UTC timestamp AND timezone identifier ('America/Los_Angeles'), recalculate on timezone database updates.",
+        "💡 <strong>Use this tool to decode JWT token expiration before tokens expire:</strong> JWT payload contains 'exp' claim as Unix timestamp (seconds). Decode token, extract exp, convert to human date to see when token expires. Example: exp: 1735000000 = Dec 24, 2024, 00:53:20 UTC. If current time > exp, token expired. Also check 'iat' (issued at) to verify token age. Common issue: comparing seconds timestamp (exp) to milliseconds current time (Date.now()) causing token to seem expired when it's not - ensure same unit. Use tool to verify: is token actually expired or is it unit mismatch bug?",
+        "💡 <strong>Understand that timestamp precision matters for ordering events:</strong> Seconds precision (Unix timestamp) means events within same second can't be reliably ordered. For high-frequency events (multiple per second), use: milliseconds precision (13 digits), microseconds (19 digits), or add sequence number. Example: web analytics recording clicks, financial transactions, log aggregation - seconds insufficient. MongoDB/Cassandra use millisecond timestamps. For distributed systems, combine timestamp with unique ID for tie-breaking (two servers might record same timestamp). Only use second precision for low-frequency events (user registration, daily reports, cache expiration).",
+        "💡 <strong>Use timestamps for cache invalidation to avoid timezone complexity:</strong> Instead of storing 'expires at 5pm EST tomorrow', store expireAt: 1700000000 (specific instant). Benefits: (1) No DST bugs (EST → EDT transition). (2) Works globally (users in any timezone). (3) Simple comparison (if currentTimestamp > expireAt, expired). (4) No date parsing. Example: Redis EXPIREAT command takes Unix timestamp. HTTP Cache-Control max-age uses seconds from now (relative duration), Expires header uses date string (error-prone). For your cache, store Unix timestamp for expiration, check with simple integer comparison.",
+        "💡 <strong>Remember that database TIMESTAMP columns may use different precision and range:</strong> PostgreSQL TIMESTAMP stores microsecond precision but range 4713 BC to 294276 AD. MySQL TIMESTAMP range: 1970-2038 (32-bit Unix timestamp, Y2038 problem), use DATETIME for wider range. SQLite stores timestamps as text, real, or integer - no native type. MongoDB ISODate uses milliseconds. When migrating databases or designing schema: verify TIMESTAMP type supports your range (e.g., historical dates <1970, future dates >2038), check precision (seconds vs milliseconds), consider storing as BIGINT if portability needed. Read database docs on how TIMESTAMP type handles timezones (PostgreSQL stores UTC, MySQL converts to session timezone)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Debugging & Development:</strong> Decode timestamps from API responses to verify returned dates are correct, convert database timestamps to readable dates when querying production data, debug timezone and DST issues by verifying timestamps are stored as UTC",
+        "<strong>Token & Session Management:</strong> Check JWT token expiration times ('exp' claim) to see if token is valid, verify OAuth token lifetimes and refresh timing, debug session timeout issues by converting session expiry timestamps",
+        "<strong>Log Analysis & Monitoring:</strong> Convert log timestamps to local time for incident investigation, calculate time between events in log files (delta between timestamps), verify event ordering and timing in distributed system logs",
+        "<strong>Testing Time-Based Features:</strong> Generate future timestamps for testing scheduled tasks, cron jobs, or delayed execution, create test data with specific timestamps for date range queries, verify cache expiration logic by converting expiry times",
+        "<strong>Data Migration & Analysis:</strong> Convert historical timestamps when migrating between databases or systems, analyze time patterns in data by converting timestamps to dates, verify data consistency by spot-checking timestamp ranges",
+        "<strong>API Development:</strong> Test API timestamp parameters by converting human dates to Unix timestamps, verify API responses return timestamps in expected format (seconds vs milliseconds), document API timestamp fields with example conversions"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/date-calculator'>Date Calculator</a> to calculate differences between dates or add/subtract time periods (days, weeks, months)",
+        "Use our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to decode JSON Web Tokens which contain Unix timestamps in exp and iat claims",
+        "Check our <a href='/dev-tools/uuid-generator'>UUID Generator</a> for creating unique identifiers, including UUIDv1 which embeds timestamps",
+        "Explore our <a href='/unit-conversions/time'>Time Converter</a> to convert between different time units (seconds, minutes, hours, days)"
       ]
     }
   ]

@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Test regex patterns instantly with visual highlighting - see exactly what your pattern matches in real-time as you type, no need to write test scripts or compile code, perfect for debugging complex patterns like email validation or log parsing",
+        "✓ Debug regex that works in one language but fails in another - regex syntax varies between JavaScript, Python, PHP, Java - test patterns here (JavaScript flavor) to understand differences, then adjust for your target language",
+        "✓ Learn regex interactively by experimenting with patterns - try different quantifiers (*, +, ?), character classes ([a-z], \\d, \\w), anchors (^, $), lookaheads (?=) and see immediate results with highlighted matches and capture groups",
+        "✓ Extract data from text using capture groups - parse log files, extract emails from text, capture parts of URLs, isolate phone numbers - visual feedback shows which groups captured what, making data extraction obvious",
+        "✓ 100% client-side means sensitive data stays private - test patterns on confidential logs, customer data, API responses without sending to external regex testing websites that might log inputs"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Live regex testing with instant results",
         "Visual highlighting of matches in text",
         "Detailed match information including position and groups",
         "Support for all JavaScript regex flags"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: What's the difference between greedy and lazy quantifiers?</strong> Greedy quantifiers (*, +, ?) match as much as possible. Lazy/non-greedy (add ?  after quantifier: *?, +?, ??) match as little as possible. Example with text '<div>content</div><div>more</div>': Pattern '<.*>' (greedy) matches entire '<div>content</div><div>more</div>' (one match from first < to last >). Pattern '<.*?>' (lazy) matches '<div>' and '</div>' separately (multiple shorter matches). Common use: extracting HTML tags, use lazy to get individual tags. Mistake: using greedy .* in middle of pattern causes unexpected behavior. Default to lazy unless you specifically want greedy behavior.",
+        "<strong>Q: Why doesn't my regex work across different programming languages?</strong> Regex syntax varies between \"flavors\" - JavaScript, Python (re), PCRE (PHP), Java, .NET each have differences. Common gotchas: (1) Lookahead/lookbehind - JavaScript supports (?=) and (?<=) but some old versions don't support lookbehind. Python supports both. (2) Word boundaries - \\b works differently with Unicode. (3) Flags - JavaScript 'g' flag needed for multiple matches, Python findall() does this automatically. (4) Character classes - \\s includes different whitespace in different flavors. (5) Backreferences - \\1 vs $1 syntax varies. This tool uses JavaScript flavor. Test here, then check documentation for your target language's regex flavor and adjust.",
+        "<strong>Q: What are capture groups and how do I use them?</strong> Capture groups extract parts of matched text using parentheses (). Example: regex `(\\d{3})-(\\d{3})-(\\d{4})` matching '555-123-4567' creates 3 groups: group 1='555', group 2='123', group 3='4567'. Use in code: match[1], match[2], match[3] (JavaScript). Named groups: `(?<area>\\d{3})` gives group a name. Non-capturing groups: `(?:...)` groups without capturing (faster, doesn't create group). Use capture groups for: extracting parts of strings, backreferences (refer to earlier group with \\1, \\2), string replacement (use $1, $2 in replacement). Common mistake: forgetting outer parentheses create group - only use when you need to extract or reference.",
+        "<strong>Q: How do I match special characters like dots, asterisks, or brackets?</strong> Special regex characters (called metacharacters) need escaping with backslash: . * + ? ^ $ { } [ ] ( ) | \\. Examples: Match literal dot: '\\.' (not '.' which matches any character). Match asterisk: '\\*' (not '*' which means zero or more). Match backslash itself: '\\\\' (double backslash). Inside character class […], most metacharacters lose special meaning: [.+*] matches literal '.', '+', or '*'. Exceptions inside […]: still escape ] if you want to match it, - if not at start/end (or escape it), ^ if not at start. If unsure, escape it - extra escaping doesn't hurt. Online regex escapers can help, but understanding which characters need escaping is fundamental.",
+        "<strong>Q: What do regex flags (g, i, m, s) do?</strong> Flags modify regex behavior: 'g' (global) = find all matches, not just first (critical in JavaScript for multiple matches, use with match() or matchAll()). 'i' (case-insensitive) = 'Hello' matches 'hello', 'HELLO', 'HeLLo' (avoid [Hh][Ee]... verbosity). 'm' (multiline) = changes ^ and $ to match start/end of each line instead of whole string (essential for multi-line text where you want to match line-by-line). 's' (dotall/singleline) = makes . match newlines too (normally . excludes \\n). 'u' (unicode) = proper Unicode handling. 'y' (sticky) = matches only at lastIndex. Common combos: /pattern/gi (global + case-insensitive), /^pattern$/m (multiline anchors). In JavaScript: /pattern/flags or new RegExp('pattern', 'flags')."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use anchors (^ and $) to avoid partial matches that cause bugs:</strong> Without anchors, pattern '\\d{3}' matches '123' in '123456' (unintended partial match). With anchors '^\\d{3}$' only matches exactly 3 digits. Real-world disaster: email validation /\\w+@\\w+\\.\\w+/ matches 'user@domain.com' but also matches 'garbage user@domain.com more garbage' - use /^\\w+@\\w+\\.\\w+$/ for full-string match. Form validation especially needs anchors, otherwise 'password123xyz' passes '\\d{3}' validation meant for exactly 3 digits. Test here with anchors vs without to see difference. Always anchor unless you explicitly want substring matching.",
+        "💡 <strong>Start simple and build complexity gradually when debugging regex:</strong> Complex regex like '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$' (password validation) is impossible to debug at once. Instead: (1) Test basic pattern '.' to ensure matching works. (2) Add one requirement: '[a-z]+' (lowercase). (3) Add next: '[a-z]+.*[A-Z]+' (lowercase + uppercase). (4) Progressively add lookaheads, length constraints. This tool's live highlighting helps see what each addition does. If regex suddenly stops working, you know last change broke it. Never try to write complex regex from scratch - iterate.",
+        "💡 <strong>Test regex against edge cases, not just happy path:</strong> Don't just test '555-123-4567' for phone number regex - test: empty string, partial input '555-', wrong format 'abc-def-ghij', international '+1-555-123-4567', extensions '555-123-4567 x890', invalid characters '555.123.4567'. For email: test 'user', '@domain.com', 'user@', 'user@domain', 'user@subdomain.domain.com', 'user+tag@domain.com'. Use this tool to build test cases showing what should match (green highlight) and what shouldn't match (no highlight). Save common test cases for reuse.",
+        "💡 <strong>Understand the difference between matching and validating:</strong> Regex can match patterns but can't validate all business rules. Example: regex can match date format '\\d{4}-\\d{2}-\\d{2}' but can't validate '2024-02-30' is invalid (February doesn't have 30 days). Can match email format 'user@domain.com' but can't verify domain exists or mailbox is valid. Can match credit card format '\\d{16}' but can't verify checksum. Use regex for format validation, then use proper validation libraries for complex rules (moment.js for dates, email verification APIs, Luhn algorithm for cards). Don't try to solve everything with regex.",
+        "💡 <strong>Use online regex libraries for common patterns instead of writing from scratch:</strong> Email, URL, phone number, credit card, IPv4/IPv6, date formats have battle-tested regex patterns that handle edge cases you'd miss. Search 'email validation regex' before writing your own. But understand any pattern you copy: test it here with edge cases, verify it matches your requirements (some email regex allow/forbid certain characters based on preference), adjust if needed. Never blindly copy complex regex without understanding it - maintenance nightmare. This tool helps you understand patterns by showing exactly what each part matches."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Form Validation:</strong> Test regex patterns for validating user input (email, phone, password strength, ZIP codes), debug why form validation accepts invalid input or rejects valid input, verify regex works with international formats (international phone numbers, postal codes)",
+        "<strong>Log Parsing & Analysis:</strong> Extract specific information from log files (error codes, timestamps, IP addresses), test patterns for parsing Apache/Nginx access logs or application logs, debug regex for finding patterns in large text files before running scripts",
+        "<strong>Data Extraction:</strong> Extract emails, URLs, or phone numbers from text documents, parse structured data from unstructured text, test patterns for web scraping or data mining projects",
+        "<strong>Text Search & Replace:</strong> Test search patterns before running find-and-replace in code editors or IDEs, verify regex for database queries or text processing scripts, debug complex search patterns in grep, sed, or awk commands",
+        "<strong>Learning & Education:</strong> Learn regex syntax interactively by seeing instant visual feedback, practice regex patterns for coding interviews or technical assessments, understand how quantifiers, character classes, and anchors work by experimentation",
+        "<strong>API & URL Routing:</strong> Test URL patterns for web framework routing (Express, Django, Rails), validate API endpoint patterns and parameter extraction, debug URL rewrite rules for web servers (Apache mod_rewrite, Nginx)"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/email-extractor'>Email Extractor</a> to extract all email addresses from text using pre-built regex patterns",
+        "Use our <a href='/dev-tools/url-extractor'>URL Extractor</a> to extract all URLs from text with validated regex patterns",
+        "Check our <a href='/dev-tools/text-case-converter'>Text Case Converter</a> for text transformations that complement regex-based text processing",
+        "Explore our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format and validate JSON extracted using regex patterns"
       ]
     }
   ]

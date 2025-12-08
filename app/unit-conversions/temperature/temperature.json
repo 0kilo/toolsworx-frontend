@@ -14,6 +14,16 @@
   "defaultToUnit": "fahrenheit",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ Instant conversion between 4 temperature scales including scientific units (Kelvin, Rankine)",
+        "✓ Bidirectional input - enter temperature in either field for instant conversion",
+        "✓ Precision to 2 decimal places ensuring accuracy for scientific calculations and cooking",
+        "✓ 100% client-side processing - your data never leaves your browser, ensuring complete privacy",
+        "✓ Mobile-friendly interface works perfectly on any device, anywhere"
+      ]
+    },
+    {
       "title": "Temperature Scales",
       "content": [
         "Celsius (°C): Water freezes at 0°C, boils at 100°C - used worldwide",
@@ -39,6 +49,46 @@
         "Room Temperature: ~20°C = ~68°F = ~293K",
         "Body Temperature: 37°C = 98.6°F = 310K",
         "Water Boiling: 100°C = 212°F = 373.15K"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: When should I use Kelvin versus Celsius?</strong> Use Kelvin for scientific calculations, especially in chemistry and physics where absolute temperature matters. Kelvin starts at absolute zero (0K = -273.15°C), making it ideal for thermodynamics. Use Celsius for everyday measurements like weather, cooking, and body temperature.",
+        "<strong>Q: Why does Fahrenheit use 32° as the freezing point?</strong> Daniel Fahrenheit's original scale used three reference points: 0° for a brine solution freezing point, 32° for water freezing, and 96° for average human body temperature. This makes the scale more granular than Celsius for everyday temperatures.",
+        "<strong>Q: What is absolute zero and why is it important?</strong> Absolute zero (-273.15°C, -459.67°F, or 0K) is the theoretical lowest temperature where all molecular motion stops. It's impossible to reach but crucial for understanding thermodynamics and quantum physics.",
+        "<strong>Q: Are these conversions accurate enough for scientific work?</strong> Yes, our converter uses industry-standard formulas with precision to 2 decimal places, which is sufficient for most scientific and engineering applications. For ultra-precise work requiring more decimal places, consider specialized scientific software.",
+        "<strong>Q: Can I convert negative temperatures?</strong> Absolutely! Our converter handles the full range of temperatures, from absolute zero to extreme heat. This is especially useful for scientific applications and extreme weather conditions."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Quick mental math:</strong> To estimate °F to °C, subtract 30 and divide by 2. It's not exact but close enough for quick checks (e.g., 68°F ≈ (68-30)/2 = 19°C, actual is 20°C).",
+        "💡 <strong>Cooking temperatures:</strong> Always double-check your recipe's temperature scale before baking. A cake at 180°C is perfect; at 180°F it won't even cook! US recipes use °F, European recipes typically use °C.",
+        "💡 <strong>Weather reference points:</strong> 0°C = 32°F (freezing), 25°C = 77°F (pleasant), 37°C = 98.6°F (body temp). Memorize these for quick international weather comparisons.",
+        "💡 <strong>Kelvin has no degree symbol:</strong> It's '273 K' not '273°K'. This is because Kelvin is an absolute scale, not a relative one like Celsius or Fahrenheit.",
+        "💡 <strong>For scientific accuracy:</strong> When working with gas laws or thermodynamic equations, always convert to Kelvin first. Most scientific formulas assume absolute temperature."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>International Travel:</strong> Converting weather forecasts when traveling between countries using different temperature scales",
+        "<strong>Cooking & Baking:</strong> Converting recipe temperatures from US cookbooks (°F) to European ovens (°C) or vice versa",
+        "<strong>Scientific Research:</strong> Converting between Celsius and Kelvin for chemistry, physics, or engineering calculations",
+        "<strong>HVAC & Climate Control:</strong> Setting thermostats when specifications are in different units",
+        "<strong>Medical Applications:</strong> Converting body temperature readings between scales for international health records",
+        "<strong>Weather Reporting:</strong> Understanding temperature forecasts when consuming international news or traveling abroad"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Try our <a href='/unit-conversions/length'>Length Converter</a> for converting distances and measurements in scientific experiments",
+        "Use our <a href='/unit-conversions/volume'>Volume Converter</a> when working with liquids in different measurement systems alongside temperature",
+        "Check our <a href='/unit-conversions/pressure'>Pressure Converter</a> for complete gas law calculations requiring both temperature and pressure conversions",
+        "Explore our <a href='/calculators/scientific'>Scientific Calculator</a> for advanced thermodynamic calculations using converted temperatures"
       ]
     }
   ]

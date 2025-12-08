@@ -21,31 +21,84 @@
   "defaultToUnit": "gallon",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ Convert between 10+ volume units including metric, US customary, imperial, and industrial measurements",
+        "✓ Handles cooking measurements (cups, tablespoons) and scientific units (milliliters, liters) with precision",
+        "✓ Critical for accurate recipe conversions between US and metric systems - avoid baking disasters!",
+        "✓ Perfect for chemistry, pharmacy, and engineering requiring precise liquid volume calculations",
+        "✓ All conversions computed locally in your browser for complete privacy"
+      ]
+    },
+    {
       "title": "Common Volume Units",
       "content": [
-        "Metric: Milliliter (ml), Liter (L), Cubic Meter (m³)",
-        "US Customary: Fluid Ounce, Cup, Pint, Quart, Gallon",
-        "Imperial: Imperial Gallon (larger than US gallon)",
-        "Industrial: Barrel (oil industry standard)"
+        "Metric: Milliliter (mL), Liter (L), Cubic Meter (m³) - universal standard for science and most countries",
+        "US Customary: Fluid Ounce, Cup, Pint, Quart, Gallon - standard in American recipes and retail",
+        "Imperial: Imperial Gallon (20% larger than US gallon!) - used in UK and former British colonies",
+        "Industrial: Barrel (bbl) - oil industry standard (42 US gallons or 158.987 liters)",
+        "Cooking: Cups and fluid ounces vary between US and metric - always verify your recipe's system!"
       ]
     },
     {
       "title": "Conversion Examples",
       "content": [
-        "1 liter = 1000 milliliters = 33.814 fluid ounces (US)",
-        "1 gallon (US) = 3.78541 liters = 4 quarts = 8 pints",
-        "1 cup (US) = 236.588 milliliters = 8 fluid ounces",
-        "1 imperial gallon = 4.54609 liters = 1.20095 US gallons"
+        "1 liter = 1000 milliliters = 33.814 fluid ounces (US) = 4.227 cups (US)",
+        "1 gallon (US) = 3.78541 liters = 4 quarts = 8 pints = 128 fl oz",
+        "1 cup (US) = 236.588 milliliters = 8 fluid ounces = 16 tablespoons",
+        "1 imperial gallon = 4.54609 liters = 1.20095 US gallons (20% more!)",
+        "1 barrel (oil) = 158.987 liters = 42 US gallons = 35 imperial gallons"
       ]
     },
     {
       "title": "Use Cases",
       "content": [
-        "Cooking and baking recipe conversions",
-        "Fuel consumption and efficiency calculations",
-        "Chemical and pharmaceutical measurements",
-        "Beverage industry and bartending",
-        "Swimming pool and tank capacity calculations"
+        "Cooking and baking recipe conversions between US cups and metric milliliters/liters",
+        "Fuel consumption and efficiency calculations (mpg vs L/100km)",
+        "Chemical and pharmaceutical measurements for precise solution preparation",
+        "Beverage industry and bartending - cocktail recipes and portion control",
+        "Swimming pool and aquarium capacity calculations for chemical treatment",
+        "Oil and petroleum industry barrel-to-liter conversions"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: What's the difference between US and Imperial gallons?</strong> A US gallon is 3.785 liters (128 fl oz), while an Imperial (UK) gallon is 4.546 liters (160 fl oz) - about 20% larger. This is crucial for fuel efficiency comparisons. When someone says their car gets '30 mpg', always ask if they mean US or Imperial gallons!",
+        "<strong>Q: Why do US and metric cups differ?</strong> A US cup is 236.588 mL (8 fl oz), while a metric cup used in Australia and New Zealand is exactly 250 mL. This 14 mL difference (about 6%) can significantly affect baking results, especially in delicate recipes like soufflés or macarons.",
+        "<strong>Q: How accurate do volume measurements need to be for baking?</strong> For most cooking, ±5% is acceptable. For baking (bread, cakes, pastries), aim for ±2% accuracy as ratios are critical for chemical reactions. For professional baking or laboratory work, use ±0.1% precision. Pro tip: weigh liquids on a kitchen scale for maximum accuracy.",
+        "<strong>Q: Can I use this for fuel efficiency conversions?</strong> Yes! To convert mpg (miles per gallon) to L/100km: divide 235.214 by your mpg. For example, 30 mpg = 235.214/30 = 7.84 L/100km. Note: this uses US gallons. For Imperial gallons (UK), divide 282.481 by mpg instead.",
+        "<strong>Q: Why are barrels used in the oil industry?</strong> The 42-US-gallon barrel became the oil industry standard in 1866 for historical reasons (it was a common shipping container size). Even though oil is pumped via pipelines and stored in tanks, pricing and contracts still use barrels. 1 barrel = 158.987 liters."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Quick cooking conversion:</strong> 1 cup ≈ 250 mL (exact: 236.6 mL for US cup). For most recipes, round to 250 mL - the difference is negligible.",
+        "💡 <strong>Gallon memory trick:</strong> A gallon has 4 quarts, 8 pints, 16 cups, or 128 fl oz. Each step divides by 2. Easy to remember!",
+        "💡 <strong>Baking precision tip:</strong> For volumes under 1 cup, use weight instead. Measuring 2 tablespoons with measuring cups has ±10% error. Weighing 30g is exact.",
+        "💡 <strong>Water weight trick:</strong> For water at room temperature, 1 mL = 1 gram. So 500 mL water = 500g. Makes conversions mental! (Only works for water - oil, honey, and other liquids have different densities.)",
+        "💡 <strong>Fuel efficiency quick check:</strong> To estimate L/100km from mpg, divide 235 by mpg. To go from L/100km to mpg, divide 235 by L/100km. This trick only works for US gallons."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Recipe Conversions:</strong> Converting US recipes (cups, tablespoons, fl oz) to metric (mL, L) or vice versa for international cookbooks",
+        "<strong>Baking Precision:</strong> Ensuring exact ingredient ratios when scaling recipes or converting between measurement systems",
+        "<strong>Laboratory Work:</strong> Preparing chemical solutions, pharmaceutical formulations, or scientific experiments requiring precise volumes",
+        "<strong>Fuel Efficiency:</strong> Comparing vehicle fuel economy between mpg (US/Imperial) and L/100km systems",
+        "<strong>Beverage Service:</strong> Converting cocktail recipes, understanding drink sizes across different countries' standards",
+        "<strong>Tank Calculations:</strong> Determining capacity of pools, aquariums, fuel tanks, or water storage for chemical treatment or filling"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Try our <a href='/unit-conversions/mass'>Mass & Weight Converter</a> for converting ingredient weights alongside volume in recipes",
+        "Use our <a href='/helpful-calculators/recipe-scaler'>Recipe Scaler</a> to automatically scale all volumes for different serving sizes",
+        "Check our <a href='/unit-conversions/temperature'>Temperature Converter</a> for complete recipe conversions including oven temps",
+        "Explore our <a href='/unit-conversions/length'>Length Converter</a> when calculating container dimensions for volume capacity"
       ]
     }
   ]

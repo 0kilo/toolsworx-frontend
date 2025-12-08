@@ -5,6 +5,17 @@
   "category": "calculators",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Complete scientific calculator with trigonometric, logarithmic, exponential, and statistical functions accessible instantly in your browser",
+        "✓ No installation required - more powerful than basic calculators, more convenient than downloading dedicated software like MATLAB or Mathematica for quick calculations",
+        "✓ Matrix operations built-in including determinant, inverse, transpose, and multiplication - perfect for linear algebra homework and engineering problems",
+        "✓ Calculus capabilities with symbolic differentiation and expression simplification for verifying calculus homework or quick derivative checks",
+        "✓ Completely private and free - all calculations happen locally in your browser with no data sent to servers, no login required, no hidden costs"
+      ]
+    },
+    {
       "title": "Calculator Functions",
       "type": "list",
       "content": [
@@ -41,6 +52,50 @@
         "<strong>Physics:</strong> Trigonometric and calculus computations",
         "<strong>Mathematics:</strong> Symbolic math and algebraic manipulation",
         "<strong>Computer Science:</strong> Linear algebra and numerical methods"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: When should I use degrees vs radians mode?</strong> Use degrees when working with angles in everyday contexts (a 90° right angle, 360° circle) or geometry problems. Use radians for calculus, advanced math, and physics - most formulas involving trigonometric derivatives (like d/dx[sin(x)] = cos(x)) only work in radians. If you get nonsensical answers (like sin(90) = 0.89 instead of 1), you're probably in the wrong mode. Quick check: sin(90°) = 1, but sin(90 radians) ≈ 0.89.",
+        "<strong>Q: How do I calculate complex expressions like (5² + 3) × log(100)?</strong> Enter the expression exactly as written using standard mathematical notation. The calculator respects order of operations (PEMDAS): parentheses first, then exponents (5² = 25), then multiplication/division, then addition/subtraction. For this example: (25 + 3) × log(100) = 28 × 2 = 56. Use parentheses liberally to ensure the calculator interprets your expression correctly.",
+        "<strong>Q: What's the difference between log and ln?</strong> 'log' means log base 10 (common logarithm): log(100) = 2 because 10² = 100. 'ln' means natural logarithm (base e): ln(e) = 1 because e¹ = e. In science and engineering, ln is more common because it appears naturally in calculus (d/dx[ln(x)] = 1/x). In everyday contexts (pH, decibels, Richter scale), log base 10 is standard. If a formula says 'log' without specifying base, it usually means log₁₀ in applied fields or ln in pure math - check context.",
+        "<strong>Q: How do I calculate factorials and what are they used for?</strong> Factorial (n!) means multiply all positive integers up to n: 5! = 5×4×3×2×1 = 120. Factorials grow extremely fast (10! = 3,628,800). They're used in probability (calculating permutations and combinations), statistics (probability distributions), and calculus (Taylor series). For example, the number of ways to arrange 5 books is 5! = 120 different orders. For combinations, like choosing 3 students from 10, use: 10!/(3!×7!) = 120.",
+        "<strong>Q: Can I use this for physics calculations with scientific notation?</strong> Yes! Enter scientific notation using standard formats: 3e8 for 3×10⁸ (speed of light: 300,000,000 m/s), 6.02e23 for Avogadro's number, 9.8 for Earth's gravity. The calculator handles very large (10⁴⁰⁰) and very small (10⁻⁴⁰⁰) numbers. For example, calculating energy E=mc²: if m=0.001 kg, then E = 0.001 × (3e8)² = 9e13 joules (90 trillion joules). Great for chemistry mole calculations, astronomy distances, or quantum physics."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use parentheses generously:</strong> When in doubt, add extra parentheses to clarify order of operations. The calculator sees 1/2x as (1/2)×x, not 1/(2x). For complex fractions, use explicit parentheses: (1+2)/(3+4) ensures correct calculation. This prevents 90% of calculation errors. Test your expression with simple numbers first (like all 2s) to verify you've structured it correctly.",
+        "💡 <strong>Radians for calculus, degrees for geometry:</strong> If you're taking derivatives or integrals involving trig functions, ALWAYS use radian mode. If you're finding angles in triangles or working with bearings/navigation, use degree mode. Quick conversion: multiply degrees by π/180 to get radians (90° = π/2 rad ≈ 1.57 rad), or multiply radians by 180/π for degrees. Remember: a full circle is 360° or 2π radians.",
+        "💡 <strong>Verify with estimation:</strong> Before trusting a complex calculation, estimate the answer. If you're calculating 98 × 103, estimate ~100 × 100 = 10,000 (actual: 10,094). For log(987), since log(1000) = 3, expect slightly less than 3 (actual: 2.994). For sin(30°), remember common values: sin(30°) = 0.5, sin(45°) ≈ 0.707, sin(60°) ≈ 0.866. If your answer is way off, check your mode (deg/rad) and parentheses.",
+        "💡 <strong>Store intermediate results:</strong> For multi-step calculations, write down intermediate answers instead of trying to nest everything in one expression. Calculate step-by-step: if solving quadratic formula x = (-b ± √(b²-4ac))/(2a) for a=2, b=5, c=3, first calculate discriminant b²-4ac = 25-24 = 1, then √1 = 1, then (-5±1)/4 giving x = -1 or x = -1.5. This reduces errors and makes it easier to spot mistakes.",
+        "💡 <strong>Remember special values:</strong> Memorize key values to check your work: sin/cos at 0°, 30°, 45°, 60°, 90° (forms the 0, 0.5, √2/2, √3/2, 1 pattern). ln(1) = 0, ln(e) = 1. log(1) = 0, log(10) = 1, log(100) = 2. e ≈ 2.718, π ≈ 3.14159. These help you quickly verify if your calculator answer makes sense or if you've made an input error."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Math & Physics Homework:</strong> Verifying calculus derivatives, solving trigonometric identities, computing logarithms and exponentials for algebra and precalculus problems",
+        "<strong>Engineering Calculations:</strong> Signal processing with complex numbers, structural analysis with matrices, electrical engineering with exponential decay/growth, mechanical engineering stress-strain calculations",
+        "<strong>Statistics & Probability:</strong> Computing factorials for permutations/combinations (choosing lottery numbers, tournament brackets), calculating probability distributions, processing experimental data",
+        "<strong>Chemistry & Biology:</strong> pH calculations (pH = -log[H⁺]), half-life decay using exponentials (N = N₀e^(-λt)), enzyme kinetics, dilution calculations with scientific notation",
+        "<strong>Computer Science:</strong> Algorithm complexity analysis (O(log n)), cryptography with modular arithmetic, graphics programming with matrix transformations, numerical methods and floating-point precision tests",
+        "<strong>Quick Professional Calculations:</strong> When you need a scientific calculator but don't have your physical calculator handy, faster than opening MATLAB/Mathematica for a single calculation, checking work before submitting assignments or reports"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/graphing'>Graphing Calculator</a> to visualize functions and see how trig functions, exponentials, and polynomials behave graphically",
+        "Use our <a href='/calculators/percentage'>Percentage Calculator</a> for practical percentage calculations like tips, discounts, and grade calculations without scientific notation",
+        "Check our <a href='/unit-conversions/temperature'>Temperature Converter</a> for scientific calculations involving temperature units in chemistry and physics problems",
+        "Explore our <a href='/calculators/date-calculator'>Date Calculator</a> for calculating time differences and dates for project deadlines and experiment scheduling"
       ]
     }
   ]

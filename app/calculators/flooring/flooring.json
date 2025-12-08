@@ -35,6 +35,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate exact square footage needed for any flooring material - hardwood, laminate, vinyl, tile, carpet - to avoid buying too much or too little",
+        "✓ Account for waste factor automatically - 5% for simple layouts, 10% for diagonal/herringbone patterns, 15% for complex rooms with lots of cuts and angles",
+        "✓ Budget flooring projects accurately - know material costs upfront ($2-6/sq ft for laminate, $5-15 for engineered hardwood, $8-20 for solid hardwood, $1-8 for vinyl)",
+        "✓ Compare material options - calculate costs for different flooring types (300 sq ft × $5 laminate = $1,500 vs × $12 hardwood = $3,600) to make informed decisions",
+        "✓ Free and instant - calculate on phone at flooring store, verify contractor estimates aren't inflated, plan DIY projects with confidence"
+      ]
+    },
+    {
       "title": "Formula",
       "type": "list",
       "content": [
@@ -49,6 +60,50 @@
         "<strong>5%:</strong> Standard installation with minimal cuts",
         "<strong>10%:</strong> Diagonal or patterned installation",
         "<strong>15%:</strong> Complex layouts with many cuts"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Why do I need to account for waste factor?</strong> Every flooring project requires cutting planks/tiles to fit room dimensions, corners, doorways, and obstacles (cabinets, closets). These cuts create unusable scraps. Standard 5% waste covers cuts on straight installation. Diagonal or patterned layouts (herringbone, chevron) need 10% because angled cuts waste more. Complex rooms (L-shapes, many closets, built-ins) need 15%. Tile and hardwood can't be returned once cut, so overbuy slightly. Most stores accept unopened flooring returns. Underbuy risks mismatched batches if you need more later - flooring dye lots vary like paint.",
+        "<strong>Q: How do I measure irregular rooms or rooms with closets?</strong> For simple rectangles, use length × width. For L-shaped rooms, divide into rectangles: measure each section separately, calculate area for each, add together. For closets/alcoves included in floor plan, add their area. Alternatively, measure overall room as if walls were straight, then account for cut-outs using 10-15% waste factor to cover complexity. For very irregular rooms, sketch floor plan on graph paper, break into rectangles/triangles, calculate each shape's area separately. Always round up to nearest whole number when buying material.",
+        "<strong>Q: What flooring type is best for different rooms?</strong> Kitchen/Bathroom: vinyl plank (waterproof, $2-6/sq ft) or tile ($3-15/sq ft) - avoid real hardwood in wet areas, engineered hardwood OK. Living/Dining: hardwood ($8-20/sq ft) for elegance, engineered hardwood ($5-12/sq ft) for budget, luxury vinyl plank ($3-8/sq ft) for durability. Bedrooms: carpet ($2-8/sq ft installed) for warmth, hardwood for resale value, cork for sound dampening. Basement: vinyl or engineered wood only (never solid hardwood below grade) due to moisture. High-traffic areas: avoid soft woods like pine, choose hard oak/maple or durable vinyl.",
+        "<strong>Q: Should I install flooring myself or hire professionals?</strong> DIY-friendly: vinyl plank (click-lock, no glue/nails, beginner-friendly), laminate (click-lock, 300 sq ft in weekend), carpet tiles. Moderate DIY: engineered hardwood (requires saw, underlayment), ceramic tile (needs tile cutter, thinset mixing, grout). Hire professional: solid hardwood (requires nailers, sanding, finishing, expertise), large tile jobs (proper leveling critical), stairs. DIY saves $2-8/sq ft labor but takes longer and risks mistakes. For 500 sq ft room: DIY saves $1,000-4,000 but takes 20-40 hours vs pro's 1-2 days.",
+        "<strong>Q: How do I calculate flooring for multiple rooms or whole house?</strong> Calculate each room separately using this tool, then sum all totals. Different rooms may use different materials (hardwood living room, tile bathrooms, carpet bedrooms). Don't lump 'whole house' together - you'll lose track of where materials go and may run short in room 4 when you overused in room 1. For open-concept spaces, measure as single large area. For hallways connecting rooms, include hallway square footage. Keep calculations - you'll reference when replacing worn flooring in 10-20 years (carpet 7-10 years, vinyl 15-20, hardwood 25-100 years with refinishing)."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Buy all flooring from same batch/lot to ensure color consistency:</strong> Flooring color varies between production batches, even for identical product codes. Check box labels for batch/lot number - buy all materials from same batch for consistent color and grain pattern. For large projects (1000+ sq ft), expect to need multiple pallets - verify all pallets are same lot before leaving store. Mixing batches creates visible color lines across room. If store doesn't have enough same-batch inventory, order all at once or wait for new batch rather than mixing. Keep extra unopened boxes for future repairs - matching years later is impossible.",
+        "💡 <strong>Acclimate flooring to room conditions before installation:</strong> Wood-based flooring (hardwood, engineered, laminate) expands/contracts with humidity. Store unopened boxes in installation room for 48-72 hours before installing to let material adjust to room temperature and humidity. Install in climate-controlled rooms (60-80°F, 35-55% humidity). Installing in winter when house is dry, then wood expands in humid summer causing buckling. Installing in humid summer, then wood shrinks in dry winter creating gaps. Proper acclimation prevents 90% of flooring failure issues.",
+        "💡 <strong>Account for transition strips and underlayment in total cost:</strong> Flooring quote isn't just planks/tiles. Add: underlayment ($0.50-1.50/sq ft for moisture barrier and sound dampening), transition strips ($10-30 each for doorways/room changes), baseboards/quarter-round ($1-3 per linear foot), adhesive/grout ($20-50 per room). For 300 sq ft room: flooring $1,500 (at $5/sq ft) + underlayment $225 + transitions $60 + baseboards $180 = $1,965 total. Labor adds $2-8/sq ft ($600-2,400) for professional install. Always budget 25-40% beyond material cost for accessories and labor.",
+        "💡 <strong>Understand flooring sold by box, not square foot:</strong> Retailers package flooring in boxes covering specific square footage (typically 20-30 sq ft per box). You can't buy partial boxes. If you need 317 sq ft including waste, and boxes cover 24 sq ft each, you need 14 boxes (336 sq ft) - can't buy 13.2 boxes. Use this calculator's result, divide by box coverage, round UP to next whole box. Exception: bulk materials like carpet sold by square yard or tile sold individually. Always verify at store what unit materials are sold in.",
+        "💡 <strong>Stagger plank/tile installation to hide seams and strengthen floor:</strong> Don't install flooring with aligned seams (H-pattern) - looks cheap and weakens floor. Stagger joints by offsetting each row's starting plank by 6-12 inches from previous row, creating brick/running bond pattern. This distributes weight across more planks and makes seams less visible. For hardwood/engineered, stagger end joints by at least 6 inches. For luxury vinyl, minimum 6 inch stagger (some recommend 12 inches). Proper staggering uses ~5-10% more material (extra cuts) but dramatically improves appearance and longevity."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>New Flooring Installation:</strong> Calculate materials needed for replacing old carpet with hardwood, estimate costs for whole-house flooring renovation, plan DIY flooring project material purchases",
+        "<strong>Home Renovation & Flipping:</strong> Budget flooring costs for flip houses and rental property updates, compare material options and costs for kitchen/bathroom remodels, calculate materials for basement finishing projects",
+        "<strong>Repair & Replacement:</strong> Determine materials needed for water damage flooring replacement, calculate patch materials for worn high-traffic areas, estimate costs for single-room flooring updates",
+        "<strong>New Construction:</strong> Calculate flooring needs for new home building, estimate materials for room additions or home expansions, determine flooring budget for spec homes or custom builds",
+        "<strong>Commercial Projects:</strong> Calculate flooring for office spaces and retail stores, estimate materials for restaurant or clinic buildouts, plan flooring for multi-unit rental properties",
+        "<strong>Contractor Verification:</strong> Verify contractor material estimates and quotes aren't inflated, calculate own materials for DIY projects to compare against installer quotes, determine fair price for flooring installation jobs"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/paint'>Paint Calculator</a> to calculate paint needed for walls after installing new flooring in the same room",
+        "Use our <a href='/unit-conversions/area'>Area Converter</a> to convert between square feet, square meters, and square yards when using international flooring specs",
+        "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate flooring discounts, cost per square foot comparisons, or markup percentages for resale",
+        "Explore our <a href='/unit-conversions/length'>Length Converter</a> to convert between feet, meters, and inches when measuring rooms with metric tape measures"
       ]
     }
   ]

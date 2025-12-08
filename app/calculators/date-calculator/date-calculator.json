@@ -50,6 +50,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Instantly calculate exact date differences in days, weeks, months, and years - no more manually counting calendar squares or making date math errors",
+        "✓ Add or subtract time periods to find future or past dates - perfect for project deadlines (30 days from today = ?), legal notice periods (90-day notice), or contract expiration dates",
+        "✓ Handles complex date math automatically - leap years, different month lengths (28-31 days), daylight saving time, ensuring accurate calculations every time",
+        "✓ Calculate ages precisely including years, months, and days lived - useful for legal age requirements, milestone birthdays, or determining exact tenure at jobs",
+        "✓ Free and private - no account needed, works offline after loading, calculations happen in your browser with no data sent to servers"
+      ]
+    },
+    {
       "title": "Calculation Types",
       "type": "list",
       "content": [
@@ -90,6 +101,50 @@
         "Month additions account for different month lengths",
         "Business day calculations exclude weekends",
         "Time zones are handled by your browser's local settings"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How do I calculate business days (excluding weekends)?</strong> This calculator counts all calendar days. For business days, calculate the total days first, then subtract weekends. Formula: Business days ≈ (total days / 7) × 5. For example, 14 calendar days = 2 weeks = 10 business days. More precisely: (Total days - weekend days) where weekend days = 2 × (total days ÷ 7 rounded). For 30 days (4.3 weeks): ~30 - (4.3 × 2) = ~21 business days. For exact counts, use dedicated business day calculators that account for specific date ranges and holidays.",
+        "<strong>Q: How are leap years handled in date calculations?</strong> Leap years (366 days, February 29th) occur every 4 years, except century years not divisible by 400. So 2000 and 2024 are leap years, but 1900 was not, and 2100 won't be. This calculator automatically accounts for leap years. If you calculate from Feb 1 to Mar 1 in 2024 (leap year), you get 29 days. Same dates in 2023 (not leap year) give 28 days. For age calculations spanning multiple leap years, the exact day count adjusts automatically.",
+        "<strong>Q: What's the difference between adding 30 days vs adding 1 month?</strong> Adding days is exact: Jan 15 + 30 days = Feb 14 (always). Adding months depends on month length: Jan 15 + 1 month = Feb 15. But Jan 31 + 1 month = Feb 28/29 (last day of Feb) since Feb lacks day 31. Adding 1 month typically means 'same day next month', rolling to month-end if that day doesn't exist. For consistent intervals, use days (30/60/90). For date-based events (monthly bills, anniversaries), use months.",
+        "<strong>Q: How do I calculate my exact age in years, months, and days?</strong> Enter your birth date as start date, leave end date empty (defaults to today). Result shows age breakdown. For example, born July 15, 1990, calculating on Dec 8, 2025: 35 years, 4 months, 23 days. This is useful for precise age requirements (insurance rates change at exact age, school enrollment cutoffs), determining how long you've lived, or celebrating unconventional milestones (10,000 days old = 27.4 years, happens around age 27 years 5 months).",
+        "<strong>Q: Can I use this for historical date calculations or dates far in the future?</strong> Yes! Calculate differences for any dates past or future. Historical: days between July 4, 1776 (Declaration of Independence) and today = ~91,000 days / ~250 years. Future: date 1000 days from now for long-term planning. Note: Very old dates (before 1582) may have calendar system differences (Julian vs Gregorian calendar switch). For historical research pre-1582, results are approximate. Modern dates (1700s onward) and future dates are fully accurate."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>For contracts, always specify whether days are calendar or business days:</strong> '30 days notice' could mean 30 calendar days or 30 business days (~6 weeks calendar). Legal contracts typically mean calendar days unless specified 'business days'. Use this calculator for calendar day counts, then manually adjust for business days if needed. To convert: 30 business days = ~42 calendar days (30 ÷ 5 × 7). This prevents missed deadlines and legal issues from misinterpreting notice periods.",
+        "💡 <strong>Account for timezone shifts when calculating international deadlines:</strong> Date calculations assume your local timezone. If coordinating across timezones, specify explicitly. A deadline of Dec 8 11:59pm in New York is actually Dec 9 4:59am London time - different date! For global deadlines, use UTC (Coordinated Universal Time) or specify timezone. Example: 'Due Dec 31, 2025 23:59 PST' is clear. 'Due Dec 31' is ambiguous if team spans US and Asia - some already in Jan 1 when others have 18 hours left on Dec 31.",
+        "💡 <strong>Use 'days until' calculations for event planning and milestones:</strong> Calculate days until wedding, vacation, retirement, or project deadline to track progress and plan preparation. 100 days until wedding seems far, but breaks down to ~14 weeks - suddenly urgent! 1000 days until retirement = 2.7 years = time to review 401k strategy. For events, work backwards: if you need 60 days lead time for catering and 90 days for venue, book venue by (wedding date - 90 days) minimum. This calculator helps find exact booking deadlines.",
+        "💡 <strong>Verify age requirements precisely for legal purposes:</strong> Many age restrictions (voting, alcohol, AARP membership, senior discounts) require exact age. You turn 21 at 12:00am on your 21st birthday, not the day before. Born June 15, 2003? You're legally 21 starting June 15, 2024 12:00am, meaning June 14 11:59pm you're still 20. Some countries calculate age differently (East Asian age systems count birth as age 1). For US legal purposes, use this calculator from birth date to verify exact eligibility dates.",
+        "💡 <strong>Calculate relationship milestones for anniversaries:</strong> Track relationships in unconventional ways - 100 days together, 1000 days together (2.7 years), 10,000 days (27.4 years - major milestone!). First date Sept 1, 2020 + 1000 days = May 28, 2023 (2.7 year anniversary). This creates unique celebration opportunities beyond annual anniversaries. Also useful for sobriety milestones (30/60/90/365 days sober), fitness streaks, or project durations (celebrating 100 days of daily writing, reaching 10,000 hours practice)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Project Management:</strong> Calculate project timelines and milestones, determine deadline dates for deliverables, track days until project completion, plan sprints and development cycles with exact date math",
+        "<strong>Legal & Contracts:</strong> Calculate notice periods (30/60/90 day notices), determine contract expiration dates, verify statute of limitations deadlines, calculate probationary period end dates for employment",
+        "<strong>Personal Milestones:</strong> Calculate exact age for applications or verification, count down to birthdays, weddings, or retirement, track relationship anniversaries, determine when you'll hit life milestones",
+        "<strong>Financial Planning:</strong> Calculate loan maturity dates, determine credit card payment due dates, track investment holding periods (long-term capital gains after 1 year), plan retirement dates with exact age calculations",
+        "<strong>Pregnancy & Children:</strong> Calculate due dates (280 days / 40 weeks from last period), track baby's age in months/weeks/days for development milestones, determine school enrollment eligibility (5 years old by Sept 1 cutoff dates)",
+        "<strong>Travel & Events:</strong> Plan vacation dates and calculate trip durations, determine visa expiration dates and entry/exit times, calculate days until concerts or events, plan multi-leg journeys with layover calculations"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/pregnancy'>Pregnancy Due Date Calculator</a> for specialized pregnancy date calculations including trimesters, ultrasound dating, and week-by-week tracking",
+        "Use our <a href='/unit-conversions/time'>Time Converter</a> to convert between seconds, minutes, hours, days, weeks, and years for different time unit calculations",
+        "Check our <a href='/calculators/loan'>Loan Calculator</a> which uses date calculations for payment schedules and loan term end dates",
+        "Explore our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate percentage of time elapsed (45 days out of 365 days = 12.3% of year)"
       ]
     }
   ]

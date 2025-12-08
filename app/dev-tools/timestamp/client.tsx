@@ -181,7 +181,7 @@ export default function TimestampClient() {
           <AboutDescription
             title={toolContent.aboutTitle}
             description={toolContent.aboutDescription}
-            sections={toolContent.sections}
+            sections={toolContent.sections as any}
           />
         </div>
 

@@ -9,12 +9,67 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Extract all URLs from any text instantly - paste web pages, documents, email threads, chat logs and get clean list of links without manual copy-paste, perfect for link analysis, content audits, or research without browser extensions",
+        "✓ Build link databases from scraped content or archived pages - extract URLs from web scraping results, HTML source code, API responses for SEO analysis, backlink tracking, or competitive research creating structured link lists for further processing",
+        "✓ Migrate content and update broken links efficiently - extract all URLs from old website exports, CMS migrations, documentation to identify internal links, external references, and broken URLs before content migration saving hours of manual link checking",
+        "✓ Analyze social media posts and marketing content for link tracking - extract URLs from Twitter exports, Reddit threads, marketing emails to analyze link distribution, track campaign URLs, identify affiliate links, or monitor competitor linking strategies",
+        "✓ 100% client-side means sensitive research or proprietary content stays private - safely extract URLs from confidential documents, competitor analysis, internal wikis, legal discovery without uploading to external URL extractors that might log or harvest links"
+      ]
+    },
+    {
       "title": "Features",
       "content": [
         "Extract URLs from any text format",
         "Supports HTTP, HTTPS, FTP, and www links",
         "Automatic duplicate removal",
         "100% client-side processing for privacy"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Does this tool validate that extracted URLs are actually accessible or live?</strong> No - this tool extracts text patterns matching URL format (http://example.com), doesn't check if URLs are live, accessible, or return 200 status. Extracted URLs may include: broken links (404), redirected URLs (301/302), dead domains, localhost development URLs, IP addresses. For validation: use link checker tools (Screaming Frog, Broken Link Checker, curl scripts) after extraction to verify HTTP status codes, redirects, and accessibility. This tool does format extraction only (matches http/https/ftp patterns), not liveness checking.",
+        "<strong>Q: How does this handle URLs with query parameters, fragments, and special characters?</strong> URL anatomy: protocol://domain:port/path?query#fragment. This tool extracts full URL including: query parameters (?key=value&foo=bar), URL fragments (#section), ports (:8080), encoded characters (%20 for space). Common edge cases: URLs ending with punctuation (example.com. or example.com,) may include trailing punctuation - review extracted list. URLs with spaces (invalid but common in copy-paste) may break extraction. Encoded URLs (%2F, %3A) are extracted as-is. For best results: paste text with properly formatted URLs (no line breaks within URLs).",
+        "<strong>Q: Can this extract relative URLs or does it only work with absolute URLs?</strong> This tool extracts absolute URLs (http://example.com/page or www.example.com) only. Relative URLs (/about, ../images/pic.jpg) lack protocol/domain, can't be extracted by pattern matching alone - need base URL context. Workflow for relative URLs: if extracting from HTML source with base URL known, manually prepend base URL (base: https://example.com, relative: /about → absolute: https://example.com/about), or use HTML parser that resolves relative URLs. Most URL extractors (including this one) work with absolute URLs only - can't infer context.",
+        "<strong>Q: Why are some URLs being extracted incorrectly or split across lines?</strong> Common causes: (1) URLs containing spaces (invalid, should be %20) confuse pattern matching - 'example.com/my page' extracts as 'example.com/my'. (2) URLs wrapped across lines in formatted text - email clients/documents may add line breaks in long URLs. (3) Markdown or HTML links - [text](url) format may extract (url) with parentheses. (4) URLs with unencoded special characters (pipes, brackets) breaking pattern. Fix: for wrapped URLs, remove line breaks before extraction. For Markdown, extract raw source. For encoded issues, use proper URL encoding first.",
+        "<strong>Q: Is it legal to extract URLs from websites or social media?</strong> Legal depends on context and source. Generally allowed: extracting URLs from your own content (website, documents, social profiles), publicly accessible web pages (respecting robots.txt), URLs with permission (API access, terms allow scraping). Restricted/illegal: violating website Terms of Service (most social media platforms prohibit scraping), bypassing technical protections (CAPTCHAs, rate limits), using extracted data for spam or harassment, republishing copyrighted content. Ethical considerations: respect robots.txt (web scraping standard), don't overwhelm servers (rate limiting), attribute sources appropriately. For research/analysis: fair use may apply. For commercial use: get explicit permission. Consult lawyer for specific use case."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Deduplicate and sort extracted URLs for efficient analysis:</strong> Raw URL extraction often produces duplicates (same URL mentioned multiple times, URL with/without www, HTTP vs HTTPS). After extraction: (1) Copy to spreadsheet, remove duplicates. (2) Sort alphabetically by domain to group related URLs. (3) Use URL normalization (convert all to HTTPS, remove www) for true deduplication. (4) Split by domain to analyze link distribution. Tools like Excel UNIQUE function, Python sets, or command-line sort/uniq. Deduplication before link checking saves time and API calls.",
+        "💡 <strong>Extract URLs from browser DevTools Network tab for API endpoint discovery:</strong> Reverse engineering APIs or understanding third-party integrations: open DevTools Network tab, interact with website, copy all requests as HAR file or copy URLs from fetch/XHR tab, paste into text editor, extract URLs with this tool. Result: complete list of API endpoints, asset URLs, tracking pixels. Useful for: API documentation when none exists, understanding competitor tracking, debugging integration issues, security research (finding hidden endpoints). Filter by domain after extraction to focus on specific services.",
+        "💡 <strong>Combine with link checkers to audit website health before migration:</strong> Before migrating website or redesigning: export all pages (sitemap, scrape, CMS export), extract all URLs from content, categorize as internal (same domain) vs external, run link checker on external URLs (identify broken/redirected links), create redirect map for internal URLs. This prevents: broken links after migration, lost SEO value from changed URLs, poor user experience from 404s. Takes hours manually, minutes with URL extraction + automated checking. Most critical for sites with 100+ pages.",
+        "💡 <strong>Use URL pattern analysis to identify tracking parameters and affiliate links:</strong> After extracting URLs, analyze patterns: tracking parameters (utm_source, utm_campaign, fbclid, gclid), affiliate IDs (amazon.com/dp/product/?tag=affiliateid), shortened URLs (bit.ly, t.co), referral links. Useful for: understanding competitor marketing strategies (which channels they use), cleaning URLs for bookmarking (removing tracking), identifying affiliate relationships, auditing your own tracking consistency. Search for common patterns: utm_, ref=, ?source=. Helps identify data collection practices and revenue models.",
+        "💡 <strong>Respect robots.txt and rate limiting when using extracted URLs for scraping:</strong> If planning to visit extracted URLs programmatically (link checking, scraping, archiving): check robots.txt (example.com/robots.txt) for disallowed paths, implement rate limiting (1-2 requests per second max), use polite user agent strings identifying your bot, respect crawl-delay directives. Aggressive scraping can: get your IP blocked, violate Terms of Service, cause legal issues, harm server performance. Ethical scraping: crawl during off-peak hours, cache results to avoid repeat requests, exclude private URLs (admin panels, user profiles if ToS forbids). For large-scale extraction, use official APIs when available."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>SEO & Link Analysis:</strong> Extract all URLs from website pages for backlink analysis, identify external links for SEO audits and link equity distribution, build competitor link profiles by extracting URLs from their content",
+        "<strong>Content Migration:</strong> Extract URLs from old CMS exports or website backups for migration planning, identify all internal and external links before website redesign, create URL redirect maps by extracting old URLs from archived content",
+        "<strong>Web Scraping & Research:</strong> Extract URLs from scraped web pages for further crawling or data collection, build link databases from academic papers or research documents, collect resource URLs from curated lists or directories",
+        "<strong>Social Media Analysis:</strong> Extract URLs from Twitter exports or Reddit threads for trend analysis, analyze link sharing patterns in social media datasets, identify most-shared URLs in marketing campaigns or viral content",
+        "<strong>Link Validation:</strong> Extract all links from documentation or help center for broken link checking, identify outdated URLs in legacy documents before archiving, validate external references in academic or technical writing",
+        "<strong>Security & Compliance:</strong> Extract URLs from email logs for phishing analysis or security audits, identify tracking URLs and third-party integrations for privacy compliance, audit marketing emails for broken or suspicious links"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/email-extractor'>Email Extractor</a> to extract email addresses from text similar to URL extraction",
+        "Use our <a href='/dev-tools/url-encoder'>URL Encoder/Decoder</a> to properly encode special characters in extracted URLs",
+        "Check our <a href='/dev-tools/regex-tester'>Regex Tester</a> to create custom patterns for extracting URLs with specific formats",
+        "Explore our <a href='/dev-tools/text-case-converter'>Text Case Converter</a> to normalize domain names to lowercase"
       ]
     }
   ]

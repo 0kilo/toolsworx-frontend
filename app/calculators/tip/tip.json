@@ -38,6 +38,17 @@
   ],
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Calculate tips instantly without mental math - no more awkward pauses pulling out your phone calculator at the table trying to figure out 18% of $87.43",
+        "✓ Split bills fairly among any number of people with exact per-person amounts including tip, eliminating group confusion and \"who owes what\" arguments",
+        "✓ Adjust tip percentages easily to match service quality (15% for okay, 18% for good, 20% for excellent, 25% for exceptional) and see exact dollar amounts",
+        "✓ Works before or after tax - calculate tips on pre-tax amount (proper etiquette) or total with tax (easier but slightly overtips), you choose",
+        "✓ Completely private and free - no app download, no account, no tracking, just quick calculations when you need them at restaurants, bars, or for deliveries"
+      ]
+    },
+    {
       "title": "Formulas",
       "type": "list",
       "content": [
@@ -65,6 +76,50 @@
         "<strong>Bars:</strong> $1-2 per drink or 15-20% of tab",
         "<strong>Delivery:</strong> 10-15% or $2-5 minimum",
         "<strong>Taxis/Rideshare:</strong> 15-20% of fare"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Should I tip on the bill before or after tax?</strong> Technically, proper etiquette is to tip on the pre-tax amount since tax isn't part of the service. On a $100 meal with $8 tax, 20% tip should be $20 (on $100), not $21.60 (on $108). However, many people tip on the total with tax because it's easier - your waiter won't complain about the extra $1.60! Use pre-tax for strict etiquette or post-tax for simplicity. For large bills, the difference adds up: $500 + $40 tax at 20% = $100 pre-tax tip vs $108 post-tax.",
+        "<strong>Q: What should I tip for bad service?</strong> Even for poor service, tip at least 10-15% unless service was truly terrible or offensive. Many service issues aren't your server's fault (slow kitchen, understaffed restaurant, computer problems). If service was bad but effort was visible, tip 15%. For truly awful service (rude, neglectful, incorrect orders ignored), 10% or less. For exceptional problems, consider speaking to a manager rather than just not tipping - servers rely on tips and deserve feedback, not just punishment.",
+        "<strong>Q: How do I split bills when people ordered different amounts?</strong> For unequal orders, split proportionally: each person pays (their items / total bill) × (total + tip). If Bill orders $30 and Alice orders $20 on a $50 bill with $10 tip, Bill pays (30/50) × 60 = $36 and Alice pays (20/50) × 60 = $24. For roughly equal meals, just divide total equally - easier and fairer for group harmony. Use this calculator's 'split evenly' for equal division, or do proportional splits separately if needed.",
+        "<strong>Q: Do I tip on takeout orders?</strong> Takeout tipping is optional but appreciated. Standard: 0-10% for pickup (someone still packed your order carefully), 10-15% for delivery (driver relies on tips), 15-20% for complex orders or small restaurants where staff put extra effort in. Many people don't tip on takeout, but $2-5 or 10% shows appreciation. During COVID/tough times, generous takeout tips help struggling restaurant workers. Skip tip for chain fast food, but consider it for local restaurants you want to support.",
+        "<strong>Q: How does tipping work in other countries?</strong> US has high tipping culture (15-20% standard) because servers earn below minimum wage ($2-3/hour) and rely on tips. Most other countries include service in wages: Europe (5-10% or round up), Australia/Japan (no tipping, considered rude), UK (10-15% at restaurants, less than US), Canada (15-20%, similar to US), Mexico (10-15%). Always research local customs when traveling - over-tipping can offend in some cultures, under-tipping causes offense in others. Look for 'service charge' on bills which means tip is already included."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Quick mental math for common percentages:</strong> For 20% tip, divide bill by 5 ($85 ÷ 5 = $17 tip). For 15%, find 10% (move decimal left) then add half ($80 → $8 is 10%, half is $4, so $12 total). For 18%, double the first digit plus dollar amount ($40 → 4×2 = 8, so ~$8 tip). These shortcuts work within a dollar or two and save phone fumbling. Verify with this calculator if you want exact amounts or are splitting bills.",
+        "💡 <strong>Tip generously for service jobs you couldn't do:</strong> Many people undertip servers, bartenders, delivery drivers, and hairdressers without realizing these workers often make $2-5/hour base pay and rely on tips for rent. If you order a $10 lunch, a $2 tip (20%) might seem big, but that's all your server makes from you. Consider: would you wait tables for $2/hour? If service was good, tip well - 20-25% standard. Being known as a good tipper also gets you better service on return visits.",
+        "💡 <strong>Always tip delivery drivers well, especially in bad weather:</strong> Delivery drivers use their own cars (gas, maintenance, insurance costs), risk accidents, and work in rain/snow/heat. Minimum tip: $5 or 15%, whichever is higher, even on small orders. For bad weather, far distances (3+ miles), or large/heavy orders, tip $7-10 or 20%+. App suggested tips are often too low. Remember: if you're comfortable enough not to go out in a storm, the driver deserves hazard pay for coming to you.",
+        "💡 <strong>For group dinners, collect exact change or use payment apps:</strong> When splitting bills among friends, decide upfront: split evenly (easiest) or proportionally (fairer but complex). Use Venmo/Cash App/Zelle so one person can pay card and collect digitally - avoids hassle of combining credit cards or counting cash. Add tip before splitting: on $200 bill with 20% tip = $240 total ÷ 6 people = $40 each. Don't be the person who 'forgets' to chip in for tip - everyone notices.",
+        "💡 <strong>Adjust tips for party size and complexity:</strong> Large groups (6+ people) often get automatic 18-20% gratuity added - check your bill before adding more. For very complex orders (multiple substitutions, separate checks, picky eaters), tip 22-25% since you made extra work. For simple orders (water, basic menu items, pleasant interaction), standard 20% is fine. Servers remember good and bad tippers - if you're a regular, consistent generosity pays off in service quality, free drinks, or overlooked minor issues."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Restaurant Dining:</strong> Calculate tips for dine-in meals based on service quality, split bills evenly among friends or family, determine exact per-person amounts including tax and tip",
+        "<strong>Food Delivery:</strong> Calculate appropriate delivery tips based on distance, weather, and order size, ensure drivers are fairly compensated for gas and time, adjust tips for exceptional or poor service",
+        "<strong>Bar Tabs:</strong> Calculate tips on full bar tabs when paying by card, determine per-drink tips for cash payments, split tabs among groups when treating rounds",
+        "<strong>Ride Services:</strong> Calculate tips for taxi or rideshare drivers (Uber/Lyft/etc), adjust for trip length, traffic delays, or driver helpfulness, budget total trip cost including tip",
+        "<strong>Personal Services:</strong> Calculate tips for hairdressers, barbers, nail technicians (15-20% standard), spa services, massage therapists, determine tips for hotel staff or valet parking",
+        "<strong>Group Events:</strong> Split bills for birthday dinners, work lunches, or celebrations, calculate per-person amounts when some people ordered drinks and others didn't, ensure everyone contributes fairly to shared tip"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate custom tip percentages, discounts, or tax amounts on purchases",
+        "Use our <a href='/calculators/loan'>Loan Calculator</a> if your restaurant bill is so large you need to finance it (just kidding - but it's there for actual loans)",
+        "Check our <a href='/unit-conversions/currency'>Currency Converter</a> when tipping in foreign countries to understand local currency tipping amounts",
+        "Explore our <a href='/calculators/date-calculator'>Date Calculator</a> to figure out when you last visited a restaurant if you're a regular tipper wondering about frequency"
       ]
     }
   ]

@@ -9,6 +9,17 @@
   "category": "dev-tools",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Convert variable names between programming conventions instantly - transform snake_case Python variables to camelCase JavaScript, PascalCase C# classes, or kebab-case CSS without manual retyping, essential for cross-language refactoring",
+        "✓ Fix inconsistent naming in codebases - batch convert variables/functions to match style guide (Google uses camelCase, Python PEP8 uses snake_case), ensure consistency across team contributions without tedious manual editing",
+        "✓ Format text for different contexts - UPPERCASE for constants/env vars, Title Case for headings, Sentence case for UI text, lowercase for URLs/tags, proper formatting without retyping saves time in documentation and content creation",
+        "✓ Generate API endpoint paths and database column names - convert natural language (\"User Profile\") to kebab-case URLs (user-profile), snake_case database columns (user_profile), or camelCase JSON keys (userProfile) following conventions",
+        "✓ Quickly test case sensitivity issues - compare how text appears in different cases to debug case-sensitive bugs in file systems (Linux vs Windows), URLs, database queries, or programming language keywords"
+      ]
+    },
+    {
       "title": "Case Types",
       "content": [
         "<strong>UPPERCASE:</strong> All letters capitalized",
@@ -16,6 +27,50 @@
         "<strong>camelCase:</strong> First word lowercase, rest capitalized",
         "<strong>snake_case:</strong> Lowercase with underscores",
         "<strong>kebab-case:</strong> Lowercase with hyphens"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: When should I use camelCase vs snake_case vs kebab-case?</strong> Language/context conventions: camelCase = JavaScript, Java, C# (myVariableName), TypeScript. snake_case = Python, Ruby, SQL (my_variable_name), Rust, database columns. kebab-case = URLs, CSS classes, HTML attributes (my-variable-name), file names. PascalCase = classes in most languages (MyClassName), React components. SCREAMING_SNAKE_CASE = constants, environment variables (MY_CONSTANT). Follow language conventions - don't use snake_case in JavaScript or camelCase in Python. Tools like ESLint/Pylint enforce conventions. Mixed conventions in same codebase confuse teammates and look unprofessional.",
+        "<strong>Q: How do case converters handle acronyms and numbers?</strong> No universal standard, tools vary. Common approaches for 'XMLHttpRequest': camelCase → xmlHttpRequest or xmlhttpRequest. PascalCase → XmlHttpRequest or XMLHttpRequest. Recommendation: treat acronyms as words (XmlHttpRequest) for readability, unless language convention says otherwise. Numbers: usually kept together (base64Encode), not split (base64encode). Hyphens/underscores before numbers: data_2024 or data-2024 (not data2024). Edge cases cause inconsistency - test your specific tool's behavior with your use case.",
+        "<strong>Q: What's the difference between Title Case and Sentence case?</strong> Title Case = Capitalize First Letter Of Every Word (except articles/prepositions like 'the', 'of', 'in' in formal title case). Used for: headings, book titles, article headlines. Sentence case = Capitalize first word only (like regular sentence). Used for: UI labels, button text, form fields, modern minimalist design. Trend: modern UIs favor sentence case (less shouty, more readable). Title case rules vary: Chicago Manual vs AP Stylebook differ on which words to capitalize. This tool may use simple title case (all words capitalized) or smart title case (follows style guide).",
+        "<strong>Q: Can this tool preserve word boundaries when converting?</strong> Depends on input format. Converting 'user_profile' (snake_case) to camelCase = easy (userProfile). Converting 'userprofile' (no delimiters) = impossible (tool can't guess word boundaries - could be user Profile or use RProfile). For best results: input should have word boundaries (spaces, underscores, hyphens, or camelCase). If converting from single-word lowercase, manually add delimiters first. Some tools use dictionary lookups to guess boundaries, but unreliable for domain-specific terms.",
+        "<strong>Q: Why do some languages prefer different naming conventions?</strong> Historical/cultural reasons. C/Unix tradition = snake_case (POSIX APIs, system calls). Java = camelCase (influenced by Smalltalk). Python = snake_case (PEP 8 for readability - creator Guido finds underscores clearer than camelCase). JavaScript = camelCase (Java influence despite name similarity). CSS = kebab-case (attributes use hyphens, underscores have special meaning). Go = mixed (PascalCase for exported, camelCase for unexported). Consistency within language ecosystem matters more than universal convention. Follow community standards, not personal preference."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Use consistent casing conventions across your entire codebase:</strong> Mixing conventions (user_name in Python file, userName in JavaScript file for same concept) causes confusion and refactoring pain. Establish style guide: JavaScript = camelCase for variables/functions, PascalCase for classes/components. Python = snake_case for variables/functions, PascalCase for classes. Enforce with linters (ESLint, Pylint, rustfmt). Document conventions in CONTRIBUTING.md. When integrating APIs using different conventions, convert at boundary (API uses snake_case, convert to camelCase at interface layer).",
+        "💡 <strong>Use SCREAMING_SNAKE_CASE for constants and environment variables:</strong> Constants (values that never change) and environment variables should stand out: SCREAMING_SNAKE_CASE = MAX_RETRIES, API_KEY, DATABASE_URL (visually distinct from variables). camelCase/snake_case = regular variables (maxRetries confusing - is it constant or variable?). Most languages allow this convention even if using different styles for other identifiers. Makes grepping for configuration easy: grep -r 'API_KEY' vs harder to find mixed-case variants. Environment variables universally use SCREAMING_SNAKE_CASE across platforms.",
+        "💡 <strong>Convert database column names and JSON keys to match language conventions:</strong> Don't match database column naming to backend language - causes confusion. Best practice: database uses snake_case (SQL standard, case-insensitive, readable), backend converts to language convention (Python keeps snake_case, JavaScript converts to camelCase). Use ORMs (Sequelize, SQLAlchemy) to auto-convert. For APIs: database stores user_full_name, Python uses user_full_name, REST API returns {\"userFullName\": ...} (camelCase for JavaScript clients). Conversion layer prevents mixing conventions in single context.",
+        "💡 <strong>Use kebab-case for URLs and file names to avoid issues:</strong> URLs and file names should use kebab-case (my-page-name): (1) Case-insensitive file systems (Windows) treat MyFile.txt and myfile.txt as same. (2) URLs are case-sensitive (domain is not, path is), but best practice = lowercase for consistency. (3) Underscores in URLs harder to see when underlined (user_profile looks like userprofile). (4) Spaces in URLs must be encoded (%20). Kebab-case avoids all issues: lowercase (case-insensitive safe), no underscores (visible), no spaces (no encoding). Used by GitHub, npm, most URL slugs.",
+        "💡 <strong>Be aware of case-sensitivity differences across systems:</strong> Case sensitivity causes cross-platform bugs: Linux file systems = case-sensitive (User.txt ≠ user.txt, can coexist). Windows/macOS = case-insensitive (User.txt and user.txt are same file, but macOS preserves case). Git on Windows = case-insensitive by default (renaming MyFile.txt → myfile.txt may not register as change). URLs = path case-sensitive (domain not): site.com/Page ≠ site.com/page. To avoid issues: use lowercase for all file names/URLs, enforce with linters, test on case-sensitive system (Linux CI)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Cross-Language Refactoring:</strong> Convert Python snake_case variables to JavaScript camelCase when porting code, transform C# PascalCase to Go naming conventions during migration, batch convert naming conventions when integrating codebases from different teams",
+        "<strong>API Development:</strong> Convert database column names (snake_case) to JSON API keys (camelCase) following conventions, generate URL endpoints from feature names (kebab-case), create consistent naming across API request/response schemas",
+        "<strong>Content & Documentation:</strong> Convert headings to Title Case for documentation and blog posts, format UI text to Sentence case for modern design systems, standardize variable names in code examples across different languages",
+        "<strong>Database Design:</strong> Convert natural language field names to snake_case for SQL columns, generate consistent table and column naming from requirements documents, format database identifiers following PostgreSQL/MySQL conventions",
+        "<strong>CSS & HTML:</strong> Convert component names to kebab-case for CSS classes and HTML attributes, generate BEM naming (block__element--modifier) with consistent casing, format data attributes and custom element names",
+        "<strong>Configuration & Environment:</strong> Convert setting names to SCREAMING_SNAKE_CASE for environment variables, format configuration keys following platform conventions (Docker, Kubernetes), standardize constant names across config files"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/regex-tester'>Regex Tester</a> to create patterns for finding and replacing different case formats in code",
+        "Use our <a href='/dev-tools/url-encoder'>URL Encoder/Decoder</a> to properly encode spaces and special characters in URLs with different cases",
+        "Check our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format JSON with camelCase keys following JavaScript conventions",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to format CSV data with consistent column name casing"
       ]
     }
   ]
