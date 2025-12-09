@@ -93,6 +93,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Refresh crypto quotes close to checkout; prices move quickly and can invalidate earlier totals.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Mixing cups, grams, and ounces in the same recipe scale leads to bad ratios; standardize units first.",
+          "Sharing password results over chat or email defeats security; deliver via a password manager instead.",
+          "Forgetting to block household exclusions in Secret Santa creates awkward matches; set rules up front.",
+          "Relying on stale crypto rates can undercharge or overcharge; refresh before submitting payments.",
+          "Leaving event countdowns on the wrong time zone causes missed deadlines; confirm the target region.",
+        ],
+      },
     ],
   },
   {
@@ -169,6 +179,16 @@ export const categoryGroups: CategoryGroup[] = [
           "When sharing results, include both units to prevent ambiguity in specs and handoffs.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Mixing metric and imperial in the same calculation (e.g., cm with inches) produces wrong outputs; keep units consistent.",
+          "Rounding early on chained conversions hides small errors; round only at the end when precision matters.",
+          "Temperature conversions need offsets (C/F) not just multipliers; avoid treating them like linear scale-only changes.",
+          "For pressure and energy, verify the specific unit variant (psi vs psig, joule vs watt-hour) before converting.",
+          "Data size conversions differ between decimal (GB) and binary (GiB); pick the standard your platform expects.",
+        ],
+      },
     ],
   },
   {
@@ -243,6 +263,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Save plots or outputs as screenshots for quick sharing with teammates or contractors.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Using monthly rates when the calculator expects annual APR leads to wrong payments; match the input labels.",
+          "Mixing imperial and metric in project calculators skews material estimates; pick one system and stick to it.",
+          "Relying on default activity multipliers for calories can overstate burn; adjust to your real training load.",
+          "For tip/percentage math, ensure the base amount excludes taxes or add-ons if your locale uses pre-tax tipping.",
+          "Graphing without labeling axes or units confuses results; add notes before sharing screenshots.",
+        ],
+      },
     ],
   },
   {
@@ -310,6 +340,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Never embed secrets in files before converting; strip credentials and PII first.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Uploading sensitive contracts or keys when a text scrub would suffice; always sanitize before converting.",
+          "Using the wrong delimiter or encoding on CSV exports causes broken imports; set UTF-8 and the expected separator.",
+          "Double-compressing archives makes them harder to open and larger; avoid nesting zips unless necessary.",
+          "Expecting formulas to survive format changes (CSV drops them); convert to a formula-friendly format first.",
+          "Renaming extensions without converting the file format leads to unreadable files; always convert properly.",
+        ],
+      },
     ],
   },
   {
@@ -375,6 +415,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Test converted files on the target device/app before deleting originals.",
           "Avoid re-encoding lossy files multiple times; quality drops with each pass.",
           "For uploads with limits, downscale resolution before dropping bitrate to preserve clarity.",
+        ],
+      },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Re-encoding lossy files (MP3 to MP3, MP4 to MP4) repeatedly; always convert from the best available source.",
+          "Dropping bitrate too far for speech or music, causing artifacts; use moderate settings and test on target devices.",
+          "Ignoring aspect ratios when resizing video or images leads to distortion; lock aspect or crop intentionally.",
+          "Choosing the wrong container/codec for the platform (e.g., FLAC on devices that only support MP3/AAC).",
+          "Forgetting to match frame rate and sample rate to the destination platform, causing playback issues.",
         ],
       },
     ],
@@ -454,6 +504,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Validate before shipping—catch malformed JSON/CSV early to prevent runtime failures.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Confusing encode vs decode paths (Base64/URL); double-check direction before sending payloads.",
+          "Using hashes as a security substitute for signatures; hashes alone do not provide authenticity.",
+          "Forgetting timezone context in timestamp conversions; specify UTC vs local when sharing results.",
+          "Pasting production secrets into external tools; rely on these local utilities instead.",
+          "Validating only happy-path JSON; include edge cases like nulls, empty arrays, and unexpected types.",
+        ],
+      },
     ],
   },
   {
@@ -531,6 +591,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Avoid over-sharpening or over-saturating images to maintain a natural look.",
         ],
       },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Applying creative effects before cleaning noise; always reduce noise and normalize first.",
+          "Over-boosting bass without level checks causes clipping; pair boosts with normalization.",
+          "Stacking multiple strong image filters leads to artifacts; build effects gradually.",
+          "Ignoring device differences; preview on phone and laptop to catch harsh EQ or over-saturation.",
+          "Skipping versioning; export a neutral copy so you can roll back if a client prefers a cleaner look.",
+        ],
+      },
     ],
   },
   {
@@ -595,6 +665,16 @@ export const categoryGroups: CategoryGroup[] = [
           "Sort categories logically (by value or name) to reduce cognitive load.",
           "Include units and time zones in tooltips or labels to avoid confusion.",
           "Export and test in your slide deck or doc to confirm sizing and legibility.",
+        ],
+      },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Using pies with too many slices; switch to bar/column when categories exceed a handful.",
+          "Skipping units and time zones, which makes values ambiguous; label axes and tooltips clearly.",
+          "Choosing the wrong chart type (e.g., line for categorical data); match type to data shape.",
+          "Leaving categories unsorted, making comparisons harder; sort by value or alphabetically.",
+          "Overloading charts with effects or colors that reduce clarity on mobile or projectors.",
         ],
       },
     ],

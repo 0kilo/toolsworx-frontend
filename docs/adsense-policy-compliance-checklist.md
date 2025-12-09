@@ -9,10 +9,10 @@
 ## EXECUTIVE SUMMARY
 
 ### Policy Violations Identified
-1. ⚠️ Minimum content requirements (tool pages improved; see audit)
-2. ⚠️ Thin content with little or no added value (addressed on tools; category/blog still pending)
-3. ⚠️ Webmaster quality guidelines for thin content (monitor remaining pages)
-4. ⚠️ User experience & navigation issues (internal links + category nav pending)
+1. ⚠️ Minimum content requirements — tool pages addressed; category pages enriched (monitor word count)
+2. ⚠️ Thin content — tools OK; blog still pending
+3. ⚠️ Webmaster quality guidelines — main remaining risk is lack of blog; categories strengthened
+4. ⚠️ User experience & navigation — tool-level navigation done; run final broken-link/mobile QA
 
 ### Completion Criteria
 To pass Google AdSense review, each page must meet ALL of these requirements:
@@ -823,37 +823,10 @@ To pass Google AdSense review, each page must meet ALL of these requirements:
 
 ## MEDIUM PRIORITY TASKS
 
-### Task 4: Blog/Resources Section
+### Task 4: Blog/Resources Section (Deferred)
 
-**Completion Criteria:**
-- [ ] `/resources` or `/blog` directory created
-- [ ] 10-15 comprehensive guide articles written
-- [ ] Each article 1000-2000 words
-- [ ] SEO-optimized with proper headings
-
-**Article Topics:**
-
-#### Ultimate Guides
-- [ ] "Ultimate Guide to Unit Conversions"
-- [ ] "Complete Guide to Financial Calculators"
-- [ ] "Developer Tools Every Programmer Needs"
-- [ ] "Data Visualization: Choosing the Right Chart"
-
-#### Tutorials
-- [ ] "How to Convert Units for International Shipping"
-- [ ] "BMI vs Body Fat Percentage: Which Should You Track?"
-- [ ] "Understanding Temperature Scales: When to Use Celsius vs Fahrenheit"
-- [ ] "JSON Formatting Best Practices for APIs"
-- [ ] "Creating Effective Gantt Charts for Project Management"
-
-#### Comparison Guides
-- [ ] "JPG vs PNG vs WebP: Which Image Format to Use?"
-- [ ] "MD5 vs SHA-256: Understanding Hash Functions"
-- [ ] "Metric vs Imperial: A Comprehensive Conversion Guide"
-
-#### Case Studies
-- [ ] "Real-World Conversion Errors and How to Avoid Them"
-- [ ] "How Professionals Use Our Tools Daily"
+**Status:** Deferred for now (not required to reapply)
+**Notes:** Proceed without blog; revisit after AdSense approval.
 
 ---
 
