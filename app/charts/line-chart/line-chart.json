@@ -11,12 +11,30 @@
     "title": "Monthly Revenue",
     "color": "#3b82f6",
     "data": [
-      { "x": "Jan", "y": 4000 },
-      { "x": "Feb", "y": 3000 },
-      { "x": "Mar", "y": 5000 },
-      { "x": "Apr", "y": 4500 },
-      { "x": "May", "y": 6000 },
-      { "x": "Jun", "y": 5500 }
+      {
+        "x": "Jan",
+        "y": 4000
+      },
+      {
+        "x": "Feb",
+        "y": 3000
+      },
+      {
+        "x": "Mar",
+        "y": 5000
+      },
+      {
+        "x": "Apr",
+        "y": 4500
+      },
+      {
+        "x": "May",
+        "y": 6000
+      },
+      {
+        "x": "Jun",
+        "y": 5500
+      }
     ]
   },
   "category": "charts",
@@ -98,6 +116,16 @@
         "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for discrete time periods without connection",
         "Check our <a href='/charts/scatter-chart'>Scatter Chart</a> for exploring correlations between variables",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare time series data"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/charts\">all chart options</a> to pick the right visual fast.",
+        "Need comparisons? Try the <a href=\"/charts/bar-chart\">Bar Chart</a> for side-by-side categories.",
+        "For timelines, use the <a href=\"/charts/gantt-chart\">Gantt Chart</a> to track phases.",
+        "Map-focused projects can jump to the <a href=\"/charts/usa-map\">USA Map Visualizer</a>."
       ]
     }
   ]

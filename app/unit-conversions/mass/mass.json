@@ -5,16 +5,66 @@
   "category": "unit-conversions",
   "icon": "Weight",
   "units": [
-    { "value": "microgram", "label": "Microgram", "abbreviation": "μg", "factor": 0.000000001 },
-    { "value": "milligram", "label": "Milligram", "abbreviation": "mg", "factor": 0.000001 },
-    { "value": "gram", "label": "Gram", "abbreviation": "g", "factor": 0.001 },
-    { "value": "ounce", "label": "Ounce", "abbreviation": "oz", "factor": 0.0283495 },
-    { "value": "pound", "label": "Pound", "abbreviation": "lb", "factor": 0.453592 },
-    { "value": "kilogram", "label": "Kilogram", "abbreviation": "kg", "factor": 1 },
-    { "value": "stone", "label": "Stone", "abbreviation": "st", "factor": 6.35029 },
-    { "value": "ton", "label": "Metric Ton", "abbreviation": "t", "factor": 1000 },
-    { "value": "short-ton", "label": "Short Ton (US)", "abbreviation": "ton", "factor": 907.185 },
-    { "value": "long-ton", "label": "Long Ton (UK)", "abbreviation": "LT", "factor": 1016.05 }
+    {
+      "value": "microgram",
+      "label": "Microgram",
+      "abbreviation": "μg",
+      "factor": 1e-9
+    },
+    {
+      "value": "milligram",
+      "label": "Milligram",
+      "abbreviation": "mg",
+      "factor": 0.000001
+    },
+    {
+      "value": "gram",
+      "label": "Gram",
+      "abbreviation": "g",
+      "factor": 0.001
+    },
+    {
+      "value": "ounce",
+      "label": "Ounce",
+      "abbreviation": "oz",
+      "factor": 0.0283495
+    },
+    {
+      "value": "pound",
+      "label": "Pound",
+      "abbreviation": "lb",
+      "factor": 0.453592
+    },
+    {
+      "value": "kilogram",
+      "label": "Kilogram",
+      "abbreviation": "kg",
+      "factor": 1
+    },
+    {
+      "value": "stone",
+      "label": "Stone",
+      "abbreviation": "st",
+      "factor": 6.35029
+    },
+    {
+      "value": "ton",
+      "label": "Metric Ton",
+      "abbreviation": "t",
+      "factor": 1000
+    },
+    {
+      "value": "short-ton",
+      "label": "Short Ton (US)",
+      "abbreviation": "ton",
+      "factor": 907.185
+    },
+    {
+      "value": "long-ton",
+      "label": "Long Ton (UK)",
+      "abbreviation": "LT",
+      "factor": 1016.05
+    }
   ],
   "baseUnit": "kilogram",
   "defaultFromUnit": "kilogram",
@@ -99,6 +149,16 @@
         "Use our <a href='/helpful-calculators/recipe-scaler'>Recipe Scaler</a> to automatically adjust all ingredient weights for different serving sizes",
         "Check our <a href='/calculators/bmi'>BMI Calculator</a> for health metrics that use weight and height measurements",
         "Explore our <a href='/unit-conversions/temperature'>Temperature Converter</a> for complete recipe conversions including oven temperatures"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

@@ -11,9 +11,7 @@ export default function TermsPage() {
     <div className="container py-8 max-w-4xl">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
-        <p className="text-muted-foreground">
-          Last updated: {new Date().toLocaleDateString()}
-        </p>
+        <p className="text-muted-foreground">Last updated: 2025-12-08</p>
       </div>
 
       <div className="space-y-6">
@@ -25,6 +23,9 @@ export default function TermsPage() {
             <p>
               By accessing and using TOOLS WORX ("the Service"), you accept and agree to be bound by the terms and provision of this agreement.
             </p>
+            <p>
+              You must also follow our Content Policy and Privacy Policy. If you do not agree, please do not use the Service.
+            </p>
           </CardContent>
         </Card>
 
@@ -34,7 +35,7 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <p>
-              Permission is granted to temporarily use the Service for personal, non-commercial transitory viewing only. This includes:
+              Permission is granted to temporarily use the Service for personal, non-commercial use. This includes:
             </p>
             <ul>
               <li>Converting files using our online tools</li>
@@ -58,6 +59,7 @@ export default function TermsPage() {
               <li>We do not store or retain your files after processing</li>
               <li>All processing happens on secure servers</li>
               <li>You retain all rights to your uploaded content</li>
+              <li>Do not upload sensitive data (secrets, PII, regulated content) unless necessary</li>
             </ul>
           </CardContent>
         </Card>
@@ -74,6 +76,7 @@ export default function TermsPage() {
               <li>To upload malicious code, viruses, or harmful content</li>
               <li>To attempt to gain unauthorized access to our systems</li>
               <li>For commercial purposes without explicit permission</li>
+              <li>To upload prohibited content (see Content Policy), including adult, violent, hateful, or illegal material</li>
             </ul>
           </CardContent>
         </Card>
@@ -116,7 +119,7 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <p>
-              In no event shall TOOLS WORX or its suppliers be liable for any damages arising out of the use or inability to use the Service.
+              To the maximum extent permitted by law, Tools Worx and its suppliers are not liable for damages arising from use or inability to use the Service.
             </p>
           </CardContent>
         </Card>
@@ -127,7 +130,7 @@ export default function TermsPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <p>
-              If you have any questions about these Terms of Service, please contact us through our contact form.
+              If you have any questions about these Terms of Service, please contact us through our <a href="/contact" className="underline">contact form</a>.
             </p>
           </CardContent>
         </Card>

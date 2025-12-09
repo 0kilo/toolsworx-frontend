@@ -11,9 +11,7 @@ export default function PrivacyPage() {
     <div className="container py-8 max-w-4xl">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
-        <p className="text-muted-foreground">
-          Last updated: {new Date().toLocaleDateString()}
-        </p>
+        <p className="text-muted-foreground">Last updated: 2025-12-08</p>
       </div>
 
       <div className="space-y-6">
@@ -24,21 +22,21 @@ export default function PrivacyPage() {
           <CardContent className="prose prose-sm max-w-none">
             <h4>Files You Upload</h4>
             <p>
-              When you use our conversion tools, you upload files that are processed temporarily on our servers. These files are automatically deleted after processing is complete.
+              Most tools run directly in your browser. When uploads are needed, files are processed temporarily and deleted immediately after conversion (or within 24 hours).
             </p>
             
             <h4>Usage Information</h4>
-            <p>We may collect:</p>
+            <p>We may collect limited technical data:</p>
             <ul>
               <li>IP address and browser information</li>
               <li>Pages visited and features used</li>
-              <li>File types and sizes processed (not content)</li>
+              <li>File types and sizes processed (not file contents)</li>
               <li>Error logs for service improvement</li>
             </ul>
 
             <h4>Cookies and Analytics</h4>
             <p>
-              We use cookies and analytics services to understand how our service is used and to improve user experience.
+              We use cookies and privacy-safe analytics to understand usage and improve the service. You can disable cookies in your browser.
             </p>
           </CardContent>
         </Card>
@@ -56,7 +54,7 @@ export default function PrivacyPage() {
               <li>Comply with legal obligations</li>
             </ul>
             <p>
-              <strong>We do not:</strong> Sell, rent, or share your personal information with third parties for marketing purposes.
+              <strong>We do not:</strong> Sell, rent, or share your personal information for marketing.
             </p>
           </CardContent>
         </Card>
@@ -68,12 +66,12 @@ export default function PrivacyPage() {
           <CardContent className="prose prose-sm max-w-none">
             <h4>Temporary Processing</h4>
             <p>
-              Files uploaded for conversion are processed in temporary storage and automatically deleted within 24 hours or immediately after processing, whichever comes first.
+              Files uploaded for conversion are processed in temporary storage and automatically deleted immediately after processing, or within 24 hours at most.
             </p>
             
             <h4>No Permanent Storage</h4>
             <p>
-              We do not permanently store your files or their content. Our systems are designed to process and delete files automatically.
+              We do not permanently store your files or their content. Please avoid uploading sensitive data (secrets, PII, regulated data) unless necessary.
             </p>
 
             <h4>Content Monitoring</h4>
@@ -95,7 +93,7 @@ export default function PrivacyPage() {
           <CardContent className="prose prose-sm max-w-none">
             <p>We may use third-party services for:</p>
             <ul>
-              <li><strong>Analytics:</strong> Google Analytics to understand usage patterns</li>
+              <li><strong>Analytics:</strong> Privacy-safe analytics to understand usage patterns</li>
               <li><strong>Advertising:</strong> Google AdSense for displaying relevant ads</li>
               <li><strong>Infrastructure:</strong> AWS for secure file processing</li>
             </ul>
@@ -111,7 +109,7 @@ export default function PrivacyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <ul>
-              <li><strong>Uploaded Files:</strong> Deleted immediately after processing</li>
+              <li><strong>Uploaded Files:</strong> Deleted after processing (or within 24 hours)</li>
               <li><strong>Usage Logs:</strong> Retained for 30 days for security and performance monitoring</li>
               <li><strong>Analytics Data:</strong> Aggregated and anonymized data may be retained longer</li>
             </ul>
@@ -141,8 +139,8 @@ export default function PrivacyPage() {
             <p>We use cookies for:</p>
             <ul>
               <li><strong>Essential:</strong> Basic site functionality</li>
-              <li><strong>Analytics:</strong> Understanding usage patterns</li>
-              <li><strong>Advertising:</strong> Displaying relevant ads</li>
+              <li><strong>Analytics:</strong> Understanding usage patterns (optional via browser settings)</li>
+              <li><strong>Advertising:</strong> Displaying relevant ads via Google AdSense</li>
             </ul>
             <p>
               You can control cookies through your browser settings.
@@ -178,7 +176,7 @@ export default function PrivacyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <p>
-              If you have questions about this privacy policy or our data practices, please contact us through our contact form.
+              If you have questions about this privacy policy or our data practices, please contact us through our <a href="/contact" className="underline">contact form</a>.
             </p>
           </CardContent>
         </Card>

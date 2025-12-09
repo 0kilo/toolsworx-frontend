@@ -22,8 +22,14 @@
       "label": "Weight Unit",
       "type": "select",
       "options": [
-        { "value": "kg", "label": "Kilograms (kg)" },
-        { "value": "lbs", "label": "Pounds (lbs)" }
+        {
+          "value": "kg",
+          "label": "Kilograms (kg)"
+        },
+        {
+          "value": "lbs",
+          "label": "Pounds (lbs)"
+        }
       ],
       "required": true
     },
@@ -42,8 +48,14 @@
       "label": "Height Unit",
       "type": "select",
       "options": [
-        { "value": "cm", "label": "Centimeters (cm)" },
-        { "value": "in", "label": "Inches (in)" }
+        {
+          "value": "cm",
+          "label": "Centimeters (cm)"
+        },
+        {
+          "value": "in",
+          "label": "Inches (in)"
+        }
       ],
       "required": true
     }
@@ -130,6 +142,16 @@
         "Use our <a href='/calculators/protein'>Protein Calculator</a> to find optimal daily protein intake for your body weight and fitness level",
         "Check our <a href='/unit-conversions/mass'>Mass & Weight Converter</a> for converting between pounds and kilograms when using different scales",
         "Explore our <a href='/unit-conversions/length'>Length Converter</a> for converting height measurements between inches and centimeters"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
       ]
     }
   ]

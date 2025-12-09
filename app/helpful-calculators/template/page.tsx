@@ -57,7 +57,7 @@ const infoContent = (
       {
         title: "Features",
         content: [
-          "Fast and accurate calculations",
+          "Fast calculations",
           "Easy to use interface",
           "Instant results"
         ]

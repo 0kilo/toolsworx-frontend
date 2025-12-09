@@ -11,12 +11,30 @@
     "title": "Website Traffic",
     "color": "#3b82f6",
     "data": [
-      { "x": "Jan", "y": 1000 },
-      { "x": "Feb", "y": 1200 },
-      { "x": "Mar", "y": 1500 },
-      { "x": "Apr", "y": 1800 },
-      { "x": "May", "y": 2200 },
-      { "x": "Jun", "y": 2000 }
+      {
+        "x": "Jan",
+        "y": 1000
+      },
+      {
+        "x": "Feb",
+        "y": 1200
+      },
+      {
+        "x": "Mar",
+        "y": 1500
+      },
+      {
+        "x": "Apr",
+        "y": 1800
+      },
+      {
+        "x": "May",
+        "y": 2200
+      },
+      {
+        "x": "Jun",
+        "y": 2000
+      }
     ]
   },
   "category": "charts",
@@ -98,6 +116,16 @@
         "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for discrete period comparisons",
         "Check our <a href='/charts/pie-chart'>Pie Chart Generator</a> for composition at single point in time",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare time series data"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/charts\">all chart options</a> to pick the right visual fast.",
+        "Need comparisons? Try the <a href=\"/charts/bar-chart\">Bar Chart</a> for side-by-side categories.",
+        "For timelines, use the <a href=\"/charts/gantt-chart\">Gantt Chart</a> to track phases.",
+        "Map-focused projects can jump to the <a href=\"/charts/usa-map\">USA Map Visualizer</a>."
       ]
     }
   ]

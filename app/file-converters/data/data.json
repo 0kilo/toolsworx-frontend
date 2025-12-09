@@ -67,6 +67,16 @@
         "Check our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to clean CSV data before format conversion",
         "Explore our <a href='/dev-tools/base64'>Base64 Encoder</a> for encoding data for safe transmission"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/file-converters\">all file converters</a> to switch formats quickly.",
+        "Turn bundles around with the <a href=\"/file-converters/archive\">Archive Converter</a> when compressing or extracting.",
+        "Handle sheets via the <a href=\"/file-converters/spreadsheet\">Spreadsheet Converter</a> for CSV/XLSX swaps.",
+        "Move between raw formats using the <a href=\"/file-converters/data\">Data Converter</a>."
+      ]
     }
   ]
 }

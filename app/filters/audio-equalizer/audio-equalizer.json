@@ -18,7 +18,6 @@
         "Helpful presets act as starting points for common use cases like phone calls, acoustic guitars, and livestream speech."
       ]
     },
-
     {
       "title": "Common Questions",
       "content": [
@@ -29,7 +28,6 @@
         "<strong>Q:</strong> How loud should the output be? <strong>A:</strong> Aim for -1dB peaks and consistent LUFS; the built-in safeguards help prevent clipping while you adjust."
       ]
     },
-
     {
       "title": "Frequency Bands",
       "content": [
@@ -40,7 +38,6 @@
         "<strong>16kHz (Treble):</strong> Air, sparkle, cymbals and high harmonics"
       ]
     },
-    
     {
       "title": "EQ Tips",
       "content": [
@@ -51,7 +48,6 @@
         "Trust your ears over visual feedback"
       ]
     },
-    
     {
       "title": "Common Adjustments",
       "content": [
@@ -61,7 +57,6 @@
         "<strong>Mud Removal:</strong> Cut 200-500Hz to clean up muddiness"
       ]
     },
-
     {
       "title": "Pro Tips & Best Practices",
       "content": [
@@ -72,7 +67,6 @@
         "💡 Make subtle, broad boosts when mastering, and leave surgical cuts for mixing stages."
       ]
     },
-
     {
       "title": "When to Use This Tool",
       "content": [
@@ -83,7 +77,6 @@
         "Balancing reference tracks to match tonal targets for playlists, podcasts, or video deliverables."
       ]
     },
-
     {
       "title": "Related Tools",
       "content": [
@@ -91,6 +84,16 @@
         "Use <a href=\"/audio-noise-reduction\">Noise Reduction</a> first to remove hums so you EQ only the clean signal.",
         "Add depth using <a href=\"/audio-reverb\">Reverb Effect</a> once tonal balance feels right.",
         "Create focused low-end with <a href=\"/audio-bass-boost\">Bass Boost</a> instead of broad EQ boosts across the entire spectrum."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
       ]
     }
   ]

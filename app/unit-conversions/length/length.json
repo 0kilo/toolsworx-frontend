@@ -5,21 +5,96 @@
   "category": "unit-conversions",
   "icon": "Ruler",
   "units": [
-    { "value": "micron", "label": "Micron", "abbreviation": "μm", "factor": 0.000001 },
-    { "value": "millimeter", "label": "Millimeter", "abbreviation": "mm", "factor": 0.001 },
-    { "value": "centimeter", "label": "Centimeter", "abbreviation": "cm", "factor": 0.01 },
-    { "value": "inch", "label": "Inch", "abbreviation": "in", "factor": 0.0254 },
-    { "value": "foot", "label": "Foot", "abbreviation": "ft", "factor": 0.3048 },
-    { "value": "yard", "label": "Yard", "abbreviation": "yd", "factor": 0.9144 },
-    { "value": "meter", "label": "Meter", "abbreviation": "m", "factor": 1 },
-    { "value": "kilometer", "label": "Kilometer", "abbreviation": "km", "factor": 1000 },
-    { "value": "mile", "label": "Mile", "abbreviation": "mi", "factor": 1609.344 },
-    { "value": "AU", "label": "Astronomical Unit", "abbreviation": "AU", "factor": 149597870700 },
-    { "value": "ly", "label": "Light Year", "abbreviation": "ly", "factor": 9.4607304725808e15 },
-    { "value": "pc", "label": "Parsec", "abbreviation": "pc", "factor": 3.0856775814913673e16 },
-    { "value": "ls", "label": "Light Second", "abbreviation": "ls", "factor": 299792458 },
-    { "value": "lm", "label": "Light Minute", "abbreviation": "lm", "factor": 17987547480 },
-    { "value": "lh", "label": "Light Hour", "abbreviation": "lh", "factor": 1079252848800 }
+    {
+      "value": "micron",
+      "label": "Micron",
+      "abbreviation": "μm",
+      "factor": 0.000001
+    },
+    {
+      "value": "millimeter",
+      "label": "Millimeter",
+      "abbreviation": "mm",
+      "factor": 0.001
+    },
+    {
+      "value": "centimeter",
+      "label": "Centimeter",
+      "abbreviation": "cm",
+      "factor": 0.01
+    },
+    {
+      "value": "inch",
+      "label": "Inch",
+      "abbreviation": "in",
+      "factor": 0.0254
+    },
+    {
+      "value": "foot",
+      "label": "Foot",
+      "abbreviation": "ft",
+      "factor": 0.3048
+    },
+    {
+      "value": "yard",
+      "label": "Yard",
+      "abbreviation": "yd",
+      "factor": 0.9144
+    },
+    {
+      "value": "meter",
+      "label": "Meter",
+      "abbreviation": "m",
+      "factor": 1
+    },
+    {
+      "value": "kilometer",
+      "label": "Kilometer",
+      "abbreviation": "km",
+      "factor": 1000
+    },
+    {
+      "value": "mile",
+      "label": "Mile",
+      "abbreviation": "mi",
+      "factor": 1609.344
+    },
+    {
+      "value": "AU",
+      "label": "Astronomical Unit",
+      "abbreviation": "AU",
+      "factor": 149597870700
+    },
+    {
+      "value": "ly",
+      "label": "Light Year",
+      "abbreviation": "ly",
+      "factor": 9460730472580800
+    },
+    {
+      "value": "pc",
+      "label": "Parsec",
+      "abbreviation": "pc",
+      "factor": 30856775814913670
+    },
+    {
+      "value": "ls",
+      "label": "Light Second",
+      "abbreviation": "ls",
+      "factor": 299792458
+    },
+    {
+      "value": "lm",
+      "label": "Light Minute",
+      "abbreviation": "lm",
+      "factor": 17987547480
+    },
+    {
+      "value": "lh",
+      "label": "Light Hour",
+      "abbreviation": "lh",
+      "factor": 1079252848800
+    }
   ],
   "baseUnit": "meter",
   "defaultFromUnit": "meter",
@@ -105,6 +180,16 @@
         "Try our <a href='/unit-conversions/volume'>Volume Converter</a> when length conversions are part of 3D volume calculations",
         "Check our <a href='/unit-conversions/speed'>Speed Converter</a> to convert velocities that involve distance per time",
         "Explore our <a href='/calculators/flooring'>Flooring Calculator</a> for practical applications of length conversions in home improvement"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

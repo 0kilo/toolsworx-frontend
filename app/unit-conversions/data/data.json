@@ -5,17 +5,72 @@
   "category": "unit-conversions",
   "icon": "HardDrive",
   "units": [
-    { "value": "bit", "label": "Bit", "abbreviation": "bit", "factor": 1 },
-    { "value": "byte", "label": "Byte", "abbreviation": "B", "factor": 8 },
-    { "value": "KB", "label": "Kilobyte", "abbreviation": "KB", "factor": 8000 },
-    { "value": "MB", "label": "Megabyte", "abbreviation": "MB", "factor": 8000000 },
-    { "value": "GB", "label": "Gigabyte", "abbreviation": "GB", "factor": 8000000000 },
-    { "value": "TB", "label": "Terabyte", "abbreviation": "TB", "factor": 8000000000000 },
-    { "value": "PB", "label": "Petabyte", "abbreviation": "PB", "factor": 8000000000000000 },
-    { "value": "KiB", "label": "Kibibyte", "abbreviation": "KiB", "factor": 8192 },
-    { "value": "MiB", "label": "Mebibyte", "abbreviation": "MiB", "factor": 8388608 },
-    { "value": "GiB", "label": "Gibibyte", "abbreviation": "GiB", "factor": 8589934592 },
-    { "value": "TiB", "label": "Tebibyte", "abbreviation": "TiB", "factor": 8796093022208 }
+    {
+      "value": "bit",
+      "label": "Bit",
+      "abbreviation": "bit",
+      "factor": 1
+    },
+    {
+      "value": "byte",
+      "label": "Byte",
+      "abbreviation": "B",
+      "factor": 8
+    },
+    {
+      "value": "KB",
+      "label": "Kilobyte",
+      "abbreviation": "KB",
+      "factor": 8000
+    },
+    {
+      "value": "MB",
+      "label": "Megabyte",
+      "abbreviation": "MB",
+      "factor": 8000000
+    },
+    {
+      "value": "GB",
+      "label": "Gigabyte",
+      "abbreviation": "GB",
+      "factor": 8000000000
+    },
+    {
+      "value": "TB",
+      "label": "Terabyte",
+      "abbreviation": "TB",
+      "factor": 8000000000000
+    },
+    {
+      "value": "PB",
+      "label": "Petabyte",
+      "abbreviation": "PB",
+      "factor": 8000000000000000
+    },
+    {
+      "value": "KiB",
+      "label": "Kibibyte",
+      "abbreviation": "KiB",
+      "factor": 8192
+    },
+    {
+      "value": "MiB",
+      "label": "Mebibyte",
+      "abbreviation": "MiB",
+      "factor": 8388608
+    },
+    {
+      "value": "GiB",
+      "label": "Gibibyte",
+      "abbreviation": "GiB",
+      "factor": 8589934592
+    },
+    {
+      "value": "TiB",
+      "label": "Tebibyte",
+      "abbreviation": "TiB",
+      "factor": 8796093022208
+    }
   ],
   "baseUnit": "bit",
   "defaultFromUnit": "MB",
@@ -97,6 +152,16 @@
         "Working with internet speeds? Try our <a href='/calculators/download-time-calculator'>Download Time Calculator</a> to estimate file transfer durations accurately.",
         "Managing cloud storage? Check our <a href='/calculators/storage-cost-calculator'>Storage Cost Calculator</a> to compare pricing across different cloud providers.",
         "Need file compression? Our <a href='/file-converters/compress'>File Compressor</a> helps reduce file sizes for faster transfers and efficient storage."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

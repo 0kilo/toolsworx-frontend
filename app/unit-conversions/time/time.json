@@ -5,16 +5,66 @@
   "category": "unit-conversions",
   "icon": "Clock",
   "units": [
-    { "value": "nanosecond", "label": "Nanosecond", "abbreviation": "ns", "factor": 0.000000001 },
-    { "value": "microsecond", "label": "Microsecond", "abbreviation": "μs", "factor": 0.000001 },
-    { "value": "millisecond", "label": "Millisecond", "abbreviation": "ms", "factor": 0.001 },
-    { "value": "second", "label": "Second", "abbreviation": "s", "factor": 1 },
-    { "value": "minute", "label": "Minute", "abbreviation": "min", "factor": 60 },
-    { "value": "hour", "label": "Hour", "abbreviation": "h", "factor": 3600 },
-    { "value": "day", "label": "Day", "abbreviation": "d", "factor": 86400 },
-    { "value": "week", "label": "Week", "abbreviation": "wk", "factor": 604800 },
-    { "value": "month", "label": "Month (30 days)", "abbreviation": "mo", "factor": 2592000 },
-    { "value": "year", "label": "Year (365 days)", "abbreviation": "yr", "factor": 31536000 }
+    {
+      "value": "nanosecond",
+      "label": "Nanosecond",
+      "abbreviation": "ns",
+      "factor": 1e-9
+    },
+    {
+      "value": "microsecond",
+      "label": "Microsecond",
+      "abbreviation": "μs",
+      "factor": 0.000001
+    },
+    {
+      "value": "millisecond",
+      "label": "Millisecond",
+      "abbreviation": "ms",
+      "factor": 0.001
+    },
+    {
+      "value": "second",
+      "label": "Second",
+      "abbreviation": "s",
+      "factor": 1
+    },
+    {
+      "value": "minute",
+      "label": "Minute",
+      "abbreviation": "min",
+      "factor": 60
+    },
+    {
+      "value": "hour",
+      "label": "Hour",
+      "abbreviation": "h",
+      "factor": 3600
+    },
+    {
+      "value": "day",
+      "label": "Day",
+      "abbreviation": "d",
+      "factor": 86400
+    },
+    {
+      "value": "week",
+      "label": "Week",
+      "abbreviation": "wk",
+      "factor": 604800
+    },
+    {
+      "value": "month",
+      "label": "Month (30 days)",
+      "abbreviation": "mo",
+      "factor": 2592000
+    },
+    {
+      "value": "year",
+      "label": "Year (365 days)",
+      "abbreviation": "yr",
+      "factor": 31536000
+    }
   ],
   "baseUnit": "second",
   "defaultFromUnit": "hour",
@@ -96,6 +146,16 @@
         "Converting speeds involving time? Use our <a href='/unit-conversions/speed'>Speed Converter</a> to work with meters per second, kilometers per hour, and other velocity units.",
         "Planning international projects? Check our <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a> to coordinate across different regions and calculate time differences.",
         "Working with scientific data? Our <a href='/unit-conversions/frequency'>Frequency Converter</a> helps convert between Hertz and related time-based measurements."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

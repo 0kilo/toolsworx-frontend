@@ -19,7 +19,6 @@
         "✓ Balances noise removal with dynamic preservation, so music beds and ambient textures stay natural instead of lifeless, maintaining authentic environmental character while reducing distractions."
       ]
     },
-
     {
       "title": "Common Questions",
       "content": [
@@ -30,7 +29,6 @@
         "<strong>Q:</strong> Does it handle wind noise? <strong>A:</strong> Mild wind can be reduced; for heavy wind, use low-cut filtering and foam covers during recording."
       ]
     },
-
     {
       "title": "What It Removes",
       "content": [
@@ -41,7 +39,6 @@
         "Room tone and ambient noise"
       ]
     },
-    
     {
       "title": "Best Practices",
       "content": [
@@ -52,7 +49,6 @@
         "Consider the trade-off between noise removal and audio quality"
       ]
     },
-
     {
       "title": "Pro Tips & Best Practices",
       "content": [
@@ -63,7 +59,6 @@
         "💡 After cleaning, normalize levels to -1dB and check LUFS so podcasts meet platform loudness recommendations."
       ]
     },
-
     {
       "title": "When to Use This Tool",
       "content": [
@@ -74,7 +69,6 @@
         "Voiceover artists preparing auditions recorded in untreated rooms, ensuring crisp delivery for casting directors."
       ]
     },
-
     {
       "title": "Related Tools",
       "content": [
@@ -82,6 +76,16 @@
         "Use <a href=\"/audio-normalize\">Normalize Audio</a> to balance loudness once the noise floor is under control.",
         "Add depth using <a href=\"/audio-reverb\">Reverb Effect</a> if the cleaned audio feels too dry or clinical.",
         "Pair with <a href=\"/audio-echo\">Echo Effect</a> for creative throws while keeping the original signal clean."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
       ]
     }
   ]

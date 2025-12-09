@@ -5,13 +5,48 @@
   "category": "unit-conversions",
   "icon": "Gauge",
   "units": [
-    { "value": "mps", "label": "Meters per Second", "abbreviation": "m/s", "factor": 1 },
-    { "value": "kph", "label": "Kilometers per Hour", "abbreviation": "km/h", "factor": 0.277778 },
-    { "value": "mph", "label": "Miles per Hour", "abbreviation": "mph", "factor": 0.44704 },
-    { "value": "fps", "label": "Feet per Second", "abbreviation": "ft/s", "factor": 0.3048 },
-    { "value": "knots", "label": "Knots", "abbreviation": "kn", "factor": 0.514444 },
-    { "value": "mach", "label": "Mach (at sea level)", "abbreviation": "Ma", "factor": 343 },
-    { "value": "c", "label": "Speed of Light", "abbreviation": "c", "factor": 299792458 }
+    {
+      "value": "mps",
+      "label": "Meters per Second",
+      "abbreviation": "m/s",
+      "factor": 1
+    },
+    {
+      "value": "kph",
+      "label": "Kilometers per Hour",
+      "abbreviation": "km/h",
+      "factor": 0.277778
+    },
+    {
+      "value": "mph",
+      "label": "Miles per Hour",
+      "abbreviation": "mph",
+      "factor": 0.44704
+    },
+    {
+      "value": "fps",
+      "label": "Feet per Second",
+      "abbreviation": "ft/s",
+      "factor": 0.3048
+    },
+    {
+      "value": "knots",
+      "label": "Knots",
+      "abbreviation": "kn",
+      "factor": 0.514444
+    },
+    {
+      "value": "mach",
+      "label": "Mach (at sea level)",
+      "abbreviation": "Ma",
+      "factor": 343
+    },
+    {
+      "value": "c",
+      "label": "Speed of Light",
+      "abbreviation": "c",
+      "factor": 299792458
+    }
   ],
   "baseUnit": "mps",
   "defaultFromUnit": "mph",
@@ -93,6 +128,16 @@
         "Working with acceleration? Check the <a href='/unit-conversions/acceleration'>Acceleration Converter</a> to handle changes in velocity over time for physics and engineering applications.",
         "Planning travel times? Use our <a href='/calculators/travel-time-calculator'>Travel Time Calculator</a> to estimate journey durations based on speed and distance.",
         "Converting fuel efficiency? Try our <a href='/unit-conversions/fuel-economy'>Fuel Economy Converter</a> to switch between MPG, L/100km, and other efficiency units."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

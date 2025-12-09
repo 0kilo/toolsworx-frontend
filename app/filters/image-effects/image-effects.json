@@ -88,6 +88,16 @@
         "Check our <a href='/media-converters/video'>Video Converter</a> to apply similar effects to video thumbnails",
         "Explore our <a href='/file-converters/documents'>Document Converter</a> to embed filtered images in documents"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
+      ]
     }
   ]
 }

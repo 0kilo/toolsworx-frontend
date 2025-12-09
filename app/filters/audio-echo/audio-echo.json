@@ -18,7 +18,6 @@
         "All processing happens locally in the browser, keeping voice notes, interviews, and mixes private and secure."
       ]
     },
-
     {
       "title": "Common Questions",
       "content": [
@@ -29,7 +28,6 @@
         "<strong>Q:</strong> How is echo different from reverb? <strong>A:</strong> Echo gives distinct repeats, while reverb creates a continuous tail; combine both for depth and clarity."
       ]
     },
-
     {
       "title": "Echo Parameters",
       "content": [
@@ -39,7 +37,6 @@
         "<strong>Mix Level:</strong> Balance between dry and wet signal"
       ]
     },
-    
     {
       "title": "Creative Uses",
       "content": [
@@ -50,7 +47,6 @@
         "Dub Music: Essential for reggae and dub production"
       ]
     },
-
     {
       "title": "Pro Tips & Best Practices",
       "content": [
@@ -61,7 +57,6 @@
         "💡 For podcasts, use under 15% wet mix and under 150ms delay to add room feel without distracting listeners."
       ]
     },
-
     {
       "title": "When to Use This Tool",
       "content": [
@@ -72,7 +67,6 @@
         "Electronic producers designing rhythmic feedback swells and ping-pong textures that move with the beat."
       ]
     },
-
     {
       "title": "Related Tools",
       "content": [
@@ -80,6 +74,16 @@
         "Pair with <a href=\"/audio-equalizer\">Audio Equalizer</a> to shape repeats, cutting harsh highs or muddy lows.",
         "Clean up noisy recordings first with <a href=\"/audio-noise-reduction\">Noise Reduction</a> so echoes emphasize the main signal.",
         "Finish with <a href=\"/audio-normalize\">Normalize Audio</a> to keep echo-enhanced tracks within streaming loudness targets."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
       ]
     }
   ]

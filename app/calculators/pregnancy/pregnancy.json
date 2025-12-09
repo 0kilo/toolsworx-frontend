@@ -97,6 +97,16 @@
         "Check our <a href='/unit-conversions/mass'>Weight Converter</a> to convert pregnancy weight gain between pounds and kilograms when using different scales or international guidelines",
         "Explore our <a href='/calculators/bmi'>BMI Calculator</a> to assess pre-pregnancy BMI which determines recommended pregnancy weight gain (25-35 lbs for normal BMI)"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
+      ]
     }
   ]
 }

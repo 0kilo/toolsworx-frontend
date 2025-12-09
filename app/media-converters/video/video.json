@@ -74,6 +74,16 @@
         "Check our <a href='/file-converters/data'>Data Format Converter</a> for converting video metadata and subtitle files",
         "Explore our <a href='/filters/video-effects'>Video Effects</a> to enhance video before converting to final format"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/media-converters\">all media converters</a> for images, audio, and video in one spot.",
+        "Compress or resize visuals with the <a href=\"/media-converters/image\">Image Converter</a>.",
+        "Reformat sound with the <a href=\"/media-converters/audio\">Audio Converter</a> before filtering.",
+        "Prep footage via the <a href=\"/media-converters/video\">Video Converter</a> for editing or sharing."
+      ]
     }
   ]
 }

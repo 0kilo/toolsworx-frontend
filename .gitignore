@@ -38,3 +38,4 @@ info.txt
 amplifyconfiguration*
 amplify_outputs.json
 public/amplify_outputs.json
+.env

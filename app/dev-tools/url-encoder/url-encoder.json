@@ -81,6 +81,16 @@
         "Check our <a href='/dev-tools/hash-generator'>Hash Generator</a> to create URL-safe hashes for API signatures or data integrity checks",
         "Explore our <a href='/dev-tools/jwt-decoder'>JWT Decoder</a> to decode authentication tokens that might be passed in URL parameters"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Hop to <a href=\"/dev-tools\">all developer tools</a> for formatting, encoding, and validation in one place.",
+        "Sanity-check payloads with the <a href=\"/dev-tools/json-validator\">JSON Validator</a> before shipping APIs.",
+        "Compress responses with the <a href=\"/dev-tools/json-minifier\">JSON Minifier</a> for payload savings.",
+        "Switch encodings quickly using the <a href=\"/dev-tools/base64\">Base64 Encoder/Decoder</a>."
+      ]
     }
   ]
 }

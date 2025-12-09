@@ -72,6 +72,16 @@
         "Check our <a href='/dev-tools/json-formatter'>JSON Formatter</a> to format JSON with camelCase keys following JavaScript conventions",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to format CSV data with consistent column name casing"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Hop to <a href=\"/dev-tools\">all developer tools</a> for formatting, encoding, and validation in one place.",
+        "Sanity-check payloads with the <a href=\"/dev-tools/json-validator\">JSON Validator</a> before shipping APIs.",
+        "Compress responses with the <a href=\"/dev-tools/json-minifier\">JSON Minifier</a> for payload savings.",
+        "Switch encodings quickly using the <a href=\"/dev-tools/base64\">Base64 Encoder/Decoder</a>."
+      ]
     }
   ]
 }

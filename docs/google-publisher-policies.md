@@ -1,3 +1,4 @@
+## Policy Violations
 Minimum content requirements
 Make sure your site has unique high quality content and a good user experience
 Webmaster quality guidelines for thin content

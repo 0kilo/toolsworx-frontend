@@ -10,16 +10,46 @@
   "exampleData": {
     "title": "Population by State (millions)",
     "data": [
-      { "state": "California", "value": 39.5 },
-      { "state": "Texas", "value": 29.1 },
-      { "state": "Florida", "value": 21.5 },
-      { "state": "New York", "value": 19.8 },
-      { "state": "Pennsylvania", "value": 13.0 },
-      { "state": "Illinois", "value": 12.8 },
-      { "state": "Ohio", "value": 11.8 },
-      { "state": "Georgia", "value": 10.7 },
-      { "state": "North Carolina", "value": 10.4 },
-      { "state": "Michigan", "value": 10.0 }
+      {
+        "state": "California",
+        "value": 39.5
+      },
+      {
+        "state": "Texas",
+        "value": 29.1
+      },
+      {
+        "state": "Florida",
+        "value": 21.5
+      },
+      {
+        "state": "New York",
+        "value": 19.8
+      },
+      {
+        "state": "Pennsylvania",
+        "value": 13
+      },
+      {
+        "state": "Illinois",
+        "value": 12.8
+      },
+      {
+        "state": "Ohio",
+        "value": 11.8
+      },
+      {
+        "state": "Georgia",
+        "value": 10.7
+      },
+      {
+        "state": "North Carolina",
+        "value": 10.4
+      },
+      {
+        "state": "Michigan",
+        "value": 10
+      }
     ]
   },
   "category": "charts",
@@ -100,6 +130,16 @@
         "Use our <a href='/charts/pie-chart'>Pie Chart Generator</a> for showing regional proportions as parts of whole",
         "Check our <a href='/charts/scatter-chart'>Scatter Chart</a> for exploring correlations between state-level variables",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare state-level data for map visualization"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/charts\">all chart options</a> to pick the right visual fast.",
+        "Need comparisons? Try the <a href=\"/charts/bar-chart\">Bar Chart</a> for side-by-side categories.",
+        "For timelines, use the <a href=\"/charts/gantt-chart\">Gantt Chart</a> to track phases.",
+        "Map-focused projects can jump to the <a href=\"/charts/usa-map\">USA Map Visualizer</a>."
       ]
     }
   ]

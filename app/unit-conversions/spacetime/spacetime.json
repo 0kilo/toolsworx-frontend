@@ -83,6 +83,16 @@
         "Need time conversions? Check our <a href='/unit-conversions/time'>Time Converter</a> for converting between seconds, years, and other time units for proper time calculations.",
         "Studying electromagnetic phenomena? Our <a href='/calculators/electromagnetic-calculator'>Electromagnetic Calculator</a> handles Maxwell's equations in relativistic contexts."
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
+      ]
     }
   ]
 }

@@ -165,6 +165,16 @@
         "Check our <a href='/unit-conversions/currency'>Currency Converter</a> if you're comparing international property investments or loans in different currencies",
         "Explore our <a href='/calculators/bmi'>BMI Calculator</a> - wait, that's unrelated, but use our <a href='/calculators/date-calculator'>Date Calculator</a> to plan loan payment schedules or calculate days until loan payoff"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
+      ]
     }
   ]
 }

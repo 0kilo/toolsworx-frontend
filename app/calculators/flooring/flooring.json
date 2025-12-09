@@ -26,9 +26,18 @@
       "label": "Waste Factor",
       "type": "select",
       "options": [
-        { "value": "5", "label": "5% (Standard)" },
-        { "value": "10", "label": "10% (Diagonal/Pattern)" },
-        { "value": "15", "label": "15% (Complex Layout)" }
+        {
+          "value": "5",
+          "label": "5% (Standard)"
+        },
+        {
+          "value": "10",
+          "label": "10% (Diagonal/Pattern)"
+        },
+        {
+          "value": "15",
+          "label": "15% (Complex Layout)"
+        }
       ],
       "required": true
     }
@@ -104,6 +113,16 @@
         "Use our <a href='/unit-conversions/area'>Area Converter</a> to convert between square feet, square meters, and square yards when using international flooring specs",
         "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate flooring discounts, cost per square foot comparisons, or markup percentages for resale",
         "Explore our <a href='/unit-conversions/length'>Length Converter</a> to convert between feet, meters, and inches when measuring rooms with metric tape measures"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
       ]
     }
   ]

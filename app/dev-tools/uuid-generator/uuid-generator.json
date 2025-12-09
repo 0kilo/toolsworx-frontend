@@ -88,6 +88,16 @@
         "Check our <a href='/dev-tools/base64'>Base64 Encoder</a> to encode UUIDs for shorter representations in URLs (36 chars → ~22 chars)",
         "Explore our <a href='/dev-tools/timestamp'>Timestamp Converter</a> to convert between Unix timestamps and dates (useful with UUIDv1 timestamps)"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Hop to <a href=\"/dev-tools\">all developer tools</a> for formatting, encoding, and validation in one place.",
+        "Sanity-check payloads with the <a href=\"/dev-tools/json-validator\">JSON Validator</a> before shipping APIs.",
+        "Compress responses with the <a href=\"/dev-tools/json-minifier\">JSON Minifier</a> for payload savings.",
+        "Switch encodings quickly using the <a href=\"/dev-tools/base64\">Base64 Encoder/Decoder</a>."
+      ]
     }
   ]
 }

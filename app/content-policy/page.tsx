@@ -12,7 +12,7 @@ export default function ContentPolicyPage() {
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">Content Policy</h1>
         <p className="text-muted-foreground">
-          Guidelines for acceptable content and usage
+          Guidelines for acceptable content and usage. Last updated: 2025-12-08.
         </p>
       </div>
 
@@ -24,13 +24,13 @@ export default function ContentPolicyPage() {
           <CardContent className="prose prose-sm max-w-none">
             <p>The following types of content are strictly prohibited:</p>
             <ul>
-              <li>Copyrighted material without proper authorization</li>
-              <li>Adult content, pornography, or sexually explicit material</li>
-              <li>Violence, hate speech, or discriminatory content</li>
-              <li>Illegal content or content promoting illegal activities</li>
-              <li>Malware, viruses, or malicious code</li>
-              <li>Personal information of others without consent</li>
-              <li>Spam or misleading content</li>
+              <li>Illegal activity or content that promotes it</li>
+              <li>Adult, violent, hateful, or harassing content</li>
+              <li>Malware, viruses, or attempts to gain unauthorized access</li>
+              <li>Misleading, deceptive, or impersonation content</li>
+              <li>Copyrighted material without authorization; counterfeit goods</li>
+              <li>Personal data of others without consent</li>
+              <li>Content that enables cheating, hacking, or bypassing security</li>
             </ul>
           </CardContent>
         </Card>
@@ -40,12 +40,11 @@ export default function ContentPolicyPage() {
             <CardTitle>Acceptable Use</CardTitle>
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
-            <p>Our tools are designed for legitimate conversion needs:</p>
+            <p>Use these tools for lawful purposes only:</p>
             <ul>
-              <li>Personal documents and files</li>
-              <li>Educational materials</li>
-              <li>Business documents (with proper rights)</li>
-              <li>Creative content you own or have permission to use</li>
+              <li>Personal, educational, or business documents you have rights to</li>
+              <li>Media and data you own or have permission to process</li>
+              <li>Non-sensitive content; avoid uploading secrets, PII, or regulated data</li>
             </ul>
           </CardContent>
         </Card>
@@ -56,8 +55,7 @@ export default function ContentPolicyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none">
             <p>
-              We reserve the right to refuse service, terminate access, or report violations to appropriate authorities.
-              Users are responsible for ensuring their content complies with all applicable laws and regulations.
+              We may refuse service, remove content, or terminate access for violations. Serious abuse may be reported to authorities. Please report policy issues via our <a href="/contact" className="underline">contact form</a>.
             </p>
           </CardContent>
         </Card>

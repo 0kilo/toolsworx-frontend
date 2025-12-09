@@ -5,16 +5,66 @@
   "category": "unit-conversions",
   "icon": "Square",
   "units": [
-    { "value": "sqmm", "label": "Square Millimeter", "abbreviation": "mm²", "factor": 0.000001 },
-    { "value": "sqcm", "label": "Square Centimeter", "abbreviation": "cm²", "factor": 0.0001 },
-    { "value": "sqin", "label": "Square Inch", "abbreviation": "in²", "factor": 0.00064516 },
-    { "value": "sqft", "label": "Square Foot", "abbreviation": "ft²", "factor": 0.092903 },
-    { "value": "sqyd", "label": "Square Yard", "abbreviation": "yd²", "factor": 0.836127 },
-    { "value": "sqm", "label": "Square Meter", "abbreviation": "m²", "factor": 1 },
-    { "value": "acre", "label": "Acre", "abbreviation": "ac", "factor": 4046.86 },
-    { "value": "hectare", "label": "Hectare", "abbreviation": "ha", "factor": 10000 },
-    { "value": "sqkm", "label": "Square Kilometer", "abbreviation": "km²", "factor": 1000000 },
-    { "value": "sqmi", "label": "Square Mile", "abbreviation": "mi²", "factor": 2589988 }
+    {
+      "value": "sqmm",
+      "label": "Square Millimeter",
+      "abbreviation": "mm²",
+      "factor": 0.000001
+    },
+    {
+      "value": "sqcm",
+      "label": "Square Centimeter",
+      "abbreviation": "cm²",
+      "factor": 0.0001
+    },
+    {
+      "value": "sqin",
+      "label": "Square Inch",
+      "abbreviation": "in²",
+      "factor": 0.00064516
+    },
+    {
+      "value": "sqft",
+      "label": "Square Foot",
+      "abbreviation": "ft²",
+      "factor": 0.092903
+    },
+    {
+      "value": "sqyd",
+      "label": "Square Yard",
+      "abbreviation": "yd²",
+      "factor": 0.836127
+    },
+    {
+      "value": "sqm",
+      "label": "Square Meter",
+      "abbreviation": "m²",
+      "factor": 1
+    },
+    {
+      "value": "acre",
+      "label": "Acre",
+      "abbreviation": "ac",
+      "factor": 4046.86
+    },
+    {
+      "value": "hectare",
+      "label": "Hectare",
+      "abbreviation": "ha",
+      "factor": 10000
+    },
+    {
+      "value": "sqkm",
+      "label": "Square Kilometer",
+      "abbreviation": "km²",
+      "factor": 1000000
+    },
+    {
+      "value": "sqmi",
+      "label": "Square Mile",
+      "abbreviation": "mi²",
+      "factor": 2589988
+    }
   ],
   "baseUnit": "sqm",
   "defaultFromUnit": "sqft",
@@ -96,6 +146,16 @@
         "Working with volumes? Check our <a href='/unit-conversions/volume'>Volume Converter</a> for cubic measurements, liters, gallons, and container capacities.",
         "Need to calculate material costs? Try our <a href='/calculators/material-cost-calculator'>Material Cost Calculator</a> for budgeting construction and renovation projects.",
         "Planning garden spaces? Our <a href='/calculators/garden-planner'>Garden Planner</a> helps calculate planting areas and spacing requirements."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

@@ -10,11 +10,36 @@
   "exampleData": {
     "title": "Sales vs Marketing Spend",
     "data": [
-      { "x": 100, "y": 200, "label": "Q1", "color": "#3b82f6" },
-      { "x": 150, "y": 300, "label": "Q2", "color": "#10b981" },
-      { "x": 200, "y": 450, "label": "Q3", "color": "#f59e0b" },
-      { "x": 250, "y": 500, "label": "Q4", "color": "#ef4444" },
-      { "x": 180, "y": 380, "label": "Q5", "color": "#8b5cf6" }
+      {
+        "x": 100,
+        "y": 200,
+        "label": "Q1",
+        "color": "#3b82f6"
+      },
+      {
+        "x": 150,
+        "y": 300,
+        "label": "Q2",
+        "color": "#10b981"
+      },
+      {
+        "x": 200,
+        "y": 450,
+        "label": "Q3",
+        "color": "#f59e0b"
+      },
+      {
+        "x": 250,
+        "y": 500,
+        "label": "Q4",
+        "color": "#ef4444"
+      },
+      {
+        "x": 180,
+        "y": 380,
+        "label": "Q5",
+        "color": "#8b5cf6"
+      }
     ]
   },
   "category": "charts",
@@ -95,6 +120,16 @@
         "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for categorical comparisons",
         "Check our <a href='/charts/area-chart'>Area Chart</a> for cumulative totals over time",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare bivariate data"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/charts\">all chart options</a> to pick the right visual fast.",
+        "Need comparisons? Try the <a href=\"/charts/bar-chart\">Bar Chart</a> for side-by-side categories.",
+        "For timelines, use the <a href=\"/charts/gantt-chart\">Gantt Chart</a> to track phases.",
+        "Map-focused projects can jump to the <a href=\"/charts/usa-map\">USA Map Visualizer</a>."
       ]
     }
   ]

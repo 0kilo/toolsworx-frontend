@@ -35,6 +35,9 @@ export default function HomePage() {
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
           Convert documents, images, videos, and units instantly. Fast, secure, and completely free.
         </p>
+        <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
+          Built by a tinkerer with a math and CS background who wanted one home for trusted tools. <Link href="/about" className="underline underline-offset-4">Learn more about Tools Worx</Link>.
+        </p>
 
         {/* Search Bar */}
         <div className="max-w-2xl mx-auto relative">
@@ -131,21 +134,22 @@ export default function HomePage() {
             })}
           </section>
 
-          {/* About Section */}
-          <section id="about" className="mb-16">
-            <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-              <CardContent className="p-8">
-                <h2 className="text-3xl font-bold mb-4">About Our Conversion Tools</h2>
-                <p className="text-lg text-muted-foreground mb-6">
-                  We provide fast, accurate, and completely free conversion tools for all your needs.
-                  Whether you need to convert documents, images, videos, or units of measurement,
-                  we&apos;ve got you covered.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 text-primary">✓</div>
-                    <div>
-                      <h4 className="font-semibold mb-1">100% Free</h4>
+      {/* About Section */}
+      <section id="about" className="mb-16">
+        <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+          <CardContent className="p-8">
+            <h2 className="text-3xl font-bold mb-4">About Our Conversion Tools</h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              We provide fast, and completely free conversion tools for all your needs.
+              Whether you need to convert documents, images, videos, or units of measurement,
+              we&apos;ve got you covered. Built by a tinkerer with a math and CS background who
+              needed one trusted place for these utilities and chose to share them.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 text-primary">✓</div>
+                <div>
+                  <h4 className="font-semibold mb-1">100% Free</h4>
                       <p className="text-sm text-muted-foreground">
                         No registration or payment required
                       </p>
@@ -169,19 +173,24 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 text-primary">✓</div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Mobile Friendly</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Works perfectly on all devices
-                      </p>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 text-primary">✓</div>
+                <div>
+                  <h4 className="font-semibold mb-1">Mobile Friendly</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Works perfectly on all devices
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
-          </section>
+              </div>
+            </div>
+            <div className="mt-6">
+              <Link href="/about" className="underline underline-offset-4 font-semibold text-primary">
+                Read the story behind Tools Worx
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
         </>
       )}
     </div>

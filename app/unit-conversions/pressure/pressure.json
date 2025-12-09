@@ -5,14 +5,54 @@
   "category": "unit-conversions",
   "icon": "Gauge",
   "units": [
-    { "value": "Pa", "label": "Pascal", "abbreviation": "Pa", "factor": 1 },
-    { "value": "kPa", "label": "Kilopascal", "abbreviation": "kPa", "factor": 1000 },
-    { "value": "MPa", "label": "Megapascal", "abbreviation": "MPa", "factor": 1000000 },
-    { "value": "bar", "label": "Bar", "abbreviation": "bar", "factor": 100000 },
-    { "value": "atm", "label": "Atmosphere", "abbreviation": "atm", "factor": 101325 },
-    { "value": "psi", "label": "Pounds per Square Inch", "abbreviation": "psi", "factor": 6894.76 },
-    { "value": "torr", "label": "Torr", "abbreviation": "torr", "factor": 133.322 },
-    { "value": "mmHg", "label": "Millimeters of Mercury", "abbreviation": "mmHg", "factor": 133.322 }
+    {
+      "value": "Pa",
+      "label": "Pascal",
+      "abbreviation": "Pa",
+      "factor": 1
+    },
+    {
+      "value": "kPa",
+      "label": "Kilopascal",
+      "abbreviation": "kPa",
+      "factor": 1000
+    },
+    {
+      "value": "MPa",
+      "label": "Megapascal",
+      "abbreviation": "MPa",
+      "factor": 1000000
+    },
+    {
+      "value": "bar",
+      "label": "Bar",
+      "abbreviation": "bar",
+      "factor": 100000
+    },
+    {
+      "value": "atm",
+      "label": "Atmosphere",
+      "abbreviation": "atm",
+      "factor": 101325
+    },
+    {
+      "value": "psi",
+      "label": "Pounds per Square Inch",
+      "abbreviation": "psi",
+      "factor": 6894.76
+    },
+    {
+      "value": "torr",
+      "label": "Torr",
+      "abbreviation": "torr",
+      "factor": 133.322
+    },
+    {
+      "value": "mmHg",
+      "label": "Millimeters of Mercury",
+      "abbreviation": "mmHg",
+      "factor": 133.322
+    }
   ],
   "baseUnit": "Pa",
   "defaultFromUnit": "Pa",
@@ -94,6 +134,16 @@
         "Calculating forces? Try our <a href='/unit-conversions/force'>Force Converter</a> to work with Newtons, pounds-force, and other force units.",
         "Need altitude conversions? Check our <a href='/calculators/altitude-calculator'>Altitude Calculator</a> for pressure-altitude relationships and aviation calculations.",
         "Measuring flow rates? Use our <a href='/unit-conversions/flow-rate'>Flow Rate Converter</a> for liters per minute, CFM, and volumetric flow calculations."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

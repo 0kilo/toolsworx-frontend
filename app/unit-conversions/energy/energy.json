@@ -5,18 +5,66 @@
   "category": "unit-conversions",
   "icon": "Zap",
   "units": [
-    { "value": "J", "label": "Joules", "abbreviation": "J" },
-    { "value": "kJ", "label": "Kilojoules", "abbreviation": "kJ" },
-    { "value": "cal", "label": "Calories", "abbreviation": "cal" },
-    { "value": "kcal", "label": "Kilocalories", "abbreviation": "kcal" },
-    { "value": "Wh", "label": "Watt Hours", "abbreviation": "Wh" },
-    { "value": "kWh", "label": "Kilowatt Hours", "abbreviation": "kWh" },
-    { "value": "BTU", "label": "British Thermal Units", "abbreviation": "BTU" },
-    { "value": "eV", "label": "Electron Volts", "abbreviation": "eV" },
-    { "value": "keV", "label": "Kiloelectron Volts", "abbreviation": "keV" },
-    { "value": "MeV", "label": "Megaelectron Volts", "abbreviation": "MeV" },
-    { "value": "GeV", "label": "Gigaelectron Volts", "abbreviation": "GeV" },
-    { "value": "ft-lbf", "label": "Foot-Pounds Force", "abbreviation": "ft·lbf" }
+    {
+      "value": "J",
+      "label": "Joules",
+      "abbreviation": "J"
+    },
+    {
+      "value": "kJ",
+      "label": "Kilojoules",
+      "abbreviation": "kJ"
+    },
+    {
+      "value": "cal",
+      "label": "Calories",
+      "abbreviation": "cal"
+    },
+    {
+      "value": "kcal",
+      "label": "Kilocalories",
+      "abbreviation": "kcal"
+    },
+    {
+      "value": "Wh",
+      "label": "Watt Hours",
+      "abbreviation": "Wh"
+    },
+    {
+      "value": "kWh",
+      "label": "Kilowatt Hours",
+      "abbreviation": "kWh"
+    },
+    {
+      "value": "BTU",
+      "label": "British Thermal Units",
+      "abbreviation": "BTU"
+    },
+    {
+      "value": "eV",
+      "label": "Electron Volts",
+      "abbreviation": "eV"
+    },
+    {
+      "value": "keV",
+      "label": "Kiloelectron Volts",
+      "abbreviation": "keV"
+    },
+    {
+      "value": "MeV",
+      "label": "Megaelectron Volts",
+      "abbreviation": "MeV"
+    },
+    {
+      "value": "GeV",
+      "label": "Gigaelectron Volts",
+      "abbreviation": "GeV"
+    },
+    {
+      "value": "ft-lbf",
+      "label": "Foot-Pounds Force",
+      "abbreviation": "ft·lbf"
+    }
   ],
   "defaultFromUnit": "J",
   "defaultToUnit": "cal",
@@ -100,6 +148,16 @@
         "Calculating thermal efficiency? Check our <a href='/unit-conversions/temperature'>Temperature Converter</a> for Celsius, Fahrenheit, and Kelvin conversions.",
         "Planning solar installations? Try our <a href='/calculators/solar-panel-calculator'>Solar Panel Calculator</a> to estimate energy production and savings.",
         "Monitoring fitness goals? Our <a href='/calculators/calorie-calculator'>Calorie Calculator</a> helps determine daily energy needs based on activity level."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Need another measurement? <a href=\"/unit-conversions/length\">Length Converter</a> handles meters, miles, and feet.",
+        "Planning data/file work? Jump to <a href=\"/unit-conversions/data\">Data Size Converter</a> for bytes through gigabytes.",
+        "Check rates with the <a href=\"/unit-conversions/currency\">Currency Converter</a> before quotes or invoices.",
+        "Browse <a href=\"/unit-conversions\">all unit converters</a> for quick category switching on mobile."
       ]
     }
   ]

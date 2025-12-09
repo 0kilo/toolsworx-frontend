@@ -74,6 +74,16 @@
         "Check our <a href='/file-converters/documents'>Document Converter</a> for converting images embedded in documents",
         "Explore our <a href='/dev-tools/image-optimizer'>Image Optimizer</a> to further compress images after format conversion"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/media-converters\">all media converters</a> for images, audio, and video in one spot.",
+        "Compress or resize visuals with the <a href=\"/media-converters/image\">Image Converter</a>.",
+        "Reformat sound with the <a href=\"/media-converters/audio\">Audio Converter</a> before filtering.",
+        "Prep footage via the <a href=\"/media-converters/video\">Video Converter</a> for editing or sharing."
+      ]
     }
   ]
 }

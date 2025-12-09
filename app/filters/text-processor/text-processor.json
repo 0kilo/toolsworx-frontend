@@ -104,6 +104,16 @@
         "Check our <a href='/file-converters/data'>Data Format Converter</a> to convert between JSON, XML, YAML, CSV formats",
         "Explore our <a href='/dev-tools/regex-tester'>Regex Tester</a> for custom text pattern extraction and validation"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
+      ]
     }
   ]
 }

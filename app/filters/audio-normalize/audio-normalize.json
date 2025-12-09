@@ -18,7 +18,6 @@
         "Ideal for creators batching many files; you can normalize intros, ads, and full episodes with the same trusted settings."
       ]
     },
-
     {
       "title": "Common Questions",
       "content": [
@@ -29,7 +28,6 @@
         "<strong>Q:</strong> Can I batch multiple files? <strong>A:</strong> Yes, apply the same target loudness to intros, interviews, and ads to keep episodes cohesive."
       ]
     },
-
     {
       "title": "What Normalization Does",
       "content": [
@@ -59,7 +57,6 @@
         "<strong>YouTube:</strong> -14 LUFS target level"
       ]
     },
-
     {
       "title": "Pro Tips & Best Practices",
       "content": [
@@ -70,7 +67,6 @@
         "💡 Keep a reference playlist at target LUFS to compare tone and loudness before publishing."
       ]
     },
-
     {
       "title": "When to Use This Tool",
       "content": [
@@ -81,7 +77,6 @@
         "Streamers leveling game audio and mic input to avoid sudden jumps that distract viewers during live sessions."
       ]
     },
-
     {
       "title": "Related Tools",
       "content": [
@@ -89,6 +84,16 @@
         "Shape tone using <a href=\"/audio-equalizer\">Audio Equalizer</a> before normalization to maintain a balanced spectrum.",
         "Add space after leveling with <a href=\"/audio-reverb\">Reverb Effect</a> without exceeding peak targets.",
         "For creative emphasis, combine with <a href=\"/audio-echo\">Echo Effect</a> on key phrases, then re-normalize for final delivery."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
       ]
     }
   ]

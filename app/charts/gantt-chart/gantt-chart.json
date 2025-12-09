@@ -20,12 +20,14 @@
         "progress": 100
       },
       {
-        "id": "task2", 
+        "id": "task2",
         "name": "Development",
         "start": "2025-01-10",
         "end": "2025-02-28",
         "progress": 60,
-        "dependencies": ["task1"]
+        "dependencies": [
+          "task1"
+        ]
       },
       {
         "id": "task3",
@@ -33,7 +35,9 @@
         "start": "2025-02-20",
         "end": "2025-03-15",
         "progress": 20,
-        "dependencies": ["task2"]
+        "dependencies": [
+          "task2"
+        ]
       }
     ]
   },
@@ -124,6 +128,16 @@
         "Use our <a href='/charts/line-chart'>Line Chart Generator</a> for showing project progress trends over time",
         "Check our <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown Calculator</a> for tracking time to project deadlines",
         "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare task data for import into project management tools"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/charts\">all chart options</a> to pick the right visual fast.",
+        "Need comparisons? Try the <a href=\"/charts/bar-chart\">Bar Chart</a> for side-by-side categories.",
+        "For timelines, use the <a href=\"/charts/gantt-chart\">Gantt Chart</a> to track phases.",
+        "Map-focused projects can jump to the <a href=\"/charts/usa-map\">USA Map Visualizer</a>."
       ]
     }
   ]

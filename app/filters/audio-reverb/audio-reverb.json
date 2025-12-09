@@ -18,7 +18,6 @@
         "Includes classic plate, hall, and room flavors so you can audition multiple spaces before committing in a DAW."
       ]
     },
-
     {
       "title": "Common Questions",
       "content": [
@@ -29,7 +28,6 @@
         "<strong>Q:</strong> Should reverb be before or after compression? <strong>A:</strong> Typically after compression so the compressor doesn’t pump the reverb tail unnaturally."
       ]
     },
-
     {
       "title": "When to Use Reverb",
       "content": [
@@ -60,7 +58,6 @@
         "Use different reverb settings for different instruments"
       ]
     },
-
     {
       "title": "Pro Tips & Best Practices",
       "content": [
@@ -71,7 +68,6 @@
         "💡 For cinematic sound design, layer a short plate with a long hall to blend intimacy and scale."
       ]
     },
-
     {
       "title": "When to Use This Tool",
       "content": [
@@ -82,7 +78,6 @@
         "Live streamers softening harsh microphones while keeping speech intelligible for viewers."
       ]
     },
-
     {
       "title": "Related Tools",
       "content": [
@@ -90,6 +85,16 @@
         "Reduce background noise using <a href=\"/audio-noise-reduction\">Noise Reduction</a> so room reflections highlight only the desired signal.",
         "Balance peaks after ambience with <a href=\"/audio-normalize\">Normalize Audio</a> to meet platform loudness standards.",
         "Create rhythmic throws with <a href=\"/audio-echo\">Echo Effect</a>, then blend with reverb for lush stereo textures."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "See <a href=\"/filters\">all filters</a> for images and audio in one place.",
+        "Clean signals first with <a href=\"/filters/audio-noise-reduction\">Noise Reduction</a> before creative tweaks.",
+        "Level output with <a href=\"/filters/audio-normalize\">Normalize Audio</a> after edits.",
+        "Convert sources with <a href=\"/media-converters/audio\">Audio Converter</a> or <a href=\"/media-converters/image\">Image Converter</a> when formats differ."
       ]
     }
   ]

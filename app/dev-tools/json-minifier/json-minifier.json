@@ -71,6 +71,16 @@
         "Check our <a href='/dev-tools/base64'>Base64 Encoder</a> to encode minified JSON for embedding in URLs or data URIs",
         "Explore our <a href='/dev-tools/hash-generator'>Hash Generator</a> to create integrity checksums for minified JSON files"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Hop to <a href=\"/dev-tools\">all developer tools</a> for formatting, encoding, and validation in one place.",
+        "Sanity-check payloads with the <a href=\"/dev-tools/json-validator\">JSON Validator</a> before shipping APIs.",
+        "Compress responses with the <a href=\"/dev-tools/json-minifier\">JSON Minifier</a> for payload savings.",
+        "Switch encodings quickly using the <a href=\"/dev-tools/base64\">Base64 Encoder/Decoder</a>."
+      ]
     }
   ]
 }

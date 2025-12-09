@@ -33,9 +33,18 @@
       "label": "Number of Coats",
       "type": "select",
       "options": [
-        { "value": "1", "label": "1 Coat" },
-        { "value": "2", "label": "2 Coats" },
-        { "value": "3", "label": "3 Coats" }
+        {
+          "value": "1",
+          "label": "1 Coat"
+        },
+        {
+          "value": "2",
+          "label": "2 Coats"
+        },
+        {
+          "value": "3",
+          "label": "3 Coats"
+        }
       ],
       "required": true
     }
@@ -111,6 +120,16 @@
         "Use our <a href='/unit-conversions/area'>Area Converter</a> to convert between square feet and square meters when using international paint coverage specs",
         "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate paint discount amounts or determine cost per square foot for labor quotes",
         "Explore our <a href='/unit-conversions/volume'>Volume Converter</a> to convert between gallons, liters, and quarts when buying paint in different size containers"
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
       ]
     }
   ]

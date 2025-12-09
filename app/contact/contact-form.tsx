@@ -19,25 +19,39 @@ export function ContactForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setSubmitted(true)
-    setIsSubmitting(false)
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      category: "",
-      message: ""
-    })
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data?.error || "Something went wrong. Please try again.")
+      }
+
+      setSubmitted(true)
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        category: "",
+        message: ""
+      })
+    } catch (err: any) {
+      setError(err?.message || "Unable to send message right now.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -143,6 +157,8 @@ export function ContactForm() {
                   required
                 />
               </div>
+
+              {error && <p className="text-sm text-red-600">{error}</p>}
 
               <Button type="submit" disabled={isSubmitting} className="w-full">
                 {isSubmitting ? (

@@ -111,6 +111,16 @@
         "Check our <a href='/calculators/percentage'>Percentage Calculator</a> to calculate the 10% overage amount or determine concrete mix ratios by percentage",
         "Explore our <a href='/unit-conversions/length'>Length Converter</a> to convert between inches, feet, and meters when measuring concrete depth and dimensions"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
+      ]
     }
   ],
   "tips": [

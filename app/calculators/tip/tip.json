@@ -121,6 +121,16 @@
         "Check our <a href='/unit-conversions/currency'>Currency Converter</a> when tipping in foreign countries to understand local currency tipping amounts",
         "Explore our <a href='/calculators/date-calculator'>Date Calculator</a> to figure out when you last visited a restaurant if you're a regular tipper wondering about frequency"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Compare options in <a href=\"/calculators\">all calculators</a> when you need a different formula fast.",
+        "Payments due? Use the <a href=\"/calculators/loan\">Loan & Mortgage Calculator</a> for schedules.",
+        "Quick percent math lives in the <a href=\"/calculators/percentage\">Percentage Calculator</a>.",
+        "Track durations with the <a href=\"/calculators/date-calculator\">Date Calculator</a> when timelines matter."
+      ]
     }
   ]
 }

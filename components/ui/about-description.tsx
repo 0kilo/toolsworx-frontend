@@ -10,7 +10,7 @@ interface AboutDescriptionProps {
   sections: {
     title: string
     content: string[] | { title: string; items: string[] }[]
-    type?: 'list' | 'subsections'
+    type?: 'list' | 'subsections' | string
   }[]
 }
 

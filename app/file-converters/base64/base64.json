@@ -68,6 +68,16 @@
         "Check our <a href='/dev-tools/url-encoder'>URL Encoder</a> for encoding Base64 strings in URL parameters",
         "Explore our <a href='/file-converters/documents'>Document Converter</a> to prepare files for Base64 encoding"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/file-converters\">all file converters</a> to switch formats quickly.",
+        "Turn bundles around with the <a href=\"/file-converters/archive\">Archive Converter</a> when compressing or extracting.",
+        "Handle sheets via the <a href=\"/file-converters/spreadsheet\">Spreadsheet Converter</a> for CSV/XLSX swaps.",
+        "Move between raw formats using the <a href=\"/file-converters/data\">Data Converter</a>."
+      ]
     }
   ]
 }

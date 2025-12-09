@@ -155,31 +155,30 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 </h2>
                 <div className="prose prose-sm max-w-none">
                   <p className="text-muted-foreground mb-4">
-                    Our {category.title.toLowerCase()} are designed to be fast, accurate, and
-                    easy to use. Whether you&apos;re a student, professional, or just need quick
-                    results, our tools are here to help.
+                    Our {category.title.toLowerCase()} are designed to be fast, accurate, and easy to use. Whether you&apos;re a student, professional, or just need quick results, our tools are here to help.
                   </p>
-                  <h3 className="text-lg font-semibold mb-2">Key Features:</h3>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
-                    <li>100% free to use with no registration required</li>
-                    <li>Works on all devices - desktop, tablet, and mobile</li>
-                    <li>Instant results with accurate calculations</li>
-                    <li>Privacy-focused - no data collection</li>
-                    <li>Regular updates with new tools added frequently</li>
-                  </ul>
-                  <h3 className="text-lg font-semibold mb-2">Popular Uses:</h3>
-                  <p className="text-muted-foreground">
-                    {category.id === "unit-conversions" &&
-                      "Perfect for international travel, cooking, education, engineering, and everyday measurements. Convert between metric and imperial units instantly."}
-                    {category.id === "calculators" &&
-                      "Ideal for financial planning, health tracking, business calculations, and academic work. Get instant results for complex calculations."}
-                    {category.id === "file-converters" &&
-                      "Essential for document management, file sharing, and format compatibility. Convert PDFs, Word documents, spreadsheets, and more."}
-                    {category.id === "media-converters" &&
-                      "Perfect for content creators, web developers, and digital marketers. Optimize images, convert videos, and transform audio files with ease."}
-                    {category.id === "developer-tools" &&
-                      "Must-have tools for developers, DevOps engineers, and technical professionals. Format code, validate data, and streamline your workflow."}
-                  </p>
+                  {category.sections?.map((section, idx) => (
+                    <div key={idx} className="mb-6">
+                      <h3 className="text-lg font-semibold mb-2">{section.title}</h3>
+                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                        {section.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx}>{bullet}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                  {!category.sections && (
+                    <>
+                      <h3 className="text-lg font-semibold mb-2">Key Features:</h3>
+                      <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
+                        <li>100% free to use with no registration required</li>
+                        <li>Works on all devices - desktop, tablet, and mobile</li>
+                        <li>Instant results with accurate calculations</li>
+                        <li>Privacy-focused - no data collection</li>
+                        <li>Regular updates with new tools added frequently</li>
+                      </ul>
+                    </>
+                  )}
                 </div>
               </CardContent>
             </Card>

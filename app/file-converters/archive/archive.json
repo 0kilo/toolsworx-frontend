@@ -68,6 +68,16 @@
         "Check our <a href='/dev-tools/hash-generator'>Hash Generator</a> to create checksums for archive integrity verification",
         "Explore our <a href='/dev-tools/file-metadata-viewer'>File Metadata Viewer</a> to inspect archive properties and contents"
       ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/file-converters\">all file converters</a> to switch formats quickly.",
+        "Turn bundles around with the <a href=\"/file-converters/archive\">Archive Converter</a> when compressing or extracting.",
+        "Handle sheets via the <a href=\"/file-converters/spreadsheet\">Spreadsheet Converter</a> for CSV/XLSX swaps.",
+        "Move between raw formats using the <a href=\"/file-converters/data\">Data Converter</a>."
+      ]
     }
   ]
 }
