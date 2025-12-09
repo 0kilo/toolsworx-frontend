@@ -9,6 +9,28 @@
   "category": "filters",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "Dial in musical slapback, short echoes, or long atmospheric repeats without needing a full DAW or complex plugin chain.",
+        "Visual controls keep delay time, feedback, and mix levels intuitive so beginners can achieve pro results in minutes.",
+        "Non-destructive processing lets you preview echoes before exporting, preventing accidental over-processing or timing issues.",
+        "Great for podcasters and streamers who want space and depth around voices without sacrificing speech intelligibility.",
+        "All processing happens locally in the browser, keeping voice notes, interviews, and mixes private and secure."
+      ]
+    },
+
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q:</strong> What delay time works for vocals? <strong>A:</strong> Start with 120-180ms for slapback, or sync to tempo (e.g., 1/4 or 1/8 notes) for rhythmic echoes.",
+        "<strong>Q:</strong> How do I stop echoes from building endlessly? <strong>A:</strong> Lower the feedback to 20-35% and keep mix under 30% to maintain clarity.",
+        "<strong>Q:</strong> Does echo make speech harder to understand? <strong>A:</strong> Use short delays and low mix levels; cutting lows below 150Hz also reduces muddiness.",
+        "<strong>Q:</strong> Can I create ping-pong echoes? <strong>A:</strong> Yes—alternate delay times left and right or automate pan for a stereo bouncing effect.",
+        "<strong>Q:</strong> How is echo different from reverb? <strong>A:</strong> Echo gives distinct repeats, while reverb creates a continuous tail; combine both for depth and clarity."
+      ]
+    },
+
+    {
       "title": "Echo Parameters",
       "content": [
         "<strong>Delay Time:</strong> Time between original sound and echo (100-2000ms)",
@@ -26,6 +48,38 @@
         "Drums: Add rhythmic interest to snare hits",
         "Sound Design: Create sci-fi and atmospheric effects",
         "Dub Music: Essential for reggae and dub production"
+      ]
+    },
+
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 Sync delay times to song tempo (e.g., 500ms for 120BPM quarter notes) to keep echoes musical instead of messy.",
+        "💡 Cut low frequencies on the echo return so repeats stay clear and don’t mask kick drums or bass lines.",
+        "💡 Automate feedback on the last word of a phrase to create a dramatic throw, then pull it back for the next line.",
+        "💡 Combine short slapback on center vocals with longer stereo echoes on ad-libs to widen the mix without washing it out.",
+        "💡 For podcasts, use under 15% wet mix and under 150ms delay to add room feel without distracting listeners."
+      ]
+    },
+
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Singer-songwriters adding subtle ambiance to vocals recorded in dry bedrooms or untreated spaces.",
+        "Guitarists recreating classic rockabilly slapback or modern dotted-eighth delays for lead lines.",
+        "Filmmakers shaping dialogue to match on-screen environments like tunnels, alleys, or large halls.",
+        "Podcast editors adding a tasteful echo on intro voiceovers or sponsor tags for brand recognition.",
+        "Electronic producers designing rhythmic feedback swells and ping-pong textures that move with the beat."
+      ]
+    },
+
+    {
+      "title": "Related Tools",
+      "content": [
+        "Use <a href=\"/audio-reverb\">Reverb Effect</a> to blend echoes into a realistic space once timing feels right.",
+        "Pair with <a href=\"/audio-equalizer\">Audio Equalizer</a> to shape repeats, cutting harsh highs or muddy lows.",
+        "Clean up noisy recordings first with <a href=\"/audio-noise-reduction\">Noise Reduction</a> so echoes emphasize the main signal.",
+        "Finish with <a href=\"/audio-normalize\">Normalize Audio</a> to keep echo-enhanced tracks within streaming loudness targets."
       ]
     }
   ]

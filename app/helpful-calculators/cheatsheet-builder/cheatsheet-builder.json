@@ -49,6 +49,55 @@
         "TXT - Plain text with raw LaTeX formulas",
         "JSON - Backup and share your cheatsheet data"
       ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>Single Source of Truth:</strong> Consolidate formulas, commands, and notes into one portable reference.",
+        "✓ <strong>Study Efficiency:</strong> Build compact exam sheets that prioritize the concepts you forget most.",
+        "✓ <strong>Team Alignment:</strong> Share standardized runbooks and onboarding guides with consistent formatting.",
+        "✓ <strong>Version Control Friendly:</strong> Export JSON to track revisions over time alongside code or documentation.",
+        "✓ <strong>Presentation Ready:</strong> Generate clean PDFs for workshops, labs, or classroom distribution."
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: How do I keep formulas readable?</strong><br>Use display math ($$ $$) for multi-line equations and inline math ($ $) for short expressions within text.",
+        "<strong>Q: Can I include code?</strong><br>Yes—add code snippets as plain text or formatted blocks. Keep indentation consistent for readability in exports.",
+        "<strong>Q: How do I share with teammates?</strong><br>Export JSON to share editable content or PDF for a fixed, print-ready view.",
+        "<strong>Q: What if I need dark mode?</strong><br>Adjust color schemes before exporting to ensure readability on projectors and in print.",
+        "<strong>Q: Can I reorder sections later?</strong><br>Yes, drag items to reorganize as your study plan or documentation evolves."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Chunk Content:</strong> Use concise bullet lists and headings so pages stay scannable under pressure.",
+        "💡 <strong>Highlight Gaps:</strong> Mark areas you frequently forget with emojis or color to draw attention during review.",
+        "💡 <strong>Link Resources:</strong> Add URLs for docs or tutorials so teammates can dive deeper from the cheat sheet.",
+        "💡 <strong>Print Tests:</strong> Export to PDF and print a sample to verify margins and font size before final distribution.",
+        "💡 <strong>Backup Often:</strong> Save JSON exports after major edits so you can roll back or branch variations for different courses or projects."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Exam Prep:</strong> Condense chapters into high-yield summaries for quick cramming.",
+        "<strong>Onboarding:</strong> Provide new hires with role-specific runbooks and command references.",
+        "<strong>Workshops:</strong> Create handouts with live demo steps, commands, and expected outputs.",
+        "<strong>Project Handoffs:</strong> Summarize environments, credentials locations, and deployment steps in one place.",
+        "<strong>Field Work:</strong> Carry offline-friendly PDFs when working in low-connectivity environments."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Tracking deadlines? Pair with the <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown</a> to schedule study sessions.",
+        "Need to scale lab exercises? Use the <a href='/helpful-calculators/recipe-scaler'>Recipe Scaler</a> pattern to adjust resource counts.",
+        "Sharing across time zones? Coordinate sessions with the <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a>.",
+        "Need currency or measurement conversions in your sheet? Link to the <a href='/unit-conversions'>Unit Conversions</a> tools for quick references."
+      ]
     }
   ]
 }

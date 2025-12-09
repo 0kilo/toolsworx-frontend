@@ -22,6 +22,17 @@
   "category": "charts",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Visualize trends over time instantly for strategic insights - identify growth patterns, seasonal fluctuations, declining performance at a glance enabling data-driven business decisions without complex analytics tools or spreadsheet pivot tables",
+        "✓ Compare multiple time series on single chart for competitive analysis - overlay your sales vs competitors, compare website traffic across campaigns, track multiple KPIs simultaneously revealing correlations and divergences that inform strategy adjustments",
+        "✓ Identify patterns and anomalies in continuous data quickly - spot unusual spikes indicating viral content or system issues, recognize seasonal trends for inventory planning, detect gradual shifts signaling market changes before they become obvious in summary statistics",
+        "✓ Export professional trend charts for investor presentations and reports - download publication-ready line graphs as PNG or SVG for quarterly board presentations, annual reports, investor pitches, research papers maintaining consistent professional appearance",
+        "✓ 100% client-side processing protects proprietary time series data - safely visualize confidential revenue trajectories, user growth curves, operational metrics, competitive intelligence without uploading sensitive business data to external charting services"
+      ]
+    },
+    {
       "title": "When to Use Line Charts",
       "type": "list",
       "content": [
@@ -43,6 +54,50 @@
         "    { \"x\": \"Feb\", \"y\": 3000 }",
         "  ]",
         "}"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: Should I connect data points with straight lines or curves?</strong> Straight lines (linear interpolation): best for discrete measurements (monthly sales, quarterly revenue), implies no knowledge between points, mathematically honest, traditional business style. Curved lines (spline interpolation): smoother aesthetic, implies continuous underlying process, better for scientific data (temperature, heart rate), can mislead by suggesting precision between measurements. Best practice: straight lines for business/discrete data (stock prices, user signups), curves only for truly continuous phenomena (sensor readings, physical processes). Some tools offer stepped lines for cumulative data (inventory levels stay flat then jump).",
+        "<strong>Q: How many lines can I show on one chart before it becomes cluttered?</strong> Practical limit: 3-5 lines maximum for clear comparison. With 2-3 lines, viewers easily track each series and compare trends. With 4-5 lines, usable but requires careful color selection and clear legend. With 6+ lines, chart becomes 'spaghetti' - impossible to follow individual lines, intersections create confusion. Solutions for many series: (1) Use small multiples (multiple charts, one per series). (2) Show top 3-5 series, group rest as 'Others'. (3) Interactive filters (show/hide series on click). (4) Use stacked area chart if showing composition. Exception: background reference lines (gray, thin) don't count toward limit.",
+        "<strong>Q: Should I start Y-axis at zero or use a focused range?</strong> Unlike bar charts, line charts CAN start Y-axis at non-zero value because: line position matters, not length from baseline. Guidelines: (1) Start at zero for rates/percentages (0-100%), counts where zero is meaningful. (2) Use focused range for dense data (stock price 45.2-45.8), temperature (-10°C to +10°C), subtle differences matter. (3) Always label clearly if not starting at zero. (4) Avoid exaggerating tiny changes - if revenue fluctuates 100-102, zooming in makes 2% look like 200%. Context-dependent: investor presentation might zoom to show growth detail, academic paper should start at zero for objectivity.",
+        "<strong>Q: How do I handle missing data points or gaps in time series?</strong> Options depend on data nature: (1) Break line - show discontinuity visibly (gap in chart), honest representation, use when: data truly unavailable (sensor malfunction, business closed). (2) Connect across gap - imply interpolation, viewer assumes smooth transition, use when: missing point is anomaly, underlying process continuous. (3) Show as zero or null - use when: zero is meaningful (no sales on that day), not when zero has different meaning than 'no data'. (4) Interpolate estimated value - only if you have reasonable basis, label as estimated. Best practice: note missing data in caption: 'Data unavailable for July due to system outage'.",
+        "<strong>Q: What's the difference between line charts and area charts?</strong> Line chart: shows only line trajectory, emphasizes change/trend, clean aesthetic, best for comparing multiple series (lines don't obscure each other). Area chart: fills area below line with color, emphasizes magnitude/volume, shows 'weight' of metric, better for single series or stacked series showing composition. Use line when: focus is trend direction and comparison (stock prices, temperature). Use area when: emphasizing scale/volume (total sales revenue, cumulative users), showing composition (stacked areas = 100%). Line charts are more common and versatile, area charts have specific use cases."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Ensure consistent time intervals for accurate trend representation:</strong> X-axis intervals must be evenly spaced or explicitly labeled. Problem: plotting Jan, Feb, Mar, June (skipping months) with equal spacing visually understates June's jump. Solutions: (1) Include all time periods, even with zero/null values (shows true rate of change). (2) Break axis with visual indicator if gap is intentional (product launch delay, missing data period). (3) Use date-based X-axis that auto-spaces correctly. Common mistake: quarterly data labeled Q1, Q2, Q3, Q4 but missing Q2 - viewer doesn't notice gap. Always use continuous time scales for honest visualization.",
+        "💡 <strong>Use contrasting colors and line styles for multiple series:</strong> Color strategy: pick maximally different hues (blue, orange, green, red), avoid similar shades (light blue + dark blue hard to distinguish). Line style variation: solid, dashed, dotted helps colorblind accessibility. Order matters: primary series = thickest solid line in brand color, secondary = thinner or dashed, reference/benchmark = thin gray. Label directly on chart near line ends when space permits (avoids legend lookup). Accessibility: ensure 4.5:1 contrast between lines and background, include line thickness variation for colorblind viewers.",
+        "💡 <strong>Add annotations for significant events that explain anomalies:</strong> Context makes trends interpretable. Add vertical line + label for: product launch (explains spike), policy change (explains trend shift), external event (pandemic, competitor launch), data quality issues (system downtime). Annotations answer viewer's 'Why?' - without them, anomalies look like errors. Example: traffic spike labeled 'Featured on TechCrunch' vs unlabeled spike looks suspicious. Tools: vertical reference lines, shaded regions for date ranges (holiday season), callout boxes. Balance: don't over-annotate (cluttered), do explain any point viewer would question.",
+        "💡 <strong>Show confidence intervals or ranges for projections and forecasts:</strong> When extending line into future (forecast, projection, goal), distinguish from historical data: use dashed line + shaded confidence interval. Example: sales Jan-Dec (solid) vs Jan-Mar forecast (dashed with 80% confidence band in light shade). This prevents misleading: shows uncertainty, sets realistic expectations, looks professional vs naive extrapolation. For historical data with uncertainty (survey results, estimates), show error bars or shaded ranges. Scientific/technical audiences expect uncertainty visualization, business audiences often skip it but sophisticated viewers appreciate it.",
+        "💡 <strong>Consider logarithmic scale for exponential growth patterns:</strong> When data shows exponential growth (user signups, compound revenue), linear Y-axis compresses early values making them invisible, exponential curve hard to analyze. Logarithmic Y-axis (where each tick is 10x previous) converts exponential to straight line, shows relative growth rate clearly, all values visible. Use when: values span orders of magnitude (1 to 1 million), percentage growth matters more than absolute, showing compound growth rates. Label clearly: 'Logarithmic Scale' + use 1, 10, 100, 1K, 10K, 100K, 1M labels. Drawback: less intuitive for general audiences, better for technical/analytical contexts."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Financial Analysis & Forecasting:</strong> Track stock prices or portfolio performance over time, visualize revenue and profit trends for quarterly business reviews, compare year-over-year growth trajectories across product lines or business units",
+        "<strong>Marketing & Growth Metrics:</strong> Show website traffic trends over months or years, visualize user acquisition and retention curves for product analytics, compare campaign performance metrics across different time periods",
+        "<strong>Operations & Performance Monitoring:</strong> Display system performance metrics or uptime over time, track production output or quality metrics for manufacturing analysis, visualize customer support response times or ticket resolution trends",
+        "<strong>Scientific & Research Data:</strong> Show experimental measurements or sensor readings over time, visualize climate data or environmental measurements with trend analysis, display health metrics or vital signs for medical monitoring",
+        "<strong>Sales & Business Development:</strong> Compare sales performance across multiple quarters or years, visualize sales pipeline progression and conversion rates over time, track customer acquisition costs and lifetime value trends",
+        "<strong>Social Media & Content Analytics:</strong> Show follower growth and engagement metrics over time, visualize content performance trends for different post types, compare reach and impressions across multiple campaigns"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/charts/area-chart'>Area Chart Generator</a> for emphasizing volume beneath the trend line",
+        "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for discrete time periods without connection",
+        "Check our <a href='/charts/scatter-chart'>Scatter Chart</a> for exploring correlations between variables",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare time series data"
       ]
     }
   ]

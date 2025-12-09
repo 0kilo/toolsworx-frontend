@@ -22,6 +22,17 @@
   "category": "charts",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Emphasize magnitude and volume of change over time - filled area below line visually communicates 'weight' of metric better than line alone, perfect for cumulative metrics like total users, revenue accumulation, inventory levels where volume matters as much as trend",
+        "✓ Show composition with stacked area charts for parts-of-whole over time - visualize how revenue from multiple products contributes to total, track traffic sources (organic, paid, social) showing both individual and combined trends revealing market share shifts",
+        "✓ Highlight growth and decline patterns more dramatically - filled area creates stronger visual impact than line charts making growth periods pop for investor presentations, quarterly reviews, marketing materials where emotional impact reinforces data narrative",
+        "✓ Compare multiple time series while showing cumulative totals - stacked areas display individual contributions plus aggregate total in single view, ideal for budget allocation over time, resource usage across departments, multi-channel performance tracking",
+        "✓ 100% client-side processing keeps growth metrics confidential - safely visualize sensitive user growth trajectories, revenue accumulation, market expansion data, competitive positioning without uploading strategic business intelligence to external platforms"
+      ]
+    },
+    {
       "title": "When to Use Area Charts",
       "type": "list",
       "content": [
@@ -43,6 +54,50 @@
         "    { \"x\": \"Feb\", \"y\": 1200 }",
         "  ]",
         "}"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: When should I use an area chart instead of a line chart?</strong> Use area chart when: (1) Emphasizing volume/magnitude - cumulative users, total revenue, inventory levels where 'weight' matters. (2) Showing composition - stacked areas for multiple categories summing to whole (traffic by source, sales by region). (3) Single series where visual impact desired - growth story for investors, dramatic trend visualization. Use line chart when: (1) Comparing multiple non-stacked series (lines don't obscure). (2) Focus is trend direction not magnitude. (3) Precise comparison needed (area fill can distract). Rule: if you'd fill below line in presentation for emphasis, use area chart.",
+        "<strong>Q: What's the difference between stacked and overlapping area charts?</strong> Stacked areas: each series stacked on previous, shows individual + cumulative total, areas never overlap, sum to 100% or total value. Best for: composition over time (revenue by product line), part-to-whole relationships, budget allocation. Limitation: hard to compare middle series (baseline shifts). Overlapping areas: series drawn independently with transparency, can see all series, comparison easier. Best for: comparing similar metrics (website traffic for different campaigns), when totals don't matter. Avoid: more than 2-3 overlapping series (cluttered, hard to distinguish). Most business use = stacked for composition.",
+        "<strong>Q: Should area chart Y-axis always start at zero?</strong> YES - more critical than line charts. Filled area visually represents magnitude from baseline, non-zero baseline grossly distorts perception. Example: area chart of stock price 45-50 starting at 40 looks like massive mountain, actually 10% range. Unlike line charts (position matters), area charts use fill = size matters = must start at zero. Exception: if displaying negative values (profit/loss), baseline at zero with areas extending up (profit) and down (loss) is appropriate. For small variations where zero baseline makes chart flat, reconsider chart type - maybe line chart with focused Y-axis is more appropriate.",
+        "<strong>Q: How do I choose colors for stacked area charts?</strong> Color strategy for stacked areas: (1) Order by importance - most important category at bottom (stable baseline), least important on top (variable). (2) Use gradient or related hues - light to dark shades of same color family (light blue → dark blue) shows cohesion. (3) Distinct hues if categories are unrelated - but maintain consistent brand palette. (4) Consider color meaning - green for profit, red for loss, blue for cold, orange for heat. Accessibility: ensure sufficient contrast between adjacent areas (test with colorblind simulators), use patterns/textures if needed. Avoid: random rainbow (looks unprofessional), red/green for non-sentiment data.",
+        "<strong>Q: Can area charts show negative values or should they only show positive data?</strong> Area charts can show negative values with proper baseline handling. Two approaches: (1) Diverging area chart - baseline at zero, areas extend up (positive) and down (negative), different colors for positive/negative (green up, red down). Common for: profit/loss over time, temperature anomalies, net cash flow. (2) Baseline at minimum value - if all values negative, baseline at lowest point, fill to values. Most area charts assume positive values (cumulative metrics, counts naturally positive). If your data has negatives, consider: line chart might be clearer, or use baseline at zero with diverging colors."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Order stacked areas with most stable/important at bottom:</strong> Bottom area has stable baseline (zero or bottom of chart), easier to read trend. Top area has variable baseline (sum of all below), harder to interpret. Strategy: place most important metric at bottom (your company's sales, primary traffic source), least important on top (miscellaneous, other). Example: traffic sources stacked - Direct at bottom (most stable), Organic next (important), Paid above (campaigns vary), Referral on top (fluctuates). This ordering makes key metrics readable, relegates noise to top where harder-to-read position is acceptable.",
+        "💡 <strong>Use semi-transparent fills for overlapping area charts:</strong> When showing 2-3 overlapping area charts (non-stacked), transparency essential: allows seeing through top areas to bottom, shows where series overlap (creates darker shade), reveals all data without hidden areas. Set opacity: 30-50% for each area. Too transparent (10%) = hard to see, too opaque (90%) = obscures others. Add distinct border/stroke (solid line at edge) to define each series clearly even where overlapping. Label each series directly on chart when possible. Alternative: use gradient transparency (opaque at top, transparent at bottom) for subtle effect.",
+        "💡 <strong>Add reference line at significant threshold or target value:</strong> Horizontal reference lines provide context: target line (monthly revenue goal), capacity limit (server capacity, inventory maximum), previous period comparison (last year's total). For area charts showing growth, reference line answers: 'Did we hit target?' Styling: dashed or dotted line to distinguish from data, label clearly ('Target: $1M'), neutral color (gray) unless semantic (red for danger threshold, green for goal). Position: typically on top of areas for visibility. Particularly effective in executive dashboards showing performance vs objectives.",
+        "💡 <strong>Consider showing baseline values or grid for precise reading:</strong> Problem: filled areas are beautiful but make precise value reading hard (where exactly does area meet Y-axis?). Solutions: (1) Show values on data points (especially peaks and valleys). (2) Enable horizontal gridlines (helps cross-reference to Y-axis). (3) Add interactive tooltips (hover shows exact value). (4) Include data table below chart for precision. Use case dependent: investor presentation prioritizes visual impact (minimal grid), analytical report prioritizes precision (gridlines + values). Balance aesthetics vs readability based on audience needs.",
+        "💡 <strong>Animate area charts to tell a story of accumulation or growth:</strong> Area charts naturally represent accumulation, animation reinforces this: area fills progressively left-to-right (like filling water), creates 'aha' moment when growth becomes obvious, holds audience attention during presentations. Implementation: use CSS/JavaScript animation to reveal area incrementally, typical duration 2-3 seconds (fast enough to not bore, slow enough to appreciate). Most effective for: growth stories (user acquisition over startup history), cumulative achievements (fundraising progress), before/after comparisons. Avoid: overuse (don't animate every chart), accessibility issues (provide static version for those with motion sensitivity)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Growth & Cumulative Metrics:</strong> Visualize user growth or subscriber accumulation over time, show cumulative revenue or sales totals with trend analysis, display inventory accumulation or resource stockpiling patterns",
+        "<strong>Multi-Channel Analysis:</strong> Compare traffic sources with stacked areas showing composition changes, visualize marketing channel performance and contribution to total conversions, show revenue streams by product line with cumulative totals",
+        "<strong>Environmental & Resource Data:</strong> Display energy consumption or resource usage over time with volume emphasis, visualize pollution levels or environmental measurements, show water usage or utility consumption patterns across periods",
+        "<strong>Financial Performance:</strong> Show profit/loss over time with positive/negative areas, visualize cash flow accumulation or burn rate trends, display budget utilization across categories with stacked composition",
+        "<strong>Operations & Capacity:</strong> Track production output or manufacturing volume over time, visualize server load or system resource usage approaching capacity, show warehouse inventory levels or stock accumulation patterns",
+        "<strong>Social & Community Metrics:</strong> Display follower growth or community member accumulation, visualize engagement metrics emphasizing total reach over time, show content views or downloads with cumulative totals"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/charts/line-chart'>Line Chart Generator</a> for trend emphasis without volume fill",
+        "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for discrete period comparisons",
+        "Check our <a href='/charts/pie-chart'>Pie Chart Generator</a> for composition at single point in time",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare time series data"
       ]
     }
   ]

@@ -29,6 +29,55 @@
         "For party planning, send invitations 3-4 weeks ahead",
         "The one-week alerts help you remember last-minute preparations"
       ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>Planning Confidence:</strong> Know exactly how much time is left so you can schedule travel, shopping, and RSVPs without surprises.",
+        "✓ <strong>Team Coordination:</strong> Share countdowns with coworkers to align PTO, code freezes, and launch calendars around regional holidays.",
+        "✓ <strong>Family Readiness:</strong> Build excitement with kids by checking the timer together and setting mini milestones for decor, baking, and gift wrapping.",
+        "✓ <strong>Event Marketing:</strong> Create urgency for holiday promotions by anchoring campaigns to an exact remaining time window.",
+        "✓ <strong>Stress Reduction:</strong> Turn vague dates into concrete timelines so tasks become manageable checklists instead of last-minute rushes."
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: Can I add my own holidays?</strong><br>The preset list covers major celebrations, but you can create personal reminders by duplicating the date math in your calendar and pairing it with our countdown timestamps.",
+        "<strong>Q: Do time zones matter?</strong><br>Countdowns use your current device time zone. If you travel, refresh the page to align the remaining time to your new location.",
+        "<strong>Q: What about moving holidays?</strong><br>Holidays like Easter and Thanksgiving automatically recalculate each year using their traditional rules so you always see the correct date.",
+        "<strong>Q: Can I share the timer?</strong><br>Use the share actions in the app to send a link or summary of the remaining time. Recipients will see updated values when they open it.",
+        "<strong>Q: How far ahead can I plan?</strong><br>The list includes the upcoming cycle for each holiday and refreshes annually, so you can prepare months in advance without manual updates."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Set Milestones:</strong> Break big holidays into checkpoints (booking, ordering, shipping, invites) and use the countdown to schedule reminders.",
+        "💡 <strong>Travel Windows:</strong> Compare the countdown to typical flight price drops (often 60-90 days before departure) to time purchases.",
+        "💡 <strong>Inventory Planning:</strong> For businesses, align stock orders with the countdown so replenishment arrives 2-3 weeks before peak demand.",
+        "💡 <strong>Accessibility:</strong> Share text-based countdown summaries for teammates who prefer email updates instead of checking a live timer.",
+        "💡 <strong>Regional Awareness:</strong> Pair this timer with a world clock to coordinate global teams that observe different holidays."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Travel Planning:</strong> Booking flights and hotels ahead of peak holiday pricing and crowded schedules.",
+        "<strong>Event Hosting:</strong> Scheduling invitations, catering orders, and decoration timelines for parties and gatherings.",
+        "<strong>Retail & E-commerce:</strong> Timing promotions, shipping cutoffs, and customer communication around key dates.",
+        "<strong>School & Work:</strong> Coordinating project deadlines, code freezes, and PTO around major holidays.",
+        "<strong>Family Activities:</strong> Planning crafts, movies, and traditions with kids by turning the countdown into a fun checklist."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Coordinating multi-time-zone events? Use the <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a>.",
+        "Need to budget for holiday travel? Try the <a href='/calculators/travel-budget-calculator'>Travel Budget Calculator</a>.",
+        "Scaling recipes for gatherings? Use the <a href='/helpful-calculators/recipe-scaler'>Recipe Scaler</a> to adjust servings.",
+        "Running a gift exchange? Pair this with the <a href='/helpful-calculators/secret-santa'>Secret Santa Generator</a>."
+      ]
     }
   ]
 }

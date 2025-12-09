@@ -9,6 +9,29 @@
   "category": "filters",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Fast cleanup for podcasts, screen recordings, and interviews so your audience focuses on the message—not the hiss or hum behind it. Perfect for content creators working on tight deadlines.",
+        "✓ Adaptive reduction that preserves speech intelligibility, helping you avoid the warbly artifacts common with aggressive settings that destroy voice quality and natural tone.",
+        "✓ Ideal for remote workers and creators who need professional-sounding audio without installing heavy desktop editing suites or learning complex software workflows.",
+        "✓ Works locally in the browser, keeping confidential meeting audio and unreleased content private while you process without uploading sensitive recordings to cloud services.",
+        "✓ Balances noise removal with dynamic preservation, so music beds and ambient textures stay natural instead of lifeless, maintaining authentic environmental character while reducing distractions."
+      ]
+    },
+
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q:</strong> How much reduction is too much? <strong>A:</strong> Start around 30-40% reduction and raise slowly; if voices sound metallic, dial back sensitivity.",
+        "<strong>Q:</strong> Can it remove keyboard clicks? <strong>A:</strong> Yes—use moderate reduction plus a gentle high-shelf cut to soften sharp transients.",
+        "<strong>Q:</strong> Should I process before or after EQ? <strong>A:</strong> Remove noise first so EQ and compression work on clean signals and don’t amplify hiss.",
+        "<strong>Q:</strong> Will this fix clipping? <strong>A:</strong> Noise reduction can’t fix distorted recordings; combine with proper gain staging or re-record if peaks are clipped.",
+        "<strong>Q:</strong> Does it handle wind noise? <strong>A:</strong> Mild wind can be reduced; for heavy wind, use low-cut filtering and foam covers during recording."
+      ]
+    },
+
+    {
       "title": "What It Removes",
       "content": [
         "Background hiss from recordings",
@@ -27,6 +50,38 @@
         "Apply before other processing effects",
         "Check results with headphones for quality",
         "Consider the trade-off between noise removal and audio quality"
+      ]
+    },
+
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 Capture a short room tone sample at the start of recordings; it helps identify consistent noise profiles to remove.",
+        "💡 Combine light noise reduction with a low-cut filter at 80-100Hz to tame HVAC rumble without hollowing the voice.",
+        "💡 For dialogue, prioritize intelligibility over absolute silence—slight ambience is better than robotic artifacts.",
+        "💡 If removing laptop fan noise, process in two passes: a gentle first pass, then a targeted second pass for remaining hum.",
+        "💡 After cleaning, normalize levels to -1dB and check LUFS so podcasts meet platform loudness recommendations."
+      ]
+    },
+
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Podcast hosts polishing remote interviews recorded over video conferencing tools with background fan noise.",
+        "Educators cleaning screencasts so students hear instructions clearly without laptop hum or typing distractions.",
+        "Field recordists reducing city ambience and wind before layering sound design elements for films or games.",
+        "Support teams improving help-center videos or product demos captured in busy offices with HVAC systems.",
+        "Voiceover artists preparing auditions recorded in untreated rooms, ensuring crisp delivery for casting directors."
+      ]
+    },
+
+    {
+      "title": "Related Tools",
+      "content": [
+        "Follow with <a href=\"/audio-equalizer\">Audio Equalizer</a> to brighten vocals after noise removal without bringing hiss back.",
+        "Use <a href=\"/audio-normalize\">Normalize Audio</a> to balance loudness once the noise floor is under control.",
+        "Add depth using <a href=\"/audio-reverb\">Reverb Effect</a> if the cleaned audio feels too dry or clinical.",
+        "Pair with <a href=\"/audio-echo\">Echo Effect</a> for creative throws while keeping the original signal clean."
       ]
     }
   ]

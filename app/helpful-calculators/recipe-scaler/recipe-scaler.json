@@ -27,6 +27,55 @@
         "Baking times often don't scale proportionally - a doubled recipe may need only 50% more time",
         "Always check for doneness using temperature or visual cues rather than relying solely on time"
       ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>Consistent Results:</strong> Prevent overly salty or dry dishes by precisely scaling every ingredient instead of estimating.",
+        "✓ <strong>Waste Reduction:</strong> Make just enough food for your group size and reduce leftovers or shortages.",
+        "✓ <strong>Prep Efficiency:</strong> Generate adjusted shopping lists before heading to the store or placing delivery orders.",
+        "✓ <strong>Recipe Sharing:</strong> Send correctly scaled versions to friends with different household sizes.",
+        "✓ <strong>Budget Friendly:</strong> Align ingredient quantities with your budget and pantry inventory."
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: Do cook times change when scaling?</strong><br>Often yes. Double batches may need wider pans or slightly longer cooking but rarely double the time. Always check doneness by temperature and texture rather than clock time alone.",
+        "<strong>Q: How do I handle spices?</strong><br>For strong spices or salt, scale slightly less than linear for huge batches, then adjust to taste at the end.",
+        "<strong>Q: What about baking?</strong><br>Baked goods are sensitive. Scale carefully, keep ratios intact, and bake in multiple pans rather than one massive pan when possible.",
+        "<strong>Q: Can I switch units?</strong><br>Record ingredients in the units you measure with. If you need conversions, pair this with a unit converter or standard kitchen conversion chart.",
+        "<strong>Q: How do fractions display?</strong><br>The tool preserves common kitchen fractions for readability, so you'll see friendly measurements like 1/4 cup instead of 0.25 cup when possible."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Scale Sauces Separately:</strong> Some sauces and glazes need slight thickening adjustments—add liquids gradually after scaling.",
+        "💡 <strong>Batch in Rounds:</strong> For very large groups, cook in multiple batches to maintain texture and food safety.",
+        "💡 <strong>Use Weight for Precision:</strong> Convert key ingredients (flour, sugar, protein) to grams for the most reliable results.",
+        "💡 <strong>Label Changes:</strong> When sharing, note the original and target servings so others know the context of quantities.",
+        "💡 <strong>Test First:</strong> For special events, test a scaled version in advance to confirm flavor and timing."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>Meal Prep:</strong> Doubling recipes for weekly lunches while keeping nutrition consistent across portions.",
+        "<strong>Holidays & Parties:</strong> Expanding family recipes to feed larger gatherings without losing balance.",
+        "<strong>Small Households:</strong> Scaling down large recipes to avoid food waste and fridge overload.",
+        "<strong>Budget Planning:</strong> Matching ingredient amounts to weekly grocery budgets by adjusting servings.",
+        "<strong>Recipe Testing:</strong> Standardizing portions when adapting recipes for blogs, cookbooks, or catering menus."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Need cooking unit conversions? Pair with the <a href='/unit-conversions/volume'>Volume Converter</a> for fluid measures.",
+        "Planning a holiday meal? Check the <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown</a> to time prep milestones.",
+        "Sharing instructions? Export scaled results and attach them to a <a href='/helpful-calculators/cheatsheet-builder'>Cheatsheet Builder</a> template.",
+        "Shipping ingredients or gifts? Estimate delivery costs with the <a href='/helpful-calculators/shipping-cost'>Shipping Cost Calculator</a>."
+      ]
     }
   ]
 }

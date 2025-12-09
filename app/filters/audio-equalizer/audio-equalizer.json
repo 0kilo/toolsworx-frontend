@@ -9,6 +9,28 @@
   "category": "filters",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "Sculpt tone quickly with intuitive band labels, making it easy to brighten vocals, tighten bass, or clear muddy mids without guesswork.",
+        "Protects against clipping while you experiment with boosts and cuts, so you can learn EQ moves safely before exporting your mix.",
+        "Great for podcasters and YouTubers who need vocal clarity and consistency without installing heavy desktop plugins.",
+        "Works entirely in the browser, keeping interviews, demos, and mixes private—no uploads or logins required.",
+        "Helpful presets act as starting points for common use cases like phone calls, acoustic guitars, and livestream speech."
+      ]
+    },
+
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q:</strong> Should I boost or cut frequencies? <strong>A:</strong> Start with cuts to remove resonances; use gentle boosts for character once problem areas are controlled.",
+        "<strong>Q:</strong> How do I avoid muddy mixes? <strong>A:</strong> Cut 200-500Hz on crowded tracks and keep low-cut filters on non-bass instruments to free headroom.",
+        "<strong>Q:</strong> What Q (bandwidth) should I use? <strong>A:</strong> Narrow Q for surgical cuts, wider Q for broad, musical shaping on vocals or guitars.",
+        "<strong>Q:</strong> Can I use this for podcasts? <strong>A:</strong> Yes—roll off lows below 80Hz, add 2-4kHz for presence, and tame harshness at 6-8kHz if needed.",
+        "<strong>Q:</strong> How loud should the output be? <strong>A:</strong> Aim for -1dB peaks and consistent LUFS; the built-in safeguards help prevent clipping while you adjust."
+      ]
+    },
+
+    {
       "title": "Frequency Bands",
       "content": [
         "<strong>32-125Hz (Bass):</strong> Deep bass, kick drums, bass guitar fundamentals",
@@ -37,6 +59,38 @@
         "<strong>Bass Boost:</strong> Gentle boost at 60-100Hz for warmth",
         "<strong>Brightness:</strong> Boost 8-12kHz for air and sparkle",
         "<strong>Mud Removal:</strong> Cut 200-500Hz to clean up muddiness"
+      ]
+    },
+
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 Sweep with a narrow Q and small boosts to locate problem frequencies, then switch to cuts to remove them transparently.",
+        "💡 High-pass everything that isn’t a kick or bass to reclaim headroom and reduce low-frequency buildup.",
+        "💡 If vocals sound harsh, try a gentle shelf at 10kHz paired with a small cut at 3-4kHz instead of one big dip.",
+        "💡 Compare in mono to ensure EQ moves still work on phone speakers and smart assistants.",
+        "💡 Make subtle, broad boosts when mastering, and leave surgical cuts for mixing stages."
+      ]
+    },
+
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Cleaning up interview audio recorded in untreated rooms with HVAC hum or boxy resonances.",
+        "Shaping guitars, pianos, and synths so they each occupy their own frequency space in dense arrangements.",
+        "Brightening voiceovers and webinars so speech cuts through laptop speakers and earbuds.",
+        "Taming piercing cymbals or harsh sibilance on vocals before adding compression and effects.",
+        "Balancing reference tracks to match tonal targets for playlists, podcasts, or video deliverables."
+      ]
+    },
+
+    {
+      "title": "Related Tools",
+      "content": [
+        "Pair with <a href=\"/audio-normalize\">Normalize Audio</a> after EQ to achieve consistent loudness without clipping.",
+        "Use <a href=\"/audio-noise-reduction\">Noise Reduction</a> first to remove hums so you EQ only the clean signal.",
+        "Add depth using <a href=\"/audio-reverb\">Reverb Effect</a> once tonal balance feels right.",
+        "Create focused low-end with <a href=\"/audio-bass-boost\">Bass Boost</a> instead of broad EQ boosts across the entire spectrum."
       ]
     }
   ]

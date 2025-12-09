@@ -9,6 +9,28 @@
   "category": "filters",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "Achieve consistent loudness across podcasts, videos, and music exports without manually riding faders or guessing peak levels.",
+        "Protects against clipping while raising quiet passages, giving you a polished master ready for streaming services.",
+        "Built for quick compliance with LUFS targets so your content matches platform standards and avoids automatic volume penalties.",
+        "Simple, browser-based workflow that keeps private recordings local—no third-party uploads or account sign-ins needed.",
+        "Ideal for creators batching many files; you can normalize intros, ads, and full episodes with the same trusted settings."
+      ]
+    },
+
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q:</strong> What LUFS target should I choose? <strong>A:</strong> Use -14 LUFS for streaming music and YouTube, -16 to -20 LUFS for podcasts, and -23 LUFS for broadcast TV.",
+        "<strong>Q:</strong> Does normalization change dynamics? <strong>A:</strong> Peak normalization only adjusts overall gain; loudness normalization may subtly reduce headroom but keeps dynamics intact compared to heavy compression.",
+        "<strong>Q:</strong> Should I normalize before or after mastering? <strong>A:</strong> Normalize near the end—after EQ and compression—so your tonal balance stays consistent.",
+        "<strong>Q:</strong> Will it fix clipping? <strong>A:</strong> It prevents new clipping but cannot repair already distorted peaks; re-record or use restoration tools if distortion exists.",
+        "<strong>Q:</strong> Can I batch multiple files? <strong>A:</strong> Yes, apply the same target loudness to intros, interviews, and ads to keep episodes cohesive."
+      ]
+    },
+
+    {
       "title": "What Normalization Does",
       "content": [
         "Adjusts peak levels to optimal ranges",
@@ -35,6 +57,38 @@
         "<strong>Broadcast:</strong> -23 LUFS for TV, -16 LUFS for radio",
         "<strong>Podcasts:</strong> -16 to -20 LUFS recommended",
         "<strong>YouTube:</strong> -14 LUFS target level"
+      ]
+    },
+
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 Leave 1dB of true-peak headroom (-1dBTP) to prevent inter-sample peaks from clipping during streaming transcodes.",
+        "💡 Normalize dialogue and music separately, then rebalance so speech stays clearly above background tracks by 3-6dB.",
+        "💡 If exporting for radio, check gating thresholds and momentary max levels to ensure compliance with broadcast specs.",
+        "💡 Use short fades on intros and outros after normalization to avoid clicks and to match loudness ramps across episodes.",
+        "💡 Keep a reference playlist at target LUFS to compare tone and loudness before publishing."
+      ]
+    },
+
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Podcasters aligning interview segments, ad reads, and music beds so episodes play at a consistent level on every app.",
+        "Video editors preparing dialogue, VO, and soundtrack stems for social clips that need platform-ready loudness.",
+        "Musicians exporting demos or stems to collaborators who expect standard headroom and consistent gain staging.",
+        "Customer support or sales teams normalizing webinar recordings before uploading to knowledge bases or LMS platforms.",
+        "Streamers leveling game audio and mic input to avoid sudden jumps that distract viewers during live sessions."
+      ]
+    },
+
+    {
+      "title": "Related Tools",
+      "content": [
+        "Clean noisy tracks first with <a href=\"/audio-noise-reduction\">Noise Reduction</a> so the loudness analyzer focuses on the main signal.",
+        "Shape tone using <a href=\"/audio-equalizer\">Audio Equalizer</a> before normalization to maintain a balanced spectrum.",
+        "Add space after leveling with <a href=\"/audio-reverb\">Reverb Effect</a> without exceeding peak targets.",
+        "For creative emphasis, combine with <a href=\"/audio-echo\">Echo Effect</a> on key phrases, then re-normalize for final delivery."
       ]
     }
   ]

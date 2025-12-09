@@ -1,0 +1,109 @@
+{
+  "id": "text-processor",
+  "title": "Text Processor & Data Tools",
+  "description": "Extract emails and URLs, change text case, format JSON/XML, and clean CSV data in one workspace.",
+  "pageTitle": "Text Processor & Data Tools",
+  "pageDescription": "Extract data, reformat text, and clean CSV content in bulk.",
+  "aboutTitle": "About Text Processor",
+  "aboutDescription": "The Text Processor combines data extraction, case conversion, and code formatting so you can clean and transform text quickly. Run multiple operations without copying between tools.",
+  "category": "filters",
+  "sections": [
+    {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Extract all email addresses from documents, logs, customer lists instantly for lead generation and contact management - scan through messy text files, exported CRM data, support tickets finding every email address automatically, compile contact lists from conference attendee documents or business card scans, build mailing lists from customer communications without manual copying, validate extracted emails ensuring proper format before import into email marketing platforms",
+        "✓ Find and extract all URLs from web scrapes, API responses, log files for link analysis and quality assurance - pull every hyperlink from website source code identifying broken links or external references, extract API endpoints from documentation or log files for testing, compile reference links from research documents or bookmarks export, analyze competitor websites extracting product pages or resource URLs for market research",
+        "✓ Transform text case instantly between formats required by different coding standards and style guides - convert database column names from camelCase to snake_case for SQL conventions, transform API response keys to match JavaScript naming standards, reformat documentation headings to Title Case for consistency, convert screaming SNAKE_CASE constants to readable formats, standardize variable naming across codebases enforcing team style guides",
+        "✓ Format and beautify JSON and XML making complex data structures readable for debugging and documentation - pretty-print minified JSON API responses with proper indentation for human review, validate JSON syntax catching missing commas or brackets before deployment, format XML configuration files for readability and version control, minify JSON payloads reducing file size for production deployments while keeping readable development copies",
+        "✓ 100% browser-based processing protects sensitive text data from external servers - safely extract emails from confidential customer lists, process proprietary code or API responses, format sensitive configuration files containing credentials or secrets without uploading to third-party text processing services, maintain data privacy for legal documents, medical records, financial data requiring local-only processing"
+      ]
+    },
+    {
+      "title": "Data Extraction",
+      "type": "list",
+      "content": [
+        "Find all email addresses and export them in one click",
+        "Extract every URL from messy documents or logs",
+        "Validate matches with instant results"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How do I extract email addresses from a large text file and remove duplicates?</strong> Email extraction process: paste entire text content (customer list, log file, exported CRM data) into text area, select email extraction operation, tool scans for email pattern (characters@domain.extension), displays all found addresses in output. Duplicate removal: most extraction tools automatically deduplicate (each unique email appears once), manual deduplication if needed (copy results to spreadsheet, use remove duplicates feature), consider case sensitivity (user@domain.com vs USER@domain.com same address but different case). Validation after extraction: check for malformed addresses (missing @ symbol, invalid domain), verify business emails vs personal domains (filtering @gmail.com if B2B list desired), test sample addresses before bulk import to email platform, remove role-based addresses if needed (info@, noreply@, admin@ often unmonitored). Common use cases: building newsletter subscriber lists from event registrations, compiling customer contact database from support tickets, extracting partner contacts from business development emails, creating prospect lists from conference attendee exports. Quality checks: count total extracted vs expected (verify extraction caught everything), spot-check random samples confirming valid addresses, remove placeholder emails (test@example.com, user@domain.com), flag suspicious patterns (sequential numbers, repeated domains suggesting spam).",
+        "<strong>Q: What's the difference between camelCase, snake_case, and PascalCase, and when should I use each?</strong> Naming convention definitions: camelCase starts lowercase, capitalizes each subsequent word (firstName, getUserData, totalOrderAmount), snake_case uses underscores separating all lowercase words (first_name, get_user_data, total_order_amount), PascalCase capitalizes first letter and each subsequent word (FirstName, GetUserData, TotalOrderAmount), SCREAMING_SNAKE_CASE all caps with underscores (API_KEY, MAX_RETRIES, DATABASE_URL). Language and context conventions: JavaScript/TypeScript use camelCase for variables and functions (let userName, function fetchData), PascalCase for classes and components (class UserManager, const HeaderComponent), Python uses snake_case for variables and functions (user_name, def fetch_data), PascalCase for classes (class UserManager), SQL databases use snake_case for table and column names (users table, email_address column), constants in most languages use SCREAMING_SNAKE_CASE (const MAX_ATTEMPTS = 3). Why it matters: consistency improves code readability (mixed conventions confuse readers), automated tools and linters enforce naming standards (ESLint, Pylint flag violations), APIs expect specific casing (GraphQL typically camelCase, REST sometimes snake_case), incorrect casing causes bugs (accessing user.firstName when API returns user.first_name fails). Converting between formats: use text processor when migrating code between languages (Python to JavaScript requires snake_case to camelCase), adapting third-party API responses to match your codebase style, bulk renaming database columns following new naming standards, standardizing legacy code to modern conventions. Team standards: establish style guide specifying conventions for your project, use formatters automatically enforcing standards (Prettier, Black), document exceptions to standards if necessary.",
+        "<strong>Q: How do I clean up messy CSV data with extra spaces and inconsistent formatting?</strong> Common CSV problems: extra spaces around values ('John  , Doe  , john@email.com' should be 'John,Doe,john@email.com'), inconsistent delimiters (some rows comma-separated, others semicolon or tab), empty lines between data rows, trailing commas creating blank columns, quoted values containing commas causing column misalignment. Cleaning workflow: (1) Trim whitespace from all cells (removes leading/trailing spaces), (2) Remove empty lines (blank rows between data), (3) Standardize delimiters (convert all to commas or consistent separator), (4) Handle quoted fields properly (preserve commas inside quotes, remove unnecessary quotes), (5) Validate column count (ensure each row has same number of columns). Text processor approach: paste CSV content, select trim whitespace operation cleaning all values, remove blank lines operation eliminating empty rows, manual inspection of output confirming structure correct, export cleaned CSV for import into database or spreadsheet. Advanced cleaning needs: removing duplicate rows (hash each row identifying exact duplicates), standardizing date formats (MM/DD/YYYY vs DD-MM-YYYY), converting text encoding (UTF-8 vs Windows-1252 character sets), normalizing case (all headers lowercase for consistency). Tools for complex CSV: use spreadsheet software (Excel, Google Sheets) for visual cleaning when structure very messy, specialized CSV tools (CSVLint, OpenRefine) for advanced transformations and validation, programming scripts (Python pandas) for batch processing thousands of files. Prevention: when exporting CSV ensure consistent formatting, always use UTF-8 encoding avoiding character issues, test import into target system with sample data before processing full dataset."
+      ]
+    },
+    {
+      "title": "Text Transformations",
+      "type": "list",
+      "content": [
+        "Convert between UPPERCASE, lowercase, Title Case, camelCase, and snake_case",
+        "Trim whitespace and remove empty lines",
+        "Clean CSV content by removing extra spaces or malformed separators"
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Chain multiple transformations to clean and format text in one workflow:</strong> Multi-step processing: paste messy text content, first trim whitespace removing leading/trailing spaces, then remove empty lines eliminating blank rows, finally apply case conversion to standardize formatting, export clean result without switching between multiple tools. Common workflows: email extraction followed by de-duplication and sorting alphabetically, URL extraction followed by domain filtering and validation, JSON minification after pretty-printing for development review, case conversion followed by find-replace standardizing terminology. Efficiency benefits: keep original text in input maintaining backup, preview each transformation before applying next step, undo easily by re-pasting original if transformation incorrect, copy intermediate results if multiple output formats needed. Example: cleaning customer contact list exported from CRM - (1) paste raw export with irregular spacing, (2) trim whitespace, (3) extract emails validating format, (4) convert names to Title Case, (5) remove duplicate entries, (6) export cleaned list for import to email platform. Professional workflow: always keep untransformed original in separate file (rollback if cleaning introduces errors), document transformation steps applied (reproducibility for future datasets), validate sample of results before processing full dataset, test cleaned data in target system confirming import succeeds.",
+        "💡 <strong>Use JSON formatting to debug API responses and configuration files:</strong> Pretty-printing for readability: paste minified JSON API response (single line, no whitespace), apply JSON format operation adding indentation and line breaks, review nested structure understanding data hierarchy, identify missing or unexpected fields debugging API integration issues. Validation during formatting: JSON formatter catches syntax errors (missing commas, unclosed brackets, trailing commas in strict parsers), highlights problematic lines enabling quick fixes, confirms valid JSON before deployment or API submission, prevents runtime errors from malformed JSON payloads. Development workflow: keep formatted (pretty-printed) JSON in development for readability and version control diffs, minify JSON for production reducing file size and bandwidth, store configuration files as formatted JSON enabling human editing, programmatically minify before deploying to production environments. Common use cases: debugging REST API responses understanding nested objects and arrays, formatting JSON configuration files (package.json, tsconfig.json, AWS CloudFormation templates), validating JSON generated by scripts before API submission, creating readable API documentation examples from actual responses. Minification benefits: reduces file size 20-40% removing whitespace and line breaks, faster transmission over network (smaller payloads), reduced parsing time in some environments, required by some legacy systems expecting compact format. When to format vs minify: format during development and debugging (readability priority), minify for production deployment (performance priority), keep both versions if serving human-readable documentation alongside optimized API.",
+        "💡 <strong>Standardize text case across documents to maintain professional consistency:</strong> Consistency importance: mixed case in documentation looks unprofessional (headings sometimes Title Case, sometimes lowercase), inconsistent variable naming confuses code readers, brand names and acronyms need consistent capitalization, database queries case-sensitive in some systems causing data retrieval failures. Title Case for headings: convert section headers, document titles, navigation labels to proper Title Case (capitalize major words, lowercase articles and prepositions), ensures professional appearance in presentations, reports, website content, matches publishing industry standards. Sentence case for body text: convert ALL CAPS TEXT to sentence case improving readability (all caps perceived as shouting, harder to read), useful for user-generated content moderation, standardizing imported data from external sources. Code formatting: convert variable names to match language conventions (JavaScript camelCase, Python snake_case, SQL SCREAMING_SNAKE_CASE for constants), standardize API field names ensuring consistency across endpoints, migrate legacy code to modern naming standards. Bulk operations: process entire documents or codebases converting hundreds of instances simultaneously (manual find-replace error-prone), maintain exceptions list (proper nouns, acronyms, brand names keeping specific capitalization), verify transformations didn't incorrectly modify special terms. Brand and terminology consistency: define standard capitalization for company terms (iPhone not IPhone, JavaScript not Javascript), enforce across all content maintaining brand identity, create style guide documenting preferred capitalizations, use text processor ensuring compliance at scale."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Lead Generation & Contact Management:</strong> Extract email addresses from conference attendee lists, event registrations, business card scans for building prospect databases, compile customer contact lists from support tickets, forum posts, community engagement for newsletter subscriptions, find partner and vendor contacts from email archives organizing into CRM-ready format, validate and deduplicate email lists before importing into marketing automation platforms",
+        "<strong>Web Development & API Integration:</strong> Format JSON API responses for readable debugging and documentation, validate JSON syntax before deploying configuration files or API payloads, extract URLs from website source code identifying external dependencies and broken links, convert between JavaScript camelCase and backend snake_case for API data transformation, minify JSON for production deployments reducing bandwidth and improving load times",
+        "<strong>Data Cleaning & ETL:</strong> Clean CSV exports from databases or spreadsheets removing extra whitespace and empty lines before re-import, standardize text case in customer names and addresses ensuring database consistency, extract structured data (emails, URLs, phone numbers) from unstructured text for database population, prepare messy data exports for analysis tools requiring clean formatted inputs, normalize column names and values before loading into data warehouse",
+        "<strong>Code Refactoring & Migration:</strong> Convert variable names between naming conventions when migrating code between languages (Python to JavaScript, SQL to code), standardize naming across legacy codebase enforcing modern style guides and best practices, format configuration files (JSON, XML) for version control enabling readable diffs and easier reviews, bulk rename database columns or API fields maintaining naming consistency across application layers, transform code snippets between case styles for documentation or tutorial examples",
+        "<strong>Content Creation & Documentation:</strong> Convert headings and titles to proper Title Case ensuring professional appearance in documents and presentations, standardize capitalization of brand names, product names, technical terms across marketing content, format code examples in technical documentation with proper JSON/XML indentation for readability, extract reference URLs from research documents or bookmarks for bibliography compilation, clean pasted content from various sources removing formatting inconsistencies before publishing",
+        "<strong>Log Analysis & DevOps:</strong> Extract URLs and API endpoints from application logs for debugging and monitoring, find email addresses in error logs identifying users affected by issues for support outreach, format JSON log entries for readable troubleshooting during incident response, parse server logs extracting structured data (IPs, timestamps, error codes) for analysis, validate configuration file syntax before deployment preventing production errors"
+      ]
+    },
+    {
+      "title": "Code & Data Formatting",
+      "type": "list",
+      "content": [
+        "Pretty print JSON and XML for readability",
+        "Minify JSON when you need compact output",
+        "Keep indentation consistent for API payloads"
+      ]
+    },
+    {
+      "title": "How to Use",
+      "type": "list",
+      "content": [
+        "Paste or type your text into the input area",
+        "Choose an operation from the sidebar",
+        "Review the transformed output instantly",
+        "Copy results or run another transformation on the same text"
+      ]
+    },
+    {
+      "title": "Privacy & Speed",
+      "type": "list",
+      "content": [
+        "All processing happens locally in your browser",
+        "No uploads or server-side logging",
+        "Handles large text snippets with fast client-side processing"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/dev-tools/json-formatter'>JSON Formatter</a> for advanced JSON validation and formatting",
+        "Use our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> for specialized CSV data cleaning and validation",
+        "Check our <a href='/file-converters/data'>Data Format Converter</a> to convert between JSON, XML, YAML, CSV formats",
+        "Explore our <a href='/dev-tools/regex-tester'>Regex Tester</a> for custom text pattern extraction and validation"
+      ]
+    }
+  ]
+}

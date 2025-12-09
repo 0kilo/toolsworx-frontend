@@ -20,6 +20,17 @@
   "category": "charts",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Discover correlations between two variables instantly for hypothesis testing - plot marketing spend vs revenue, study time vs test scores, temperature vs ice cream sales revealing positive, negative, or no correlation patterns guiding strategic decisions",
+        "✓ Identify outliers and anomalies that warrant investigation - unusual data points stand out visually (high spend/low return, exceptional performers, data entry errors) enabling targeted analysis, quality control, fraud detection without parsing spreadsheets",
+        "✓ Visualize clustering patterns to segment and categorize data - natural groupings emerge (customer segments by spend/frequency, product categories by price/demand) informing personalization strategies, inventory management, market positioning",
+        "✓ Present statistical analysis results to non-technical stakeholders - scatter plots make regression analysis, correlation coefficients, statistical relationships accessible to executives, clients, general audiences through intuitive visual representation",
+        "✓ 100% client-side processing protects proprietary research data - safely visualize confidential A/B test results, customer behavior patterns, competitive analysis, experimental data without uploading sensitive intellectual property to external platforms"
+      ]
+    },
+    {
       "title": "When to Use Scatter Charts",
       "type": "list",
       "content": [
@@ -40,6 +51,50 @@
         "    { \"x\": 150, \"y\": 300, \"label\": \"Q2\", \"color\": \"#10b981\" }",
         "  ]",
         "}"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How do I interpret correlation in scatter plots?</strong> Correlation patterns: (1) Positive correlation - points trend upward right (as X increases, Y increases), examples: study time vs test scores, ad spend vs sales. (2) Negative correlation - points trend downward right (as X increases, Y decreases), examples: price vs demand, defect rate vs quality investment. (3) No correlation - random scatter, no clear pattern, X and Y independent. Strength: tight cluster around imaginary line = strong correlation, wide spread = weak correlation. Correlation ≠ causation: ice cream sales correlate with drowning deaths (both caused by hot weather, not each other). Use scatter plot to identify relationships, then investigate causation.",
+        "<strong>Q: Should I add a trend line or regression line to my scatter plot?</strong> Add trend line when: showing general relationship direction (positive/negative), presenting to non-technical audience (line clarifies pattern), quantifying correlation (display R² value showing fit strength). Skip trend line when: no clear correlation (random scatter, line misleads), multiple clusters (single line oversimplifies), outliers heavily influence line (misleading fit). Types: linear (straight line, most common), polynomial (curved, for non-linear relationships), logarithmic (for exponential patterns). Always display equation and R² value if showing trend line. Caution: trend lines can mislead if correlation is weak (R² < 0.5) - visual pattern may suggest stronger relationship than exists.",
+        "<strong>Q: How do I choose appropriate axis scales for scatter plots?</strong> Scale considerations: (1) Start at zero vs focused range - scatter plots CAN use non-zero origin unlike bar charts (position matters, not length from baseline). (2) Equal vs different ranges - if X and Y use same units (height vs weight in cm), equal scales help, otherwise independent scales appropriate. (3) Linear vs logarithmic - log scale when data spans orders of magnitude (revenue: $100 to $10M), reveals patterns in wide-range data. (4) Aspect ratio - square plots (equal axis lengths) generally best for comparison. Guideline: choose scales that maximize use of chart area without distorting, include full data range plus small margin, label clearly if not starting at zero.",
+        "<strong>Q: What's the difference between scatter plots and bubble charts?</strong> Scatter plot: two variables (X, Y position), uniform point size, compares two metrics. Bubble chart: three variables (X position, Y position, bubble size), variable point size represents third dimension (sales volume, population, budget). Use scatter when: analyzing bivariate relationship, point size not meaningful, clarity priority (too many bubbles overlap and confuse). Use bubble when: third variable adds context (countries by GDP per capita vs life expectancy, bubble = population), audience sophisticated enough to read three dimensions. Caution: bubble size is hard to compare accurately (area perception), limit to 10-20 bubbles, avoid too much size variation (100x range hard to visualize).",
+        "<strong>Q: How many data points should I show on a scatter plot?</strong> Optimal ranges: 20-200 points for clear patterns and individual point inspection. Under 20 points: correlation unclear (random variation dominates), consider table instead. 20-100 points: ideal range (patterns visible, outliers identifiable, not cluttered). 100-500 points: usable with transparency/smaller points. Over 500 points: overplotting (points overlap obscuring patterns), use transparency, hexagonal binning, or density plots instead. For huge datasets (10k+ points): scatter plot shows density not individual points, consider heatmap or contour plot. Interactive tools help: zoom, filter, hover tooltips manage large datasets."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Label outliers and notable data points for context:</strong> Outliers = most interesting points (exceptional performance, errors, special cases). Label them: add text annotations identifying what they represent (\\\"December holiday spike\\\", \\\"Data entry error\\\", \\\"Viral campaign\\\"). Without labels, viewers wonder: \\\"What's that point?\\\" Labels turn scatter plot from abstract to concrete, enable investigation of anomalies, spark discussion. Tools: direct labels near points, leader lines if crowded, hover tooltips for interactive. Selective labeling: don't label all points (cluttered), only notable ones (top 3, outliers beyond 2 standard deviations, examples of each cluster).",
+        "💡 <strong>Use color or shape to encode third variable or categories:</strong> Beyond X/Y position, encode additional dimension: color by category (product lines in different colors), shape by group (circles vs triangles for male vs female), size for magnitude (bubble chart). Benefits: reveals patterns within subgroups, answers \\\"Does correlation hold for all categories?\\\", adds analytical depth. Example: sales vs marketing spend colored by region - reveals some regions have better ROI. Limit: 3-5 colors/shapes maximum (more = confusing), include clear legend, ensure accessibility (don't rely on color alone, use shapes too).",
+        "💡 <strong>Add reference lines to divide chart into quadrants for analysis:</strong> Quadrant analysis: draw vertical + horizontal lines at meaningful thresholds (median, target, benchmark), divides chart into four regions. Example: customer segmentation (frequency vs spend) - high frequency/high spend (loyalists), high frequency/low spend (engaged but poor fit), low frequency/high spend (whales), low frequency/low spend (at-risk). Label quadrants with strategic implications. Use for: portfolio analysis (BCG matrix), prioritization (impact vs effort), performance evaluation (actual vs target). Makes scatter plot actionable: each quadrant gets different strategy.",
+        "💡 <strong>Consider using transparency when points overlap significantly:</strong> Overplotting problem: many points in same location appear as single point, hides density information. Solution: semi-transparent points (alpha 0.3-0.5) - overlapping points = darker shade, reveals concentration. Alternative: jitter (add small random offset to spread overlapping points), hexagonal binning (show count in hexagonal grid cells), contour plots (density lines like topographic map). When to use: 100+ points, data naturally clustered, precise position less important than density pattern. Balance: too transparent (hard to see single points), too opaque (overlap invisible).",
+        "💡 <strong>Document correlation coefficient and significance in chart title or caption:</strong> Statistical context makes scatter plot credible: include correlation coefficient (r = -0.87), R² value (R² = 0.76 means 76% of variance explained), p-value if relevant (p < 0.05 means statistically significant). Placement: subtitle below chart title, caption at bottom, or in corner of plot area. Audience-dependent: technical audience expects these statistics, general audience may skip. Caution: correlation stats assume linear relationship - if curve is non-linear, linear correlation misleading (use appropriate test: Spearman for monotonic, regression analysis for curves)."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Marketing & Sales Analysis:</strong> Explore relationship between ad spend and revenue or ROI by campaign, analyze correlation between customer lifetime value and acquisition cost, visualize relationship between email frequency and engagement or unsubscribe rates",
+        "<strong>Scientific Research:</strong> Plot experimental variables to identify relationships in lab data, visualize correlation between environmental factors and outcomes, display distribution of measurements to identify outliers or patterns",
+        "<strong>Quality Control & Manufacturing:</strong> Analyze relationship between process parameters and defect rates, identify outliers in production data indicating quality issues, visualize correlation between material properties and performance",
+        "<strong>Financial Analysis:</strong> Explore correlation between risk and return in investment portfolios, analyze relationship between economic indicators for forecasting, visualize stock correlations or beta coefficients for diversification",
+        "<strong>Customer Analytics:</strong> Segment customers by purchase frequency vs average order value, analyze relationship between satisfaction scores and retention rates, visualize correlation between support tickets and churn risk",
+        "<strong>HR & Performance:</strong> Explore relationship between employee tenure and performance ratings, analyze correlation between training investment and productivity gains, visualize compensation vs performance for equity analysis"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/charts/line-chart'>Line Chart Generator</a> for showing one variable's trend over time",
+        "Use our <a href='/charts/bar-chart'>Bar Chart Generator</a> for categorical comparisons",
+        "Check our <a href='/charts/area-chart'>Area Chart</a> for cumulative totals over time",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare bivariate data"
       ]
     }
   ]

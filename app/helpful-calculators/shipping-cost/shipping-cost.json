@@ -28,6 +28,55 @@
         "DHL offers competitive rates for business shipments",
         "Each carrier has strengths depending on your specific needs"
       ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>True Cost Visibility:</strong> See side-by-side pricing with delivery speeds so you can choose the best balance of cost and urgency.",
+        "✓ <strong>Dimensional Weight Ready:</strong> Avoid billing surprises by previewing how oversized boxes affect charges.",
+        "✓ <strong>Multi-Carrier Strategy:</strong> Quickly spot when USPS is cheaper for light parcels or when couriers are better for guarantees.",
+        "✓ <strong>E-commerce Friendly:</strong> Estimate margins before listing shipping-inclusive prices in your store.",
+        "✓ <strong>Operational Planning:</strong> Export options for team discussions or procurement approvals."
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: Why is my light package expensive?</strong><br>Large but light boxes trigger dimensional weight pricing. Try smaller packaging or flat-rate boxes to reduce costs.",
+        "<strong>Q: Do prices include surcharges?</strong><br>Quotes include base shipping; some carriers add residential, fuel, or delivery area surcharges. Use them as planning estimates and verify at purchase.",
+        "<strong>Q: How accurate are delivery times?</strong><br>Transit times are estimates. Weather, customs, and carrier backlogs can extend delivery—build a buffer for critical shipments.",
+        "<strong>Q: Can I compare international shipments?</strong><br>Yes. Input destination country codes; note that duties/taxes are not included and vary by destination.",
+        "<strong>Q: When should I choose insurance?</strong><br>Insure fragile or high-value items. Compare insurance costs to item value and consider carrier liability limits."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Measure Twice:</strong> Even one extra inch can change dimensional weight tiers—measure boxes carefully.",
+        "💡 <strong>Flat-Rate Hacks:</strong> For dense items, USPS flat-rate boxes can beat weight-based pricing—test both in the calculator.",
+        "💡 <strong>Pickup Windows:</strong> Schedule pickups when possible to save time and consolidate shipments.",
+        "💡 <strong>Label Timing:</strong> Buy labels close to ship date so rates and surcharges reflect current pricing.",
+        "💡 <strong>Document Contents:</strong> For international packages, prepare commercial invoices and HS codes early to avoid customs delays."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "<strong>E-commerce Fulfillment:</strong> Quoting shipping during checkout or planning bundled shipping promotions.",
+        "<strong>Marketplace Selling:</strong> Pricing items on resale sites while accounting for carrier fees.",
+        "<strong>Corporate Operations:</strong> Selecting carriers for recurring B2B shipments or sample deliveries.",
+        "<strong>Personal Shipping:</strong> Comparing options for gifts, returns, or moving boxes.",
+        "<strong>Event Logistics:</strong> Budgeting shipments for conferences, pop-ups, or trade shows."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Need to share rate options? Export details alongside the <a href='/helpful-calculators/cheatsheet-builder'>Cheatsheet Builder</a> notes.",
+        "Coordinating delivery around holidays? Pair with the <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown</a> to set cutoff dates.",
+        "Sending gifts from a Secret Santa? Generate assignments with the <a href='/helpful-calculators/secret-santa'>Secret Santa Generator</a> first.",
+        "Budgeting international trips? Use the <a href='/unit-conversions/currency'>Currency Converter</a> to understand carrier charges in your currency."
+      ]
     }
   ]
 }

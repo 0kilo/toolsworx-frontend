@@ -20,6 +20,17 @@
   "category": "charts",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "type": "list",
+      "content": [
+        "✓ Visualize proportional data instantly for presentations and reports - transform raw percentage data into professional pie charts in seconds, perfect for business presentations, marketing reports, or financial summaries without PowerPoint or Excel charting skills",
+        "✓ Show parts-of-a-whole relationships clearly for stakeholder communication - pie charts instantly communicate how budget is allocated, market share distribution, survey results breakdown making complex data accessible to non-technical audiences in meetings or dashboards",
+        "✓ Create interactive charts with customizable colors and labels - adjust slice colors to match brand guidelines, add data labels showing percentages or values, customize title and legend for publication-ready visualizations in annual reports or infographics",
+        "✓ Export charts as images for documentation and social media - download PNG or SVG for embedding in PowerPoint slides, Word documents, blog posts, social media graphics, or email newsletters maintaining professional quality across all platforms",
+        "✓ 100% client-side means sensitive business data never leaves browser - safely visualize confidential market research, internal budget allocations, employee survey results, customer segmentation without uploading proprietary data to external charting services"
+      ]
+    },
+    {
       "title": "When to Use Pie Charts",
       "type": "list",
       "content": [
@@ -40,6 +51,50 @@
         "    { \"label\": \"Product B\", \"value\": 25, \"color\": \"#10b981\" }",
         "  ]",
         "}"
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "type": "list",
+      "content": [
+        "<strong>Q: How many categories should I use in a pie chart?</strong> Best practice: 3-6 categories maximum. With 2 categories, simple percentage text is clearer (60% vs 40%). With 7+ categories, slices become too small to read labels, visual comparison becomes difficult - use bar chart instead. Common mistake: 'Others' category larger than individual categories signals wrong chart type. If you have 10 products and 'Others' is 40%, consider bar chart showing top 5-10 products individually. Exception: donut charts handle slightly more categories (up to 8) due to larger label area.",
+        "<strong>Q: Should values in pie charts sum to 100% or can they be raw numbers?</strong> Pie charts can accept raw numbers (30, 25, 20) or percentages (30%, 25%, 20%) - tool automatically calculates proportions. However, data MUST represent parts of a whole that sum to 100% conceptually. Valid: budget allocation ($30k, $25k, $20k totaling $75k budget). Invalid: quarterly revenue comparison (Q1: $100k, Q2: $120k) because quarters aren't parts of a whole - use bar/line chart. Invalid: overlapping categories (Desktop users: 60%, Mobile users: 50%, returning users: 40%) sums to 150% - categories must be mutually exclusive.",
+        "<strong>Q: When should I use a donut chart vs regular pie chart?</strong> Donut chart (pie with center removed): pros = more space for center label (total value, KPI), less emphasis on area (easier to compare by arc length), modern aesthetic. Regular pie: pros = traditional/familiar, slightly easier to compare areas. Use donut when: displaying total in center adds value (Total Sales: $1.2M with category breakdown), you have 5-8 categories (more label space), modern design preferred. Use pie when: 3-4 categories (center space not needed), traditional audience (executives used to pie charts), emphasis on whole-to-part relationship.",
+        "<strong>Q: How do I choose effective colors for pie chart slices?</strong> Color strategy: (1) Brand colors for primary categories - use company colors for your product/service, neutral for competitors. (2) Color gradients for related categories - light to dark blue for regions, green shades for product tiers. (3) Contrasting colors for unrelated categories - blue, orange, green for distinct products. (4) Consistent colors across visualizations - if Product A is blue in one chart, keep blue everywhere. Avoid: red/green together (colorblind accessibility issue), low contrast (light yellow on white), more than 6 distinct colors. Accessibility: use patterns/textures in addition to color, ensure 4.5:1 contrast ratio for labels.",
+        "<strong>Q: What are common mistakes to avoid when creating pie charts?</strong> Top mistakes: (1) Starting at wrong angle - start largest slice at 12 o'clock going clockwise (reading convention), not random positions. (2) 3D pie charts - distort perception (slices in front appear larger), always use 2D. (3) Exploded slices without reason - only explode to emphasize one key slice, not all. (4) Too many decimal places - '33.33333%' is overkill, use '33%' or '33.3%'. (5) Missing 'Others' category - if you have 15 products, show top 5 and group rest as 'Others' instead of cramming all. (6) Using pie for time series - never use pie for month-over-month trends, use line chart."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "type": "list",
+      "content": [
+        "💡 <strong>Order slices from largest to smallest starting at 12 o'clock:</strong> Human perception: we read clockwise from top. Optimal layout: largest slice at 12 o'clock, second largest clockwise, etc., with 'Others' at end. This ordering: (1) Makes largest value immediately obvious. (2) Creates visual flow from important to less important. (3) Follows convention used by major publications (NYT, WSJ). Exception: if one category is focal point (your product vs competitors), place it at 12 o'clock regardless of size. Poor ordering (random or alphabetical) makes comparison harder and looks unprofessional.",
+        "💡 <strong>Add data labels directly on slices instead of relying only on legend:</strong> Legends require eye movement between chart and key, adding cognitive load. Direct labels (percentage or value on each slice) make charts self-explanatory: 'Marketing: 35%' on slice vs. looking up orange in legend. Best practice: show both percentage AND value ('Marketing: 35% ($350k)') on large slices, percentage only on smaller slices, legend as backup. For very small slices (<5%), use leader lines pointing from label to slice. Goal: viewer should understand chart in 3 seconds without reading legend.",
+        "💡 <strong>Use consistent color schemes across related visualizations:</strong> If you show quarterly pie charts, keep category colors consistent: Marketing = blue in Q1, Q2, Q3, Q4. If Product A is green in market share chart, use green in revenue chart. Consistency: (1) Reduces cognitive load - viewer learns color mapping once. (2) Enables quick comparison across charts. (3) Looks professional and intentional. Document color scheme: create style guide (Marketing = #3b82f6, Sales = #10b981) for team consistency. Pro tools: export palette as JSON, reuse in multiple charts.",
+        "💡 <strong>Consider alternatives before defaulting to pie charts:</strong> Pie charts are over-used and often wrong choice. Better alternatives: (1) Bar chart for 7+ categories or precise comparison (easier to compare length than angles). (2) Line chart for time series (never use pie for trends over time). (3) Treemap for hierarchical data (market share by region and product). (4) Stacked bar for comparing multiple groups' proportions. Use pie ONLY for: part-to-whole relationship with 3-6 categories where precise comparison isn't critical. Before creating pie chart, ask: 'Would bar chart be clearer?' Usually yes.",
+        "💡 <strong>Export charts in multiple formats for different use cases:</strong> Different formats for different needs: (1) PNG for PowerPoint/Word - maintains quality, universally supported, embedded images. (2) SVG for web/print - vector format scales without pixelation, smaller file size for websites, editable in Illustrator. (3) PDF for print publications - high resolution, preserves fonts, standard for professional printing. (4) Interactive HTML for dashboards - tooltips on hover, clickable legend, responsive design. Match format to use case: social media = PNG, website = SVG, research paper = PDF. Pro tip: export high-DPI PNG (2x or 3x resolution) for retina displays."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "type": "list",
+      "content": [
+        "<strong>Business Reporting:</strong> Visualize budget allocation across departments or expense categories, show market share distribution for competitor analysis presentations, display revenue breakdown by product line or customer segment for stakeholder reports",
+        "<strong>Survey Results:</strong> Present poll or survey responses showing percentage of each option selected, visualize demographic breakdowns (age groups, locations, preferences) from research data, display customer satisfaction ratings or NPS score distributions",
+        "<strong>Financial Analysis:</strong> Show portfolio allocation across asset classes (stocks, bonds, real estate), visualize expense categories for personal or business budgeting, display revenue sources or income streams breakdown for annual reports",
+        "<strong>Marketing Analytics:</strong> Display traffic sources (organic, paid, social, direct) for website analytics, show lead generation channels and their relative contributions, visualize customer acquisition costs or marketing spend by channel",
+        "<strong>Project Management:</strong> Show task completion status (completed, in progress, not started), display time allocation across project phases or work categories, visualize resource utilization or team capacity distribution",
+        "<strong>Data Journalism:</strong> Create infographics showing population demographics or election results, visualize government spending or budget allocations for public understanding, display environmental data or resource consumption patterns"
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "type": "list",
+      "content": [
+        "Try our <a href='/charts/bar-chart'>Bar Chart Generator</a> for comparing categories or showing 7+ items more effectively",
+        "Use our <a href='/charts/line-chart'>Line Chart Generator</a> to show trends over time instead of proportions",
+        "Check our <a href='/charts/sunburst-chart'>Sunburst Chart</a> for hierarchical data with nested categories",
+        "Explore our <a href='/dev-tools/csv-formatter'>CSV Formatter</a> to prepare data for import into charts"
       ]
     }
   ]

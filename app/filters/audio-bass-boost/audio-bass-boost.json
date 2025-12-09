@@ -9,6 +9,28 @@
   "category": "filters",
   "sections": [
     {
+      "title": "Why Use This Tool?",
+      "content": [
+        "Precision low-end control that lets you enhance sub-bass without overwhelming the mix, giving your tracks a polished studio feel.",
+        "Instantly fixes thin mobile or laptop recordings by adding body and weight, improving clarity on small speakers and earbuds.",
+        "Built-in guardrails to prevent clipping so you can experiment with bold boosts while keeping output clean and distortion-free.",
+        "Great for creators who need consistent bass translation across headphones, car stereos, and smart speakers without manual EQ tweaking.",
+        "Browser-based processing that keeps files local—no uploads needed—so your stems, podcasts, and mixes stay private and secure."
+      ]
+    },
+
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q:</strong> How much bass boost is safe before distortion? <strong>A:</strong> Start with +3dB to +6dB and check peaks; the limiter prevents clipping but monitoring with headphones helps avoid muddy mixes.",
+        "<strong>Q:</strong> Does this work on voice recordings? <strong>A:</strong> Yes—use gentle boosts around 120Hz to add warmth to podcast voices without emphasizing rumble or plosives.",
+        "<strong>Q:</strong> Can I target only sub-bass? <strong>A:</strong> Focus on 30-60Hz for cinematic rumbles and kick weight while leaving mid-bass untouched for clarity.",
+        "<strong>Q:</strong> Will boosting bass reduce overall volume? <strong>A:</strong> The tool automatically compensates gain so perceived loudness stays consistent while the low end thickens.",
+        "<strong>Q:</strong> How do I keep mixes from sounding boomy? <strong>A:</strong> Combine moderate boosts with high-pass filtering below 25Hz and compare on multiple playback systems."
+      ]
+    },
+
+    {
       "title": "Bass Frequency Ranges",
       "content": [
         "<strong>Sub-bass (20-60Hz):</strong> Deep rumble, felt more than heard",
@@ -37,6 +59,38 @@
         "Consider the playback system - some have natural bass emphasis",
         "Use high-pass filtering to remove unwanted sub-sonic content",
         "Monitor on different speakers to check translation"
+      ]
+    },
+
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 Pair a gentle boost at 60-80Hz with a small cut around 250Hz to add punch while keeping vocals clear and upfront.",
+        "💡 For EDM drops, automate a short +6dB boost on the kick’s transient only, then return to +2dB for the rest of the bar.",
+        "💡 Use mid/side listening: boost lows in the mid channel while keeping the side channel neutral to avoid stereo smearing on headphones.",
+        "💡 When mastering, limit boosts to 2-3dB and check LUFS so streaming platforms don’t turn your track down after processing.",
+        "💡 Compare in mono—if the low end disappears, reduce stereo widening plugins before applying bass enhancement."
+      ]
+    },
+
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Producers balancing kick and bass elements in electronic, hip-hop, or pop tracks who need fast, reliable low-end definition.",
+        "Podcast editors warming up thin interview recordings captured with laptops, webcams, or budget microphones.",
+        "Live streamers sweetening game audio or background music while keeping commentary intelligible and free of rumble.",
+        "Video editors strengthening whooshes, impacts, and cinematic hits to create theatrical impact on trailers or reels.",
+        "Musicians preparing rehearsal recordings so bass guitars and synths translate on car speakers and phone earbuds."
+      ]
+    },
+
+    {
+      "title": "Related Tools",
+      "content": [
+        "Use <a href=\"/audio-equalizer\">Audio Equalizer</a> to shape mids and highs after adding low-end weight.",
+        "Pair with <a href=\"/audio-noise-reduction\">Noise Reduction</a> if rumble or HVAC noise becomes more noticeable after boosting bass.",
+        "Finish with <a href=\"/audio-normalize\">Normalize Audio</a> to keep peak levels in spec for streaming platforms.",
+        "Experiment alongside <a href=\"/audio-reverb\">Reverb Effect</a> to give newly boosted bass more space without masking vocals."
       ]
     }
   ]
