@@ -7,14 +7,14 @@ import "katex/dist/katex.min.css"
 interface AboutDescriptionProps {
   title: string
   description: string
-  sections: {
+  sections?: {
     title: string
     content: string[] | { title: string; items: string[] }[]
     type?: 'list' | 'subsections' | string
   }[]
 }
 
-export function AboutDescription({ title, description, sections }: AboutDescriptionProps) {
+export function AboutDescription({ title, description, sections = [] }: AboutDescriptionProps) {
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

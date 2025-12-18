@@ -5,7 +5,7 @@ import { fileConverterTools as fileConverters } from "./categories/file-converte
 import { mediaConverterTools as mediaConverters } from "./categories/media-converters/registry"
 import { developerTools } from "./categories/developer-tools/registry"
 import { filterTools as filters } from "./categories/filters/registry"
-import { helpfulCalculators } from "./categories/helpful-calculators"
+import { helpfulCalculators } from "./categories/helpful-calculators/registry"
 import { chartTools } from "./categories/charts/registry"
 
 // Combine all converters

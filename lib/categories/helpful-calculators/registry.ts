@@ -1,6 +1,9 @@
-import { ChefHat, Gift, Calendar, Package, Bitcoin, Key, FileText } from "lucide-react"
+import { ChefHat, Gift, Calendar, Bitcoin, Key, FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
+/**
+ * Helpful calculators and utilities (daily-life tools)
+ */
 export const helpfulCalculators: ConverterMetadata[] = [
   {
     id: "recipe-scaler",

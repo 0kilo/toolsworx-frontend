@@ -19,12 +19,19 @@ export default function DocumentsClient() {
     <div className="container py-8">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-3">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
-            <p className="text-muted-foreground">
-              {toolContent.description}
-            </p>
-          </div>
+          {(() => {
+            const [overview, ...sections] = toolContent.sections || []
+            const aboutTitle = overview?.title || toolContent.title
+            const aboutDescription = Array.isArray(overview?.content) ? overview?.content[0] || toolContent.description : toolContent.description
+
+            return (
+              <>
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
+                <p className="text-muted-foreground">
+                  {toolContent.description}
+                </p>
+              </div>
 
           <FileConverter
             title={toolContent.title}
@@ -36,14 +43,17 @@ export default function DocumentsClient() {
           />
 
           <AboutDescription
-            title={toolContent.sections[0].title}
-            description={toolContent.sections[0].content[0]}
-            sections={toolContent.sections.slice(1).map(s => ({
-              title: s.title,
-              content: s.content,
-              type: s.type as 'list' | 'subsections' | undefined
+            title={aboutTitle}
+            description={aboutDescription}
+            sections={(sections || []).map(s => ({
+              title: s?.title || '',
+              content: s?.content || [],
+              type: s?.type as 'list' | 'subsections' | undefined
             }))}
           />
+              </>
+            )
+          })()}
         </div>
 
         <div className="lg:col-span-1">
