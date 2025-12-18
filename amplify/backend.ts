@@ -1,19 +1,19 @@
 import { defineBackend } from '@aws-amplify/backend';
 import { auth } from './auth/resource';
-import { data } from './data/resource';
-import { fileConversion } from './function/file-conversion/resource';
-import { mediaConversion } from './function/media-conversion/resource';
-import { filterService } from './function/file-filter/resource';
-import { audioFilter } from './function/audio-filter/resource';
-import { shippingCost } from './function/shipping-cost/resource';
-import { ratesFetcher } from './function/rates-fetcher/resource';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
-import * as logs from 'aws-cdk-lib/aws-logs';
-import * as events from 'aws-cdk-lib/aws-events';
-import * as targets from 'aws-cdk-lib/aws-events-targets';
-import * as iam from 'aws-cdk-lib/aws-iam';
-import { RemovalPolicy, Duration } from 'aws-cdk-lib';
+// import { data } from './data/resource';
+// import { fileConversion } from './function/file-conversion/resource';
+// import { mediaConversion } from './function/media-conversion/resource';
+// import { filterService } from './function/file-filter/resource';
+// import { audioFilter } from './function/audio-filter/resource';
+// import { shippingCost } from './function/shipping-cost/resource';
+// import { ratesFetcher } from './function/rates-fetcher/resource';
+// import * as lambda from 'aws-cdk-lib/aws-lambda';
+// import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+// import * as logs from 'aws-cdk-lib/aws-logs';
+// import * as events from 'aws-cdk-lib/aws-events';
+// import * as targets from 'aws-cdk-lib/aws-events-targets';
+// import * as iam from 'aws-cdk-lib/aws-iam';
+// import { RemovalPolicy, Duration } from 'aws-cdk-lib';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -25,103 +25,117 @@ const __dirname = path.dirname(__filename);
  */
 const backend = defineBackend({
   auth,
-  data,
-  fileConversion,
-  filterService,
-  mediaConversion,
-  audioFilter,
-  shippingCost,
-  ratesFetcher
+  // data,
+  // fileConversion,
+  // filterService,
+  // mediaConversion,
+  // audioFilter,
+  // shippingCost,
+  // ratesFetcher
 });
 
-// Create Sharp Lambda Layer for native dependency support
-const sharpLayer = new lambda.LayerVersion(
-  backend.mediaConversion.resources.lambda,
-  'SharpLayer',
-  {
-    code: lambda.Code.fromAsset(
-      path.join(__dirname, '../lambda-layers/sharp-layer/sharp-layer.zip')
-    ),
-    compatibleRuntimes: [lambda.Runtime.NODEJS_20_X, lambda.Runtime.NODEJS_22_X],
-    description: 'Sharp image processing library with Linux x64 binaries'
-  }
-);
+// // Create Sharp Lambda Layer for native dependency support
+// const sharpLayer = new lambda.LayerVersion(
+//   backend.mediaConversion.resources.lambda,
+//   'SharpLayer',
+//   {
+//     code: lambda.Code.fromAsset(
+//       path.join(__dirname, '../lambda-layers/sharp-layer/sharp-layer.zip')
+//     ),
+//     compatibleRuntimes: [lambda.Runtime.NODEJS_20_X, lambda.Runtime.NODEJS_22_X],
+//     description: 'Sharp image processing library with Linux x64 binaries'
+//   }
+// );
 
-// Add layers to functions
-const mediaLambda = backend.mediaConversion.resources.lambda as lambda.Function;
-const filterLambda = backend.filterService.resources.lambda as lambda.Function;
+// // LibreOffice + archive tools layer (for document conversions)
+// const archiveToolsLayer = new lambda.LayerVersion(
+//   backend.fileConversion.resources.lambda,
+//   'ArchiveToolsLayer',
+//   {
+//     code: lambda.Code.fromAsset(
+//       path.join(__dirname, '../lambda-layers/archive-tools/archive-tools-layer.zip')
+//     ),
+//     compatibleRuntimes: [lambda.Runtime.NODEJS_20_X, lambda.Runtime.NODEJS_22_X],
+//     description: 'Archive tools and headless LibreOffice for document conversions'
+//   }
+// );
 
-mediaLambda.addLayers(sharpLayer);
-filterLambda.addLayers(sharpLayer);
+// // Add layers to functions
+// const mediaLambda = backend.mediaConversion.resources.lambda as lambda.Function;
+// const filterLambda = backend.filterService.resources.lambda as lambda.Function;
+// const fileConversionLambda = backend.fileConversion.resources.lambda as lambda.Function;
 
-// Get the ratesFetcher Lambda and data stack
-const ratesFetcherLambda = backend.ratesFetcher.resources.lambda as lambda.Function;
-const dataStack = backend.data.resources.cfnResources.cfnGraphqlApi.stack;
+// mediaLambda.addLayers(sharpLayer);
+// filterLambda.addLayers(sharpLayer);
+// fileConversionLambda.addLayers(archiveToolsLayer);
 
-// Grant ratesFetcher Lambda access to MarketRate table
-const marketRateTable = backend.data.resources.tables['MarketRate'];
-marketRateTable.grantReadWriteData(ratesFetcherLambda);
+// // Get the ratesFetcher Lambda and data stack
+// const ratesFetcherLambda = backend.ratesFetcher.resources.lambda as lambda.Function;
+// const dataStack = backend.data.resources.cfnResources.cfnGraphqlApi.stack;
 
-// Add table name to Lambda environment
-ratesFetcherLambda.addEnvironment('MARKET_RATE_TABLE', marketRateTable.tableName);
+// // Grant ratesFetcher Lambda access to MarketRate table
+// const marketRateTable = backend.data.resources.tables['MarketRate'];
+// marketRateTable.grantReadWriteData(ratesFetcherLambda);
 
-// Create EventBridge rule to trigger ratesFetcher every 1 minute (temporarily for initial data)
-const ratesFetcherRule = new events.Rule(
-  dataStack,
-  'RatesFetcherSchedule',
-  {
-    schedule: events.Schedule.rate(Duration.minutes(30)),
-    description: 'Trigger rates fetcher Lambda every 30 minute'
-  }
-);
+// // Add table name to Lambda environment
+// ratesFetcherLambda.addEnvironment('MARKET_RATE_TABLE', marketRateTable.tableName);
 
-ratesFetcherRule.addTarget(new targets.LambdaFunction(ratesFetcherLambda));
+// // Create EventBridge rule to trigger ratesFetcher every 1 minute (temporarily for initial data)
+// const ratesFetcherRule = new events.Rule(
+//   dataStack,
+//   'RatesFetcherSchedule',
+//   {
+//     schedule: events.Schedule.rate(Duration.minutes(30)),
+//     description: 'Trigger rates fetcher Lambda every 30 minute'
+//   }
+// );
 
-// Create Rate Limit DynamoDB Table
-const rateLimitTable = new dynamodb.Table(dataStack, 'RateLimitTable', {
-  partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
-  billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
-  timeToLiveAttribute: 'ttl',
-  removalPolicy: RemovalPolicy.DESTROY,
-});
+// ratesFetcherRule.addTarget(new targets.LambdaFunction(ratesFetcherLambda));
 
-// Grant Lambda functions access to rate limit table
-const audioFilterLambda = backend.audioFilter.resources.lambda as lambda.Function;
-const fileConversionLambda = backend.fileConversion.resources.lambda as lambda.Function;
-const mediaConversionLambda = backend.mediaConversion.resources.lambda as lambda.Function;
+// // Create Rate Limit DynamoDB Table
+// const rateLimitTable = new dynamodb.Table(dataStack, 'RateLimitTable', {
+//   partitionKey: { name: 'id', type: dynamodb.AttributeType.STRING },
+//   billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+//   timeToLiveAttribute: 'ttl',
+//   removalPolicy: RemovalPolicy.DESTROY,
+// });
 
-rateLimitTable.grantReadWriteData(audioFilterLambda);
-rateLimitTable.grantReadWriteData(fileConversionLambda);
-rateLimitTable.grantReadWriteData(mediaConversionLambda);
-rateLimitTable.grantReadWriteData(filterLambda);
+// // Grant Lambda functions access to rate limit table
+// const audioFilterLambda = backend.audioFilter.resources.lambda as lambda.Function;
+// const mediaConversionLambda = backend.mediaConversion.resources.lambda as lambda.Function;
 
-// Add table name to Lambda environments
-audioFilterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
-fileConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
-mediaConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
-filterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+// rateLimitTable.grantReadWriteData(audioFilterLambda);
+// rateLimitTable.grantReadWriteData(fileConversionLambda);
+// rateLimitTable.grantReadWriteData(mediaConversionLambda);
+// rateLimitTable.grantReadWriteData(filterLambda);
 
-// Configure CloudWatch Logs for AppSync API (for resolver logging)
-const cfnGraphqlApi = backend.data.resources.cfnResources.cfnGraphqlApi;
+// // Add table name to Lambda environments
+// audioFilterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+// fileConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+// mediaConversionLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
+// filterLambda.addEnvironment('RATE_LIMIT_TABLE', rateLimitTable.tableName);
 
-// Create IAM role for AppSync logging
-const appSyncLoggingRole = new iam.Role(dataStack, 'AppSyncLoggingRole', {
-  assumedBy: new iam.ServicePrincipal('appsync.amazonaws.com'),
-  managedPolicies: [
-    iam.ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSAppSyncPushToCloudWatchLogs')
-  ]
-});
+// // Configure CloudWatch Logs for AppSync API (for resolver logging)
+// const cfnGraphqlApi = backend.data.resources.cfnResources.cfnGraphqlApi;
 
-// Create CloudWatch log group for AppSync
-const appSyncLogGroup = new logs.LogGroup(dataStack, 'AppSyncLogGroup', {
-  logGroupName: `/aws/appsync/apis/${cfnGraphqlApi.attrApiId}`,
-  retention: logs.RetentionDays.ONE_WEEK,
-  removalPolicy: RemovalPolicy.DESTROY
-});
+// // Create IAM role for AppSync logging
+// const appSyncLoggingRole = new iam.Role(dataStack, 'AppSyncLoggingRole', {
+//   assumedBy: new iam.ServicePrincipal('appsync.amazonaws.com'),
+//   managedPolicies: [
+//     iam.ManagedPolicy.fromAwsManagedPolicyName('service-role/AWSAppSyncPushToCloudWatchLogs')
+//   ]
+// });
 
-// Configure AppSync logging
-cfnGraphqlApi.logConfig = {
-  cloudWatchLogsRoleArn: appSyncLoggingRole.roleArn,
-  fieldLogLevel: 'ALL',
-  excludeVerboseContent: false
-};
+// // Create CloudWatch log group for AppSync
+// const appSyncLogGroup = new logs.LogGroup(dataStack, 'AppSyncLogGroup', {
+//   logGroupName: `/aws/appsync/apis/${cfnGraphqlApi.attrApiId}`,
+//   retention: logs.RetentionDays.ONE_WEEK,
+//   removalPolicy: RemovalPolicy.DESTROY
+// });
+
+// // Configure AppSync logging
+// cfnGraphqlApi.logConfig = {
+//   cloudWatchLogsRoleArn: appSyncLoggingRole.roleArn,
+//   fieldLogLevel: 'ALL',
+//   excludeVerboseContent: false
+// };

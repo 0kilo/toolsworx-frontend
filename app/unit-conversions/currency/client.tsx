@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
 import { DollarSign, ArrowUpDown, RefreshCw } from "lucide-react"
-import { amplifyApiClient } from "@/lib/services/amplify-client"
+import { apiClient } from "@/lib/services/api-client"
 import { convertCurrency } from "@/lib/tools/logic/unit-conversions/currency"
 import toolContent from "./currency.json"
 
@@ -48,7 +48,7 @@ export default function CurrencyConverterClient() {
 
     setLoading(true)
     try {
-      const data = await amplifyApiClient.getCurrencyRate(currency)
+      const data = await apiClient.getCurrencyRate(currency)
       if (data && data.price) {
         setRates(prev => ({ ...prev, [currency]: data.price }))
         setLastUpdated(new Date())

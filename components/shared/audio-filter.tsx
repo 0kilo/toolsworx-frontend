@@ -41,12 +41,11 @@ export function AudioFilter({ title, description, filterType, controls, getOptio
       // Get GA4 Client ID for rate limiting
       const sessionId = await getGA4ClientId()
       
-      // Import amplify client
-      const { amplifyApiClient } = await import('@/lib/services/amplify-client')
-      
-      // Call Amplify audio filter function with session ID
-      const result = await amplifyApiClient.applyAudioFilter(selectedFile, filterType, { ...options, sessionId })
-      setProcessedAudio(result.downloadUrl || null)
+      const { apiClient } = await import('@/lib/services/api-client')
+      const job = await apiClient.applyAudioFilter(selectedFile, filterType, { ...options, sessionId })
+      // Poll once for download URL
+      const status = await apiClient.getJobStatus('audio', job.id)
+      setProcessedAudio(status.downloadUrl || null)
       
       // Increment usage count on success
       incrementUsage(`audio-${filterType}`)

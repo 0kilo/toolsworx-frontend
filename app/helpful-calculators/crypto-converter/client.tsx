@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
 import { Bitcoin, ArrowUpDown, RefreshCw, TrendingUp, TrendingDown } from "lucide-react"
-import { amplifyApiClient } from "@/lib/services/amplify-client"
+import { apiClient } from "@/lib/services/api-client"
 import { convertCrypto } from "@/lib/tools/logic/helpful-calculators/helper-crypto"
 import toolContent from "./crypto-converter.json"
 
@@ -61,7 +61,7 @@ export default function CryptoconverterClient() {
   const fetchRate = async (symbol: string) => {
     setLoading(true)
     try {
-      const data = await amplifyApiClient.getCryptoPrice(symbol)
+      const data = await apiClient.getCryptoPrice(symbol)
       if (data && data.price) {
         setRates(prev => ({
           ...prev,
