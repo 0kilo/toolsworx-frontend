@@ -47,11 +47,13 @@ module.exports = ({ uploadAny, filterQueue, jobs, logger }) => {
       if (!job) return res.status(404).json({ success: false, error: 'Job not found' });
       const state = await job.getState();
       const progress = job.progress || 0;
+      const error = state === 'failed' ? (job.failedReason || (job.stacktrace && job.stacktrace[0])) : undefined;
       res.json({
         success: true,
         jobId: job.id,
         status: state,
         progress,
+        error,
         downloadUrl: state === 'completed' ? `/api/filter/download/${job.id}` : undefined
       });
     } catch (error) {

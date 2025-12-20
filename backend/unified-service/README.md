@@ -60,9 +60,16 @@ npm start
 ### Docker
 ```bash
 docker build -t unified-service .
+docker tag unified-service:latest khandum/unified-service:latest
+docker push khandum/unified-service:latest
 docker run -p 3010:3010 \
   -e CORS_ORIGIN=http://localhost:3000 \
   unified-service
+```
+
+### Bundle
+```bash
+scripts/bundle-unified-service.sh
 ```
 
 ### Docker Compose
@@ -92,7 +99,26 @@ curl -X POST http://localhost:3010/api/filter \
   -F "file=@image.jpg" \
   -F "filterType=grayscale"
 ```
+curl -i https://api.toolsworx.com/api/status/3
+curl -i -X POST \
+    -F "file=@$HOME/Documents/personal/IRS_EIN.pdf" \
+    -F "targetFormat=docx" \
+    -H "Origin: https://toolsworx.com" \
+    https://api.toolsworx.com/api/convert
+curl -i -X POST \
+    -F "file=@$HOME/Documents/personal/IRS_EIN.pdf" \
+    -F "targetFormat=docx" \
+    -H "Origin: https://toolsworx.com" \
+    http://toolsworx.us-east-2.elasticbeanstalk.com/api/convert
 
+curl -i https://api.toolsworx.com/api/status/3
+scp -i "toolsworx.pem" ~/Documents/personal/IRS_EIN.pdf  ec2-user@ec2-3-128-8-79.us-east-2.compute.amazonaws.com:/home/ec2-user/
+sudo docker cp ~/IRS_EIN.pdf $(sudo docker ps --filter name=unified-service -q):/tmp/IRS_EIN.pdf
+
+ HOME=/tmp/lo-profile TMPDIR=/tmp/lo-profile libreoffice --headless --nologo --nofirststartwizard --norestore --nolockcheck --nodefault \
+    --infilter=writer_pdf_import \
+    --convert-to docx \
+    --outdir /tmp/out /tmp/IRS_EIN.pdf
 ## Architecture
 
 ```

@@ -9,7 +9,9 @@ RUN apt-get update && \
     apt-get install -y \
       nodejs \
       libreoffice \
-      libreoffice-writer libreoffice-calc \
+      libreoffice-writer libreoffice-calc libreoffice-draw \
+      libreoffice-common \
+      poppler-utils \
       p7zip-full \
       ffmpeg \
       fontconfig \

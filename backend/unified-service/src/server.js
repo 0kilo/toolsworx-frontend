@@ -18,7 +18,9 @@ const app = express();
 const jobs = new Map();
 
 // Middleware
-app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
+const corsOrigin = Array.isArray(CORS_ORIGIN) && CORS_ORIGIN.length === 1 ? CORS_ORIGIN[0] : CORS_ORIGIN;
+app.use(cors({ origin: corsOrigin, credentials: false }));
+logger.info({ corsOrigin }, 'CORS configuration');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(globalLimiter);

@@ -8,7 +8,7 @@ services:
     environment:
       - PORT=3010
       - REDIS_URL=redis://redis:6379
-      - CORS_ORIGIN=*
+      - CORS_ORIGIN=https://toolsworx.com,https://www.toolsworx.com
       - API_KEYS=
       - CONVERSION_LIMIT_NOAUTH=3
       - MAX_FILE_SIZE=524288000

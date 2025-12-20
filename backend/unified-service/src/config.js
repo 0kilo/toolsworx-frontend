@@ -5,13 +5,22 @@ const toInt = (val, fallback) => {
   return Number.isNaN(n) ? fallback : n;
 };
 
+const parseOrigins = (val) => {
+  if (!val) return ['http://localhost:3000'];
+  if (val.trim() === '*') return '*';
+  return val
+    .split(',')
+    .map((v) => v.trim())
+    .filter(Boolean);
+};
+
 module.exports = {
   PORT: process.env.PORT || 3010,
   REDIS_URL: process.env.REDIS_URL || 'redis://redis:6379',
   TEMP_DIR: process.env.TEMP_DIR || '/tmp/uploads',
   LIBRE_OFFICE_PATH: process.env.LIBRE_OFFICE_PATH || '/usr/bin/libreoffice',
   FFMPEG_PATH: process.env.FFMPEG_PATH || '/usr/bin/ffmpeg',
-  CORS_ORIGIN: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  CORS_ORIGIN: parseOrigins(process.env.CORS_ORIGIN),
   LOG_LEVEL: process.env.LOG_LEVEL || 'info',
   NODE_ENV: process.env.NODE_ENV || 'production',
   MAX_FILE_SIZE: toInt(process.env.MAX_FILE_SIZE, 500 * 1024 * 1024),

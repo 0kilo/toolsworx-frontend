@@ -9,17 +9,25 @@ const { logger } = require('../logger');
 const docFormats = ['pdf', 'doc', 'docx', 'odt', 'rtf', 'txt', 'html'];
 const sheetFormats = ['xlsx', 'xls', 'csv', 'ods'];
 
-async function convertDocument(inputPath, tempDir, targetFormat, job) {
+async function convertDocument(inputPath, tempDir, targetFormat, inputExt, job) {
   const outputDir = path.join(tempDir, 'output');
   await fs.mkdir(outputDir, { recursive: true });
 
   await job.updateProgress(30);
 
   await new Promise((resolve, reject) => {
+    const isPdf = inputExt === 'pdf';
+    const convertTo = targetFormat === 'docx' ? 'docx' : targetFormat;
     const args = [
       '--headless',
+      '--nologo',
+      '--nofirststartwizard',
+      '--norestore',
+      '--nolockcheck',
+      '--nodefault',
+      ...(isPdf ? ['--infilter=writer_pdf_import'] : []),
       '--convert-to',
-      targetFormat,
+      convertTo,
       '--outdir',
       outputDir,
       inputPath
@@ -28,6 +36,11 @@ async function convertDocument(inputPath, tempDir, targetFormat, job) {
     const proc = spawn(LIBRE_OFFICE_PATH, args, {
       timeout: 300000,
       stdio: 'pipe',
+      env: {
+        ...process.env,
+        HOME: tempDir,
+        TMPDIR: tempDir
+      }
     });
 
     let stderr = '';
@@ -81,7 +94,7 @@ async function processFileConversion(job) {
 
     let outputPath;
     if (docFormats.includes(inputExt) && docFormats.includes(targetFormat)) {
-      outputPath = await convertDocument(inputPath, tempDir, targetFormat, job);
+      outputPath = await convertDocument(inputPath, tempDir, targetFormat, inputExt, job);
     } else if (sheetFormats.includes(inputExt) && sheetFormats.includes(targetFormat)) {
       outputPath = await convertSpreadsheet(inputPath, tempDir, targetFormat, job);
     } else {
