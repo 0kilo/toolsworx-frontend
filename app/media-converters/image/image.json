@@ -16,7 +16,7 @@
         "✓ Convert JPEG photos to PNG format for graphic design and transparency requirements - add transparent backgrounds to product photos for online stores enabling overlay on any background color, prepare images for logo creation, icon design, or graphics requiring alpha channel transparency, avoid JPEG compression artifacts when editing images requiring sharp text or line art, enable lossless editing workflow preventing quality degradation from repeated JPEG re-compression cycles",
         "✓ Convert images to modern WebP format achieving 25-35% smaller file sizes than JPEG with same quality - optimize website images reducing page weight improving Core Web Vitals scores and search engine rankings, decrease bandwidth costs for high-traffic sites serving millions of images monthly, maintain visual quality while dramatically reducing storage requirements for photo galleries, image-heavy blogs, portfolio websites, accelerate mobile site performance where data costs and speed critical",
         "✓ Convert between formats for platform and device compatibility requirements - adapt HEIC iPhone photos to JPEG for sharing with Android users or uploading to websites not supporting Apple formats, convert TIFF files to JPEG or PNG for web publishing where browsers don't support TIFF, transform BMP screenshots to PNG or JPEG reducing file sizes 95% without visible quality loss, ensure images display correctly across all devices, browsers, social media platforms, email clients",
-        "✓ 100% client-side processing protects confidential images from cloud exposure - safely convert sensitive product photos, unreleased designs, confidential documents scanned as images, personal photos, proprietary graphics without uploading to third-party conversion services risking unauthorized access, maintain privacy compliance (GDPR, HIPAA for medical images) by processing images entirely in browser, eliminate security audit concerns from external platforms accessing your visual content"
+        "✓ Server-based image conversion for reliable output - files are uploaded to our conversion service for processing, so avoid highly sensitive images if you require local-only handling"
       ]
     },
     {
@@ -63,6 +63,17 @@
         "<strong>Graphic Design & Creative Work:</strong> Convert layered PSD or XCF designs to flattened PNG with transparency for web use maintaining alpha channel for overlays, transform vector logos to raster formats (PNG, JPEG) in multiple sizes for various applications (favicon, email signature, social media profile), prepare graphics for client delivery converting working files to universally compatible formats (JPEG, PNG) meeting technical specifications, optimize icon sets converting to WebP or PNG at multiple resolutions for responsive web design",
         "<strong>E-commerce & Product Photography:</strong> Convert high-resolution product photos to JPEG at optimized quality (85-90) balancing detail visibility and page load performance for online stores, create product image variations in multiple sizes (thumbnail, gallery, zoom view) from single high-quality source, prepare images with transparent backgrounds converting to PNG for product overlays on different background colors, optimize variant images (color swatches, different angles) compressing to reduce total page weight while maintaining quality",
         "<strong>Email Marketing & Communications:</strong> Convert images to appropriate sizes and formats for email newsletters staying under total email size limits (300-500KB recommended), prepare promotional graphics optimizing for fast loading in email clients with limited image support, compress attachment images converting large originals to smaller JPEG for email-friendly sizes under 1-2MB, create email-safe images testing format compatibility across different email clients (Outlook, Gmail, Apple Mail)"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert a PNG logo to WebP for faster web loading.",
+        "<strong>Step-by-step:</strong> (1) Upload the image. (2) Choose the target format. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Will quality change?</em> Lossy formats like JPEG/WebP may introduce slight artifacts.",
+        "<strong>FAQ:</strong> <em>Can I keep transparency?</em> Use PNG or WebP for alpha transparency.",
+        "<strong>FAQ:</strong> <em>Is this local?</em> No—image conversion runs on the server."
       ]
     },
     {

@@ -12,7 +12,7 @@
         "✓ Reduce storage space consumption by 40-90% through lossless compression - compress text files (JSON, XML, HTML, source code) achieving 70-90% size reduction, reduce image archives (PNGs, BMPs) by 20-60%, save significant cloud storage costs (AWS S3, Dropbox, Google Drive) when archiving historical project files, old reports, reference documents that must be retained but rarely accessed",
         "✓ Organize project files maintaining directory structure for handoffs and backups - preserve folder hierarchy when archiving complete projects for client delivery, create snapshots of work-in-progress maintaining relative paths for version control, bundle website files (HTML, CSS, JS, images) with proper directory structure for deployment or sharing with developers, organize research materials across nested folders for archival submission",
         "✓ Extract downloaded archives without installing WinZip, 7-Zip, or desktop software - handle ZIP files from GitHub downloads, WordPress theme/plugin packages, stock photo bundles directly in browser, access archived documents from email attachments on locked-down corporate machines where software installation prohibited, extract files on Chromebooks, tablets, restricted environments where traditional archive utilities unavailable",
-        "✓ 100% client-side processing protects confidential file contents from cloud exposure - safely compress proprietary source code, financial documents, legal contracts, customer data without uploading to third-party compression services risking data breaches, eliminate audit trail concerns from using external file sharing platforms, maintain HIPAA/GDPR compliance by processing sensitive archives entirely in browser without server transmission"
+        "✓ Server-based archive processing handles large bundles - files are uploaded to our conversion service for processing, so avoid highly sensitive archives if you require local-only handling"
       ]
     },
     {
@@ -57,6 +57,17 @@
         "<strong>Software Distribution & Downloads:</strong> Package open source projects with source code, documentation, examples, licenses matching GitHub release bundle structure, distribute WordPress themes and plugins maintaining required folder structure for installation compatibility, provide downloadable resource packs for courses, tutorials, workshops including all materials in single archive, share game mods, custom content, asset packs preserving mod folder structure for user installation",
         "<strong>Data Export & Migration:</strong> Export website content management system files for migration to new host preserving exact directory structure required for import, archive database backups, media libraries, user uploads before platform migrations for rollback insurance, package extracted data from SaaS platforms when switching vendors ensuring complete data export with metadata, create portable project backups when switching computers or operating systems maintaining cross-platform compatibility",
         "<strong>Legal & Compliance Documentation:</strong> Compile discovery materials including emails, documents, spreadsheets into indexed archive for legal proceedings with metadata preservation, create evidence packages for audits bundling financial records, contracts, invoices by quarter or year with manifest, archive completed projects with all deliverables, communications, approvals for regulatory compliance and liability protection, package intellectual property documentation including patents, trademarks, copyrights with supporting files for licensing or sale"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload multiple files, create a ZIP, and download the bundled archive.",
+        "<strong>Step-by-step:</strong> (1) Select files or an archive. (2) Choose compress or extract. (3) Download the result.",
+        "<strong>FAQ:</strong> <em>Does compression always shrink files?</em> Not for already-compressed media like JPG or MP4.",
+        "<strong>FAQ:</strong> <em>Can I password-protect archives?</em> Use a dedicated tool if you need strong encryption.",
+        "<strong>FAQ:</strong> <em>Are archives processed locally?</em> No—archive operations are handled on the server."
       ]
     },
     {

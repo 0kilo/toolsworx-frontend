@@ -103,6 +103,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Use the Sales by Quarter sample to plot Q1–Q4 bars with distinct colors.",
+        "<strong>Step-by-step:</strong> (1) Add a chart title. (2) Add label/value pairs in the data array. (3) Render and sort if needed.",
+        "<strong>FAQ:</strong> <em>Can I show long labels?</em> Yes—switch to horizontal bars if labels overlap.",
+        "<strong>FAQ:</strong> <em>Should I start at zero?</em> Yes, bar charts should start at zero to avoid misleading comparisons.",
+        "<strong>FAQ:</strong> <em>How many categories is too many?</em> If labels crowd, show top items and group the rest as “Other.”"
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

@@ -99,6 +99,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 72°F to Celsius for a recipe or thermostat.",
+        "<strong>Step-by-step:</strong> (1) Enter a temperature. (2) Select from/to units. (3) Read the converted value.",
+        "<strong>FAQ:</strong> <em>Why is Kelvin used?</em> Kelvin is standard for scientific calculations.",
+        "<strong>FAQ:</strong> <em>Is there a direct ratio?</em> No—Celsius and Fahrenheit need an offset.",
+        "<strong>FAQ:</strong> <em>Can temperatures be negative?</em> Yes—enter negative values when needed."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Try our <a href='/unit-conversions/length'>Length Converter</a> for converting distances and measurements in scientific experiments",

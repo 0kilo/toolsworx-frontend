@@ -17,8 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Category pages
+  const categoryPathOverrides: Record<string, string> = {
+    'developer-tools': '/dev-tools',
+  }
+
   const categoryPages = categoryGroups.map((category) => ({
-    url: `${baseUrl}/category/${category.id}`,
+    url: `${baseUrl}${categoryPathOverrides[category.id] || `/${category.id}`}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

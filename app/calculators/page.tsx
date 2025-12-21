@@ -1,12 +1,13 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { notFound } from "next/navigation"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { ConverterCard } from "@/components/shared/converter-card"
-import { calculatorTools } from "@/lib/categories/calculators/registry"
+import { CategoryHero } from "@/components/shared/category-hero"
+import { CategorySidebar } from "@/components/shared/category-sidebar"
 import { getCategoryGroupById } from "@/lib/categories"
-import { ArrowLeft, Check } from "lucide-react"
+import { allConverters } from "@/lib/registry"
+import { ArrowLeft } from "lucide-react"
 
 const category = getCategoryGroupById("calculators")
 
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
 
 export default function CalculatorsPage() {
   if (!category) {
-    notFound()
+    return null
   }
 
-  const Icon = category.icon
-  const tools = calculatorTools
+  const tools = allConverters.filter((c) => category.categories.includes(c.category))
+  const popularTools = tools.filter((tool) => tool.popular).slice(0, 4)
 
   return (
     <div className="container py-8 md:py-12">
@@ -35,48 +36,27 @@ export default function CalculatorsPage() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-3">
-          <Card className={`${category.color} border-2 mb-8`}>
-            <CardContent className="p-8">
-              <div className="flex items-start gap-6">
-                <div className={`${category.iconColor} mt-2`}>
-                  <Icon className="h-16 w-16" />
-                </div>
-                <div className="flex-1">
-                  <h1 className={`text-4xl font-bold mb-4 ${category.textColor}`}>
-                    {category.title}
-                  </h1>
-                  <p className={`text-lg mb-6 ${category.textColor} opacity-90 hidden md:block`}>
-                    {category.longDescription}
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {category.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-2">
-                        <Check className={`h-5 w-5 mt-0.5 ${category.iconColor}`} />
-                        <span className={`text-sm ${category.textColor} opacity-80`}>
-                          {benefit}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+      <CategoryHero
+        category={category}
+        toolCount={tools.length}
+        eyebrow="Calculator suite"
+        chips={[`${tools.length}+ tools`, "Instant results", "Mobile friendly"]}
+      />
 
-          <section className="mb-8">
-            <h2 className="text-3xl font-bold mb-6">
-              Available {category.title}
-              {tools.length > 0 && ` (${tools.length})`}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {tools.map((converter) => (
-                <ConverterCard key={converter.id} converter={converter} />
-              ))}
-            </div>
-          </section>
+      <section className="mb-10">
+        <h2 className="text-3xl font-bold mb-6">
+          Available {category.title}
+          {tools.length > 0 && ` (${tools.length})`}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tools.map((converter) => (
+            <ConverterCard key={converter.id} converter={converter} />
+          ))}
+        </div>
+      </section>
 
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8">
+        <div>
           {category.sections && (
             <section className="mb-8">
               <Card>
@@ -98,7 +78,16 @@ export default function CalculatorsPage() {
           )}
         </div>
 
-        <div className="lg:col-span-1" />
+        <CategorySidebar
+          steps={[
+            "Pick the calculator you need.",
+            "Enter your inputs.",
+            "Save or share the result."
+          ]}
+          ctaLabel="Try Loan Calculator"
+          ctaHref="/calculators/loan"
+          popularTools={popularTools}
+        />
       </div>
     </div>
   )

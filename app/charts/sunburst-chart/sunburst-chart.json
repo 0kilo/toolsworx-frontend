@@ -140,6 +140,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste the Organization Structure sample to see Engineering, Sales, and Marketing with nested teams.",
+        "<strong>Step-by-step:</strong> (1) Create a root node with children. (2) Add values at leaf nodes. (3) Render and drill into segments.",
+        "<strong>FAQ:</strong> <em>Do parent nodes need values?</em> No—parents can be totals derived from children.",
+        "<strong>FAQ:</strong> <em>How deep can the hierarchy go?</em> 3–5 levels is most readable; deeper layers get very thin.",
+        "<strong>FAQ:</strong> <em>Can I show negatives?</em> Sunbursts assume positive values; use another chart for negative data."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

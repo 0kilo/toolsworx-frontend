@@ -3,16 +3,24 @@
 Use this list top-to-bottom. Finish each item before moving to the next. Keep wording accurate and avoid overpromising.
 
 ## Highest Priority (Blocking)
-- [ ] Remove or `noindex` all `/template` routes (file/media/filters/charts/calculators/etc.) so placeholders are not indexed.
-- [ ] Remove or `noindex` disabled tool routes (e.g., `/helpful-calculators/shipping-cost`) until fully functional.
-- [ ] Fix any misrepresentative claims:
-  - [ ] Replace “100% client-side processing” where conversions run server-side.
-  - [ ] Align privacy/security claims with actual behavior (uploads, retention, deletion).
-- [ ] Make category duplication clear:
-  - [ ] Choose a canonical set (either `/category/*` or root category pages).
-  - [ ] `noindex` or redirect the non-canonical set.
+- [x] Remove or `noindex` all `/template` routes (file/media/filters/charts/calculators/etc.) so placeholders are not indexed.
+- [x] Remove or `noindex` disabled tool routes (e.g., `/helpful-calculators/shipping-cost`) until fully functional.
+- [x] Fix any misrepresentative claims:
+  - [x] Replace “100% client-side processing” where conversions run server-side.
+  - [x] Align privacy/security claims with actual behavior (uploads, retention, deletion).
+- [x] Make category duplication clear:
+  - [x] Choose a canonical set (either `/category/*` or root category pages).
+  - [x] `noindex` or redirect the non-canonical set.
 
 ## High Priority (Quality Signals)
+- [x] Calculators: add tool-specific how-to, example, and FAQs across all calculator tools.
+- [x] Charts: add tool-specific how-to, example, and FAQs across all chart tools.
+- [x] Dev tools: add tool-specific how-to, example, and FAQs across all developer tools.
+- [x] File converters: add tool-specific how-to, example, and FAQs across all converter tools.
+- [x] Filters: add tool-specific how-to, example, and FAQs across all filter tools.
+- [x] Helpful calculators: add tool-specific how-to, example, and FAQs across all helpful calculators.
+- [x] Media converters: add tool-specific how-to, example, and FAQs across all media converter tools.
+- [x] Unit conversions: add tool-specific how-to, example, and FAQs across all unit converter tools.
 - [ ] Add unique, tool-specific “How to use” sections (3–5 steps).
 - [ ] Add at least one concrete example per tool (input → output).
 - [ ] Add short, tool-specific FAQs (3–5 items).

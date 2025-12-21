@@ -143,6 +143,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 2 cups to milliliters for a metric recipe.",
+        "<strong>Step-by-step:</strong> (1) Enter the volume. (2) Choose units. (3) View the conversion.",
+        "<strong>FAQ:</strong> <em>US vs UK gallons?</em> They differ—choose the correct gallon type.",
+        "<strong>FAQ:</strong> <em>Does it handle tablespoons?</em> Yes—kitchen units are included.",
+        "<strong>FAQ:</strong> <em>Is this for liquids only?</em> Volume applies to liquids and solids by space."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Try our <a href='/unit-conversions/mass'>Mass & Weight Converter</a> for converting ingredient weights alongside volume in recipes",

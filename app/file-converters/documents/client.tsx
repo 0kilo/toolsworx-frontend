@@ -17,48 +17,70 @@ const documentFormats = [
 export default function DocumentsClient() {
   return (
     <div className="container py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-3">
-          {(() => {
-            const [overview, ...sections] = toolContent.sections || []
-            const aboutTitle = overview?.title || toolContent.title
-            const aboutDescription = Array.isArray(overview?.content) ? overview?.content[0] || toolContent.description : toolContent.description
+      {(() => {
+        const [overview, ...sections] = toolContent.sections || []
+        const aboutTitle = overview?.title || toolContent.title
+        const aboutDescription = Array.isArray(overview?.content) ? overview?.content[0] || toolContent.description : toolContent.description
 
-            return (
-              <>
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
-                <p className="text-muted-foreground">
-                  {toolContent.description}
-                </p>
+        return (
+          <>
+            <div className="text-center mb-10">
+              <h1 className="text-3xl font-bold mb-2">{toolContent.title}</h1>
+              <p className="text-muted-foreground">
+                {toolContent.description}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-8">
+              <div className="space-y-8">
+                <FileConverter
+                  title={toolContent.title}
+                  description={toolContent.description}
+                  fromFormats={documentFormats}
+                  toFormats={documentFormats}
+                  defaultFrom="pdf"
+                  defaultTo="docx"
+                />
+
+                <AboutDescription
+                  title={aboutTitle}
+                  description={aboutDescription}
+                  sections={(sections || []).map(s => ({
+                    title: s?.title || '',
+                    content: s?.content || [],
+                    type: s?.type as 'list' | 'subsections' | undefined
+                  }))}
+                />
               </div>
 
-          <FileConverter
-            title={toolContent.title}
-            description={toolContent.description}
-            fromFormats={documentFormats}
-            toFormats={documentFormats}
-            defaultFrom="pdf"
-            defaultTo="docx"
-          />
+              <aside className="space-y-6">
+                <div className="rounded-lg border p-6">
+                  <h3 className="text-lg font-semibold mb-3">Quick steps</h3>
+                  <ol className="list-decimal list-inside text-sm text-muted-foreground space-y-2">
+                    <li>Select the file format you have.</li>
+                    <li>Choose the format you want.</li>
+                    <li>Upload and download the result.</li>
+                  </ol>
+                </div>
 
-          <AboutDescription
-            title={aboutTitle}
-            description={aboutDescription}
-            sections={(sections || []).map(s => ({
-              title: s?.title || '',
-              content: s?.content || [],
-              type: s?.type as 'list' | 'subsections' | undefined
-            }))}
-          />
-              </>
-            )
-          })()}
-        </div>
-
-        <div className="lg:col-span-1">
-        </div>
-      </div>
+                <div className="rounded-lg border p-6">
+                  <h3 className="text-lg font-semibold mb-3">Supported formats</h3>
+                  <ul className="text-sm text-muted-foreground space-y-2">
+                    {documentFormats.map((format) => (
+                      <li key={format.value}>
+                        <span className="font-medium text-foreground">{format.label}</span>
+                        <span className="ml-2 text-xs text-muted-foreground">
+                          .{format.extensions[0]}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </>
+        )
+      })()}
     </div>
   )
 }

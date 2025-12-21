@@ -70,6 +70,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Apply 35% reduction to remove fan hiss while keeping dialogue clear.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Set reduction strength. (3) Preview and export.",
+        "<strong>FAQ:</strong> <em>Can it remove loud hum?</em> It helps, but extreme hum may need EQ or re-recording.",
+        "<strong>FAQ:</strong> <em>Will it damage voice quality?</em> Heavy settings can cause artifacts—use moderate values.",
+        "<strong>FAQ:</strong> <em>Should I process before EQ?</em> Yes, clean first so EQ doesn’t amplify noise."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Follow with <a href=\"/audio-equalizer\">Audio Equalizer</a> to brighten vocals after noise removal without bringing hiss back.",

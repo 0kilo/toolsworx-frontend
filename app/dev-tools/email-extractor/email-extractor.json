@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste a paragraph with addresses like alice@example.com and bob@company.com to get a clean list.",
+        "<strong>Step-by-step:</strong> (1) Paste text. (2) Run extraction. (3) Copy the deduplicated results.",
+        "<strong>FAQ:</strong> <em>Does it validate deliverability?</em> No—this only matches email patterns.",
+        "<strong>FAQ:</strong> <em>Will it find obfuscated emails?</em> Not unless you first replace [at]/[dot] with @ and .",
+        "<strong>FAQ:</strong> <em>Can I export to CSV?</em> Yes—copy the list and paste into CSV tools."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

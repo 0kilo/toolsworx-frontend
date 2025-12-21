@@ -12,7 +12,7 @@
         "✓ Transform CSV exports into Excel with formatting for client-ready reporting - upgrade plain CSV data dumps from analytics tools, payment processors, CRMs into polished XLSX with proper column widths, number formatting, headers enabling immediate stakeholder distribution, avoid manual reformatting of raw CSV exports that display dates as numbers, currencies without symbols, text overflowing cells in basic spreadsheet viewers",
         "✓ Ensure cross-platform compatibility between Microsoft Excel and LibreOffice Calc - convert proprietary XLSX files to open ODS format for teams using free LibreOffice suite avoiding Microsoft Office licensing costs, transform ODS files to XLSX when collaborating with Microsoft-centric clients or partners requiring Excel format, maintain spreadsheet functionality across platforms without expensive software purchases or format compatibility issues",
         "✓ Preserve formulas and calculations during format conversion when technically feasible - maintain SUM, AVERAGE, VLOOKUP formulas when converting between XLSX and ODS formats supporting formula standards, enable formula editing in target format without recalculation or manual formula recreation, note CSV format limitations (values only, no formulas preserved) understanding when formula retention possible versus when only calculated values export",
-        "✓ 100% client-side processing protects sensitive financial and business data privacy - safely convert confidential financial spreadsheets, customer lists, sales data, payroll information without uploading to third-party conversion services risking data breaches, maintain GDPR, HIPAA, SOX compliance by processing proprietary spreadsheets entirely in browser, eliminate audit trail concerns from using external file conversion platforms accessing your sensitive business intelligence"
+        "✓ Server-based conversion handles spreadsheets at scale - files are uploaded to our conversion service for processing, so avoid highly sensitive spreadsheets if you require local-only handling"
       ]
     },
     {
@@ -56,6 +56,17 @@
         "<strong>System Integration & Automation:</strong> Convert Excel price lists, inventory files, product data to CSV for automated upload to e-commerce platforms like Shopify, WooCommerce, Amazon expecting CSV bulk import, transform accounting system CSV exports into Excel for manual review, adjustments, audit trail documentation before submitting to tax preparers or financial auditors, prepare data feeds in specific CSV format for third-party API integrations, data warehouses, marketing automation platforms",
         "<strong>Legacy System Support:</strong> Convert modern XLSX spreadsheets to older XLS format for compatibility with legacy enterprise software stuck on Excel 2003 or earlier versions, transform outdated XLS files to XLSX enabling editing in Google Sheets, LibreOffice, modern Excel with expanded row limits and improved features, migrate historical spreadsheet archives from proprietary formats to open ODS ensuring long-term accessibility without vendor lock-in",
         "<strong>Reporting & Documentation:</strong> Convert CSV transaction exports, sales reports, analytics data into Excel with proper formatting, headers, summary calculations for executive dashboards and board presentations, transform Excel budget templates, financial projections, business plans into CSV for version control systems (Git) enabling line-by-line diff tracking unlike binary XLSX, prepare standardized report templates in XLSX ensuring consistent formatting, formulas, branding across departmental reporting"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload an XLSX file and convert it to CSV for database import.",
+        "<strong>Step-by-step:</strong> (1) Upload the spreadsheet. (2) Choose the target format. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Are formulas preserved?</em> Only between spreadsheet formats, not in CSV.",
+        "<strong>FAQ:</strong> <em>Can I convert multiple sheets?</em> CSV exports one sheet at a time.",
+        "<strong>FAQ:</strong> <em>Is this processed locally?</em> No—spreadsheet conversion runs server-side."
       ]
     },
     {

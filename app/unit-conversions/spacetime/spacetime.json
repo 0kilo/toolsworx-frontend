@@ -76,6 +76,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert a velocity fraction like 0.9c into meters per second.",
+        "<strong>Step-by-step:</strong> (1) Enter the value. (2) Pick from/to units. (3) Review the converted result.",
+        "<strong>FAQ:</strong> <em>Why are values huge?</em> Relativistic units scale with the speed of light.",
+        "<strong>FAQ:</strong> <em>Is this for everyday use?</em> It’s specialized for physics and astronomy.",
+        "<strong>FAQ:</strong> <em>Does it include time dilation?</em> No—this converts units, not relativistic effects."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Working with particle energies? Try our <a href='/unit-conversions/energy'>Energy Converter</a> to convert between electron volts, joules, and other energy units used in physics.",

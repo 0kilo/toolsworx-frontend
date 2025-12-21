@@ -109,6 +109,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste the Website Traffic sample data and render the chart to see month-by-month growth with a filled area.",
+        "<strong>Step-by-step:</strong> (1) Add a title and color. (2) Provide x/y pairs in the data array. (3) Render and adjust labels if needed.",
+        "<strong>FAQ:</strong> <em>Do I need dates?</em> No—x can be any ordered label (months, weeks, stages) as long as it’s consistent.",
+        "<strong>FAQ:</strong> <em>Can I stack multiple series?</em> Yes, use multiple series to show contributions to a total.",
+        "<strong>FAQ:</strong> <em>Why does the area look flat?</em> Your values may be close together; zoom or use a line chart for subtle changes."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

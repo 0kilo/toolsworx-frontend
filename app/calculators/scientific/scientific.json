@@ -89,6 +89,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter (5^2 + 3) * log(100) to get 56. Use parentheses to control order of operations.",
+        "<strong>Step-by-step:</strong> (1) Enter your expression. (2) Use trig, log, or power keys as needed. (3) Review the computed result.",
+        "<strong>FAQ:</strong> <em>Log or ln?</em> Use log for base-10 and ln for natural log (base e).",
+        "<strong>FAQ:</strong> <em>Degrees vs radians?</em> Use degrees for geometry, radians for calculus and physics formulas.",
+        "<strong>FAQ:</strong> <em>Can I use scientific notation?</em> Yes, enter 3e8 for 3×10^8."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

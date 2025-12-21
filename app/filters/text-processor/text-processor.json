@@ -77,13 +77,14 @@
       ]
     },
     {
-      "title": "How to Use",
+      "title": "How to Use (Example + FAQs)",
       "type": "list",
       "content": [
-        "Paste or type your text into the input area",
-        "Choose an operation from the sidebar",
-        "Review the transformed output instantly",
-        "Copy results or run another transformation on the same text"
+        "<strong>Example:</strong> Paste a log file, extract emails, then convert results to lowercase.",
+        "<strong>Step-by-step:</strong> (1) Paste text. (2) Choose an operation. (3) Review and copy output.",
+        "<strong>FAQ:</strong> <em>Can I run multiple steps?</em> Yes—run one operation, then apply another to the output.",
+        "<strong>FAQ:</strong> <em>Does it handle large text?</em> Large inputs work, but very big files may slow the browser.",
+        "<strong>FAQ:</strong> <em>Is this local?</em> Yes—processing happens in your browser."
       ]
     },
     {

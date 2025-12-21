@@ -99,6 +99,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload a WAV interview file to generate a transcript for notes.",
+        "<strong>Step-by-step:</strong> (1) Choose live or file mode. (2) Select language. (3) Transcribe and download.",
+        "<strong>FAQ:</strong> <em>Which mode is more accurate?</em> File upload with Whisper is typically more accurate.",
+        "<strong>FAQ:</strong> <em>Is audio stored?</em> No—files are processed then discarded.",
+        "<strong>FAQ:</strong> <em>Why are names wrong?</em> Proper nouns often need manual edits."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

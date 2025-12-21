@@ -73,6 +73,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Encode \"cats & dogs\" to get \"cats%20%26%20dogs\" for a query string.",
+        "<strong>Step-by-step:</strong> (1) Paste a URL or value. (2) Choose Encode or Decode. (3) Copy the result.",
+        "<strong>FAQ:</strong> <em>Encode full URL or just values?</em> Encode only parameter values, not the full URL.",
+        "<strong>FAQ:</strong> <em>%20 vs +?</em> Both represent spaces; %20 is safest for URLs.",
+        "<strong>FAQ:</strong> <em>Why is my URL garbled?</em> It may be double-encoded—decode once and re-encode correctly."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

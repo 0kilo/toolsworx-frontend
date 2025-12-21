@@ -78,6 +78,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Roll off lows below 80Hz, then add a gentle +2dB boost at 3kHz for vocal presence.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Adjust frequency bands. (3) Preview and export.",
+        "<strong>FAQ:</strong> <em>Boost or cut?</em> Start with small cuts; boosts should be subtle.",
+        "<strong>FAQ:</strong> <em>What if it clips?</em> Reduce gain or normalize after EQ.",
+        "<strong>FAQ:</strong> <em>Is this only for music?</em> No—podcasts and dialogue benefit too."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Pair with <a href=\"/audio-normalize\">Normalize Audio</a> after EQ to achieve consistent loudness without clipping.",

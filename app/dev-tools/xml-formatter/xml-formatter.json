@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste minified XML and click Format to see proper indentation and nesting.",
+        "<strong>Step-by-step:</strong> (1) Paste XML. (2) Choose Format or Minify. (3) Validate and copy output.",
+        "<strong>FAQ:</strong> <em>Does this validate schemas?</em> No—only well-formed XML syntax.",
+        "<strong>FAQ:</strong> <em>Why is my XML invalid?</em> Look for unclosed or mismatched tags.",
+        "<strong>FAQ:</strong> <em>Should I minify for production?</em> Yes for payload size, but keep formatted files for editing."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

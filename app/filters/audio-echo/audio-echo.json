@@ -68,6 +68,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Set a 150ms delay with 25% feedback to create a subtle slapback on vocals.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Choose delay and feedback. (3) Balance wet/dry mix.",
+        "<strong>FAQ:</strong> <em>How do I avoid muddy echoes?</em> Keep feedback low and mix under 30%.",
+        "<strong>FAQ:</strong> <em>Can I sync to tempo?</em> Yes—use note-based delay times like 1/4 or 1/8.",
+        "<strong>FAQ:</strong> <em>Echo vs reverb?</em> Echo is distinct repeats; reverb is a continuous tail."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Use <a href=\"/audio-reverb\">Reverb Effect</a> to blend echoes into a realistic space once timing feels right.",

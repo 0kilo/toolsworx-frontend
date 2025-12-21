@@ -64,6 +64,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert \"User Profile\" to userProfile (camelCase) or user-profile (kebab-case).",
+        "<strong>Step-by-step:</strong> (1) Paste text. (2) Choose the target case. (3) Copy the result.",
+        "<strong>FAQ:</strong> <em>Will it split words automatically?</em> Yes if text has spaces, hyphens, or underscores.",
+        "<strong>FAQ:</strong> <em>What about acronyms?</em> Acronyms are treated as words; review output for your style guide.",
+        "<strong>FAQ:</strong> <em>Does it keep numbers?</em> Yes—numbers are preserved in the output."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

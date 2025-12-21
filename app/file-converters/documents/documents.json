@@ -12,7 +12,7 @@
         "✓ Transform Word to PDF for universal compatibility and print-ready distribution - create platform-independent documents viewable on any device without Microsoft Office, preserve exact formatting preventing recipients from accidentally modifying content, generate professional PDF reports, contracts, invoices with embedded fonts ensuring consistent appearance, meet client requirements mandating PDF delivery for legal documents, official submissions, archived records",
         "✓ Extract plain text from PDFs for data mining and content reuse - pull text content from scanned documents, reports, ebooks for analysis without manual retyping, enable full-text search of PDF archives by converting to searchable text format, extract quotes, data, statistics from research papers for citation and repurposing, process invoice PDFs extracting text for automated data entry into accounting systems",
         "✓ Convert HTML to PDF for offline archiving and print formatting - preserve web pages, documentation, blog posts as archival PDF before content changes or disappears, generate PDF reports from HTML templates with charts, tables, styling intact, create printable versions of web content with proper pagination and print CSS, capture online receipts, confirmations, tickets as permanent PDF records",
-        "✓ 100% client-side processing protects confidential document contents from exposure - safely convert sensitive contracts, financial statements, legal documents, medical records without uploading to third-party conversion services risking breaches, maintain HIPAA, GDPR, attorney-client privilege by processing documents entirely in browser, eliminate audit trail concerns from external document conversion platforms accessing your proprietary content"
+        "✓ Server-based conversion handles complex formats reliably - files are uploaded to our conversion service for processing, so avoid highly sensitive documents if you require local-only handling"
       ]
     },
     {
@@ -59,6 +59,17 @@
         "<strong>Publishing & Content Creation:</strong> Convert manuscripts between Word and PDF for editing workflows, proofing, client review cycles, transform blog posts, articles, web content to PDF for ebook creation, downloadable guides, lead magnets, extract text from PDF books, magazines for content repurposing, quotation, research, generate print-ready PDFs from Word documents for self-publishing, print-on-demand services",
         "<strong>Form Processing & Data Entry:</strong> Extract text from PDF invoices, receipts, forms for automated data entry into accounting, CRM, ERP systems, convert fillable PDF forms to Word for customization, rebranding, template modification, transform scanned paper forms to searchable PDF enabling digital archiving and retrieval, generate PDF forms from HTML templates with filled data for distribution and record-keeping",
         "<strong>Education & Training:</strong> Convert PDF textbooks, course materials to Word for accessibility improvements, font size adjustments, screen reader compatibility, transform lecture notes, presentations to PDF for student distribution ensuring consistent formatting across devices, extract text from educational PDFs for quiz generation, study guide creation, content summarization, create printable worksheets, handouts, study materials from HTML content as formatted PDFs"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload a PDF, choose DOCX, and download the converted Word file for editing.",
+        "<strong>Step-by-step:</strong> (1) Upload your document. (2) Pick the target format. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Will formatting be identical?</em> Most text and structure carry over, but complex layouts may shift.",
+        "<strong>FAQ:</strong> <em>Do scanned PDFs work?</em> OCR is required for scans; results may need cleanup.",
+        "<strong>FAQ:</strong> <em>Are files processed locally?</em> No—document conversion uses a server-side converter."
       ]
     },
     {

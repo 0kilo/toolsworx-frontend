@@ -128,6 +128,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 32 psi to kPa for a tire inflator.",
+        "<strong>Step-by-step:</strong> (1) Enter the pressure. (2) Choose units. (3) Read the result.",
+        "<strong>FAQ:</strong> <em>Which unit do car tires use?</em> PSI is common in the US; kPa in many other regions.",
+        "<strong>FAQ:</strong> <em>Is bar the same as atm?</em> They’re close but not equal—use the converter for precision.",
+        "<strong>FAQ:</strong> <em>Does temperature affect pressure?</em> Yes—pressure changes with temperature and volume."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Working with gases? Our <a href='/unit-conversions/temperature'>Temperature Converter</a> helps with gas law calculations requiring Kelvin, Celsius, or Fahrenheit.",

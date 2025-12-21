@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste a paragraph with https://example.com and www.site.com to extract a clean list.",
+        "<strong>Step-by-step:</strong> (1) Paste text. (2) Run extraction. (3) Copy the deduplicated URLs.",
+        "<strong>FAQ:</strong> <em>Does it check if links work?</em> No—this only extracts URL patterns.",
+        "<strong>FAQ:</strong> <em>Will it grab relative URLs?</em> No, it extracts absolute URLs only.",
+        "<strong>FAQ:</strong> <em>What about punctuation?</em> Review results if URLs end with commas or periods."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

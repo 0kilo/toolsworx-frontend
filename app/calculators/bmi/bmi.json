@@ -135,6 +135,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter weight 180 lbs and height 70 in, then submit. The calculator returns BMI 25.8 and places the result in the Overweight range.",
+        "<strong>Step-by-step:</strong> (1) Choose your units. (2) Enter weight and height. (3) Review BMI and the category label.",
+        "<strong>FAQ:</strong> <em>Is BMI a diagnosis?</em> No—it's a screening metric. Use it as a starting point and talk to a clinician for personalized guidance.",
+        "<strong>FAQ:</strong> <em>Which units should I pick?</em> Use the units from your scale and tape measure to avoid conversion errors.",
+        "<strong>FAQ:</strong> <em>Why does my BMI change day-to-day?</em> Small weight fluctuations from hydration or meals can shift BMI slightly."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

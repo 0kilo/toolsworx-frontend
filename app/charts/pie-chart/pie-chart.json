@@ -108,6 +108,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Use the Market Share sample to show how Product A–D and Others split the total.",
+        "<strong>Step-by-step:</strong> (1) Add a title. (2) Provide label/value pairs. (3) Render the chart and adjust colors if needed.",
+        "<strong>FAQ:</strong> <em>Do values need to total 100?</em> No—raw numbers are fine as long as they represent parts of a whole.",
+        "<strong>FAQ:</strong> <em>How many slices is too many?</em> Keep to 3–6 categories; more than that is hard to read.",
+        "<strong>FAQ:</strong> <em>Should I use a bar chart instead?</em> Yes if you need precise comparisons or have many categories."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

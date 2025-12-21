@@ -744,6 +744,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 100 USD to EUR to estimate a hotel cost.",
+        "<strong>Step-by-step:</strong> (1) Enter amount. (2) Pick from/to currencies. (3) View the conversion.",
+        "<strong>FAQ:</strong> <em>Is this the exact rate?</em> Rates are indicative and can vary by provider.",
+        "<strong>FAQ:</strong> <em>Does it include fees?</em> No—banks and exchanges add spreads/fees.",
+        "<strong>FAQ:</strong> <em>How often are rates updated?</em> Use it for estimates, not trading."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Planning international trips? Try our <a href='/calculators/travel-budget-calculator'>Travel Budget Calculator</a> for comprehensive trip cost planning including flights, hotels, and daily expenses.",

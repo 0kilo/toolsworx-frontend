@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste JSON with a trailing comma to see the exact line/column error.",
+        "<strong>Step-by-step:</strong> (1) Paste JSON. (2) Click Validate. (3) Fix any error messages.",
+        "<strong>FAQ:</strong> <em>Why does JS accept it but JSON doesn’t?</em> JSON is stricter: no comments, no trailing commas.",
+        "<strong>FAQ:</strong> <em>Will this check schemas?</em> No—this only checks syntax, not field rules.",
+        "<strong>FAQ:</strong> <em>Can I validate huge files?</em> Very large files may slow the browser; use CLI tools for big data."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

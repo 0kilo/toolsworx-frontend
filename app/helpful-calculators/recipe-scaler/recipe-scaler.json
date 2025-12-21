@@ -9,9 +9,14 @@
   "category": "helpful-calculators",
   "sections": [
     {
-      "title": "How to Use",
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
       "content": [
-        "Enter your recipe name and the original number of servings. Add each ingredient with its amount, unit, and name. You can use whole numbers (2), decimals (1.5), fractions (1/2), or mixed numbers (1 1/2). Then enter your target number of servings and click 'Scale Recipe' to automatically calculate the adjusted ingredient amounts."
+        "<strong>Example:</strong> Scale a 4-serving recipe to 10 servings and review the updated ingredient list.",
+        "<strong>Step-by-step:</strong> (1) Enter original servings. (2) Add ingredients. (3) Set target servings and scale.",
+        "<strong>FAQ:</strong> <em>Do fractions work?</em> Yes—1/2 and 1 1/2 are supported.",
+        "<strong>FAQ:</strong> <em>Do cook times scale?</em> Not linearly; use doneness checks.",
+        "<strong>FAQ:</strong> <em>Can I change units?</em> Keep your preferred units and convert separately if needed."
       ]
     },
     {
@@ -74,7 +79,7 @@
         "Need cooking unit conversions? Pair with the <a href='/unit-conversions/volume'>Volume Converter</a> for fluid measures.",
         "Planning a holiday meal? Check the <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown</a> to time prep milestones.",
         "Sharing instructions? Export scaled results and attach them to a <a href='/helpful-calculators/cheatsheet-builder'>Cheatsheet Builder</a> template.",
-        "Shipping ingredients or gifts? Estimate delivery costs with the <a href='/helpful-calculators/shipping-cost'>Shipping Cost Calculator</a>."
+        "Need a printable summary? Build a quick handout with the <a href='/helpful-calculators/cheatsheet-builder'>Cheatsheet Builder</a>."
       ]
     },
     {

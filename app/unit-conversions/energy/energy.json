@@ -142,6 +142,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 500 kcal to kilojoules for a nutrition label.",
+        "<strong>Step-by-step:</strong> (1) Enter the energy value. (2) Select units. (3) Read the result.",
+        "<strong>FAQ:</strong> <em>Calories vs kcal?</em> Food labels use kcal (same as “Calories”).",
+        "<strong>FAQ:</strong> <em>Why are BTUs used?</em> HVAC systems often specify heating/cooling in BTU.",
+        "<strong>FAQ:</strong> <em>Is this exact?</em> Yes—uses standard conversion factors."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Tracking power consumption? Use our <a href='/unit-conversions/power'>Power Converter</a> to convert between watts, horsepower, and BTU per hour.",

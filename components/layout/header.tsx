@@ -10,6 +10,9 @@ import { categoryGroups } from "@/lib/categories"
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const categoryPathOverrides: Record<string, string> = {
+    "developer-tools": "/dev-tools",
+  }
 
   return (
     <>
@@ -30,7 +33,7 @@ export function Header() {
               {categoryGroups.map((category) => (
                 <Link
                   key={category.id}
-                  href={`/category/${category.id}`}
+                  href={categoryPathOverrides[category.id] || `/${category.id}`}
                   className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {category.title}
@@ -60,7 +63,7 @@ export function Header() {
               {categoryGroups.map((category) => (
                 <Link
                   key={category.id}
-                  href={`/category/${category.id}`}
+                  href={categoryPathOverrides[category.id] || `/${category.id}`}
                   onClick={() => setOpen(false)}
                   className="flex items-center text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border/50"
                 >

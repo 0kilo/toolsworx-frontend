@@ -128,6 +128,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter 75 kg, select Moderate activity and Build Muscle. The calculator returns a daily protein range based on those inputs.",
+        "<strong>Step-by-step:</strong> (1) Enter your weight in kg. (2) Pick activity level and goal. (3) Review the grams per day result.",
+        "<strong>FAQ:</strong> <em>Should I use pounds or kilograms?</em> The tool uses kilograms. Convert first if your scale is in pounds.",
+        "<strong>FAQ:</strong> <em>Is higher always better?</em> No. Past a certain point, more protein doesn't add benefits and can crowd out other nutrients.",
+        "<strong>FAQ:</strong> <em>How should I split protein?</em> Spread it across 3-5 meals for better muscle protein synthesis."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

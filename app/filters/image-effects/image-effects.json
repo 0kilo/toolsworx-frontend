@@ -60,13 +60,14 @@
       ]
     },
     {
-      "title": "How to Use",
+      "title": "How to Use (Example + FAQs)",
       "type": "list",
       "content": [
-        "Upload or drag-and-drop an image into the editor",
-        "Select a filter type and adjust intensity sliders",
-        "Combine multiple filters for custom looks",
-        "Download the processed image instantly"
+        "<strong>Example:</strong> Apply Valencia at 60% and add +10% contrast for a warm, punchy look.",
+        "<strong>Step-by-step:</strong> (1) Upload an image. (2) Pick a filter and adjust sliders. (3) Download the result.",
+        "<strong>FAQ:</strong> <em>Can I stack filters?</em> Yes—layer adjustments and presets to build a custom style.",
+        "<strong>FAQ:</strong> <em>Will this change my original?</em> No—your original image stays untouched.",
+        "<strong>FAQ:</strong> <em>Does it handle large files?</em> Large images may take longer to preview and export."
       ]
     },
     {

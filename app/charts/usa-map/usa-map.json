@@ -123,6 +123,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Use the Population by State sample to color California, Texas, and Florida with higher values.",
+        "<strong>Step-by-step:</strong> (1) Provide state names and values. (2) Add a title for context. (3) Render to see color intensity by state.",
+        "<strong>FAQ:</strong> <em>Do I need all 50 states?</em> No—missing states will simply be unfilled.",
+        "<strong>FAQ:</strong> <em>Can I use abbreviations?</em> Use full state names for the best match.",
+        "<strong>FAQ:</strong> <em>Should I use totals or per-capita values?</em> Use totals for size and per-capita for fair comparisons."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

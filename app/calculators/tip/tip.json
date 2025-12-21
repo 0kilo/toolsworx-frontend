@@ -113,6 +113,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter bill $80, tip 20%, and 4 people. The calculator returns a $16 tip and $24 per person.",
+        "<strong>Step-by-step:</strong> (1) Enter the bill amount. (2) Choose a tip percentage. (3) Add the number of people to split.",
+        "<strong>FAQ:</strong> <em>Tip on pre-tax or post-tax?</em> Etiquette says pre-tax, but post-tax is fine if you want a simple total.",
+        "<strong>FAQ:</strong> <em>What if service was poor?</em> Consider 10-15% and give feedback to the restaurant if needed.",
+        "<strong>FAQ:</strong> <em>Split uneven orders?</em> Use per-item totals to split proportionally, then apply the same tip rate."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

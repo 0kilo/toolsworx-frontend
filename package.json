@@ -518,6 +518,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:conversions": "node scripts/test-conversions.js",
     "predev": "node -e \"try{require('fs').copyFileSync('amplify_outputs.json','public/amplify_outputs.json')}catch(e){}\"",
     "dev": "next dev --webpack",
     "prebuild": "node -e \"require('fs').copyFileSync('amplify_outputs.json','public/amplify_outputs.json')\"",

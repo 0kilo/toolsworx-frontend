@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste a CSV with headers and click Format to view an aligned table, or Convert to JSON for API use.",
+        "<strong>Step-by-step:</strong> (1) Paste CSV data. (2) Choose format or convert. (3) Copy the formatted output.",
+        "<strong>FAQ:</strong> <em>Why are columns misaligned?</em> Unquoted commas or inconsistent delimiters usually cause shifts.",
+        "<strong>FAQ:</strong> <em>Does it handle headers?</em> Yes—headers become JSON keys when converting.",
+        "<strong>FAQ:</strong> <em>How big can my file be?</em> Large files may slow the browser; split very large CSVs."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

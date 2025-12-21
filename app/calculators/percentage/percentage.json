@@ -120,6 +120,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter value 200 and percentage 15 to get 30. Add a total to see what percentage 200 is of that total.",
+        "<strong>Step-by-step:</strong> (1) Enter the value. (2) Enter the percentage. (3) Optionally enter a total for ratio results.",
+        "<strong>FAQ:</strong> <em>Percent vs percentage points?</em> A change from 5% to 8% is +3 percentage points, not a 3% increase.",
+        "<strong>FAQ:</strong> <em>How do I reverse a discount?</em> Divide the sale price by (1 - discount). Example: $60 at 25% off is $60 / 0.75 = $80.",
+        "<strong>FAQ:</strong> <em>Why don't two discounts add?</em> Each discount applies to the reduced price, so 20% then 10% is 28% total, not 30%."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

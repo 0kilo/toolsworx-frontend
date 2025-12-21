@@ -73,6 +73,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Encode \"hello\" to get \"aGVsbG8=\", then decode it back to the original text.",
+        "<strong>Step-by-step:</strong> (1) Paste text or Base64. (2) Choose Encode or Decode. (3) Copy the result.",
+        "<strong>FAQ:</strong> <em>Is Base64 secure?</em> No—it's reversible encoding, not encryption.",
+        "<strong>FAQ:</strong> <em>Why do I see '=' at the end?</em> Padding is added when input length isn't divisible by 3.",
+        "<strong>FAQ:</strong> <em>What's Base64URL?</em> It's a URL-safe variant that replaces '+' and '/' with '-' and '_'."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

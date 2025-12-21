@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste formatted JSON and click Minify to get a one-line compact version.",
+        "<strong>Step-by-step:</strong> (1) Paste JSON. (2) Click Minify. (3) Copy the compact output.",
+        "<strong>FAQ:</strong> <em>Does minifying change data?</em> No—only whitespace is removed.",
+        "<strong>FAQ:</strong> <em>Should I keep minified JSON in git?</em> No—store formatted and minify during build.",
+        "<strong>FAQ:</strong> <em>Is gzip enough?</em> Gzip helps, but minification still reduces size further."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

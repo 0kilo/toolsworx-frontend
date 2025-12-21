@@ -113,6 +113,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Use the Sales vs Marketing Spend sample to see how spend (x) relates to sales (y).",
+        "<strong>Step-by-step:</strong> (1) Add a title. (2) Provide x/y points and optional labels. (3) Render to inspect correlation.",
+        "<strong>FAQ:</strong> <em>What do x and y represent?</em> Any two numeric variables you want to compare (e.g., spend vs revenue).",
+        "<strong>FAQ:</strong> <em>Can I label points?</em> Yes—labels help identify outliers or specific items.",
+        "<strong>FAQ:</strong> <em>How many points is too many?</em> If points overlap heavily, reduce the set or use transparency."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

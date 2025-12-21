@@ -140,6 +140,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 90 minutes to hours for a meeting plan.",
+        "<strong>Step-by-step:</strong> (1) Enter a time value. (2) Select units. (3) Read the conversion.",
+        "<strong>FAQ:</strong> <em>Does it handle milliseconds?</em> Yes—small units are supported.",
+        "<strong>FAQ:</strong> <em>Weeks vs days?</em> The tool uses standard 7-day weeks.",
+        "<strong>FAQ:</strong> <em>Is this for dates too?</em> No—this converts durations, not calendar dates."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Need to work with dates? Try our <a href='/calculators/age-calculator'>Age Calculator</a> for precise date-based calculations including leap years and varying month lengths.",

@@ -16,7 +16,7 @@
         "✓ Upgrade lossy MP3 files to lossless FLAC format for archival preservation and audiophile playback - convert music collection to FLAC before lossy formats degrade through re-encoding cycles, ensure bit-perfect archival copies of rare recordings or vinyl rips, prepare audio for professional editing where generation loss from lossy compression unacceptable, satisfy audiophile listening requirements demanding transparent reproduction on high-end audio equipment where MP3 artifacts audible",
         "✓ Convert between formats for device and platform compatibility - transcode FLAC files to AAC for Apple ecosystem (iPhone, iPad, iTunes) lacking native FLAC support, convert OGG Vorbis to MP3 for car stereos and older portable players with limited codec support, adapt M4A ringtones to MP3 for Android devices, ensure audio plays universally across Windows Media Player, QuickTime, VLC, web browsers without codec installation hassles",
         "✓ Optimize audio bitrate and quality settings for specific use cases balancing fidelity and file size - downconvert 320kbps MP3s to 128kbps for streaming over limited bandwidth mobile connections, upconvert low-quality recordings to standard formats for consistent playback, standardize podcast episode encoding (64kbps mono for voice, 128kbps stereo for music podcasts), prepare audio for specific platforms (YouTube prefers AAC, Spotify accepts MP3/OGG)",
-        "✓ 100% client-side processing protects confidential audio content from cloud exposure - safely convert sensitive voice memos, unreleased music demos, confidential business recordings, legal depositions, medical dictation without uploading to third-party conversion services risking unauthorized access, maintain privacy compliance (HIPAA for medical audio, attorney-client privilege for legal recordings) by processing audio entirely in browser, eliminate audit trail concerns from external platforms accessing your proprietary sound content"
+        "✓ Server-based audio conversion for compatibility - files are uploaded to our conversion service for processing, so avoid highly sensitive recordings if you require local-only handling"
       ]
     },
     {
@@ -63,6 +63,17 @@
         "<strong>Device & Platform Compatibility:</strong> Convert FLAC audio files to MP3 for playback on car stereo lacking FLAC codec support, transcode M4A ringtones to MP3 for Android devices, prepare audio for smart home devices converting to platform-preferred format (MP3 for Alexa, AAC for Google Home), convert music for older portable players or game consoles with limited format support",
         "<strong>Archival & Preservation:</strong> Convert valuable vinyl rips from WAV to FLAC reducing storage requirements by 50% while maintaining lossless quality, upgrade lossy MP3 collection by re-ripping CDs to FLAC creating future-proof masters, standardize archival format across historical recordings for long-term preservation, convert rare or out-of-print recordings to lossless format before source media degrades",
         "<strong>Professional Audio Workflows:</strong> Convert client-provided audio from various formats to studio standard (48kHz/24-bit WAV) for editing and mastering, prepare final masters in multiple formats for different distribution channels (320kbps MP3 for digital download, FLAC for Bandcamp, WAV for CD pressing), convert background music or sound effects to project-appropriate format matching timeline specifications, deliver audio assets to clients in requested formats meeting technical specifications"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert a WAV voiceover to MP3 at 128kbps for easy sharing.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Choose target format and quality. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Will quality improve if I convert to FLAC?</em> No—lossless formats can’t restore lost detail.",
+        "<strong>FAQ:</strong> <em>Do you keep metadata?</em> Most tags carry over, but verify after conversion.",
+        "<strong>FAQ:</strong> <em>Is this local?</em> No—audio conversion runs on the server."
       ]
     },
     {

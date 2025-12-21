@@ -38,6 +38,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     title: `${category.title} - Free Online ${category.title} Tools`,
     description: category.longDescription,
     keywords,
+    robots: {
+      index: false,
+      follow: false,
+    },
     openGraph: {
       title: `${category.title} - Free Online Tools`,
       description: category.longDescription,

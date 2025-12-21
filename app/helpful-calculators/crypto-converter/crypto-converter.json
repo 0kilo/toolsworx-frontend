@@ -82,6 +82,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter 0.5 BTC and convert to USD to see the latest reference value.",
+        "<strong>Step-by-step:</strong> (1) Choose a crypto asset. (2) Enter amount. (3) Select fiat and convert.",
+        "<strong>FAQ:</strong> <em>Is this real-time?</em> Rates update every 30 minutes, not live tick data.",
+        "<strong>FAQ:</strong> <em>Can I use this for trading?</em> No—use exchange quotes for trades.",
+        "<strong>FAQ:</strong> <em>Does it include fees?</em> No—fees and spreads vary by exchange."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Tracking time zones for global calls? Try our <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a>.",

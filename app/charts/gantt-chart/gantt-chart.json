@@ -121,6 +121,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Use the sample Project Timeline with Planning → Development → Testing to visualize dependencies and progress.",
+        "<strong>Step-by-step:</strong> (1) Set project start/end dates. (2) Add tasks with start, end, and progress. (3) Add dependencies by task id.",
+        "<strong>FAQ:</strong> <em>What date format should I use?</em> Use ISO dates like 2025-01-15 for consistent parsing.",
+        "<strong>FAQ:</strong> <em>Can tasks overlap?</em> Yes—set overlapping start/end dates, and only add dependencies where required.",
+        "<strong>FAQ:</strong> <em>How do I show milestones?</em> Add a task with the same start and end date to represent a milestone."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

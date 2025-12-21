@@ -146,6 +146,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 5 GB to MB to estimate transfer size.",
+        "<strong>Step-by-step:</strong> (1) Enter the size. (2) Choose units. (3) Read the converted value.",
+        "<strong>FAQ:</strong> <em>GB vs GiB?</em> GB is decimal, GiB is binary—values differ slightly.",
+        "<strong>FAQ:</strong> <em>Why does my drive show less space?</em> Manufacturers use GB while OS often shows GiB.",
+        "<strong>FAQ:</strong> <em>Does this handle very large values?</em> Yes, up to TB/PB ranges."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Calculating transfer speeds? Use our <a href='/unit-conversions/data-transfer'>Data Transfer Rate Converter</a> to convert between Mbps, MB/s, and other bandwidth units.",

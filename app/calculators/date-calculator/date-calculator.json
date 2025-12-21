@@ -83,14 +83,14 @@
       ]
     },
     {
-      "title": "How to Use",
+      "title": "How to Use (Example + FAQs)",
       "type": "list",
       "content": [
-        "Enter a start date (required for all calculations)",
-        "For date differences: Enter an end date or leave empty for today",
-        "For date addition: Enter days, months, or years to add",
-        "View results including differences and new calculated dates",
-        "All calculations handle leap years and month variations"
+        "<strong>Example:</strong> Start date Jan 1, 2025; add 90 days → Apr 1, 2025.",
+        "<strong>Step-by-step:</strong> (1) Choose a start date. (2) Add days/months/years or set an end date. (3) Read the resulting dates and durations.",
+        "<strong>FAQ:</strong> <em>Do I need an end date?</em> No—leave it blank to compare against today.",
+        "<strong>FAQ:</strong> <em>Why does adding one month change the day?</em> Month lengths vary; the tool rolls to month-end when the day doesn’t exist.",
+        "<strong>FAQ:</strong> <em>Are leap years handled?</em> Yes—date math accounts for leap days automatically."
       ]
     },
     {

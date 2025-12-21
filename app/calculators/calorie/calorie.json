@@ -148,6 +148,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> 30-year-old female, 165 cm, 70 kg, light activity → estimated TDEE around 2,100 calories/day.",
+        "<strong>Step-by-step:</strong> (1) Enter age, height, weight. (2) Pick your activity level. (3) Use the result as your daily target for maintenance.",
+        "<strong>FAQ:</strong> <em>Is this exact?</em> No—it's an estimate. Track your weight for 2–3 weeks and adjust by 100–200 calories if needed.",
+        "<strong>FAQ:</strong> <em>Which activity level should I choose?</em> If you sit most of the day and train 1–3x/week, pick light or sedentary.",
+        "<strong>FAQ:</strong> <em>Can I use this for weight loss?</em> Yes—subtract 300–500 calories from the estimate and monitor progress weekly."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

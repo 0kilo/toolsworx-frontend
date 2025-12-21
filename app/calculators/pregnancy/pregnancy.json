@@ -89,6 +89,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter the first day of your last period and the calculator returns your estimated due date and current week.",
+        "<strong>Step-by-step:</strong> (1) Pick the first day of your last menstrual period. (2) Submit to see due date and weeks pregnant.",
+        "<strong>FAQ:</strong> <em>How accurate is this?</em> It's an estimate based on a 28-day cycle. Ultrasound dating may adjust it.",
+        "<strong>FAQ:</strong> <em>What if my cycle is irregular?</em> Use this as a starting point and confirm with your provider.",
+        "<strong>FAQ:</strong> <em>Why count from the last period?</em> It's the most reliable date available when conception timing varies."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

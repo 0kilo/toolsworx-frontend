@@ -71,6 +71,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Check the Christmas countdown to plan shopping milestones six weeks out.",
+        "<strong>Step-by-step:</strong> (1) Find the holiday. (2) Review days/hours remaining. (3) Set your own milestones.",
+        "<strong>FAQ:</strong> <em>Does it update automatically?</em> Yes—timers refresh every second.",
+        "<strong>FAQ:</strong> <em>What time zone is used?</em> Your device time zone.",
+        "<strong>FAQ:</strong> <em>Are moving holidays accurate?</em> Yes—dates like Easter are recalculated yearly."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Coordinating multi-time-zone events? Use the <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a>.",

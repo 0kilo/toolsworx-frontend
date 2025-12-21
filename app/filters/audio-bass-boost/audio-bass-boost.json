@@ -78,6 +78,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload a vocal track and apply a +4dB boost around 120Hz to add warmth.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Set the boost amount. (3) Preview and download.",
+        "<strong>FAQ:</strong> <em>Will this clip my audio?</em> Use moderate boosts and listen for distortion.",
+        "<strong>FAQ:</strong> <em>Is it good for podcasts?</em> Yes—light boosts can add body without muddying speech.",
+        "<strong>FAQ:</strong> <em>Do I need to normalize after?</em> If peaks rise, normalize to keep headroom."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Use <a href=\"/audio-equalizer\">Audio Equalizer</a> to shape mids and highs after adding low-end weight.",

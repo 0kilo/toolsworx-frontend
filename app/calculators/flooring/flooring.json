@@ -106,6 +106,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter 12 ft length, 10 ft width, and 10% waste. The calculator returns about 132 sq ft of flooring needed.",
+        "<strong>Step-by-step:</strong> (1) Measure room length and width. (2) Pick a waste factor that matches your layout. (3) Review the total square footage result.",
+        "<strong>FAQ:</strong> <em>Which waste factor should I pick?</em> Use 5% for straight layouts, 10% for diagonal or patterned installs, 15% for complex rooms with lots of cuts.",
+        "<strong>FAQ:</strong> <em>Do I subtract closets or alcoves?</em> If they will be floored, include them. For large openings you can subtract, but most people keep the extra as a buffer.",
+        "<strong>FAQ:</strong> <em>Why does the total seem higher than my room size?</em> The tool adds waste so you have enough material for cuts and future repairs."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

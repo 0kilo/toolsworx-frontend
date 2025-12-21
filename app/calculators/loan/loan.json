@@ -157,6 +157,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter $300,000 loan amount, $60,000 down payment, 6% interest, 30-year term. The calculator returns the monthly payment and total interest.",
+        "<strong>Step-by-step:</strong> (1) Enter loan amount and any down payment. (2) Add the APR and term in years. (3) Review monthly payment and total cost.",
+        "<strong>FAQ:</strong> <em>Does this include taxes and insurance?</em> No—this is principal and interest only. Add taxes, insurance, and PMI separately.",
+        "<strong>FAQ:</strong> <em>Fixed vs adjustable rate?</em> This assumes a fixed rate. Adjustable-rate loans will change after the initial period.",
+        "<strong>FAQ:</strong> <em>Why is total interest so high?</em> Long terms spread interest over decades. Shorter terms reduce total interest but raise payments."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

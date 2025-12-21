@@ -109,6 +109,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste the Monthly Revenue sample data to plot a six-month revenue trend line.",
+        "<strong>Step-by-step:</strong> (1) Add a title and color. (2) Provide x/y pairs in order. (3) Render and compare trends.",
+        "<strong>FAQ:</strong> <em>Can I plot multiple lines?</em> Yes—add additional series to compare trends side by side.",
+        "<strong>FAQ:</strong> <em>Do I need dates?</em> No—x can be any ordered label like weeks or stages.",
+        "<strong>FAQ:</strong> <em>Why is the line jagged?</em> That reflects real variation in your data; smoothing can hide detail."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

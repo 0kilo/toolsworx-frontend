@@ -91,6 +91,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Add a section with formulas and export a PDF for an exam review sheet.",
+        "<strong>Step-by-step:</strong> (1) Add sections and items. (2) Insert LaTeX where needed. (3) Export to PDF or JSON.",
+        "<strong>FAQ:</strong> <em>Do formulas render?</em> Yes—LaTeX renders in the preview and PDF.",
+        "<strong>FAQ:</strong> <em>Can I share edits?</em> Export JSON for editable sharing, PDF for read-only.",
+        "<strong>FAQ:</strong> <em>What about multi-column layouts?</em> Choose the layout option before export."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Tracking deadlines? Pair with the <a href='/helpful-calculators/holiday-countdown'>Holiday Countdown</a> to schedule study sessions.",

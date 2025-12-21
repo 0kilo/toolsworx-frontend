@@ -73,6 +73,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste a one-line API response and click Format to get readable, indented JSON.",
+        "<strong>Step-by-step:</strong> (1) Paste JSON. (2) Choose Format, Minify, or Validate. (3) Copy the output.",
+        "<strong>FAQ:</strong> <em>Why does it say invalid JSON?</em> Check for trailing commas, single quotes, or unquoted keys.",
+        "<strong>FAQ:</strong> <em>Should I minify in production?</em> Yes for payload size, but keep formatted files for editing.",
+        "<strong>FAQ:</strong> <em>Does formatting change data?</em> No—formatting only changes whitespace."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

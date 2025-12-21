@@ -143,6 +143,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 150 lb to kilograms for a fitness tracker.",
+        "<strong>Step-by-step:</strong> (1) Enter the weight. (2) Select from/to units. (3) Copy the result.",
+        "<strong>FAQ:</strong> <em>Is pound the same as lb?</em> Yes—lb is the standard abbreviation.",
+        "<strong>FAQ:</strong> <em>Mass vs weight?</em> Everyday conversions treat them the same on Earth.",
+        "<strong>FAQ:</strong> <em>How precise is it?</em> It uses fixed scientific conversion factors."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Try our <a href='/unit-conversions/volume'>Volume Converter</a> for converting liquid measurements in recipes alongside weight conversions",

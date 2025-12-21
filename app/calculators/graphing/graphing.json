@@ -99,6 +99,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter <em>x^2</em> and press Enter to plot a parabola. Add <em>sin(x)</em> to compare shapes on the same graph.",
+        "<strong>Step-by-step:</strong> (1) Type an expression using <em>x</em>. (2) Add it to the graph. (3) Zoom or pan to inspect key features.",
+        "<strong>FAQ:</strong> <em>Why is my graph missing pieces?</em> Some functions are undefined for certain x values (like 1/x at 0 or sqrt(x) for negatives).",
+        "<strong>FAQ:</strong> <em>How do I find intersections?</em> Plot both functions and look for where curves cross; zoom in to estimate the x-value.",
+        "<strong>FAQ:</strong> <em>What if my expression looks wrong?</em> Use parentheses to control order, e.g., (x+1)/(x-1)."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

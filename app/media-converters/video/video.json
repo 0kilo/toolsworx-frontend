@@ -16,7 +16,7 @@
         "✓ Optimize video file sizes for web publishing and social media platforms - compress large original recordings to smaller file sizes meeting platform upload limits (YouTube 128GB, Instagram 4GB, Twitter 512MB), reduce bandwidth consumption for website video embedding improving page load speeds, prepare videos for email attachment by compressing to manageable sizes under 25MB limits, balance visual quality against file size for faster streaming on mobile connections",
         "✓ Convert between video formats for professional editing software compatibility - transcode camera footage (MOV, MTS, MXF) to editing-friendly formats like ProRes or DNxHD for Adobe Premiere, Final Cut Pro, DaVinci Resolve, ensure consistent codec across multi-camera shoots for smooth timeline performance, convert delivery formats back to editable intermediates when client requests changes after final export",
         "✓ Adapt video resolution and codec settings for specific playback devices - downscale 4K video to 1080p for devices with limited processing power or screen resolution, convert high-bitrate recordings to device-appropriate quality levels preventing stuttering playback on older hardware, optimize codec choices for hardware acceleration (H.264 for broad compatibility, H.265/HEVC for newer devices supporting efficient compression)",
-        "✓ 100% client-side processing protects confidential video content from cloud exposure - safely convert sensitive business presentations, unreleased product demos, confidential training videos, private family recordings without uploading to third-party conversion services risking unauthorized access, maintain privacy compliance processing videos entirely in browser, eliminate security audit concerns from external platforms accessing your proprietary visual content"
+        "✓ Server-based video conversion for broader format support - files are uploaded to our conversion service for processing, so avoid highly sensitive videos if you require local-only handling"
       ]
     },
     {
@@ -63,6 +63,17 @@
         "<strong>File Storage & Archival:</strong> Compress large original recordings to efficient formats reducing cloud storage costs (Google Drive, Dropbox, iCloud), convert lossless or high-bitrate captures to H.265 HEVC halving file size while maintaining perceptual quality for long-term archival, prepare video collections for backup to external drives optimizing storage capacity without visible quality loss, migrate legacy formats (AVI, WMV, older codecs) to modern standards ensuring long-term playability",
         "<strong>Web Publishing & Streaming:</strong> Optimize videos for website embedding balancing quality against page load performance and bandwidth costs, convert to WebM format for efficient HTML5 video delivery in modern browsers, prepare adaptive streaming formats (multiple quality levels) for viewers on varying connection speeds, compress promotional videos, product demos, tutorial content to reasonable file sizes enabling faster downloads and reduced hosting bandwidth consumption",
         "<strong>Professional Distribution & Delivery:</strong> Convert finished projects to client-specified delivery formats meeting exact technical requirements (resolution, codec, bitrate, container, color space), prepare broadcast-ready files conforming to TV station or streaming platform specifications (specific frame rates, closed caption formats, audio standards), generate multiple quality tiers from master (4K for premium, 1080p for standard, 720p for mobile) for distribution across different channels, archive final masters in high-quality mezzanine formats (ProRes, DNxHD) for future re-delivery or versioning"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert an MKV file to MP4 for playback on mobile devices.",
+        "<strong>Step-by-step:</strong> (1) Upload your video. (2) Choose output format and quality. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Will quality improve?</em> No—conversion preserves or reduces quality based on settings.",
+        "<strong>FAQ:</strong> <em>Which format is most compatible?</em> MP4 with H.264 is the safest choice.",
+        "<strong>FAQ:</strong> <em>Is processing local?</em> No—video conversion runs on the server."
       ]
     },
     {

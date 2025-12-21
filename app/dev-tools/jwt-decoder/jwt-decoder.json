@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Paste a JWT like header.payload.signature to view header and claims instantly.",
+        "<strong>Step-by-step:</strong> (1) Paste the full JWT. (2) Decode to view header/payload. (3) Inspect exp and role claims.",
+        "<strong>FAQ:</strong> <em>Does this verify the signature?</em> No—this is decoding only.",
+        "<strong>FAQ:</strong> <em>Why is my token readable?</em> JWTs are Base64URL-encoded, not encrypted.",
+        "<strong>FAQ:</strong> <em>Where is expiration?</em> Check the exp claim (Unix timestamp)."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

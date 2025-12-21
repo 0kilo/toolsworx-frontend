@@ -12,7 +12,7 @@
         "✓ Transform configuration files between YAML, JSON, XML for deployment automation - migrate Docker Compose YAML to JSON for programmatic manipulation, convert Kubernetes YAML manifests to JSON for kubectl processing, adapt application configs between formats when switching frameworks or deployment tools maintaining configuration data integrity across infrastructure changes",
         "✓ Convert CSV data exports into structured JSON or XML for application import - upgrade flat CSV exports from databases, analytics platforms, CRMs into hierarchical JSON or XML with nested structures, enable importing tabular data into applications expecting object-oriented data formats, prepare data feeds for modern web applications consuming JSON APIs rather than flat files",
         "✓ Migrate between data serialization formats for language or framework compatibility - convert between YAML preferred by Python/Ruby communities, JSON standard in JavaScript ecosystems, XML required by Java enterprise applications, ensure data portability across technology stacks without rewriting data pipelines or losing information during format translation",
-        "✓ 100% client-side processing protects sensitive API data and configuration secrets - safely convert confidential API credentials, database connection strings, authentication tokens, business logic embedded in config files without uploading to third-party conversion services risking credential exposure, maintain security compliance processing configuration data locally"
+        "✓ Server-based data format conversion for structured files - files are uploaded to our conversion service for processing, so avoid highly sensitive configs if you require local-only handling"
       ]
     },
     {
@@ -56,6 +56,17 @@
         "<strong>DevOps & Infrastructure:</strong> Convert Ansible YAML playbooks to JSON for programmatic manipulation in automation scripts, transform Terraform JSON to YAML for improved readability in infrastructure repository, migrate CloudFormation templates between JSON and YAML based on team preferences and tooling support, convert CI/CD pipeline configs between formats when switching from Jenkins XML to GitLab YAML",
         "<strong>Cross-Language Development:</strong> Convert YAML configuration preferred by Python/Ruby developers to JSON for JavaScript/TypeScript consumption, transform Java application XML configs to YAML for containerized microservices deployment, ensure configuration portability between backend services written in different languages with different format preferences, maintain single source of truth converting to required formats automatically",
         "<strong>Documentation & Examples:</strong> Convert API documentation examples between JSON and XML showing equivalent requests in different formats, transform tutorial code samples from YAML to JSON for broader language compatibility, prepare data format examples in multiple serialization formats for comprehensive technical documentation, generate formatted configuration templates from JSON schemas for distribution across teams"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload a CSV export and convert it to JSON for API import.",
+        "<strong>Step-by-step:</strong> (1) Upload or paste data. (2) Choose the target format. (3) Convert and download.",
+        "<strong>FAQ:</strong> <em>Will comments be preserved?</em> No—comments in YAML/XML are usually lost in JSON.",
+        "<strong>FAQ:</strong> <em>Are types preserved?</em> Some formats coerce types; validate output for numbers/booleans.",
+        "<strong>FAQ:</strong> <em>Is conversion local?</em> No—data format conversion uses the server."
       ]
     },
     {

@@ -80,6 +80,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Click Generate to get a UUID like 550e8400-e29b-41d4-a716-446655440000.",
+        "<strong>Step-by-step:</strong> (1) Generate a new UUID. (2) Copy it. (3) Use it as an ID or filename.",
+        "<strong>FAQ:</strong> <em>Is it truly unique?</em> Collisions are astronomically unlikely with UUIDv4.",
+        "<strong>FAQ:</strong> <em>Can I use it in URLs?</em> Yes—UUIDs are URL-safe.",
+        "<strong>FAQ:</strong> <em>Should I use UUID or auto-increment?</em> Use UUIDs for distributed or public-facing IDs."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

@@ -122,6 +122,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 60 mph to km/h before driving abroad.",
+        "<strong>Step-by-step:</strong> (1) Enter speed. (2) Select units. (3) View converted speed.",
+        "<strong>FAQ:</strong> <em>What unit do ships use?</em> Knots are standard for marine travel.",
+        "<strong>FAQ:</strong> <em>Is m/s common?</em> Yes in physics and engineering calculations.",
+        "<strong>FAQ:</strong> <em>Are conversions exact?</em> Yes—fixed definitions are used."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Need to calculate distances? Our <a href='/unit-conversions/distance'>Distance Converter</a> helps you work with miles, kilometers, nautical miles, and more.",

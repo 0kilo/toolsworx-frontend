@@ -12,7 +12,7 @@
         "✓ Send binary files through JSON APIs and text-only protocols safely - transmit images, PDFs, documents through REST APIs expecting JSON format where binary data forbidden, enable file uploads via JSON payloads to APIs lacking multipart/form-data support, ensure safe transmission through systems stripping binary content or mangling non-text data during transfer protecting file integrity end-to-end",
         "✓ Store binary data in databases, configuration files, logs as text format - save images, documents, certificates in text-based database columns (VARCHAR, TEXT) in systems without BLOB support, embed binary configuration (encryption keys, certificates) in JSON/YAML config files, include binary data in text logs for debugging without separate file artifacts maintaining single searchable log stream",
         "✓ Share files via text channels like email, chat, terminals - transmit files through Slack, Teams, email body text where attachments blocked by corporate policies, paste binary data in terminal commands or scripts without file system access, share encryption keys, small files, QR codes through text-only communication channels avoiding attachment scanning delays or size restrictions",
-        "✓ 100% client-side processing protects confidential file contents from server exposure - safely encode sensitive documents, private keys, credentials, personal photos without uploading to third-party encoding services risking data interception, maintain security compliance processing proprietary binary data entirely in browser, eliminate audit trail concerns from external Base64 encoding platforms accessing your confidential files"
+        "✓ Server-based Base64 conversion supports full-file handling - files are uploaded to our conversion service for processing, so avoid highly sensitive files if you require local-only handling"
       ]
     },
     {
@@ -57,6 +57,17 @@
         "<strong>Data Storage & Databases:</strong> Store binary data in text-based database columns when BLOB support unavailable or impractical for small files under 100KB, save user profile pictures, document thumbnails, QR codes in VARCHAR/TEXT fields for simple retrieval, embed binary metadata in JSON columns of document databases like MongoDB, PostgreSQL JSONB, include signatures, stamps, small PDFs in application logs as Base64 for complete audit trail",
         "<strong>Communication & Sharing:</strong> Share files through text-only communication channels like Slack messages, chat platforms, email body text where attachments blocked, transmit sensitive data through corporate proxies stripping binary content but allowing text, paste binary data in terminal commands, scripts, or REPLs without file system access, encode QR codes, barcodes, small images for sharing in documentation, wikis, markdown files",
         "<strong>Authentication & Security:</strong> Transmit OAuth tokens, JWT payloads, API keys containing binary signatures through URL-safe Base64 in HTTP headers and query parameters, encode HMAC signatures, cryptographic hashes, initialization vectors in text-based protocols, embed public keys, certificates in JSON Web Keys (JWK) format for authentication systems, store encrypted credentials, session tokens in cookies or local storage as Base64 strings"
+      ]
+    },
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Upload a small PNG and encode it to Base64, then decode it back to download.",
+        "<strong>Step-by-step:</strong> (1) Upload a file or paste Base64. (2) Choose Encode or Decode. (3) Download the result.",
+        "<strong>FAQ:</strong> <em>Does Base64 compress?</em> No—file size increases by about 33%.",
+        "<strong>FAQ:</strong> <em>Is this secure?</em> Base64 is reversible encoding, not encryption.",
+        "<strong>FAQ:</strong> <em>Are files processed locally?</em> No—file conversion is handled on the server."
       ]
     },
     {

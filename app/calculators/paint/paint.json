@@ -113,6 +113,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter 12 ft length, 10 ft width, 8 ft height, and 2 coats. The calculator returns about 2 gallons of paint.",
+        "<strong>Step-by-step:</strong> (1) Measure room length, width, and height. (2) Choose number of coats. (3) Review gallons needed.",
+        "<strong>FAQ:</strong> <em>Do I subtract windows and doors?</em> Not usually. Leaving them in adds a small buffer for waste and touch-ups.",
+        "<strong>FAQ:</strong> <em>Do textured walls need more paint?</em> Yes, rough surfaces can require 10-25% more. Buy extra if your walls are textured.",
+        "<strong>FAQ:</strong> <em>Why does it round up?</em> Paint is sold by the gallon, so you need enough to cover the full area."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

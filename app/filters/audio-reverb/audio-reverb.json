@@ -79,6 +79,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Apply a small room reverb with 1.2s decay to add space to vocals.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Choose room size and decay. (3) Adjust wet/dry mix.",
+        "<strong>FAQ:</strong> <em>How much reverb is too much?</em> If speech loses clarity, reduce the wet mix.",
+        "<strong>FAQ:</strong> <em>Should I EQ the reverb?</em> Yes—cut lows to avoid muddiness.",
+        "<strong>FAQ:</strong> <em>Echo vs reverb?</em> Reverb is continuous ambience; echo is distinct repeats."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Shape tone before adding space with the <a href=\"/audio-equalizer\">Audio Equalizer</a> for cleaner reverb tails.",

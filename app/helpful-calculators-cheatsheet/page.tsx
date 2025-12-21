@@ -1,13 +1,13 @@
 import { Metadata } from "next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Gift, Scale, Truck } from "lucide-react"
+import { Calendar, Gift, Scale } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Helpful Calculators Cheatsheet - Quick Reference Guide",
-  description: "Complete reference guide for all helpful calculators including holiday countdown, recipe scaler, secret santa generator, and shipping cost calculator.",
-  keywords: ["calculator cheatsheet", "helpful tools", "holiday calculator", "recipe scaler", "secret santa", "shipping calculator"],
+  description: "Complete reference guide for helpful calculators including holiday countdown, recipe scaler, and secret santa generator.",
+  keywords: ["calculator cheatsheet", "helpful tools", "holiday calculator", "recipe scaler", "secret santa"],
 }
 
 const calculators = [
@@ -38,15 +38,6 @@ const calculators = [
     useCases: ["Office parties", "Family gatherings", "Friend groups", "Holiday exchanges"],
     href: "/helpful-calculators/secret-santa"
   },
-  {
-    id: "shipping-cost",
-    title: "Shipping Cost Calculator",
-    description: "Calculate shipping costs for packages",
-    icon: Truck,
-    features: ["Multiple carriers", "Weight/size pricing", "Zone calculations", "Service options"],
-    useCases: ["E-commerce", "Package sending", "Cost comparison", "Shipping planning"],
-    href: "/helpful-calculators/shipping-cost"
-  }
 ]
 
 export default function HelpfulCalculatorsCheatsheet() {
@@ -127,10 +118,6 @@ export default function HelpfulCalculatorsCheatsheet() {
               <div>
                 <h4 className="font-semibold text-sm">Secret Santa</h4>
                 <p className="text-sm text-muted-foreground">Add exclusion rules for couples or families</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-sm">Shipping Cost</h4>
-                <p className="text-sm text-muted-foreground">Compare rates across multiple carriers</p>
               </div>
             </div>
           </CardContent>

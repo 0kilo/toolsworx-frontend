@@ -78,6 +78,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Normalize a podcast to -16 LUFS so all episodes play at consistent volume.",
+        "<strong>Step-by-step:</strong> (1) Upload audio. (2) Choose loudness target. (3) Normalize and download.",
+        "<strong>FAQ:</strong> <em>Does this compress dynamics?</em> It adjusts level; it’s not heavy compression.",
+        "<strong>FAQ:</strong> <em>Can it fix clipped audio?</em> No—clipping must be repaired separately.",
+        "<strong>FAQ:</strong> <em>What target should I use?</em> -14 LUFS for YouTube, -16 to -20 for podcasts."
+      ]
+    },
+    {
       "title": "Related Tools",
       "content": [
         "Clean noisy tracks first with <a href=\"/audio-noise-reduction\">Noise Reduction</a> so the loudness analyzer focuses on the main signal.",

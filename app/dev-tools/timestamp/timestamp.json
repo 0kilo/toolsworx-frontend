@@ -72,6 +72,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Convert 1700000000 to see the human-readable UTC date and time.",
+        "<strong>Step-by-step:</strong> (1) Enter a Unix timestamp or date. (2) Choose direction. (3) Copy the result.",
+        "<strong>FAQ:</strong> <em>Seconds or milliseconds?</em> 10 digits = seconds, 13 digits = milliseconds.",
+        "<strong>FAQ:</strong> <em>Is it UTC?</em> Yes—Unix timestamps are UTC by definition.",
+        "<strong>FAQ:</strong> <em>Why is my date in 1970?</em> You likely entered seconds where milliseconds are expected."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

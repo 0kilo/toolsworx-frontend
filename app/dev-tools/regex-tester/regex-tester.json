@@ -63,6 +63,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Test pattern \\b\\w+@\\w+\\.\\w+\\b against text to highlight emails.",
+        "<strong>Step-by-step:</strong> (1) Enter your regex. (2) Paste sample text. (3) Review matches and groups.",
+        "<strong>FAQ:</strong> <em>Why does it only match once?</em> Use the global flag to find all matches.",
+        "<strong>FAQ:</strong> <em>Do anchors matter?</em> Yes—^ and $ enforce full-line matches.",
+        "<strong>FAQ:</strong> <em>Is this JavaScript regex?</em> Yes—syntax follows the JS regex engine."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

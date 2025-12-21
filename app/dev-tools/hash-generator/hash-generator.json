@@ -82,6 +82,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Enter \"hello\" to generate MD5, SHA-1, and SHA-256 hashes for comparison.",
+        "<strong>Step-by-step:</strong> (1) Paste input text. (2) Choose hash type. (3) Copy the hash output.",
+        "<strong>FAQ:</strong> <em>Can I reverse a hash?</em> No—hashes are one-way by design.",
+        "<strong>FAQ:</strong> <em>Which hash should I use?</em> Use SHA-256 for integrity checks; use bcrypt/Argon2 for passwords.",
+        "<strong>FAQ:</strong> <em>Why do small changes change the hash?</em> Hashes are designed for the avalanche effect."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [

@@ -103,6 +103,17 @@
       ]
     },
     {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> A 12 ft × 10 ft patio at 4 in depth needs about 1.48 cubic yards of concrete (round up and add 5–10% overage).",
+        "<strong>Step-by-step:</strong> (1) Measure length and width in feet. (2) Measure depth in inches. (3) Submit to get cubic yards and bag estimates.",
+        "<strong>FAQ:</strong> <em>Should I round up?</em> Yes—short pours create cold joints. Add 5–10% for waste and forms.",
+        "<strong>FAQ:</strong> <em>Why inches for depth?</em> Slab thickness is usually specified in inches, so it avoids unit mistakes.",
+        "<strong>FAQ:</strong> <em>Do I need rebar?</em> For vehicle traffic or structural slabs, yes. For light patios, wire mesh may be enough."
+      ]
+    },
+    {
       "title": "Related Tools",
       "type": "list",
       "content": [
