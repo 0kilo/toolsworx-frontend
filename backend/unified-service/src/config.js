@@ -16,7 +16,6 @@ const parseOrigins = (val) => {
 
 module.exports = {
   PORT: process.env.PORT || 3010,
-  REDIS_URL: process.env.REDIS_URL || 'redis://redis:6379',
   TEMP_DIR: process.env.TEMP_DIR || '/tmp/uploads',
   LIBRE_OFFICE_PATH: process.env.LIBRE_OFFICE_PATH || '/usr/bin/libreoffice',
   FFMPEG_PATH: process.env.FFMPEG_PATH || '/usr/bin/ffmpeg',

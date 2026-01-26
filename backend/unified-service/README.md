@@ -26,7 +26,7 @@ Single containerized backend service that handles all file conversions, media co
 - `GET /api/filter/download/:jobId` - Download filtered file
 
 ### Health & Monitoring
-- `GET /health` - Service health check with Redis connectivity
+- `GET /health` - Service health check
 - `GET /ready` - Readiness check (for load balancers)
 - `GET /metrics` - Prometheus metrics endpoint
 
@@ -37,7 +37,6 @@ PORT=3010                          # Server port
 NODE_ENV=production                # Environment (development/production)
 LOG_LEVEL=info                     # Logging level (debug/info/warn/error)
 CORS_ORIGIN=http://localhost:3000  # Frontend URL
-REDIS_URL=redis://redis:6379       # Redis connection
 MAX_FILE_SIZE=524288000            # Max upload size (500MB)
 TEMP_DIR=/tmp/uploads              # Upload directory
 LIBRE_OFFICE_PATH=/usr/bin/libreoffice  # LibreOffice binary path
@@ -74,7 +73,7 @@ scripts/bundle-unified-service.sh
 
 ### Docker Compose
 ```bash
-cd backend
+cd backend/unified-service
 docker compose up -d
 ```
 
@@ -149,10 +148,6 @@ sudo docker cp ~/IRS_EIN.pdf $(sudo docker ps --filter name=unified-service -q):
 │  └──────────────────────────────┘  │
 │                                     │
 └─────────────────────────────────────┘
-          ↓
-    ┌─────────┐
-    │  Redis  │
-    └─────────┘
 ```
 
 ## Production Deployment
@@ -182,7 +177,6 @@ Set these in AWS Elastic Beanstalk environment configuration:
 PORT=3010
 NODE_ENV=production
 CORS_ORIGIN=https://your-frontend-domain.com
-REDIS_URL=redis://your-redis-url:6379
 AWS_REGION=us-east-1
 S3_BUCKET_NAME=your-conversion-bucket
 ```

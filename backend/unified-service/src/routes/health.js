@@ -2,26 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (deps) => {
-  const { redis } = deps;
-
   router.get('/health', async (req, res) => {
-    try {
-      await redis.ping();
-      res.json({
-        status: 'healthy',
-        timestamp: new Date().toISOString(),
-        service: 'unified-conversion-service',
-        uptime: process.uptime(),
-        memory: process.memoryUsage(),
-        redis: 'connected',
-      });
-    } catch (error) {
-      res.status(503).json({
-        status: 'unhealthy',
-        timestamp: new Date().toISOString(),
-        error: error.message,
-      });
-    }
+    res.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      service: 'unified-conversion-service',
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
+    });
   });
 
   router.get('/ready', (req, res) => {

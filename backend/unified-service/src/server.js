@@ -7,7 +7,7 @@ const { register: metricsRegister, httpRequestDuration } = require('./metrics');
 const { globalLimiter } = require('./rateLimit');
 const routes = require('./routes');
 const { uploadAny, uploadFileOnly, uploadAudioOnly } = require('./upload');
-const { redis, Worker, fileQueue, mediaQueue, filterQueue, audioFilterQueue } = require('./queues');
+const { InMemoryQueue } = require('./in-memory-queue');
 const { processFileConversion } = require('./processors/file');
 const { processMediaConversion } = require('./processors/media');
 const { processFilter } = require('./processors/filter');
@@ -36,10 +36,14 @@ app.use((req, res, next) => {
   next();
 });
 
+const fileQueue = new InMemoryQueue('file-conversion', processFileConversion);
+const mediaQueue = new InMemoryQueue('media-conversion', processMediaConversion);
+const filterQueue = new InMemoryQueue('filter-processing', processFilter);
+const audioFilterQueue = new InMemoryQueue('audio-filter', processAudioFilter);
+
 // Attach routes
 app.use(routes({
   metrics: { register: metricsRegister },
-  redis,
   uploadAny,
   uploadFileOnly,
   uploadAudioOnly,
@@ -76,12 +80,6 @@ setInterval(async () => {
   }
 }, 5 * 60 * 1000);
 
-// Workers
-const fileWorker = new Worker('file-conversion', processFileConversion, { connection: redis, concurrency: 2 });
-const mediaWorker = new Worker('media-conversion', processMediaConversion, { connection: redis, concurrency: 2 });
-const filterWorker = new Worker('filter-processing', processFilter, { connection: redis, concurrency: 10 });
-const audioWorker = new Worker('audio-filter', processAudioFilter, { connection: redis, concurrency: 4 });
-
 // Startup
 app.listen(PORT, '0.0.0.0', () => {
   logger.info({
@@ -91,7 +89,6 @@ app.listen(PORT, '0.0.0.0', () => {
     maxFileSize: `${MAX_FILE_SIZE / (1024 * 1024)}MB`,
     maxMediaSize: `${MAX_MEDIA_SIZE / (1024 * 1024)}MB`,
     maxAudioSize: `${MAX_AUDIO_SIZE / (1024 * 1024)}MB`,
-    redisUrl: process.env.REDIS_URL,
     nodeEnv: NODE_ENV
   }, 'Unified Conversion Service started');
 });
@@ -99,15 +96,10 @@ app.listen(PORT, '0.0.0.0', () => {
 async function gracefulShutdown(signal) {
   logger.info({ signal }, 'Shutting down gracefully...');
   try {
-    await fileWorker.close();
-    await mediaWorker.close();
-    await filterWorker.close();
-    await audioWorker.close();
     await fileQueue.close();
     await mediaQueue.close();
     await filterQueue.close();
     await audioFilterQueue.close();
-    await redis.quit();
     logger.info('Shutdown complete');
     process.exit(0);
   } catch (error) {

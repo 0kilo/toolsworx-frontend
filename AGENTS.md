@@ -9,7 +9,7 @@
 
 ## Build, Test, and Development Commands
 - `npm install` — install dependencies.
-- `npm run dev` — start the local server (runs `predev` to copy `amplify_outputs.json` into `public/`).
+- `npm run dev` — start the local server.
 - `npm run lint` — Next.js/ESLint lint pass; run before commits.
 - `npm run build` — production build (runs `prebuild` copy step); fails fast on type or lint errors.
 - `npm run start` — serve the built app locally.
@@ -30,6 +30,6 @@
 - PRs should include: what/why summary, commands run (lint/build), screenshots for UI changes, linked issues/tasks, and any config/env updates required.
 
 ## Security & Configuration Tips
-- Keep secrets out of git; use `.env.local` and never commit keys from Amplify, AWS, or analytics. The `amplify_outputs.json` copy step should suffice for local dev.
+- Keep secrets out of git; use `.env.local` and never commit keys from Firebase, AWS, or analytics.
 - Update `config/site.ts` when adding new converters or changing branding/SEO defaults; ensure matching metadata on new pages.
 - Store large static assets in `public/` rather than embedding binaries in code.

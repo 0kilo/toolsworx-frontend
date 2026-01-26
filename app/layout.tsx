@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { AmplifyProvider } from '@/components/shared/amplify-provider'
 import { Analytics } from '@/components/shared/analytics'
 import { OrganizationSchema, WebApplicationSchema } from './schema'
 
@@ -71,13 +70,11 @@ export default function RootLayout({
         <Analytics />
         <OrganizationSchema />
         <WebApplicationSchema />
-        <AmplifyProvider>
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </AmplifyProvider>
+        <Header />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )

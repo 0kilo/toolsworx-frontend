@@ -112,11 +112,11 @@ export default function YourConverterPage() {
 
 ### Current setup (prod)
 - Frontend: Amplify → CloudFront → `https://toolsworx.com` (origin `main.dx1dw80ahyz9p.amplifyapp.com`, ACM cert in us-east-1, Route 53 CNAME/alias to CloudFront).
-- Backend: Elastic Beanstalk single-instance Docker compose with Redis sidecar; API base `https://api.toolsworx.com` via CloudFront → EB origin `toolsworx.us-east-2.elasticbeanstalk.com` (HTTP:80). Health check `/health`.
+- Backend: Elastic Beanstalk single-instance Docker compose; API base `https://api.toolsworx.com` via CloudFront → EB origin `toolsworx.us-east-2.elasticbeanstalk.com` (HTTP:80). Health check `/health`.
 - Frontend ↔ Backend config: set `NEXT_PUBLIC_CONVERTER_API_URL=https://api.toolsworx.com` in Amplify; on EB set `CORS_ORIGIN=https://toolsworx.com,https://main.dx1dw80ahyz9p.amplifyapp.com` (and any other allowed origins).
 
 ### Key backend env vars (EB)
-- `PORT=3010` (exposed as host 80 via compose), `REDIS_URL=redis://redis:6379`
+- `PORT=3010` (exposed as host 80 via compose)
 - `CORS_ORIGIN=<frontend origins>`
 - `API_KEYS=` (empty = 3 conversions/24h anon; add comma-separated keys to allow privileged use)
 - Limits: `CONVERSION_LIMIT_NOAUTH=3`, `CONVERSION_WINDOW_HOURS=24`, `GLOBAL_RATE_MAX=200`
@@ -126,7 +126,7 @@ export default function YourConverterPage() {
 
 ### Deployment helpers
 - Backend bundle script: `scripts/bundle-unified-service.sh` → creates `unified-bundle.zip` from `backend/unified-service/` for EB upload.
-- Compose (backend): `backend/unified-service/docker-compose.yml` maps `80:3010` and includes Redis sidecar; image `khandum/unified-service:latest`.
+- Compose (backend): `backend/unified-service/docker-compose.yml` maps `80:3010`; image `khandum/unified-service:latest`.
 - For new front-end deploys, just push to Amplify; CloudFront sits in front of the Amplify origin with HTTPS.
 
 ## 💰 Monetization

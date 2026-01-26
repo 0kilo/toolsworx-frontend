@@ -7,7 +7,6 @@ services:
       - "80:3010"
     environment:
       - PORT=3010
-      - REDIS_URL=redis://redis:6379
       - CORS_ORIGIN=https://toolsworx.com,https://www.toolsworx.com
       - API_KEYS=
       - CONVERSION_LIMIT_NOAUTH=3
@@ -16,13 +15,4 @@ services:
       - MAX_AUDIO_SIZE=209715200
       - LIBRE_OFFICE_PATH=/usr/bin/libreoffice
       - FFMPEG_PATH=/usr/bin/ffmpeg
-    depends_on:
-      - redis
-    restart: unless-stopped
-
-  redis:
-    image: redis:7
-    command: ["redis-server", "--save", "", "--appendonly", "no"]
-    ports:
-      - "6379:6379"
     restart: unless-stopped
