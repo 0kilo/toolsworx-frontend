@@ -1,24 +1,24 @@
-# Task Plan: Tool Unit Test Plan
+# Task Plan: Firebase Auth UI + API Key Management
 
 ## Goal
-Produce a clear plan to generate per-tool unit test files grouped by category under `tests/`, using fixtures in `tests/docs` and any additional minimal fixtures needed.
+Add Firebase Auth (Google/GitHub) to the frontend with an authenticated API key management page (create/delete/list) backed by Firestore, and update MCP auth to use hashed API keys.
 
 ## Phases
 - [x] Phase 1: Plan and setup
 - [x] Phase 2: Research/gather information
-- [x] Phase 3: Draft deliverable
+- [x] Phase 3: Execute/build
 - [x] Phase 4: Review and deliver
 
 ## Key Questions
-1. Which tools require file-based fixtures vs API-only tests?
-2. What test framework or runner should the plan target (currently none)?
+1. How should API keys be generated and stored (publicId + hash)?
+2. Which pages/components should host FirebaseUI and the API key manager?
 
 ## Decisions Made
-- Plan targets API-level tests with per-tool files grouped by category.
-- Reuse `tests/docs` fixtures and add minimal `tests/media` fixtures as needed.
+- Use Firestore `apiKeys` collection with doc ID = publicId.
+- Store hashed secret; show raw key only once on creation.
 
 ## Errors Encountered
 - None.
 
 ## Status
-**Complete** - Plan delivered in `docs/tool-tests-plan.md`.
+**Status:** Complete. Auth UI + API key management implemented with Firebase Auth + Firestore.

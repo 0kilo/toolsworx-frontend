@@ -1,24 +1,26 @@
-# Notes: Tool Unit Test Plan
+# Notes: Firebase Auth + API Keys
 
 ## Sources
 
-### Source 1: docs/tools-list.md
-- URL: docs/tools-list.md
+### Source 1: @modelcontextprotocol/sdk (local node_modules)
+- URL: node_modules/@modelcontextprotocol/sdk
 - Key points:
-  - Lists all tools grouped by category (Unit Conversions, Calculators, File Converters, Media Converters, Developer Tools, Filters, Helpful Calculators, Charts).
-  - Provides tool names and short descriptions; does not list route IDs.
+  - TBD after inspection for HTTP transport setup.
 
-### Source 2: tests/docs fixtures
-- Path: tests/docs
-- Fixtures: TEST.csv, TEST.json, TEST.pdf, TEST.txt, TEST.xlsx, TEST.xml, TEST.zip
-- Suitable for file conversion and data-format tools.
+### Source 2: backend/unified-service
+- URL: backend/unified-service
+- Key points:
+  - MCP route uses Firestore for API key validation.
+  - Existing MCP auth expects full key as doc ID; needs update for hashed scheme.
+
+### Source 3: docs/api-keys-schema.md
+- URL: docs/api-keys-schema.md
+- Key points:
+  - Key format: `twx_<env>_<publicId>.<secret>`
+  - Store doc ID = publicId and `secretHash`.
 
 ## Synthesized Findings
 
-### Gaps
-- No explicit test framework in root package.json ("test" placeholder).
-- No media fixtures (image/audio/video) listed in tests/docs.
-
-### Assumptions Needed
-- Whether tests should hit the backend API (integration-style) or run pure unit logic.
-- Whether to add minimal media fixtures to tests/ (likely needed for image/audio/video converters).
+### Pending
+- Mount auth UI at /account/api-keys with FirebaseUI.
+- Use NEXT_PUBLIC_FIREBASE_* env vars for client init.

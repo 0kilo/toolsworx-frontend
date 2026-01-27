@@ -58,12 +58,11 @@ npm start
 
 ### Docker
 ```bash
-docker build -t unified-service .
-docker tag unified-service:latest khandum/unified-service:latest
-docker push khandum/unified-service:latest
+docker build -t us-east5-docker.pkg.dev/toolsworx-344a5/toolsworx-backend/unified-service:latest .
+docker push us-east5-docker.pkg.dev/toolsworx-344a5/toolsworx-backend/unified-service:latest
 docker run -p 3010:3010 \
   -e CORS_ORIGIN=http://localhost:3000 \
-  unified-service
+  us-east5-docker.pkg.dev/toolsworx-344a5/toolsworx-backend/unified-service:latest
 ```
 
 ### Bundle

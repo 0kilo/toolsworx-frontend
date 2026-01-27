@@ -39,6 +39,12 @@ export function Header() {
                   {category.title}
                 </Link>
               ))}
+              <Link
+                href="/account/api-keys"
+                className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Account
+              </Link>
             </nav>
           </div>
           
@@ -71,6 +77,13 @@ export function Header() {
                   {category.title}
                 </Link>
               ))}
+              <Link
+                href="/account/api-keys"
+                onClick={() => setOpen(false)}
+                className="flex items-center text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border/50"
+              >
+                Account
+              </Link>
             </nav>
           </div>
         </div>
