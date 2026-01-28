@@ -1,6 +1,6 @@
 # TOOLS WORX - Free Online Conversion Tools
 
-A modern, fast, and SEO-optimized conversion website built with Next.js 14 and React. Convert documents, images, videos, and units instantly.
+A modern, fast, and SEO-optimized conversion website built with Next.js 16 and React. Convert documents, images, videos, and units instantly.
 
 ## ✨ Features
 
@@ -101,7 +101,7 @@ export default function YourConverterPage() {
 
 ## 🎨 Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
@@ -111,13 +111,14 @@ export default function YourConverterPage() {
 ## 🚢 Deployment
 
 ### Current setup (prod)
-- Frontend: Amplify → CloudFront → `https://toolsworx.com` (origin `main.dx1dw80ahyz9p.amplifyapp.com`, ACM cert in us-east-1, Route 53 CNAME/alias to CloudFront).
-- Backend: Elastic Beanstalk single-instance Docker compose; API base `https://api.toolsworx.com` via CloudFront → EB origin `toolsworx.us-east-2.elasticbeanstalk.com` (HTTP:80). Health check `/health`.
-- Frontend ↔ Backend config: set `NEXT_PUBLIC_CONVERTER_API_URL=https://api.toolsworx.com` in Amplify; on EB set `CORS_ORIGIN=https://toolsworx.com,https://main.dx1dw80ahyz9p.amplifyapp.com` (and any other allowed origins).
+- Frontend: Amplify hosting → `https://toolsworx.com`.
+- Backend: Cloud Run container at `https://unified-service-905466639122.us-east5.run.app`.
+- Frontend ↔ Backend config: set `NEXT_PUBLIC_CONVERTER_API_URL=https://unified-service-905466639122.us-east5.run.app` in App Hosting/Amplify envs.
 
-### Key backend env vars (EB)
-- `PORT=3010` (exposed as host 80 via compose)
-- `CORS_ORIGIN=<frontend origins>`
+### Key backend env vars
+- `PORT=3010`
+- `CORS_ORIGIN=https://toolsworx.com,https://www.toolsworx.com`
+- `TURNSTILE_SECRET_KEY=` (Cloudflare Turnstile secret; enables verification)
 - `API_KEYS=` (empty = 3 conversions/24h anon; add comma-separated keys to allow privileged use)
 - Limits: `CONVERSION_LIMIT_NOAUTH=3`, `CONVERSION_WINDOW_HOURS=24`, `GLOBAL_RATE_MAX=200`
 - Sizes: `MAX_FILE_SIZE=524288000`, `MAX_MEDIA_SIZE=838860800`, `MAX_AUDIO_SIZE=209715200`
@@ -125,9 +126,7 @@ export default function YourConverterPage() {
 - Misc: `TEMP_DIR=/tmp/uploads`, `LOG_LEVEL=info`, `NODE_ENV=production`
 
 ### Deployment helpers
-- Backend bundle script: `scripts/bundle-unified-service.sh` → creates `unified-bundle.zip` from `backend/unified-service/` for EB upload.
-- Compose (backend): `backend/unified-service/docker-compose.yml` maps `80:3010`; image `khandum/unified-service:latest`.
-- For new front-end deploys, just push to Amplify; CloudFront sits in front of the Amplify origin with HTTPS.
+- Backend Docker build/push: see `backend/unified-service/README.md`.
 
 ## 💰 Monetization
 
@@ -232,6 +231,6 @@ See [SETUP_GUIDE.md](./SETUP_GUIDE.md) for:
 
 ---
 
-**Built with ❤️ using Next.js 14 and React**
+**Built with ❤️ using Next.js 16 and React**
 
 Ready to launch in minutes! 🚀 

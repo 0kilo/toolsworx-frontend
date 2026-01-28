@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('path');
 const { createReadStream } = require('fs');
-const { conversionLimiter } = require('../rateLimit');
+const { conversionRateLimiter } = require('../rateLimitFirestore');
+const { verifyTurnstile } = require('../turnstile');
 
 module.exports = ({ uploadFileOnly, fileQueue, jobs, logger }) => {
   const router = express.Router();
 
-  router.post('/api/convert', conversionLimiter, uploadFileOnly.single('file'), async (req, res) => {
+  const handleConvert = async (req, res) => {
     try {
       const { targetFormat, options } = req.body;
       const file = req.file;
@@ -41,9 +42,9 @@ module.exports = ({ uploadFileOnly, fileQueue, jobs, logger }) => {
       logger.error({ error }, 'File conversion request error');
       res.status(500).json({ success: false, error: error.message });
     }
-  });
+  };
 
-  router.get('/api/status/:jobId', async (req, res) => {
+  const handleStatus = async (req, res) => {
     const { jobId } = req.params;
     try {
       const job = await fileQueue.getJob(jobId);
@@ -62,9 +63,9 @@ module.exports = ({ uploadFileOnly, fileQueue, jobs, logger }) => {
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
     }
-  });
+  };
 
-  router.get('/api/download/:jobId', async (req, res) => {
+  const handleDownload = async (req, res) => {
     const { jobId } = req.params;
     try {
       const job = await fileQueue.getJob(jobId);
@@ -81,7 +82,14 @@ module.exports = ({ uploadFileOnly, fileQueue, jobs, logger }) => {
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
     }
-  });
+  };
+
+  router.post('/api/convert', uploadFileOnly.single('file'), verifyTurnstile, conversionRateLimiter, handleConvert);
+  router.post('/api/file/convert', uploadFileOnly.single('file'), verifyTurnstile, conversionRateLimiter, handleConvert);
+  router.get('/api/status/:jobId', handleStatus);
+  router.get('/api/file/status/:jobId', handleStatus);
+  router.get('/api/download/:jobId', handleDownload);
+  router.get('/api/file/download/:jobId', handleDownload);
 
   return router;
 };

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
+import { Turnstile } from "@/components/shared/turnstile"
 import { apiClient } from "@/lib/services/api-client"
 import { Download, FileText, AlertCircle, ArrowRight } from "lucide-react"
 
@@ -50,6 +51,8 @@ export function FileConverter({
     status: 'idle',
     progress: 0
   })
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
 
   const selectedFromFormat = fromFormats.find(f => f.value === fromFormat)
   const selectedToFormat = toFormats.find(f => f.value === toFormat)
@@ -61,11 +64,19 @@ export function FileConverter({
 
   const handleConvert = async () => {
     if (!file || !toFormat) return
+    if (turnstileSiteKey && !turnstileToken) {
+      setConversion({
+        status: 'error',
+        progress: 0,
+        error: 'Please complete the verification to continue.'
+      })
+      return
+    }
 
     try {
       setConversion({ status: 'uploading', progress: 10 })
       
-      const job = await apiClient.convertFile(file, toFormat)
+      const job = await apiClient.convertFile(file, toFormat, { turnstileToken })
       
       setConversion({ 
         status: 'processing', 
@@ -157,6 +168,11 @@ export function FileConverter({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
+        {turnstileSiteKey && (
+          <div className="flex justify-start">
+            <Turnstile siteKey={turnstileSiteKey} onToken={setTurnstileToken} />
+          </div>
+        )}
         {/* Format Selection */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
           <Select value={fromFormat} onValueChange={setFromFormat}>

@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('path');
 const { createReadStream } = require('fs');
-const { conversionLimiter } = require('../rateLimit');
+const { conversionRateLimiter } = require('../rateLimitFirestore');
+const { verifyTurnstile } = require('../turnstile');
 
 module.exports = ({ uploadAny, mediaQueue, jobs, logger }) => {
   const router = express.Router();
 
-  router.post('/api/media/convert', conversionLimiter, uploadAny.single('file'), async (req, res) => {
+  router.post('/api/media/convert', uploadAny.single('file'), verifyTurnstile, conversionRateLimiter, async (req, res) => {
     try {
       const { targetFormat, options } = req.body;
       const file = req.file;

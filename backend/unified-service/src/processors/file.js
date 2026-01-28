@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 const { spawn } = require('child_process');
+const { pathToFileURL } = require('url');
 const xlsx = require('xlsx');
 const { conversionCounter, activeJobsGauge } = require('../metrics');
 const { LIBRE_OFFICE_PATH, TEMP_DIR } = require('../config');
@@ -12,12 +13,15 @@ const sheetFormats = ['xlsx', 'xls', 'csv', 'ods'];
 async function convertDocument(inputPath, tempDir, targetFormat, inputExt, job) {
   const outputDir = path.join(tempDir, 'output');
   await fs.mkdir(outputDir, { recursive: true });
+  const profileDir = path.join(tempDir, 'lo-profile');
+  await fs.mkdir(profileDir, { recursive: true });
 
   await job.updateProgress(30);
 
   await new Promise((resolve, reject) => {
     const isPdf = inputExt === 'pdf';
     const convertTo = targetFormat === 'docx' ? 'docx' : targetFormat;
+    const profileUrl = pathToFileURL(profileDir).href;
     const args = [
       '--headless',
       '--nologo',
@@ -25,6 +29,7 @@ async function convertDocument(inputPath, tempDir, targetFormat, inputExt, job) 
       '--norestore',
       '--nolockcheck',
       '--nodefault',
+      `--env:UserInstallation=${profileUrl}`,
       ...(isPdf ? ['--infilter=writer_pdf_import'] : []),
       '--convert-to',
       convertTo,
@@ -34,23 +39,34 @@ async function convertDocument(inputPath, tempDir, targetFormat, inputExt, job) 
     ];
 
     const proc = spawn(LIBRE_OFFICE_PATH, args, {
-      timeout: 300000,
       stdio: 'pipe',
       env: {
         ...process.env,
-        HOME: tempDir,
-        TMPDIR: tempDir
+        HOME: profileDir,
+        TMPDIR: profileDir
       }
     });
 
+    const timeoutMs = 120000;
+    const timer = setTimeout(() => {
+      proc.kill('SIGKILL');
+      reject(new Error(`LibreOffice conversion timed out after ${timeoutMs}ms`));
+    }, timeoutMs);
+
     let stderr = '';
+    let stdout = '';
+    proc.stdout?.on('data', (data) => { stdout += data.toString(); });
     proc.stderr?.on('data', (data) => { stderr += data.toString(); });
 
     proc.on('close', (code) => {
+      clearTimeout(timer);
       if (code === 0) resolve();
       else reject(new Error(`LibreOffice exited with code ${code}: ${stderr}`));
     });
-    proc.on('error', (err) => reject(new Error(`Failed to start LibreOffice: ${err.message}`)));
+    proc.on('error', (err) => {
+      clearTimeout(timer);
+      reject(new Error(`Failed to start LibreOffice: ${err.message}`));
+    });
   });
 
   await job.updateProgress(80);

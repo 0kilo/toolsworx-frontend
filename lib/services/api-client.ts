@@ -43,8 +43,11 @@ export class ApiClient {
     const body = new FormData()
     body.append('file', file)
     body.append('targetFormat', targetFormat)
-    if (options) body.append('options', JSON.stringify(options))
-    const res = await http<{ jobId: string }>('/api/convert', { method: 'POST', body })
+    if (options) {
+      if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
+      body.append('options', JSON.stringify(options))
+    }
+    const res = await http<{ jobId: string }>('/api/file/convert', { method: 'POST', body })
     return { id: res.jobId, status: 'pending' }
   }
 
@@ -52,7 +55,10 @@ export class ApiClient {
     const body = new FormData()
     body.append('file', file)
     body.append('targetFormat', targetFormat)
-    if (options) body.append('options', JSON.stringify(options))
+    if (options) {
+      if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
+      body.append('options', JSON.stringify(options))
+    }
     const res = await http<{ jobId: string }>('/api/media/convert', { method: 'POST', body })
     return { id: res.jobId, status: 'pending' }
   }
@@ -78,7 +84,7 @@ export class ApiClient {
   async getJobStatus(kind: 'file' | 'media' | 'filter' | 'audio', jobId: string): Promise<ConversionJob> {
     const path =
       kind === 'file'
-        ? `/api/status/${jobId}`
+        ? `/api/file/status/${jobId}`
         : kind === 'media'
         ? `/api/media/status/${jobId}`
         : kind === 'filter'

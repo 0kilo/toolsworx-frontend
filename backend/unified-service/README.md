@@ -11,9 +11,12 @@ Single containerized backend service that handles all file conversions, media co
 ## Endpoints
 
 ### File Conversion
-- `POST /api/convert` - Convert file
-- `GET /api/status/:jobId` - Check conversion status
-- `GET /api/download/:jobId` - Download converted file
+- `POST /api/file/convert` - Convert file (preferred)
+- `POST /api/convert` - Convert file (alias)
+- `GET /api/file/status/:jobId` - Check conversion status (preferred)
+- `GET /api/status/:jobId` - Check conversion status (alias)
+- `GET /api/file/download/:jobId` - Download converted file (preferred)
+- `GET /api/download/:jobId` - Download converted file (alias)
 
 ### Media Conversion
 - `POST /api/media/convert` - Convert media file
@@ -37,9 +40,16 @@ PORT=3010                          # Server port
 NODE_ENV=production                # Environment (development/production)
 LOG_LEVEL=info                     # Logging level (debug/info/warn/error)
 CORS_ORIGIN=http://localhost:3000  # Frontend URL
+TURNSTILE_SECRET_KEY=              # Cloudflare Turnstile secret (enables verification)
 MAX_FILE_SIZE=524288000            # Max upload size (500MB)
+MAX_MEDIA_SIZE=838860800           # Max media upload size (800MB)
+MAX_AUDIO_SIZE=209715200           # Max audio upload size (200MB)
 TEMP_DIR=/tmp/uploads              # Upload directory
 LIBRE_OFFICE_PATH=/usr/bin/libreoffice  # LibreOffice binary path
+FFMPEG_PATH=/usr/bin/ffmpeg        # FFmpeg binary path
+CONVERSION_LIMIT_NOAUTH=3          # Anonymous conversions per window
+CONVERSION_WINDOW_HOURS=24         # Rate limit window
+GLOBAL_RATE_MAX=200                # Global rate limit
 ```
 
 ## Running Locally
@@ -83,7 +93,7 @@ docker compose up -d
 curl http://localhost:3010/health
 
 # File conversion
-curl -X POST http://localhost:3010/api/convert \
+curl -X POST http://localhost:3010/api/file/convert \
   -F "file=@test.pdf" \
   -F "targetFormat=docx"
 
@@ -97,26 +107,6 @@ curl -X POST http://localhost:3010/api/filter \
   -F "file=@image.jpg" \
   -F "filterType=grayscale"
 ```
-curl -i https://api.toolsworx.com/api/status/3
-curl -i -X POST \
-    -F "file=@$HOME/Documents/personal/IRS_EIN.pdf" \
-    -F "targetFormat=docx" \
-    -H "Origin: https://toolsworx.com" \
-    https://api.toolsworx.com/api/convert
-curl -i -X POST \
-    -F "file=@$HOME/Documents/personal/IRS_EIN.pdf" \
-    -F "targetFormat=docx" \
-    -H "Origin: https://toolsworx.com" \
-    http://toolsworx.us-east-2.elasticbeanstalk.com/api/convert
-
-curl -i https://api.toolsworx.com/api/status/3
-scp -i "toolsworx.pem" ~/Documents/personal/IRS_EIN.pdf  ec2-user@ec2-3-128-8-79.us-east-2.compute.amazonaws.com:/home/ec2-user/
-sudo docker cp ~/IRS_EIN.pdf $(sudo docker ps --filter name=unified-service -q):/tmp/IRS_EIN.pdf
-
- HOME=/tmp/lo-profile TMPDIR=/tmp/lo-profile libreoffice --headless --nologo --nofirststartwizard --norestore --nolockcheck --nodefault \
-    --infilter=writer_pdf_import \
-    --convert-to docx \
-    --outdir /tmp/out /tmp/IRS_EIN.pdf
 ## Architecture
 
 ```
@@ -127,9 +117,9 @@ sudo docker cp ~/IRS_EIN.pdf $(sudo docker ps --filter name=unified-service -q):
 │                                     │
 │  ┌──────────────────────────────┐  │
 │  │  File Conversion Endpoints   │  │
-│  │  /api/convert               │  │
-│  │  /api/status/:id            │  │
-│  │  /api/download/:id          │  │
+│  │  /api/file/convert          │  │
+│  │  /api/file/status/:id       │  │
+│  │  /api/file/download/:id     │  │
 │  └──────────────────────────────┘  │
 │                                     │
 │  ┌──────────────────────────────┐  │
@@ -151,34 +141,8 @@ sudo docker cp ~/IRS_EIN.pdf $(sudo docker ps --filter name=unified-service -q):
 
 ## Production Deployment
 
-### AWS Elastic Beanstalk
-
-1. Create application:
-```bash
-eb init -p docker unified-conversion-service
-```
-
-2. Create environment:
-```bash
-eb create production --instance-type t3.small
-```
-
-3. Deploy:
-```bash
-eb deploy
-```
-
-### Environment Variables (Production)
-
-Set these in AWS Elastic Beanstalk environment configuration:
-
-```
-PORT=3010
-NODE_ENV=production
-CORS_ORIGIN=https://your-frontend-domain.com
-AWS_REGION=us-east-1
-S3_BUCKET_NAME=your-conversion-bucket
-```
+Deploy to your container platform (Cloud Run recommended). Ensure environment
+variables are set for CORS, size limits, and rate limiting.
 
 ## Resource Requirements
 
@@ -200,7 +164,6 @@ The service provides health status at `/health`:
   "service": "unified-conversion-service",
   "uptime": 3600,
   "memory": {...},
-  "redis": "connected",
   "services": {
     "file_conversion": "operational",
     "media_conversion": "operational",
@@ -237,9 +200,10 @@ The service uses structured JSON logging with Pino:
 
 ### Rate Limiting
 
-- **Window:** 15 minutes
-- **Max Requests:** 100 per IP address
-- **Response:** 429 Too Many Requests when limit exceeded
+- **Global:** 15 minutes, 200 requests per IP (express-rate-limit)
+- **Anonymous conversions:** 3 per 24 hours (Firestore-backed, keyed by IP + user-agent fingerprint)
+- **API keys:** unlimited when `API_KEYS` contains the provided key
+- **Response:** 429 with `resetAt` when daily limit exceeded
 
 ## License
 

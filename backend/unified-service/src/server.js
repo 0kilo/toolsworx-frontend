@@ -18,6 +18,7 @@ const app = express();
 const jobs = new Map();
 
 // Middleware
+app.set('trust proxy', 1);
 const corsOrigin = Array.isArray(CORS_ORIGIN) && CORS_ORIGIN.length === 1 ? CORS_ORIGIN[0] : CORS_ORIGIN;
 app.use(cors({ origin: corsOrigin, credentials: false }));
 logger.info({ corsOrigin }, 'CORS configuration');

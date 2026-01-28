@@ -14,14 +14,16 @@ function initializeFirebase() {
   if (appInstance) return appInstance;
 
   const serviceAccountPath = resolveServiceAccountPath();
-  if (!fs.existsSync(serviceAccountPath)) {
-    throw new Error(`Firebase service account JSON not found at ${serviceAccountPath}`);
+  if (fs.existsSync(serviceAccountPath)) {
+    const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf-8'));
+    appInstance = admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+    });
+  } else {
+    appInstance = admin.initializeApp({
+      credential: admin.credential.applicationDefault()
+    });
   }
-
-  const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf-8'));
-  appInstance = admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
 
   return appInstance;
 }

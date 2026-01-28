@@ -20,6 +20,11 @@ env:
     availability:
       - BUILD
       - RUNTIME
+  - variable: NEXT_PUBLIC_TURNSTILE_SITE_KEY
+    value: 0x4AAAAAACU0Tgzctl0-TSYZ
+    availability:
+      - BUILD
+      - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
     value: "AIzaSyCLiUbVyVDBI_iC5UPoyO1NC1Wa0pg4bxQ"
     availability:
