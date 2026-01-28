@@ -1,6 +1,16 @@
+const path = require('path')
+const dotenv = require('dotenv')
+
+dotenv.config({ path: path.resolve(__dirname, '.env.local') })
+dotenv.config({ path: path.resolve(__dirname, '.env') })
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_CONVERTER_API_URL: process.env.NEXT_PUBLIC_CONVERTER_API_URL,
+    NEXT_PUBLIC_CONVERTER_API_KEY: process.env.NEXT_PUBLIC_CONVERTER_API_KEY,
+  },
   images: {
     domains: [],
     formats: ['image/webp', 'image/avif'],

@@ -24,7 +24,7 @@ export const categoryGroups: CategoryGroup[] = [
     title: "Helpful Tools",
     description: "Practical tools for everyday tasks",
     longDescription:
-      "Our helpful tools make everyday tasks easier. Scale recipes for different serving sizes, organize secret santa gift exchanges, count down to important holidays and events, generate secure passwords, and convert cryptocurrencies. These practical tools save time and help you plan better.",
+      "Our helpful tools make everyday tasks easier. Scale recipes for different serving sizes, generate secure passwords, create API keys and UUIDs, and convert cryptocurrencies. These practical tools save time and help you plan better.",
     icon: Heart,
     color: "bg-slate-100 border-slate-300",
     textColor: "text-slate-900",
@@ -32,8 +32,8 @@ export const categoryGroups: CategoryGroup[] = [
     categories: ["helpful"],
     seoKeywords: [
       "recipe scaler",
-      "secret santa generator",
-      "holiday countdown",
+      "api key generator",
+      "uuid generator",
       "shipping cost calculator",
       "password generator",
       "crypto converter",
@@ -68,9 +68,8 @@ export const categoryGroups: CategoryGroup[] = [
         title: "When to Use",
         bullets: [
           "Adjust servings or ingredient lists with the Recipe Scaler when cooking for more or fewer people.",
-          "Automate anonymous pairings for teams or family events with the Secret Santa Generator to avoid manual spreadsheets.",
           "Generate strong credentials with the Password Generator before enabling new accounts or rotating logins.",
-          "Track time-bound events with Holiday Countdown so campaigns and reminders are aligned.",
+          "Create API keys or unique IDs for apps and integrations without touching a terminal.",
           "Handle quick financial lookups with the Crypto Converter when quoting, budgeting, or paying in digital assets.",
         ],
       },
@@ -78,8 +77,7 @@ export const categoryGroups: CategoryGroup[] = [
         title: "How to Choose the Right Tool",
         bullets: [
           "Use Recipe Scaler for quantity math; switch to calculators category if you need nutrition or macro math.",
-          "Pick Password Generator for security tasks; combine with developer tools if you also need token generation.",
-          "Holiday Countdown is for visibility; if scheduling actions, pair with calendars or reminder apps.",
+          "Pick Password Generator for login security; use the API Key Generator for IDs or integration tokens.",
           "Crypto Converter is for spot checks; use Currency Converter for fiat-only comparisons.",
         ],
       },
@@ -87,9 +85,8 @@ export const categoryGroups: CategoryGroup[] = [
         title: "Tips for Better Results",
         bullets: [
           "Keep ingredient units consistent before scaling to avoid rounding surprises.",
-          "Use exclusions in Secret Santa lists to prevent impossible pairings before you share results.",
           "Store generated passwords in a manager; do not reuse or email them.",
-          "For countdowns, note the time zone to avoid off-by-one-day confusion across teams.",
+          "Prefix API keys by environment (dev_, prod_) to avoid mix-ups.",
           "Refresh crypto quotes close to checkout; prices move quickly and can invalidate earlier totals.",
         ],
       },
@@ -98,9 +95,8 @@ export const categoryGroups: CategoryGroup[] = [
         bullets: [
           "Mixing cups, grams, and ounces in the same recipe scale leads to bad ratios; standardize units first.",
           "Sharing password results over chat or email defeats security; deliver via a password manager instead.",
-          "Forgetting to block household exclusions in Secret Santa creates awkward matches; set rules up front.",
           "Relying on stale crypto rates can undercharge or overcharge; refresh before submitting payments.",
-          "Leaving event countdowns on the wrong time zone causes missed deadlines; confirm the target region.",
+          "Using IDs as secrets; use proper API keys or hashed tokens for sensitive access.",
         ],
       },
     ],

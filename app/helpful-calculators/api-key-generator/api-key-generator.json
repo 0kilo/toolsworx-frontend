@@ -1,0 +1,95 @@
+{
+  "id": "api-key-generator",
+  "title": "API Key & UUID Generator",
+  "description": "Generate UUIDs, API keys, and short IDs for apps, integrations, and databases",
+  "pageTitle": "API Key & UUID Generator",
+  "pageDescription": "Create UUID v1, v3, v4, v5, v6, v7, NIL/MAX constants, API keys, short IDs, and convert UUID bytes in seconds.",
+  "aboutTitle": "About API Key & UUID Generator",
+  "aboutDescription": "Generate production-ready identifiers for apps, databases, and integrations. Choose between random UUIDs, time-ordered UUIDs, deterministic UUIDs, or readable API keys.",
+  "category": "helpful-calculators",
+  "sections": [
+    {
+      "title": "How to Use (Example + FAQs)",
+      "type": "list",
+      "content": [
+        "<strong>Example:</strong> Pick UUID v7, generate 5 IDs, and use them as sortable order IDs.",
+        "<strong>Step-by-step:</strong> (1) Select ID type. (2) Set quantity. (3) Generate and copy.",
+        "<strong>FAQ:</strong> <em>Which type is best for databases?</em> UUID v7 keeps time order for efficient indexing.",
+        "<strong>FAQ:</strong> <em>How do I make deterministic IDs?</em> Use UUID v5 with a fixed namespace + name.",
+        "<strong>FAQ:</strong> <em>Are these safe for secrets?</em> UUIDs are unique but not a replacement for cryptographic secrets."
+      ]
+    },
+    {
+      "title": "UUID Types Explained",
+      "content": [
+        "UUID v1: Time-based UUID with node identifier (legacy systems).",
+        "UUID v3: Deterministic IDs using MD5 over namespace + name.",
+        "UUID v4: Random UUIDs for general unique IDs.",
+        "UUID v5: Deterministic IDs using SHA-1 over namespace + name.",
+        "UUID v6: Reordered v1 designed for better database indexing.",
+        "UUID v7: Time-ordered UUIDs that keep inserts sorted."
+      ]
+    },
+    {
+      "title": "Special UUID Options",
+      "content": [
+        "NIL: All-zero UUID constant used as a placeholder value.",
+        "MAX: All-ones UUID constant useful for range comparisons.",
+        "Parse/Stringify: Convert UUIDs to byte arrays and back when working with binary storage."
+      ]
+    },
+    {
+      "title": "Rebranding Ideas (Same ID, Different Context)",
+      "content": [
+        "API Key: Use the UUID-based API key format with a prefix (example: twx_...).",
+        "Order ID: UUID v7 keeps records ordered while staying globally unique.",
+        "Document ID: UUID v4 works well as a random file or object ID.",
+        "User ID: UUID v4 or short IDs are easy to store and share."
+      ]
+    },
+    {
+      "title": "Why Use This Tool?",
+      "content": [
+        "✓ <strong>Flexible Formats:</strong> Create UUIDs, API keys, or short IDs from one place.",
+        "✓ <strong>Fast Copy:</strong> Generate multiple IDs and copy all in one click.",
+        "✓ <strong>Database Friendly:</strong> Use UUID v7 when you need time-ordered keys.",
+        "✓ <strong>Deterministic IDs:</strong> UUID v5 keeps names and IDs aligned."
+      ]
+    },
+    {
+      "title": "Common Questions",
+      "content": [
+        "<strong>Q: What’s the difference between v4 and v7?</strong><br>v4 is fully random; v7 is time-ordered to keep indexes efficient.",
+        "<strong>Q: When should I use v5?</strong><br>Use v5 when you need the same input to always map to the same ID.",
+        "<strong>Q: Are API keys generated here secure?</strong><br>They are unique but not a replacement for cryptographic secrets like HMAC keys."
+      ]
+    },
+    {
+      "title": "Pro Tips & Best Practices",
+      "content": [
+        "💡 <strong>Prefix your API keys:</strong> Add a prefix to identify environment or product (dev_, prod_, twx_).",
+        "💡 <strong>Prefer v7 for databases:</strong> It reduces index fragmentation versus random IDs.",
+        "💡 <strong>Keep namespaces stable:</strong> For v5, changing namespace changes the output.",
+        "💡 <strong>Store safely:</strong> Treat generated IDs like credentials when used as API keys."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Need stronger secrets? Try the <a href='/helpful-calculators/password-generator'>Password Generator</a>.",
+        "For dev workflows, see the <a href='/dev-tools/uuid-generator'>Developer UUID Generator</a>.",
+        "Convert tokens to Base64 with the <a href='/dev-tools/base64'>Base64 Encoder</a>.",
+        "Build shareable docs with the <a href='/helpful-calculators/cheatsheet-builder'>Cheatsheet Builder</a>."
+      ]
+    },
+    {
+      "title": "Quick Tips & Navigation",
+      "type": "list",
+      "content": [
+        "Browse <a href=\"/helpful-calculators\">all helpful calculators</a> for everyday utilities.",
+        "Generate secure logins with the <a href=\"/helpful-calculators/password-generator\">Password Generator</a>.",
+        "Need dev utilities? Visit <a href=\"/dev-tools\">Developer Tools</a>."
+      ]
+    }
+  ]
+}

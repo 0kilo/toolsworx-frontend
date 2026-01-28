@@ -266,6 +266,16 @@ export const toolMetadata = {
     description: 'Convert between cryptocurrencies and fiat currencies. Real-time crypto prices.',
     keywords: ['crypto converter', 'cryptocurrency converter', 'bitcoin converter', 'crypto calculator']
   },
+  'api-key-generator': {
+    title: 'API Key Generator - UUID & ID Generator',
+    description: 'Generate UUID v4, UUID v7, UUID v5, and API keys instantly. Free ID generator for apps and integrations.',
+    keywords: ['api key generator', 'uuid generator', 'id generator', 'unique id', 'token generator']
+  },
+  'conversion-mcp': {
+    title: 'Conversion MCP - Connect Agents to Conversion Tools',
+    description: 'Connect AI agents to ToolsWorx conversions with Model Context Protocol (MCP).',
+    keywords: ['conversion mcp', 'model context protocol', 'api key', 'ai tools', 'conversion api']
+  },
   'holiday-countdown': {
     title: 'Holiday Countdown - Days Until Holiday',
     description: 'Count down to your favorite holidays. Free holiday countdown timer.',

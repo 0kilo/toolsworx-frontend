@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "d3": "^7.9.0",
+    "dotenv": "^17.2.3",
     "file-saver": "^2.0.5",
     "firebase": "^10.14.1",
     "firebaseui": "^6.1.0",
@@ -40,6 +41,7 @@
     "remark-math": "^6.0.0",
     "rrule": "^2.8.1",
     "tailwind-merge": "^3.4.0",
+    "uuid": "^13.0.0",
     "xlsx-color": "^0.14.30",
     "zod": "^4.3.6"
   },

@@ -25,7 +25,7 @@ export default function HomePage() {
           Free Online Conversion Tools
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Convert documents, images, videos, and units instantly. Fast, secure, and completely free.
+          Convert documents, images, videos, and units instantly. Fast, secure, and completely free. Now with MCP Support!
         </p>
         <div className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
           <Link href="/about" className="underline underline-offset-4">Learn more about Tools Worx</Link>.

@@ -3,11 +3,11 @@
   "name": "Helpful Calculators",
   "description": "Useful calculators and tools for everyday tasks",
   "tools": [
+    "conversion-mcp",
+    "api-key-generator",
     "cheatsheet-builder",
     "crypto-converter",
-    "holiday-countdown",
     "password-generator",
-    "recipe-scaler",
-    "secret-santa"
+    "recipe-scaler"
   ]
 }

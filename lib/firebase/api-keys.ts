@@ -17,8 +17,12 @@ function randomId(byteLength: number) {
 }
 
 export function generateApiKey() {
-  const publicId = randomId(8)
-  const secret = randomId(32)
+  const publicId =
+    typeof crypto.randomUUID === 'function' ? crypto.randomUUID().replace(/-/g, '') : randomId(8)
+  const secret =
+    typeof crypto.randomUUID === 'function'
+      ? `${crypto.randomUUID().replace(/-/g, '')}${crypto.randomUUID().replace(/-/g, '')}`
+      : randomId(32)
   const key = `twx_${DEFAULT_ENV}_${publicId}.${secret}`
   const preview = `twx_${DEFAULT_ENV}_${publicId.slice(0, 4)}...${secret.slice(-4)}`
   return { publicId, secret, key, preview }

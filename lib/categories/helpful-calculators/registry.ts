@@ -1,10 +1,20 @@
-import { ChefHat, Gift, Calendar, Bitcoin, Key, FileText } from "lucide-react"
+import { ChefHat, Bitcoin, Key, FileText, KeyRound } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
  * Helpful calculators and utilities (daily-life tools)
  */
 export const helpfulCalculators: ConverterMetadata[] = [
+  {
+    id: "conversion-mcp",
+    title: "Conversion MCP",
+    description: "Connect AI agents to conversion tools via MCP",
+    category: "helpful",
+    icon: KeyRound,
+    href: "/helpful-calculators/conversion-mcp",
+    keywords: ["mcp", "model context protocol", "api key", "conversion", "ai agents"],
+    popular: true,
+  },
   {
     id: "recipe-scaler",
     title: "Recipe Scaler",
@@ -15,26 +25,26 @@ export const helpfulCalculators: ConverterMetadata[] = [
     keywords: ["recipe", "scale", "ingredients", "cooking", "servings", "portions"],
     popular: true,
   },
-  {
-    id: "secret-santa",
-    title: "Secret Santa Generator",
-    description: "Organize gift exchanges with automatic pairing",
-    category: "helpful",
-    icon: Gift,
-    href: "/helpful-calculators/secret-santa",
-    keywords: ["secret santa", "gift exchange", "christmas", "holiday", "random", "generator"],
-    popular: true,
-  },
-  {
-    id: "holiday-countdown",
-    title: "Holiday Countdown",
-    description: "Count down to holidays and special events",
-    category: "helpful",
-    icon: Calendar,
-    href: "/helpful-calculators/holiday-countdown",
-    keywords: ["countdown", "holiday", "christmas", "new year", "birthday", "event", "timer"],
-    popular: true,
-  },
+  // {
+  //   id: "secret-santa",
+  //   title: "Secret Santa Generator",
+  //   description: "Organize gift exchanges with automatic pairing",
+  //   category: "helpful",
+  //   icon: Gift,
+  //   href: "/helpful-calculators/secret-santa",
+  //   keywords: ["secret santa", "gift exchange", "christmas", "holiday", "random", "generator"],
+  //   popular: true,
+  // },
+  // {
+  //   id: "holiday-countdown",
+  //   title: "Holiday Countdown",
+  //   description: "Count down to holidays and special events",
+  //   category: "helpful",
+  //   icon: Calendar,
+  //   href: "/helpful-calculators/holiday-countdown",
+  //   keywords: ["countdown", "holiday", "christmas", "new year", "birthday", "event", "timer"],
+  //   popular: true,
+  // },
   // Shipping Cost Calculator - Temporarily disabled (USPS API unavailable)
   // Uncomment when USPS API access is available:
   // {
@@ -55,6 +65,16 @@ export const helpfulCalculators: ConverterMetadata[] = [
     icon: Bitcoin,
     href: "/helpful-calculators/crypto-converter",
     keywords: ["crypto", "cryptocurrency", "bitcoin", "ethereum", "convert", "price", "market", "trading"],
+    popular: true,
+  },
+  {
+    id: "api-key-generator",
+    title: "API Key & UUID Generator",
+    description: "Create UUIDs, API keys, and short IDs instantly",
+    category: "helpful",
+    icon: KeyRound,
+    href: "/helpful-calculators/api-key-generator",
+    keywords: ["api key", "uuid", "id generator", "token", "unique", "identifier"],
     popular: true,
   },
   {
