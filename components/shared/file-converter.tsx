@@ -52,6 +52,7 @@ export function FileConverter({
     progress: 0
   })
   const [turnstileToken, setTurnstileToken] = useState('')
+  const [turnstileKey, setTurnstileKey] = useState(0)
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
 
   const selectedFromFormat = fromFormats.find(f => f.value === fromFormat)
@@ -60,6 +61,8 @@ export function FileConverter({
   const handleFileSelect = (selectedFile: File) => {
     setFile(selectedFile)
     setConversion({ status: 'idle', progress: 0 })
+    setTurnstileToken('')
+    setTurnstileKey(prev => prev + 1)
   }
 
   const handleConvert = async () => {
@@ -75,7 +78,8 @@ export function FileConverter({
 
     try {
       setConversion({ status: 'uploading', progress: 10 })
-      
+      if (turnstileSiteKey) setTurnstileToken('')
+
       const job = await apiClient.convertFile(file, toFormat, { turnstileToken })
       
       setConversion({ 
@@ -97,6 +101,7 @@ export function FileConverter({
               jobId: job.id,
               downloadUrl: status.downloadUrl
             })
+            if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
           } else if (status.status === 'failed') {
             clearInterval(pollInterval)
             setConversion({
@@ -104,6 +109,7 @@ export function FileConverter({
               progress: 0,
               error: status.error || 'Conversion failed'
             })
+            if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
           } else {
             setConversion(prev => ({
               ...prev,
@@ -117,6 +123,7 @@ export function FileConverter({
             progress: 0,
             error: 'Failed to check conversion status'
           })
+          if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
         }
       }, 2000)
 
@@ -126,6 +133,7 @@ export function FileConverter({
         progress: 0,
         error: error.message || 'Conversion failed'
       })
+      if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
     }
   }
 
@@ -170,7 +178,7 @@ export function FileConverter({
       <CardContent className="space-y-6">
         {turnstileSiteKey && file && (
           <div className="flex justify-start">
-            <Turnstile siteKey={turnstileSiteKey} onToken={setTurnstileToken} />
+            <Turnstile key={turnstileKey} siteKey={turnstileSiteKey} onToken={setTurnstileToken} />
           </div>
         )}
         {/* Format Selection */}
@@ -231,7 +239,11 @@ export function FileConverter({
             </div>
 
             {conversion.status === 'idle' && (
-              <Button onClick={handleConvert} className="w-full">
+              <Button
+                onClick={handleConvert}
+                className="w-full"
+                disabled={Boolean(turnstileSiteKey && !turnstileToken)}
+              >
                 Convert to {selectedToFormat?.label}
               </Button>
             )}
