@@ -11,7 +11,7 @@ runConfig:
 env:
   # Public build/runtime envs (exposed to client)
   - variable: NEXT_PUBLIC_CONVERTER_API_URL
-    value: https://unified-service-905466639122.us-east5.run.app
+    secret: NEXT_PUBLIC_CONVERTER_API_URL
     availability:
       - BUILD
       - RUNTIME
