@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 declare global {
   interface Window {
@@ -18,7 +18,13 @@ interface TurnstileProps {
 
 export function Turnstile({ siteKey, onToken }: TurnstileProps) {
   const ref = useRef<HTMLDivElement | null>(null)
-  const [widgetId, setWidgetId] = useState<string | null>(null)
+  const widgetIdRef = useRef<string | null>(null)
+  const renderedRef = useRef(false)
+  const onTokenRef = useRef(onToken)
+
+  useEffect(() => {
+    onTokenRef.current = onToken
+  }, [onToken])
 
   useEffect(() => {
     if (!siteKey || !ref.current) return
@@ -43,22 +49,24 @@ export function Turnstile({ siteKey, onToken }: TurnstileProps) {
     let mounted = true
     loadScript().then(() => {
       if (!mounted || !ref.current || !window.turnstile) return
+      if (renderedRef.current) return
+      renderedRef.current = true
       const id = window.turnstile.render(ref.current, {
         sitekey: siteKey,
-        callback: (token: string) => onToken(token),
-        "expired-callback": () => onToken(""),
-        "error-callback": () => onToken("")
+        callback: (token: string) => onTokenRef.current(token),
+        "expired-callback": () => onTokenRef.current(""),
+        "error-callback": () => onTokenRef.current("")
       })
-      setWidgetId(id)
+      widgetIdRef.current = id
     })
 
     return () => {
       mounted = false
-      if (widgetId && window.turnstile?.reset) {
-        window.turnstile.reset(widgetId)
+      if (widgetIdRef.current && window.turnstile?.reset) {
+        window.turnstile.reset(widgetIdRef.current)
       }
     }
-  }, [siteKey, onToken, widgetId])
+  }, [siteKey])
 
   return <div ref={ref} />
 }

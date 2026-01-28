@@ -168,7 +168,7 @@ export function MediaConverter({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        {turnstileSiteKey && (
+        {turnstileSiteKey && file && (
           <div className="flex justify-start">
             <Turnstile siteKey={turnstileSiteKey} onToken={setTurnstileToken} />
           </div>
