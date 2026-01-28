@@ -8,7 +8,9 @@ export interface ConversionJob {
 
 type Json = Record<string, any>
 
-const BASE_URL = process.env.NEXT_PUBLIC_CONVERTER_API_URL || ''
+const BASE_URL =
+  process.env.NEXT_PUBLIC_CONVERTER_API_URL ||
+  'https://unified-service-905466639122.us-east5.run.app'
 const API_KEY = process.env.NEXT_PUBLIC_CONVERTER_API_KEY || ''
 
 async function http<T = any>(path: string, init: RequestInit = {}): Promise<T> {

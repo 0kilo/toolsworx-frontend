@@ -1,0 +1,83 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+  minInstances: 0
+  # maxInstances: 100
+  # concurrency: 80
+  # cpu: 1
+  # memoryMiB: 512
+
+# Environment variables and secrets.
+env:
+  # Public build/runtime envs (exposed to client)
+  - variable: NEXT_PUBLIC_CONVERTER_API_URL
+    value: https://unified-service-905466639122.us-east5.run.app
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_CONVERTER_API_KEY
+    value: 02e2e7dd-84b1-42b3-87fb-6259199dbfd0
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyCLiUbVyVDBI_iC5UPoyO1NC1Wa0pg4bxQ"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: toolsworx-344a5.firebaseapp.com
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: toolsworx-344a5
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: toolsworx-344a5.firebasestorage.app
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "905466639122"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:905466639122:web:5431bc2d9aed9aaba439cb"
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_API_KEY_ENV
+    value: live
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Server-only secrets (configure in Secret Manager)
+  - variable: SMTP_OAUTH_CLIENT_ID
+    secret: SMTP_OAUTH_CLIENT_ID
+    availability:
+      - RUNTIME
+  - variable: SMTP_OAUTH_CLIENT_SECRET
+    secret: SMTP_OAUTH_CLIENT_SECRET
+    availability:
+      - RUNTIME
+  - variable: SMTP_OAUTH_REFRESH_TOKEN
+    secret: SMTP_OAUTH_REFRESH_TOKEN
+    availability:
+      - RUNTIME
+  - variable: SMTP_USER
+    secret: SMTP_USER
+    availability:
+      - RUNTIME
+  - variable: EMAIL_FROM
+    secret: EMAIL_FROM
+    availability:
+      - RUNTIME
+  - variable: EMAIL_TO
+    secret: EMAIL_TO
+    availability:
+      - RUNTIME

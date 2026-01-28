@@ -6,7 +6,9 @@ const toInt = (val, fallback) => {
 };
 
 const parseOrigins = (val) => {
-  if (!val) return ['http://localhost:3000'];
+  if (!val) {
+    return ['https://toolsworx.com', 'https://www.toolsworx.com', 'http://localhost:3000'];
+  }
   if (val.trim() === '*') return '*';
   return val
     .split(',')
