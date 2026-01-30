@@ -62,6 +62,7 @@ export function ApiKeysManager() {
   const [newKey, setNewKey] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
+  const [copyStatus, setCopyStatus] = useState<string | null>(null)
 
   useEffect(() => {
     const unsubscribe = authInstance.onAuthStateChanged((currentUser) => {
@@ -145,7 +146,26 @@ export function ApiKeysManager() {
 
   async function handleCopy() {
     if (!newKey) return
-    await navigator.clipboard.writeText(newKey)
+    setCopyStatus(null)
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(newKey)
+        setCopyStatus("Copied")
+        return
+      }
+      const textarea = document.createElement("textarea")
+      textarea.value = newKey
+      textarea.style.position = "fixed"
+      textarea.style.left = "-9999px"
+      document.body.appendChild(textarea)
+      textarea.focus()
+      textarea.select()
+      const ok = document.execCommand("copy")
+      document.body.removeChild(textarea)
+      setCopyStatus(ok ? "Copied" : "Copy failed")
+    } catch (err: any) {
+      setCopyStatus("Copy failed")
+    }
   }
 
   if (!user) {
@@ -202,6 +222,9 @@ export function ApiKeysManager() {
                 <Button variant="secondary" size="sm" onClick={handleCopy}>
                   Copy key
                 </Button>
+                {copyStatus && (
+                  <span className="ml-2 text-xs text-muted-foreground">{copyStatus}</span>
+                )}
               </div>
               <p className="mt-2 text-xs text-muted-foreground">
                 Save this key now. You won’t be able to see it again.
