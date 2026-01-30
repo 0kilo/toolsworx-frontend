@@ -39,3 +39,8 @@ amplifyconfiguration*
 amplify_outputs.json
 public/amplify_outputs.json
 .env
+
+# firebase
+firebase.js
+firebase.json
+apphosting.yaml
