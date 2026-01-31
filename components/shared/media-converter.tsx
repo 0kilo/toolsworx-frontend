@@ -1,19 +1,18 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Turnstile } from "@/components/shared/turnstile"
-import { apiClient, ConversionJob } from "@/lib/services/api-client"
+import { StreamConversionResult } from "@/lib/services/api-client"
 import { Download, FileText, AlertCircle, ArrowRight } from "lucide-react"
 
 interface ConversionState {
-  status: 'idle' | 'uploading' | 'processing' | 'completed' | 'error'
-  progress: number
-  jobId?: string
+  status: 'idle' | 'processing' | 'completed' | 'error'
+  result?: StreamConversionResult
   downloadUrl?: string
   error?: string
 }
@@ -35,12 +34,10 @@ interface MediaConverterProps {
   maxSize?: number
 }
 
-type ConvertFn = (file: File, sourceFormat: string, targetFormat: string, options?: any) => Promise<ConversionJob>
-type DownloadPathFn = (jobId: string) => string
+type ConvertFn = (file: File, sourceFormat: string, targetFormat: string, options?: any) => Promise<StreamConversionResult>
 
 interface MediaConverterBaseProps extends MediaConverterProps {
   convertFn: ConvertFn
-  downloadPath: DownloadPathFn
 }
 
 export function MediaConverter({
@@ -52,15 +49,13 @@ export function MediaConverter({
   defaultTo,
   maxSize = 100,
   convertFn,
-  downloadPath,
 }: MediaConverterBaseProps) {
   const [file, setFile] = useState<File | null>(null)
   const [fromFormat, setFromFormat] = useState(defaultFrom || fromFormats[0]?.value)
   const [toFormat, setToFormat] = useState(defaultTo || toFormats[0]?.value)
-  const [conversion, setConversion] = useState<ConversionState>({
-    status: 'idle',
-    progress: 0
-  })
+  const [conversion, setConversion] = useState<ConversionState>({ status: 'idle' })
+  const downloadUrlRef = useRef<string | null>(null)
+  const [indicator, setIndicator] = useState(0)
   const [turnstileToken, setTurnstileToken] = useState('')
   const [turnstileKey, setTurnstileKey] = useState(0)
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
@@ -69,8 +64,9 @@ export function MediaConverter({
   const selectedToFormat = toFormats.find(f => f.value === toFormat)
 
   const handleFileSelect = (selectedFile: File) => {
+    cleanupDownload()
     setFile(selectedFile)
-    setConversion({ status: 'idle', progress: 0 })
+    setConversion({ status: 'idle' })
     setTurnstileToken('')
     setTurnstileKey(prev => prev + 1)
   }
@@ -80,67 +76,27 @@ export function MediaConverter({
     if (turnstileSiteKey && !turnstileToken) {
       setConversion({
         status: 'error',
-        progress: 0,
         error: 'Please complete the verification to continue.'
       })
       return
     }
 
     try {
-      setConversion({ status: 'uploading', progress: 10 })
+      setConversion({ status: 'processing' })
       if (turnstileSiteKey) setTurnstileToken('')
-
-      const job = await convertFn(file, fromFormat, toFormat, { turnstileToken })
-      
-      setConversion({ 
-        status: 'processing', 
-        progress: 50, 
-        jobId: job.id 
+      const result = await convertFn(file, fromFormat, toFormat, { turnstileToken })
+      cleanupDownload()
+      const downloadUrl = URL.createObjectURL(result.blob)
+      downloadUrlRef.current = downloadUrl
+      setConversion({
+        status: 'completed',
+        result,
+        downloadUrl,
       })
-
-      // Poll for completion
-      const pollInterval = setInterval(async () => {
-        try {
-          const status = await apiClient.getJobStatus('media', job.id)
-          
-          if (status.status === 'completed') {
-            clearInterval(pollInterval)
-            setConversion({
-              status: 'completed',
-              progress: 100,
-              jobId: job.id,
-              downloadUrl: status.downloadUrl
-            })
-            if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
-          } else if (status.status === 'failed') {
-            clearInterval(pollInterval)
-            setConversion({
-              status: 'error',
-              progress: 0,
-              error: status.error || 'Conversion failed'
-            })
-            if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
-          } else {
-            setConversion(prev => ({
-              ...prev,
-              progress: status.progress || 75
-            }))
-          }
-        } catch (error) {
-          clearInterval(pollInterval)
-          setConversion({
-            status: 'error',
-            progress: 0,
-            error: 'Failed to check conversion status'
-          })
-          if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
-        }
-      }, 2000)
-
+      if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
     } catch (error: any) {
       setConversion({
         status: 'error',
-        progress: 0,
         error: error.message || 'Conversion failed'
       })
       if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
@@ -148,31 +104,42 @@ export function MediaConverter({
   }
 
   const handleDownload = async () => {
-    if (!conversion.jobId || !selectedToFormat) return
-    
-    try {
-      const downloadUrl = downloadPath(conversion.jobId)
-      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl } as any)
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      
-      const originalName = file?.name?.split('.').slice(0, -1).join('.') || 'converted'
-      a.download = `${originalName}.${selectedToFormat.extensions[0]}`
-      
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
+    if (!conversion.result || !selectedToFormat) return
+    const url = conversion.downloadUrl || URL.createObjectURL(conversion.result.blob)
+    const a = document.createElement('a')
+    a.href = url
+    const originalName = file?.name?.split('.').slice(0, -1).join('.') || 'converted'
+    a.download = `${originalName}.${selectedToFormat.extensions[0]}`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    if (!conversion.downloadUrl) {
       URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error('Download failed:', error)
+    }
+  }
+
+  const cleanupDownload = () => {
+    if (downloadUrlRef.current) {
+      URL.revokeObjectURL(downloadUrlRef.current)
+      downloadUrlRef.current = null
     }
   }
 
   const resetConverter = () => {
+    cleanupDownload()
     setFile(null)
-    setConversion({ status: 'idle', progress: 0 })
+    setConversion({ status: 'idle' })
   }
+
+  useEffect(() => {
+    if (conversion.status === 'processing') {
+      const interval = setInterval(() => {
+        setIndicator((prev) => (prev >= 90 ? 10 : prev + 15))
+      }, 400)
+      return () => clearInterval(interval)
+    }
+    setIndicator(0)
+  }, [conversion.status])
 
   const acceptedTypes = selectedFromFormat?.accept || 
     selectedFromFormat?.extensions.map(ext => `.${ext}`).join(',') || '*'
@@ -259,15 +226,13 @@ export function MediaConverter({
               </Button>
             )}
 
-            {(conversion.status === 'uploading' || conversion.status === 'processing') && (
+            {conversion.status === 'processing' && (
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>
-                    {conversion.status === 'uploading' ? 'Uploading...' : 'Converting...'}
-                  </span>
-                  <span>{conversion.progress}%</span>
+                  <span>Converting...</span>
+                  <span>{indicator}%</span>
                 </div>
-                <Progress value={conversion.progress} />
+                <Progress value={indicator || 10} />
               </div>
             )}
 

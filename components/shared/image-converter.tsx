@@ -35,7 +35,6 @@ export function ImageConverter({
       convertFn={(file, sourceFormat, targetFormat, options) =>
         convertImageFile(file, sourceFormat, targetFormat, options)
       }
-      downloadPath={(jobId) => `/api/image/download/${jobId}`}
     />
   )
 }

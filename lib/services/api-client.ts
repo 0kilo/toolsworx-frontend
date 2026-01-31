@@ -8,24 +8,67 @@ export interface ConversionJob {
 
 type Json = Record<string, any>
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_CONVERTER_API_URL || 'http://localhost:8080';
-  // 'https://unified-service-905466639122.us-east5.run.app'
+export interface StreamConversionResult {
+  blob: Blob
+  filename?: string
+  contentType?: string
+}
+
+const BASE_URL = process.env.NEXT_PUBLIC_CONVERTER_API_URL || 'http://localhost:8080'
 const API_KEY = process.env.NEXT_PUBLIC_CONVERTER_API_KEY || ''
+
+function buildHeaders(overrides?: HeadersInit) {
+  const baseHeaders: Record<string, string> = {}
+  if (API_KEY) baseHeaders['x-api-key'] = API_KEY
+  if (overrides instanceof Headers) {
+    overrides.forEach((value, key) => {
+      baseHeaders[key] = value
+    })
+  } else if (overrides) {
+    Object.entries(overrides).forEach(([key, value]) => {
+      if (typeof value === 'string') baseHeaders[key] = value
+    })
+  }
+  return baseHeaders
+}
 
 async function http<T = any>(path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${BASE_URL}${path}`, {
     ...init,
-    headers: {
-      ...(init.headers || {}),
-      ...(API_KEY ? { 'x-api-key': API_KEY } : {}),
-    },
+    headers: buildHeaders(init.headers),
   })
   if (!res.ok) {
     const text = await res.text()
     throw new Error(text || `Request failed: ${res.status}`)
   }
   return res.json()
+}
+
+function parseContentDisposition(header: string | null): string | undefined {
+  if (!header) return undefined
+  const match = /filename\*?=([^;]+)/i.exec(header)
+  if (!match) return undefined
+  let filename = match[1].trim()
+  if (filename.startsWith("UTF-8''")) {
+    filename = filename.replace("UTF-8''", '')
+  }
+  filename = filename.replace(/['\"]+/g, '')
+  return filename
+}
+
+async function fetchStream(path: string, init: RequestInit = {}): Promise<StreamConversionResult> {
+  const res = await fetch(`${BASE_URL}${path}`, {
+    ...init,
+    headers: buildHeaders(init.headers),
+  })
+  if (!res.ok) {
+    const text = await res.text()
+    throw new Error(text || `Request failed: ${res.status}`)
+  }
+  const blob = await res.blob()
+  const filename = parseContentDisposition(res.headers.get('content-disposition'))
+  const contentType = res.headers.get('content-type') || undefined
+  return { blob, filename, contentType }
 }
 
 export class ApiClient {
@@ -163,7 +206,7 @@ export class ApiClient {
     sourceFormat: string,
     targetType: string,
     options?: any
-  ): Promise<ConversionJob> {
+  ): Promise<StreamConversionResult> {
     const body = new FormData()
     body.append('file', file)
     body.append('sourceType', sourceFormat)
@@ -172,8 +215,7 @@ export class ApiClient {
       if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
       body.append('options', JSON.stringify(options))
     }
-    const res = await http<{ jobId: string }>('/api/file/convert', { method: 'POST', body })
-    return { id: res.jobId, status: 'pending' }
+    return fetchStream('/api/file/convert', { method: 'POST', body })
   }
 
   async convertAudio(
@@ -181,7 +223,7 @@ export class ApiClient {
     sourceFormat: string,
     targetType: string,
     options?: any
-  ): Promise<ConversionJob> {
+  ): Promise<StreamConversionResult> {
     return this.convertMediaType('/api/audio/convert', file, sourceFormat, targetType, options)
   }
 
@@ -190,7 +232,7 @@ export class ApiClient {
     sourceFormat: string,
     targetType: string,
     options?: any
-  ): Promise<ConversionJob> {
+  ): Promise<StreamConversionResult> {
     return this.convertMediaType('/api/image/convert', file, sourceFormat, targetType, options)
   }
 
@@ -199,7 +241,7 @@ export class ApiClient {
     sourceFormat: string,
     targetType: string,
     options?: any
-  ): Promise<ConversionJob> {
+  ): Promise<StreamConversionResult> {
     return this.convertMediaType('/api/video/convert', file, sourceFormat, targetType, options)
   }
 
@@ -209,7 +251,7 @@ export class ApiClient {
     sourceFormat: string,
     targetType: string,
     options?: any
-  ): Promise<ConversionJob> {
+  ): Promise<StreamConversionResult> {
     const body = new FormData()
     body.append('file', file)
     body.append('sourceType', sourceFormat)
@@ -218,8 +260,7 @@ export class ApiClient {
       if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
       body.append('options', JSON.stringify(options))
     }
-    const res = await http<{ jobId: string }>(path, { method: 'POST', body })
-    return { id: res.jobId, status: 'pending' }
+    return fetchStream(path, { method: 'POST', body })
   }
 
   async applyFilter(file: File, filterType: string, options?: any): Promise<ConversionJob> {
@@ -240,15 +281,17 @@ export class ApiClient {
     return { id: res.jobId, status: 'pending' }
   }
 
-  async getJobStatus(kind: 'file' | 'media' | 'filter' | 'audio', jobId: string): Promise<ConversionJob> {
+  async getJobStatus(kind: 'file' | 'video' | 'image' | 'filter' | 'audio' | 'media', jobId: string): Promise<ConversionJob> {
     const path =
       kind === 'file'
         ? `/api/file/status/${jobId}`
-        : kind === 'media'
-        ? `/api/media/status/${jobId}`
-        : kind === 'filter'
-        ? `/api/filter/status/${jobId}`
-        : `/api/audio/status/${jobId}`
+        : kind === 'video'
+        ? `/api/video/status/${jobId}`
+        : kind === 'audio'
+        ? `/api/audio/status/${jobId}`
+        : kind === 'image'
+        ? `/api/image/status/${jobId}`
+        : `/api/filter/status/${jobId}`
     const data = await http<{ status: string; progress?: number; downloadUrl?: string }>(path)
     return {
       id: jobId,
@@ -287,6 +330,9 @@ function mapStatus(state: string): ConversionJob['status'] {
 }
 
 export const apiClient = new ApiClient()
+
+export const convertFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
+  apiClient.convertFile(file, sourceFormat, targetType, options)
 
 export const convertAudioFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
   apiClient.convertAudio(file, sourceFormat, targetType, options)

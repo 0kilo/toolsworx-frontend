@@ -35,7 +35,6 @@ export function VideoConverter({
       convertFn={(file, sourceFormat, targetFormat, options) =>
         convertVideoFile(file, sourceFormat, targetFormat, options)
       }
-      downloadPath={(jobId) => `/api/video/download/${jobId}`}
     />
   )
 }

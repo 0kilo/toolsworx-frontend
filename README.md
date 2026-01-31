@@ -1,19 +1,19 @@
 # TOOLS WORX - Free Online Conversion Tools
 
-A modern, fast, and SEO-optimized conversion website built with Next.js 16 and React. Convert documents, images, videos, and units instantly.
+A modern, fast, and SEO-optimized conversion website built with Next.js 16 and React. Convert documents, images, videos, and units instantly. Visit the live site at https://toolsworx.com, hosted on Firebase App Hosting for the frontend and connecting to the backend Cloud Run service.
 
-## ✨ Features
+## Features
 
-- 🎯 **Modular Architecture** - Easily add new converters
-- 📱 **Fully Responsive** - Works perfectly on all devices
-- 🚀 **SEO Optimized** - Built-in meta tags, Open Graph, semantic HTML
-- 💰 **AdSense Ready** - Pre-configured ad placements
-- ⚡ **Fast Performance** - Next.js SSR, optimized loading
-- 🎨 **Modern UI** - Beautiful design with Tailwind CSS & shadcn/ui
-- 🔧 **TypeScript** - Type-safe development
-- 📊 **Math.js Integration** - Automatic unit conversions
+- **Modular Architecture** - Easily add new converters
+- **Fully Responsive** - Works perfectly on all devices
+- **SEO Optimized** - Built-in meta tags, Open Graph, semantic HTML
+- **AdSense Ready** - Pre-configured ad placements
+- **Fast Performance** - Next.js SSR with optimized loading
+- **Modern UI** - Built with Tailwind CSS & shadcn/ui
+- **TypeScript** - Type-safe development
+- **Math.js Integration** - Automatic unit conversions
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Install dependencies
@@ -28,7 +28,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## 📦 What's Included
+## What's Included
 
 ### Working Converters (10+)
 - ✅ Temperature (Celsius ↔ Fahrenheit ↔ Kelvin)
@@ -40,12 +40,12 @@ Open [http://localhost:3000](http://localhost:3000)
 - ✅ PDF to Word (placeholder - needs backend)
 
 ### Features
-- 🏠 Beautiful homepage with converter gallery
-- 🔍 Search functionality (UI ready)
-- 📱 Responsive navigation
-- 💰 AdSense placeholder components
-- 🎨 Dark mode support (CSS variables ready)
-- 📊 SEO metadata on all pages
+- Beautiful homepage with converter gallery
+- Search functionality (UI ready)
+- Responsive navigation
+- AdSense placeholder components
+- Dark mode support (CSS variables ready)
+- SEO metadata on all pages
 
 ## 📖 Documentation
 
@@ -108,18 +108,18 @@ export default function YourConverterPage() {
 - **Formula Parsing**: Math.js
 - **Icons**: Lucide React
 
-## 🚢 Deployment
+## Deployment
 
-### Current setup (prod)
-- Frontend: Amplify hosting → `https://toolsworx.com`.
-- Backend: Cloud Run container at `https://unified-service-905466639122.us-east5.run.app`.
-- Frontend ↔ Backend config: set `NEXT_PUBLIC_CONVERTER_API_URL=https://unified-service-905466639122.us-east5.run.app` in App Hosting/Amplify envs.
+### Production setup
+- Frontend: Firebase App Hosting → `https://toolsworx.com`
+- Backend: Cloud Run container at `https://unified-service-905466639122.us-east5.run.app`
+- Frontend ↔ Backend config: set `NEXT_PUBLIC_CONVERTER_API_URL=https://unified-service-905466639122.us-east5.run.app`
 
-### Key backend env vars
+### Key backend environment variables
 - `PORT=3010`
 - `CORS_ORIGIN=https://toolsworx.com,https://www.toolsworx.com`
-- `TURNSTILE_SECRET_KEY=` (Cloudflare Turnstile secret; enables verification)
-- `API_KEYS=` (empty = 3 conversions/24h anon; add comma-separated keys to allow privileged use)
+- `TURNSTILE_SECRET_KEY` (Cloudflare Turnstile secret for verification)
+- `API_KEYS` (leave blank for 3 conversions/24h; add comma-separated keys for privileged usage)
 - Limits: `CONVERSION_LIMIT_NOAUTH=3`, `CONVERSION_WINDOW_HOURS=24`, `GLOBAL_RATE_MAX=200`
 - Sizes: `MAX_FILE_SIZE=524288000`, `MAX_MEDIA_SIZE=838860800`, `MAX_AUDIO_SIZE=209715200`
 - Binaries: `LIBRE_OFFICE_PATH=/usr/bin/libreoffice`, `FFMPEG_PATH=/usr/bin/ffmpeg`

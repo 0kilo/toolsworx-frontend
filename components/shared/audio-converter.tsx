@@ -25,7 +25,6 @@ export function AudioConverter({ title, description }: { title: string; descript
       convertFn={(file, sourceFormat, targetFormat, options) =>
         convertAudioFile(file, sourceFormat, targetFormat, options)
       }
-      downloadPath={(jobId) => `/api/audio/download/${jobId}`}
     />
   )
 }
