@@ -9,8 +9,8 @@ export interface ConversionJob {
 type Json = Record<string, any>
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_CONVERTER_API_URL ||
-  'https://unified-service-905466639122.us-east5.run.app'
+  process.env.NEXT_PUBLIC_CONVERTER_API_URL || 'http://localhost:8080';
+  // 'https://unified-service-905466639122.us-east5.run.app'
 const API_KEY = process.env.NEXT_PUBLIC_CONVERTER_API_KEY || ''
 
 async function http<T = any>(path: string, init: RequestInit = {}): Promise<T> {
@@ -30,19 +30,144 @@ async function http<T = any>(path: string, init: RequestInit = {}): Promise<T> {
 
 export class ApiClient {
   async getCurrencyRate(currency: string): Promise<Json> {
-    const data = await http<{ rates: any[] }>('/api/rates/currency')
-    return data.rates?.find((r) => r.currency?.toUpperCase() === currency.toUpperCase())
+    const symbol = currency.toUpperCase()
+    try {
+      const wsRate = await this.getRateOverWebSocket({
+        category: 'currency',
+        symbol,
+      })
+      if (wsRate) return wsRate
+    } catch (error) {
+      console.warn('WebSocket currency rate failed', error)
+    }
+
+    const legacy = await this.fetchLegacyCurrency(currency)
+    return legacy ?? {}
   }
 
   async getCryptoPrice(symbol: string): Promise<Json> {
-    const data = await http<{ prices: any[] }>('/api/rates/crypto')
-    return data.prices?.find((p) => p.symbol?.toUpperCase() === symbol.toUpperCase())
+    const upperSym = symbol.toUpperCase()
+    try {
+      const wsRate = await this.getRateOverWebSocket({
+        category: 'crypto',
+        symbol: upperSym,
+      })
+      if (wsRate) return wsRate
+    } catch (error) {
+      console.warn('WebSocket crypto rate failed', error)
+    }
+
+    const legacy = await this.fetchLegacyCrypto(symbol)
+    return legacy ?? {}
   }
 
-  async convertFile(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
+  private async fetchLegacyCurrency(currency: string): Promise<Json | null> {
+    const data = await http<{ rates: any[] }>('/api/rates/currency')
+    return (
+      data.rates?.find((r) => r.currency?.toUpperCase() === currency.toUpperCase()) ?? null
+    )
+  }
+
+  private async fetchLegacyCrypto(symbol: string): Promise<Json | null> {
+    const data = await http<{ prices: any[] }>('/api/rates/crypto')
+    return data.prices?.find((p) => p.symbol?.toUpperCase() === symbol.toUpperCase()) ?? null
+  }
+
+  private createWebSocketUrl(): string {
+    const url = new URL(BASE_URL)
+    url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:'
+    url.pathname = '/ws/rates'
+    return url.toString()
+  }
+
+  private async getRateOverWebSocket(params: { category: 'crypto' | 'currency'; symbol: string }): Promise<Json | null> {
+    if (typeof window === 'undefined' || typeof window.WebSocket === 'undefined') {
+      return null
+    }
+
+    return new Promise((resolve, reject) => {
+      const ws = new window.WebSocket(this.createWebSocketUrl())
+      const symbolUpper = params.symbol.toUpperCase()
+      const payload = {
+        action: 'getRate',
+        category: params.category,
+        symbol: symbolUpper,
+      }
+      const timeout = window.setTimeout(() => {
+        ws.close()
+        reject(new Error('WebSocket request timed out'))
+      }, 10000)
+
+      const cleanup = () => {
+        window.clearTimeout(timeout)
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.close()
+        }
+      }
+
+      ws.addEventListener('open', () => {
+        ws.send(JSON.stringify(payload))
+      })
+
+      ws.addEventListener('message', (event) => {
+        try {
+          const data = JSON.parse(event.data)
+          const candidate = this.normalizeRatePayload(data, symbolUpper)
+          if (candidate) {
+            cleanup()
+            resolve(candidate)
+          }
+        } catch (error) {
+          cleanup()
+          reject(error)
+        }
+      })
+
+      ws.addEventListener('error', (event) => {
+        cleanup()
+        reject(new Error('WebSocket error'))
+      })
+
+      ws.addEventListener('close', () => {
+        cleanup()
+        reject(new Error('WebSocket connection closed before data was received'))
+      })
+    })
+  }
+
+  private normalizeRatePayload(payload: any, symbolUpper: string): Json | null {
+    const data = payload?.data ?? payload?.result ?? payload
+    const lookups: any[] = []
+    if (Array.isArray(data?.rates)) lookups.push(...data.rates)
+    if (Array.isArray(data?.prices)) lookups.push(...data.prices)
+    if (Array.isArray(data?.values)) lookups.push(...data.values)
+    if (lookups.length) {
+      const match = lookups.find((entry) => {
+        const key = (entry?.symbol || entry?.currency || entry?.id || '')?.toUpperCase()
+        return key === symbolUpper
+      })
+      if (match) return match
+    }
+
+    const candidate = data
+    const key = (candidate?.symbol || candidate?.currency || '')?.toUpperCase()
+    if (key === symbolUpper) {
+      return candidate
+    }
+
+    return null
+  }
+
+  async convertFile(
+    file: File,
+    sourceFormat: string,
+    targetType: string,
+    options?: any
+  ): Promise<ConversionJob> {
     const body = new FormData()
     body.append('file', file)
-    body.append('targetFormat', targetFormat)
+    body.append('sourceType', sourceFormat)
+    body.append('targetType', targetType)
     if (options) {
       if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
       body.append('options', JSON.stringify(options))
@@ -51,15 +176,49 @@ export class ApiClient {
     return { id: res.jobId, status: 'pending' }
   }
 
-  async convertMedia(file: File, targetFormat: string, options?: any): Promise<ConversionJob> {
+  async convertAudio(
+    file: File,
+    sourceFormat: string,
+    targetType: string,
+    options?: any
+  ): Promise<ConversionJob> {
+    return this.convertMediaType('/api/audio/convert', file, sourceFormat, targetType, options)
+  }
+
+  async convertImage(
+    file: File,
+    sourceFormat: string,
+    targetType: string,
+    options?: any
+  ): Promise<ConversionJob> {
+    return this.convertMediaType('/api/image/convert', file, sourceFormat, targetType, options)
+  }
+
+  async convertVideo(
+    file: File,
+    sourceFormat: string,
+    targetType: string,
+    options?: any
+  ): Promise<ConversionJob> {
+    return this.convertMediaType('/api/video/convert', file, sourceFormat, targetType, options)
+  }
+
+  private async convertMediaType(
+    path: string,
+    file: File,
+    sourceFormat: string,
+    targetType: string,
+    options?: any
+  ): Promise<ConversionJob> {
     const body = new FormData()
     body.append('file', file)
-    body.append('targetFormat', targetFormat)
+    body.append('sourceType', sourceFormat)
+    body.append('targetType', targetType)
     if (options) {
       if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
       body.append('options', JSON.stringify(options))
     }
-    const res = await http<{ jobId: string }>('/api/media/convert', { method: 'POST', body })
+    const res = await http<{ jobId: string }>(path, { method: 'POST', body })
     return { id: res.jobId, status: 'pending' }
   }
 
@@ -128,3 +287,12 @@ function mapStatus(state: string): ConversionJob['status'] {
 }
 
 export const apiClient = new ApiClient()
+
+export const convertAudioFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
+  apiClient.convertAudio(file, sourceFormat, targetType, options)
+
+export const convertImageFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
+  apiClient.convertImage(file, sourceFormat, targetType, options)
+
+export const convertVideoFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
+  apiClient.convertVideo(file, sourceFormat, targetType, options)

@@ -80,7 +80,7 @@ export function FileConverter({
       setConversion({ status: 'uploading', progress: 10 })
       if (turnstileSiteKey) setTurnstileToken('')
 
-      const job = await apiClient.convertFile(file, toFormat, { turnstileToken })
+      const job = await apiClient.convertFile(file, fromFormat, toFormat, { turnstileToken })
       
       setConversion({ 
         status: 'processing', 
@@ -141,7 +141,7 @@ export function FileConverter({
     if (!conversion.jobId || !selectedToFormat) return
     
     try {
-      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl: `/api/download/${conversion.jobId}` } as any)
+      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl: `/api/file/download/${conversion.jobId}` } as any)
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url

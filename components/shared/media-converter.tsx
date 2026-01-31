@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Turnstile } from "@/components/shared/turnstile"
-import { apiClient } from "@/lib/services/api-client"
+import { apiClient, ConversionJob } from "@/lib/services/api-client"
 import { Download, FileText, AlertCircle, ArrowRight } from "lucide-react"
 
 interface ConversionState {
@@ -35,6 +35,14 @@ interface MediaConverterProps {
   maxSize?: number
 }
 
+type ConvertFn = (file: File, sourceFormat: string, targetFormat: string, options?: any) => Promise<ConversionJob>
+type DownloadPathFn = (jobId: string) => string
+
+interface MediaConverterBaseProps extends MediaConverterProps {
+  convertFn: ConvertFn
+  downloadPath: DownloadPathFn
+}
+
 export function MediaConverter({
   title,
   description,
@@ -42,8 +50,10 @@ export function MediaConverter({
   toFormats,
   defaultFrom,
   defaultTo,
-  maxSize = 100
-}: MediaConverterProps) {
+  maxSize = 100,
+  convertFn,
+  downloadPath,
+}: MediaConverterBaseProps) {
   const [file, setFile] = useState<File | null>(null)
   const [fromFormat, setFromFormat] = useState(defaultFrom || fromFormats[0]?.value)
   const [toFormat, setToFormat] = useState(defaultTo || toFormats[0]?.value)
@@ -80,7 +90,7 @@ export function MediaConverter({
       setConversion({ status: 'uploading', progress: 10 })
       if (turnstileSiteKey) setTurnstileToken('')
 
-      const job = await apiClient.convertMedia(file, toFormat, { turnstileToken })
+      const job = await convertFn(file, fromFormat, toFormat, { turnstileToken })
       
       setConversion({ 
         status: 'processing', 
@@ -141,7 +151,8 @@ export function MediaConverter({
     if (!conversion.jobId || !selectedToFormat) return
     
     try {
-      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl: `/api/media/download/${conversion.jobId}` } as any)
+      const downloadUrl = downloadPath(conversion.jobId)
+      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl } as any)
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
