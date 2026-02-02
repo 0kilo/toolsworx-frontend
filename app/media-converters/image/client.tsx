@@ -1,17 +1,8 @@
 "use client"
 
-import { MediaConverter } from "@/components/shared/media-converter"
 import { AboutDescription } from "@/components/ui/about-description"
+import { ImageConverter } from "@/components/shared/image-converter"
 import toolContent from "./image.json"
-
-const imageFormats = [
-  { value: 'jpg', label: 'JPEG', extensions: ['jpg', 'jpeg'], accept: '.jpg,.jpeg,image/jpeg' },
-  { value: 'png', label: 'PNG', extensions: ['png'], accept: '.png,image/png' },
-  { value: 'webp', label: 'WebP', extensions: ['webp'], accept: '.webp,image/webp' },
-  { value: 'gif', label: 'GIF', extensions: ['gif'], accept: '.gif,image/gif' },
-  { value: 'bmp', label: 'BMP', extensions: ['bmp'], accept: '.bmp,image/bmp' },
-  { value: 'tiff', label: 'TIFF', extensions: ['tiff', 'tif'], accept: '.tiff,.tif,image/tiff' }
-]
 
 export default function ImageConverterClient() {
   return (
@@ -25,14 +16,9 @@ export default function ImageConverterClient() {
             </p>
           </div>
 
-          <MediaConverter
+          <ImageConverter
             title="Image Format Converter"
             description="Convert between different image formats with quality preservation"
-            fromFormats={imageFormats}
-            toFormats={imageFormats}
-            defaultFrom="jpg"
-            defaultTo="png"
-            maxSize={50}
           />
 
 

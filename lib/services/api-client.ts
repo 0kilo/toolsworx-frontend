@@ -105,14 +105,14 @@ export class ApiClient {
   }
 
   private async fetchLegacyCurrency(currency: string): Promise<Json | null> {
-    const data = await http<{ rates: any[] }>('/api/rates/currency')
+    const data = await http<{ rates: any[] }>('/rates/currency')
     return (
       data.rates?.find((r) => r.currency?.toUpperCase() === currency.toUpperCase()) ?? null
     )
   }
 
   private async fetchLegacyCrypto(symbol: string): Promise<Json | null> {
-    const data = await http<{ prices: any[] }>('/api/rates/crypto')
+    const data = await http<{ prices: any[] }>('/rates/crypto')
     return data.prices?.find((p) => p.symbol?.toUpperCase() === symbol.toUpperCase()) ?? null
   }
 
@@ -215,7 +215,7 @@ export class ApiClient {
       if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
       body.append('options', JSON.stringify(options))
     }
-    return fetchStream('/api/file/convert', { method: 'POST', body })
+    return fetchStream('/file/convert', { method: 'POST', body })
   }
 
   async convertAudio(
@@ -224,7 +224,7 @@ export class ApiClient {
     targetType: string,
     options?: any
   ): Promise<StreamConversionResult> {
-    return this.convertMediaType('/api/audio/convert', file, sourceFormat, targetType, options)
+    return this.convertMediaType('/audio/convert', file, sourceFormat, targetType, options)
   }
 
   async convertImage(
@@ -233,7 +233,7 @@ export class ApiClient {
     targetType: string,
     options?: any
   ): Promise<StreamConversionResult> {
-    return this.convertMediaType('/api/image/convert', file, sourceFormat, targetType, options)
+    return this.convertMediaType('/image/convert', file, sourceFormat, targetType, options)
   }
 
   async convertVideo(
@@ -242,7 +242,7 @@ export class ApiClient {
     targetType: string,
     options?: any
   ): Promise<StreamConversionResult> {
-    return this.convertMediaType('/api/video/convert', file, sourceFormat, targetType, options)
+    return this.convertMediaType('/video/convert', file, sourceFormat, targetType, options)
   }
 
   private async convertMediaType(
@@ -268,7 +268,7 @@ export class ApiClient {
     body.append('file', file)
     body.append('filterType', filterType)
     if (options) body.append('filters', JSON.stringify([{ type: filterType, ...options }]))
-    const res = await http<{ jobId: string }>('/api/filter', { method: 'POST', body })
+    const res = await http<{ jobId: string }>('/filter', { method: 'POST', body })
     return { id: res.jobId, status: 'pending' }
   }
 
@@ -277,21 +277,21 @@ export class ApiClient {
     body.append('file', file)
     body.append('filterType', filterType)
     if (options) body.append('options', JSON.stringify(options))
-    const res = await http<{ jobId: string }>('/api/audio/filter', { method: 'POST', body })
+    const res = await http<{ jobId: string }>('/audio/filter', { method: 'POST', body })
     return { id: res.jobId, status: 'pending' }
   }
 
   async getJobStatus(kind: 'file' | 'video' | 'image' | 'filter' | 'audio' | 'media', jobId: string): Promise<ConversionJob> {
     const path =
       kind === 'file'
-        ? `/api/file/status/${jobId}`
+        ? `/file/status/${jobId}`
         : kind === 'video'
-        ? `/api/video/status/${jobId}`
+        ? `/video/status/${jobId}`
         : kind === 'audio'
-        ? `/api/audio/status/${jobId}`
+        ? `/audio/status/${jobId}`
         : kind === 'image'
-        ? `/api/image/status/${jobId}`
-        : `/api/filter/status/${jobId}`
+        ? `/image/status/${jobId}`
+        : `/filter/status/${jobId}`
     const data = await http<{ status: string; progress?: number; downloadUrl?: string }>(path)
     return {
       id: jobId,

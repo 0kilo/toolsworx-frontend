@@ -77,7 +77,6 @@ export function FileConverter({
     try {
       setConversion({ status: 'processing' })
       if (turnstileSiteKey) setTurnstileToken('')
-<<<<<<< HEAD
       const result = await convertFile(file, fromFormat, toFormat, { turnstileToken })
       cleanupDownload()
       const downloadUrl = URL.createObjectURL(result.blob)
@@ -86,15 +85,7 @@ export function FileConverter({
         status: 'completed',
         result,
         downloadUrl,
-=======
 
-      const job = await apiClient.convertFile(file, toFormat, { turnstileToken })
-      
-      setConversion({ 
-        status: 'processing', 
-        progress: 50, 
-        jobId: job.id 
->>>>>>> parent of 4a91dc6 (pre-transfer)
       })
       if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
     } catch (error: any) {
@@ -106,7 +97,6 @@ export function FileConverter({
     }
   }
 
-<<<<<<< HEAD
   const handleDownload = () => {
     if (!conversion.result || !selectedToFormat) return
     const url = conversion.downloadUrl || URL.createObjectURL(conversion.result.blob)
@@ -118,23 +108,7 @@ export function FileConverter({
     a.click()
     document.body.removeChild(a)
     if (!conversion.downloadUrl) {
-=======
-  const handleDownload = async () => {
-    if (!conversion.jobId || !selectedToFormat) return
-    
-    try {
-      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl: `/api/download/${conversion.jobId}` } as any)
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      
-      const originalName = file?.name?.split('.').slice(0, -1).join('.') || 'converted'
-      a.download = `${originalName}.${selectedToFormat.extensions[0]}`
-      
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
->>>>>>> parent of 4a91dc6 (pre-transfer)
+
       URL.revokeObjectURL(url)
     }
   }
