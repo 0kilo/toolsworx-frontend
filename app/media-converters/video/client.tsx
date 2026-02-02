@@ -1,8 +1,17 @@
 "use client"
 
+import { MediaConverter } from "@/components/shared/media-converter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { VideoConverter } from "@/components/shared/video-converter"
 import toolContent from "./video.json"
+
+const videoFormats = [
+  { value: 'mp4', label: 'MP4', extensions: ['mp4'], accept: '.mp4,video/mp4' },
+  { value: 'avi', label: 'AVI', extensions: ['avi'], accept: '.avi,video/x-msvideo' },
+  { value: 'mkv', label: 'MKV', extensions: ['mkv'], accept: '.mkv,video/x-matroska' },
+  { value: 'mov', label: 'MOV', extensions: ['mov'], accept: '.mov,video/quicktime' },
+  { value: 'webm', label: 'WebM', extensions: ['webm'], accept: '.webm,video/webm' },
+  { value: 'wmv', label: 'WMV', extensions: ['wmv'], accept: '.wmv,video/x-ms-wmv' }
+]
 
 export default function VideoClient() {
   return (
@@ -16,9 +25,14 @@ export default function VideoClient() {
             </p>
           </div>
 
-          <VideoConverter
+          <MediaConverter
             title="Video Format Converter"
             description="Convert between different video formats with quality and compression options"
+            fromFormats={videoFormats}
+            toFormats={videoFormats}
+            defaultFrom="avi"
+            defaultTo="mp4"
+            maxSize={500}
           />
 
 

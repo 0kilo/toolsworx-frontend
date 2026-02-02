@@ -1,8 +1,17 @@
 "use client"
 
+import { MediaConverter } from "@/components/shared/media-converter"
 import { AboutDescription } from "@/components/ui/about-description"
-import { AudioConverter } from "@/components/shared/audio-converter"
 import toolContent from "./audio.json"
+
+const audioFormats = [
+  { value: 'mp3', label: 'MP3', extensions: ['mp3'], accept: '.mp3,audio/mpeg' },
+  { value: 'wav', label: 'WAV', extensions: ['wav'], accept: '.wav,audio/wav' },
+  { value: 'flac', label: 'FLAC', extensions: ['flac'], accept: '.flac,audio/flac' },
+  { value: 'aac', label: 'AAC', extensions: ['aac'], accept: '.aac,audio/aac' },
+  { value: 'ogg', label: 'OGG', extensions: ['ogg'], accept: '.ogg,audio/ogg' },
+  { value: 'm4a', label: 'M4A', extensions: ['m4a'], accept: '.m4a,audio/mp4' }
+]
 
 export default function AudioClient() {
   return (
@@ -16,9 +25,14 @@ export default function AudioClient() {
             </p>
           </div>
 
-          <AudioConverter
+          <MediaConverter
             title="Audio Format Converter"
             description="Convert between different audio formats with quality control"
+            fromFormats={audioFormats}
+            toFormats={audioFormats}
+            defaultFrom="wav"
+            defaultTo="mp3"
+            maxSize={200}
           />
 
 

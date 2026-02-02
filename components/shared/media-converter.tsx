@@ -7,7 +7,11 @@ import { Progress } from "@/components/ui/progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Turnstile } from "@/components/shared/turnstile"
+<<<<<<< HEAD
 import { StreamConversionResult } from "@/lib/services/api-client"
+=======
+import { apiClient } from "@/lib/services/api-client"
+>>>>>>> parent of 4a91dc6 (pre-transfer)
 import { Download, FileText, AlertCircle, ArrowRight } from "lucide-react"
 
 interface ConversionState {
@@ -34,12 +38,15 @@ interface MediaConverterProps {
   maxSize?: number
 }
 
+<<<<<<< HEAD
 type ConvertFn = (file: File, sourceFormat: string, targetFormat: string, options?: any) => Promise<StreamConversionResult>
 
 interface MediaConverterBaseProps extends MediaConverterProps {
   convertFn: ConvertFn
 }
 
+=======
+>>>>>>> parent of 4a91dc6 (pre-transfer)
 export function MediaConverter({
   title,
   description,
@@ -47,9 +54,14 @@ export function MediaConverter({
   toFormats,
   defaultFrom,
   defaultTo,
+<<<<<<< HEAD
   maxSize = 100,
   convertFn,
 }: MediaConverterBaseProps) {
+=======
+  maxSize = 100
+}: MediaConverterProps) {
+>>>>>>> parent of 4a91dc6 (pre-transfer)
   const [file, setFile] = useState<File | null>(null)
   const [fromFormat, setFromFormat] = useState(defaultFrom || fromFormats[0]?.value)
   const [toFormat, setToFormat] = useState(defaultTo || toFormats[0]?.value)
@@ -84,6 +96,7 @@ export function MediaConverter({
     try {
       setConversion({ status: 'processing' })
       if (turnstileSiteKey) setTurnstileToken('')
+<<<<<<< HEAD
       const result = await convertFn(file, fromFormat, toFormat, { turnstileToken })
       cleanupDownload()
       const downloadUrl = URL.createObjectURL(result.blob)
@@ -92,6 +105,15 @@ export function MediaConverter({
         status: 'completed',
         result,
         downloadUrl,
+=======
+
+      const job = await apiClient.convertMedia(file, toFormat, { turnstileToken })
+      
+      setConversion({ 
+        status: 'processing', 
+        progress: 50, 
+        jobId: job.id 
+>>>>>>> parent of 4a91dc6 (pre-transfer)
       })
       if (turnstileSiteKey) setTurnstileKey(prev => prev + 1)
     } catch (error: any) {
@@ -104,6 +126,7 @@ export function MediaConverter({
   }
 
   const handleDownload = async () => {
+<<<<<<< HEAD
     if (!conversion.result || !selectedToFormat) return
     const url = conversion.downloadUrl || URL.createObjectURL(conversion.result.blob)
     const a = document.createElement('a')
@@ -114,6 +137,22 @@ export function MediaConverter({
     a.click()
     document.body.removeChild(a)
     if (!conversion.downloadUrl) {
+=======
+    if (!conversion.jobId || !selectedToFormat) return
+    
+    try {
+      const blob = await apiClient.download({ id: conversion.jobId, status: 'completed', downloadUrl: `/api/media/download/${conversion.jobId}` } as any)
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      
+      const originalName = file?.name?.split('.').slice(0, -1).join('.') || 'converted'
+      a.download = `${originalName}.${selectedToFormat.extensions[0]}`
+      
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+>>>>>>> parent of 4a91dc6 (pre-transfer)
       URL.revokeObjectURL(url)
     }
   }

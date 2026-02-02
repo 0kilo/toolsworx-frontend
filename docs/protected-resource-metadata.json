@@ -1,0 +1,19 @@
+{
+  "resource": "https://toolsworx.local/mcp",
+  "authorization_servers": [
+    "https://securetoken.google.com/toolsworx-backend"
+  ],
+  "jwks_uri": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com",
+  "scopes_supported": [
+    "toolsworx.mcp"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "resource_documentation": "https://toolsworx.com/docs/mcp-auth",
+  "resource_name": "Toolsworx MCP Conversion API",
+  "resource_policy_uri": "https://toolsworx.com/docs/mcp-auth-policy",
+  "resource_signing_alg_values_supported": [
+    "RS256"
+  ]
+}
