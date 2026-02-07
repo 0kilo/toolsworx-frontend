@@ -201,6 +201,18 @@ export class ApiClient {
     return null
   }
 
+  async convertBase64File(
+    file: File,
+    options?: any
+  ): Promise<StreamConversionResult> {
+    const body = new FormData()
+    body.append('file', file)
+    if (options) {
+      if (options.turnstileToken) body.append('turnstileToken', options.turnstileToken)
+      body.append('options', JSON.stringify(options))
+    }
+    return fetchStream('/file/encoder', { method: 'POST', body })
+  }
   async convertFile(
     file: File,
     sourceFormat: string,
@@ -332,7 +344,14 @@ function mapStatus(state: string): ConversionJob['status'] {
 export const apiClient = new ApiClient()
 
 export const convertFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
-  apiClient.convertFile(file, sourceFormat, targetType, options)
+  {
+    if(targetType === 'base64'){
+      return apiClient.convertBase64File(file);
+    } else {
+      return apiClient.convertFile(file, sourceFormat, targetType, options);
+    }
+
+  }
 
 export const convertAudioFile = (file: File, sourceFormat: string, targetType: string, options?: any) =>
   apiClient.convertAudio(file, sourceFormat, targetType, options)
