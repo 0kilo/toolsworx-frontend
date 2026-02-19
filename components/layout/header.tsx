@@ -7,9 +7,14 @@ import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { categoryGroups } from "@/lib/categories"
+import { allConverters } from "@/lib/registry"
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const visibleCategoryGroups = categoryGroups.filter((group) =>
+    allConverters.some((converter) => group.categories.includes(converter.category as string))
+  )
+
   const categoryPathOverrides: Record<string, string> = {
     "developer-tools": "/dev-tools",
   }
@@ -30,7 +35,7 @@ export function Header() {
               />
             </Link>
             <nav className="hidden md:flex gap-6">
-              {categoryGroups.map((category) => (
+              {visibleCategoryGroups.map((category) => (
                 <Link
                   key={category.id}
                   href={categoryPathOverrides[category.id] || `/${category.id}`}
@@ -39,12 +44,13 @@ export function Header() {
                   {category.title}
                 </Link>
               ))}
-              <Link
+              {/* MCP/account links temporarily disabled while backend is offline. */}
+              {/* <Link
                 href="/account/api-keys"
                 className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Account
-              </Link>
+              </Link> */}
             </nav>
           </div>
           
@@ -66,7 +72,7 @@ export function Header() {
           <div className="fixed inset-0 bg-black/50" onClick={() => setOpen(false)} />
           <div className="fixed right-0 top-16 h-full w-80 bg-background border-l shadow-lg">
             <nav className="flex flex-col gap-4 p-6">
-              {categoryGroups.map((category) => (
+              {visibleCategoryGroups.map((category) => (
                 <Link
                   key={category.id}
                   href={categoryPathOverrides[category.id] || `/${category.id}`}
@@ -77,13 +83,14 @@ export function Header() {
                   {category.title}
                 </Link>
               ))}
-              <Link
+              {/* MCP/account links temporarily disabled while backend is offline. */}
+              {/* <Link
                 href="/account/api-keys"
                 onClick={() => setOpen(false)}
                 className="flex items-center text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border/50"
               >
                 Account
-              </Link>
+              </Link> */}
             </nav>
           </div>
         </div>

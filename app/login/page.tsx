@@ -1,47 +1,37 @@
-import Link from "next/link"
 import { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { generateToolMetadata } from "@/lib/metadata-generator"
-import { toolMetadata } from "@/lib/tool-metadata"
+import Link from "next/link"
 
-export const metadata: Metadata = generateToolMetadata({
-  ...toolMetadata["conversion-mcp"],
-  title: "Login - ToolsWorx",
-  description:
-    "Authenticate with ToolsWorx so your MCP agents can convert files and media. Follow the OAuth flow to get started.",
-})
+export const metadata: Metadata = {
+  title: "Login Temporarily Disabled - ToolsWorx",
+  description: "Login is temporarily disabled while backend services are offline.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function LoginPage() {
   return (
     <div className="container py-10 max-w-3xl space-y-6">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold">ToolsWorx Login</h1>
-        <p className="text-sm text-muted-foreground">
-          The MCP server requires an authenticated session. Log in once and your client can reuse
-          the bearer token for conversions.
-        </p>
-      </div>
       <Card>
         <CardHeader>
-          <CardTitle>How the flow works</CardTitle>
+          <CardTitle>Login Temporarily Disabled</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 text-muted-foreground">
-          <ol className="list-decimal list-inside space-y-2">
-            <li>Click the button below to open our OAuth sign-in page.</li>
-            <li>
-              After successful login, we redirect you back with an authentication blob. That
-              credentials blob can be used by MCP clients via the `TWX_API_KEY` bearer token env.
-            </li>
-            <li>Store the bearer token securely and rotate it when needed.</li>
-          </ol>
+        <CardContent className="space-y-4 text-muted-foreground">
+          <p>
+            Login has been disabled while MCP and backend services are offline.
+          </p>
+          <p>
+            You can continue using all active tools from the homepage.
+          </p>
+          <Link href="/" className="underline underline-offset-4 font-medium text-foreground">
+            Go to homepage
+          </Link>
         </CardContent>
       </Card>
-      {/* <div className="text-center">
-        <Button variant="default" asChild>
-          <Link href="/api/auth/login">Open login portal</Link>
-        </Button>
-      </div> */}
+
+      {/* Previous login/MCP content intentionally commented while backend is offline. */}
     </div>
   )
 }

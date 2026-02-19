@@ -1,3 +1,5 @@
+import { firestore } from "@/lib/firebase/client"
+
 export interface ConversionJob {
   id: string
   status: 'pending' | 'processing' | 'completed' | 'failed'
@@ -16,6 +18,23 @@ export interface StreamConversionResult {
 
 const BASE_URL = process.env.NEXT_PUBLIC_CONVERTER_API_URL || 'http://localhost:8080'
 const API_KEY = process.env.NEXT_PUBLIC_CONVERTER_API_KEY || ''
+const MARKET_CACHE_TTL_MS = 60 * 1000
+
+const cryptoSymbolToId: Record<string, string> = {
+  BTC: 'bitcoin',
+  ETH: 'ethereum',
+  BNB: 'binancecoin',
+  XRP: 'ripple',
+  ADA: 'cardano',
+  DOGE: 'dogecoin',
+  SOL: 'solana',
+  USDT: 'tether',
+  USDC: 'usd-coin',
+  TRX: 'tron',
+  DOT: 'polkadot',
+  MATIC: 'matic-network',
+  LTC: 'litecoin',
+}
 
 function buildHeaders(overrides?: HeadersInit) {
   const baseHeaders: Record<string, string> = {}
@@ -72,133 +91,76 @@ async function fetchStream(path: string, init: RequestInit = {}): Promise<Stream
 }
 
 export class ApiClient {
-  async getCurrencyRate(currency: string): Promise<Json> {
-    const symbol = currency.toUpperCase()
-    try {
-      const wsRate = await this.getRateOverWebSocket({
-        category: 'currency',
-        symbol,
-      })
-      if (wsRate) return wsRate
-    } catch (error) {
-      console.warn('WebSocket currency rate failed', error)
+  private marketCache: Json | null = null
+  private marketCacheFetchedAt = 0
+
+  private async getMarketCache(forceRefresh = false): Promise<Json | null> {
+    if (!firestore) {
+      throw new Error('Firestore client is not initialized')
     }
 
-    const legacy = await this.fetchLegacyCurrency(currency)
-    return legacy ?? {}
+    const now = Date.now()
+    const hasFreshCache =
+      this.marketCache && now - this.marketCacheFetchedAt < MARKET_CACHE_TTL_MS
+    if (!forceRefresh && hasFreshCache) {
+      return this.marketCache
+    }
+
+    const doc = await firestore.collection('market_cache').doc('latest').get()
+    if (!doc.exists) {
+      this.marketCache = null
+      this.marketCacheFetchedAt = now
+      return null
+    }
+
+    this.marketCache = doc.data() ?? null
+    this.marketCacheFetchedAt = now
+    return this.marketCache
+  }
+
+  async getCurrencyRate(currency: string): Promise<Json> {
+    const symbol = currency.toUpperCase()
+
+    if (symbol === 'USD') {
+      return { currency: 'USD', price: 1 }
+    }
+
+    const cache = await this.getMarketCache()
+    const rates = cache?.currency?.conversion_rates as Record<string, number> | undefined
+    const price = rates?.[symbol]
+
+    if (typeof price !== 'number') return {}
+
+    return {
+      currency: symbol,
+      price,
+      base: cache?.currency?.base_code ?? 'USD',
+      updatedAt: cache?.currencyUpdatedAt ?? cache?.updatedAt ?? null,
+    }
   }
 
   async getCryptoPrice(symbol: string): Promise<Json> {
     const upperSym = symbol.toUpperCase()
-    try {
-      const wsRate = await this.getRateOverWebSocket({
-        category: 'crypto',
-        symbol: upperSym,
-      })
-      if (wsRate) return wsRate
-    } catch (error) {
-      console.warn('WebSocket crypto rate failed', error)
+    const coinId = cryptoSymbolToId[upperSym] ?? upperSym.toLowerCase()
+    const cache = await this.getMarketCache()
+    const allCrypto = cache?.crypto as Record<string, any> | undefined
+    const entry = allCrypto?.[coinId] ?? allCrypto?.[upperSym.toLowerCase()]
+    const price =
+      typeof entry === 'number'
+        ? entry
+        : typeof entry?.usd === 'number'
+        ? entry.usd
+        : undefined
+
+    if (typeof price !== 'number') return {}
+
+    return {
+      symbol: upperSym,
+      id: coinId,
+      price,
+      updatedAt: cache?.cryptoUpdatedAt ?? cache?.updatedAt ?? null,
+      all: allCrypto ?? {},
     }
-
-    const legacy = await this.fetchLegacyCrypto(symbol)
-    return legacy ?? {}
-  }
-
-  private async fetchLegacyCurrency(currency: string): Promise<Json | null> {
-    const data = await http<{ rates: any[] }>('/rates/currency')
-    return (
-      data.rates?.find((r) => r.currency?.toUpperCase() === currency.toUpperCase()) ?? null
-    )
-  }
-
-  private async fetchLegacyCrypto(symbol: string): Promise<Json | null> {
-    const data = await http<{ prices: any[] }>('/rates/crypto')
-    return data.prices?.find((p) => p.symbol?.toUpperCase() === symbol.toUpperCase()) ?? null
-  }
-
-  private createWebSocketUrl(): string {
-    const url = new URL(BASE_URL)
-    url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:'
-    url.pathname = '/ws/rates'
-    return url.toString()
-  }
-
-  private async getRateOverWebSocket(params: { category: 'crypto' | 'currency'; symbol: string }): Promise<Json | null> {
-    if (typeof window === 'undefined' || typeof window.WebSocket === 'undefined') {
-      return null
-    }
-
-    return new Promise((resolve, reject) => {
-      const ws = new window.WebSocket(this.createWebSocketUrl())
-      const symbolUpper = params.symbol.toUpperCase()
-      const payload = {
-        action: 'getRate',
-        category: params.category,
-        symbol: symbolUpper,
-      }
-      const timeout = window.setTimeout(() => {
-        ws.close()
-        reject(new Error('WebSocket request timed out'))
-      }, 10000)
-
-      const cleanup = () => {
-        window.clearTimeout(timeout)
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.close()
-        }
-      }
-
-      ws.addEventListener('open', () => {
-        ws.send(JSON.stringify(payload))
-      })
-
-      ws.addEventListener('message', (event) => {
-        try {
-          const data = JSON.parse(event.data)
-          const candidate = this.normalizeRatePayload(data, symbolUpper)
-          if (candidate) {
-            cleanup()
-            resolve(candidate)
-          }
-        } catch (error) {
-          cleanup()
-          reject(error)
-        }
-      })
-
-      ws.addEventListener('error', (event) => {
-        cleanup()
-        reject(new Error('WebSocket error'))
-      })
-
-      ws.addEventListener('close', () => {
-        cleanup()
-        reject(new Error('WebSocket connection closed before data was received'))
-      })
-    })
-  }
-
-  private normalizeRatePayload(payload: any, symbolUpper: string): Json | null {
-    const data = payload?.data ?? payload?.result ?? payload
-    const lookups: any[] = []
-    if (Array.isArray(data?.rates)) lookups.push(...data.rates)
-    if (Array.isArray(data?.prices)) lookups.push(...data.prices)
-    if (Array.isArray(data?.values)) lookups.push(...data.values)
-    if (lookups.length) {
-      const match = lookups.find((entry) => {
-        const key = (entry?.symbol || entry?.currency || entry?.id || '')?.toUpperCase()
-        return key === symbolUpper
-      })
-      if (match) return match
-    }
-
-    const candidate = data
-    const key = (candidate?.symbol || candidate?.currency || '')?.toUpperCase()
-    if (key === symbolUpper) {
-      return candidate
-    }
-
-    return null
   }
 
   async convertBase64File(

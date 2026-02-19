@@ -1,6 +1,10 @@
 export const metadata = {
-  title: "API Keys",
-  description: "Manage API keys for MCP access."
+  title: "API Keys Temporarily Disabled",
+  description: "API key management is temporarily disabled while backend services are offline.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export const dynamic = "force-dynamic"

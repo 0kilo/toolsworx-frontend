@@ -1,0 +1,17 @@
+{
+  "name": "gcp-functions-rates",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scheduled crypto and currency cache function for convert-all",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "functions-framework --target=ratesApi --port=8080"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.6",
+    "@google-cloud/functions-framework": "^3.5.0"
+  }
+}

@@ -2,6 +2,20 @@
 
 This document contains a comprehensive list of all tools available in the convert-all application, compiled from the registry files.
 
+## Temporarily Disabled (Backend Offline)
+
+The tools below are currently commented out because `NEXT_PUBLIC_CONVERTER_API_URL` is not active while Cloud Run backend is disabled.
+
+- **File Converters (all tools)**
+  - Registry file: `lib/categories/file-converters/registry.ts`
+- **Media Converters (Image, Audio, Video)**
+  - Registry file: `lib/categories/media-converters/registry.ts`
+- **Image & Audio Filters**
+  - Registry file: `lib/categories/filters/registry.ts`
+- **Hidden category links (auto-hide when no tools are active)**
+  - Header nav: `components/layout/header.tsx`
+  - Sitemap category pages: `app/sitemap.ts`
+
 ## Unit Conversions
 
 - **Length Converter**: Convert between microns, millimeters, inches, feet, meters, kilometers, miles
@@ -35,17 +49,17 @@ This document contains a comprehensive list of all tools available in the conver
 
 ## File Converters
 
-- **Document Converter**: Convert between PDF, Word, Text, and other document formats
-- **Spreadsheet Converter**: Convert between Excel, CSV, and spreadsheet formats
-- **Data Format Converter**: Convert between JSON, XML, YAML, and CSV data formats
-- **Base64 Encoder/Decoder**: Encode files to Base64 or decode Base64 to files
-- **Archive Tools**: Create ZIP archives or extract files from archives
+- **Document Converter** *(temporarily disabled)*: Convert between PDF, Word, Text, and other document formats
+- **Spreadsheet Converter** *(temporarily disabled)*: Convert between Excel, CSV, and spreadsheet formats
+- **Data Format Converter** *(temporarily disabled)*: Convert between JSON, XML, YAML, and CSV data formats
+- **Base64 Encoder/Decoder** *(temporarily disabled)*: Encode files to Base64 or decode Base64 to files
+- **Archive Tools** *(temporarily disabled)*: Create ZIP archives or extract files from archives
 
 ## Media Converters
 
-- **Image Converter**: Convert between JPG, PNG, WebP, GIF, and other image formats
-- **Audio Converter**: Convert between MP3, WAV, FLAC, AAC, and other audio formats
-- **Video Converter**: Convert between MP4, AVI, MKV, MOV, and other video formats
+- **Image Converter** *(temporarily disabled)*: Convert between JPG, PNG, WebP, GIF, and other image formats
+- **Audio Converter** *(temporarily disabled)*: Convert between MP3, WAV, FLAC, AAC, and other audio formats
+- **Video Converter** *(temporarily disabled)*: Convert between MP4, AVI, MKV, MOV, and other video formats
 
 ## Developer Tools
 
@@ -67,14 +81,14 @@ This document contains a comprehensive list of all tools available in the conver
 
 ## Filters
 
-- **Image Effects & Filters**: Apply 10+ professional filters and effects to your images including grayscale, sepia, vintage, brightness, contrast, saturation, and Instagram-style filters
+- **Image Effects & Filters** *(temporarily disabled)*: Apply 10+ professional filters and effects to your images including grayscale, sepia, vintage, brightness, contrast, saturation, and Instagram-style filters
 - **Text Processor & Data Tools**: Extract data, format code, and transform text in one tool
-- **Audio Equalizer**: Adjust audio frequencies with EQ
-- **Reverb Effect**: Add reverb to audio files
-- **Echo Effect**: Add echo effect to audio
-- **Noise Reduction**: Remove background noise from audio
-- **Normalize Audio**: Normalize audio volume levels
-- **Bass Boost**: Enhance bass frequencies in audio
+- **Audio Equalizer** *(temporarily disabled)*: Adjust audio frequencies with EQ
+- **Reverb Effect** *(temporarily disabled)*: Add reverb to audio files
+- **Echo Effect** *(temporarily disabled)*: Add echo effect to audio
+- **Noise Reduction** *(temporarily disabled)*: Remove background noise from audio
+- **Normalize Audio** *(temporarily disabled)*: Normalize audio volume levels
+- **Bass Boost** *(temporarily disabled)*: Enhance bass frequencies in audio
 
 ## Helpful Calculators
 

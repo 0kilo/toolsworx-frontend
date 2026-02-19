@@ -27,17 +27,25 @@ export default function CurrencyConverterClient() {
   const [loading, setLoading] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
 
+  const parseNumber = (value: string) => Number((value || "").replace(/,/g, ""))
+  const formatMoney = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value)
+
   const handleConvert = (value: string, from: string, to: string) => {
-    if (!value || isNaN(Number(value))) return ""
+    const numericValue = parseNumber(value)
+    if (!value || isNaN(numericValue)) return ""
 
     try {
       const result = convertCurrency({
-        value: Number(value),
+        value: numericValue,
         fromCurrency: from,
         toCurrency: to,
         rates
       })
-      return result.result.toFixed(2)
+      return formatMoney(result.result)
     } catch (error) {
       return ""
     }
@@ -154,7 +162,8 @@ export default function CurrencyConverterClient() {
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
                       id="from-value"
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       placeholder="Enter amount"
                       value={fromValue}
                       onChange={(e) => handleFromValueChange(e.target.value)}
@@ -191,7 +200,8 @@ export default function CurrencyConverterClient() {
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
                       id="to-value"
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       placeholder="Result"
                       value={toValue}
                       onChange={(e) => handleToValueChange(e.target.value)}

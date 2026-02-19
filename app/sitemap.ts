@@ -21,7 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'developer-tools': '/dev-tools',
   }
 
-  const categoryPages = categoryGroups.map((category) => ({
+  const visibleCategoryGroups = categoryGroups.filter((group) =>
+    allConverters.some((converter) => group.categories.includes(converter.category as string))
+  )
+
+  const categoryPages = visibleCategoryGroups.map((category) => ({
     url: `${baseUrl}${categoryPathOverrides[category.id] || `/${category.id}`}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

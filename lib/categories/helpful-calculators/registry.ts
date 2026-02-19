@@ -1,20 +1,22 @@
-import { ChefHat, Bitcoin, Key, FileText, KeyRound } from "lucide-react"
+import { ChefHat, Bitcoin, Key, FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
  * Helpful calculators and utilities (daily-life tools)
  */
 export const helpfulCalculators: ConverterMetadata[] = [
-  {
-    id: "conversion-mcp",
-    title: "Conversion MCP",
-    description: "Connect AI agents to conversion tools via MCP",
-    category: "helpful",
-    icon: KeyRound,
-    href: "/helpful-calculators/conversion-mcp",
-    keywords: ["mcp", "model context protocol", "api key", "conversion", "ai agents"],
-    popular: true,
-  },
+  // MCP tools temporarily disabled while backend is offline.
+  // Uncomment entries below when backend/MCP is re-enabled.
+  // {
+  //   id: "conversion-mcp",
+  //   title: "Conversion MCP",
+  //   description: "Connect AI agents to conversion tools via MCP",
+  //   category: "helpful",
+  //   icon: KeyRound,
+  //   href: "/helpful-calculators/conversion-mcp",
+  //   keywords: ["mcp", "model context protocol", "api key", "conversion", "ai agents"],
+  //   popular: true,
+  // },
   {
     id: "recipe-scaler",
     title: "Recipe Scaler",
@@ -67,16 +69,16 @@ export const helpfulCalculators: ConverterMetadata[] = [
     keywords: ["crypto", "cryptocurrency", "bitcoin", "ethereum", "convert", "price", "market", "trading"],
     popular: true,
   },
-  {
-    id: "api-key-generator",
-    title: "API Key & UUID Generator",
-    description: "Create UUIDs, API keys, and short IDs instantly",
-    category: "helpful",
-    icon: KeyRound,
-    href: "/helpful-calculators/api-key-generator",
-    keywords: ["api key", "uuid", "id generator", "token", "unique", "identifier"],
-    popular: true,
-  },
+  // {
+  //   id: "api-key-generator",
+  //   title: "API Key & UUID Generator",
+  //   description: "Create UUIDs, API keys, and short IDs instantly",
+  //   category: "helpful",
+  //   icon: KeyRound,
+  //   href: "/helpful-calculators/api-key-generator",
+  //   keywords: ["api key", "uuid", "id generator", "token", "unique", "identifier"],
+  //   popular: true,
+  // },
   {
     id: "password-generator",
     title: "Password Generator",

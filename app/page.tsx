@@ -5,6 +5,7 @@ import { categoryGroups } from "@/lib/categories"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { FeaturedCategoryCard } from "@/components/shared/featured-category-card"
+import { ToolsDirectory } from "@/components/shared/tools-directory"
 
 
 
@@ -25,7 +26,7 @@ export default function HomePage() {
           Free Online Conversion Tools
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Convert documents, images, videos, and units instantly. Fast, secure, and completely free. Now with MCP Support!
+          Convert documents, images, videos, and units instantly. Fast, secure, and completely free.
         </p>
         <div className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
           <Link href="/about" className="underline underline-offset-4">Learn more about Tools Worx</Link>.
@@ -58,6 +59,8 @@ export default function HomePage() {
           )
         })}
       </section>
+
+      <ToolsDirectory categoryPathOverrides={categoryPathOverrides} />
 
       <section id="about" className="mb-16">
         <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">

@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { AboutDescription } from "@/components/ui/about-description"
-import { Bitcoin, ArrowUpDown, RefreshCw, TrendingUp, TrendingDown } from "lucide-react"
+import { Bitcoin, ArrowUpDown, RefreshCw } from "lucide-react"
 import { apiClient } from "@/lib/services/api-client"
 import { convertCrypto } from "@/lib/tools/logic/helpful-calculators/helper-crypto"
 import toolContent from "./crypto-converter.json"
@@ -39,114 +39,141 @@ export default function CryptoconverterClient() {
   const [toCurrency, setToCurrency] = useState("USD")
   const [fromValue, setFromValue] = useState("")
   const [toValue, setToValue] = useState("")
-  const [rates, setRates] = useState<Record<string, any>>({})
+  const [cryptoRates, setCryptoRates] = useState<Record<string, { price: number }>>({})
+  const [fiatRates, setFiatRates] = useState<Record<string, number>>({ USD: 1 })
+  const [lastEdited, setLastEdited] = useState<"from" | "to">("from")
   const [loading, setLoading] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
+  const [rateError, setRateError] = useState("")
+
+  const parseNumber = (value: string) => Number((value || "").replace(/,/g, ""))
+  const formatMoney = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value)
 
   const handleConvert = (value: string, from: string, to: string) => {
-    if (!value || isNaN(Number(value)) || !rates[from] || !rates[from].price) {
+    const cryptoPrice = cryptoRates[from]?.price
+    const fiatRate = fiatRates[to]
+    const numericValue = parseNumber(value)
+    if (!value || isNaN(numericValue) || !cryptoPrice || !fiatRate) {
       return ""
     }
 
     const result = convertCrypto({
-      amount: Number(value),
+      amount: numericValue,
       fromCrypto: from,
       toCurrency: to,
-      cryptoPrice: rates[from].price
+      cryptoPrice
     })
 
-    return result.result.toFixed(2)
+    return formatMoney(result.result * fiatRate)
   }
 
-  const fetchRate = async (symbol: string) => {
+  const handleReverseConvert = (value: string, from: string, to: string) => {
+    const cryptoPrice = cryptoRates[from]?.price
+    const fiatRate = fiatRates[to]
+    const numericValue = parseNumber(value)
+    if (!value || isNaN(numericValue) || !cryptoPrice || !fiatRate) {
+      return ""
+    }
+
+    const result = numericValue / (cryptoPrice * fiatRate)
+    return result.toFixed(8).replace(/\.?0+$/, "")
+  }
+
+  const fetchRates = async (symbol: string, currency: string) => {
     setLoading(true)
+    setRateError("")
     try {
-      const data = await apiClient.getCryptoPrice(symbol)
-      if (data && data.price) {
-        setRates(prev => ({
+      const [cryptoData, currencyData] = await Promise.all([
+        apiClient.getCryptoPrice(symbol),
+        apiClient.getCurrencyRate(currency),
+      ])
+
+      if (cryptoData && cryptoData.price) {
+        setCryptoRates(prev => ({
           ...prev,
           [symbol]: {
-            price: data.price,
-            usd: data.price,
-            change24h: 0,
-            volume24h: 0,
-            marketCap: 0
+            price: cryptoData.price,
           }
         }))
-        setLastUpdated(new Date())
       }
+
+      if (currencyData && typeof currencyData.price === "number") {
+        setFiatRates(prev => ({
+          ...prev,
+          [currency]: currencyData.price,
+        }))
+      }
+
+      setLastUpdated(new Date())
     } catch (error) {
-      console.error(`Failed to fetch ${symbol}:`, error)
+      setRateError("Unable to load latest rates. Please try Refresh.")
+      console.error(`Failed to fetch rates for ${symbol}/${currency}:`, error)
     } finally {
       setLoading(false)
     }
   }
 
-  const fetchRates = () => fetchRate(fromCrypto)
-
-  // Fetch rate for current crypto
+  // Fetch rates for current pair
   useEffect(() => {
-    fetchRate(fromCrypto)
-  }, [fromCrypto])
+    fetchRates(fromCrypto, toCurrency)
+  }, [fromCrypto, toCurrency])
 
-  // Re-convert when rates change
+  const hasCurrentRates = Boolean(cryptoRates[fromCrypto]?.price && fiatRates[toCurrency])
+
+  // Recalculate forward when user edits the "from" value
   useEffect(() => {
+    if (lastEdited !== "from") return
+
     if (fromValue) {
       const result = handleConvert(fromValue, fromCrypto, toCurrency)
-      setToValue(result)
+      setToValue(prev => (prev === result ? prev : result))
     } else {
-      setToValue("")
+      setToValue(prev => (prev === "" ? prev : ""))
     }
-  }, [rates, fromCrypto, toCurrency, fromValue])
+  }, [cryptoRates, fiatRates, fromCrypto, toCurrency, fromValue, lastEdited])
+
+  // Recalculate reverse when user edits the "to" value
+  useEffect(() => {
+    if (lastEdited !== "to") return
+
+    if (toValue) {
+      const result = handleReverseConvert(toValue, fromCrypto, toCurrency)
+      setFromValue(prev => (prev === result ? prev : result))
+    } else {
+      setFromValue(prev => (prev === "" ? prev : ""))
+    }
+  }, [cryptoRates, fiatRates, fromCrypto, toCurrency, toValue, lastEdited])
 
   const handleFromValueChange = (value: string) => {
+    setLastEdited("from")
     setFromValue(value)
-    // Conversion will happen automatically via useEffect
+    if (!hasCurrentRates) {
+      fetchRates(fromCrypto, toCurrency)
+    }
   }
 
   const handleToValueChange = (value: string) => {
+    setLastEdited("to")
     setToValue(value)
-    // Convert backwards - from fiat to crypto
-    if (value && !isNaN(Number(value)) && rates[fromCrypto] && rates[fromCrypto].price) {
-      const rate = rates[fromCrypto].price
-      const result = Number(value) / rate
-      setFromValue(result.toFixed(8).replace(/\.?0+$/, ""))
-    } else if (!value) {
-      setFromValue("")
+    if (!hasCurrentRates) {
+      fetchRates(fromCrypto, toCurrency)
     }
   }
 
   const swapCurrencies = () => {
-    // Only swap if we have a crypto to fiat conversion
-    if (cryptos.find(c => c.value === toCurrency)) {
-      setFromCrypto(toCurrency)
-      setToCurrency(fromCrypto)
-      setFromValue(toValue)
-      setToValue(fromValue)
-    }
+    setLastEdited(lastEdited === "from" ? "to" : "from")
+    setFromValue(toValue)
+    setToValue(fromValue)
   }
 
   const clearValues = () => {
     setFromValue("")
     setToValue("")
   }
-
-  const getCurrentPrice = () => {
-    if (rates[fromCrypto] && rates[fromCrypto].price) {
-      return rates[fromCrypto].price
-    }
-    return null
-  }
-
-  const getPriceChange = () => {
-    if (rates[fromCrypto] && rates[fromCrypto].change24h) {
-      return rates[fromCrypto].change24h
-    }
-    return null
-  }
-
-  const currentPrice = getCurrentPrice()
-  const priceChange = getPriceChange()
 
   return (
     <div className="container py-8">
@@ -167,7 +194,7 @@ export default function CryptoconverterClient() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={fetchRates}
+                  onClick={() => fetchRates(fromCrypto, toCurrency)}
                   disabled={loading}
                   className="ml-auto"
                 >
@@ -182,6 +209,11 @@ export default function CryptoconverterClient() {
                     Last updated: {lastUpdated.toLocaleTimeString()}
                   </span>
                 )}
+                {rateError && (
+                  <span className="block text-xs text-red-600 mt-1">
+                    {rateError}
+                  </span>
+                )}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">              
@@ -191,7 +223,8 @@ export default function CryptoconverterClient() {
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
                       id="from-value"
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       placeholder="Enter amount"
                       value={fromValue}
                       onChange={(e) => handleFromValueChange(e.target.value)}
@@ -213,15 +246,14 @@ export default function CryptoconverterClient() {
                 </div>
 
                 <div className="flex items-center justify-center md:mt-8">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={swapCurrencies}
-                    className="rounded-full"
-                    disabled={!cryptos.find(c => c.value === toCurrency)}
-                  >
-                    <ArrowUpDown className="h-4 w-4" />
-                  </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={swapCurrencies}
+                  className="rounded-full"
+                >
+                  <ArrowUpDown className="h-4 w-4" />
+                </Button>
                 </div>
 
                 <div className="space-y-2">
@@ -229,7 +261,8 @@ export default function CryptoconverterClient() {
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
                       id="to-value"
-                      type="number"
+                      type="text"
+                      inputMode="decimal"
                       placeholder="Result"
                       value={toValue}
                       onChange={(e) => handleToValueChange(e.target.value)}
