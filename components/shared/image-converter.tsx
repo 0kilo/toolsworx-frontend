@@ -1,7 +1,7 @@
 "use client"
 
 import { MediaConverter } from "@/components/shared/media-converter"
-import { convertImageFile } from "@/lib/services/api-client"
+import { convertImageFile } from "@/lib/services/media-conversion"
 
 const imageFormats = [
   { value: 'jpg', label: 'JPEG', extensions: ['jpg', 'jpeg'], accept: '.jpg,.jpeg,image/jpeg' },

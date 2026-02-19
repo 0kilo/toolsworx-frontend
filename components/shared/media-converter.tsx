@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
+import { IndeterminateProgress } from "@/components/ui/indeterminate-progress"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FileDropzone } from "@/components/shared/file-dropzone"
 import { Turnstile } from "@/components/shared/turnstile"
@@ -58,7 +58,6 @@ export function MediaConverter({
   const [toFormat, setToFormat] = useState(defaultTo || toFormats[0]?.value)
   const [conversion, setConversion] = useState<ConversionState>({ status: 'idle' })
   const downloadUrlRef = useRef<string | null>(null)
-  const [indicator, setIndicator] = useState(0)
   const [turnstileToken, setTurnstileToken] = useState('')
   const [turnstileKey, setTurnstileKey] = useState(0)
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''
@@ -135,16 +134,6 @@ export function MediaConverter({
     setFile(null)
     setConversion({ status: 'idle' })
   }
-
-  useEffect(() => {
-    if (conversion.status === 'processing') {
-      const interval = setInterval(() => {
-        setIndicator((prev) => (prev >= 90 ? 10 : prev + 15))
-      }, 400)
-      return () => clearInterval(interval)
-    }
-    setIndicator(0)
-  }, [conversion.status])
 
   const acceptedTypes = selectedFromFormat?.accept || 
     selectedFromFormat?.extensions.map(ext => `.${ext}`).join(',') || '*'
@@ -233,11 +222,8 @@ export function MediaConverter({
 
             {conversion.status === 'processing' && (
               <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>Converting...</span>
-                  <span>{indicator}%</span>
-                </div>
-                <Progress value={indicator || 10} />
+                <div className="text-sm">Converting...</div>
+                <IndeterminateProgress />
               </div>
             )}
 

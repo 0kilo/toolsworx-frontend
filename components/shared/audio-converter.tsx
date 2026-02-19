@@ -1,7 +1,7 @@
 "use client"
 
 import { MediaConverter } from "@/components/shared/media-converter"
-import { convertAudioFile } from "@/lib/services/api-client"
+import { convertAudioFile } from "@/lib/services/media-conversion"
 
 const audioFormats = [
   { value: 'mp3', label: 'MP3', extensions: ['mp3'], accept: '.mp3,audio/mpeg' },

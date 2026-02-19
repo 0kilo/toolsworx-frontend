@@ -1,7 +1,7 @@
 "use client"
 
 import { MediaConverter } from "@/components/shared/media-converter"
-import { convertVideoFile } from "@/lib/services/api-client"
+import { convertVideoFile } from "@/lib/services/media-conversion"
 
 const videoFormats = [
   { value: 'mp4', label: 'MP4', extensions: ['mp4'], accept: '.mp4,video/mp4' },
