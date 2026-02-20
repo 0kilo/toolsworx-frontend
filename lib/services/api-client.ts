@@ -18,6 +18,7 @@ export interface StreamConversionResult {
 
 const BASE_URL = process.env.NEXT_PUBLIC_CONVERTER_API_URL || 'http://localhost:8080'
 const API_KEY = process.env.NEXT_PUBLIC_CONVERTER_API_KEY || ''
+const RATES_API_URL = process.env.NEXT_PUBLIC_RATES_API_URL || ''
 const MARKET_CACHE_TTL_MS = 60 * 1000
 
 const cryptoSymbolToId: Record<string, string> = {
@@ -94,11 +95,28 @@ export class ApiClient {
   private marketCache: Json | null = null
   private marketCacheFetchedAt = 0
 
-  private async getMarketCache(forceRefresh = false): Promise<Json | null> {
-    if (!firestore) {
-      throw new Error('Firestore client is not initialized')
+  private async fetchMarketCacheFromRatesApi(): Promise<Json | null> {
+    if (!RATES_API_URL) return null
+
+    const res = await fetch(RATES_API_URL)
+    if (!res.ok) {
+      throw new Error(`Rates API request failed: ${res.status}`)
     }
 
+    const payload = await res.json()
+    if (!payload?.ok) {
+      throw new Error('Rates API returned an invalid payload')
+    }
+
+    return {
+      crypto: payload.crypto ?? null,
+      currency: payload.currency ?? null,
+      cryptoUpdatedAt: payload.cryptoUpdatedAt ?? null,
+      currencyUpdatedAt: payload.currencyUpdatedAt ?? null,
+    }
+  }
+
+  private async getMarketCache(forceRefresh = false): Promise<Json | null> {
     const now = Date.now()
     const hasFreshCache =
       this.marketCache && now - this.marketCacheFetchedAt < MARKET_CACHE_TTL_MS
@@ -106,15 +124,27 @@ export class ApiClient {
       return this.marketCache
     }
 
-    const doc = await firestore.collection('market_cache').doc('latest').get()
-    if (!doc.exists) {
-      this.marketCache = null
-      this.marketCacheFetchedAt = now
-      return null
+    if (firestore) {
+      try {
+        const doc = await firestore.collection('market_cache').doc('latest').get()
+        if (doc.exists) {
+          this.marketCache = doc.data() ?? null
+          this.marketCacheFetchedAt = now
+          return this.marketCache
+        }
+      } catch (error) {
+        console.warn('Firestore market cache fetch failed, falling back to rates API.', error)
+      }
     }
 
-    this.marketCache = doc.data() ?? null
+    this.marketCache = await this.fetchMarketCacheFromRatesApi()
     this.marketCacheFetchedAt = now
+    if (!this.marketCache) {
+      throw new Error(
+        'Rates source unavailable. Configure Firebase client env vars or NEXT_PUBLIC_RATES_API_URL.'
+      )
+    }
+
     return this.marketCache
   }
 
