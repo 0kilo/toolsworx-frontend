@@ -1,0 +1,37 @@
+{
+  "id": "pace-eta-planner",
+  "title": "Pace & ETA Planner",
+  "description": "Estimate moving time and total ETA including breaks.",
+  "pageTitle": "Pace & ETA Planner",
+  "pageDescription": "Turn route distance and pace assumptions into realistic arrival estimates.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "Calculation Overview",
+      "type": "list",
+      "content": [
+        "Computes moving time from distance and pace.",
+        "Adds break time and long-distance fatigue adjustment.",
+        "Outputs moving-time and total ETA side-by-side."
+      ]
+    },
+    {
+      "title": "Common Uses",
+      "type": "list",
+      "content": [
+        "Hike timing for daylight cutoff planning.",
+        "Cycling route timing with scheduled stops.",
+        "Group meetup ETAs with realistic pace assumptions."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Use conservative pace values for mixed terrain.",
+        "Add buffer for navigation checks and refills.",
+        "Recalculate if weather degrades route conditions."
+      ]
+    }
+  ]
+}

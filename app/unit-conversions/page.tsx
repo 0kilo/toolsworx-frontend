@@ -13,7 +13,7 @@ const category = getCategoryGroupById("unit-conversions")
 
 export const metadata: Metadata = {
   title: category ? `${category.title} - ToolsWorx` : "Unit Conversions",
-  description: category?.longDescription ?? "Convert temperature, distance, weight, volume, currency, and more.",
+  description: category?.longDescription ?? "Convert temperature, distance, weight, volume, and more.",
   alternates: { canonical: "/unit-conversions" },
 }
 

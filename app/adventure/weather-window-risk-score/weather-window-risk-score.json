@@ -1,0 +1,37 @@
+{
+  "id": "weather-window-risk-score",
+  "title": "Weather Window Risk Score",
+  "description": "Estimate weather risk for the selected trip window using precipitation, wind, and temperature spread.",
+  "pageTitle": "Weather Window Risk Score",
+  "pageDescription": "Score route-day weather risk before you commit to a departure window.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "How It Works",
+      "type": "list",
+      "content": [
+        "Combines precipitation probability, wind speed, and temperature spread into a 0-100 risk score.",
+        "Adds extra penalties for freezing lows, heat spikes, and high-wind conditions.",
+        "Returns a quick level: Low, Moderate, or High risk."
+      ]
+    },
+    {
+      "title": "When To Use",
+      "type": "list",
+      "content": [
+        "Choosing between two departure dates for a road trip or bike ride.",
+        "Evaluating camp setup risk for exposed locations.",
+        "Deciding whether to shorten route distance or add backup shelter options."
+      ]
+    },
+    {
+      "title": "Practical Tips",
+      "type": "list",
+      "content": [
+        "Use conservative inputs from the worst part of your planned window.",
+        "If risk is High, reduce route complexity and increase bailout options.",
+        "Re-check within 12-24 hours of departure for better forecast accuracy."
+      ]
+    }
+  ]
+}

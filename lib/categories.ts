@@ -1,4 +1,4 @@
-import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, BarChart3, LucideIcon } from "lucide-react"
+import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, BarChart3, Truck, LucideIcon } from "lucide-react"
 
 export interface CategoryGroup {
   id: string
@@ -24,7 +24,7 @@ export const categoryGroups: CategoryGroup[] = [
     title: "Helpful Tools",
     description: "Practical tools for everyday tasks",
     longDescription:
-      "Our helpful tools make everyday tasks easier. Scale recipes for different serving sizes, generate secure passwords, create API keys and UUIDs, and convert cryptocurrencies. These practical tools save time and help you plan better.",
+      "Our helpful tools make everyday tasks easier. Scale recipes for different serving sizes, generate secure passwords, create API keys and UUIDs, and convert crypto or fiat currencies. These practical tools save time and help you plan better.",
     icon: Heart,
     color: "bg-slate-100 border-slate-300",
     textColor: "text-slate-900",
@@ -37,6 +37,7 @@ export const categoryGroups: CategoryGroup[] = [
       "shipping cost calculator",
       "password generator",
       "crypto converter",
+      "currency converter",
       "recipe calculator",
       "gift exchange",
       "countdown timer",
@@ -71,6 +72,7 @@ export const categoryGroups: CategoryGroup[] = [
           "Generate strong credentials with the Password Generator before enabling new accounts or rotating logins.",
           "Create API keys or unique IDs for apps and integrations without touching a terminal.",
           "Handle quick financial lookups with the Crypto Converter when quoting, budgeting, or paying in digital assets.",
+          "Use the Currency Converter for fiat exchange checks before travel, invoices, or international purchases.",
         ],
       },
       {
@@ -111,7 +113,7 @@ export const categoryGroups: CategoryGroup[] = [
     color: "bg-slate-100 border-slate-300",
     textColor: "text-slate-900",
     iconColor: "text-slate-600",
-    categories: ["temperature", "distance", "weight", "volume", "time", "currency", "speed", "area", "energy", "pressure", "data"],
+    categories: ["temperature", "distance", "weight", "volume", "time", "speed", "area", "energy", "pressure", "data"],
     seoKeywords: [
       "unit converter",
       "measurement converter",
@@ -120,7 +122,6 @@ export const categoryGroups: CategoryGroup[] = [
       "distance conversion",
       "weight conversion",
       "volume conversion",
-      "currency converter",
       "time converter",
       "speed converter",
       "area converter",
@@ -141,7 +142,7 @@ export const categoryGroups: CategoryGroup[] = [
       {
         title: "Introduction",
         bullets: [
-          "One-stop hub for temperature, distance, weight, volume, time, currency, speed, area, energy, pressure, and data conversions.",
+          "One-stop hub for temperature, distance, weight, volume, time, speed, area, energy, pressure, and data conversions.",
           "Built for clarity on mobile: single-input focus, clear unit labels, and instant results for fast lookups.",
           "Accurate math backed by consistent formulas so engineers, students, and travelers can trust outputs.",
           "No ads inside the calculator panels; streamlined UI for repeated, distraction-free use.",
@@ -154,7 +155,6 @@ export const categoryGroups: CategoryGroup[] = [
           "Distance/Area: shipping dimensions, land measurement, mapping, or workout tracking across metric/imperial.",
           "Energy/Pressure: science labs, automotive tire pressure, HVAC, or mechanical engineering lookups.",
           "Data Size: storage planning, download estimates, or cloud cost sizing from bytes to terabytes.",
-          "Currency: quick rate checks before purchases, invoices, or travel budgeting.",
         ],
       },
       {
@@ -163,14 +163,12 @@ export const categoryGroups: CategoryGroup[] = [
           "Pick specialized converters (pressure, energy) when you need domain-specific units rather than generic calculators.",
           "Use Data Size for digital contexts; avoid mixing decimal (GB) and binary (GiB) without checking which you need.",
           "Select Speed for travel/fitness; switch to Time when calculating durations or offsets.",
-          "Use Currency only for indicative rates; confirm with your payment processor before billing.",
         ],
       },
       {
         title: "Tips for Better Results",
         bullets: [
           "Double-check source units before input; most errors come from assuming imperial vs metric defaults.",
-          "For currency, refresh before checkout; rates change and may differ from card processor spreads.",
           "For scientific work, note significant figures; round outputs based on your required precision.",
           "When sharing results, include both units to prevent ambiguity in specs and handoffs.",
         ],
@@ -267,6 +265,83 @@ export const categoryGroups: CategoryGroup[] = [
           "Relying on default activity multipliers for calories can overstate burn; adjust to your real training load.",
           "For tip/percentage math, ensure the base amount excludes taxes or add-ons if your locale uses pre-tax tipping.",
           "Graphing without labeling axes or units confuses results; add notes before sharing screenshots.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "adventure",
+    title: "Adventure Tools",
+    description: "Planning tools for travel, rides, and outdoor trips",
+    longDescription:
+      "Adventure tools help travelers, cyclists, campers, backpackers, and motorcyclists plan safer and more efficient trips. Estimate route time and cost, plan fuel and water, optimize pack weight, and generate practical checklists for the road or trail.",
+    icon: Truck,
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
+    categories: ["adventure"],
+    seoKeywords: [
+      "adventure tools",
+      "travel planner",
+      "route planner",
+      "trip budget calculator",
+      "fuel stop planner",
+      "packing checklist",
+      "backpacking gear list",
+      "camping planner",
+      "bike ride planner",
+      "motorcycle trip planner",
+    ],
+    benefits: [
+      "Fast planning for outdoor and travel scenarios",
+      "Mobile-friendly for use on the go",
+      "Covers packing, timing, and budgeting",
+      "Free tools with instant results",
+    ],
+    sections: [
+      {
+        title: "Introduction",
+        bullets: [
+          "Built for real-world trip prep across road, trail, and flight contexts.",
+          "Combines timing, fuel, budget, and checklist workflows in one category.",
+          "Designed for quick edits as plans change due to weather or route updates.",
+          "Works well on mobile so you can plan while in transit.",
+        ],
+      },
+      {
+        title: "When to Use",
+        bullets: [
+          "Plan route timing and fuel stops before long rides or drives.",
+          "Estimate food, water, and pack weight for camping and backpacking.",
+          "Build packing and safety checklists before departure.",
+          "Model costs with a budget buffer for currency changes and surprises.",
+        ],
+      },
+      {
+        title: "How to Choose the Right Tool",
+        bullets: [
+          "Use pace/ETA tools first to set your timeline.",
+          "Then run cost, fuel, and resource estimators for logistics.",
+          "Finish with packing and emergency-card tools before leaving.",
+          "Recheck weather-risk scoring close to departure time.",
+        ],
+      },
+      {
+        title: "Tips for Better Results",
+        bullets: [
+          "Add safety buffers for fuel, weather, and timing assumptions.",
+          "Use conservative pace estimates when terrain or traffic is uncertain.",
+          "Keep a lightweight essentials list that appears on every trip plan.",
+          "Save final outputs for offline access before heading out.",
+        ],
+      },
+      {
+        title: "Common Mistakes to Avoid",
+        bullets: [
+          "Underestimating breaks and setup time in total ETA calculations.",
+          "Using ideal fuel economy instead of real-world loaded conditions.",
+          "Ignoring resupply gaps for water/food on remote routes.",
+          "Packing by habit instead of weight and weather conditions.",
         ],
       },
     ],

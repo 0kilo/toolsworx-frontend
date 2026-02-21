@@ -1,0 +1,37 @@
+{
+  "id": "water-food-planner",
+  "title": "Water & Food Planner",
+  "description": "Estimate daily food and hydration requirements by trip conditions.",
+  "pageTitle": "Water & Food Planner",
+  "pageDescription": "Forecast hydration and calorie needs by group size, duration, and effort.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "Inputs",
+      "type": "list",
+      "content": [
+        "Number of people and trip days.",
+        "Activity level for exertion intensity.",
+        "Hot-weather toggle for hydration uplift."
+      ]
+    },
+    {
+      "title": "Output",
+      "type": "list",
+      "content": [
+        "Total liters of water for the entire group.",
+        "Total calories to provision.",
+        "Quick baseline for resupply planning."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Carry a treatment method when refilling from natural sources.",
+        "Add extra calories for cold, wind, or high-elevation days.",
+        "Do a final water check against known refill points."
+      ]
+    }
+  ]
+}

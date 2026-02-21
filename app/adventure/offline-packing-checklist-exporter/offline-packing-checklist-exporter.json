@@ -1,0 +1,37 @@
+{
+  "id": "offline-packing-checklist-exporter",
+  "title": "Offline Packing Checklist Exporter",
+  "description": "Build and export reusable packing checklists for offline use.",
+  "pageTitle": "Offline Packing Checklist Exporter",
+  "pageDescription": "Create trip-specific checklists and export them for offline access.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "Checklist Logic",
+      "type": "list",
+      "content": [
+        "Starts with universal essentials like ID, water, and first-aid basics.",
+        "Adds category-specific gear based on trip type.",
+        "Includes weather-dependent items when rain is expected."
+      ]
+    },
+    {
+      "title": "Use Cases",
+      "type": "list",
+      "content": [
+        "Weekend camping prep with a shared list.",
+        "Motorcycle packing with quick pre-ride checks.",
+        "Backpacking checklist reuse across multi-day routes."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Keep one 'core' preset and clone per trip.",
+        "Print or export before signal drops in remote areas.",
+        "Pair with Base Weight Optimizer to remove non-essential load."
+      ]
+    }
+  ]
+}

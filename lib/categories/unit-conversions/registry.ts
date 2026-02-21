@@ -1,4 +1,4 @@
-import { Thermometer, Ruler, Weight, Droplet, DollarSign, Clock, Gauge, Square, Zap, Orbit, Gauge as Pressure, HardDrive } from "lucide-react"
+import { Thermometer, Ruler, Weight, Droplet, Clock, Gauge, Square, Zap, Orbit, Gauge as Pressure, HardDrive, FileJson } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -44,16 +44,6 @@ export const unitConversionTools: ConverterMetadata[] = [
     icon: Droplet,
     href: "/unit-conversions/volume",
     keywords: ["volume", "liquid", "milliliters", "liters", "gallons", "cups", "pints", "fluid ounces"],
-    popular: true,
-  },
-  {
-    id: "currency",
-    title: "Currency Converter",
-    description: "Convert between USD, EUR, GBP, Bitcoin, Ethereum with live rates",
-    category: "currency",
-    icon: DollarSign,
-    href: "/unit-conversions/currency",
-    keywords: ["currency", "money", "usd", "eur", "bitcoin", "btc", "ethereum", "exchange", "crypto"],
     popular: true,
   },
   {
@@ -115,6 +105,16 @@ export const unitConversionTools: ConverterMetadata[] = [
     href: "/unit-conversions/data",
     keywords: ["data", "storage", "kb", "mb", "gb", "tb", "bytes", "bits"],
     popular: false,
+  },
+  {
+    id: "data-format-converter",
+    title: "Data Format Converter",
+    description: "Convert between JSON, XML, YAML, and CSV data formats",
+    category: "data",
+    icon: FileJson,
+    href: "/file-converters/data",
+    keywords: ["json", "xml", "yaml", "csv", "data", "api"],
+    popular: true,
   },
   {
     id: "spacetime",

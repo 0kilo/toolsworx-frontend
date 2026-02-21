@@ -7,6 +7,7 @@ import { developerTools } from "./categories/developer-tools/registry"
 import { filterTools as filters } from "./categories/filters/registry"
 import { helpfulCalculators } from "./categories/helpful-calculators/registry"
 import { chartTools } from "./categories/charts/registry"
+import { adventureTools } from "./categories/adventure/registry"
 
 // Combine all converters
 export const allConverters: ConverterMetadata[] = [
@@ -18,6 +19,7 @@ export const allConverters: ConverterMetadata[] = [
   ...developerTools,
   ...filters,
   ...chartTools,
+  ...adventureTools,
 ]
 
 // Get converters by category

@@ -63,7 +63,7 @@ export function FeaturedCategoryCard({
 
           <div className="lg:col-span-3 xl:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {converters.slice(0, maxCards).map((converter) => (
-              <ConverterCard key={converter.id} converter={converter} />
+              <ConverterCard key={converter.id} converter={converter} showBadge />
             ))}
           </div>
         </div>

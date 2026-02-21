@@ -205,8 +205,8 @@ export default function CryptoconverterClient() {
               <CardDescription>
                 Cryptocurrency prices updated every 30 minutes. For informational purposes only - do not use for actual transactions.
                 {lastUpdated && (
-                  <span className="block text-xs text-muted-foreground mt-1">
-                    Last updated: {lastUpdated.toLocaleTimeString()}
+                  <span className="block mt-3 text-sm text-muted-foreground">
+                    Last updated: <span className="text-blue-600">{lastUpdated.toLocaleTimeString()}</span>
                   </span>
                 )}
                 {rateError && (

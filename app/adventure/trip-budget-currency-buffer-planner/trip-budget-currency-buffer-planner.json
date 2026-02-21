@@ -1,0 +1,37 @@
+{
+  "id": "trip-budget-currency-buffer-planner",
+  "title": "Trip Budget & Currency Buffer Planner",
+  "description": "Plan budget with exchange-rate and contingency buffers.",
+  "pageTitle": "Trip Budget & Currency Buffer Planner",
+  "pageDescription": "Estimate base and buffered totals in home and destination currency.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "How Buffering Works",
+      "type": "list",
+      "content": [
+        "Calculates base total from daily and fixed costs.",
+        "Applies your FX buffer plus a trip-length contingency.",
+        "Converts buffered total into destination currency."
+      ]
+    },
+    {
+      "title": "When To Use",
+      "type": "list",
+      "content": [
+        "International trips with uncertain exchange conditions.",
+        "Long multi-city travel where costs can drift upward.",
+        "Planning spending caps before booking flights/hotels."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Use higher buffer percentages for volatile currencies.",
+        "Re-run after major booking changes.",
+        "Separate mandatory spend from flexible spend for better control."
+      ]
+    }
+  ]
+}

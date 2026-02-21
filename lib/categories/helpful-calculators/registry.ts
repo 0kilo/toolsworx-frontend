@@ -1,4 +1,4 @@
-import { ChefHat, Bitcoin, Key, FileText } from "lucide-react"
+import { ChefHat, Bitcoin, Key, FileText, DollarSign } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -67,6 +67,16 @@ export const helpfulCalculators: ConverterMetadata[] = [
     icon: Bitcoin,
     href: "/helpful-calculators/crypto-converter",
     keywords: ["crypto", "cryptocurrency", "bitcoin", "ethereum", "convert", "price", "market", "trading"],
+    popular: true,
+  },
+  {
+    id: "currency",
+    title: "Currency Converter",
+    description: "Convert between USD, EUR, GBP, and other fiat currencies with live rates",
+    category: "helpful",
+    icon: DollarSign,
+    href: "/unit-conversions/currency",
+    keywords: ["currency", "money", "usd", "eur", "exchange", "forex", "fiat"],
     popular: true,
   },
   // {

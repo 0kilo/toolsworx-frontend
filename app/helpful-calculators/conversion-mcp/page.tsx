@@ -27,7 +27,7 @@ export default function ConversionMcpPage() {
         <CardContent className="space-y-3 text-muted-foreground">
           <p>
             Conversion MCP exposes our conversion endpoints over a secure MCP server so agents can
-            convert documents, images, audio, and video without building custom integrations.
+            convert images, audio, and video without building custom integrations.
           </p>
           <p>
             You’ll need a registered account to request an API key before connecting. Keys let us

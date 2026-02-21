@@ -1,0 +1,37 @@
+{
+  "id": "ride-fueling-calculator",
+  "title": "Ride Fueling Calculator",
+  "description": "Estimate carb, fluid, and sodium targets for long rides.",
+  "pageTitle": "Ride Fueling Calculator",
+  "pageDescription": "Build a practical fueling and hydration plan based on duration and intensity.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "What You Get",
+      "type": "list",
+      "content": [
+        "Carbohydrate target per hour and total carbs.",
+        "Fluid target per hour with long-ride adjustment.",
+        "Sodium target per hour for electrolyte planning."
+      ]
+    },
+    {
+      "title": "When To Use",
+      "type": "list",
+      "content": [
+        "Long training rides and endurance events.",
+        "Heat-prone sessions where hydration errors are common.",
+        "Pre-ride planning to pack enough bottles and fuel."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Test fueling in training before event day.",
+        "Split carb intake into smaller regular intervals.",
+        "Adjust fluid and sodium upward in hot, humid conditions."
+      ]
+    }
+  ]
+}

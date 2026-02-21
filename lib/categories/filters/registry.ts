@@ -1,4 +1,3 @@
-import { FileText } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -19,16 +18,17 @@ export const filterTools: ConverterMetadata[] = [
   //   keywords: ["image", "filter", "effects", "grayscale", "sepia", "vintage", "brightness", "contrast", "saturation", "instagram", "blur", "sharpen", "valencia", "nashville", "xpro"],
   //   popular: true,
   // },
-  {
-    id: "text-processor",
-    title: "Text Processor & Data Tools",
-    description: "Extract data, format code, and transform text in one tool",
-    category: "data-filter",
-    icon: FileText,
-    href: "/filters/text-processor",
-    keywords: ["text", "extract", "email", "url", "json", "xml", "csv", "case", "format"],
-    popular: true,
-  },
+  // Moved to Developer Tools category.
+  // {
+  //   id: "text-processor",
+  //   title: "Text Processor & Data Tools",
+  //   description: "Extract data, format code, and transform text in one tool",
+  //   category: "data-filter",
+  //   icon: FileText,
+  //   href: "/filters/text-processor",
+  //   keywords: ["text", "extract", "email", "url", "json", "xml", "csv", "case", "format"],
+  //   popular: true,
+  // },
 
   // Audio Filters
   // {

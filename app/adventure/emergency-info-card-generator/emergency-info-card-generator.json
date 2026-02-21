@@ -1,0 +1,37 @@
+{
+  "id": "emergency-info-card-generator",
+  "title": "Emergency Info Card Generator",
+  "description": "Generate a printable emergency details card for travel and outdoor trips.",
+  "pageTitle": "Emergency Info Card Generator",
+  "pageDescription": "Create a compact emergency profile to carry in your wallet, pack, or tank bag.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "What To Include",
+      "type": "list",
+      "content": [
+        "Your legal name and preferred emergency contact.",
+        "Critical medical data like blood type and severe allergies.",
+        "A reachable phone number that works internationally if possible."
+      ]
+    },
+    {
+      "title": "Best Practices",
+      "type": "list",
+      "content": [
+        "Keep the card brief so responders can scan it quickly.",
+        "Print one copy for your person and one for your luggage/pack.",
+        "Review and update details before each major trip."
+      ]
+    },
+    {
+      "title": "Limitations",
+      "type": "list",
+      "content": [
+        "This tool does not replace official medical ID systems.",
+        "Use local emergency numbers and region-specific guidance for your destination.",
+        "Avoid including highly sensitive data you do not want on a physical card."
+      ]
+    }
+  ]
+}

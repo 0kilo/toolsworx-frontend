@@ -30,6 +30,7 @@ export type ConverterCategory =
   | "spacetime"
   | "chart"
   | "pressure"
+  | "adventure"
   | "other"
 
 export interface ConverterMetadata {

@@ -18,6 +18,9 @@ export default function HomePage() {
     "developer-tools": "/developer-tools-cheatsheet",
   }
 
+  // Temporarily hidden category blocks on home page.
+  const hiddenHomeCategories = new Set(["file-converters", "filters"])
+
   return (
     <div className="container py-8 md:py-12">
       {/* Hero Section */}
@@ -26,7 +29,7 @@ export default function HomePage() {
           Free Online Conversion Tools
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-          Convert documents, images, videos, and units instantly. Fast, secure, and completely free.
+          Convert images, videos, and units instantly. Fast, secure, and completely free.
         </p>
         <div className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
           <Link href="/about" className="underline underline-offset-4">Learn more about Tools Worx</Link>.
@@ -38,6 +41,8 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold mb-8">Popular Converters</h2>
 
         {categoryGroups.map((group) => {
+          if (hiddenHomeCategories.has(group.id)) return null
+
           const groupConverters = converters.filter((c) =>
             group.categories.includes(c.category) && c.popular
           )

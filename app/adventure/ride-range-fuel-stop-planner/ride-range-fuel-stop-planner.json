@@ -1,0 +1,37 @@
+{
+  "id": "ride-range-fuel-stop-planner",
+  "title": "Ride Range & Fuel Stop Planner",
+  "description": "Estimate safe ride range and recommended fuel stop intervals.",
+  "pageTitle": "Ride Range & Fuel Stop Planner",
+  "pageDescription": "Plan safer fuel timing for long rides with reserve and real-world efficiency buffers.",
+  "category": "adventure",
+  "sections": [
+    {
+      "title": "What It Calculates",
+      "type": "list",
+      "content": [
+        "Safe range after subtracting reserve fuel.",
+        "Suggested stop interval below maximum range for margin.",
+        "Estimated number of stops for full route distance."
+      ]
+    },
+    {
+      "title": "Why This Matters",
+      "type": "list",
+      "content": [
+        "Fuel stations may be sparse or closed in remote areas.",
+        "Headwinds, elevation, and luggage reduce real efficiency.",
+        "Planned stops lower stress and improve ride pacing."
+      ]
+    },
+    {
+      "title": "Tips",
+      "type": "list",
+      "content": [
+        "Use observed ride economy, not brochure values.",
+        "Increase reserve on unfamiliar routes or bad weather days.",
+        "Confirm station operating hours before departure."
+      ]
+    }
+  ]
+}

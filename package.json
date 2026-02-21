@@ -1,7 +1,7 @@
 {
   "name": "toolsworx",
   "version": "1.0.0",
-  "description": "A modern, fast, and SEO-optimized conversion website built with Next.js 14 and React. Convert documents, images, videos, and units instantly.",
+  "description": "A modern, fast, and SEO-optimized conversion website built with Next.js 14 and React. Convert images, videos, and units instantly.",
   "main": "next.config.js",
   "directories": {
     "doc": "docs",
