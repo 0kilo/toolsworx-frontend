@@ -210,6 +210,11 @@ export const toolMetadata = {
     description: 'Format, beautify, and validate XML online. Free XML formatter with syntax highlighting.',
     keywords: ['xml formatter', 'xml beautifier', 'format xml', 'xml validator']
   },
+  'blog-page-generator': {
+    title: 'Blog Page Generator - Build TSX Blog Pages Visually',
+    description: 'Create blog page layouts with text, links, and media blocks. Preview and download a TSX page file.',
+    keywords: ['blog generator', 'tsx generator', 'nextjs page builder', 'blog page builder', 'developer tool']
+  },
 
   // Media Converters
   'audio': {

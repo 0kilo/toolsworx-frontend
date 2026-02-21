@@ -19,7 +19,7 @@ export default function HomePage() {
   }
 
   // Temporarily hidden category blocks on home page.
-  const hiddenHomeCategories = new Set(["file-converters", "filters"])
+  const hiddenHomeCategories = new Set(["file-converters", "filters", "blog"])
 
   return (
     <div className="container py-8 md:py-12">

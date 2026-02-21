@@ -1,4 +1,4 @@
-import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, BarChart3, Truck, LucideIcon } from "lucide-react"
+import { Ruler, Calculator, FileText, Film, Code2, Sliders, Heart, BarChart3, Truck, BookOpen, LucideIcon } from "lucide-react"
 
 export interface CategoryGroup {
   id: string
@@ -342,6 +342,54 @@ export const categoryGroups: CategoryGroup[] = [
           "Using ideal fuel economy instead of real-world loaded conditions.",
           "Ignoring resupply gaps for water/food on remote routes.",
           "Packing by habit instead of weight and weather conditions.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "blog",
+    title: "Blog",
+    description: "Travel stories and real-world tool walkthroughs",
+    longDescription:
+      "The ToolsWorx blog documents real adventures and practical applications of our tools. Adventures posts capture travel logs and field notes, while Applications posts show step-by-step planning workflows using calculators and converters on actual trips.",
+    icon: BookOpen,
+    color: "bg-slate-100 border-slate-300",
+    textColor: "text-slate-900",
+    iconColor: "text-slate-600",
+    categories: ["blog"],
+    seoKeywords: [
+      "travel blog",
+      "adventure blog",
+      "tool application examples",
+      "trip planning case study",
+      "route planning blog",
+      "camping planning guide",
+      "motorcycle route planning",
+      "travel documentary",
+    ],
+    benefits: [
+      "Real-world examples from actual travel and planning",
+      "Actionable workflows for route, budget, and packing",
+      "Simple registry-driven publishing model",
+      "Easy to discover via category and home pages",
+    ],
+    sections: [
+      {
+        title: "What You'll Find",
+        bullets: [
+          "Adventures: documentary-style trip logs with route and context notes.",
+          "Applications: practical walkthroughs showing how to apply tools to real scenarios.",
+          "Link-rich posts that connect planning assumptions to outcomes.",
+          "Reusable ideas you can adapt for your own trips.",
+        ],
+      },
+      {
+        title: "How To Use These Posts",
+        bullets: [
+          "Start with an Adventures post for context and itinerary framing.",
+          "Open a paired Applications post to replicate the planning workflow.",
+          "Adjust assumptions (fuel, pace, budget, weather) to match your conditions.",
+          "Export and save your own summaries before departure.",
         ],
       },
     ],

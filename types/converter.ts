@@ -31,6 +31,7 @@ export type ConverterCategory =
   | "chart"
   | "pressure"
   | "adventure"
+  | "blog"
   | "other"
 
 export interface ConverterMetadata {

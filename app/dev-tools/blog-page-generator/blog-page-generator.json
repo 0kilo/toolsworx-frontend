@@ -1,0 +1,29 @@
+{
+  "id": "blog-page-generator",
+  "title": "Blog Page Generator",
+  "description": "Build TSX blog pages with text and media blocks, then download the generated page file.",
+  "pageTitle": "Blog Page Generator",
+  "pageDescription": "Compose a blog page with reusable blocks, preview it, and export a TSX file you can drop into your app.",
+  "aboutTitle": "About Blog Page Generator",
+  "aboutDescription": "This developer tool helps you visually assemble blog pages and export a ready-to-edit TSX file. It is intended for internal/content workflows and does not auto-publish content.",
+  "sections": [
+    {
+      "title": "What You Can Build",
+      "content": [
+        "Header and body text blocks with font, weight, and color controls",
+        "Body links with custom label and per-link color",
+        "Image, video, and audio blocks from URL or local upload for preview",
+        "Generated TSX output ready for your manual site-specific adjustments"
+      ]
+    },
+    {
+      "title": "Workflow",
+      "content": [
+        "Add blocks from the toolbox in the order you want",
+        "Configure text styling, links, and media source",
+        "Use Preview to verify page flow and appearance",
+        "Click Generate and Download TSX, then place it in your blog route"
+      ]
+    }
+  ]
+}
