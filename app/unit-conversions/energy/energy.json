@@ -6,64 +6,109 @@
   "icon": "Zap",
   "units": [
     {
+      "value": "nJ",
+      "label": "Nanojoule",
+      "abbreviation": "nJ"
+    },
+    {
+      "value": "uJ",
+      "label": "Microjoule",
+      "abbreviation": "μJ"
+    },
+    {
+      "value": "mJ",
+      "label": "Millijoule",
+      "abbreviation": "mJ"
+    },
+    {
       "value": "J",
-      "label": "Joules",
+      "label": "Joule",
       "abbreviation": "J"
     },
     {
       "value": "kJ",
-      "label": "Kilojoules",
+      "label": "Kilojoule",
       "abbreviation": "kJ"
     },
     {
+      "value": "MJ",
+      "label": "Megajoule",
+      "abbreviation": "MJ"
+    },
+    {
+      "value": "GJ",
+      "label": "Gigajoule",
+      "abbreviation": "GJ"
+    },
+    {
       "value": "cal",
-      "label": "Calories",
+      "label": "Calorie",
       "abbreviation": "cal"
     },
     {
       "value": "kcal",
-      "label": "Kilocalories",
+      "label": "Kilocalorie",
       "abbreviation": "kcal"
     },
     {
       "value": "Wh",
-      "label": "Watt Hours",
+      "label": "Watt Hour",
       "abbreviation": "Wh"
     },
     {
       "value": "kWh",
-      "label": "Kilowatt Hours",
+      "label": "Kilowatt Hour",
       "abbreviation": "kWh"
     },
     {
+      "value": "MWh",
+      "label": "Megawatt Hour",
+      "abbreviation": "MWh"
+    },
+    {
       "value": "BTU",
-      "label": "British Thermal Units",
+      "label": "British Thermal Unit",
       "abbreviation": "BTU"
     },
     {
+      "value": "therm",
+      "label": "Therm (US)",
+      "abbreviation": "thm"
+    },
+    {
+      "value": "erg",
+      "label": "Erg",
+      "abbreviation": "erg"
+    },
+    {
       "value": "eV",
-      "label": "Electron Volts",
+      "label": "Electron Volt",
       "abbreviation": "eV"
     },
     {
       "value": "keV",
-      "label": "Kiloelectron Volts",
+      "label": "Kiloelectron Volt",
       "abbreviation": "keV"
     },
     {
       "value": "MeV",
-      "label": "Megaelectron Volts",
+      "label": "Megaelectron Volt",
       "abbreviation": "MeV"
     },
     {
       "value": "GeV",
-      "label": "Gigaelectron Volts",
+      "label": "Gigaelectron Volt",
       "abbreviation": "GeV"
     },
     {
       "value": "ft-lbf",
-      "label": "Foot-Pounds Force",
+      "label": "Foot-pound Force",
       "abbreviation": "ft·lbf"
+    },
+    {
+      "value": "ton-TNT",
+      "label": "Ton of TNT",
+      "abbreviation": "t TNT"
     }
   ],
   "defaultFromUnit": "J",

@@ -18,22 +18,34 @@
       "factor": 0.000001
     },
     {
+      "value": "centigram",
+      "label": "Centigram",
+      "abbreviation": "cg",
+      "factor": 0.00001
+    },
+    {
+      "value": "decigram",
+      "label": "Decigram",
+      "abbreviation": "dg",
+      "factor": 0.0001
+    },
+    {
       "value": "gram",
       "label": "Gram",
       "abbreviation": "g",
       "factor": 0.001
     },
     {
-      "value": "ounce",
-      "label": "Ounce",
-      "abbreviation": "oz",
-      "factor": 0.0283495
+      "value": "dekagram",
+      "label": "Dekagram",
+      "abbreviation": "dag",
+      "factor": 0.01
     },
     {
-      "value": "pound",
-      "label": "Pound",
-      "abbreviation": "lb",
-      "factor": 0.453592
+      "value": "hectogram",
+      "label": "Hectogram",
+      "abbreviation": "hg",
+      "factor": 0.1
     },
     {
       "value": "kilogram",
@@ -42,28 +54,118 @@
       "factor": 1
     },
     {
-      "value": "stone",
-      "label": "Stone",
-      "abbreviation": "st",
-      "factor": 6.35029
+      "value": "megagram",
+      "label": "Megagram (Metric Ton)",
+      "abbreviation": "Mg",
+      "factor": 1000
     },
     {
-      "value": "ton",
+      "value": "metric-ton",
       "label": "Metric Ton",
       "abbreviation": "t",
       "factor": 1000
     },
     {
+      "value": "micro-pound",
+      "label": "Micro Pound",
+      "abbreviation": "μlb",
+      "factor": 4.5359237e-10
+    },
+    {
+      "value": "grain",
+      "label": "Grain",
+      "abbreviation": "gr",
+      "factor": 0.00006479891
+    },
+    {
+      "value": "dram",
+      "label": "Dram (Avoirdupois)",
+      "abbreviation": "dr",
+      "factor": 0.0017718451953125
+    },
+    {
+      "value": "ounce",
+      "label": "Ounce (Avoirdupois)",
+      "abbreviation": "oz",
+      "factor": 0.028349523125
+    },
+    {
+      "value": "pound",
+      "label": "Pound (Avoirdupois)",
+      "abbreviation": "lb",
+      "factor": 0.45359237
+    },
+    {
+      "value": "stone",
+      "label": "Stone",
+      "abbreviation": "st",
+      "factor": 6.35029318
+    },
+    {
+      "value": "hundredweight",
+      "label": "Hundredweight (US)",
+      "abbreviation": "cwt",
+      "factor": 45.359237
+    },
+    {
       "value": "short-ton",
       "label": "Short Ton (US)",
-      "abbreviation": "ton",
-      "factor": 907.185
+      "abbreviation": "tn",
+      "factor": 907.18474
+    },
+    {
+      "value": "long-hundredweight",
+      "label": "Hundredweight (Long)",
+      "abbreviation": "cwt long",
+      "factor": 50.80234544
     },
     {
       "value": "long-ton",
       "label": "Long Ton (UK)",
       "abbreviation": "LT",
-      "factor": 1016.05
+      "factor": 1016.0469088
+    },
+    {
+      "value": "pennyweight",
+      "label": "Pennyweight (Troy)",
+      "abbreviation": "dwt",
+      "factor": 0.00155517384
+    },
+    {
+      "value": "troy-ounce",
+      "label": "Ounce (Troy)",
+      "abbreviation": "oz t",
+      "factor": 0.0311034768
+    },
+    {
+      "value": "troy-pound",
+      "label": "Pound (Troy)",
+      "abbreviation": "lb t",
+      "factor": 0.3732417216
+    },
+    {
+      "value": "scruple",
+      "label": "Scruple (Apothecaries)",
+      "abbreviation": "s ap",
+      "factor": 0.0012959782
+    },
+    {
+      "value": "apothecary-dram",
+      "label": "Dram (Apothecaries)",
+      "abbreviation": "dr ap",
+      "factor": 0.0038879346
+    },
+    {
+      "value": "apothecary-ounce",
+      "label": "Ounce (Apothecaries)",
+      "abbreviation": "oz ap",
+      "factor": 0.0311034768
+    },
+    {
+      "value": "apothecary-pound",
+      "label": "Pound (Apothecaries)",
+      "abbreviation": "lb ap",
+      "factor": 0.3732417216
     }
   ],
   "baseUnit": "kilogram",

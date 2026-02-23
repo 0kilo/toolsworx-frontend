@@ -58,79 +58,39 @@ export function convertTime(value: number, from: string, to: string): number {
  * Energy conversions
  */
 export function convertEnergy(value: number, from: string, to: string): number {
-  // Convert to joules first
-  let joules: number
-  
-  switch (from) {
-    case "J": // Joules
-      joules = value
-      break
-    case "kJ": // Kilojoules
-      joules = value * 1000
-      break
-    case "cal": // Calories
-      joules = value * 4.184
-      break
-    case "kcal": // Kilocalories
-      joules = value * 4184
-      break
-    case "Wh": // Watt hours
-      joules = value * 3600
-      break
-    case "kWh": // Kilowatt hours
-      joules = value * 3600000
-      break
-    case "BTU": // British Thermal Units
-      joules = value * 1055.06
-      break
-    case "eV": // Electron volts
-      joules = value * 1.602176634e-19
-      break
-    case "keV": // Kiloelectron volts
-      joules = value * 1.602176634e-16
-      break
-    case "MeV": // Megaelectron volts
-      joules = value * 1.602176634e-13
-      break
-    case "GeV": // Gigaelectron volts
-      joules = value * 1.602176634e-10
-      break
-    case "ft-lbf": // Foot-pounds force
-      joules = value * 1.355818
-      break
-    default:
-      throw new Error('Unknown energy unit')
+  const energyToJoules: Record<string, number> = {
+    nJ: 1e-9,
+    uJ: 1e-6,
+    mJ: 1e-3,
+    J: 1,
+    kJ: 1e3,
+    MJ: 1e6,
+    GJ: 1e9,
+    cal: 4.184,
+    kcal: 4184,
+    Wh: 3600,
+    kWh: 3.6e6,
+    MWh: 3.6e9,
+    BTU: 1055.05585262,
+    therm: 105480400,
+    erg: 1e-7,
+    eV: 1.602176634e-19,
+    keV: 1.602176634e-16,
+    MeV: 1.602176634e-13,
+    GeV: 1.602176634e-10,
+    "ft-lbf": 1.3558179483314,
+    "ton-TNT": 4.184e9,
   }
-  
-  // Convert from joules to target unit
-  switch (to) {
-    case "J":
-      return joules
-    case "kJ":
-      return joules / 1000
-    case "cal":
-      return joules / 4.184
-    case "kcal":
-      return joules / 4184
-    case "Wh":
-      return joules / 3600
-    case "kWh":
-      return joules / 3600000
-    case "BTU":
-      return joules / 1055.06
-    case "eV":
-      return joules / 1.602176634e-19
-    case "keV":
-      return joules / 1.602176634e-16
-    case "MeV":
-      return joules / 1.602176634e-13
-    case "GeV":
-      return joules / 1.602176634e-10
-    case "ft-lbf":
-      return joules / 1.355818
-    default:
-      throw new Error('Unknown energy unit')
+
+  const fromFactor = energyToJoules[from]
+  const toFactor = energyToJoules[to]
+
+  if (!fromFactor || !toFactor) {
+    throw new Error("Unknown energy unit")
   }
+
+  const joules = value * fromFactor
+  return joules / toFactor
 }
 
 /**

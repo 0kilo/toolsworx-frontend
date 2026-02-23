@@ -8,32 +8,20 @@
     {
       "value": "milliliter",
       "label": "Milliliter",
-      "abbreviation": "ml",
+      "abbreviation": "mL",
       "factor": 0.001
     },
     {
-      "value": "fluid-ounce",
-      "label": "Fluid Ounce (US)",
-      "abbreviation": "fl oz",
-      "factor": 0.0295735
+      "value": "centiliter",
+      "label": "Centiliter",
+      "abbreviation": "cL",
+      "factor": 0.01
     },
     {
-      "value": "cup",
-      "label": "Cup (US)",
-      "abbreviation": "cup",
-      "factor": 0.236588
-    },
-    {
-      "value": "pint",
-      "label": "Pint (US)",
-      "abbreviation": "pt",
-      "factor": 0.473176
-    },
-    {
-      "value": "quart",
-      "label": "Quart (US)",
-      "abbreviation": "qt",
-      "factor": 0.946353
+      "value": "deciliter",
+      "label": "Deciliter",
+      "abbreviation": "dL",
+      "factor": 0.1
     },
     {
       "value": "liter",
@@ -42,16 +30,40 @@
       "factor": 1
     },
     {
-      "value": "gallon",
-      "label": "Gallon (US)",
-      "abbreviation": "gal",
-      "factor": 3.78541
+      "value": "dekaliter",
+      "label": "Dekaliter",
+      "abbreviation": "daL",
+      "factor": 10
     },
     {
-      "value": "imperial-gallon",
-      "label": "Imperial Gallon",
-      "abbreviation": "imp gal",
-      "factor": 4.54609
+      "value": "hectoliter",
+      "label": "Hectoliter",
+      "abbreviation": "hL",
+      "factor": 100
+    },
+    {
+      "value": "kiloliter",
+      "label": "Kiloliter",
+      "abbreviation": "kL",
+      "factor": 1000
+    },
+    {
+      "value": "cubic-millimeter",
+      "label": "Cubic Millimeter",
+      "abbreviation": "mm³",
+      "factor": 0.000001
+    },
+    {
+      "value": "cubic-centimeter",
+      "label": "Cubic Centimeter",
+      "abbreviation": "cm³",
+      "factor": 0.001
+    },
+    {
+      "value": "cubic-decimeter",
+      "label": "Cubic Decimeter",
+      "abbreviation": "dm³",
+      "factor": 1
     },
     {
       "value": "cubic-meter",
@@ -60,15 +72,129 @@
       "factor": 1000
     },
     {
+      "value": "cubic-inch",
+      "label": "Cubic Inch",
+      "abbreviation": "in³",
+      "factor": 0.016387064
+    },
+    {
+      "value": "cubic-foot",
+      "label": "Cubic Foot",
+      "abbreviation": "ft³",
+      "factor": 28.316846592
+    },
+    {
+      "value": "cubic-yard",
+      "label": "Cubic Yard",
+      "abbreviation": "yd³",
+      "factor": 764.554857984
+    },
+    {
+      "value": "us-fluid-ounce",
+      "label": "Fluid Ounce (US)",
+      "abbreviation": "fl oz",
+      "factor": 0.0295735295625
+    },
+    {
+      "value": "us-gill",
+      "label": "Gill (US)",
+      "abbreviation": "gi",
+      "factor": 0.11829411825
+    },
+    {
+      "value": "us-pint",
+      "label": "Pint (US)",
+      "abbreviation": "pt",
+      "factor": 0.473176473
+    },
+    {
+      "value": "us-quart",
+      "label": "Quart (US)",
+      "abbreviation": "qt",
+      "factor": 0.946352946
+    },
+    {
+      "value": "us-gallon",
+      "label": "Gallon (US)",
+      "abbreviation": "gal",
+      "factor": 3.785411784
+    },
+    {
+      "value": "dry-pint",
+      "label": "Dry Pint (US)",
+      "abbreviation": "pt dry",
+      "factor": 0.5506104713575
+    },
+    {
+      "value": "dry-quart",
+      "label": "Dry Quart (US)",
+      "abbreviation": "qt dry",
+      "factor": 1.101220942715
+    },
+    {
+      "value": "us-peck",
+      "label": "Peck (US)",
+      "abbreviation": "pk",
+      "factor": 8.80976754172
+    },
+    {
+      "value": "us-bushel",
+      "label": "Bushel (US)",
+      "abbreviation": "bu",
+      "factor": 35.23907016688
+    },
+    {
+      "value": "imperial-fluid-ounce",
+      "label": "Fluid Ounce (Imperial)",
+      "abbreviation": "fl oz imp",
+      "factor": 0.0284130625
+    },
+    {
+      "value": "imperial-gill",
+      "label": "Gill (Imperial)",
+      "abbreviation": "gi imp",
+      "factor": 0.1420653125
+    },
+    {
+      "value": "imperial-pint",
+      "label": "Pint (Imperial)",
+      "abbreviation": "pt imp",
+      "factor": 0.56826125
+    },
+    {
+      "value": "imperial-quart",
+      "label": "Quart (Imperial)",
+      "abbreviation": "qt imp",
+      "factor": 1.1365225
+    },
+    {
+      "value": "imperial-gallon",
+      "label": "Gallon (Imperial)",
+      "abbreviation": "gal imp",
+      "factor": 4.54609
+    },
+    {
+      "value": "imperial-peck",
+      "label": "Peck (Imperial)",
+      "abbreviation": "pk imp",
+      "factor": 9.09218
+    },
+    {
+      "value": "imperial-bushel",
+      "label": "Bushel (Imperial)",
+      "abbreviation": "bu imp",
+      "factor": 36.36872
+    },
+    {
       "value": "barrel",
       "label": "Barrel (Oil)",
       "abbreviation": "bbl",
-      "factor": 158.987
+      "factor": 158.987294928
     }
   ],
   "baseUnit": "liter",
   "defaultFromUnit": "liter",
-  "defaultToUnit": "gallon",
+  "defaultToUnit": "us-gallon",
   "sections": [
     {
       "title": "Why Use This Tool?",

@@ -6,22 +6,40 @@
   "icon": "Gauge",
   "units": [
     {
+      "value": "mmps",
+      "label": "Millimeters per Second",
+      "abbreviation": "mm/s",
+      "factor": 0.001
+    },
+    {
+      "value": "cmps",
+      "label": "Centimeters per Second",
+      "abbreviation": "cm/s",
+      "factor": 0.01
+    },
+    {
       "value": "mps",
       "label": "Meters per Second",
       "abbreviation": "m/s",
       "factor": 1
     },
     {
+      "value": "mpm",
+      "label": "Meters per Minute",
+      "abbreviation": "m/min",
+      "factor": 0.016666666666666666
+    },
+    {
       "value": "kph",
       "label": "Kilometers per Hour",
       "abbreviation": "km/h",
-      "factor": 0.277778
+      "factor": 0.2777777777777778
     },
     {
-      "value": "mph",
-      "label": "Miles per Hour",
-      "abbreviation": "mph",
-      "factor": 0.44704
+      "value": "kmps",
+      "label": "Kilometers per Second",
+      "abbreviation": "km/s",
+      "factor": 1000
     },
     {
       "value": "fps",
@@ -30,10 +48,22 @@
       "factor": 0.3048
     },
     {
+      "value": "fpm",
+      "label": "Feet per Minute",
+      "abbreviation": "ft/min",
+      "factor": 0.00508
+    },
+    {
+      "value": "mph",
+      "label": "Miles per Hour",
+      "abbreviation": "mph",
+      "factor": 0.44704
+    },
+    {
       "value": "knots",
       "label": "Knots",
       "abbreviation": "kn",
-      "factor": 0.514444
+      "factor": 0.5144444444444445
     },
     {
       "value": "mach",

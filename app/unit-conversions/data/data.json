@@ -12,6 +12,12 @@
       "factor": 1
     },
     {
+      "value": "nibble",
+      "label": "Nibble",
+      "abbreviation": "Nib",
+      "factor": 4
+    },
+    {
       "value": "byte",
       "label": "Byte",
       "abbreviation": "B",
@@ -48,6 +54,24 @@
       "factor": 8000000000000000
     },
     {
+      "value": "EB",
+      "label": "Exabyte",
+      "abbreviation": "EB",
+      "factor": 8000000000000000000
+    },
+    {
+      "value": "ZB",
+      "label": "Zettabyte",
+      "abbreviation": "ZB",
+      "factor": 8e+21
+    },
+    {
+      "value": "YB",
+      "label": "Yottabyte",
+      "abbreviation": "YB",
+      "factor": 8e+24
+    },
+    {
       "value": "KiB",
       "label": "Kibibyte",
       "abbreviation": "KiB",
@@ -70,6 +94,30 @@
       "label": "Tebibyte",
       "abbreviation": "TiB",
       "factor": 8796093022208
+    },
+    {
+      "value": "PiB",
+      "label": "Pebibyte",
+      "abbreviation": "PiB",
+      "factor": 9007199254740992
+    },
+    {
+      "value": "EiB",
+      "label": "Exbibyte",
+      "abbreviation": "EiB",
+      "factor": 9223372036854776000
+    },
+    {
+      "value": "ZiB",
+      "label": "Zebibyte",
+      "abbreviation": "ZiB",
+      "factor": 9.44473296573929e+21
+    },
+    {
+      "value": "YiB",
+      "label": "Yobibyte",
+      "abbreviation": "YiB",
+      "factor": 9.671406556917033e+24
     }
   ],
   "baseUnit": "bit",

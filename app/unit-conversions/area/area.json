@@ -18,22 +18,10 @@
       "factor": 0.0001
     },
     {
-      "value": "sqin",
-      "label": "Square Inch",
-      "abbreviation": "in²",
-      "factor": 0.00064516
-    },
-    {
-      "value": "sqft",
-      "label": "Square Foot",
-      "abbreviation": "ft²",
-      "factor": 0.092903
-    },
-    {
-      "value": "sqyd",
-      "label": "Square Yard",
-      "abbreviation": "yd²",
-      "factor": 0.836127
+      "value": "sqdm",
+      "label": "Square Decimeter",
+      "abbreviation": "dm²",
+      "factor": 0.01
     },
     {
       "value": "sqm",
@@ -42,10 +30,22 @@
       "factor": 1
     },
     {
-      "value": "acre",
-      "label": "Acre",
-      "abbreviation": "ac",
-      "factor": 4046.86
+      "value": "sqdam",
+      "label": "Square Dekameter",
+      "abbreviation": "dam²",
+      "factor": 100
+    },
+    {
+      "value": "are",
+      "label": "Are",
+      "abbreviation": "a",
+      "factor": 100
+    },
+    {
+      "value": "sqhm",
+      "label": "Square Hectometer",
+      "abbreviation": "hm²",
+      "factor": 10000
     },
     {
       "value": "hectare",
@@ -60,10 +60,46 @@
       "factor": 1000000
     },
     {
+      "value": "sqin",
+      "label": "Square Inch",
+      "abbreviation": "in²",
+      "factor": 0.00064516
+    },
+    {
+      "value": "sqft",
+      "label": "Square Foot",
+      "abbreviation": "ft²",
+      "factor": 0.09290304
+    },
+    {
+      "value": "sqyd",
+      "label": "Square Yard",
+      "abbreviation": "yd²",
+      "factor": 0.83612736
+    },
+    {
+      "value": "sqrod",
+      "label": "Square Rod / Pole / Perch",
+      "abbreviation": "rd²",
+      "factor": 25.29285264
+    },
+    {
+      "value": "sqchain",
+      "label": "Square Chain",
+      "abbreviation": "ch²",
+      "factor": 404.68564224
+    },
+    {
+      "value": "acre",
+      "label": "Acre",
+      "abbreviation": "ac",
+      "factor": 4046.8564224
+    },
+    {
       "value": "sqmi",
       "label": "Square Mile",
       "abbreviation": "mi²",
-      "factor": 2589988
+      "factor": 2589988.110336
     }
   ],
   "baseUnit": "sqm",

@@ -39,15 +39,26 @@ export default function BlogPage() {
           {blogAdventurePosts.map((post) => (
             <Link key={post.id} href={post.href}>
               <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle>{post.title}</CardTitle>
-                  <CardDescription>{post.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {post.publishedAt && (
-                    <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
+                <div className="flex">
+                  <div className="flex-1">
+                    <CardHeader>
+                      <CardTitle>{post.title}</CardTitle>
+                      <CardDescription>{post.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {post.publishedAt && (
+                        <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
+                      )}
+                    </CardContent>
+                  </div>
+                  {post.thumbnail && (
+                    <img
+                      src={post.thumbnail}
+                      alt={post.title}
+                      className="w-32 h-full object-cover rounded-r-lg border-l"
+                    />
                   )}
-                </CardContent>
+                </div>
               </Card>
             </Link>
           ))}
@@ -60,15 +71,26 @@ export default function BlogPage() {
           {blogApplicationPosts.map((post) => (
             <Link key={post.id} href={post.href}>
               <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle>{post.title}</CardTitle>
-                  <CardDescription>{post.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {post.publishedAt && (
-                    <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
+                <div className="flex">
+                  <div className="flex-1">
+                    <CardHeader>
+                      <CardTitle>{post.title}</CardTitle>
+                      <CardDescription>{post.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {post.publishedAt && (
+                        <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
+                      )}
+                    </CardContent>
+                  </div>
+                  {post.thumbnail && (
+                    <img
+                      src={post.thumbnail}
+                      alt={post.title}
+                      className="w-32 h-full object-cover rounded-r-lg border-l"
+                    />
                   )}
-                </CardContent>
+                </div>
               </Card>
             </Link>
           ))}

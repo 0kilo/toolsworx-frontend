@@ -7,6 +7,7 @@ export interface BlogPostMetadata {
   href: string
   subcategory: "adventures" | "applications"
   icon?: LucideIcon
+  thumbnail?: string
   publishedAt?: string
   tags?: string[]
 }

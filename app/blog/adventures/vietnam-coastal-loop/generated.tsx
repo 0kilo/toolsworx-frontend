@@ -31,6 +31,7 @@ const renderInline = (text: string) => {
           {caption ? <span className="block text-xs text-muted-foreground mt-1 not-prose">{caption}</span> : null}
         </span>
       )
+      parts.push(<span key={'clr-' + match.index} className="block clear-both" />)
     } else {
       const label = match[2]
       const href = match[3]

@@ -6,6 +6,12 @@
   "icon": "Clock",
   "units": [
     {
+      "value": "picosecond",
+      "label": "Picosecond",
+      "abbreviation": "ps",
+      "factor": 1e-12
+    },
+    {
       "value": "nanosecond",
       "label": "Nanosecond",
       "abbreviation": "ns",
@@ -54,6 +60,12 @@
       "factor": 604800
     },
     {
+      "value": "fortnight",
+      "label": "Fortnight",
+      "abbreviation": "fn",
+      "factor": 1209600
+    },
+    {
       "value": "month",
       "label": "Month (30 days)",
       "abbreviation": "mo",
@@ -64,6 +76,18 @@
       "label": "Year (365 days)",
       "abbreviation": "yr",
       "factor": 31536000
+    },
+    {
+      "value": "decade",
+      "label": "Decade",
+      "abbreviation": "dec",
+      "factor": 315360000
+    },
+    {
+      "value": "century",
+      "label": "Century",
+      "abbreviation": "c",
+      "factor": 3153600000
     }
   ],
   "baseUnit": "second",

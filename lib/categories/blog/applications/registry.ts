@@ -9,6 +9,7 @@ export const blogApplicationPosts: BlogPostMetadata[] = [
     href: "/blog/applications/route-time-cost-fuel-vietnam",
     subcategory: "applications",
     icon: Wrench,
+    thumbnail: "/media/IMG_3833.jpg",
     publishedAt: "2026-02-22",
     tags: ["route planner", "fuel", "budget", "google maps"],
   },

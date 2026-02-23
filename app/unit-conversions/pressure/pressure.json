@@ -12,6 +12,12 @@
       "factor": 1
     },
     {
+      "value": "hPa",
+      "label": "Hectopascal",
+      "abbreviation": "hPa",
+      "factor": 100
+    },
+    {
       "value": "kPa",
       "label": "Kilopascal",
       "abbreviation": "kPa",
@@ -24,10 +30,22 @@
       "factor": 1000000
     },
     {
+      "value": "GPa",
+      "label": "Gigapascal",
+      "abbreviation": "GPa",
+      "factor": 1000000000
+    },
+    {
       "value": "bar",
       "label": "Bar",
       "abbreviation": "bar",
       "factor": 100000
+    },
+    {
+      "value": "mbar",
+      "label": "Millibar",
+      "abbreviation": "mbar",
+      "factor": 100
     },
     {
       "value": "atm",
@@ -39,19 +57,43 @@
       "value": "psi",
       "label": "Pounds per Square Inch",
       "abbreviation": "psi",
-      "factor": 6894.76
+      "factor": 6894.757293168
+    },
+    {
+      "value": "ksi",
+      "label": "Kilo PSI",
+      "abbreviation": "ksi",
+      "factor": 6894757.293168
     },
     {
       "value": "torr",
       "label": "Torr",
       "abbreviation": "torr",
-      "factor": 133.322
+      "factor": 133.3223684211
     },
     {
       "value": "mmHg",
       "label": "Millimeters of Mercury",
       "abbreviation": "mmHg",
-      "factor": 133.322
+      "factor": 133.322387415
+    },
+    {
+      "value": "inHg",
+      "label": "Inches of Mercury",
+      "abbreviation": "inHg",
+      "factor": 3386.38815789
+    },
+    {
+      "value": "inH2O",
+      "label": "Inches of Water",
+      "abbreviation": "inH2O",
+      "factor": 249.08891
+    },
+    {
+      "value": "kgfcm2",
+      "label": "Kilogram-force per cm²",
+      "abbreviation": "kgf/cm²",
+      "factor": 98066.5
     }
   ],
   "baseUnit": "Pa",

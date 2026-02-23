@@ -6,8 +6,14 @@
   "icon": "Ruler",
   "units": [
     {
-      "value": "micron",
-      "label": "Micron",
+      "value": "nanometer",
+      "label": "Nanometer",
+      "abbreviation": "nm",
+      "factor": 1e-9
+    },
+    {
+      "value": "micrometer",
+      "label": "Micrometer",
       "abbreviation": "μm",
       "factor": 0.000001
     },
@@ -24,22 +30,10 @@
       "factor": 0.01
     },
     {
-      "value": "inch",
-      "label": "Inch",
-      "abbreviation": "in",
-      "factor": 0.0254
-    },
-    {
-      "value": "foot",
-      "label": "Foot",
-      "abbreviation": "ft",
-      "factor": 0.3048
-    },
-    {
-      "value": "yard",
-      "label": "Yard",
-      "abbreviation": "yd",
-      "factor": 0.9144
+      "value": "decimeter",
+      "label": "Decimeter",
+      "abbreviation": "dm",
+      "factor": 0.1
     },
     {
       "value": "meter",
@@ -48,16 +42,106 @@
       "factor": 1
     },
     {
+      "value": "dekameter",
+      "label": "Dekameter",
+      "abbreviation": "dam",
+      "factor": 10
+    },
+    {
+      "value": "hectometer",
+      "label": "Hectometer",
+      "abbreviation": "hm",
+      "factor": 100
+    },
+    {
       "value": "kilometer",
       "label": "Kilometer",
       "abbreviation": "km",
       "factor": 1000
     },
     {
+      "value": "mil",
+      "label": "Mil (thou)",
+      "abbreviation": "mil",
+      "factor": 0.0000254
+    },
+    {
+      "value": "inch",
+      "label": "Inch",
+      "abbreviation": "in",
+      "factor": 0.0254
+    },
+    {
+      "value": "foot",
+      "label": "International Foot",
+      "abbreviation": "ft",
+      "factor": 0.3048
+    },
+    {
+      "value": "survey-foot",
+      "label": "US Survey Foot",
+      "abbreviation": "ftUS",
+      "factor": 0.304800609601
+    },
+    {
+      "value": "yard",
+      "label": "Yard",
+      "abbreviation": "yd",
+      "factor": 0.9144
+    },
+    {
+      "value": "link",
+      "label": "Link",
+      "abbreviation": "li",
+      "factor": 0.201168
+    },
+    {
+      "value": "rod",
+      "label": "Rod / Pole / Perch",
+      "abbreviation": "rd",
+      "factor": 5.0292
+    },
+    {
+      "value": "chain",
+      "label": "Chain",
+      "abbreviation": "ch",
+      "factor": 20.1168
+    },
+    {
+      "value": "fathom",
+      "label": "Fathom",
+      "abbreviation": "ftm",
+      "factor": 1.8288
+    },
+    {
+      "value": "cable",
+      "label": "Cable's Length",
+      "abbreviation": "cb",
+      "factor": 219.456
+    },
+    {
+      "value": "furlong",
+      "label": "Furlong",
+      "abbreviation": "fur",
+      "factor": 201.168
+    },
+    {
       "value": "mile",
       "label": "Mile",
       "abbreviation": "mi",
       "factor": 1609.344
+    },
+    {
+      "value": "league",
+      "label": "League",
+      "abbreviation": "lea",
+      "factor": 4828.032
+    },
+    {
+      "value": "nautical-mile",
+      "label": "Nautical Mile (Intl)",
+      "abbreviation": "nmi",
+      "factor": 1852
     },
     {
       "value": "AU",
