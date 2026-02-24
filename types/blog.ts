@@ -5,7 +5,9 @@ export interface BlogPostMetadata {
   title: string
   description: string
   href: string
-  subcategory: "adventures" | "applications"
+  category: string
+  subcategory: "adventures" | "applications" | "tools"
+  group?: string
   icon?: LucideIcon
   thumbnail?: string
   publishedAt?: string

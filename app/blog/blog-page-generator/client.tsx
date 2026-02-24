@@ -33,6 +33,18 @@ const defaultBodyBlock = (): TextBlock => ({
   id: crypto.randomUUID(),
   kind: "text",
   variant: "body",
+  content: "",
+  fontFamily: "sans-serif",
+  fontWeight: "400",
+  fontSize: "text-base",
+  color: "#111827",
+  links: []
+})
+
+const defaultPublishBlock = (): TextBlock => ({
+  id: crypto.randomUUID(),
+  kind: "text",
+  variant: "body",
   content: "Published: ",
   fontFamily: "sans-serif",
   fontWeight: "400",
@@ -53,7 +65,7 @@ const defaultMediaBlock = (): MediaBlock => ({
 })
 
 export default function BlogPageGeneratorClient() {
-  const [blocks, setBlocks] = useState<BlogBlock[]>([defaultHeaderBlock(), defaultBodyBlock()])
+  const [blocks, setBlocks] = useState<BlogBlock[]>([defaultHeaderBlock(), defaultPublishBlock()])
   const [generatedTsx, setGeneratedTsx] = useState("")
   const [fileName, setFileName] = useState("my-blog-post")
   const [activeTab, setActiveTab] = useState("editor")

@@ -35,34 +35,50 @@ export default function BlogPage() {
 
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-6">Adventures</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {blogAdventurePosts.map((post) => (
-            <Link key={post.id} href={post.href}>
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <div className="flex">
-                  <div className="flex-1">
-                    <CardHeader>
-                      <CardTitle>{post.title}</CardTitle>
-                      <CardDescription>{post.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      {post.publishedAt && (
-                        <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
-                      )}
-                    </CardContent>
-                  </div>
-                  {post.thumbnail && (
-                    <img
-                      src={post.thumbnail}
-                      alt={post.title}
-                      className="w-32 h-full object-cover rounded-r-lg border-l"
-                    />
-                  )}
-                </div>
-              </Card>
-            </Link>
-          ))}
-        </div>
+        {Object.entries(
+          blogAdventurePosts.reduce((acc, post) => {
+            const g = post.group || "Uncategorized";
+            if (!acc[g]) acc[g] = [];
+            acc[g].push(post);
+            return acc;
+          }, {} as Record<string, typeof blogAdventurePosts>)
+        ).map(([group, posts]) => (
+          <Card key={group} className="mb-8 hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-2xl capitalize">{group}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {posts.map((post) => (
+                  <Link key={post.id} href={post.href}>
+                    <Card className="h-full hover:shadow-md transition-shadow">
+                      <div className="flex">
+                        <div className="flex-1">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-lg">{post.title}</CardTitle>
+                            <CardDescription>{post.description}</CardDescription>
+                          </CardHeader>
+                          <CardContent className="pt-0">
+                            {post.publishedAt && (
+                              <p className="text-sm text-muted-foreground">Published: {post.publishedAt}</p>
+                            )}
+                          </CardContent>
+                        </div>
+                        {post.thumbnail && (
+                          <img
+                            src={post.thumbnail}
+                            alt={post.title}
+                            className="w-32 object-cover rounded-r-lg border-l"
+                          />
+                        )}
+                      </div>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </section>
 
       <section className="mb-12">
@@ -94,6 +110,27 @@ export default function BlogPage() {
               </Card>
             </Link>
           ))}
+        </div>
+      </section>
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold mb-6">Generator</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <Link href="/blog/blog-page-generator">
+            <Card className="h-full hover:shadow-lg transition-shadow">
+              <div className="flex">
+                <div className="flex-1">
+                  <CardHeader>
+                    <CardTitle>Generator</CardTitle>
+                    <CardDescription></CardDescription>
+                  </CardHeader>
+
+                </div>
+
+              </div>
+            </Card>
+          </Link>
+
         </div>
       </section>
     </div>

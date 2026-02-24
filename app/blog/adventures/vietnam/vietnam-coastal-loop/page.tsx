@@ -48,7 +48,7 @@ const renderInline = (text: string) => {
 
 export default function BlogPostPage() {
   return (
-    <div className="container py-8 md:py-12 max-w-3xl">
+    <div className="container py-8 md:py-12 max-w-3xl" style={{overflow:"hidden", height: "100%"}}>
       <article className="prose prose-neutral max-w-none">
       <h1 className="text-4xl mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 700, color: '#111827' }}>{renderInline('Vietnam Coastal Loop: 4 Stops, 6 Days')}</h1>
 

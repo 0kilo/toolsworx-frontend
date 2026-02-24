@@ -8,6 +8,7 @@ export const blogApplicationPosts: BlogPostMetadata[] = [
     description: "A real planning example using imported Google Maps route data and fuel assumptions.",
     href: "/blog/applications/route-time-cost-fuel-vietnam",
     subcategory: "applications",
+    category: 'blog',
     icon: Wrench,
     thumbnail: "/media/IMG_3833.jpg",
     publishedAt: "2026-02-22",
