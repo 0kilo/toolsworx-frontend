@@ -1,0 +1,99 @@
+{
+  "id": "packing-list-optimizer",
+  "title": "Packing List Optimizer",
+  "description": "Build smart packing lists and optimize your gear weight. Generate tailored packing lists for travel, camping, motorcycle trips, or backpacking, then analyze and reduce your base weight for lighter adventures.",
+  "category": "adventure",
+  "icon": "ListChecks",
+  "sections": [
+    {
+      "title": "What This Tool Does",
+      "content": [
+        "Packing List Builder: Generate comprehensive packing lists based on your trip type (travel, camping, motorcycle, backpacking), duration, and weather conditions.",
+        "Weight Optimizer: Analyze your gear list to identify heavy items and calculate total base weight. Get feedback on whether your pack is ultralight, lightweight, or traditional.",
+        "Category Breakdown: See your weight distribution across gear categories to identify where you can save weight most effectively."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Pre-Trip Planning: Build a complete packing list before any trip to ensure you don't forget essentials while avoiding overpacking.",
+        "Weight Reduction: Analyze your current gear to identify the heaviest items that contribute most to your base weight.",
+        "Gear Optimization: Compare weight distribution across categories to find opportunities for lighter alternatives.",
+        "Trip-Specific Preparation: Generate different lists for different trip types—a weekend camping trip needs different gear than international travel."
+      ]
+    },
+    {
+      "title": "How to Use the Packing List Builder",
+      "type": "list",
+      "content": [
+        "<strong>Step 1:</strong> Select your trip type (Travel, Camping, Motorcycle, or Backpacking).",
+        "<strong>Step 2:</strong> Enter the number of days for your trip.",
+        "<strong>Step 3:</strong> Input the expected average temperature in Celsius.",
+        "<strong>Step 4:</strong> Check 'Rain expected' if precipitation is forecast.",
+        "<strong>Step 5:</strong> Review the generated list and estimated weight.",
+        "<strong>Step 6:</strong> Export, save, or print your personalized packing list."
+      ]
+    },
+    {
+      "title": "How to Use the Weight Optimizer",
+      "type": "list",
+      "content": [
+        "<strong>Step 1:</strong> Switch to the Weight Optimizer tab.",
+        "<strong>Step 2:</strong> Enter your gear items in the format: item name, weight in kg, category (one per line).",
+        "<strong>Step 3:</strong> Review the total base weight and top 5 heaviest items.",
+        "<strong>Step 4:</strong> Check the category breakdown to see where your weight is concentrated.",
+        "<strong>Step 5:</strong> Get feedback: Ultralight (< 4.5 kg), Lightweight (< 9 kg), or Traditional (9+ kg).",
+        "<strong>Step 6:</strong> Modify your list by replacing heavy items with lighter alternatives."
+      ]
+    },
+    {
+      "title": "Weight Categories Explained",
+      "content": [
+        "Ultralight (< 4.5 kg base weight): Minimalist gear for experienced adventurers. Requires careful planning and often premium lightweight gear.",
+        "Lightweight (4.5-9 kg base weight): Good balance of comfort and weight. Achievable with thoughtful gear selection and some lightweight items.",
+        "Traditional (9+ kg base weight): Full-featured gear with more comfort items. Common for beginners or those prioritizing comfort over weight."
+      ]
+    },
+    {
+      "title": "Tips for Reducing Pack Weight",
+      "content": [
+        "✓ <strong>Focus on the Big Three:</strong> Shelter, sleep system, and pack typically account for 60-70% of base weight. Upgrading these yields the biggest savings.",
+        "✓ <strong>Multi-use Items:</strong> Choose gear that serves multiple purposes (e.g., trekking poles as tent poles, buff as hat/neck gaiter).",
+        "✓ <strong>Repackage Consumables:</strong> Remove excess packaging and repackage food, fuel, and toiletries into lighter containers.",
+        "✓ <strong>Leave Luxury Items:</strong> Evaluate each item critically. If it's not essential for safety, shelter, or sustenance, consider leaving it.",
+        "✓ <strong>Share Group Gear:</strong> Split tents, stoves, and water filters among group members to distribute weight."
+      ]
+    },
+    {
+      "title": "Common Packing Mistakes",
+      "content": [
+        "Overpacking 'Just in Case' Items: These add up quickly. If you can buy it at your destination, consider skipping it.",
+        "Ignoring Weather Variability: Always pack for conditions 10°C colder than expected and be prepared for unexpected rain.",
+        "Not Testing Your Pack: Do a shakedown hike with your full pack before your trip to identify uncomfortable or unnecessary items.",
+        "Forgetting the First Aid Kit: Always include basic medications, bandages, blister treatment, and any personal prescriptions.",
+        "Packing Cotton Clothing: Cotton retains moisture and dries slowly. Choose synthetic or wool base layers for better performance."
+      ]
+    },
+    {
+      "title": "Example Gear List Format",
+      "content": [
+        "For the Weight Optimizer, enter items like:",
+        "• Tent,1.8,shelter",
+        "• Sleeping bag,1.2,sleep",
+        "• Backpack,1.5,pack",
+        "• Stove,0.3,cooking",
+        "• Water filter,0.25,hydration",
+        "Categories help organize your analysis but are optional."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Planning your route? Use our <a href='/adventure/route-time-planner'>Route & Time Planner</a> to estimate travel time and fuel needs.",
+        "Need to budget your trip? Try our <a href='/adventure/trip-budget-planner'>Trip Budget Planner</a> for cost estimation with currency conversion.",
+        "Going camping or backpacking? Our <a href='/adventure/water-food-planner'>Water & Food Planner</a> helps calculate sustenance needs.",
+        "Check conditions with our <a href='/adventure/weather-window-risk-score'>Weather Window Risk Score</a> before your trip."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "date-time",
+  "title": "Date-Time Calculator",
+  "description": "The Date-Time Calculator helps you work with dates in three powerful ways: discover the day of the week for any date with a visual calendar, add or subtract days/weeks/months to find future or past dates, and calculate the exact time between two dates. Perfect for project planning, event scheduling, age calculations, and deadline management.",
+  "category": "unit-conversions",
+  "icon": "Calendar",
+  "sections": [
+    {
+      "title": "What This Tool Does",
+      "content": [
+        "Single Date Calculator: Enter any date to see what day of the week it falls on, with a visual calendar display showing the full month context.",
+        "Add Duration: Add or subtract days, weeks, or months from a date to find future deadlines or past anniversaries. The calendar shows your result in context.",
+        "Date Difference: Calculate the time between two dates in multiple formats—total days, weeks+days, or months+weeks+days breakdown."
+      ]
+    },
+    {
+      "title": "When to Use This Calculator",
+      "content": [
+        "Project Planning: Calculate project end dates by adding weeks or months to start dates, or find how many days remain until a deadline.",
+        "Event Scheduling: Determine what day of the week your wedding, vacation, or important meeting falls on. Plan around weekends and holidays.",
+        "Age Calculations: Find exact age in years, months, and days, or calculate how many days old you are or will be on a future birthday.",
+        "Contract & Lease Management: Calculate lease end dates, contract durations, or warranty periods by adding months or years to start dates.",
+        "Pregnancy & Due Dates: Add weeks to conception dates to estimate due dates, or track pregnancy milestones by adding specific week counts.",
+        "Financial Planning: Calculate maturity dates for investments, CD terms, or loan periods. Determine exact days between payment dates for interest calculations."
+      ]
+    },
+    {
+      "title": "How to Use Each Feature",
+      "type": "list",
+      "content": [
+        "<strong>Single Date:</strong> (1) Click the date picker or enter date in YYYY-MM-DD format. (2) See the day name displayed prominently. (3) View the calendar to understand the date's position in the month. (4) Use this to verify what day your birthday, anniversary, or event falls on.",
+        "<strong>Add Duration:</strong> (1) Select your starting date. (2) Enter the amount (positive to add, negative to subtract). (3) Choose days, weeks, or months. (4) See the result date with its day name and calendar. (5) Example: Adding 90 days to January 1 gives April 1 (or April 2 in leap years).",
+        "<strong>Date Difference:</strong> (1) Select the start date. (2) Select the end date. (3) View multiple breakdown formats instantly. (4) Use total days for simple counts, weeks+days for project sprints, or months+weeks+days for precise age or tenure calculations."
+      ]
+    },
+    {
+      "title": "Understanding the Results",
+      "content": [
+        "Day Names: Monday through Sunday are calculated using the Gregorian calendar, accurate for any date from year 1 onwards.",
+        "Calendar Display: Shows the full month with the selected date highlighted. Today's date is marked if viewing the current month. Days from adjacent months appear in lighter colors.",
+        "Weeks+Days Format: 45 days = 6 weeks + 3 days. This format is useful for project planning where you think in weekly sprints.",
+        "Months+Weeks+Days Format: 100 days = 3 months + 1 week + 2 days (approximate). Months vary in length, so this is calculated by counting full calendar months first, then remaining weeks and days.",
+        "Total Hours/Minutes: Derived from total days (days × 24 for hours, days × 24 × 60 for minutes). Useful for precise time tracking or billing."
+      ]
+    },
+    {
+      "title": "Common Use Cases & Examples",
+      "content": [
+        "<strong>Example 1 - Project Deadline:</strong> Start: March 1, 2025. Add: 90 days. Result: May 30, 2025 (Friday). Use this to set realistic deadlines.",
+        "<strong>Example 2 - Vacation Planning:</strong> What day is July 4, 2026? Enter the date to see it's a Saturday—perfect for long weekend planning.",
+        "<strong>Example 3 - Age Calculation:</strong> Born: January 15, 1990. Today: December 25, 2024. Difference: 34 years, 11 months, 10 days (or 12,733 total days).",
+        "<strong>Example 4 - Lease Calculation:</strong> Lease start: June 1, 2024. Duration: 18 months. End date: November 30, 2025. Add months to find exact end dates.",
+        "<strong>Example 5 - Sprint Planning:</strong> Sprint starts February 3, 2025. Duration: 3 weeks (21 days). End date: February 24, 2025. Use weeks for agile planning."
+      ]
+    },
+    {
+      "title": "Important Notes About Date Calculations",
+      "content": [
+        "Month Length Variation: Months have 28-31 days. Adding 1 month to January 31 results in February 28 (or 29 in leap years), not March 3. Our calculator handles this automatically.",
+        "Leap Years: Every 4 years is a leap year (February has 29 days), except century years not divisible by 400. 2024 was a leap year; 2100 will not be.",
+        "Date Order: For date difference calculations, order doesn't matter—the result is always positive. The calculator automatically determines which date comes first.",
+        "Time Zones: This calculator uses calendar dates only, ignoring time components. For precise time calculations across time zones, use a dedicated timezone converter.",
+        "Historical Dates: The Gregorian calendar was adopted at different times in different countries (1582-1927). For historical research before these dates, results may not match local calendars of the time."
+      ]
+    },
+    {
+      "title": "Tips & Best Practices",
+      "content": [
+        "✓ <strong>Use Negative Numbers:</strong> Enter -30 days to find the date 30 days in the past. Works for all duration types.",
+        "✓ <strong>Calendar Context:</strong> Always check the calendar view when adding months—month-end dates can shift unexpectedly (Jan 31 + 1 month = Feb 28).",
+        "✓ <strong>Multiple Formats:</strong> For project management, use weeks+days. For contracts, use months. For age, use the full years+months+days breakdown.",
+        "✓ <strong>Verify Important Dates:</strong> Double-check critical dates like contract deadlines or legal filings by calculating twice or using the calendar view.",
+        "✓ <strong>Plan Around Weekends:</strong> If your calculated end date falls on a weekend, use the single date tool to find the nearest Monday or Friday."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Need to convert time durations? Try our <a href='/unit-conversions/time'>Time Converter</a> for converting between seconds, minutes, hours, and days.",
+        "Calculate someone's exact age with our <a href='/calculators/age-calculator'>Age Calculator</a> which includes additional health and milestone information.",
+        "Working across time zones? Use our <a href='/helpful-calculators/timezone-converter'>Timezone Converter</a> to coordinate meetings and events globally.",
+        "Planning work schedules? Check our <a href='/calculators/date-calculator'>Date Calculator</a> for business day calculations excluding weekends and holidays."
+      ]
+    }
+  ]
+}

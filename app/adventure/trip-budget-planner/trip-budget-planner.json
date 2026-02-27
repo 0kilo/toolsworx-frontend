@@ -1,0 +1,97 @@
+{
+  "id": "trip-budget-planner",
+  "title": "Trip Budget Planner",
+  "description": "Plan trip budgets with daily expenses, fixed costs, and currency exchange buffers. Calculate total trip costs in home and local currency with safety margins for international travel.",
+  "category": "adventure",
+  "icon": "Wallet",
+  "sections": [
+    {
+      "title": "What This Tool Does",
+      "content": [
+        "Daily Expense Calculator: Estimate daily costs for fuel, lodging, meals, activities, and miscellaneous expenses.",
+        "Fixed Cost Tracker: Add pre-paid expenses like flights, insurance, visas, and gear purchases.",
+        "Currency Converter: Calculate costs in both home and destination currency with current exchange rates.",
+        "Safety Buffer: Add a percentage buffer for unexpected expenses, currency fluctuations, and emergencies."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "International Travel: Plan budgets for trips abroad with currency conversion and exchange rate buffers.",
+        "Road Trips: Estimate fuel, lodging, and food costs for multi-day driving adventures.",
+        "Backpacking Trips: Budget for hostels, meals, activities, and transportation across multiple destinations.",
+        "Business Travel: Calculate per diem estimates and total trip costs for expense planning.",
+        "Digital Nomad Planning: Estimate monthly living costs in different countries with currency considerations."
+      ]
+    },
+    {
+      "title": "How to Use",
+      "type": "list",
+      "content": [
+        "<strong>Step 1:</strong> Enter the number of days for your trip.",
+        "<strong>Step 2:</strong> Input daily expenses: fuel/transport, lodging, meals, activities, and miscellaneous.",
+        "<strong>Step 3:</strong> Add fixed costs like flights, insurance, visas, or gear.",
+        "<strong>Step 4 (optional):</strong> Enter exchange rate (local currency per 1 unit of home currency).",
+        "<strong>Step 5:</strong> Set a buffer percentage (10-20% recommended for international trips).",
+        "<strong>Step 6:</strong> Review totals in both currencies with category breakdown."
+      ]
+    },
+    {
+      "title": "Budget Categories Explained",
+      "content": [
+        "Fuel/Transport: Gas, public transit, rideshares, car rentals, or fuel for your own vehicle.",
+        "Lodging: Hotels, hostels, Airbnb, camping fees, or any accommodation costs.",
+        "Meals: Restaurants, groceries, street food, and beverages.",
+        "Activities: Tours, entrance fees, equipment rentals, events, and entertainment.",
+        "Miscellaneous: Souvenirs, laundry, phone data, tips, and unexpected small expenses.",
+        "Fixed Costs: Pre-trip expenses like flights, travel insurance, visas, vaccinations, and new gear."
+      ]
+    },
+    {
+      "title": "Currency Buffer Guidelines",
+      "content": [
+        "5-10% Buffer: Stable currencies, developed countries, short trips.",
+        "10-15% Buffer: Moderate volatility currencies, medium-length trips.",
+        "15-25% Buffer: High volatility currencies, developing countries, long trips.",
+        "Why Buffer Matters: Exchange rates fluctuate daily. A buffer protects against unfavorable changes and gives you spending flexibility."
+      ]
+    },
+    {
+      "title": "Tips for Accurate Budgeting",
+      "content": [
+        "✓ <strong>Research Destination Costs:</strong> Use travel blogs, Numbeo, or government travel advisories for realistic daily cost estimates.",
+        "✓ <strong>Track Past Trips:</strong> Your actual spending history is the best predictor for future trips.",
+        "✓ <strong>Plan for Regional Variation:</strong> Cities cost more than rural areas. Adjust daily budgets if traveling through multiple regions.",
+        "✓ <strong>Include Travel Days:</strong> Transit days still cost money for food and transport—count them in your total days.",
+        "✓ <strong>Emergency Fund:</strong> Keep a separate emergency fund beyond your budget buffer for serious unexpected events."
+      ]
+    },
+    {
+      "title": "Common Budgeting Mistakes",
+      "content": [
+        "Underestimating Daily Costs: Research shows most travelers underestimate by 20-30%. Add a buffer to your initial estimates.",
+        "Forgetting Fixed Costs: Flights and insurance can double your trip cost. Always include pre-trip expenses.",
+        "Ignoring Currency Exchange Fees: Banks charge 2-4% for foreign transactions. Factor this into your exchange rate.",
+        "No Buffer for Emergencies: Medical issues, missed connections, or lost items cost money. Always have a 10-20% buffer.",
+        "Assuming Constant Daily Spending: Some days you'll splurge, others you'll save. Average it out but plan for high-spend days."
+      ]
+    },
+    {
+      "title": "Example Budgets",
+      "content": [
+        "<strong>Southeast Asia (14 days):</strong> $40/day (lodging $15, meals $15, activities $5, misc $5) + $800 flights = $1,360 base + 15% buffer = $1,564 total.",
+        "<strong>European Road Trip (10 days):</strong> $120/day (fuel $30, lodging $50, meals $30, misc $10) + $200 fixed = $1,400 base + 10% buffer = $1,540 total.",
+        "<strong>US National Parks (7 days):</strong> $85/day (fuel $25, lodging $40, meals $15, activities $5) + $150 fixed = $745 base + 10% buffer = $819 total."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Planning your route? Use our <a href='/adventure/route-time-planner'>Route & Time Planner</a> to estimate fuel costs and travel time.",
+        "Need to pack? Try our <a href='/adventure/packing-list-optimizer'>Packing List Optimizer</a> for gear lists and weight analysis.",
+        "Going camping? Our <a href='/adventure/water-food-planner'>Water & Food Planner</a> helps calculate sustenance needs.",
+        "Check conditions with our <a href='/adventure/weather-window-risk-score'>Weather Window Risk Score</a> before your trip."
+      ]
+    }
+  ]
+}

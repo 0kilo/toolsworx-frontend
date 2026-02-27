@@ -1,4 +1,4 @@
-import { Thermometer, Ruler, Weight, Droplet, Clock, Gauge, Square, Zap, Orbit, Gauge as Pressure, HardDrive, FileJson } from "lucide-react"
+import { Thermometer, Ruler, Weight, Droplet, Clock, Gauge, Square, Zap, Orbit, Gauge as Pressure, HardDrive, FileJson, Calendar } from "lucide-react"
 import { ConverterMetadata } from "@/types/converter"
 
 /**
@@ -44,6 +44,16 @@ export const unitConversionTools: ConverterMetadata[] = [
     icon: Droplet,
     href: "/unit-conversions/volume",
     keywords: ["volume", "liquid", "milliliters", "liters", "gallons", "cups", "pints", "fluid ounces"],
+    popular: true,
+  },
+  {
+    id: "date-time",
+    title: "Date-Time Calculator",
+    description: "Calculate dates, add durations, and find time between dates with calendar views",
+    category: "time",
+    icon: Calendar,
+    href: "/unit-conversions/date-time",
+    keywords: ["date", "calendar", "day of week", "date difference", "add days", "date calculator", "time between dates"],
     popular: true,
   },
   {

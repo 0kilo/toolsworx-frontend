@@ -36,6 +36,11 @@ export const toolMetadata = {
     description: 'Convert time units. Hours to minutes, seconds to hours, days to weeks. Free time conversion calculator.',
     keywords: ['time converter', 'hours to minutes', 'seconds converter']
   },
+  'date-time': {
+    title: 'Date-Time Calculator - Calendar and Date Calculations',
+    description: 'Calculate dates, find day of week for any date, add or subtract days/weeks/months, and find time between two dates. Free online date calculator with interactive calendar views.',
+    keywords: ['date calculator', 'calendar calculator', 'date difference', 'add days to date', 'day of week finder', 'date duration', 'business days calculator']
+  },
   'energy': {
     title: 'Energy Converter - Joules, Calories, BTU',
     description: 'Convert energy units. Joules to calories, BTU to kWh, watts to horsepower. Free energy conversion calculator.',
@@ -389,6 +394,21 @@ export const toolMetadata = {
     title: 'USA Map Generator - Choropleth Map Tool',
     description: 'Create interactive USA maps with state-level data. Free choropleth map generator.',
     keywords: ['usa map', 'us map', 'choropleth', 'state map', 'data visualization']
+  },
+  'packing-list-optimizer': {
+    title: 'Packing List Optimizer - Smart Packing & Weight Analysis',
+    description: 'Generate smart packing lists for travel, camping, motorcycle, and backpacking trips. Analyze gear weight and optimize your pack. Free packing list builder with weight calculator.',
+    keywords: ['packing list', 'gear weight', 'packing optimizer', 'backpacking checklist', 'travel packing', 'ultralight gear']
+  },
+  'route-time-planner': {
+    title: 'Route & Time Planner - ETA, Fuel & Cost Calculator',
+    description: 'Plan route duration, fuel stops, and trip costs for driving, cycling, hiking, and motorcycle trips. Calculate ETA with breaks, fuel needs, and travel expenses.',
+    keywords: ['route planner', 'ETA calculator', 'fuel planner', 'trip cost', 'travel time', 'motorcycle route', 'hiking pace']
+  },
+  'trip-budget-planner': {
+    title: 'Trip Budget Planner - Cost Estimator with Currency Conversion',
+    description: 'Plan trip budgets with daily expenses, fixed costs, and currency exchange buffers. Calculate total trip costs in home and local currency.',
+    keywords: ['trip budget', 'travel budget', 'currency converter', 'trip cost planner', 'expense calculator']
   },
 }
 

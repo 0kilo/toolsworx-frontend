@@ -1,0 +1,97 @@
+{
+  "id": "route-time-planner",
+  "title": "Route & Time Planner",
+  "description": "Plan route duration, fuel stops, and trip costs for driving, cycling, hiking, and motorcycle trips. Calculate ETA with breaks, fuel needs, and travel expenses in one comprehensive tool.",
+  "category": "adventure",
+  "icon": "Route",
+  "sections": [
+    {
+      "title": "What This Tool Does",
+      "content": [
+        "Route Time Calculator: Estimate moving time and total ETA including breaks for any mode of travel—driving, cycling, hiking, or motorcycle.",
+        "Fuel Planner: Calculate fuel needs and costs for driving and motorcycle trips. Get fuel stop recommendations for long rides.",
+        "Pace Calculator: For cyclists and hikers, calculate time based on pace per kilometer with break time included.",
+        "Range Planner: For motorcyclists, estimate safe range based on tank size, fuel efficiency, and reserve requirements."
+      ]
+    },
+    {
+      "title": "When to Use This Tool",
+      "content": [
+        "Road Trip Planning: Calculate driving time, fuel costs, and toll expenses for car trips. Budget for the full journey including breaks.",
+        "Motorcycle Adventures: Plan fuel stops based on your bike's range. Ensure you never run low on remote stretches.",
+        "Cycling Events: Estimate finish time based on your pace. Plan rest stops and food breaks for century rides.",
+        "Hiking Trips: Calculate hiking time based on distance and pace. Plan rest breaks and know when you'll reach camp.",
+        "Delivery Planning: Estimate arrival times for deliveries. Calculate fuel costs for expense reporting."
+      ]
+    },
+    {
+      "title": "How to Use",
+      "type": "list",
+      "content": [
+        "<strong>Step 1:</strong> Select your travel mode (Driving, Cycling, Hiking, or Motorcycle).",
+        "<strong>Step 2:</strong> Enter the total distance in kilometers.",
+        "<strong>Step 3:</strong> Input your average speed (km/h) or pace (min/km for cycling/hiking).",
+        "<strong>Step 4:</strong> Add planned break time in minutes.",
+        "<strong>Step 5 (optional):</strong> For driving/motorcycle: enter fuel efficiency, fuel price, and toll costs.",
+        "<strong>Step 6 (motorcycle only):</strong> Enter tank size and reserve percentage for fuel stop planning.",
+        "<strong>Step 7:</strong> Review results: moving time, total ETA, fuel needs, and cost estimates."
+      ]
+    },
+    {
+      "title": "Default Speeds by Mode",
+      "content": [
+        "Driving: 80 km/h average (highway and city mixed)",
+        "Cycling: 20 km/h average (recreational pace)",
+        "Hiking: 5 km/h average (moderate terrain)",
+        "Motorcycle: 60 km/h average (touring pace)",
+        "Adjust these based on your specific conditions—mountain roads, traffic, fitness level, or weather."
+      ]
+    },
+    {
+      "title": "Fuel Stop Planning for Motorcycles",
+      "content": [
+        "Safe Range: Calculated as tank size × fuel efficiency × (1 - reserve%). This is your maximum range before hitting reserve.",
+        "Stop Interval: Recommended to refuel at 80% of safe range for safety margin. Never plan to run to empty.",
+        "Example: 18L tank, 20 km/L efficiency, 12% reserve = 317 km safe range. Stop every 254 km.",
+        "For remote areas, reduce stop interval to 60-70% of safe range for extra safety."
+      ]
+    },
+    {
+      "title": "Tips for Accurate Estimates",
+      "content": [
+        "✓ <strong>Adjust for Conditions:</strong> Reduce speed estimates for mountain roads, traffic, poor weather, or heavy loads.",
+        "✓ <strong>Include All Breaks:</strong> Add time for fuel stops, food breaks, rest stops, and sightseeing. Plan 10-15 min every 2 hours.",
+        "✓ <strong>Buffer Time:</strong> Add 10-20% buffer for unexpected delays—construction, wrong turns, or extended breaks.",
+        "✓ <strong>Fuel Efficiency Varies:</strong> Highway driving gets better mileage than city. Motorcycles vary greatly with riding style.",
+        "✓ <strong>Check Real Data:</strong> Use past trip data or apps to refine your speed and fuel efficiency estimates."
+      ]
+    },
+    {
+      "title": "Pace Calculation for Cyclists and Hikers",
+      "content": [
+        "Cycling Pace: Recreational cyclists average 15-25 km/h (2:24-4:00 min/km). Road cyclists may average 30+ km/h.",
+        "Hiking Pace: Flat trails: 4-6 km/h. Moderate hills: 3-4 km/h. Steep terrain: 2-3 km/h.",
+        "Break Planning: Plan 5-10 min breaks every hour for cycling, 10-15 min every 1-2 hours for hiking.",
+        "Elevation Matters: Add 1 minute per 10 meters of elevation gain for hiking pace estimates."
+      ]
+    },
+    {
+      "title": "Example Calculations",
+      "content": [
+        "<strong>Road Trip:</strong> 420 km at 80 km/h, 40 min breaks, 16 km/L, $1.50/L fuel, $12 tolls = 5.25 h driving, 5.9 h total, 26.3 L fuel, $51.45 total cost.",
+        "<strong>Motorcycle Ride:</strong> 640 km, 18L tank, 20 km/L, 12% reserve = 317 km safe range, stop every 254 km, 2 fuel stops needed.",
+        "<strong>Cycling Century:</strong> 160 km at 20 km/h (3:00 min/km), 60 min breaks = 8 h riding, 9 h total ETA.",
+        "<strong>Hiking Trip:</strong> 24 km at 5 km/h (12:00 min/km), 35 min breaks = 4.8 h hiking, 5.4 h total."
+      ]
+    },
+    {
+      "title": "Related Tools",
+      "content": [
+        "Need to pack for your trip? Use our <a href='/adventure/packing-list-optimizer'>Packing List Optimizer</a> for gear lists and weight analysis.",
+        "Planning your budget? Try our <a href='/adventure/trip-budget-planner'>Trip Budget Planner</a> for comprehensive cost estimation.",
+        "Need sustenance planning? Our <a href='/adventure/water-food-planner'>Water & Food Planner</a> calculates food and water needs.",
+        "Check conditions with our <a href='/adventure/weather-window-risk-score'>Weather Window Risk Score</a> before departure."
+      ]
+    }
+  ]
+}
