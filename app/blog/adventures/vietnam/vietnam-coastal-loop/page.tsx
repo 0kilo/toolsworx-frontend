@@ -48,7 +48,7 @@ const renderInline = (text: string) => {
 
 export default function BlogPostPage() {
   return (
-    <div className="container py-8 md:py-12 max-w-3xl" style={{overflow:"hidden", height: "100%"}}>
+    <div className="container py-8 md:py-12 max-w-3xl">
       <article className="prose prose-neutral max-w-none">
       <h1 className="text-4xl mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 700, color: '#111827' }}>{renderInline('Vietnam Coastal Loop: 4 Stops, 6 Days')}</h1>
 
@@ -58,7 +58,9 @@ export default function BlogPostPage() {
 
       <p className="text-base leading-7 mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 400, color: '#1f2937' }}>{renderInline('This ride traced the coastline from Ho Chi Minh City to Phan Thiet, then north to Phan Rang and finally to Quy Nhon. I’ve done the Ha Giang loop—cold air, mountain switchbacks, and karst peaks. This trip is the opposite: heat that gnaws at your skin and wind that forces you to lean just to keep a straight line. Ride with others and it will test your relationships. Ride solo, like I did, and it will test your resolve. If you keep asking “why?”, this isn’t for you.')}</p>
 
-      <p className="text-base leading-7 mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 400, color: '#1f2937' }}>{renderInline('I ride for the ride itself, everything else is icing. What surprised me most was how much of the trip had nothing to do with the bike. [[img src="/media/IMG_3811.JPG" align="right" width="half" caption="Optional caption"]] First, the people. Small conversations felt like invitations into their lives, and the accents shifted so much from region to region that I sometimes wondered if I was hearing a different language. Second, the food—especially the fresh seafood. The calamari soups are unforgettable. Finally, the water: starting brackish and murky, then turning turquoise clear as the days rolled north. None of that was in my equation when I left.')}</p>
+      <p className="text-base leading-7 mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 400, color: '#1f2937' }}>{renderInline('I ride for the ride itself, everything else is icing. What surprised me most was how much of the trip had nothing to do with the bike. [[img src="/media/IMG_3681.JPG" align="right" width="half" caption="Vung Tau"]] First, the people. Small conversations felt like invitations into their lives, and the accents shifted so much from region to region that I sometimes wondered if I was hearing a different language. Second, the food—especially the fresh seafood. The calamari soups are unforgettable. Finally, the water: starting brackish and murky, then turning turquoise clear as the days rolled north. None of that was in my equation when I left.')}</p>
+
+      <p className="text-base leading-7 mb-4" style={{ fontFamily: 'sans-serif', fontWeight: 400, color: '#111827' }}>{renderInline('[[img src="/media/IMG_3833-1.jpg" align="right" width="half" caption="Coastal Path"]] [[img src="/media/IMG_3692.JPG" align="right" width="half" caption="Vung Tau"]] [[img src="/media/IMG_3707.JPG" align="right" width="half" caption="Phan Thiet"]]  [[img src="/media/IMG_3729.JPG" align="right" width="half" caption="Mui Ne"]]  [[img src="/media/IMG_3767.JPG" align="right" width="half" caption="Phang Rang"]]  [[img src="/media/IMG_3810.JPG" align="right" width="half" caption="Tuy Hoa"]]')}</p>
       </article>
     </div>
   )
